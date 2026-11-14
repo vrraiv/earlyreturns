@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 32 - Districtwide Results",
+  "Reporting": "100% (268 of 268) precincts reporting",
+  "ReportingTime": "November 13, 2026, 7:09 p.m.",
+  "candidates": [
+    {
+      "Name": "Brad Sherman",
+      "Party": "Dem",
+      "Votes": "182,516",
+      "Percent": "67.3",
+      "incumbent": false
+    },
+    {
+      "Name": "Larry Thompson",
+      "Party": "Rep",
+      "Votes": "88,695",
+      "Percent": "32.7",
+      "incumbent": false
+    }
+  ]
+}
