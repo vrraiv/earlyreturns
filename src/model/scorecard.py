@@ -14,6 +14,7 @@ Contested set: fixed from the frozen forecast alone, before any result is read: 
 models gave the Democratic side between 2% and 98%. The same set is used for every version.
 """
 import json
+import re
 from pathlib import Path
 
 import numpy as np
@@ -181,6 +182,15 @@ def main():
         o = pd.read_csv(SC / "official_senate.csv")
         cols = [c for c in ["race_key", "status", "source", "url", "as_of", "reporting", "complete", "margin", "wiki_margin"] if c in o]
         out["official_senate"] = json.loads(o[cols].to_json(orient="records"))
+    if (SC / "official_house.csv").exists():
+        o = pd.read_csv(SC / "official_house.csv")
+        # per state: districts with an official count, and why the rest have none
+        out["official_house"] = [{"state": st, "source": next((s for s in g.get("source", pd.Series(dtype=object)).dropna()), None),
+                                  "url": next((s for s in g.get("url", pd.Series(dtype=object)).dropna()), None),
+                                  "ok": int((g.status == "ok").sum()), "of": int(len(g)),
+                                  "not_ok": sorted({"the state's results file couldn't be fetched or read yet"
+                                                    if re.match(r"(fetch failed|error)", x) else x for x in g.status[g.status != "ok"]})}
+                                 for st, g in o.groupby("state", sort=False)]
     if (SC / "poll_audit.json").exists():
         out["poll_audit"] = poll_audit_summary(json.loads((SC / "poll_audit.json").read_text()))
     if (SC / "margins_senate.csv").exists() and (SC / "margins_house.csv").exists():

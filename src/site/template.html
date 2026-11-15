@@ -1691,7 +1691,8 @@ function renderScorecard() {
   $("#scBanner").innerHTML = `<b>${SC.provisional ? "Provisional, partial." : "Final."}</b> Results as of ${asOf(src.senate.page_modified)} from Wikipedia ` +
     `(<a href="https://en.wikipedia.org/w/index.php?oldid=${src.senate.revision}">Senate</a>, <a href="https://en.wikipedia.org/w/index.php?oldid=${src.house.revision}">House</a> revisions)` +
     (M ? `; vote counts from each state's Wikipedia results page, California's Secretary of State` +
-      (SC.official_senate ? `, and the state's own results in ${SC.official_senate.filter(o => o.status === "ok").length} close Senate races` : "") : "") + `. ` +
+      (SC.official_senate ? `, and the state's own results in ${SC.official_senate.filter(o => o.status === "ok").length} close Senate races` : "") +
+      (SC.official_house ? ` and ${SC.official_house.reduce((n, o) => n + o.ok, 0)} House districts` : "") : "") + `. ` +
     (SC.provisional ? `Races still being called or counted are left out and listed below; the scores will be re-run on certified results.` : "");
   // headline
   const ss = S.seats, hs = H.seats, vS = ss.versions, vH = hs.versions;
@@ -1780,8 +1781,8 @@ function renderScorecard() {
   const rows = S.races.map(r => ({ ...r, nm: nameOf[r.race_key], p: r[model], mu: marg[r.race_key] ? marg[r.race_key][`mu_${model}`] : nameOf[r.race_key]?.mu,
       actual: marg[r.race_key]?.actual ?? null, counted: marg[r.race_key]?.counted ?? null }))
     .sort((a, b) => b.p - a.p);
-  const offTag = (k) => (marg[k]?.source || "").startsWith("official") ? ` <span class="tag" title="${esc(marg[k].source)}">official</span>` : "";
-  const actCell = (r) => (r.actual != null ? fmtM(r.actual) : r.counted != null ? `<span class="none" title="Count still moving; not scored yet">${fmtM(r.counted)}*</span>` : "—") + offTag(r.race_key || r.race);
+  const offTag = (k, row) => { const s = (typeof row?.source === "string" && row.source) || marg[k]?.source || ""; return s.startsWith("official") ? ` <span class="tag" title="${esc(s)}">official</span>` : ""; };
+  const actCell = (r) => (r.actual != null ? fmtM(r.actual) : r.counted != null ? `<span class="none" title="Count still moving; not scored yet">${fmtM(r.counted)}*</span>` : "—") + offTag(r.race_key || r.race, r);
   $("#scSenTable").innerHTML = `<thead><tr><th>Race</th><th class="num">P(D side)</th><th class="num">Expected</th><th class="num">Actual</th><th class="num">Error</th><th>Result</th></tr></thead><tbody>` +
     rows.map(r => { const fav = r.p > 0.5 ? 1 : 0, res = !r.called ? `<span class="none">pending</span>` : `${esc(r.winner)} (${r.winner_party}) ${r.y === fav ? "✓" : "<b style='color:var(--ochre)'>upset</b>"}`;
       return `<tr${r.contested ? "" : ' class="muted"'}><td>${raceLab(r.race_key)}</td><td class="num">${fmtP(r.p)}</td><td class="num">${fmtM(r.mu)}</td><td class="num">${actCell(r)}</td>` +
@@ -1906,6 +1907,10 @@ function renderScorecard() {
         ok.map(o => `${STATE[o.race_key.split("|")[1]]} (<a href="${esc(o.url)}">${esc(o.source)}</a>)`).join(", ") + `. ` +
         (no.length ? `Not yet checked against official results, until certification: ` + no.map(o => `${STATE[o.race_key.split("|")[1]]} (${esc(o.status.replace(/^no scripted source: /, "").replace(/; checked at certification$/, ""))})`).join("; ") + `. Their margins come from Wikipedia, provisionally, until an official file is available (a download from the state's site, or the certified results).` : ""); })()] : []),
     `California House margins come from the California Secretary of State's results API.`,
+    ...(SC.official_house ? [(() => { const O = SC.official_house, ok = O.filter(o => o.ok > 0), no = O.filter(o => o.ok < o.of);
+      return `Official House counts: in ${ok.map(o => `${STATE[o.state]} (<a href="${esc(o.url)}">${o.ok} of ${o.of} districts</a>)`).join(", ")}, the state's own count replaces Wikipedia's, read from the same results files as the Senate's; an official margin more than half a point from Wikipedia's is held for review. ` +
+        (no.length ? `Not yet from official results: ` + no.map(o => `${STATE[o.state]}, ${o.of - o.ok} district${o.of - o.ok === 1 ? "" : "s"} (${esc(o.not_ok.join("; "))})`).join("; ") + `. ` : "") +
+        `Every other state's House margins come from Wikipedia until certified results are available.`; })()] : []),
   ].map(x => `<li>${x}</li>`).join("");
 }
 

@@ -12,7 +12,8 @@ Steps:
   1. src/collect/results.py          called winners (Wikipedia overview pages)
   2. src/collect/results_margins.py  vote counts (Wikipedia state pages; California from its Secretary of State)
   3. src/collect/official_senate.py  official counts for the close Senate races where a state publishes them
-  4. src/model/scorecard.py          scores -> data/scorecard/scorecard.json
+  4. src/collect/official_house.py   official counts for every House district in those states (mostly the same files)
+  5. src/model/scorecard.py          scores -> data/scorecard/scorecard.json
 A count only enters the margin scores once it has settled (see results_margins.settledness), so the first run of a
 day after a gap is what moves things; running more than once a day changes nothing.
 Commit and publish yourself (git), as with the forecast.
@@ -22,7 +23,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-STEPS = [["src/collect/results.py"], ["src/collect/results_margins.py"], ["src/collect/official_senate.py"], ["src/model/scorecard.py"]]
+STEPS = [["src/collect/results.py"], ["src/collect/results_margins.py"], ["src/collect/official_senate.py"], ["src/collect/official_house.py"],
+         ["src/model/scorecard.py"]]
 
 if __name__ == "__main__":
     parse = "--parse" in sys.argv[1:]
