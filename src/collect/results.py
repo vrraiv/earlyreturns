@@ -194,7 +194,7 @@ def house():
         g = grid(table)
         labels, nh = header_labels(g)
         cc, sc, lc = col(labels, "Candidate"), col(labels, "Results") or col(labels, "Status"), col(labels, "Location")
-        if cc is None or sc is None or lc is None or col(labels, "2026 PVI") is None:
+        if cc is None or sc is None or lc is None or col(labels, "PVI") is None:
             continue
         for r in g[nh:]:
             if max(lc, cc, sc) >= len(r) or r[cc] is None:
