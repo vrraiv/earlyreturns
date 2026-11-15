@@ -194,26 +194,50 @@ def page_meta(html, path):
             "snapshot": path.relative_to(ROOT).as_posix() if str(path).startswith(str(ROOT)) else str(path)}
 
 
+SUMMARY_ROWS = {"total", "valid votes"}   # summary lines some boxes list among the candidates: Connecticut's fusion
+                                          # "Total" per candidate, Alaska's "Valid votes"
+
+
+def candidate_rows(rows):
+    return [x for x in rows if str(x.get("party", "")).strip().lower() not in SUMMARY_ROWS]
+
+
 def cand_sum(rows):
     """Sum of first-round candidate votes: the count-progress measure (the box's "Total votes" row can lag the candidate
     rows when an editor updates one and not the other; AK-H on Nov 4)."""
-    v = [x["votes_first"] for x in rows if np.isfinite(x["votes_first"])]
+    v = [x["votes_first"] for x in candidate_rows(rows) if np.isfinite(x["votes_first"])]
     return float(sum(v)) if v else np.nan
 
 
+# A box whose own numbers disagree by this much is an editing error (a typo in one row, a stale total), not a rounding
+# difference: Nov 15, 2026 had MO-3 with 32,308 votes listed as 44.39%, OH-7 with a total half the candidates' sum and
+# AL-5 with a total 10,000 short. Such a box is never settled; smaller differences are only noted for review.
+BOX_SUM_TOL = 0.02     # candidate votes vs the box's total, relative
+BOX_PCT_TOL = 2.0      # a candidate's listed % vs the % from votes, in points
+
+
 def checks(box):
-    rows = box["rows"]
+    """(issues, box_error): every inconsistency in a box (noted for review), and the ones large enough that the box's
+    numbers can't be trusted (the race then never settles; see settledness)."""
+    rows = candidate_rows(box["rows"])
     s = np.nansum([x["votes_first"] for x in rows])
-    issues = []
+    issues, errors = [], []
     if np.isfinite(box["total"]) and box["total"] > 0 and s > 0 and abs(s - box["total"]) / box["total"] > 0.005:
-        issues.append(f"candidate votes {s:,.0f} vs total {box['total']:,.0f}")
+        msg = f"candidate votes {s:,.0f} vs total {box['total']:,.0f}"
+        issues.append(msg)
+        if abs(s - box["total"]) / box["total"] > BOX_SUM_TOL:
+            errors.append(msg)
     if s > 0:
         for x in rows:
             if np.isfinite(x["votes_first"]) and np.isfinite(x["pct_first"]):
                 base = box["total"] if np.isfinite(box["total"]) and box["total"] > 0 else s
-                if abs(100 * x["votes_first"] / base - x["pct_first"]) > 0.3:
-                    issues.append(f"{x['candidate']}: {x['pct_first']}% listed vs {100 * x['votes_first'] / base:.2f}% from votes")
-    return issues
+                gap = abs(100 * x["votes_first"] / base - x["pct_first"])
+                if gap > 0.3:
+                    msg = f"{x['candidate']}: {x['pct_first']}% listed vs {100 * x['votes_first'] / base:.2f}% from votes"
+                    issues.append(msg)
+                    if gap > BOX_PCT_TOL:
+                        errors.append(msg)
+    return issues, "; ".join(errors)
 
 
 def margins(rows, dside_name=None, dside_party="D", multi=False, alt_opponent=None):
@@ -259,10 +283,11 @@ def parse_senate(paths=None):
                       multi=st in MULTI_CANDIDATE)
             m, d, r, dname, k = margins_rcv(box["rows"], **kw)
             m1 = margins_rcv(box["rows"], first=True, **kw)[0]
+            issues, box_error = checks(box)
             row.update(caption=cap, margin=m, margin_first_choice=m1, dside_votes=d, rep_votes=r, dside_candidate=dname,
                        total=box["total"], cand_sum=cand_sum(box["rows"]), n_rounds=box["n_rounds"], margin_round=k,
                        margin_type="raw best non-R minus R" if st in MULTI_CANDIDATE else "two-party",
-                       issues="; ".join(checks(box)))
+                       issues="; ".join(issues), box_error=box_error)
             cands += [{"race_key": key, **{k: v for k, v in x.items() if k != "votes_by_round"}} for x in box["rows"]]
         rows.append(row)
     return pd.DataFrame(rows), pd.DataFrame(cands)
@@ -286,10 +311,12 @@ def parse_house(paths=None):
             alt = "Kiley" if f is not None and isinstance(f.get("special_case"), str) and "Kiley" in f["special_case"] else None
             m, d, r, dname, k = margins_rcv(box["rows"], alt_opponent=alt)
             m1 = margins_rcv(box["rows"], first=True, alt_opponent=alt)[0]
+            issues, box_error = checks(box)
             rows.append({"race_key": key, "source": "wikipedia", **meta, "caption": cap, "margin": m, "margin_first_choice": m1,
                          "dside_votes": d, "rep_votes": r, "dside_candidate": dname, "total": box["total"],
                          "cand_sum": cand_sum(box["rows"]), "n_rounds": box["n_rounds"],
-                         "margin_round": k, "margin_type": "two-party", "issues": "; ".join(checks(box) + ([box["note"]] if box.get("note") else [])),
+                         "margin_round": k, "margin_type": "two-party", "issues": "; ".join(issues + ([box["note"]] if box.get("note") else [])),
+                         "box_error": box_error,
                          "d_votes_all": sum(x["votes_first"] for x in box["rows"] if x["party_code"] == "D" and np.isfinite(x["votes_first"])),
                          "r_votes_all": sum(x["votes_first"] for x in box["rows"] if x["party_code"] == "R" and np.isfinite(x["votes_first"]))})
             cands += [{"race_key": key, **{k: v for k, v in x.items() if k != "votes_by_round"}} for x in box["rows"]]
@@ -372,6 +399,8 @@ def settledness(df, chamber):
                     SWING_FLAG points with under SETTLED_GROWTH new votes. Flagged races are never settled.
                     The count must also have held within SETTLED_GROWTH of today's for SETTLED_DAYS (SLOW_COUNT_DAYS in
                     SLOW_COUNT states).
+      box_error     the result box's own numbers disagree beyond BOX_SUM_TOL / BOX_PCT_TOL (a typo or stale total):
+                    never count_stable, so never settled, until an editor fixes the box or an official count replaces it.
       settled       count_stable, no flag, and a margin exists (scores use settled races only).
     count_stable doesn't need a margin, so uncontested and same-party races still count toward the national House vote."""
     hist_path = OUT / f"margins_history_{chamber}.csv"
@@ -418,8 +447,11 @@ def settledness(df, chamber):
     held_days = (pd.to_datetime(day) - plateau_from).dt.days
     slow = df.race_key.str.split("|").str[1].isin(SLOW_COUNT)
     df["held_days"] = held_days
-    df["count_stable"] = df.count_stable & held_days.ge(np.where(slow, SLOW_COUNT_DAYS, SETTLED_DAYS))
+    box_ok = df.box_error.fillna("").astype(str).eq("") if "box_error" in df else pd.Series(True, index=df.index)
+    df["count_stable"] = df.count_stable & held_days.ge(np.where(slow, SLOW_COUNT_DAYS, SETTLED_DAYS)) & box_ok
     df["settled"] = df.count_stable & df.margin.notna()
+    for _, r in df[~box_ok].iterrows():
+        print(f"  [box] {r.race_key}: not settled, the result box doesn't add up ({r.box_error})")
     for _, r in df[df.count_flag != ""].iterrows():
         print(f"  [count] {r.race_key}: {r.count_flag} ({r.prev_cand_sum:,.0f} -> {r.cand_sum:,.0f})")
     return df

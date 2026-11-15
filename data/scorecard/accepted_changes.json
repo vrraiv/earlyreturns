@@ -1,0 +1,11 @@
+{
+  "_about": "Changes a person has confirmed, read by src/check_scorecard.py. withdrawn_calls: a call the reference had that is now gone and really should be (recount, premature call taken back). An entry applies only while the race is uncalled and the reference still has the call for that party.",
+  "withdrawn_calls": [
+    {"race_key": "2026|MN|H|1", "was": "D", "accepted": "2026-11-15",
+     "reason": "Wikipedia rev 1384941484 (Nov 10, Noahp2): no major outlet had called it; official MN count Johnson +322 votes (0.10 pts), 750/750 precincts, recount range"},
+    {"race_key": "2026|NC|H|7", "was": "R", "accepted": "2026-11-15",
+     "reason": "Wikipedia rev 1384941484 (Nov 10, Noahp2): no major outlet had called it; Rouzer +0.72 pts, count not complete"},
+    {"race_key": "2026|TN|H|4", "was": "D", "accepted": "2026-11-15",
+     "reason": "Wikipedia rev 1384941484 (Nov 10, Noahp2): no major outlet had called it; no count for the race in any source we read"}
+  ]
+}

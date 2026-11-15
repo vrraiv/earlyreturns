@@ -604,7 +604,7 @@ def merge_into_margins(off):
     m = m[keep].copy()
     m["wiki_margin"] = m.margin
     m["complete"] = False
-    for c in ("source", "revision", "page_modified", "snapshot", "caption", "dside_candidate", "issues"):
+    for c in ("source", "revision", "page_modified", "snapshot", "caption", "dside_candidate", "issues", "box_error"):
         m[c] = m[c].astype(object) if c in m else None   # text goes into columns pandas may have typed as numbers
     ok = off[(off.status == "ok") & off.margin.notna()] if len(off) else off
     for _, o in ok.iterrows():
@@ -612,9 +612,9 @@ def merge_into_margins(off):
         if not len(i):
             continue
         m.loc[i, ["source", "revision", "page_modified", "snapshot", "caption", "margin", "dside_votes", "rep_votes",
-                  "dside_candidate", "cand_sum", "total", "complete", "issues"]] = \
+                  "dside_candidate", "cand_sum", "total", "complete", "box_error", "issues"]] = \
             [f"official ({o.source})", None, str(o.as_of), o.snapshot, o.url, o.margin, o.dside_votes, o.rep_votes,
-             o.dside_candidate, o.cand_sum, o.cand_sum, bool(o.complete),
+             o.dside_candidate, o.cand_sum, o.cand_sum, bool(o.complete), "",
              "" if not np.isfinite(o.margin_diff_vs_wiki) or abs(o.margin_diff_vs_wiki) <= 0.5
              else f"official margin differs from Wikipedia by {o.margin_diff_vs_wiki:+.2f}"]
     m = RM.settledness(m, "senate")
