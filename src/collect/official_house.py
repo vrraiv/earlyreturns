@@ -429,7 +429,7 @@ def merge_into_margins(off):
     # revision ids come back as floats when some rows (California's) have none: keep them whole, or settledness would
     # read "1384824070.0" as new evidence against the history's "1384824070"
     m["revision"] = pd.Series([int(x) if pd.notna(x) else None for x in pd.to_numeric(m.revision, errors="coerce")], index=m.index, dtype=object)
-    for c in ("source", "revision", "page_modified", "snapshot", "caption", "dside_candidate", "issues", "reporting"):
+    for c in ("source", "revision", "page_modified", "snapshot", "caption", "dside_candidate", "issues", "reporting", "box_error"):
         m[c] = m[c].astype(object) if c in m else None
     ok = off[(off.status == "ok") & off.margin.notna()] if len(off) else off
     for _, o in ok.iterrows():
@@ -440,7 +440,8 @@ def merge_into_margins(off):
                 "caption": o.url, "reporting": o.reporting, "margin": o.margin, "margin_first_choice": o.margin,
                 "dside_votes": o.dside_votes, "rep_votes": o.rep_votes, "dside_candidate": o.dside_candidate,
                 "total": o.cand_sum, "cand_sum": o.cand_sum, "n_rounds": 1, "margin_round": 1, "margin_type": "two-party",
-                "d_votes_all": o.d_votes_all, "r_votes_all": o.r_votes_all, "complete": bool(o.complete), "issues": issue}
+                "d_votes_all": o.d_votes_all, "r_votes_all": o.r_votes_all, "complete": bool(o.complete), "issues": issue,
+                "box_error": ""}   # the official count replaces the Wikipedia box, and its errors with it
         if len(i):
             m.loc[i, list(vals)] = list(vals.values())
         else:   # no Wikipedia box for this district (an unopposed race Wikipedia lists without a box, say)

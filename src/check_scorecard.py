@@ -11,6 +11,11 @@ Two tiers:
   CLEAN   exit code 0.
 The checks are the problems found by hand in the first days of counting (Nov 5-6, 2026): California and New Jersey
 counts settling while ballots were still uncounted, finished counts un-settling, and stale Wikipedia boxes.
+
+A withdrawn call HOLDs, because a page that failed to parse looks the same. Once a person has confirmed a withdrawal
+(the race really is uncalled: a recount, a premature call taken back), it goes in data/scorecard/accepted_changes.json
+under "withdrawn_calls"; the check then expects that call to be gone and reports it as info. An entry only applies
+while the race is uncalled and the reference still has the call for that party, so stale entries do nothing.
 """
 import io
 import json
@@ -25,6 +30,7 @@ sys.path.insert(0, str(ROOT / "src" / "collect"))
 from results_margins import SETTLED_DAYS, SLOW_COUNT, SLOW_COUNT_DAYS  # noqa: E402
 
 BIG_MISS = 15.0           # a newly scored race whose count is this far from the forecast's expected margin: verify it
+ACCEPTED = ROOT / "data/scorecard/accepted_changes.json"
 THIN_PAGE = 0.5           # a newly settled House race on a state page where under half the districts have counts
 
 
@@ -62,20 +68,30 @@ def main(ref):
     # 2. counts and calls
     sc_old = json.loads(git_show(ref, "data/scorecard/scorecard.json"))
     sc = json.loads((ROOT / "data/scorecard/scorecard.json").read_text(encoding="utf-8"))
+    accepted = json.loads(ACCEPTED.read_text(encoding="utf-8")).get("withdrawn_calls", []) if ACCEPTED.exists() else []
+    accepted = {(a["race_key"], a["was"]): a for a in accepted}
     for ch in ("senate", "house"):
         so, sn = sc_old[ch]["seats"], sc[ch]["seats"]
-        for k in ("dem_seats_called", "rep_seats_called"):
-            if sn[k] < so[k]:
-                hold.append(f"{ch}: {k} fell {so[k]} -> {sn[k]} (a call was withdrawn or a page failed to parse)")
-        info.append(f"{ch}: called D {sn['dem_seats_called']} R {sn['rep_seats_called']}")
         ro, rn = old_csv(ref, f"data/scorecard/results_{ch}.csv"), pd.read_csv(ROOT / f"data/scorecard/results_{ch}.csv")
         m = ro.merge(rn, on="race_key", suffixes=("_old", "")) if ro is not None else rn.iloc[0:0]
+        uncalled = m[m.winner_party_old.notna() & m.winner_party.isna()]
+        ok = uncalled[pd.Series([(k, p) in accepted for k, p in zip(uncalled.race_key, uncalled.winner_party_old)],
+                                index=uncalled.index, dtype=bool)]
+        for party, k in (("D", "dem_seats_called"), ("R", "rep_seats_called")):
+            expect = so[k] - int((ok.winner_party_old == party).sum())   # the accepted withdrawals are expected to go
+            if sn[k] < expect:
+                hold.append(f"{ch}: {k} fell {so[k]} -> {sn[k]} (a call was withdrawn or a page failed to parse"
+                            + (f"; {so[k] - expect} of the drop accepted in {ACCEPTED.name}" if expect < so[k] else "") + ")")
+        info.append(f"{ch}: called D {sn['dem_seats_called']} R {sn['rep_seats_called']}")
         flipped = m[m.winner_party_old.notna() & m.winner_party.notna() & (m.winner_party_old != m.winner_party)]
         for _, r in flipped.iterrows():
             review.append(f"{r.race_key}: winner changed {r.winner_party_old} -> {r.winner_party} ({r.winner_name})")
-        uncalled = m[m.winner_party_old.notna() & m.winner_party.isna()]
         for _, r in uncalled.iterrows():
-            review.append(f"{r.race_key}: was called for {r.winner_party_old}, now uncalled")
+            a = accepted.get((r.race_key, r.winner_party_old))
+            if a:
+                info.append(f"{r.race_key}: call for {r.winner_party_old} withdrawn (accepted {a.get('accepted', '')}: {a.get('reason', '')})")
+            else:
+                review.append(f"{r.race_key}: was called for {r.winner_party_old}, now uncalled")
     co, cn = sc_old["margins"]["completeness"], sc["margins"]["completeness"]
     for k in ("senate", "house_all"):
         if cn[k]["counted"] < co[k]["counted"]:
@@ -108,6 +124,8 @@ def main(ref):
             (review if moved else hold).append(f"{k}: was settled, no longer ({why})")
         for k in sorted(s_new):
             r = nn.loc[k]
+            if isinstance(r.get("box_error"), str) and r.box_error:
+                hold.append(f"{k}: settled although its result box doesn't add up ({r.box_error})")
             held = r.get("held_days")
             need = SLOW_COUNT_DAYS if r.st in SLOW_COUNT else SETTLED_DAYS
             if not (pd.notna(held) and held >= need):
