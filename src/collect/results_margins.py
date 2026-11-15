@@ -440,8 +440,8 @@ def main(parse_only=False, resume=False):
         missing = sorted(set(frozen.race_key) - set(df.race_key))
         df = settledness(df, chamber)
         df.to_csv(OUT / f"margins_{chamber}.csv", index=False)
-        if chamber == "senate":   # official_senate.py starts from these Wikipedia rows when it swaps in official numbers
-            df.to_csv(OUT / "margins_senate_wiki.csv", index=False)
+        # official_senate.py / official_house.py start from these rows when they swap in official numbers
+        df.to_csv(OUT / f"margins_{chamber}_wiki.csv", index=False)
         cands.to_csv(OUT / f"candidates_{chamber}.csv", index=False)
         have = df.margin.notna().sum() if len(df) else 0
         print(f"{chamber}: {len(df)} result boxes, {have} with counts; {len(missing)} frozen races without a box"

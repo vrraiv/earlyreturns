@@ -21,7 +21,7 @@ Raw copies live in `data/raw/<source>/<date>/`, each with a `manifest.json` of U
 | **FRED state series** | State unemployment and income | 1950-2026 | `fred_state/` | BLS and BEA, via FRED (public domain) |
 | **FEC** API | Candidate fundraising totals (no individual contributor data) | 2002-2026 | `fec/` | Federal Election Commission (public domain) |
 | **California Secretary of State** API | 2026 House results by district | 2026 | `ca_sos/` | California Secretary of State |
-| **State election offices** (GA, IA, LA, MN, MT, NE, SC, TX) | 2026 official Senate results | 2026 | `official/`, `official_manual/` | Each state's office |
+| **State election offices** (GA, IA, LA, MN, MT, NE, SC, TX) | 2026 official Senate and House results | 2026 | `official/`, `official_manual/` | Each state's office |
 | **AtlasIntel** poll reports | Toplines of 8 Senate polls missing from VoteHub (`data/supplement/polls_supplement.json`) | 2026 | not in git (checksums kept) | AtlasIntel |
 
 University of Michigan consumer sentiment (`UMCSENT`) is in the raw FRED folder but isn't used in any output.
