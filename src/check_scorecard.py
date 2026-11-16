@@ -32,6 +32,8 @@ from results_margins import SETTLED_DAYS, SLOW_COUNT, SLOW_COUNT_DAYS  # noqa: E
 
 BIG_MISS = 15.0           # a newly scored race whose count is this far from the forecast's expected margin: verify it
 ACCEPTED = ROOT / "data/scorecard/accepted_changes.json"
+STALE_OFFICIAL_DAYS = 3   # an official state file this many days older than the run: the fetch keeps failing, so the
+                          # state's count (certification, recounts) isn't reaching the scorecard; refresh it by hand
 THIN_PAGE = 0.5           # a newly settled House race on a state page where under half the districts have counts
 
 
@@ -148,6 +150,21 @@ def main(ref):
         flagged = n[n.count_flag.fillna("") != ""]
         for _, r in flagged.iterrows():
             info.append(f"count flag {r.race_key}: {r.count_flag} (not scored)")
+
+    # 3b. official counts read from an old copy (a fetch that keeps failing falls back to the last saved file)
+    snaps = pd.concat([pd.read_csv(ROOT / f"data/scorecard/margins_{ch}.csv", usecols=["race_key", "source", "snapshot"])
+                       for ch in ("house", "senate")])
+    snaps["day"] = pd.to_datetime(snaps.snapshot.astype(str).str.extract(r"/(\d{4}-\d{2}-\d{2})/")[0])
+    run_day = snaps.day.max()
+    off = snaps[snaps.source.astype(str).str.startswith("official") & snaps.day.notna()].copy()
+    off["st"] = off.race_key.str.split("|").str[1]
+    for st, g in off.groupby("st"):
+        age = (run_day - g.day.max()).days
+        if age >= STALE_OFFICIAL_DAYS:
+            review.append(f"{st}: official count is from {g.day.max():%Y-%m-%d}, {age} days old (the fetch keeps failing; "
+                          f"run the scorecard locally to pick up the state's latest file)")
+        elif age > 0:
+            info.append(f"{st}: official count read from the {g.day.max():%Y-%m-%d} copy ({age} day(s) old)")
 
     # 4. newly scored races far from the forecast
     for key in ("senate_margins", "house_margins"):
