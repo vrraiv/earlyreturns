@@ -22,6 +22,7 @@ Run:  python src/collect/results_margins.py          (snapshot every state page 
       python src/collect/results_margins.py parse    (re-parse the latest snapshot)
 Writes data/scorecard/margins_senate.csv, margins_house.csv (one row per race), candidates_*.csv (one row per candidate).
 """
+import json
 import re
 import sys
 import time
@@ -387,6 +388,16 @@ SLOW_COUNT = {"CA", "WA", "OR", "NV", "AZ", "UT", "AK",   # all-mail or weeks-lo
               "NJ", "NY", "IL", "MD", "MS"}               # accept mail ballots arriving days after Election Day
 SLOW_COUNT_DAYS = 7
 SETTLED_DAYS = 5
+ACCEPTED = OUT / "accepted_changes.json"
+
+
+def held_back():
+    """Races a person has kept from settling: data/scorecard/accepted_changes.json "hold_unsettled", each with
+    until_two_party_votes, a second source's D + R count (AP). A stale box (the Wikipedia total stops moving while the
+    state still counts) looks settled; the entry releases itself once the race's own D + R count reaches that figure."""
+    if not ACCEPTED.exists():
+        return {}
+    return {e["race_key"]: e for e in json.loads(ACCEPTED.read_text(encoding="utf-8")).get("hold_unsettled", [])}
 
 
 def settledness(df, chamber):
@@ -450,6 +461,19 @@ def settledness(df, chamber):
     box_ok = df.box_error.fillna("").astype(str).eq("") if "box_error" in df else pd.Series(True, index=df.index)
     df["count_stable"] = df.count_stable & held_days.ge(np.where(slow, SLOW_COUNT_DAYS, SETTLED_DAYS)) & box_ok
     df["settled"] = df.count_stable & df.margin.notna()
+    df["held_back"] = ""
+    two = df.dside_votes.fillna(0) + df.rep_votes.fillna(0)
+    for key, e in held_back().items():
+        i = df.index[df.race_key == key]
+        if not len(i):
+            continue
+        need = float(e["until_two_party_votes"])
+        if two[i].iloc[0] >= need:
+            print(f"  [held back] {key}: released, D + R {two[i].iloc[0]:,.0f} reached {need:,.0f}; remove it from {ACCEPTED.name}")
+            continue
+        df.loc[i, ["count_stable", "settled"]] = False
+        df.loc[i, "held_back"] = f"held back: D + R {two[i].iloc[0]:,.0f} of {need:,.0f} ({e.get('reason', '')})"
+        print(f"  [held back] {key}: not settled, D + R {two[i].iloc[0]:,.0f} of the {need:,.0f} it waits for")
     for _, r in df[~box_ok].iterrows():
         print(f"  [box] {r.race_key}: not settled, the result box doesn't add up ({r.box_error})")
     for _, r in df[df.count_flag != ""].iterrows():

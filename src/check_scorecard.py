@@ -14,7 +14,8 @@ counts settling while ballots were still uncounted, finished counts un-settling,
 
 A withdrawn call HOLDs, because a page that failed to parse looks the same. Once a person has confirmed a withdrawal
 (the race really is uncalled: a recount, a premature call taken back), it goes in data/scorecard/accepted_changes.json
-under "withdrawn_calls"; the check then expects that call to be gone and reports it as info. An entry only applies
+under "withdrawn_calls"; the check then expects that call to be gone and reports it as info. Races kept from settling
+("hold_unsettled", see results_margins.held_back) un-settle as info too. An entry only applies
 while the race is uncalled and the reference still has the call for that party, so stale entries do nothing.
 """
 import io
@@ -114,6 +115,9 @@ def main(ref):
         oo = o.set_index("race_key") if o is not None else None
         for k in sorted(s_old - s_new):
             r = nn.loc[k] if k in nn.index else None
+            if r is not None and isinstance(r.get("held_back"), str) and r.held_back:
+                info.append(f"{k}: no longer settled, {r.held_back} ({ACCEPTED.name})")
+                continue
             why = "race missing" if r is None else (f"count {oo.loc[k].cand_sum:,.0f} -> {r.cand_sum:,.0f}"
                                                     if pd.notna(r.cand_sum) else "no count")
             moved = r is not None and pd.notna(r.cand_sum) and abs(r.cand_sum / oo.loc[k].cand_sum - 1) >= 0.01
