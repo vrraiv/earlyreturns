@@ -32,7 +32,7 @@ import numpy as np
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent))
-from common import RAW, ROOT, SESSION, raw_dir  # noqa: E402
+from common import RAW, ROOT, SESSION, TODAY, raw_dir  # noqa: E402
 from official_senate import ADAPTERS, get, norm_title, party_code  # noqa: E402
 from results import FINAL, OUT  # noqa: E402
 import results_margins as RM  # noqa: E402
@@ -469,6 +469,8 @@ def main(parse_only=False):
         if not dd:
             err = err or "no saved House file yet"
         else:
+            if err or (not parse_only and dd[-1].name != TODAY):
+                print(f"  [fallback] {st} House: {err or "no file fetched today"}; using the files saved {dd[-1].name}")
             try:
                 res = parse_day(cls, st, dd[-1])
             except Exception as e:  # noqa: BLE001
