@@ -637,6 +637,13 @@ def main(parse_only=False, manual=False):
                 res, name = A.parse(paths), A.name
             except Exception as e:  # noqa: BLE001  (one state's site failing must not stop the rest)
                 err = f"error: {type(e).__name__}: {str(e)[:160]}"
+                if not parse_only:   # today's fetch failed: fall back to the newest copy saved on an earlier day
+                    try:
+                        paths = A.saved(st)
+                        res, name = A.parse(paths), A.name
+                        print(f"  [fallback] {key}: fetch failed ({err}); using the copy saved {Path(paths[0]).parent.name}")
+                    except Exception:  # noqa: BLE001
+                        res = None
         if res is None and manual and manual_files(st):
             # --manual: the user's own download from the state's site (only where no scripted source worked)
             try:

@@ -64,6 +64,7 @@ fi
   cat ci_out/steps.md
   echo
   grep -h "\[result change\]" "$LOG" | sed 's/^ */- /' | head -40
+  grep -h "\[fallback\]" "$LOG" | sed 's/^ */- /' | head -40
 } > ci_out/summary.md
 cat ci_out/summary.md >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
 exit 0

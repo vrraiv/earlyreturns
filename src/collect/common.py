@@ -38,6 +38,8 @@ def fetch(source: str, name: str, url: str, params=None, headers=None, retries=3
         try:
             r = SESSION.get(url, params=params, headers=headers, timeout=timeout)
             r.raise_for_status()
+            if not r.content:   # some hosts answer blocked clients with an empty 200 (Clarity, to GitHub's runners)
+                raise RuntimeError("empty response")
             out.write_bytes(r.content)
             _log(d, name, r.url, len(r.content))
             return out
