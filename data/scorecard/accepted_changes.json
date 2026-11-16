@@ -7,5 +7,14 @@
      "reason": "Wikipedia rev 1384941484 (Nov 10, Noahp2): no major outlet had called it; Rouzer +0.72 pts, count not complete"},
     {"race_key": "2026|TN|H|4", "was": "D", "accepted": "2026-11-15",
      "reason": "Wikipedia rev 1384941484 (Nov 10, Noahp2): no major outlet had called it; no count for the race in any source we read"}
+  ],
+  "_about_hold_unsettled": "Races kept from settling because their Wikipedia box trails a second source. Each releases itself once its own D + R count reaches until_two_party_votes (src/collect/results_margins.py held_back).",
+  "hold_unsettled": [
+    {"race_key": "2026|CO|H|2", "until_two_party_votes": 365853, "added": "2026-11-15",
+     "reason": "box 273,365 + 86,414 trails AP 278,499 + 87,354 (99% reporting, checked Nov 15)"},
+    {"race_key": "2026|CO|H|3", "until_two_party_votes": 325009, "added": "2026-11-15",
+     "reason": "box 163,817 + 157,660 trails AP 159,512 + 165,497 (99% reporting, checked Nov 15)"},
+    {"race_key": "2026|UT|H|3", "until_two_party_votes": 237641, "added": "2026-11-15",
+     "reason": "box 89,087 + 144,009 trails AP 91,761 + 145,880 (98% reporting, checked Nov 15)"}
   ]
 }
