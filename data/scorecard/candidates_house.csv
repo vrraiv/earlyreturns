@@ -4,7 +4,7 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|AK|H|0,Democratic,D,Eric Hafner,7.78,21815.0,21815.0
 2026|AK|H|0,Libertarian,O,"James C. ""Jim"" McDermott",2.63,7384.0,7384.0
 2026|AK|H|0,Write-in,O,Write-in,0.15,430.0,430.0
-2026|AK|H|0,Valid votes,O,Valid votes,98.82,280268.0,280268.0
+2026|AK|H|0,Valid votes,O,Valid votes,,,
 2026|SD|H|0,Republican,R,Marty Jackley,64.01,195587.0,195587.0
 2026|SD|H|0,Democratic,D,Nicole Gronli,35.99,109993.0,109993.0
 2026|VT|H|0,Democratic,D,Becca Balint,65.22,198766.0,198766.0
