@@ -6,7 +6,7 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|AK|S|regular,Republican,R,Gerald L. Heikes,2.13,6002.0,6002.0
 2026|AK|S|regular,Undeclared,O,Dan J. Sullivan,1.65,4652.0,4652.0
 2026|AK|S|regular,Write-in,O,Write-in,0.31,872.0,872.0
-2026|AK|S|regular,Valid votes,O,Valid votes,99.28,281587.0,281587.0
+2026|AK|S|regular,Valid votes,O,Valid votes,,,
 2026|AR|S|regular,Republican,R,Tom Cotton,54.26,480802.0,480802.0
 2026|AR|S|regular,Democratic,D,Hallie Shoffner,42.41,375831.0,375831.0
 2026|AR|S|regular,Libertarian,O,Jeff Wadlin,3.33,29488.0,29488.0
