@@ -378,8 +378,9 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|MD|H|1,Write-in,O,Write-in,0.17,542.0,542.0
 2026|MD|H|2,Democratic,D,Johnny Olszewski,,,
 2026|MD|H|2,Republican,R,Dave Wallace,,,
-2026|MD|H|3,Democratic,D,Sarah Elfreth,,,
-2026|MD|H|3,Republican,R,Berney Flowers,,,
+2026|MD|H|3,Democratic,D,Sarah Elfreth,67.74,212087.0,212087.0
+2026|MD|H|3,Republican,R,Berney Flowers,31.97,100088.0,100088.0
+2026|MD|H|3,Write-in,O,Write-in,0.29,892.0,892.0
 2026|MD|H|4,Democratic,D,Glenn Ivey,,,
 2026|MD|H|4,Republican,R,George McDermott,,,
 2026|MD|H|4,Green,O,Sam Husseini,,,
