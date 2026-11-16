@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 17 - Districtwide Results",
+  "Reporting": "100% (241 of 241) precincts reporting",
+  "ReportingTime": "November 14, 2026, 5:16 p.m.",
+  "candidates": [
+    {
+      "Name": "Ro Khanna",
+      "Party": "Dem",
+      "Votes": "153,632",
+      "Percent": "72.7",
+      "incumbent": false
+    },
+    {
+      "Name": "Ritesh Tandon",
+      "Party": "Rep",
+      "Votes": "57,658",
+      "Percent": "27.3",
+      "incumbent": false
+    }
+  ]
+}
