@@ -153,7 +153,10 @@ started. `run_all.py` refuses to run after 23:00 UTC Nov 3 (polls closing; Wikip
 
 ## After the scorecard: post-mortem, model rework, governors, special elections (added Nov 8, 2026)
 
-Target: the reworked model ready before Christmas 2026, so a special election can be forecast whenever one is called.
+Timing (updated Nov 17, 2026): the rework has no fixed date; being ready early for a special election is a
+nice-to-have. Two dates are fixed: a first presidential primaries model by May 2027, if that track goes ahead, and the
+electoral college model and every other model frozen by May 2028. The work is organized into nine tracks in
+`planning/` (`plan.js` holds the story cards, `workplan.html` is the tracker page; see `planning/README.md`).
 
 **1. Finish the scorecard.** Counting and certification run into December (California certifies last). The
 post-mortem's 2026 numbers are provisional until then.
