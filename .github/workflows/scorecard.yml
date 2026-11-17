@@ -4,7 +4,7 @@ name: Scorecard refresh
 
 on:
   schedule:
-    - cron: "0 12 * * *"   # 7 am Toronto (EST)
+    - cron: "30 10 * * *"   # 5:30 am Toronto (EST); off the top of the hour, when GitHub delays or drops scheduled runs
   workflow_dispatch:
     inputs:
       max_minutes:
