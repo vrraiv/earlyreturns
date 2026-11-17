@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-17",
+  version: "2026-11-17b",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Only if the primaries track is a go (PP-1)." },
@@ -388,7 +388,8 @@ window.PLAN = {
           details: [
             "Decide whether 2028 gets a new address, a new repo, or a section of this one.",
             "Old links to the 2026 forecast should keep working.",
-            "Decide the top-level sections: 2028 preview, development results, 2026 archive, election data."
+            "Decide the top-level sections: 2028 preview, development results, 2026 archive, election data.",
+            "Plan for a repeating cycle: forecast, scorecard, post-mortem, then archive. The 2030 midterms follow 2028, so the structure should take one archived section per election without a redesign."
           ] },
         { id: "SI-2", title: "Archive the 2026 forecast", kind: "story", phase: "p2", needs: ["SC-1", "SI-1"],
           why: "The forecast is history now and should read as a record, not a live page.",
@@ -435,6 +436,8 @@ window.PLAN = {
           why: "The site is one large template built for one election.",
           details: [
             "Split it so the archive, the preview and each model page build separately.",
+            "Build the archive to scale: each election is one unit holding its locked forecast, scorecard and post-mortem.",
+            "Folding in the next election should mean adding its data, not writing a new template. 2026 is the first unit, then 2028, then the 2030 midterms.",
             "Keep the checks that the archived forecast matches the final."
           ],
           refs: ["src/site/template.html", "src/site/build.py", "src/site/history.py"] },
@@ -750,7 +753,8 @@ window.PLAN = {
           why: "The code was built against one election date and one map.",
           details: [
             "Seats not up, key dates, the poll-closing time, and filenames with 2026 in them.",
-            "Move them into one cycle config.",
+            "Move them into one cycle config that can describe any election, midterm or presidential.",
+            "Include the scorecard and post-mortem scripts, so the cycle of forecast, scorecard, post-mortem and archive repeats for 2028 and 2030 without rewriting them.",
             "Confirm the frozen 2026 forecast still rebuilds exactly."
           ],
           checklist: [
