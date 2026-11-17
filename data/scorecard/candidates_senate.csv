@@ -4,7 +4,7 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|AK|S|regular,Democratic,D,Mary Peltola,49.94,140637.0,140637.0
 2026|AK|S|regular,Republican,R,Dan S. Sullivan,45.96,129424.0,129424.0
 2026|AK|S|regular,Republican,R,Gerald L. Heikes,2.13,6002.0,6002.0
-2026|AK|S|regular,Undeclared,O,Dan J. Sullivan,1.65,4652.0,4652.0
+2026|AK|S|regular,No party listed,O,Daniel J. Sullivan Jr.,1.65,4652.0,4652.0
 2026|AK|S|regular,Write-in,O,Write-in,0.31,872.0,872.0
 2026|AK|S|regular,Valid votes,O,Valid votes,,,
 2026|AR|S|regular,Republican,R,Tom Cotton,54.26,480802.0,480802.0
@@ -32,9 +32,9 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|IA|S|regular,Democratic,D,Josh Turek,50.55,688741.0,688741.0
 2026|IA|S|regular,Republican,R,Ashley Hinson,46.36,631481.0,631481.0
 2026|IA|S|regular,Libertarian,O,Thomas Laehn,3.09,42109.0,42109.0
-2026|KS|S|regular,Democratic,D,Adam Hamilton,51.02,562076.0,562076.0
-2026|KS|S|regular,Republican,R,Roger Marshall,45.96,506752.0,506752.0
-2026|KS|S|regular,Libertarian,O,David Graham,3.02,33326.0,33326.0
+2026|KS|S|regular,Democratic,D,Adam Hamilton,51.1,566865.0,566865.0
+2026|KS|S|regular,Republican,R,Roger Marshall,45.87,508887.0,508887.0
+2026|KS|S|regular,Libertarian,O,David Graham,3.03,33564.0,33564.0
 2026|KY|S|regular,Republican,R,Andy Barr,54.99,784869.0,784869.0
 2026|KY|S|regular,Democratic,D,Charles Booker,42.9,612357.0,612357.0
 2026|KY|S|regular,Kentucky,O,Christopher Campbell,2.09,29892.0,29892.0
@@ -49,8 +49,8 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|MA|S|regular,Independent,I,Shiva Ayyadurai,2.3,59837.0,59837.0
 2026|MA|S|regular,Socialism and Liberation,O,Joe Tache,2.17,56530.0,56530.0
 2026|MA|S|regular,Write-in,O,Write-in,,,
-2026|MI|S|regular,Democratic,D,Abdul El-Sayed,52.54,2520883.0,2520883.0
-2026|MI|S|regular,Republican,R,Mike Rogers,45.46,2181108.0,2181108.0
+2026|MI|S|regular,Democratic,D,Abdul El-Sayed,52.54,2520895.0,2520895.0
+2026|MI|S|regular,Republican,R,Mike Rogers,45.46,2181111.0,2181111.0
 2026|MI|S|regular,Libertarian,O,Lydia Christensen,1.04,49707.0,49707.0
 2026|MI|S|regular,U.S. Taxpayers,O,Tim Long,0.55,26550.0,26550.0
 2026|MI|S|regular,Green,O,Douglas P. Marsh,0.26,12564.0,12564.0
@@ -60,18 +60,18 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|MN|S|regular,Independent,I,Marisa Simonetti,1.47,41574.0,41574.0
 2026|MN|S|regular,Libertarian,O,Rebecca Whiting,1.15,32493.0,32493.0
 2026|MN|S|regular,Write-in,O,Write-in,0.12,3381.0,3381.0
-2026|MS|S|regular,Democratic,D,Scott Colom,49.34,479059.0,479059.0
-2026|MS|S|regular,Republican,R,Cindy Hyde-Smith,48.56,471484.0,471484.0
-2026|MS|S|regular,Independent,I,Ty Pinkins,2.1,20277.0,20277.0
+2026|MS|S|regular,Democratic,D,Scott Colom,49.36,480148.0,480148.0
+2026|MS|S|regular,Republican,R,Cindy Hyde-Smith,48.54,472121.0,472121.0
+2026|MS|S|regular,Independent,I,Ty Pinkins,2.1,20469.0,20469.0
 2026|MT|S|regular,Republican,R,Kurt Alme,48.16,235549.0,235549.0
 2026|MT|S|regular,Independent,I,Seth Bodnar,37.74,184551.0,184551.0
 2026|MT|S|regular,Democratic,D,Alani Bankhead,12.26,59950.0,59950.0
 2026|MT|S|regular,Libertarian,O,Kyle Austin,1.84,9013.0,9013.0
-2026|NE|S|regular,Republican,R,Pete Ricketts,,,
-2026|NE|S|regular,Independent,I,Dan Osborn,,,
-2026|NE|S|regular,Legal Marijuana NOW,O,Mike Marvin (withdrawn),,,
-2026|NE|S|regular,America First,O,Chuck Conboy,,,
-2026|NE|S|regular,Working People,O,Robin Richards,,,
+2026|NE|S|regular,Republican,R,Pete Ricketts,49.95,381330.0,381330.0
+2026|NE|S|regular,Independent,I,Dan Osborn,44.07,336409.0,336409.0
+2026|NE|S|regular,Working People,O,Robin Richards,2.6,19889.0,19889.0
+2026|NE|S|regular,Legal Marijuana NOW,O,Mike Marvin (withdrawn),2.17,16553.0,16553.0
+2026|NE|S|regular,America First,O,Chuck Conboy,1.21,9224.0,9224.0
 2026|NH|S|regular,Democratic,D,Chris Pappas,55.91,356425.0,356425.0
 2026|NH|S|regular,Republican,R,John E. Sununu,42.19,268712.0,268712.0
 2026|NH|S|regular,Constitution,O,Edmond J. LaPlante Jr.,1.9,12081.0,12081.0
@@ -83,11 +83,11 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|NJ|S|regular,Write-in,O,Eduardo Castillo,,,
 2026|NM|S|regular,Democratic,D,Ben Ray Luján,63.26,458756.0,458756.0
 2026|NM|S|regular,Republican,R,Larry Marker,36.74,266434.0,266434.0
-2026|NC|S|regular,Democratic,D,Roy Cooper,58.8,2480707.0,2480707.0
-2026|NC|S|regular,Republican,R,Michael Whatley,39.0,1648593.0,1648593.0
-2026|NC|S|regular,Libertarian,O,Shannon W. Bray,1.3,56074.0,56074.0
-2026|NC|S|regular,Green,O,Michael Dublin,0.9,36710.0,36710.0
-2026|OK|S|regular,Republican,R,Kevin Hern,57.19,639860.0,639860.0
+2026|NC|S|regular,Democratic,D,Roy Cooper,58.75,2480640.0,2480640.0
+2026|NC|S|regular,Republican,R,Michael Whatley,39.05,1648870.0,1648870.0
+2026|NC|S|regular,Libertarian,O,Shannon W. Bray,1.33,56084.0,56084.0
+2026|NC|S|regular,Green,O,Michael Dublin,0.87,36710.0,36710.0
+2026|OK|S|regular,Republican,R,Kevin Hern,57.2,639860.0,639860.0
 2026|OK|S|regular,Democratic,D,N'Kiyla Jasmine Thomas,39.29,439522.0,439522.0
 2026|OK|S|regular,Independent,I,Curtis Stinnett,1.31,14635.0,14635.0
 2026|OK|S|regular,Independent,I,Ron Meinhardt,1.3,14504.0,14504.0

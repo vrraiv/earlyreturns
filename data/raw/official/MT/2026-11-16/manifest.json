@@ -1,22 +1,22 @@
 {
   "resultsSW_FED.html": {
     "url": "https://electionresults.mt.gov/resultsSW.aspx?type=FED&map=CTY",
-    "retrieved": "2026-11-16T12:34:41",
-    "bytes": 60377
+    "retrieved": "2026-11-16T21:57:52",
+    "bytes": 60300
   },
   "senate_by_county.json": {
     "url": "https://esersws.mt.gov/ResultsAjax.svc/GetMapData?type=FED&category=CTY&raceID=450000000004069&osn=1000&county=0&party=0",
-    "retrieved": "2026-11-16T12:34:33",
-    "bytes": 132097
+    "retrieved": "2026-11-16T21:57:30",
+    "bytes": 131869
   },
   "house_1_by_county.json": {
     "url": "https://esersws.mt.gov/ResultsAjax.svc/GetMapData?type=FED&category=CTY&raceID=450000000004067&osn=2001&county=0&party=0",
-    "retrieved": "2026-11-16T12:34:42",
-    "bytes": 30028
+    "retrieved": "2026-11-16T21:57:53",
+    "bytes": 29978
   },
   "house_2_by_county.json": {
     "url": "https://esersws.mt.gov/ResultsAjax.svc/GetMapData?type=FED&category=CTY&raceID=450000000004068&osn=2002&county=0&party=0",
-    "retrieved": "2026-11-16T12:34:43",
+    "retrieved": "2026-11-16T21:57:55",
     "bytes": 103012
   }
 }
