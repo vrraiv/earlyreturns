@@ -1,6 +1,8 @@
 /* Work plan content for planning/workplan.html.
    Card ids and checklist item ids are permanent: saved statuses, ticks and notes are keyed by them.
-   Add new ids; never renumber or reuse one. Public file: nothing provisional or private goes here. */
+   Add new ids; never renumber or reuse one.
+   Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
+   No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
   version: "2026-11-17",
 
@@ -80,8 +82,8 @@ window.PLAN = {
         { id: "SC-3", title: "Error split by chamber, in Brier and in margin", kind: "story", phase: "p1", needs: ["SC-1"],
           why: "The Brier split and the margin split tell different stories, and a model change should answer to both.",
           details: [
-            "Provisional reading: in Brier terms the Senate misses split about evenly between the national miss and race-level error, while the House misses are mostly race-level.",
-            "In margin terms the picture reverses: the House miss is mostly a shared shift. Brier only rewards flipped winners.",
+            "Compute each chamber's error split two ways: in Brier terms, as the scorecard page does, and in squared-margin terms.",
+            "The two can disagree. Brier only rewards flipped winners, so a large shared shift on races the forecast already had right adds little to it.",
             "Test whether House residuals cluster by state after the national, region and slope layers. Use a permutation test and name the outliers.",
             "Keep four explanations apart: a state shock, demographic swing, wrong lean on redrawn lines, and too much weight on a stale lean prior.",
             "Same-state correlation changes seat ranges and joint outcomes. It does not change per-race Brier by itself."
@@ -96,7 +98,7 @@ window.PLAN = {
         { id: "SC-4", title: "Write the lessons list", kind: "story", phase: "p2", needs: ["SC-2", "SC-3"],
           why: "One page of lessons, each tied to evidence, is the input to the brainstorm.",
           details: [
-            "Lessons so far, all provisional:",
+            "Starting points, from the provisional findings in the post-mortem README and on the scorecard page:",
             "One national draw can't fit both chambers. House districts moved more than Senate races.",
             "House upsets all went one way, concentrated in modestly Republican seats held by Republican incumbents.",
             "Districts in the same state share an error the model left out.",
@@ -188,7 +190,7 @@ window.PLAN = {
           details: [
             "The post-mortem found 1 to 2 extra points in near-even and modestly opposed districts in wave years.",
             "Test year type (midterm or presidential, and the president's party) as an interaction term, not by picking analog years.",
-            "A first check found same-type years predicted each other worse than recent years did, because the pull of lean and incumbency has drifted over time.",
+            "The pull of lean and incumbency has drifted over time, so older or same-type years can't simply be pooled.",
             "Split incumbency by whether the incumbent is in the president's party.",
             "Needs more midterms than 2006 to 2024 offers."
           ],
@@ -216,7 +218,7 @@ window.PLAN = {
           details: [
             "Re-estimate each layer's spread and tail shape.",
             "Report whether each layer was needed, not only whether it was fitted correctly.",
-            "Race-level tails: the current fit pools thinly polled and well-polled races.",
+            "Race-level tails: check whether pooling thinly polled and well-polled races fattens them.",
             "Test a wider national spread when the fundamentals inputs leave their training range."
           ],
           checklist: [
@@ -758,17 +760,17 @@ window.PLAN = {
           ],
           refs: ["src/model/forecast.py", "src/run_all.py"] },
         { id: "OP-2", title: "Two poll sources and a blocklist", kind: "story", phase: "p4",
-          why: "The poll audit found polls missing from our one source, and polls that should have been left out.",
+          why: "The poll audit on the scorecard page found polls missing from our one source, and polls from a pollster that should have been left out.",
           details: [
             "Ingest a second source and reconcile the two.",
             "Keep the pollster blocklist as data.",
-            "Fix district matching so House polls are not skipped.",
+            "Check that every House poll is matched to its district.",
             "Have a fallback if the main source goes away."
           ],
           checklist: [
             { id: "a", text: "Second source ingested" },
             { id: "b", text: "Reconciliation rule written" },
-            { id: "c", text: "District matching fixed" },
+            { id: "c", text: "District matching checked" },
             { id: "d", text: "Fallback tested" }
           ],
           refs: ["src/model/pollavg.py", "src/model/poll_audit.py", "src/collect/wiki_polls.py"] },
