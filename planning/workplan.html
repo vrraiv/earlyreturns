@@ -1,0 +1,624 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>2028 Work Plan</title>
+<style>
+/* Layout: a rail of sections on the left, each track carrying its own progress; one working column on the right.
+   On phones the rail becomes a scroll strip under the header. Colors follow the forecast site's palette. */
+:root {
+  --bg: #f3f4f7; --surface: #ffffff; --surface-2: #e8ebf1; --border: #d2d7e1;
+  --text: #1e2128; --text-2: #525968; --text-3: #6f7685;
+  --accent: #8a6311; --tint: #3f5687; --primary: #dce3f1;
+  --todo: #8a909e; --doing: #3f5687; --blocked: #b3423c; --done: #1e7a66; --dropped: #a7acb7;
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1d1e22; --surface: #23252b; --surface-2: #2a2d36; --border: #363a47;
+    --text: #e8e6e1; --text-2: #a9adb8; --text-3: #868a96;
+    --accent: #c4973f; --tint: #8e9fc4; --primary: #3a4660;
+    --todo: #747987; --doing: #8e9fc4; --blocked: #d0605a; --done: #2f9e86; --dropped: #565a65;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1d1e22; --surface: #23252b; --surface-2: #2a2d36; --border: #363a47;
+  --text: #e8e6e1; --text-2: #a9adb8; --text-3: #868a96;
+  --accent: #c4973f; --tint: #8e9fc4; --primary: #3a4660;
+  --todo: #747987; --doing: #8e9fc4; --blocked: #d0605a; --done: #2f9e86; --dropped: #565a65;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.55 var(--font); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+a { color: var(--tint); }
+:focus-visible { outline: 2px solid var(--tint); outline-offset: 2px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* status color, shared by every mark */
+[data-s="todo"], [data-status="todo"] { --sc: var(--todo); }
+[data-s="doing"], [data-status="doing"] { --sc: var(--doing); }
+[data-s="blocked"], [data-status="blocked"] { --sc: var(--blocked); }
+[data-s="done"], [data-status="done"] { --sc: var(--done); }
+[data-s="dropped"], [data-status="dropped"] { --sc: var(--dropped); }
+.dot { width: 9px; height: 9px; border-radius: 50%; flex: 0 0 auto; background: var(--sc, var(--todo)); display: inline-block; }
+[data-s="todo"].dot, [data-status="todo"] .card-toggle .dot, a.gdot[data-s="todo"], a.need[data-s="todo"]::before { background: transparent; box-shadow: inset 0 0 0 1.5px var(--todo); }
+
+/* header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--bg); border-bottom: 1px solid var(--border); }
+.topbar { display: flex; align-items: baseline; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; padding-block: 11px; }
+.brand { font-size: 1.05rem; font-weight: 650; letter-spacing: -0.01em; text-decoration: none; color: var(--text); }
+.brand span { color: var(--text-3); font-weight: 400; margin-left: 10px; font-size: .82rem; letter-spacing: 0; }
+.sync { font-size: .8rem; color: var(--text-3); display: inline-flex; align-items: center; gap: 6px; }
+.sync::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--todo); }
+.sync[data-s="ok"]::before { background: var(--done); }
+.sync[data-s="busy"]::before { background: var(--accent); }
+.sync[data-s="warn"]::before { background: var(--blocked); }
+
+/* shell and rail */
+.shell { display: grid; grid-template-columns: 236px minmax(0, 1fr); gap: 32px; padding-block: 20px 64px; align-items: start; }
+.rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 62px); display: flex; flex-direction: column; gap: 2px; max-height: calc(100vh - 84px); overflow-y: auto; }
+.rail-h { font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3); margin: 14px 0 4px 10px; }
+.rl { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; align-items: center; gap: 3px 6px; padding: 6px 10px; border-radius: 6px; color: var(--text-2); text-decoration: none; font-size: .88rem; }
+.rl.plain { grid-template-columns: minmax(0, 1fr) auto; }
+.rl:hover { background: var(--surface-2); color: var(--text); }
+.rl.on { background: var(--primary); color: var(--text); }
+.rl-code { font: 600 .68rem var(--mono); color: var(--text-3); }
+.rl-n { font-size: .74rem; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.rl .bar { grid-column: 2 / 4; }
+.bar { display: flex; height: 4px; border-radius: 2px; overflow: hidden; background: var(--surface-2); }
+.rl.on .bar { background: var(--bg); }
+.bar i { display: block; height: 100%; }
+.b-done { background: var(--done); } .b-doing { background: var(--doing); } .b-blocked { background: var(--blocked); }
+
+/* type */
+main { min-width: 0; }
+h1 { font-size: clamp(1.3rem, 3vw, 1.6rem); line-height: 1.2; margin: 0 0 6px; letter-spacing: -0.01em; text-wrap: balance; }
+h2 { font-size: 1.08rem; margin: 28px 0 8px; text-wrap: balance; }
+h2 .when { font-weight: 400; color: var(--text-3); font-size: .86rem; margin-left: 8px; }
+h3 { font-size: .74rem; text-transform: uppercase; letter-spacing: .07em; color: var(--text-3); margin: 22px 0 8px; font-weight: 600; }
+h3 span { text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 8px; }
+p { margin: 6px 0; max-width: 70ch; }
+.lede { color: var(--text-2); }
+.small { font-size: .86rem; } .muted { color: var(--text-2); } .tiny { font-size: .76rem; color: var(--text-3); }
+code { font: .84em var(--mono); background: var(--surface-2); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+.lab, .field > label { font-size: .7rem; text-transform: uppercase; letter-spacing: .07em; color: var(--text-3); }
+.banner { border: 1px solid var(--accent); background: var(--surface); border-radius: 8px; padding: 8px 12px; font-size: .86rem; margin: 0 0 14px; max-width: none; }
+.empty { color: var(--text-3); font-size: .88rem; padding: 10px 12px; border: 1px dashed var(--border); border-radius: 8px; max-width: none; }
+
+/* overview */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; }
+.tile { border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; background: var(--surface); display: flex; flex-direction: column; gap: 2px; }
+.tile b { font-size: 1.3rem; letter-spacing: -0.01em; line-height: 1.25; }
+.tile .wk { color: var(--accent); font-size: .84rem; font-variant-numeric: tabular-nums; }
+.tile p { margin: 4px 0 0; }
+.scroll { overflow-x: auto; }
+table.grid { border-collapse: collapse; font-size: .84rem; min-width: 640px; width: 100%; }
+.grid th { text-align: left; font-weight: 600; font-size: .76rem; color: var(--text-2); padding: 6px 8px; border-bottom: 1px solid var(--border); vertical-align: bottom; }
+.grid th span { font-weight: 400; color: var(--text-3); font-size: .7rem; }
+.grid td { padding: 8px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+.grid td.tname { white-space: nowrap; }
+.grid td.tname a { color: var(--text); text-decoration: none; font-weight: 600; }
+.grid td.tname a:hover { text-decoration: underline; }
+.gdots { display: flex; flex-wrap: wrap; gap: 5px; }
+a.gdot { width: 12px; height: 12px; border-radius: 50%; background: var(--sc, var(--todo)); display: block; }
+a.gdot:hover { outline: 2px solid var(--tint); outline-offset: 1px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .78rem; color: var(--text-3); margin-top: 8px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 0 24px; }
+.cols section { min-width: 0; }
+.rows { display: flex; flex-direction: column; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); overflow: hidden; }
+a.row { display: grid; grid-template-columns: 10px 46px minmax(0, 1fr) auto; gap: 8px; align-items: center; padding: 7px 12px; text-decoration: none; color: var(--text); font-size: .9rem; border-top: 1px solid var(--border); }
+a.row:first-child { border-top: 0; }
+a.row:hover { background: var(--surface-2); }
+.row-n { overflow-wrap: anywhere; }
+.row-t { color: var(--text-3); font-size: .76rem; white-space: nowrap; }
+.events { list-style: none; padding: 0; margin: 8px 0 12px; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 16px; font-size: .88rem; max-width: 76ch; }
+.events li { display: contents; }
+.events li > span:first-child { color: var(--text-3); font-variant-numeric: tabular-nums; }
+.events li.dl > span { color: var(--accent); font-weight: 600; }
+
+/* track page */
+.thead .code { font: 600 .78rem var(--mono); color: var(--accent); margin-right: 6px; }
+dl.facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 16px; margin: 10px 0; font-size: .9rem; max-width: 76ch; }
+dl.facts dt { color: var(--text-3); } dl.facts dd { margin: 0; }
+.tbar { display: flex; align-items: center; gap: 10px; margin: 10px 0 16px; }
+.tbar .bar { flex: 0 1 260px; height: 6px; border-radius: 3px; }
+.controls { display: flex; gap: 8px 14px; flex-wrap: wrap; align-items: center; margin: 20px 0 0; }
+.seg { display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.seg button { font: inherit; font-size: .82rem; padding: 5px 12px; border: 0; background: transparent; color: var(--text-2); cursor: pointer; }
+.seg button + button { border-left: 1px solid var(--border); }
+.seg button[aria-pressed="true"] { background: var(--primary); color: var(--text); }
+button.link { font: inherit; font-size: .82rem; background: none; border: 0; color: var(--tint); cursor: pointer; padding: 5px 2px; }
+
+/* cards */
+.cards { display: flex; flex-direction: column; gap: 10px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.card.flash { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.card-head { display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; }
+.card-toggle { flex: 1 1 auto; min-width: 0; display: flex; gap: 8px; align-items: baseline; background: none; border: 0; padding: 0; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.caret { width: 0; height: 0; border-left: 5px solid var(--text-3); border-top: 4px solid transparent; border-bottom: 4px solid transparent; flex: 0 0 auto; align-self: center; }
+[aria-expanded="true"] > .caret { transform: rotate(90deg); }
+.card-toggle .dot { align-self: center; }
+.cid { font: 600 .74rem var(--mono); color: var(--text-3); white-space: nowrap; }
+.ctitle { font-weight: 600; overflow-wrap: anywhere; }
+.card[data-status="done"] .ctitle, .card[data-status="dropped"] .ctitle { color: var(--text-2); }
+.card[data-status="dropped"] .ctitle { text-decoration: line-through; }
+select.status, select.sm { font: inherit; font-size: .8rem; padding: 3px 6px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); max-width: 100%; }
+select.status { flex: 0 0 auto; border-color: var(--sc, var(--border)); }
+.card-meta { display: flex; flex-wrap: wrap; gap: 4px 8px; margin-top: 7px; font-size: .76rem; color: var(--text-3); align-items: center; }
+.chip { border: 1px solid var(--border); border-radius: 999px; padding: 0 8px; line-height: 1.7; white-space: nowrap; font-size: .74rem; color: var(--text-2); }
+.chip.kind-decision, .chip.kind-gate, .chip.due { border-color: var(--accent); color: var(--accent); }
+.chip.kind-milestone, .chip.kind-session { background: var(--primary); border-color: transparent; color: var(--text); }
+.needs { display: inline-flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+a.need { text-decoration: none; color: var(--text-2); display: inline-flex; align-items: center; gap: 4px; font: 600 .72rem var(--mono); }
+a.need::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--sc, var(--todo)); }
+a.need:hover { text-decoration: underline; }
+.decided { flex: 1 1 100%; color: var(--text); font-size: .86rem; overflow-wrap: anywhere; }
+.why { color: var(--text-2); font-size: .9rem; margin: 6px 0 0; }
+.card-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 14px; }
+.card-body ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 3px; font-size: .9rem; max-width: 74ch; }
+.checks { display: flex; flex-direction: column; gap: 5px; font-size: .9rem; }
+.checks label { display: flex; gap: 8px; align-items: flex-start; cursor: pointer; max-width: 74ch; }
+.checks input { margin: .32em 0 0; accent-color: var(--done); flex: 0 0 auto; }
+.checks input:checked + span { color: var(--text-3); }
+.refs { font-size: .8rem; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+textarea { font: inherit; font-size: .92rem; line-height: 1.45; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 7px 9px; width: 100%; resize: vertical; min-height: 2.5em; display: block; }
+textarea::placeholder { color: var(--text-3); }
+
+/* ideas */
+.idea-form { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: end; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; background: var(--surface); margin: 14px 0 6px; }
+.idea-form .wide { grid-column: 1 / -1; }
+button.primary { font: inherit; font-weight: 600; font-size: .88rem; padding: 6px 14px; border-radius: 6px; border: 1px solid var(--tint); background: var(--tint); color: var(--bg); cursor: pointer; }
+.idea-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+.idea-row .spacer { flex: 1 1 auto; }
+button.ghost { font: inherit; font-size: .8rem; padding: 3px 10px; border-radius: 6px; border: 1px solid var(--border); background: transparent; color: var(--text-2); cursor: pointer; }
+button.ghost.danger { border-color: var(--blocked); color: var(--blocked); }
+ul.rules { padding-left: 18px; display: flex; flex-direction: column; gap: 9px; max-width: 74ch; margin: 10px 0; }
+
+@media (max-width: 860px) {
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 14px; padding-block: 12px 48px; }
+  .rail { position: static; flex-direction: row; overflow-x: auto; overflow-y: hidden; max-height: none; gap: 6px; padding-bottom: 6px; scrollbar-width: thin; }
+  .rail-h { display: none; }
+  .rl, .rl.plain { display: inline-flex; gap: 6px; white-space: nowrap; flex: 0 0 auto; border: 1px solid var(--border); }
+  .rl.on { border-color: transparent; }
+  .rl .bar { display: none; }
+  .brand span { display: none; }
+}
+@media (max-width: 480px) {
+  a.row { grid-template-columns: 10px 44px minmax(0, 1fr); }
+  .row-t { display: none; }
+  .card-head { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: no-preference) { .caret { transition: transform .12s; } }
+</style>
+
+<header class="top">
+  <div class="wrap topbar">
+    <a class="brand" href="#overview">2028 Work Plan<span>from the 2026 forecast to the next cycle</span></a>
+    <span class="sync" id="sync" role="status" data-s="busy">Connecting</span>
+  </div>
+</header>
+<div class="wrap shell">
+  <nav class="rail" id="rail" aria-label="Sections"></nav>
+  <main id="main"></main>
+</div>
+
+<script src="plan.js"></script>
+<script>
+(function () {
+"use strict";
+var P = window.PLAN, main = document.getElementById("main"), rail = document.getElementById("rail"), syncEl = document.getElementById("sync");
+if (!P) { main.innerHTML = '<p class="empty">The plan content (plan.js) did not load, so there is nothing to show.</p>'; syncEl.textContent = "Plan not loaded"; return; }
+
+var ST = [["todo", "Not started"], ["doing", "In progress"], ["blocked", "Blocked"], ["done", "Done"], ["dropped", "Dropped"]];
+var ST_DEC = { todo: "Open", doing: "Discussing", blocked: "Blocked", done: "Decided", dropped: "Dropped" };
+var KIND = { story: "Story", decision: "Decision", gate: "Gate", session: "Session", milestone: "Milestone" };
+var IDEA_ST = [["new", "New"], ["shortlist", "Shortlisted"], ["parked", "Parked"], ["dropped", "Dropped"]];
+var COLLS = ["cards", "tracks", "ideas"];
+var STATIC = { overview: 1, timeline: 1, decisions: 1, ideas: 1, rules: 1 };
+
+var cards = {}, trackOf = {}, tracks = {}, phases = {}, order = [];
+P.tracks.forEach(function (t) { tracks[t.id] = t; t.cards.forEach(function (c) { cards[c.id] = c; trackOf[c.id] = t; order.push(c); }); });
+P.phases.forEach(function (p, i) { phases[p.id] = p; p.n = i; });
+
+/* Saved state: one document per card, per track and per idea. The plan text itself is never stored here. */
+var S = { cards: {}, tracks: {}, ideas: {} };
+var store = { mode: "loading", db: null, first: {}, loaded: {}, slow: false, error: null };
+var pending = {};
+var view = "overview", filter = "all";
+
+function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]; }); }
+function md(s) { return esc(s).replace(/`([^`]+)`/g, "<code>$1</code>"); }
+function clone(o) { return JSON.parse(JSON.stringify(o)); }
+function isDec(c) { return c.kind === "decision" || c.kind === "gate"; }
+function cst(id) { return S.cards[id] || {}; }
+function statusOf(c) { var s = cst(c.id).status; return (s && ST_DEC[s]) ? s : (c.base || "todo"); }
+function tickOf(c, it) { var t = cst(c.id).ticks; return (t && Object.prototype.hasOwnProperty.call(t, it.id)) ? !!t[it.id] : !!it.done; }
+function label(c, s) { if (isDec(c)) return ST_DEC[s]; for (var i = 0; i < ST.length; i++) if (ST[i][0] === s) return ST[i][1]; return s; }
+function closed(s) { return s === "done" || s === "dropped"; }
+function ready(c) { return statusOf(c) === "todo" && (c.needs || []).every(function (id) { return closed(statusOf(cards[id])); }); }
+function byPhase(a, b) { return phases[a.phase].n - phases[b.phase].n; }
+function counts(list) { var n = { todo: 0, doing: 0, blocked: 0, done: 0, dropped: 0, total: 0 }; list.forEach(function (c) { var s = statusOf(c); n[s]++; if (s !== "dropped") n.total++; }); return n; }
+function barHTML(n) {
+  function seg(k) { return n[k] ? '<i class="b-' + k + '" style="width:' + (100 * n[k] / n.total).toFixed(1) + '%"></i>' : ""; }
+  return '<span class="bar" role="img" aria-label="' + n.done + " of " + n.total + ' done">' + (n.total ? seg("done") + seg("doing") + seg("blocked") : "") + "</span>";
+}
+function fmtDate(iso) { var d = new Date(iso); return isNaN(d) ? "" : d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" }); }
+function lsGet(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+var openSet = lsGet("wp28.open", {});
+
+/* ---------- saving ---------- */
+function setSync() {
+  var busy = Object.keys(pending).length > 0, s, t;
+  if (store.error) { s = "warn"; t = store.error === "readonly" ? "Read-only here: changes are not saved" : "Couldn't save the last change"; }
+  else if (store.mode === "loading") { s = "busy"; t = "Connecting"; }
+  else if (store.mode === "local") { s = "warn"; t = "Saved in this browser only"; }
+  else if (store.slow) { s = "warn"; t = "Can't reach saved notes yet"; }
+  else if (busy) { s = "busy"; t = "Saving"; }
+  else { s = "ok"; t = "All changes saved"; }
+  syncEl.setAttribute("data-s", s); syncEl.textContent = t;
+}
+function saveDoc(coll, id, delay) {
+  var k = coll + "/" + id, p = pending[k] || (pending[k] = {});
+  p.dirty = true; clearTimeout(p.timer);
+  p.timer = setTimeout(function () { flush(coll, id); }, delay || 0);
+  setSync();
+}
+function flush(coll, id) {
+  var k = coll + "/" + id, p = pending[k];
+  if (!p || !p.dirty || p.busy) return;
+  if (store.mode === "loading" || (store.mode === "db" && !store.first[coll])) return;   /* held until the store answers */
+  clearTimeout(p.timer); p.dirty = false;
+  if (store.mode === "local") { lsSet("wp28.state", S); delete pending[k]; setSync(); return; }
+  var body = S[coll][id], ref = store.db.collection(coll).doc(id);
+  p.busy = true;
+  (body ? ref.set(clone(body)) : ref.delete()).then(function () {
+    p.busy = false; store.error = null;
+    if (p.dirty) flush(coll, id); else delete pending[k];
+    setSync();
+  }, function (e) {
+    p.busy = false;
+    var code = e && e.code;
+    if (code === "unavailable" && !p.retried) { p.retried = true; p.dirty = true; p.timer = setTimeout(function () { flush(coll, id); }, 1500 + Math.random() * 1500); }
+    else { store.error = (code === "invalid_argument" || code === "revoked" || code === "not_granted") ? "readonly" : "failed"; delete pending[k]; lsSet("wp28.unsaved", S); }
+    setSync();
+  });
+}
+function flushAll() { Object.keys(pending).forEach(function (k) { var i = k.indexOf("/"); flush(k.slice(0, i), k.slice(i + 1)); }); }
+function mut(coll, id, fn, delay) {
+  var d = S[coll][id] ? clone(S[coll][id]) : {};
+  fn(d); d.updated = new Date().toISOString();
+  S[coll][id] = d; saveDoc(coll, id, delay);
+}
+function mergeDoc(remote, local) {
+  var m = clone(remote || {});
+  Object.keys(local).forEach(function (key) {
+    if (key === "ticks" && m.ticks) Object.keys(local.ticks || {}).forEach(function (t) { m.ticks[t] = local.ticks[t]; });
+    else m[key] = local[key];
+  });
+  return m;
+}
+function startLocal() {
+  store.mode = "local";
+  var saved = lsGet("wp28.state", null);
+  if (saved) COLLS.forEach(function (c) { var mine = S[c]; S[c] = saved[c] || {}; Object.keys(mine).forEach(function (id) { S[c][id] = mergeDoc(S[c][id], mine[id]); }); });
+  flushAll(); setSync(); render();
+}
+function startDb(db) {
+  store.mode = "db"; store.db = db;
+  var slowTimer = setTimeout(function () { if (COLLS.some(function (c) { return !store.loaded[c]; })) { store.slow = true; setSync(); } }, 10000);
+  COLLS.forEach(function (coll) {
+    db.collection(coll).onSnapshot(function (snap) {
+      var next = {}, firstTime = !store.first[coll];
+      snap.docs.forEach(function (d) { if (d.exists) next[d.id] = clone(d.data()); });
+      /* documents with unsaved local edits keep the local version; the first answer is merged under them */
+      Object.keys(pending).forEach(function (k) {
+        var i = k.indexOf("/"); if (k.slice(0, i) !== coll) return;
+        var id = k.slice(i + 1), mine = S[coll][id];
+        if (!mine) delete next[id]; else next[id] = firstTime ? mergeDoc(next[id], mine) : mine;
+      });
+      S[coll] = next; store.first[coll] = true;
+      if (!snap.metadata || !snap.metadata.fromCache) {
+        store.loaded[coll] = true;
+        if (COLLS.every(function (c) { return store.loaded[c]; })) { clearTimeout(slowTimer); store.slow = false; }
+      }
+      if (firstTime) flushAll();
+      setSync(); refresh();
+    }, function () { store.error = "failed"; clearTimeout(slowTimer); setSync(); });
+  });
+  setSync();
+}
+
+/* ---------- pieces ---------- */
+function statusSelect(c) {
+  var s = statusOf(c);
+  return '<label class="sr" for="st-' + c.id + '">Status of ' + c.id + '</label><select class="status" id="st-' + c.id + '" data-act="status">' +
+    ST.map(function (o) { return '<option value="' + o[0] + '"' + (o[0] === s ? " selected" : "") + ">" + esc(label(c, o[0])) + "</option>"; }).join("") + "</select>";
+}
+function metaHTML(c) {
+  var st = cst(c.id), h = '<span class="chip kind-' + c.kind + '">' + KIND[c.kind] + '</span><span class="chip">' + esc(phases[c.phase].name) + "</span>";
+  if (c.due) h += '<span class="chip due">Due ' + esc(c.due) + "</span>";
+  if (c.checklist && c.checklist.length) h += "<span>" + c.checklist.filter(function (it) { return tickOf(c, it); }).length + " of " + c.checklist.length + " steps</span>";
+  if (c.needs && c.needs.length) h += '<span class="needs">Needs ' + c.needs.map(function (id) {
+    var d = cards[id], s = statusOf(d);
+    return '<a class="need" href="#' + id + '" data-s="' + s + '" title="' + esc(d.title) + " (" + esc(label(d, s)) + ')">' + id + "</a>";
+  }).join("") + "</span>";
+  if (st.notes && st.notes.trim()) h += "<span>Has notes</span>";
+  if (isDec(c) && st.decision && st.decision.trim()) h += '<span class="decided"><span class="lab">' + (c.kind === "gate" ? "Outcome" : "Decision") + "</span> " + esc(st.decision.trim()) + "</span>";
+  return h;
+}
+function cardHTML(c) {
+  var id = c.id, s = statusOf(c), st = cst(id), open = !!openSet[id];
+  var h = '<article class="card" id="c-' + id + '" data-card="' + id + '" data-status="' + s + '">';
+  h += '<div class="card-head"><button type="button" class="card-toggle" data-act="toggle" aria-expanded="' + (open ? "true" : "false") + '" aria-controls="b-' + id + '">' +
+    '<span class="caret" aria-hidden="true"></span><span class="dot" aria-hidden="true"></span><span class="cid">' + id + '</span><span class="ctitle">' + esc(c.title) + "</span></button>" + statusSelect(c) + "</div>";
+  h += '<div class="card-meta" data-meta>' + metaHTML(c) + "</div>";
+  if (c.why) h += '<p class="why">' + md(c.why) + "</p>";
+  h += '<div class="card-body" id="b-' + id + '"' + (open ? "" : " hidden") + ">";
+  if (c.details && c.details.length) h += "<ul>" + c.details.map(function (d) { return "<li>" + md(d) + "</li>"; }).join("") + "</ul>";
+  if (c.checklist && c.checklist.length) h += '<div class="checks"><span class="lab">Steps</span>' + c.checklist.map(function (it) {
+    var cid = "tk-" + id + "-" + it.id;
+    return '<label for="' + cid + '"><input type="checkbox" id="' + cid + '" data-act="tick" data-item="' + it.id + '"' + (tickOf(c, it) ? " checked" : "") + "><span>" + md(it.text) + "</span></label>";
+  }).join("") + "</div>";
+  if (c.refs && c.refs.length) h += '<div class="refs"><span class="lab">In the repo</span>' + c.refs.map(function (r) { return "<code>" + esc(r) + "</code>"; }).join("") + "</div>";
+  if (isDec(c)) h += '<div class="field"><label for="dc-' + id + '">' + (c.kind === "gate" ? "Outcome" : "Decision") + '</label><textarea id="dc-' + id + '" rows="1" data-act="decision" placeholder="What was decided, in a line or two">' + esc(st.decision || "") + "</textarea></div>";
+  h += '<div class="field"><label for="nt-' + id + '">Notes</label><textarea id="nt-' + id + '" rows="2" data-act="notes" placeholder="Your notes on this card">' + esc(st.notes || "") + "</textarea></div>";
+  return h + "</div></article>";
+}
+function rowsHTML(list, empty) {
+  if (!list.length) return '<p class="empty">' + empty + "</p>";
+  return '<div class="rows">' + list.map(function (c) {
+    var s = statusOf(c);
+    return '<a class="row" href="#' + c.id + '" title="' + esc(label(c, s)) + '"><span class="dot" data-s="' + s + '" aria-hidden="true"></span><span class="cid">' + c.id + '</span><span class="row-n">' + esc(c.title) + '</span><span class="row-t">' + esc(trackOf[c.id].short) + "</span></a>";
+  }).join("") + "</div>";
+}
+function eventsHTML(list) {
+  return '<ul class="events">' + list.map(function (e) { return "<li" + (e.deadline ? ' class="dl"' : "") + "><span>" + esc(e.when) + "</span><span>" + esc(e.text) + "</span></li>"; }).join("") + "</ul>";
+}
+function controlsHTML() {
+  function b(f, t) { return '<button type="button" data-act="filter" data-f="' + f + '" aria-pressed="' + (filter === f ? "true" : "false") + '">' + t + "</button>"; }
+  return '<div class="controls"><div class="seg" role="group" aria-label="Show cards">' + b("all", "All") + b("open", "Open") + b("done", "Done") + '</div><button type="button" class="link" data-act="openall">Open all cards</button><button type="button" class="link" data-act="closeall">Close all</button></div>';
+}
+
+/* ---------- regions that redraw when saved state changes ---------- */
+var LIVE = {
+  grid: function () {
+    var h = '<div class="scroll"><table class="grid"><thead><tr><th scope="col">Track</th>' + P.phases.map(function (p) { return '<th scope="col">' + esc(p.name) + "<br><span>" + esc(p.when) + "</span></th>"; }).join("") + "</tr></thead><tbody>";
+    P.tracks.forEach(function (t) {
+      h += '<tr><td class="tname"><a href="#' + t.id + '">' + esc(t.short) + "</a>" + (t.optional ? ' <span class="tiny">optional</span>' : "") + "</td>";
+      P.phases.forEach(function (p) {
+        h += '<td><div class="gdots">' + t.cards.filter(function (c) { return c.phase === p.id; }).map(function (c) {
+          var s = statusOf(c), tip = c.id + " " + esc(c.title) + " (" + esc(label(c, s)) + ")";
+          return '<a class="gdot" data-s="' + s + '" href="#' + c.id + '" title="' + tip + '" aria-label="' + tip + '"></a>';
+        }).join("") + "</div></td>";
+      });
+      h += "</tr>";
+    });
+    return h + "</tbody></table></div>";
+  },
+  list: function (arg) {
+    if (arg === "doing") return rowsHTML(order.filter(function (c) { return statusOf(c) === "doing"; }), "Nothing is marked in progress.");
+    if (arg === "blocked") return rowsHTML(order.filter(function (c) { return statusOf(c) === "blocked"; }), "Nothing is blocked.");
+    if (arg === "decisions") return rowsHTML(order.filter(function (c) { return isDec(c) && !closed(statusOf(c)); }).sort(byPhase), "No open decisions.");
+    var r = order.filter(ready).sort(byPhase), more = r.length - 10;
+    return rowsHTML(r.slice(0, 10), "Nothing is ready to start.") + (more > 0 ? '<p class="tiny">And ' + more + " more, further out. Each track page shows its own.</p>" : "");
+  },
+  phase: function (pid) { return rowsHTML(order.filter(function (c) { return c.phase === pid; }), "No cards in this phase."); },
+  trackbar: function (tid) {
+    var n = counts(tracks[tid].cards);
+    return '<div class="tbar">' + barHTML(n) + '<span class="tiny">' + n.done + " of " + n.total + " done" + (n.doing ? ", " + n.doing + " in progress" : "") + (n.blocked ? ", " + n.blocked + " blocked" : "") + (n.dropped ? ", " + n.dropped + " dropped" : "") + "</span></div>";
+  },
+  ideas: function () {
+    var ids = Object.keys(S.ideas).sort(function (a, b) { return String(S.ideas[b].created || "").localeCompare(String(S.ideas[a].created || "")); });
+    if (!ids.length) return '<p class="empty">No ideas yet. Add the first one above. Ideas are grouped here as New, Shortlisted, Parked and Dropped.</p>';
+    var h = "";
+    IDEA_ST.forEach(function (o) {
+      var list = ids.filter(function (id) { return (S.ideas[id].state || "new") === o[0]; });
+      if (list.length) h += "<h3>" + o[1] + "<span>" + list.length + '</span></h3><div class="cards">' + list.map(ideaHTML).join("") + "</div>";
+    });
+    return h;
+  }
+};
+function live(name, arg) { return '<div data-live="' + name + '"' + (arg ? ' data-arg="' + arg + '"' : "") + ">" + LIVE[name](arg) + "</div>"; }
+function ideaHTML(id) {
+  var d = S.ideas[id], a = esc(id);
+  return '<article class="card" data-idea="' + a + '"><label class="sr" for="it-' + a + '">Idea</label><textarea id="it-' + a + '" rows="1" data-act="ideatext">' + esc(d.text || "") + "</textarea>" +
+    '<div class="idea-row"><label class="sr" for="is-' + a + '">State</label><select class="sm" id="is-' + a + '" data-act="ideastate">' +
+    IDEA_ST.map(function (o) { return '<option value="' + o[0] + '"' + ((d.state || "new") === o[0] ? " selected" : "") + ">" + o[1] + "</option>"; }).join("") + "</select>" +
+    '<label class="sr" for="ik-' + a + '">Track</label><select class="sm" id="ik-' + a + '" data-act="ideatrack">' + trackOptions(d.track) + "</select>" +
+    '<span class="tiny">' + (d.created ? "Added " + esc(fmtDate(d.created)) : "") + (d.source ? ", " + esc(d.source) : "") + '</span><span class="spacer"></span>' +
+    '<span data-del><button type="button" class="ghost" data-act="del">Delete</button></span></div></article>';
+}
+function trackOptions(sel) {
+  return '<option value="">Not sure yet</option>' + P.tracks.map(function (t) { return '<option value="' + t.id + '"' + (sel === t.id ? " selected" : "") + ">" + esc(t.short) + "</option>"; }).join("");
+}
+
+/* ---------- pages ---------- */
+function weeksTo(date) { return Math.round((new Date(date + "T12:00:00").getTime() - Date.now()) / 6048e5); }
+function overviewView() {
+  var h = "<h1>Overview</h1><p class=\"lede\">Nine parallel tracks take the 2026 forecast code to 2028. Two dates are fixed: a first primaries model by May 2027, if that track goes ahead, and every other model frozen by May 2028. Everything else is ordered by what depends on what.</p>";
+  h += '<h2>Fixed dates</h2><div class="tiles">' + P.deadlines.map(function (d) {
+    var w = weeksTo(d.date);
+    return '<div class="tile"><span class="lab">' + esc(d.label) + "</span><b>" + esc(d.display) + '</b><span class="wk">' + (w > 0 ? w + " weeks away" : w === 0 ? "This week" : "Passed") + '</span><p class="tiny">' + esc(d.note) + "</p></div>";
+  }).join("") + "</div>";
+  h += '<h2>Tracks across phases</h2><p class="small muted">One mark per card. Select a mark to open its card.</p>' + live("grid") +
+    '<div class="legend">' + ST.map(function (o) { return '<span><span class="dot" data-s="' + o[0] + '"></span>' + o[1] + "</span>"; }).join("") + "</div>";
+  h += '<div class="cols"><section><h2>In progress</h2>' + live("list", "doing") + "</section><section><h2>Blocked</h2>" + live("list", "blocked") +
+    '</section><section><h2>Ready to start</h2>' + live("list", "ready") + "</section><section><h2>Open decisions</h2>" + live("list", "decisions") + "</section></div>";
+  return h + "<h2>Outside events</h2>" + eventsHTML(P.events);
+}
+function timelineView() {
+  var h = '<h1>Timeline</h1><p class="lede">Phases are tied to outside events, not to personal deadlines. The two fixed dates are May 2027 for the primaries and May 2028 for every other model.</p>';
+  P.phases.forEach(function (p) {
+    var ev = P.events.filter(function (e) { return e.phase === p.id; });
+    h += "<section><h2>" + esc(p.name) + '<span class="when">' + esc(p.when) + '</span></h2><p class="small muted">' + esc(p.note) + "</p>" + (ev.length ? eventsHTML(ev) : "") + live("phase", p.id) + "</section>";
+  });
+  return h;
+}
+function trackView(t) {
+  var h = '<div class="thead"><span class="code">' + t.code + "</span>" + (t.optional ? '<span class="chip">Optional</span>' : "") + "<h1>" + esc(t.name) + '</h1><p class="lede">' + esc(t.goal) + "</p>" +
+    '<dl class="facts"><dt>Done when</dt><dd>' + esc(t.doneWhen) + "</dd>" + (t.deadline ? "<dt>Deadline</dt><dd>" + esc(t.deadline) + "</dd>" : "") + "</dl>" + live("trackbar", t.id) + "</div>";
+  h += '<div class="field"><label for="tn-' + t.id + '">Track notes</label><textarea id="tn-' + t.id + '" rows="2" data-act="tracknotes" data-track="' + t.id + '" placeholder="Notes on this track as a whole">' + esc((S.tracks[t.id] || {}).notes || "") + "</textarea></div>";
+  h += controlsHTML() + '<div id="cardlist">';
+  P.phases.forEach(function (p) {
+    var cs = t.cards.filter(function (c) { return c.phase === p.id; });
+    if (cs.length) h += '<section class="pgroup"><h3>' + esc(p.name) + "<span>" + esc(p.when) + '</span></h3><div class="cards">' + cs.map(cardHTML).join("") + "</div></section>";
+  });
+  return h + '</div><p class="empty" id="nomatch" hidden>No cards match this filter.</p>';
+}
+function decisionsView() {
+  var h = '<h1>Decisions</h1><p class="lede">Every decision and gate in the plan, in one place. Write the outcome on the card and set it to Decided.</p>' + controlsHTML() + '<div id="cardlist">';
+  P.tracks.forEach(function (t) {
+    var cs = t.cards.filter(isDec);
+    if (cs.length) h += '<section class="pgroup"><h3>' + esc(t.name) + '</h3><div class="cards">' + cs.map(cardHTML).join("") + "</div></section>";
+  });
+  return h + '</div><p class="empty" id="nomatch" hidden>No cards match this filter.</p>';
+}
+function ideasView() {
+  return '<h1>Ideas</h1><p class="lede">A scratch list for the brainstorm (SC-5) and for anything that has no card yet. Shortlisted ideas become cards the next time the plan is edited.</p>' +
+    '<form class="idea-form" id="idea-form"><div class="field wide"><label for="idea-text">New idea</label><textarea id="idea-text" rows="2" placeholder="What is the idea, and what would it fix?"></textarea></div>' +
+    '<div class="field"><label for="idea-track">Track</label><select class="sm" id="idea-track">' + trackOptions("") + '</select></div><button type="submit" class="primary">Add idea</button></form>' + live("ideas");
+}
+function rulesView() {
+  return '<h1>Ground rules</h1><p class="lede">Standing rules that every track works under.</p><ul class="rules">' +
+    P.rules.map(function (r) { return "<li><strong>" + md(r.title) + "</strong> " + md(r.text) + "</li>"; }).join("") + "</ul>" +
+    '<h2>How this page works</h2><ul class="rules">' +
+    "<li>Statuses, ticked steps, notes and ideas save to this page's private database as you change them. They follow you across devices.</li>" +
+    "<li>The cards themselves live in <code>planning/plan.js</code> in the repo. To add, split or reword cards, ask Claude or edit that file through a pull request.</li>" +
+    "<li>Card IDs never change, so saved notes stay attached when the plan is edited.</li>" +
+    "<li>Claude can read your notes and update statuses when you ask in a session.</li>" +
+    "<li>Opened as a file from the repo, the page still works, but changes stay in that browser.</li></ul>" +
+    '<p class="tiny">Plan content version ' + esc(P.version) + ".</p>";
+}
+function railHTML() {
+  function link(id, name, n) { return '<a class="rl plain' + (view === id ? " on" : "") + '" href="#' + id + '"' + (view === id ? ' aria-current="page"' : "") + '><span class="rl-name">' + name + "</span>" + (n ? '<span class="rl-n">' + n + "</span>" : "") + "</a>"; }
+  var h = link("overview", "Overview") + link("timeline", "Timeline") + '<div class="rail-h">Tracks</div>';
+  P.tracks.forEach(function (t) {
+    var n = counts(t.cards);
+    h += '<a class="rl' + (view === t.id ? " on" : "") + '" href="#' + t.id + '"' + (view === t.id ? ' aria-current="page"' : "") + '><span class="rl-code">' + t.code + '</span><span class="rl-name">' + esc(t.short) + '</span><span class="rl-n">' + n.done + "/" + n.total + "</span>" + barHTML(n) + "</a>";
+  });
+  var od = order.filter(function (c) { return isDec(c) && !closed(statusOf(c)); }).length, ni = Object.keys(S.ideas).length;
+  return h + '<div class="rail-h">Working lists</div>' + link("decisions", "Decisions", od ? od + " open" : "") + link("ideas", "Ideas", ni || "") + link("rules", "Ground rules");
+}
+
+/* ---------- drawing ---------- */
+function size(el) { el.style.height = "auto"; if (el.scrollHeight) el.style.height = (el.scrollHeight + 2) + "px"; }
+function sizeAll(root) { root.querySelectorAll("textarea").forEach(size); }
+function setField(id, v) { var el = document.getElementById(id); if (el && document.activeElement !== el && el.value !== v) { el.value = v; size(el); } }
+function syncCard(el) {
+  var c = cards[el.getAttribute("data-card")]; if (!c) return;
+  var s = statusOf(c), st = cst(c.id), sel = el.querySelector("select.status"), meta = el.querySelector("[data-meta]");
+  el.setAttribute("data-status", s);
+  if (sel && sel.value !== s) sel.value = s;
+  if (meta) meta.innerHTML = metaHTML(c);
+  (c.checklist || []).forEach(function (it) { var cb = document.getElementById("tk-" + c.id + "-" + it.id); if (cb) cb.checked = tickOf(c, it); });
+  setField("nt-" + c.id, st.notes || ""); setField("dc-" + c.id, st.decision || "");
+}
+function applyFilter() {
+  var list = document.getElementById("cardlist"); if (!list) return;
+  var a = document.activeElement, shown = 0;
+  list.querySelectorAll(".pgroup").forEach(function (g) {
+    var any = false;
+    g.querySelectorAll(".card").forEach(function (el) {
+      var s = el.getAttribute("data-status"), show = filter === "all" || (filter === "open" ? !closed(s) : s === "done") || el.contains(a);
+      el.hidden = !show; if (show) { any = true; shown++; }
+    });
+    g.hidden = !any;
+  });
+  var none = document.getElementById("nomatch"); if (none) none.hidden = shown > 0;
+}
+function forceLive(name) { main.querySelectorAll('[data-live="' + name + '"]').forEach(function (el) { el.innerHTML = LIVE[name](el.getAttribute("data-arg")); sizeAll(el); }); }
+function refresh() {
+  var a = document.activeElement;
+  if (!rail.contains(a)) rail.innerHTML = railHTML();
+  main.querySelectorAll("[data-live]").forEach(function (el) {
+    if (el.contains(a)) return;
+    el.innerHTML = LIVE[el.getAttribute("data-live")](el.getAttribute("data-arg"));
+    if (el.getAttribute("data-live") === "ideas") sizeAll(el);
+  });
+  main.querySelectorAll("[data-card]").forEach(function (el) { syncCard(el); });
+  var tn = main.querySelector('[data-act="tracknotes"]'); if (tn) setField(tn.id, (S.tracks[tn.getAttribute("data-track")] || {}).notes || "");
+  applyFilter();
+}
+function render() {
+  rail.innerHTML = railHTML();
+  var h = store.mode === "local" ? '<p class="banner">This copy is not connected to the saved notes. Changes made here stay in this browser.</p>' : "";
+  h += view === "overview" ? overviewView() : view === "timeline" ? timelineView() : view === "decisions" ? decisionsView() : view === "ideas" ? ideasView() : view === "rules" ? rulesView() : trackView(tracks[view]);
+  main.innerHTML = h;
+  applyFilter(); sizeAll(main);
+  var on = rail.querySelector(".on"); if (on && rail.scrollWidth > rail.clientWidth) rail.scrollLeft = Math.max(0, on.offsetLeft - rail.offsetLeft - 16);
+}
+function route() {
+  var h = (location.hash || "").replace(/^#/, ""), target = null;
+  if (cards[h]) { target = h; view = trackOf[h].id; filter = "all"; openSet[h] = 1; lsSet("wp28.open", openSet); }
+  else view = (STATIC[h] || tracks[h]) ? h : "overview";
+  render();
+  var el = target && document.getElementById("c-" + target);
+  if (el) { el.classList.add("flash"); el.scrollIntoView({ block: "center" }); } else window.scrollTo(0, 0);
+}
+function setOpen(card, open) {
+  var id = card.getAttribute("data-card"), body = document.getElementById("b-" + id), btn = card.querySelector(".card-toggle");
+  if (!body) return;
+  body.hidden = !open; btn.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) { openSet[id] = 1; sizeAll(body); } else delete openSet[id];
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click", function (e) {
+  var b = e.target.closest ? e.target.closest("[data-act]") : null; if (!b) return;
+  var act = b.getAttribute("data-act");
+  if (act === "toggle") { var card = b.closest("[data-card]"); setOpen(card, document.getElementById("b-" + card.getAttribute("data-card")).hidden); lsSet("wp28.open", openSet); }
+  else if (act === "filter") { filter = b.getAttribute("data-f"); document.querySelectorAll('[data-act="filter"]').forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); }); applyFilter(); }
+  else if (act === "openall" || act === "closeall") { main.querySelectorAll("[data-card]").forEach(function (card) { setOpen(card, act === "openall"); }); lsSet("wp28.open", openSet); }
+  else if (act === "del") { var slot = b.parentNode; slot.innerHTML = '<span class="tiny">Delete this idea?</span> <button type="button" class="ghost danger" data-act="delyes">Delete</button> <button type="button" class="ghost" data-act="delno">Keep</button>'; slot.querySelector('[data-act="delno"]').focus(); }
+  else if (act === "delno") { b.parentNode.innerHTML = '<button type="button" class="ghost" data-act="del">Delete</button>'; }
+  else if (act === "delyes") { var iid = b.closest("[data-idea]").getAttribute("data-idea"); delete S.ideas[iid]; saveDoc("ideas", iid, 0); forceLive("ideas"); rail.innerHTML = railHTML(); }
+});
+document.addEventListener("change", function (e) {
+  var el = e.target, act = el.getAttribute && el.getAttribute("data-act"); if (!act) return;
+  var card = el.closest("[data-card]"), id = card && card.getAttribute("data-card");
+  if (act === "status") { var v = el.value; mut("cards", id, function (d) { d.status = v; }); refresh(); }
+  else if (act === "tick") { var item = el.getAttribute("data-item"), on = el.checked; mut("cards", id, function (d) { d.ticks = d.ticks || {}; d.ticks[item] = on; }); refresh(); }
+  else if (act === "ideastate" || act === "ideatrack") {
+    var iid = el.closest("[data-idea]").getAttribute("data-idea"), val = el.value;
+    mut("ideas", iid, function (d) { if (act === "ideastate") d.state = val; else d.track = val; });
+    if (act === "ideastate") forceLive("ideas");
+  }
+});
+document.addEventListener("input", function (e) {
+  var el = e.target, act = el.getAttribute && el.getAttribute("data-act"); if (!act || el.tagName !== "TEXTAREA") return;
+  size(el);
+  var v = el.value;
+  if (act === "notes" || act === "decision") mut("cards", el.closest("[data-card]").getAttribute("data-card"), function (d) { d[act] = v; }, 900);
+  else if (act === "tracknotes") mut("tracks", el.getAttribute("data-track"), function (d) { d.notes = v; }, 900);
+  else if (act === "ideatext") mut("ideas", el.closest("[data-idea]").getAttribute("data-idea"), function (d) { d.text = v; }, 900);
+});
+document.addEventListener("focusout", function (e) {
+  if (e.target && e.target.tagName === "TEXTAREA" && e.target.getAttribute("data-act")) { flushAll(); setTimeout(refresh, 0); }
+});
+document.addEventListener("submit", function (e) {
+  if (e.target.id !== "idea-form") return;
+  e.preventDefault();
+  var ta = document.getElementById("idea-text"), tr = document.getElementById("idea-track"), text = ta.value.trim();
+  if (!text) { ta.focus(); return; }
+  var id = "i" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  S.ideas[id] = { text: text, track: tr.value, state: "new", created: new Date().toISOString() };
+  saveDoc("ideas", id, 0);
+  ta.value = ""; size(ta); forceLive("ideas"); rail.innerHTML = railHTML();
+});
+document.addEventListener("visibilitychange", function () { if (document.visibilityState === "hidden") flushAll(); });
+window.addEventListener("pagehide", flushAll);
+window.addEventListener("hashchange", route);
+
+/* ---------- start ---------- */
+route(); setSync();
+var cl = window.claude;
+if (!cl || typeof cl.use !== "function") startLocal();
+else cl.use("db").then(function (db) { if (db) startDb(db); else startLocal(); }, function () { startLocal(); });
+})();
+</script>
