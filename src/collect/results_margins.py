@@ -12,8 +12,13 @@ column per round: both the first choice and the final round are kept.
 Margins, matching the forecast's definitions (src/model/forecast.py):
   - two-party: 100*(D side - R)/(D side + R). D side = the frozen forecast's D-side nominee (an independent in NE, ID,
     SD), matched by last name; otherwise the leading Democrat. R = the leading Republican (CA-6: Kiley, I, ex-R).
+  - three or more significant candidates (THIRD_SIG): a candidate outside the major parties with 10%+ of the vote is
+    counted with whichever of the Democrat and the Republican trails, so the race scores as the two-way race the model
+    was built for (AK-AL 2026: Hill (I) with Hafner (D) against Begich (R)). The margin's sign can then disagree with
+    the winner where the two trailing candidates together out-poll the leader; scorecard.py's sign check reports it.
   - MT Senate (MULTI_CANDIDATE in forecast.py): raw margin, best non-Republican minus Republican as % of all votes.
-  - Ranked choice: the final round. Georgia: the Nov 3 count (no runoff).
+  - Ranked choice: the final round (a Democrat eliminated earlier leaves the surviving significant independent as the
+    D side). Georgia: the Nov 3 count (no runoff).
 Checks per box: candidate votes add up to the box's total (within 0.5%), listed % match the votes (within 0.3 pts). The
 sign of each margin is checked against the called winner in scorecard.py.
 
@@ -39,6 +44,14 @@ from wiki import STATE_ABBR, party_code  # noqa: E402
 
 PAGE_SOURCE = "wikipedia_results_pages"
 MULTI_CANDIDATE = {"MT"}
+# A candidate outside the two major parties with at least this share of a round's votes is a third side, folded into
+# the trailing major-party candidate (margins()). In 2026 the shares jump from 7.8% (MT-2, Eisenhauer) to 41.7%
+# (AK-AL, Hill): any cut between the two gives the same result; below 7.8% it would start moving two-way races.
+THIRD_SIG = 0.10
+WRITE_IN = re.compile(r"^\s*(write-?ins?|scattering|others?|all others)\b", re.I)   # never a third side
+# Margin definition written into margins_history_*.csv. Bump it when the definition changes: the "margin swung with no
+# new votes" tripwire (settledness) only compares margins computed under the same rule.
+MARGIN_RULE = "fold-third"
 SKIP_ROW = re.compile(r"^(total|turnout|registered|majority|plurality|blank|void|invalid|rejected|over ?votes|under ?votes|"
                       r"inactive|exhausted|.*\b(hold|gain)\b)", re.I)
 ORD = re.compile(r"(\d+)(?:st|nd|rd|th)\s+congressional district", re.I)
@@ -242,7 +255,15 @@ def checks(box):
 
 
 def margins(rows, dside_name=None, dside_party="D", multi=False, alt_opponent=None):
-    """Margin of the D side over the leading Republican from a box's rows (final-round votes)."""
+    """Margin of the D side over the leading Republican from a box's rows (final-round votes).
+
+    A race with more than two significant candidates is folded to two sides (THIRD_SIG): a candidate outside the two
+    major parties with at least that share of the round's votes is counted with whichever of the Democrat and the
+    Republican trails, so a three-way race scores like the two-way race the model was built for (AK-AL 2026: Hill (I)
+    counted with Hafner (D) against Begich (R)). A Democrat eliminated in an earlier ranked-choice round leaves the
+    surviving significant independent as the D side. The named stand-ins (the NE/ID/SD independents, CA-6 Kiley) and
+    MT's raw three-way margin are untouched. The D-side name records any fold."""
+    rows = candidate_rows(rows)   # not the fusion "Total" lines (Connecticut) or "Valid votes" (Alaska)
     v = [(x, x["votes_final"]) for x in rows if np.isfinite(x["votes_final"])]
     if len(v) < 2:
         return np.nan, np.nan, np.nan, ""
@@ -260,10 +281,26 @@ def margins(rows, dside_name=None, dside_party="D", multi=False, alt_opponent=No
         ds = sorted([(x, n) for x, n in v if last in fold(x["candidate"])], key=lambda z: -z[1])
     else:
         ds = sorted([(x, n) for x, n in v if x["party_code"] == "D"], key=lambda z: -z[1])
+    # significant third candidates: neither side's pick, outside the major parties, THIRD_SIG of this round's votes
+    taken = {id(x) for x, _ in ds[:1] + reps[:1]}
+    tot = sum(n for _, n in v)
+    third = sorted([(x, n) for x, n in v if id(x) not in taken and x["party_code"] not in ("D", "R") and n >= THIRD_SIG * tot
+                    and not WRITE_IN.match(str(x["candidate"]))],   # AL-3's box briefly listed 221,726 write-ins (Nov 8)
+                   key=lambda z: -z[1])
+    label = " + ".join(f"{x['candidate']} ({x['party_code']})" for x, _ in third)
+    if third and not ds and reps and dside_party != "I" and any(x["party_code"] == "D" for x in rows):
+        d, r = sum(n for _, n in third), reps[0][1]   # the Democrat was eliminated this round: the independent is the D side
+        return 100 * (d - r) / (d + r), d, r, label
     if not ds or not reps:
         return np.nan, (ds[0][1] if ds else np.nan), (reps[0][1] if reps else np.nan), ds[0][0]["candidate"] if ds else ""
-    d, r = ds[0][1], reps[0][1]
-    return 100 * (d - r) / (d + r), d, r, ds[0][0]["candidate"]
+    d, r, dname = ds[0][1], reps[0][1], ds[0][0]["candidate"]
+    if third:
+        t = sum(n for _, n in third)
+        if d < r:
+            d, dname = d + t, f"{dname} + {label}"
+        else:
+            r, dname = r + t, f"{dname} (vs {reps[0][0]['candidate']} + {label})"
+    return 100 * (d - r) / (d + r), d, r, dname
 
 
 def parse_senate(paths=None):
@@ -418,12 +455,16 @@ def settledness(df, chamber):
     day = df.snapshot.astype(str).str.extract(r"(\d{4}-\d{2}-\d{2})")[0]
     evidence = np.where(df.source.eq("wikipedia"), df.revision.astype(str), df.page_modified.astype(str))   # official/CA: report time
     src = df.source.astype(str).str.replace(r"\s*\(.*\)$", "", regex=True) if "source" in df else "wikipedia"
-    now = pd.DataFrame({"race_key": df.race_key, "source": src, "day": day, "cand_sum": df.cand_sum, "margin": df.margin, "evidence": evidence})
+    now = pd.DataFrame({"race_key": df.race_key, "source": src, "day": day, "cand_sum": df.cand_sum, "margin": df.margin, "evidence": evidence,
+                        "rule": MARGIN_RULE})
     hist = pd.read_csv(hist_path, dtype={"evidence": str}) if hist_path.exists() else now.iloc[0:0]
     if "cand_sum" not in hist:   # history written before the switch to candidate sums: start over
         hist = now.iloc[0:0]
     if "source" not in hist:
         hist["source"] = np.where(hist.race_key.str.contains(r"\|CA\|H\|"), "ca_sos", "wikipedia")
+    if "rule" not in hist:       # margins written before the rule was recorded: the plain two-party definition
+        hist["rule"] = "two-party"
+    hist["rule"] = hist.rule.fillna(MARGIN_RULE)   # rows other writers add without a rule (official_house backfill)
     idx = ["race_key", "source", "day"]
     hist = pd.concat([hist[~hist.set_index(idx).index.isin(now.set_index(idx).index)], now])
     hist = hist[hist.cand_sum.fillna(0) > 0].sort_values(idx)
@@ -440,7 +481,8 @@ def settledness(df, chamber):
     df["prev_cand_sum"] = df.race_key.map(prev.cand_sum)
     df["growth_since_prev"] = df.cand_sum / df.prev_cand_sum - 1
     new_evidence = pd.Series(evidence, index=df.index) != df.race_key.map(prev.evidence).astype(str)
-    swing = (df.margin - df.race_key.map(prev.margin)).abs()
+    # a swing against a margin computed under an earlier definition says nothing about the count (NaN: no flag)
+    swing = (df.margin - df.race_key.map(prev.margin)).abs().where(df.race_key.map(prev.rule).eq(MARGIN_RULE))
     df["count_flag"] = np.where(df.growth_since_prev < -0.001, "votes fell since the previous snapshot",
                                 np.where(swing.gt(SWING_FLAG) & df.growth_since_prev.abs().lt(SETTLED_GROWTH),
                                          "margin swung with almost no new votes", ""))
