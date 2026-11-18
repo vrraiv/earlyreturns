@@ -254,6 +254,32 @@ def checks(box):
     return issues, "; ".join(errors)
 
 
+PARTY_RANK = {"D": 0, "R": 1, "I": 2, "O": 3}
+
+
+def merge_lines(rows):
+    """One row per candidate. Fusion states (Connecticut, New York) list a candidate once per party line; the lines
+    are summed and the candidate keeps the major party among them (CT-5: Hayes, Democratic 139,000 + Working Families
+    7,353 = 146,353). Write-in rows are left as they are."""
+    add = lambda a, b: a + b if np.isfinite(a) and np.isfinite(b) else (a if np.isfinite(a) else b)  # noqa: E731
+    out, by = [], {}
+    for x in rows:
+        k = fold(x["candidate"])
+        if k in by and not WRITE_IN.match(str(x["candidate"])):
+            y = by[k]
+            for c in ("votes_first", "votes_final"):
+                if c in y and c in x:
+                    y[c] = add(float(y[c]), float(x[c]))
+            if PARTY_RANK.get(x["party_code"], 3) < PARTY_RANK.get(y["party_code"], 3):
+                y["party_code"], y["party"] = x["party_code"], x.get("party", "")
+            continue
+        y = dict(x)
+        out.append(y)
+        if not WRITE_IN.match(str(x["candidate"])):
+            by[k] = y
+    return out
+
+
 def margins(rows, dside_name=None, dside_party="D", multi=False, alt_opponent=None):
     """Margin of the D side over the leading Republican from a box's rows (final-round votes).
 
@@ -263,7 +289,7 @@ def margins(rows, dside_name=None, dside_party="D", multi=False, alt_opponent=No
     counted with Hafner (D) against Begich (R)). A Democrat eliminated in an earlier ranked-choice round leaves the
     surviving significant independent as the D side. The named stand-ins (the NE/ID/SD independents, CA-6 Kiley) and
     MT's raw three-way margin are untouched. The D-side name records any fold."""
-    rows = candidate_rows(rows)   # not the fusion "Total" lines (Connecticut) or "Valid votes" (Alaska)
+    rows = merge_lines(candidate_rows(rows))   # one row per candidate; not the fusion "Total" lines or "Valid votes"
     v = [(x, x["votes_final"]) for x in rows if np.isfinite(x["votes_final"])]
     if len(v) < 2:
         return np.nan, np.nan, np.nan, ""
