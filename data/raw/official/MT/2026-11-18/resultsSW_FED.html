@@ -1,0 +1,853 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head><title>
+	Montana Secretary of State
+</title><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><meta content="text/html; charset=windows-1252" http-equiv="Content-Type" /><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" /><link href="/Styles/styles.css" rel="stylesheet" /><link href="/Styles/stylesmobile.css" rel="stylesheet" /><link href="/Styles/sidemenu.css" rel="stylesheet" /><link href="/Styles/font_PT_Sans.css" rel="stylesheet" />
+    
+    <script src="/Scripts/jquery/jquery-3.6.0.min.js"></script>
+
+    <script src="/Scripts/Chart.min.js"></script>
+    <script src="/Scripts/utils.js"></script>
+    <!-- Twitter Widget -->
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function ()
+            { (i[r].q = i[r].q || []).push(arguments) }
+
+            , i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-31899828-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    <script>
+        var ServiceRoot = 'https://esersws.mt.gov/';
+        var Maps = {};
+        var Bound = {};
+        var mapBuilt = [];
+
+        window.onload = function () {
+            //WatchList = document.getElementById("hidWatchedRaces");
+            //var temp = document.cookie;
+            var WatchList = getCookie("MTTracked");
+            if (WatchList === undefined) { WatchList = ""; }
+
+            var checked = WatchList.split("_");
+            for (var i = 0; i < checked.length; i++) {
+                var checkbox = document.getElementById("chk-" + checked[i]);
+                if (checkbox !== null) { checkbox.checked = true; }
+            };
+        };
+    </script>
+    
+    <!--Animated Graphs-->
+    
+    <link href="/Scripts/animated-horizontal-charts/jqbar.css" rel="stylesheet" />
+    <script src="/Scripts/animated-horizontal-charts/jqbar.js"></script>
+    <!--Animated Graphs-->
+    <script src="/Scripts/jquery-jtemplates.js"></script>
+    <!--Maps-->
+    <link href="/maps/static/css/0_7_7_leaflet.css" rel="stylesheet" />
+    <script src="/maps/static/js/0_7_7_leaflet.js"></script>
+    
+    <link href="/maps/static/css/mt-maps.css" rel="stylesheet" />
+    <script src="/maps/static/js/CreateMap.js"></script>
+    <script src="/maps/static/js/BuildCountyMap.js"></script>
+    <script src="/maps/static/js/BuildDistrictMap.js"></script>
+    <script src="/Maps/static/js/BuildSWLegMap.js"></script>
+    <script src="/maps/static/js/underscore-umd-min.js"></script>
+    <!-- Leaflet Label -->
+    <script src="/maps/static/js/Leaflet.Label/BaseMarkerMethods.min.js"></script>
+    
+    <script src="/maps/static/js/Leaflet.Label/Label.min.js"></script>
+    <script src="/maps/static/js/Leaflet.Label/Map.Label.js"></script>
+    <script src="/maps/static/js/Leaflet.Label/Marker.Label.min.js"></script>
+    
+    <link href="/Maps/static/js/Leaflet.Zoom/L.Control.ZoomMin.css" rel="stylesheet" />
+    <script src="/Maps/static/js/Leaflet.Zoom/L.Control.ZoomMin.js"></script>
+    <!--[if lte IE 9]>
+        <script src="/maps/static/js/es5-shim.min.js"></script>
+    <![endif]-->
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.ie.css" />
+    <![endif]-->
+    <!--Maps-->
+    <script src="Scripts/BuildCounties.js"></script>
+    <script src="Scripts/BuildPrecincts.js"></script>
+</head>
+<body>
+    <form method="post" action="./resultsSW.aspx?type=FED&amp;map=CTY" id="ctl01">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="3D528200" />
+<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="JfsrbUvvuxMkk3awO7F4M61+KNDzYXT4Ws9egg0srwbq/a0/eHRlY3mJ+5OjiubVBHkFfA2TuQAOCOpcGuLjt7p3YqqJ4J8d41LRkPjlSMh3ZI9PaJ0vGopHJCIjST/LaZkPTz313J6o4cYGwDKiMHGdsvMq/13AljoKxSIyw6H5cpqTvqQCw0q/tox122sqnMNN2lnhxSuFR/SM2/Hbpf3lYxS9gz5ym/5snl4YlHGZSMRPVsrF/f5oTjbbhBXN0aY4QTW05/lUQbWYDg8J+dE243bXki7iTiutTd+xZII=" />
+        
+        <input type="hidden" name="ctl00$hidElectionType" id="hidElectionType" value="General" />
+        <input type="hidden" name="ctl00$hidElectionDate" id="hidElectionDate" value="11/3/2026" />
+        <div id="fader"><h1>Preparing Export...</h1></div>
+        <div class="outside-wrapper">
+            <div class="top-bluebar">
+                <div>
+                    
+                    
+                </div>
+                <div>
+                    
+                </div>
+                <div class="last-updated">
+                    Results last updated: 11/18/2026 6:15:16 AM MT
+                </div>
+            </div>
+            <!--End Top Blue Bar-->
+            <div class="top-header">
+                <div id="pnlHeader" class="section group">
+	
+                    <div class="col desktop" style="padding: 3px 0 0 8px;">
+                        <img alt="Montana State Seal" src="/Images/State-Seal.png" style="height: 78px;" title="Montana State Seal"/>
+                    </div>
+                    <div class="col mobile" style="padding: 3px 0 0 8px;">
+                        <img alt="Montana State Seal" src="/Images/State-Seal.png" style="height: 59px;" title="Montana State Seal"/>
+                    </div>
+                    <div class="header-banner">TEST</div>
+                    <div class="col top-header-box2">
+                        
+    <div class="dropdown mtc-icon-position">
+        <img class="share-icon dropbtn" alt="" title="Share" src="Images/my-tracked-contests-icon.png">
+        <div class="dropdown-content">
+            <div class="share-header">SHARE ON</div>
+            <div class="facebook">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://electionresults.mt.gov/resultsSW.aspx?type=FED&map=CTY" target="_blank"><img alt="Share on Facebook" title="Facebook" src="Images/facebook-icon.png" /></a>
+            </div>
+            <div class="twitter">
+                <a href="https://twitter.com/intent/tweet?text=https://electionresults.mt.gov/resultsSW.aspx?type=FED&map=CTY&hashtags=Vote" target="_blank"><img alt="Share on Twitter" title="Twitter" src="Images/twitter-icon.png" /></a>
+            </div>
+        </div>
+    </div>
+    <h3><a onclick="DownloadFile();" id="NavLinks_lnkbtnSWExport" href="javascript:__doPostBack(&#39;ctl00$NavLinks$lnkbtnSWExport&#39;,&#39;&#39;)">Export</a></h3>
+    <h2><a id="NavLinks_lnkTracked" href="MyTrackedContests.aspx">My Tracked Contests</a></h2>
+    <h3><a id="NavLinks_lnkHome" href="Default.aspx">Home</a></h3>
+
+                    </div>
+                    <!--End top-header-box2-->
+                
+</div>
+                <!--End Section Group-->
+            </div>
+            <!--End Top Header-->
+            <div class="header-box-wrapper">
+                <div class="section group">
+                    <div class="col header-box1">
+                        <h1>2026</h1>
+                        <h2>General Election - November 3, 2026</h2>
+                    </div>
+                    <!--End Header Box 1-->
+                    <div class="col header-box2">
+                        <div class="header-box-content-top">
+                            <h1>
+                                <a id="lnkVoterTurnout" class="button" href="VoterTurnoutDetails.aspx?map=TURN">Statewide Voter Turnout</a>
+                            </h1>
+                        </div>
+                        <!--End header-box2-content-top-->
+                        <div class="header-box-content-bottom">
+                            
+                            <div class="animate-position desktop">
+                                <div style="height: 150px"><canvas id="voter-turnout" voterturnout='494040' votertotal='314839'></canvas><div class="dough-percent"><span class="int">61</span><span class="dec">.08%</span></div></div>
+                            </div>
+                            <!--End Animate Position-->
+                            <div class="animate-position mobile" style="margin-top: -6px;">
+                                <div><canvas id="voter-turnout-mobile" voterturnout='494040' votertotal='314839'></canvas><div class="dough-percent"><span class="int">61</span><span class="dec">.08%</span></div></div>
+                            </div>
+                            <!--End Animate Position-->
+                        </div>
+                        <!--End header-box-content-bottom-->
+                        <div class="header-box-content-reg">
+                            <h2>Total Turnout <span>494,040</span><br />Registered Voters <span style='color: white;'>808,879</span></h2>
+                        </div>
+                    </div>
+                    <!--End Header Box 2-->
+                    <div class="col header-box3">
+                        <div class="header-box-content-top">
+                            <h1>
+                                <a id="lnkPrecinctsReporting" class="button" href="VoterTurnoutDetails.aspx?map=PREC">Precincts Reporting</a>
+                            </h1>
+                        </div>
+                        <!--End header-box2-content-top-->
+                        <div class="header-box-content-bottom">
+                            
+                            <div class="animate-position desktop">
+                                <div style="height: 150px"><canvas id="precinct-reported" precinctsreported='727' precinctspartial='1' precinctsnotreported='0'></canvas><div class="dough-percent"><span class="int">99</span><span class="dec">.86%</span></div></div>
+                            </div>
+                            <!--End Animate Position-->
+                            <div class="animate-position mobile">
+                                <div><canvas id="precinct-reported-mobile" precinctsreported='727' precinctspartial='1' precinctsnotreported='0'></canvas><div class="dough-percent"><span class="int">99</span><span class="dec">.86%</span></div></div>
+                            </div>
+                            <!--End Animate Position-->
+                        </div>
+                        <!--End header-box-content-bottom-->
+                        <div class="header-box-content-reg header-box-content-prec">
+                            <h2><div class='colordisc-yellow'></div>Partially <span style='color: #FFFF00;'>1</span><br/><div class='colordisc-orange'></div>Fully <span>727</span></h2>
+                        </div>
+                    </div>
+                    <div id="chartjs-tooltip"></div>
+                    <!--End Header Box 3-->
+                </div>
+                <!--End Section Group-->
+                
+            </div>
+            <!--End Header Box Wrapper-->
+            <!--Main Content-->
+            
+    
+    
+    
+    
+            <div class="wrapper-inside wrapper-border">
+                <div>
+                    <div class="display-results-box-wrapper">
+                        <div class="display-results-box-a">
+                            <h1>UNITED STATES SENATOR</h1>
+                        </div>
+                        <div class="wrapper-mobile">
+                            <div class="section group">
+                                <div class="col display-results-box-b">
+                                    <div class="col follow-checkbox">
+                                        <input class="css-checkbox" type="checkbox" onclick="CheckboxChecked(this);" id="chk-595">
+                                        <label class="css-label" for="chk-595">Follow This Contest</label>
+                                    </div>
+                                    <div class="recount" style="display: none;"><img class="recount-flag" alt="Race recount indicator" title="Recount Flag" src="Images/recount-icon.png" /></div>
+                                </div>
+                                <div class="display-results-box-g">
+                                    <div class="export-box dropdown" style="display: none">
+                                        <div class="export dropbtn">Export</div>
+                                        <div id="export-595" class="dropdown-content export-container">
+                                            <div class="export-header">EXPORT:</div>
+                                            <input onclick="DownloadFile(); __doPostBack('ctl00$MainContent$rptRace$ctl00$ctl00','')" name="ctl00$MainContent$rptRace$ctl00$ctl00" type="button" class="export-button" value="Precinct Level" raceid="450000000004069" party="" countyid="" />
+                                            <input onclick="DownloadFile(); __doPostBack('ctl00$MainContent$rptRace$ctl00$ctl01','')" name="ctl00$MainContent$rptRace$ctl00$ctl01" type="button" class="export-button" value="County Level" raceid="450000000004069" party="" />
+                                        </div>
+                                    </div>
+                                    <div class="share-box dropdown">
+                                        <img class="mtc-icon-inline-position dropbtn" alt="" title="Share" src="Images/my-tracked-contests-icon.png">
+                                        <div class="dropdown-content">
+                                            <div class="share-header">SHARE ON</div>
+                                            <div class="facebook">
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u=mtresults.totalvote.com/SearchResults.aspx?ID=595" target="_blank">
+                                                    <img alt="Share on Facebook" title="Facebook" src="Images/facebook-icon.png" /></a>
+                                            </div>
+                                            <div class="twitter">
+                                                <a href="https://twitter.com/intent/tweet?text=electionresults.mt.gov/SearchResults.aspx?ID=595&hashtags=Vote" target="_blank">
+                                                    <img alt="Share on Twitter" title="Twitter" src="Images/twitter-icon.png" /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-c">
+                                    <div class="precinct-fully">
+                                        Precincts Fully: 727 / 728
+                                    </div>
+                                    <div class="precinct-separator">|</div>
+                                    <div class="precinct-partial">
+                                        Partially: 1 / 728
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                            <div class="section group">
+                                <img src="\Images\27099.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>KURT ALME</h1>
+                                    <h2 class="Republican">Republican</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406927099"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>235,693</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <img src="\Images\27101.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>ALANI BANKHEAD</h1>
+                                    <h2 class="Democrat">Democrat</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406927101"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>59,984</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <img src="\Images\27100.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>KYLE AUSTIN</h1>
+                                    <h2 class="Libertarian">Libertarian</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406927100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>9,018</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <img src="\Images\27249.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>SETH BODNAR</h1>
+                                    <h2 class="Independent">Independent</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406927249"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>184,574</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <div class="col display-results-box-totalvotes">
+                                    <h2>total votes</h2>
+                                </div>
+                                <div class="col display-results-box-total">
+                                    <h2>489,269</h2>
+                                </div>
+                            </div>
+                        
+                </div>
+
+                <input class="button-maps" type="button" onclick="CreateMap('FED', '450000000004069', '1000', '');" value="Map" />
+                <input class="button-county" type="button" onclick="BuildCounty('FED', '450000000004069', '1000', '');" value="County Results" />
+
+                <div id="Map450000000004069" style="display: none;" class="slidingDiv-maps">
+                    <div class="section group">
+                        <div class="col map-col1" id="Mapinfo450000000004069">
+                            <div id="countyInfoBox450000000004069"></div>
+                        </div>
+                        <div class="col map-col2">
+                            <h1>Click on County Below</h1>
+                            <div class="map" id="Mapmap450000000004069">
+                            </div>
+                        </div>
+                        <div class="col map-col3">
+                            <div id="legendInfoBox450000000004069"></div>
+                        </div>
+                        <div class="modal"></div>
+                    </div>
+                </div>
+                <div id="County450000000004069" style="display: none" class="slidingDiv-maps"></div>
+            </div>
+        
+            <div class="wrapper-inside wrapper-border">
+                <div>
+                    <div class="display-results-box-wrapper">
+                        <div class="display-results-box-a">
+                            <h1>UNITED STATES REPRESENTATIVE 1ST CONGRESSIONAL</h1>
+                        </div>
+                        <div class="wrapper-mobile">
+                            <div class="section group">
+                                <div class="col display-results-box-b">
+                                    <div class="col follow-checkbox">
+                                        <input class="css-checkbox" type="checkbox" onclick="CheckboxChecked(this);" id="chk-593">
+                                        <label class="css-label" for="chk-593">Follow This Contest</label>
+                                    </div>
+                                    <div class="recount" style="display: none;"><img class="recount-flag" alt="Race recount indicator" title="Recount Flag" src="Images/recount-icon.png" /></div>
+                                </div>
+                                <div class="display-results-box-g">
+                                    <div class="export-box dropdown" >
+                                        <div class="export dropbtn">Export</div>
+                                        <div id="export-593" class="dropdown-content export-container">
+                                            <div class="export-header">EXPORT:</div>
+                                            <input onclick="DownloadFile(); __doPostBack('ctl00$MainContent$rptRace$ctl01$ctl00','')" name="ctl00$MainContent$rptRace$ctl01$ctl00" type="button" class="export-button" value="Precinct Level" raceid="450000000004067" party="" countyid="" />
+                                            <input onclick="DownloadFile(); __doPostBack('ctl00$MainContent$rptRace$ctl01$ctl01','')" name="ctl00$MainContent$rptRace$ctl01$ctl01" type="button" class="export-button" value="County Level" raceid="450000000004067" party="" />
+                                        </div>
+                                    </div>
+                                    <div class="share-box dropdown">
+                                        <img class="mtc-icon-inline-position dropbtn" alt="" title="Share" src="Images/my-tracked-contests-icon.png">
+                                        <div class="dropdown-content">
+                                            <div class="share-header">SHARE ON</div>
+                                            <div class="facebook">
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u=mtresults.totalvote.com/SearchResults.aspx?ID=593" target="_blank">
+                                                    <img alt="Share on Facebook" title="Facebook" src="Images/facebook-icon.png" /></a>
+                                            </div>
+                                            <div class="twitter">
+                                                <a href="https://twitter.com/intent/tweet?text=electionresults.mt.gov/SearchResults.aspx?ID=593&hashtags=Vote" target="_blank">
+                                                    <img alt="Share on Twitter" title="Twitter" src="Images/twitter-icon.png" /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-c">
+                                    <div class="precinct-fully">
+                                        Precincts Fully: 346 / 346
+                                    </div>
+                                    <div class="precinct-separator">|</div>
+                                    <div class="precinct-partial">
+                                        Partially: 0 / 346
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                            <div class="section group">
+                                <img src="\Images\27093.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>AARON FLINT</h1>
+                                    <h2 class="Republican">Republican</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406727093"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>124,854</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <img src="\Images\27094.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>SAM FORSTAG</h1>
+                                    <h2 class="Democrat">Democrat</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406727094"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>135,132</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <img src="" class="photo-display" style="display: none;" />
+                                <div class="col display-results-box-d">
+                                    <h1>NICK SHEEDY</h1>
+                                    <h2 class="Libertarian">Libertarian</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406727095"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>7,721</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <div class="col display-results-box-totalvotes">
+                                    <h2>total votes</h2>
+                                </div>
+                                <div class="col display-results-box-total">
+                                    <h2>267,707</h2>
+                                </div>
+                            </div>
+                        
+                </div>
+
+                <input class="button-maps" type="button" onclick="CreateMap('FED', '450000000004067', '2001', '');" value="Map" />
+                <input class="button-county" type="button" onclick="BuildCounty('FED', '450000000004067', '2001', '');" value="County Results" />
+
+                <div id="Map450000000004067" style="display: none;" class="slidingDiv-maps">
+                    <div class="section group">
+                        <div class="col map-col1" id="Mapinfo450000000004067">
+                            <div id="countyInfoBox450000000004067"></div>
+                        </div>
+                        <div class="col map-col2">
+                            <h1>Click on County Below</h1>
+                            <div class="map" id="Mapmap450000000004067">
+                            </div>
+                        </div>
+                        <div class="col map-col3">
+                            <div id="legendInfoBox450000000004067"></div>
+                        </div>
+                        <div class="modal"></div>
+                    </div>
+                </div>
+                <div id="County450000000004067" style="display: none" class="slidingDiv-maps"></div>
+            </div>
+        
+            <div class="wrapper-inside wrapper-border">
+                <div>
+                    <div class="display-results-box-wrapper">
+                        <div class="display-results-box-a">
+                            <h1>UNITED STATES REPRESENTATIVE 2ND CONGRESSIONAL</h1>
+                        </div>
+                        <div class="wrapper-mobile">
+                            <div class="section group">
+                                <div class="col display-results-box-b">
+                                    <div class="col follow-checkbox">
+                                        <input class="css-checkbox" type="checkbox" onclick="CheckboxChecked(this);" id="chk-594">
+                                        <label class="css-label" for="chk-594">Follow This Contest</label>
+                                    </div>
+                                    <div class="recount" style="display: none;"><img class="recount-flag" alt="Race recount indicator" title="Recount Flag" src="Images/recount-icon.png" /></div>
+                                </div>
+                                <div class="display-results-box-g">
+                                    <div class="export-box dropdown" style="display: none">
+                                        <div class="export dropbtn">Export</div>
+                                        <div id="export-594" class="dropdown-content export-container">
+                                            <div class="export-header">EXPORT:</div>
+                                            <input onclick="DownloadFile(); __doPostBack('ctl00$MainContent$rptRace$ctl02$ctl00','')" name="ctl00$MainContent$rptRace$ctl02$ctl00" type="button" class="export-button" value="Precinct Level" raceid="450000000004068" party="" countyid="" />
+                                            <input onclick="DownloadFile(); __doPostBack('ctl00$MainContent$rptRace$ctl02$ctl01','')" name="ctl00$MainContent$rptRace$ctl02$ctl01" type="button" class="export-button" value="County Level" raceid="450000000004068" party="" />
+                                        </div>
+                                    </div>
+                                    <div class="share-box dropdown">
+                                        <img class="mtc-icon-inline-position dropbtn" alt="" title="Share" src="Images/my-tracked-contests-icon.png">
+                                        <div class="dropdown-content">
+                                            <div class="share-header">SHARE ON</div>
+                                            <div class="facebook">
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u=mtresults.totalvote.com/SearchResults.aspx?ID=594" target="_blank">
+                                                    <img alt="Share on Facebook" title="Facebook" src="Images/facebook-icon.png" /></a>
+                                            </div>
+                                            <div class="twitter">
+                                                <a href="https://twitter.com/intent/tweet?text=electionresults.mt.gov/SearchResults.aspx?ID=594&hashtags=Vote" target="_blank">
+                                                    <img alt="Share on Twitter" title="Twitter" src="Images/twitter-icon.png" /></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-c">
+                                    <div class="precinct-fully">
+                                        Precincts Fully: 382 / 383
+                                    </div>
+                                    <div class="precinct-separator">|</div>
+                                    <div class="precinct-partial">
+                                        Partially: 1 / 383
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                            <div class="section group">
+                                <img src="\Images\27096.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>TROY DOWNING</h1>
+                                    <h2 class="Republican">Republican</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406827096"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>128,172</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <img src="\Images\27098.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>BRIAN J MILLER</h1>
+                                    <h2 class="Democrat">Democrat</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406827098"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>71,179</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <img src="\Images\27097.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>PATRICK MCCRACKEN</h1>
+                                    <h2 class="Libertarian">Libertarian</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406827097"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>4,046</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <img src="\Images\27252.png" class="photo-display"  />
+                                <div class="col display-results-box-d wide-28">
+                                    <h1>MICHAEL D EISENHAUER</h1>
+                                    <h2 class="Independent">Independent</h2>
+                                </div>
+                                <div class="col display-results-box-e">
+                                    <div class="wrapper-mobile">
+                                        <div class="bar-graph-wrap">
+                                            <div id="bar45000000000406827252"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col display-results-box-f">
+                                    <h1>17,199</h1>
+                                </div>
+                            </div>
+                            <hr />
+                        
+                            <div class="section group">
+                                <div class="col display-results-box-totalvotes">
+                                    <h2>total votes</h2>
+                                </div>
+                                <div class="col display-results-box-total">
+                                    <h2>220,596</h2>
+                                </div>
+                            </div>
+                        
+                </div>
+
+                <input class="button-maps" type="button" onclick="CreateMap('FED', '450000000004068', '2002', '');" value="Map" />
+                <input class="button-county" type="button" onclick="BuildCounty('FED', '450000000004068', '2002', '');" value="County Results" />
+
+                <div id="Map450000000004068" style="display: none;" class="slidingDiv-maps">
+                    <div class="section group">
+                        <div class="col map-col1" id="Mapinfo450000000004068">
+                            <div id="countyInfoBox450000000004068"></div>
+                        </div>
+                        <div class="col map-col2">
+                            <h1>Click on County Below</h1>
+                            <div class="map" id="Mapmap450000000004068">
+                            </div>
+                        </div>
+                        <div class="col map-col3">
+                            <div id="legendInfoBox450000000004068"></div>
+                        </div>
+                        <div class="modal"></div>
+                    </div>
+                </div>
+                <div id="County450000000004068" style="display: none" class="slidingDiv-maps"></div>
+            </div>
+        
+    
+    <script src="/Scripts/CountyTurnoutChart.js"></script>
+
+            
+            <input type="button" class="button" value="Election Resources" onclick="Show_Div(Div_1)" />
+            <div id="Div_1" style="display: none;" class="slidingDiv">
+                <ul style="margin: 16px 15% 16px 15%; padding: 0;">
+                    <li>
+                        <a id="lnkCountyList" href="ResultsList.aspx">Results By County</a>
+                    </li>
+                    <li>
+                        <a id="lnkERVoterTurnout" href="VoterTurnoutDetails.aspx">Voter Turnout</a>
+                    </li>
+                    <li>
+                        <a id="lnkRecount" href="ResultsSW.aspx?type=RECOUNT">Potential Recount Races</a>
+                    </li>
+                    <li>
+                        <a id="lnkResultsExport" href="ResultsExport.aspx">Statewide and County Exports</a>
+                    </li>
+                </ul>
+                <div class="disclaimer">
+                    Write-in results are not reported on this site. Unofficial write-in results for statewide or state district offices may be obtained from <a href="mailto:soselections@mt.gov" style="font-weight:bold;">soselections@mt.gov</a> after election day as counties finalize write-in totals. Unofficial write-in results for county and precinct offices may be obtained from the county election office.  Please note write-in votes are not considered in whether a precinct is marked as complete.                      
+                </div>
+                <div class="disclaimer">
+                    Election Night Results Reporting is a free service provided by the Office of Montana Secretary of State Christi Jacobsen in cooperation with Montana's Clerks & Recorders and Election Administrators.
+                </div>
+                <div class="contact-info">Montana Secretary of State<br />P.O. Box 202801<br />Helena, MT 59620-2801<br /><div class="contact-phone-number">406-444-9608 | <a href="http://sosmt.gov" style="font-weight:bold;">sosmt.gov</a> | Fax 406-444-2023</div></div>
+                <div class="resource-links">
+                    <a href="http://sosmt.gov/" target="_blank">Montana Secretary of State</a> | <a href="http://sosmt.gov/Elections/index.asp" target="_blank">Elections & Government Services</a> | <a href="http://mt.gov/1240-X06.pdf" target="_blank">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+        
+        <!--End Bottom Bluebar-->
+        
+        <!--End Outside Wrapper-->
+        <nav>
+            <a href="" id="menuToggle" title="show menu"><span class="navClosed"><em>show menu</em></span></a><h1>Election Results</h1><a href="/Default.aspx" title="Home">Home</a><a href="/resultsSW.aspx?type=FED&map=CTY" title="Federal">Federal</a><a href="/resultsSW.aspx?type=PSC&map=CTY" title="Public Service Commissioner">Public Service Commissioner</a><a href="/resultsSW.aspx?type=SCJ&map=CTY" title="State Supreme Court">State Supreme Court</a><a href="/resultsSW.aspx?type=JUD&map=CTY" title="District Court Judge">District Court Judge</a><a href="/resultsSW.aspx?type=SENATE&map=DIST" title="State Senate">State Senate</a><a href="/resultsSW.aspx?type=HOUSE&map=DIST" title="State House">State House</a><a href="/resultsSW.aspx?type=BQ&map=CTY" title="Ballot Issues">Ballot Issues</a><a href="/VoterTurnoutDetails.aspx?map=TURN" title="Voter Turnout">Voter Turnout</a><a href="/VoterTurnoutDetails.aspx?map=PREC" title="Precincts Reporting">Precincts Reporting</a><a href="/ResultsSW.aspx?type=RECOUNT" title="Potential Recount Races">Potential Recount Races</a><a href="/ResultsList.aspx" title="Results By County">Results By County</a><a href="/ResultsExport.aspx" title="Statewide and County Exports">Statewide and County Exports</a>
+        </nav>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+$(document).ready(function() {
+$('#bar45000000000406927099').jqbar({ label: '', value: 48, barColor: '#9C4A3D', barWidth: 25 });
+$('#bar45000000000406827096').jqbar({ label: '', value: 58, barColor: '#9C4A3D', barWidth: 25 });
+$('#bar45000000000406727093').jqbar({ label: '', value: 47, barColor: '#9C4A3D', barWidth: 25 });
+$('#bar45000000000406927101').jqbar({ label: '', value: 12, barColor: '#424B5B', barWidth: 25 });
+$('#bar45000000000406727094').jqbar({ label: '', value: 50, barColor: '#424B5B', barWidth: 25 });
+$('#bar45000000000406827098').jqbar({ label: '', value: 32, barColor: '#424B5B', barWidth: 25 });
+$('#bar45000000000406927100').jqbar({ label: '', value: 2, barColor: '#E6d605', barWidth: 25 });
+$('#bar45000000000406827097').jqbar({ label: '', value: 2, barColor: '#E6d605', barWidth: 25 });
+$('#bar45000000000406727095').jqbar({ label: '', value: 3, barColor: '#E6d605', barWidth: 25 });
+$('#bar45000000000406927249').jqbar({ label: '', value: 38, barColor: '#006699', barWidth: 25 });
+$('#bar45000000000406827252').jqbar({ label: '', value: 8, barColor: '#006699', barWidth: 25 });
+});//]]>
+</script>
+</form>
+    <script type="text/javascript">
+        function Show_Div(Div_id) {
+            if (false == $(Div_id).is(':visible')) {
+                $(Div_id).show(650);
+            }
+            else {
+                $(Div_id).hide(650);
+            }
+            return false;
+        }
+    </script>
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                $('#menuToggle').click(function (e) {
+                    var $parent = $(this).parent('nav');
+                    $parent.toggleClass('open');
+                    var navState = $parent.hasClass('open') ? 'hide' : 'show';
+                    $(this).attr('title', navState + ' navigation');
+                    setTimeout(function () {
+                        console.log('timeout set');
+                        $('#menuToggle > span').toggleClass('navClosed').toggleClass('navOpen');
+                    }, 200);
+                    e.preventDefault();
+                });
+            });
+        }(jQuery));
+        //@ sourceURL=pen.js
+    </script>
+    <script>
+        Chart.defaults.responsive = false;
+        //Chart.defaults.Doughnut.segmentShowStroke = false;
+        var chOptions = {
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            layout: {
+                padding: {
+                    top: 0,
+                    right: 0,
+                    left: 0,
+                    bottom: 0
+                }
+            }
+        };
+
+        var turnout = document.getElementById("voter-turnout");
+        const turnoutChart = turnout.getContext("2d");
+
+        var voterTurnout = turnout.attributes["voterturnout"].value;
+        var totalVoters = turnout.attributes["votertotal"].value;
+        turnoutChart.canvas.width = 125;
+        turnoutChart.canvas.height = 150;
+
+        var turnoutdata = {
+            labels: ['Votes Cast', 'Votes Not Cast'],
+            datasets: [{
+                data: [voterTurnout, totalVoters],
+                backgroundColor: ['#FAA437', '#F2F2F2'],
+                cutout: '80%',
+                borderWidth: 0
+            }]
+        };
+
+        var turnoutDough = new Chart(turnoutChart, {
+            type: 'doughnut',
+            data: turnoutdata,
+            options: chOptions
+        });
+
+        var mobileTurnout = document.getElementById("voter-turnout-mobile");
+        const mobileTurnoutChart = mobileTurnout.getContext("2d");
+        mobileTurnoutChart.canvas.width = 55;
+        mobileTurnoutChart.canvas.height = 75;
+
+        var mobileTurnoutDough = new Chart(mobileTurnoutChart, {
+            type: 'doughnut',
+            data: turnoutdata,
+            options: chOptions
+        });
+
+        var prec = document.getElementById("precinct-reported"); //$('#precinct-reported');
+        var precinctsReported = prec.attributes["precinctsreported"].value;
+        var precinctsPartial = prec.attributes["precinctspartial"].value;
+        var precinctsTotal = prec.attributes["precinctsnotreported"].value;
+        const precChart = prec.getContext("2d");
+        precChart.canvas.width = 125;
+        precChart.canvas.height = 150;
+
+        var precinctData = {
+            labels: ["Precincts Reported", "Precincts Partially Reported", "Precincts Not Reported"],
+            datasets: [{
+                data: [precinctsReported, precinctsPartial, precinctsTotal],
+                backgroundColor: ["#FAA437", "#FFFF00", "#F2F2F2"],
+                cutout: '80%',
+                borderWidth: 0
+            }]
+        };           
+
+        var precDough = new Chart(precChart, {
+            type: 'doughnut',
+            data: precinctData,
+            options: chOptions
+        });
+
+        var mobilePrec = document.getElementById("precinct-reported-mobile");
+        const mobilePrecChart = mobilePrec.getContext("2d");
+        mobilePrecChart.canvas.width = 55;
+        mobilePrecChart.canvas.height = 75;
+
+        var mobilePrecDough = new Chart(mobilePrecChart, {
+            type: 'doughnut',
+            data: precinctData,
+            options: chOptions
+        });
+    </script>
+</body>
+</html>
