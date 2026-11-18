@@ -404,7 +404,7 @@ def backfill_history(frozen_keys):
                 if key in frozen_keys and c["candidates"] and not runoff(st, c):
                     r = race_row(key, res, c)
                     rows.append({"race_key": key, "day": dd.name, "cand_sum": r["cand_sum"], "margin": r["margin"],
-                                 "evidence": r["as_of"], "source": "official"})
+                                 "evidence": r["as_of"], "source": "official", "rule": RM.MARGIN_RULE})
     if not rows:
         return
     path = OUT / "margins_history_house.csv"
