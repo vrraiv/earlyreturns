@@ -3,13 +3,13 @@
  "provisional": true,
  "sources": {
   "senate": {
-   "revision": 1386231950.0,
-   "page_modified": "2026-11-17T11:01:36Z",
+   "revision": 1386287484.0,
+   "page_modified": "2026-11-17T18:57:47Z",
    "snapshot": "data/raw/wikipedia_results/2026-11-17/2026_United_States_Senate_elections.html"
   },
   "house": {
-   "revision": 1386265913.0,
-   "page_modified": "2026-11-17T16:20:42Z",
+   "revision": 1386288011.0,
+   "page_modified": "2026-11-17T19:01:59Z",
    "snapshot": "data/raw/wikipedia_results/2026-11-17/2026_United_States_House_of_Representatives_elections.html"
   }
  },
@@ -8914,7 +8914,7 @@
    "status": "ok",
    "source": "Montana Secretary of State",
    "url": "https://electionresults.mt.gov/resultsSW.aspx?type=FED&map=CTY",
-   "as_of": "11/17/2026 10:35:26 AM MT (Montana time)",
+   "as_of": "11/17/2026 12:20:28 PM MT (Montana time)",
    "reporting": "precincts fully reporting 728/728, partially 0",
    "complete": true,
    "margin": -10.4433956672,
