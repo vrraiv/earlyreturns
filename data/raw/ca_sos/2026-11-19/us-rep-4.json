@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 4 - Districtwide Results",
+  "Reporting": "100% (500 of 500) precincts reporting",
+  "ReportingTime": "November 19, 2026, 1:59 p.m.",
+  "candidates": [
+    {
+      "Name": "Eric Jones",
+      "Party": "Dem",
+      "Votes": "133,738",
+      "Percent": "52.5",
+      "incumbent": false
+    },
+    {
+      "Name": "Mike Thompson",
+      "Party": "Dem",
+      "Votes": "120,947",
+      "Percent": "47.5",
+      "incumbent": false
+    }
+  ]
+}

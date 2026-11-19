@@ -1,14 +1,14 @@
 race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|AL|S|regular,Republican,R,Barry Moore,54.71,917338.0,917338.0
 2026|AL|S|regular,Democratic,D,Everett Wess,45.29,759321.0,759321.0
-2026|AK|S|regular,Democratic,D,Mary Peltola,50.12,144302.0,144302.0
-2026|AK|S|regular,Republican,R,Dan S. Sullivan,45.8,131844.0,131844.0
+2026|AK|S|regular,Democratic,D,Mary Peltola,50.13,144486.0,144486.0
+2026|AK|S|regular,Republican,R,Dan S. Sullivan,45.79,131965.0,131965.0
 2026|AK|S|regular,Republican,R,Gerald L. Heikes,2.12,6105.0,6105.0
-2026|AK|S|regular,No party listed,O,Daniel J. Sullivan Jr.,1.65,4760.0,4760.0
-2026|AK|S|regular,Write-in,O,Write-in,0.31,885.0,885.0
-2026|AR|S|regular,Republican,R,Tom Cotton,54.26,480802.0,480802.0
-2026|AR|S|regular,Democratic,D,Hallie Shoffner,42.41,375831.0,375831.0
-2026|AR|S|regular,Libertarian,O,Jeff Wadlin,3.33,29488.0,29488.0
+2026|AK|S|regular,No party listed,O,Daniel J. Sullivan Jr.,1.65,4765.0,4765.0
+2026|AK|S|regular,Write-in,O,Write-in,0.31,886.0,886.0
+2026|AR|S|regular,Republican,R,Tom Cotton,54.21,481495.0,481495.0
+2026|AR|S|regular,Democratic,D,Hallie Shoffner,42.46,377108.0,377108.0
+2026|AR|S|regular,Libertarian,O,Jeff Wadlin,3.33,29539.0,29539.0
 2026|CO|S|regular,Democratic,D,John Hickenlooper,60.5,1629507.0,1629507.0
 2026|CO|S|regular,Republican,R,Mark Baisley,34.98,942089.0,942089.0
 2026|CO|S|regular,Forward,O,Bob Chew,2.63,70794.0,70794.0
@@ -38,8 +38,8 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|KY|S|regular,Democratic,D,Charles Booker,42.9,612357.0,612357.0
 2026|KY|S|regular,Kentucky,O,Christopher Campbell,2.09,29892.0,29892.0
 2026|KY|S|regular,Write-in,O,Write-in,0.01,158.0,158.0
-2026|LA|S|regular,Republican,R,Julia Letlow,50.88,746476.0,746476.0
-2026|LA|S|regular,Democratic,D,Jamie Davis,49.12,720521.0,720521.0
+2026|LA|S|regular,Republican,R,Julia Letlow,50.88,746466.0,746466.0
+2026|LA|S|regular,Democratic,D,Jamie Davis,49.12,720516.0,720516.0
 2026|ME|S|regular,Democratic,D,Troy Jackson,53.07,376955.0,376955.0
 2026|ME|S|regular,Republican,R,Susan Collins,46.87,332918.0,332918.0
 2026|ME|S|regular,Write-in,O,Write-in,0.01,488.0,488.0
@@ -48,12 +48,13 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|MA|S|regular,Independent,I,Shiva Ayyadurai,2.3,59837.0,59837.0
 2026|MA|S|regular,Socialism and Liberation,O,Joe Tache,2.17,56530.0,56530.0
 2026|MA|S|regular,Write-in,O,Write-in,,,
-2026|MI|S|regular,Democratic,D,Abdul El-Sayed,52.54,2520895.0,2520895.0
-2026|MI|S|regular,Republican,R,Mike Rogers,45.46,2181111.0,2181111.0
-2026|MI|S|regular,Libertarian,O,Lydia Christensen,1.04,49707.0,49707.0
-2026|MI|S|regular,U.S. Taxpayers,O,Tim Long,0.55,26550.0,26550.0
-2026|MI|S|regular,Green,O,Douglas P. Marsh,0.26,12564.0,12564.0
-2026|MI|S|regular,Natural Law,O,Walter P. Kristy,0.15,7262.0,7262.0
+2026|MI|S|regular,Democratic,D,Abdul El-Sayed,52.56,2521693.0,2521693.0
+2026|MI|S|regular,Republican,R,Mike Rogers,45.44,2180388.0,2180388.0
+2026|MI|S|regular,Libertarian,O,Lydia Christensen,1.04,49692.0,49692.0
+2026|MI|S|regular,U.S. Taxpayers,O,Tim Long,0.55,26534.0,26534.0
+2026|MI|S|regular,Green,O,Douglas P. Marsh,0.26,12553.0,12553.0
+2026|MI|S|regular,Natural Law,O,Walter P. Kristy,0.15,7253.0,7253.0
+2026|MI|S|regular,Write-in,O,Write-in,0.0,10.0,10.0
 2026|MN|S|regular,Democratic (DFL),D,Peggy Flanagan,53.7,1520871.0,1520871.0
 2026|MN|S|regular,Republican,R,Michele Tafoya,43.56,1233476.0,1233476.0
 2026|MN|S|regular,Independent,I,Marisa Simonetti,1.47,41574.0,41574.0
@@ -122,7 +123,7 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|TX|S|regular,Libertarian,O,Ted Brown,1.92,190293.0,190293.0
 2026|TX|S|regular,Write-in,O,Write-in,0.05,5112.0,5112.0
 2026|VA|S|regular,Democratic,D,Mark Warner,61.6,2251628.0,2251628.0
-2026|VA|S|regular,Republican,R,Bert Mizusawa,38.13,1393713.0,1393713.0
+2026|VA|S|regular,Republican,R,Bert Mizusawa,38.13,1393710.0,1393710.0
 2026|VA|S|regular,Write-in,O,Write-in,0.27,9800.0,9800.0
 2026|WV|S|regular,Republican,R,Shelley Moore Capito,58.33,266772.0,266772.0
 2026|WV|S|regular,Democratic,D,Rachel Fetty Anderson,37.91,173656.0,173656.0
