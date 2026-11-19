@@ -3,13 +3,13 @@
  "provisional": true,
  "sources": {
   "senate": {
-   "revision": 1386423481.0,
-   "page_modified": "2026-11-18T13:04:36Z",
+   "revision": 1386464572.0,
+   "page_modified": "2026-11-18T18:09:18Z",
    "snapshot": "data/raw/wikipedia_results/2026-11-18/2026_United_States_Senate_elections.html"
   },
   "house": {
-   "revision": 1386397609.0,
-   "page_modified": "2026-11-18T08:18:40Z",
+   "revision": 1386471086.0,
+   "page_modified": "2026-11-18T18:53:50Z",
    "snapshot": "data/raw/wikipedia_results/2026-11-18/2026_United_States_House_of_Representatives_elections.html"
   }
  },
@@ -8936,7 +8936,7 @@
    "status": "ok",
    "source": "Montana Secretary of State",
    "url": "https://electionresults.mt.gov/resultsSW.aspx?type=FED&map=CTY",
-   "as_of": "11/18/2026 6:15:16 AM MT (Montana time)",
+   "as_of": "11/18/2026 12:00:10 PM MT (Montana time)",
    "reporting": "precincts fully reporting 727/728, partially 1",
    "complete": false,
    "margin": -10.4480357431,
@@ -21349,8 +21349,8 @@
      "page_modified": "2026-11-18T04:52:24Z"
     },
     {
-     "revision": "1386422525.0",
-     "page_modified": "2026-11-18T12:54:08Z"
+     "revision": "1386435978.0",
+     "page_modified": "2026-11-18T14:51:57Z"
     },
     {
      "revision": "1386399859.0",
@@ -21362,7 +21362,7 @@
   },
   "completeness": {
    "senate": {
-    "counted": 33,
+    "counted": 34,
     "settled": 27,
     "of": 35
    },
@@ -21471,9 +21471,9 @@
      },
      "all": {
       "n": 175,
-      "mean": 6.390353259229395,
-      "rmse": 9.709587592436934,
-      "mae": 7.916558352795198
+      "mean": 6.812044372266601,
+      "rmse": 9.221989168538206,
+      "mae": 7.791470083813756
      }
     },
     "polls_fundamentals": {
@@ -21485,9 +21485,9 @@
      },
      "all": {
       "n": 175,
-      "mean": 5.927547054430774,
-      "rmse": 9.411468694490061,
-      "mae": 7.5604130471441024
+      "mean": 6.34923816746798,
+      "rmse": 8.890770928582333,
+      "mae": 7.43127403671396
      }
     },
     "polls_fundamentals_biasadj": {
@@ -21499,9 +21499,9 @@
      },
      "all": {
       "n": 175,
-      "mean": 7.683960404100465,
-      "rmse": 10.607059338833729,
-      "mae": 8.938209258160581
+      "mean": 8.105651517137671,
+      "rmse": 10.228324657099169,
+      "mae": 8.831278144941823
      }
     },
     "pocket_senate_wide_shift": {
@@ -21513,9 +21513,9 @@
      },
      "all": {
       "n": 175,
-      "mean": 7.683960404100465,
-      "rmse": 10.607059338833729,
-      "mae": 8.938209258160581
+      "mean": 8.105651517137671,
+      "rmse": 10.228324657099169,
+      "mae": 8.831278144941823
      }
     },
     "pocket_full_historical_bias": {
@@ -21527,9 +21527,9 @@
      },
      "all": {
       "n": 175,
-      "mean": 7.915134113657416,
-      "rmse": 10.776096547872406,
-      "mae": 9.126671830674601
+      "mean": 8.336825226694621,
+      "rmse": 10.41427767494134,
+      "mae": 9.022776185175571
      }
     }
    }
@@ -23533,6 +23533,18 @@
      "mu_polls_fundamentals_biasadj": -15.85
     },
     {
+     "race": "2026|IL|S|regular",
+     "count": 26.15,
+     "settled": false,
+     "status": "Wikipedia count",
+     "poll_avg": 13.94,
+     "n_polls": 3,
+     "miss_vs_polls": 12.21,
+     "mu_polls_only": 15.17,
+     "mu_polls_fundamentals": 15.28,
+     "mu_polls_fundamentals_biasadj": 15.71
+    },
+    {
      "race": "2026|IA|S|regular",
      "count": 4.34,
      "settled": true,
@@ -23773,14 +23785,14 @@
      "mu_polls_fundamentals_biasadj": 19.24
     }
    ],
-   "n_polled": 20,
+   "n_polled": 21,
    "note": "counts as of the latest run, most not final; shown, not scored",
-   "mean_miss": 3.553,
-   "median_miss": 3.3899999999999997,
+   "mean_miss": 3.9652380952380937,
+   "median_miss": 3.71,
    "mean_error_vs_mu": {
-    "polls_only": 4.006,
-    "polls_fundamentals": 3.9300000000000006,
-    "polls_fundamentals_biasadj": 4.7785
+    "polls_only": 4.338095238095238,
+    "polls_fundamentals": 4.26047619047619,
+    "polls_fundamentals_biasadj": 5.048095238095239
    }
   },
   "senate_margins": [
@@ -23867,7 +23879,7 @@
    {
     "race": "2026|IL|S|regular",
     "actual": null,
-    "counted": null,
+    "counted": 26.15,
     "settled": false,
     "source": "wikipedia",
     "mu_polls_only": 15.17,

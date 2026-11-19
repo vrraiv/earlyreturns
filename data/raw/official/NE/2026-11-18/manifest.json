@@ -1,17 +1,17 @@
 {
   "statewide.csv": {
     "url": "https://electionresults.nebraska.gov/resultsCSV.aspx?text=All&type=SW&map=CTY",
-    "retrieved": "2026-11-18T13:16:55",
+    "retrieved": "2026-11-18T19:03:01",
     "bytes": 2946
   },
   "index.html": {
     "url": "https://electionresults.nebraska.gov/",
-    "retrieved": "2026-11-18T13:16:56",
+    "retrieved": "2026-11-18T19:03:02",
     "bytes": 54770
   },
   "congress.csv": {
     "url": "https://electionresults.nebraska.gov/resultsCSV.aspx?text=All&type=CG&map=DIST",
-    "retrieved": "2026-11-18T13:17:17",
+    "retrieved": "2026-11-18T19:03:22",
     "bytes": 2192
   }
 }
