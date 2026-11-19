@@ -5,7 +5,8 @@ data/raw/wikipedia/, never this), parsed tables to data/scorecard/. Nothing in d
 data/final is read for writing or touched.
 
 Stage 1 (now): called winners. A race counts as called only when two independent markers on the overview pages agree:
-  - the green-tick winner markup in the Candidates cell, and
+  - the green-tick winner markup in the Candidates cell (or, once a state certifies and editors drop the tick, the
+    winner's name in bold), and
   - the status text ("Democratic gain", "Republican hold", "Incumbent re-elected", "Interim appointee elected").
 Stale status strings left over from the primaries ("Incumbent renominated", "advanced to general") imply no winner, so
 those races stay pending. Every disagreement is printed. Races are matched to the frozen forecast by state, district and
@@ -112,14 +113,29 @@ def col(labels, *keys):
     return None
 
 
+TICK_IMG = re.compile(r"green tick|check", re.I)
+HIDDEN = re.compile(r"display:\s*none")
+
+
+def has_tick(li):
+    """Winner tick markup: the tick image or the hidden "Y" the template leaves beside it."""
+    return bool(li.find("img", alt=TICK_IMG)) or any(s.get_text(strip=True) == "Y" for s in li.find_all("span", style=HIDDEN))
+
+
 def candidates(cell):
-    """[(name, party_code, party_text, is_winner)] from a Candidates cell."""
+    """[(name, party_code, party_text, is_winner)] from a Candidates cell.
+
+    The winner marker is the green tick. Once a state certifies, editors swap the tick for the certified-results style,
+    the winner's name in bold plus percentages (MD-1/2/3/7, 2026-11-19, rev 1386631900), so in a cell with no tick at
+    all a bold name counts as the marker instead. Bold is ignored whenever any tick is present (ticked winners are bold
+    too), and a bold item with no "(Party)" never becomes a candidate (Louisiana's "General election:" label)."""
     out = []
-    for li in cell.find_all("li") or [cell]:
+    items = cell.find_all("li") or [cell]
+    tickless = not any(has_tick(li) for li in items)
+    for li in items:
         li = BeautifulSoup(str(li), "lxml")  # work on a copy
-        win = bool(li.find("img", alt=re.compile(r"green tick|check", re.I)))
-        for s in li.find_all("span", style=re.compile(r"display:\s*none")):
-            win = win or s.get_text(strip=True) == "Y"
+        win = has_tick(li) or (tickless and li.find("b") is not None)
+        for s in li.find_all("span", style=HIDDEN):
             s.decompose()
         for s in li.find_all("sup"):
             s.decompose()
