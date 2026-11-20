@@ -18,10 +18,15 @@ Share-alike is required because many tables are adapted from Wikipedia (CC BY-SA
   Presidency Project's, not this project's to license.
 - **Cook PVI** (the Cook Political Report) and **expert ratings** (Cook, Sabato's Crystal Ball, Inside Elections and
   others), reproduced via Wikipedia, are their publishers' figures; credit them by name.
+- **The Downballot**'s sheets, kept in the gitignored `data/linked/` store, are The Downballot's. Tables derived from
+  them (such as `state_presidential_history.csv`) are covered above, with credit and a link to
+  [the-downballot.com/p/data](https://www.the-downballot.com/p/data); please do not rebuild their whole sheets from
+  this project's files.
 - **University of Michigan consumer sentiment** (in the raw FRED folder) is copyrighted and not used in any output.
 
 ## Sources to credit
 
 Wikipedia contributors (CC BY-SA 4.0); FiveThirtyEight / ABC News; VoteHub; Gallup via the American Presidency
 Project; BLS, BEA and EIA via FRED (public domain); the Federal Election Commission (public
-domain); state election offices and the California Secretary of State (public records); AtlasIntel (poll toplines).
+domain); state election offices and the California Secretary of State (public records); AtlasIntel (poll toplines); The
+Downballot (presidential results by state, with a link to its data page).

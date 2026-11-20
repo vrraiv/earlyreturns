@@ -11,3 +11,5 @@ data/raw/wikipedia_results_pages/
 data/raw/wikipedia_polls_asof/
 # project environment lives outside OneDrive (README "Environment"); this catches an accidental uv sync without UV_PROJECT_ENVIRONMENT
 .venv/
+# store-and-link sources (DATA.md "Linked sources"): raw copies stay local; the manifest of fetches is committed
+data/linked/*/

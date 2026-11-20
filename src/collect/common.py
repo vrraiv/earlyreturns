@@ -49,6 +49,48 @@ def fetch(source: str, name: str, url: str, params=None, headers=None, retries=3
     raise RuntimeError(f"failed {url}: {last}")
 
 
+# Store-and-link sources (DATA.md, "Linked sources"): free to use with credit, but they ask that whole tables not be
+# reproduced. Raw copies go to data/linked/<source>/<date>/ (gitignored); data/linked/manifest.json (committed) records
+# every fetch, so anyone can rebuild the store from the source. Only derived tables are committed.
+LINKED = ROOT / "data" / "linked"
+
+
+def gsheet_csv(sheet_id: str, gid) -> str:
+    """CSV export URL for one tab of a public Google Sheet."""
+    return f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
+
+
+def fetch_linked(source: str, name: str, url: str, page: str, meta=None, skip_existing=True, timeout=120) -> Path:
+    """Fetch a store-and-link file into data/linked/<source>/<date>/<name> and record it in the committed manifest.
+    page: the source's own page, which DATA.md and the site link to in place of our copy. meta: e.g. sheet id and tab."""
+    import hashlib
+    d = LINKED / source / TODAY
+    out = d / name
+    if not (skip_existing and out.exists() and out.stat().st_size > 0):
+        r = SESSION.get(url, timeout=timeout)
+        r.raise_for_status()
+        if not r.content or r.content.lstrip()[:15].lower().startswith((b"<!doctype", b"<html")):
+            raise RuntimeError(f"not a data file: {url}")   # a private or moved sheet answers with a sign-in page
+        d.mkdir(parents=True, exist_ok=True)
+        out.write_bytes(r.content)
+    mf = LINKED / "manifest.json"
+    m = json.loads(mf.read_text(encoding="utf-8")) if mf.exists() else {}
+    m.setdefault(source, {})[f"{TODAY}/{name}"] = {
+        "url": url, "page": page, **(meta or {}), "retrieved": dt.datetime.now().isoformat(timespec="seconds"),
+        "bytes": out.stat().st_size, "sha256": hashlib.sha256(out.read_bytes()).hexdigest()}
+    mf.write_text(json.dumps(m, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return out
+
+
+def latest_linked(source: str, name: str) -> Path:
+    """Most recent store copy of a linked-source file; says how to rebuild the store if it is missing."""
+    cands = sorted((LINKED / source).glob(f"*/{name}"))
+    if not cands:
+        raise FileNotFoundError(f"data/linked/{source}/*/{name} is not in the local store (it is gitignored); "
+                                f"run the source's collector to fetch it")
+    return cands[-1]
+
+
 def latest(source: str, name: str) -> Path:
     """Most recent raw copy of a file."""
     cands = sorted((RAW / source).glob(f"*/{name}"))
