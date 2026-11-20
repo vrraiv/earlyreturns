@@ -168,4 +168,5 @@ nothing. Options:
 2. Whether the popular vote should be pulled toward the national polls (the alternative in section 4).
 3. What to show before the nominees are known (EC-8).
 4. Third candidates: a state where one polls in double digits needs a rule, as for governors.
-5. Checked against the lessons list: not possible yet. The list (SC-4) waits for the final scorecard.
+5. The check against the 2026 lessons list is done at the design freeze (EC-9). The list (SC-4) waits for the final
+   scorecard, and the build does not wait for it.
