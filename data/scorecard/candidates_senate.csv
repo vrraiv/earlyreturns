@@ -80,7 +80,7 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|NJ|S|regular,Republican,R,Justin Murphy,34.8,1035906.0,1035906.0
 2026|NJ|S|regular,End the Corruption!,O,Veronica Fernandez,1.67,49818.0,49818.0
 2026|NJ|S|regular,Socialist Workers,O,Joanne Kuniansky,0.95,28290.0,28290.0
-2026|NJ|S|regular,Write-in,O,Eduardo Castillo,0.0,0.0,0.0
+2026|NJ|S|regular,Write-in,O,Eduardo Castillo,0.0,79.0,79.0
 2026|NM|S|regular,Democratic,D,Ben Ray Luján,63.26,458756.0,458756.0
 2026|NM|S|regular,Republican,R,Larry Marker,36.74,266434.0,266434.0
 2026|NC|S|regular,Democratic,D,Roy Cooper,58.75,2480638.0,2480638.0
@@ -135,8 +135,8 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|FL|S|special,Republican,R,Ashley Moody,50.86,4211733.0,4211733.0
 2026|FL|S|special,Democratic,D,Angie Nixon,48.0,3975375.0,3975375.0
 2026|FL|S|special,Independent,I,Neil J. Gillespie,1.14,94681.0,94681.0
-2026|OH|S|special,Democratic,D,Sherrod Brown,50.01,2302669.0,2302669.0
-2026|OH|S|special,Republican,R,Jon Husted,45.17,2080064.0,2080064.0
-2026|OH|S|special,Libertarian,O,Bill Redpath,2.79,128341.0,128341.0
-2026|OH|S|special,Independent,I,Greg Levy,2.04,93786.0,93786.0
+2026|OH|S|special,Democratic,D,Sherrod Brown,50.09,2323001.0,2323001.0
+2026|OH|S|special,Republican,R,Jon Husted,45.17,2090390.0,2090390.0
+2026|OH|S|special,Libertarian,O,Bill Redpath,2.79,129435.0,129435.0
+2026|OH|S|special,Independent,I,Greg Levy,2.04,94857.0,94857.0
 2026|OH|S|special,Write-in,O,Write-in,,,
