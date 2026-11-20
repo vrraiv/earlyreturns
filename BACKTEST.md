@@ -677,3 +677,30 @@ reach. Ratings passed with almost no margin; what speaks for them is the table a
 
 One version not run: ratings used only for races without late polls, which is where the whole gain is. It was not
 written down in advance, so it is left as the next candidate, not slipped in here.
+
+### Ratings for unpolled races only, written 2026-11-20 before its run
+
+Candidate `govprior_ratings_unpolled` (`--gov-lean ratings_unpolled`): a race with polls is forecast exactly as in
+the baseline (same prior, same weight on polls, same spread). A race with no polls takes the ratings prior
+(lean, environment, incumbency and rating, fitted as of the cycle on every earlier rated race), and its spread is
+the robust spread of that prior's own errors in those earlier races. As before, this starts in 2010. Office:
+governor. Expected: the gain of `govprior_ratings` in the unpolled races, with every polled race unchanged and
+coverage on competitive races no lower than the baseline's. It is the fifteenth candidate, and the second look at
+ratings.
+
+**Result (2026-11-20): passes clearly.** Pooled gap -0.019 against a standard deviation of 0.008 (-0.021 without
+2004; better in 6 of 11 cycles, the other five unchanged). Twenty races change, none of them polled; every polled
+race is the baseline's to the last digit. Coverage of the 80% range on competitive races stays at 81%, the count
+spread moves from 0.228 to 0.224, and log loss over all 239 races falls from 0.212 to 0.189, the same as ratings
+in every race gave (0.188) without that version's cost in polled races.
+
+- In the 20 unpolled races from 2010 the margin error falls from 19.2 to 10.4 points.
+- Their ranges are too narrow: the spread given is 6.8 points against that error of 10.4, and the 80% range held
+  40% of results (55% in the baseline, with a much wider and worse-centred range). These are nearly all safe
+  seats, so it costs little in win probabilities, but the spread for a ratings-only race should be re-estimated
+  before this is frozen. Not tuned here.
+- With the earlier-polls change as well (a confirmation run): gap -0.022, SD 0.008, better in 8 of 11 cycles,
+  coverage 80%, log loss over all races 0.187. The two overlap: earlier polls take 12 of the 20 races, ratings
+  the 8 with no poll in 60 days.
+
+That makes fifteen candidates. Three passes, from two ideas, both about races polls do not reach.

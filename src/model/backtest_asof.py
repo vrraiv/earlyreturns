@@ -29,7 +29,7 @@ Run:  python src/model/backtest_asof.py                  the baseline: writes da
       python src/model/backtest_asof.py --tag NAME       a candidate change: writes backtest_asof_NAME*.{json,csv}
       python src/model/backtest_asof.py --compare NAME   NAME against the baseline, cycle by cycle, on the same races
       options: --seed-shift N (other random draws, to see how much a score moves by chance)
-               --gov-lean pres|statewide|both|prevgov|approval|incprev|ratings (the governor prior; pres is the baseline)
+               --gov-lean pres|statewide|both|prevgov|approval|incprev|ratings|ratings_unpolled (the governor prior; pres is the baseline)
                --gov-poll-fallback all|forecast (a governor race with no polls in the final 21 days uses those 22
                to 60 days out: in the fit and the forecast, or in the forecast only)
                --gov-unpolled-sd robust|rms (the spread of a governor race forecast from the prior alone)
@@ -75,7 +75,8 @@ GOV_LEAN = "pres"                # the governor prior's lean measure; main() set
 GOV_PRIORS = {"pres": "actual ~ lean_avg2 + env + inc", "statewide": "actual ~ lean_sw + env + inc",
               "both": "actual ~ lean_avg2 + lean_sw + env + inc", "prevgov": "actual ~ lean_avg2 + prevgov + env + inc",
               "approval": "actual ~ lean_avg2 + env + inc + ap_agree + ap_lean",
-              "incprev": "actual ~ lean_avg2 + env + inc + inc_prev", "ratings": "actual ~ lean_avg2 + env + inc + rating"}
+              "incprev": "actual ~ lean_avg2 + env + inc + inc_prev", "ratings": "actual ~ lean_avg2 + env + inc + rating",
+              "ratings_unpolled": "actual ~ lean_avg2 + env + inc"}       # the ratings prior is fitted beside it, for unpolled races
 GOV_PRIOR_SD_SCALE, GOV_SD_SCALE = 1.0, 1.0   # --gov-prior-sd-scale, --gov-sd-scale (polled races)
 SW_YEARS = 6                     # statewide lean: Senate and governor results this many years back
 ELECTION = {y: pd.Timestamp(d) for y, d in {2018: "2018-11-06", 2020: "2020-11-03", 2022: "2022-11-08", 2024: "2024-11-05"}.items()}
@@ -466,8 +467,13 @@ def gov_estimate(tr, gen_miss, a, b):
     weight on polls and the prior error it implies, and the two national errors. `gen_miss` is the generic ballot's
     miss by cycle; a and b are the poll-average error curve."""
     base = smf.ols(GOV_PRIORS["pres"], tr).fit()
-    thin = GOV_LEAN == "ratings" and tr[tr.rating.notna()].cycle.nunique() < MIN_PRIOR      # too few rated cycles yet
-    prior = base if GOV_LEAN == "pres" or thin else smf.ols(GOV_PRIORS[GOV_LEAN], tr).fit()
+    thin = GOV_LEAN.startswith("ratings") and tr[tr.rating.notna()].cycle.nunique() < MIN_PRIOR      # too few rated cycles yet
+    prior = base if GOV_LEAN in ("pres", "ratings_unpolled") or thin else smf.ols(GOV_PRIORS[GOV_LEAN], tr).fit()
+    unp_r = {}
+    if GOV_LEAN == "ratings_unpolled" and not thin:
+        rf = smf.ols(GOV_PRIORS["ratings"], tr).fit()
+        unp_r = {"_g_unp_fit": rf, "g_sd_unp_rating": float(1.4826 * np.median(np.abs(rf.resid - np.median(rf.resid)))),
+                 "g_c_unp_rating": float(rf.params["rating"])}
     # a race without the candidate's lean measure takes the baseline prior
     tr = tr.assign(prior=prior.fittedvalues if prior is base else prior.predict(tr).fillna(base.predict(tr)))
     resid = tr.actual - tr.prior
@@ -488,7 +494,7 @@ def gov_estimate(tr, gen_miss, a, b):
             "g_sd_prior_unpolled": float(1.4826 * np.median(np.abs(resid - np.median(resid)))),
             "g_sd_S": rms(cyc.S), "g_sd_H": rms(cyc.H), "g_rho": rho if np.isfinite(rho) else 0.0,
             "g_races": int(len(tr)), "g_races_polled": int(len(pol)), "g_cycles": int(tr.cycle.nunique()),
-            **({"g_sd_prior_rms": rms(resid)} if GOV_UNPOLLED_SD == "rms" else {}), **unp,
+            **({"g_sd_prior_rms": rms(resid)} if GOV_UNPOLLED_SD == "rms" else {}), **unp, **unp_r,
             **({} if prior is base else {"_g_fit": (prior, base), "g_races_lean_fit": int(prior.nobs),
                                                **{"g_c_" + k: float(v) for k, v in prior.params.items()}})}
 
@@ -675,6 +681,11 @@ def gov_forecast(rng, y, G, sd_nat, p, gov_u, pt):
     g["poll_weight"] = w
     g["sd_race"] = np.where(g.n > 0, GOV_SD_SCALE / np.sqrt(1 / sdp ** 2 + 1 / sp ** 2), p.get("g_sd_prior_rms", p["g_sd_prior_unpolled"]))
     g["mu"] = np.where(g.n > 0, w * g.avg.fillna(0) + (1 - w) * g.prior, g.prior)
+    if "_g_unp_fit" in p:
+        pr = p["_g_unp_fit"].predict(g.assign(env=G))
+        use = (g.n == 0) & pr.notna()
+        g["prior"], g["mu"] = np.where(use, pr, g.prior), np.where(use, pr, g.mu)
+        g["sd_race"] = np.where(use, p["g_sd_unp_rating"], g.sd_race)
     if "g_unp_c" in p and (g.n > 0).any():
         z = borrowed_gap(g.state.values, (g.avg - g.prior).values, (g.n > 0).values)
         g["mu"] = np.where(g.n > 0, g.mu, g.prior + p["g_unp_c"] * z)
