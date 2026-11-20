@@ -234,7 +234,9 @@ weighting applied to presidential polls.
    - pull toward an anchor, by an amount that depends on days out. The anchor until EC-3 exists: the incumbent
      party's margin predicted from the sitting president's approval on that date and the previous result;
    - continue (or reverse) the last month's movement;
-   - durability: how long the lead has stood at its present level;
+   - durability: a lead that has held for longer is pulled less toward the anchor. Measured as how much the
+     average has moved over the campaign so far (its day-to-day spread), so a steady race gets both a weaker pull
+     and a narrower range. Compared at the same number of days out, since every lead is older late in the year;
    - undecided voters: how they break (in proportion to decided voters, evenly, or a fitted mix), and a wider
      range when there are many;
    - whether a shift that comes with a change in presidential approval lasts longer. Candidate approval is not in
