@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20n",
+  version: "2026-11-20q",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -517,12 +517,15 @@ window.PLAN = {
             "State margin from state lean, the national environment and state polls, as in the Senate model.",
             "Error layers: national, region and state. The statewide-poll factor is shared with Senate and governor races.",
             "Maine and Nebraska award some votes by district.",
-            "Outputs: win probability, the electoral vote range, the tipping-point state, the chance that the popular vote and the electoral college split, and the chance of a tie."
+            "Outputs: win probability, the electoral vote range, the tipping-point state, the chance that the popular vote and the electoral college split, and the chance of a tie.",
+            "Written 2026-11-20: `ELECTORAL_COLLEGE.md`. It lists every feature and where it comes from, the model, the simulation, and the test.",
+            "Decided the same day. The test is an as-of backtest at 100, 60, 30 and 7 days before each election, which needs the poll average as of any date (EC-2) first. 2024 is held out and scored once. The burn-in is two elections for this office, so 2008 is scored. Four targets are scored: state margins and winners, the popular vote, the electoral vote count, and the gap between the tipping-point state and the popular vote.",
+            "The check against the lessons list moved to the design freeze (EC-9) on 2026-11-20: the list waits for the final scorecard, and the build (EC-2 to EC-6) does not. The adoption rule for this office was settled the same day (section 8 of the note): a candidate has to beat 19 in 20 of its own scrambled versions, clear simulation noise, and be better in at least three of the four scored elections; then 2024, once."
           ],
           checklist: [
             { id: "a", text: "Design note written" },
             { id: "b", text: "Open questions listed" },
-            { id: "c", text: "Checked against the lessons list" }
+            { id: "c", text: "Check against the lessons list: moved to EC-9", done: true }
           ] },
         { id: "EC-2", title: "Presidential poll average", kind: "story", phase: "p4", needs: ["EC-1", "DA-5"],
           why: "The Senate poll average needs to handle national and state presidential polls.",
@@ -549,7 +552,8 @@ window.PLAN = {
           why: "The electoral college is decided by correlated misses in a handful of states.",
           details: [
             "Estimate national, regional and state-level components from past presidential polling misses.",
-            "Test demographic similarity between states against plain regions."
+            "Test demographic similarity between states against plain regions.",
+            "At most three candidates, judged by the rule in `ELECTORAL_COLLEGE.md`, section 8. The baseline they have to beat already has regions and a tilt by lean."
           ],
           refs: ["src/model/error_structure.py"] },
         { id: "EC-6", title: "Simulation and outputs", kind: "story", phase: "p4", needs: ["EC-4", "EC-5"],
@@ -559,23 +563,28 @@ window.PLAN = {
             "Maine's and Nebraska's districts are simulated as their own races.",
             "A 269 to 269 tie is reported as its own outcome."
           ] },
-        { id: "EC-7", title: "Backtest, 2008 to 2024", kind: "story", phase: "p4", needs: ["EC-2", "EC-3", "EC-6"],
+        { id: "EC-7", title: "Backtest, 2008 to 2020, and the 2024 holdout", kind: "story", phase: "p4", needs: ["EC-2", "EC-3", "EC-6"],
           why: "Five elections is a small sample, so the backtest has to be read with care.",
           details: [
             "Each election forecast with only what was known then.",
             "Score the states (Brier and log loss), the winner, the electoral vote range and the tipping point.",
-            "Report the small sample plainly."
+            "Report the small sample plainly.",
+            "Decided at EC-1: 2008 to 2020 are scored as of each election, at four dates before it; 2024 is held out of every fit and choice and scored once when the design is frozen. The popular vote and the gap to the tipping-point state are scored beside the states and the count."
           ] },
         { id: "EC-8", title: "What to show before the nominees are known", kind: "decision", phase: "p4",
           why: "Nominees are unknown until mid-2028.",
           details: [
             "Options: nothing until there are nominees, a generic party matchup, or the leading candidates' matchups."
           ] },
-        { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8"],
+        { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8", "SC-4"],
           why: "After this the model only takes in new polls.",
           details: [
             "Backtest published on the site.",
-            "Parameters frozen for the season."
+            "Parameters frozen for the season.",
+            "Before the freeze, the design is checked against the 2026 lessons list (moved here from EC-1)."
+          ],
+          checklist: [
+            { id: "a", text: "Design checked against the lessons list" }
           ] }
       ]
     },
