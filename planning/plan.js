@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20f",
+  version: "2026-11-20h",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -151,7 +151,12 @@ window.PLAN = {
             "Scores: Brier, log loss, margin error, interval coverage and seat-count coverage.",
             "2026 stays out of every fit and is scored once per change.",
             "Governors go through the same harness, with the office as a setting. The first governor model already has its own backtest on 353 races; its scores become the governor baseline that GV-3 tries to beat.",
-            "Mostly implementation. The one decision is the adoption rule, and it is written after the baseline: the baseline scores, and how much they move by chance from cycle to cycle, set how large a gain has to be. It is still fixed before any candidate change is scored."
+            "Mostly implementation. The one decision is the adoption rule, and it is written after the baseline: the baseline scores, and how much they move by chance from cycle to cycle, set how large a gain has to be. It is still fixed before any candidate change is scored.",
+            "Built 2026-11-20: `src/model/backtest_asof.py`, written up in BACKTEST.md with the baseline scores and the adoption rule. The rule and the three-cycle burn-in were confirmed the same day, on the House and Senate baseline.",
+            "The start was reassessed against the data now in hand. Polls with results begin in 1998, so both chambers and the national environment are scored from 2004 (three earlier cycles to fit on) to 2024: 11 cycles.",
+            "House districts for 1998 to 2004 come from Gary Jacobson's House elections file, which arrived the same day (DA-3). It is used with credit to him and is not in the repo, so a clone without it scores the House from 2012 only. Districts from 2006 stay on `house_history.csv`.",
+            "The polls now set the start, not district lean. Jacobson's file runs back to 1946, but fitting on years before 1998 is DA-2's and CM-4's question.",
+            "Still to build: governors in the harness, with their baseline, and scoring 2026. The 2026 polls and results have to be put in the harness's shape, and that waits for the final scorecard (SC-1)."
           ],
           checklist: [
             { id: "a", text: "House districts in the backtest" },
@@ -160,7 +165,7 @@ window.PLAN = {
             { id: "d", text: "Baseline scores recorded for the current model, governors included" },
             { id: "c", text: "Adoption rule written down, before any candidate change is scored" }
           ],
-          refs: ["src/model/backtest.py", "src/model/house_structure.py", "src/model/governor_model.py"] },
+          refs: ["BACKTEST.md", "src/model/backtest_asof.py", "src/model/backtest.py", "src/model/house_structure.py", "src/model/governor_model.py"] },
         { id: "CM-2", title: "State-level House error and a carried state intercept", kind: "story", phase: "p4", needs: ["CM-1", "SC-6"],
           why: "History shows a shared state shock of about 3.3 points that the model left out.",
           details: [
@@ -294,7 +299,7 @@ window.PLAN = {
             "The Downballot's data page (the-downballot.com/p/data) has a start on several of these; each card below says which. Its terms: free use with a citation and a link, no reproducing whole spreadsheets, so it follows the store-and-link rule (OP-8).",
             "Availability checked on 2026-11-20. What to keep is still decided here, after the brainstorm.",
             "District results before 2006: in the repo for 1976 to 2018 (MIT Election Lab). The lab's current file, to 2024, needs a sign-in form that you would fill in. 1946 to 1974 exist only as saved Wikipedia pages, not yet parsed.",
-            "District lean before 2006: a public file has the presidential vote in every district for 1952 to 2004 (Broockman 2009, public domain), but without district labels. A trial on 2000 matched three in four contested districts on the House vote alone. Proving the match is DA-2.",
+            "District lean before 2006: a public file has the presidential vote in every district for 1952 to 2004 (Broockman 2009, public domain), but without district labels. A trial on 2000 matched three in four contested districts on the House vote alone. Proving the match is DA-2. Since then Gary Jacobson has sent his file (DA-3), which has the lean with district labels for 1952 to 2024, so the matching is no longer needed.",
             "Census demographics: The Downballot's district tables for 2016 to 2022 are fetched. Anything earlier needs the Census key.",
             "Primaries: 538's primary polls for 2020 and 2024 are in the repo. Earlier polls, results by state and date, and delegate rules are not collected.",
             "Senate specials: results with a special-election flag are in the repo for 1976 to 2024 (MIT Election Lab). Polls of past specials sit in 538's late-polls file, to be picked out with that flag.",
@@ -310,7 +315,8 @@ window.PLAN = {
             "Wikipedia's House pages before 2006 carry no district lean, so even 1998 and 2002 need a second source.",
             "Older years only help if coefficients are allowed to drift over time. Pooling them would hurt.",
             "The Downballot's presidential results by district start with 2008, so the years before 2006 still rest on the authors' files (DA-3).",
-            "Update 2026-11-20: the MIT House returns for 1976 to 2018 are in the repo, and so is a public file of district presidential vote for 1952 to 2004 without district labels (see DA-1). If its rows can be matched to districts on the House vote, stages 2 and 3 no longer wait for the authors."
+            "Update 2026-11-20: the MIT House returns for 1976 to 2018 are in the repo, and so is a public file of district presidential vote for 1952 to 2004 without district labels (see DA-1). If its rows can be matched to districts on the House vote, stages 2 and 3 no longer wait for the authors.",
+            "Update, later on 2026-11-20: Gary Jacobson's file arrived (DA-3). It has House vote, incumbency and district presidential vote by labelled district for 1946 to 2024, and agrees with `house_history.csv` on 2006 to 2024 (margins to a median of 0.04 points). It is the lean source for stages 2 and 3. Two limits: in a presidential year after a redistricting (1972, 1992, 2012) it has no lean known before the election, and the 1960s are patchy. It is not ours to redistribute, so an extended `house_history.csv` could not be committed with his values in it; the backtest (CM-1) reads his file directly for 1998 to 2004."
           ],
           checklist: [
             { id: "a", text: "National-series test done" },
@@ -326,7 +332,8 @@ window.PLAN = {
             "Kiernan Park-Egan: presidential results by congressional district, 1952 to 2024, published as maps.",
             "Gary Jacobson: House elections data from 1946, with district presidential vote, incumbency and challenger quality.",
             "Ask about format, coverage, how redistricting is handled, and terms of reuse.",
-            "You send these. Claude can draft them."
+            "You send these. Claude can draft them.",
+            "Jacobson replied on 2026-11-20 with the file: one row per district and election, 1946 to 2024, with a codebook. Presidential vote is recalculated for new districts; the previous House vote is not. Terms: use it and cite him as the source. He did not give leave to redistribute, so the file is kept out of the repo and only results derived from it are published."
           ],
           checklist: [
             { id: "a", text: "Request drafted" },
@@ -355,7 +362,7 @@ window.PLAN = {
             "Split out of DA-1 on 2026-11-20: the electoral college model needs this whatever the 2026 lessons say, so it does not wait for the brainstorm.",
             "Done on 2026-11-20.",
             "State results: every state from 1828 to 2024, built from The Downballot's vote counts (store-and-link, OP-8).",
-            "State and national polls: whole cycles from 2004 to 2024 and the final three weeks of 2000, with the sources cross-checked poll by poll.",
+            "State and national polls: whole cycles from 2004 to 2024 and the final two months of 2000, with the sources cross-checked poll by poll.",
             "National polls by day: 17 cycles from 1952 to 2016, from Jennings and Wlezien, checked on every run against Erikson and Wlezien's original file.",
             "Limits: whole-cycle state polls start in 2004, and the daily national series stops at 2016."
           ],
