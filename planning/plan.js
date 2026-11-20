@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20n",
+  version: "2026-11-20o",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -517,7 +517,10 @@ window.PLAN = {
             "State margin from state lean, the national environment and state polls, as in the Senate model.",
             "Error layers: national, region and state. The statewide-poll factor is shared with Senate and governor races.",
             "Maine and Nebraska award some votes by district.",
-            "Outputs: win probability, the electoral vote range, the tipping-point state, the chance that the popular vote and the electoral college split, and the chance of a tie."
+            "Outputs: win probability, the electoral vote range, the tipping-point state, the chance that the popular vote and the electoral college split, and the chance of a tie.",
+            "Written 2026-11-20: `ELECTORAL_COLLEGE.md`. It lists every feature and where it comes from, the model, the simulation, and the test.",
+            "Decided the same day. The test is an as-of backtest at 100, 60, 30 and 7 days before each election, which needs the poll average as of any date (EC-2) first. 2024 is held out and scored once. The burn-in is two elections for this office, so 2008 is scored. Four targets are scored: state margins and winners, the popular vote, the electoral vote count, and the gap between the tipping-point state and the popular vote.",
+            "Still open: the adoption rule (the governors' rule does not carry over to four elections), and the check against the lessons list, which waits for SC-4."
           ],
           checklist: [
             { id: "a", text: "Design note written" },
@@ -559,12 +562,13 @@ window.PLAN = {
             "Maine's and Nebraska's districts are simulated as their own races.",
             "A 269 to 269 tie is reported as its own outcome."
           ] },
-        { id: "EC-7", title: "Backtest, 2008 to 2024", kind: "story", phase: "p4", needs: ["EC-2", "EC-3", "EC-6"],
+        { id: "EC-7", title: "Backtest, 2008 to 2020, and the 2024 holdout", kind: "story", phase: "p4", needs: ["EC-2", "EC-3", "EC-6"],
           why: "Five elections is a small sample, so the backtest has to be read with care.",
           details: [
             "Each election forecast with only what was known then.",
             "Score the states (Brier and log loss), the winner, the electoral vote range and the tipping point.",
-            "Report the small sample plainly."
+            "Report the small sample plainly.",
+            "Decided at EC-1: 2008 to 2020 are scored as of each election, at four dates before it; 2024 is held out of every fit and choice and scored once when the design is frozen. The popular vote and the gap to the tipping-point state are scored beside the states and the count."
           ] },
         { id: "EC-8", title: "What to show before the nominees are known", kind: "decision", phase: "p4",
           why: "Nominees are unknown until mid-2028.",
