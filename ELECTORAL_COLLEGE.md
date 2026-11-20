@@ -143,16 +143,32 @@ clearly worse. Seven elections to learn from and four to score on will probably 
 elections, 1952 to 2016. It tests how the poll average's error shrinks as the election nears and how fundamentals
 should be weighed against it. It is a plain average, not EC-2's, it says nothing about states, and it stops at 2016.
 
-## 8. Adoption rule (decision)
+## 8. Adoption rule
 
-The governors' rule compares a gain with its spread over redrawn cycles. With four elections that spread means
-nothing. Options:
+*Decided 2026-11-20, before any candidate was run.* The governors' rule compares a gain with its spread over
+redrawn cycles. With four elections that spread means nothing, so the threshold here is computed from what a
+meaningless change scores on the same elections.
 
-1. **Recommended.** A candidate is written down before its run. It is adopted if the pooled score on its target
-   improves by more than 0.005 at 7 days, it is better in at least three of the four elections, and it is no worse
-   pooled at 30, 60 and 100 days. Then 2024, once.
-2. No rule: every candidate is reported, and choices are argued case by case.
-3. Wait for more history before choosing between structures, and ship the baseline.
+A candidate is written down before its run. It is adopted if all three hold, on the pooled score for its target at
+7 days:
+
+1. **It beats its own scrambled versions.** The candidate's feature is shuffled across states (one state's value
+   handed to another), which keeps its shape and its number of fitted parameters and removes its information. At
+   least 200 shuffles are run through the same backtest. The candidate's gain has to exceed the gain that 1 in 20
+   of them reaches.
+2. **It clears simulation noise.** The baseline is rerun with other random draws; the candidate's gain has to
+   exceed the largest change between reruns.
+3. **It is better in at least three of the four scored elections.**
+
+Then 2024, once, recorded whichever way it goes.
+
+- The 1 in 20 is the one number chosen by hand. It is a convention, not tuned to this data.
+- Scrambling asks whether a feature carries any information. Whether it adds to what the baseline already has (the
+  tilt by lean, for education) is answered by the comparison itself, since the baseline keeps that term.
+- A change with no feature to shuffle, such as the alternative in section 4, is judged on conditions 2 and 3 alone.
+- This is strict. With four elections a real but modest effect will often fail, which is what four elections can
+  support. Every candidate run is reported, pass or fail, with its scrambled versions' distribution.
+- The scores at 30, 60 and 100 days are reported beside the 7-day score and decide nothing by themselves.
 
 ## 9. Not in the repo yet
 
@@ -164,9 +180,8 @@ nothing. Options:
 
 ## 10. Open questions
 
-1. The adoption rule (section 8).
-2. Whether the popular vote should be pulled toward the national polls (the alternative in section 4).
-3. What to show before the nominees are known (EC-8).
-4. Third candidates: a state where one polls in double digits needs a rule, as for governors.
-5. The check against the 2026 lessons list is done at the design freeze (EC-9). The list (SC-4) waits for the final
+1. Whether the popular vote should be pulled toward the national polls (the alternative in section 4).
+2. What to show before the nominees are known (EC-8).
+3. Third candidates: a state where one polls in double digits needs a rule, as for governors.
+4. The check against the 2026 lessons list is done at the design freeze (EC-9). The list (SC-4) waits for the final
    scorecard, and the build does not wait for it.
