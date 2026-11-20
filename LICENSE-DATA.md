@@ -28,5 +28,5 @@ Share-alike is required because many tables are adapted from Wikipedia (CC BY-SA
 
 Wikipedia contributors (CC BY-SA 4.0); FiveThirtyEight / ABC News; VoteHub; Gallup via the American Presidency
 Project; BLS, BEA and EIA via FRED (public domain); the Federal Election Commission (public
-domain); state election offices and the California Secretary of State (public records); AtlasIntel (poll toplines); The Economist (presidential polls, MIT); The
+domain); state election offices and the California Secretary of State (public records); AtlasIntel (poll toplines); Will Jennings and Christopher Wlezien (national presidential polls 1952-2016, CC0); The Economist (presidential polls, MIT); The
 Downballot (presidential results by state, with a link to its data page).

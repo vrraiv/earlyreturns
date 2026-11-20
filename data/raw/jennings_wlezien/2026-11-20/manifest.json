@@ -1,0 +1,19 @@
+{
+  "LONG_MI_NATURE_20180111.tab": {
+    "url": "https://dvn-cloud-iqss.s3.amazonaws.com/10.7910/DVN/8421DX/161165dcde1-bc79675aeb9b?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27LONG_MI_NATURE_20180111.tab&response-content-type=text%2Ftab-separated-values&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261120T144746Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAZT3GWQ6FKBSH5I56%2F20261120%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=33f9bd62d846ca05474e6afab6fb43e703185fc127b12969cffc5eafee14761b",
+    "retrieved": "2026-11-20T09:48:00",
+    "bytes": 291997192
+  },
+  "us_presidential_2008_from_2016_version.csv": {
+    "url": "https://dataverse.harvard.edu/api/access/datafile/2533797",
+    "retrieved": "2026-11-20T09:59:48",
+    "bytes": 20648,
+    "note": "rows of the 2008-11-04 presidential election with a poll"
+  },
+  "us_presidential_2008_2012_from_2016_version.csv": {
+    "url": "https://dataverse.harvard.edu/api/access/datafile/2533797",
+    "retrieved": "2026-11-20T10:04:55",
+    "bytes": 36790,
+    "note": "rows of the 2008-11-04 and 2012-11-06 presidential elections with a poll"
+  }
+}

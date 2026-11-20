@@ -13,3 +13,5 @@ data/raw/wikipedia_polls_asof/
 .venv/
 # store-and-link sources (DATA.md "Linked sources"): raw copies stay local; the manifest of fetches is committed
 data/linked/*/
+# Jennings-Wlezien replication file (290 MB, 45 countries); the US presidential extract beside it is committed
+data/raw/jennings_wlezien/**/LONG_MI_NATURE_20180111.tab
