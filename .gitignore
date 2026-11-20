@@ -15,3 +15,5 @@ data/raw/wikipedia_polls_asof/
 data/linked/*/
 # Jennings-Wlezien replication file (290 MB, 45 countries); the US presidential extract beside it is committed
 data/raw/jennings_wlezien/**/LONG_MI_NATURE_20180111.tab
+# Gary Jacobson's House elections file, sent by email with leave to use and cite, not to redistribute (DATA.md "Linked sources")
+data/raw/jacobson/
