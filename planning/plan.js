@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20l",
+  version: "2026-11-20m",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -750,7 +750,8 @@ window.PLAN = {
           details: [
             "2026 governor results stay uncollected and unscored until this gate is passed.",
             "Record the frozen design: the commit, the parameters and the scoring rule.",
-            "Three decisions come from GV-3: whether to adopt the earlier-polls change (and in which of its two versions), which poll average the design names (the plain 21-day mean the model was fitted on, or the published weighted one), and what to do with a race that is three-way in the polls, since the model covers two-way races. A fourth: ratings in the prior for races without polls, which passed, with the spread of those races re-estimated first."
+            "Three decisions come from GV-3: whether to adopt the earlier-polls change (and in which of its two versions), which poll average the design names (the plain 21-day mean the model was fitted on, or the published weighted one), and what to do with a race that is three-way in the polls, since the model covers two-way races. A fourth: ratings in the prior for races without polls, which passed, with the spread of those races re-estimated first.",
+            "Decided 2026-11-20: adopt the earlier-polls change in its forecast-only version; adopt ratings for races without polls, once their spread is re-estimated and the 2026 ratings are added; feed the model the plain 21-day mean; and treat a three-way race as the Democrat against the strongest opponent in the polls, with a wider range, checked on the 13 past three-way races. None of this is built into the harness's default yet, and the gate is not passed."
           ] },
         { id: "GV-5", title: "Score 2026", kind: "story", phase: "p2", needs: ["GV-4", "SC-1"],
           why: "One clean out-of-sample test.",
