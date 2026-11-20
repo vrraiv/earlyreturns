@@ -1,0 +1,29 @@
+cycle,source_a,source_b,polls_a_in_reach_of_b,found_in_b,found_share,agree_within_1pt,exact,mean_margin_diff,mean_abs_margin_diff
+2004,Wikipedia,538 raw_polls,694,584,0.841,0.976,0.935,-0.022,0.115
+2004,538 raw_polls,Wikipedia,667,604,0.906,0.957,0.914,0.031,0.227
+2008,Wikipedia,Economist,1940,912,0.47,0.908,0.785,-0.048,0.383
+2008,Wikipedia,538 raw_polls,1051,916,0.872,0.948,0.786,0.013,0.261
+2008,Economist,Wikipedia,1312,897,0.684,0.916,0.798,0.014,0.363
+2008,Economist,538 raw_polls,755,479,0.634,0.95,0.871,0.025,0.256
+2008,538 raw_polls,Wikipedia,1082,927,0.857,0.942,0.779,-0.029,0.291
+2008,538 raw_polls,Economist,1082,504,0.466,0.925,0.831,-0.042,0.357
+2012,Wikipedia,Economist,1166,186,0.16,0.715,0.478,-0.364,1.27
+2012,Wikipedia,538 raw_polls,834,746,0.894,0.971,0.883,0.019,0.131
+2012,Economist,Wikipedia,1175,192,0.163,0.719,0.474,0.322,1.229
+2012,Economist,538 raw_polls,751,132,0.176,0.652,0.371,0.385,1.45
+2012,538 raw_polls,Wikipedia,908,756,0.833,0.956,0.873,0.059,0.195
+2012,538 raw_polls,Economist,907,127,0.14,0.638,0.386,-0.392,1.546
+2016,538 forecast,Economist,4153,1968,0.474,0.837,0.633,0.034,0.582
+2016,538 forecast,Wikipedia (national),840,557,0.663,0.838,0.372,0.201,0.586
+2016,538 forecast,538 raw_polls,2650,1530,0.577,0.875,0.745,0.0,0.424
+2016,Economist,538 forecast,2113,1802,0.853,0.883,0.654,0.169,0.45
+2016,Economist,Wikipedia (national),402,325,0.808,0.935,0.862,0.135,0.215
+2016,Economist,538 raw_polls,1238,779,0.629,0.9,0.657,0.16,0.441
+2016,Wikipedia (national),538 forecast,393,382,0.972,0.958,0.542,0.003,0.224
+2016,Wikipedia (national),Economist,393,318,0.809,0.899,0.736,-0.069,0.421
+2016,Wikipedia (national),538 raw_polls,247,176,0.713,0.83,0.517,-0.039,0.615
+2016,538 raw_polls,538 forecast,1151,1092,0.949,1.0,0.994,0.002,0.002
+2016,538 raw_polls,Economist,1127,637,0.565,0.945,0.804,-0.032,0.285
+2016,538 raw_polls,Wikipedia (national),178,120,0.674,0.958,0.733,0.089,0.225
+2020,538 archive,538 raw_polls,2429,1531,0.63,0.972,0.88,0.029,0.129
+2020,538 raw_polls,538 archive,1183,1151,0.973,0.998,0.996,-0.005,0.005

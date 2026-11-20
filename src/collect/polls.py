@@ -22,7 +22,7 @@ WAYBACK_538_PRES = {
 # The Economist's 2020 presidential model (github.com/TheEconomist/us-potus-model, MIT licence), pinned to its last
 # commit: full-cycle state and national polls for 2008 and 2012, compiled from HuffPost Pollster and others.
 ECONOMIST_SHA = "b89e602ec03e81c797c66cf2743af6fdae4aa526"
-ECONOMIST_FILES = ["all_polls_2008.csv", "all_polls_2012.csv"]
+ECONOMIST_FILES = ["all_polls_2008.csv", "all_polls_2012.csv", "all_polls.csv"]   # all_polls.csv is 2016
 GH = "https://raw.githubusercontent.com/fivethirtyeight/data/master/"
 
 

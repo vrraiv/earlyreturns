@@ -4,15 +4,15 @@ One source per cycle and geography, all in data/raw/ (window "full" = the whole 
   2000, and 2004 national   538 raw_polls.csv (538_github): late polls only (most in the final three weeks, none more
                             than about two months out), one Democrat-Republican pair per question. No full-cycle source:
                             Wikipedia's 2000 statewide page is a stub and there is no 2004 national page.
-  2004 and 2008 states      Wikipedia's "Statewide opinion polling for the <year> United States presidential election"
-                            (wikipedia_hist/, revision id kept): one or more tables per state, two-way and three-way.
-  2008 national, 2012       The Economist's presidential model repository (economist_potus/, pinned commit, MIT):
-                            state and national polls from January (2008) and March (2012), compiled from HuffPost
-                            Pollster. One Democrat-Republican pair per poll; no question ids.
-Where two full-cycle sources exist, the richer one was chosen on 2026-11-20 (state polls in all, late, and June to
-September): 2008 states, Wikipedia 1,609 polls in 51 states against The Economist's 1,004 in 42; 2012 states, The
-Economist 984 polls, 353 late, against Wikipedia's 1,254 and 332 late, near a tie, decided by the late window.
-Wikipedia's 2012 pages (three of them) parse too, via WIKI below, if that choice is revisited.
+  2004 states               Wikipedia's statewide polling page (wikipedia_hist/, revision id kept).
+  2008                      Wikipedia's statewide and nationwide polling pages.
+  2012 states               Wikipedia's three statewide polling pages (pre-2012, early/mid 2012, autumn).
+  2012 national             The Economist's presidential model repository (economist_potus/, pinned commit, MIT),
+                            from March. Wikipedia's national page starts only in September.
+Chosen on the cross-check of 2026-11-20 (pres_polls_crosscheck.py), which matches the sources poll by poll:
+Wikipedia agrees with 538's raw_polls.csv in 2004, 2008 and 2012 (84-91% of polls found, 95-98% of those within a
+point of margin). The Economist's 2008 file holds fewer polls, and its 2012 state polls carry dates about four days
+late (release dates, by the look of it), so it is used only where nothing else covers the months before September.
   2016                      538's 2016 forecast poll file (538_wayback/president_general_polls_2016.csv), polls-only
                             branch: November 2015 to Election Day, states, districts and national.
   2020, 2024                538's archived poll file (538_wayback/president_polls_historical.csv, Feb 2025 capture):
@@ -24,7 +24,8 @@ Outputs (data/interim/):
   president_general_polls.csv   one row per poll question: cycle, geo (state code, ME-1/ME-2/NE-1..3, or US),
                                 pollster, dates, the Democrat's and Republican's shares, margin (D-R), and flags:
                                 head_to_head (only those two answered), presumptive (Biden against Trump in
-                                2024, before his withdrawal), window ("late" or "full").
+                                2024, before his withdrawal), state_subsample (2016 state slices of national
+                                online panels), window ("late" or "full").
   president_poll_coverage.csv   cycle x geo: polls, pollsters, polls in the final three weeks, first poll date, and
                                 the result's two-party margin and lean (state_presidential_history.csv).
 
@@ -52,9 +53,10 @@ NOMINEES = {2000: ("Al Gore", "George W. Bush"), 2004: ("John Kerry", "George W.
 ABBR = {**STATE_ABBR, "District of Columbia": "DC"}
 RAW_GEO = {"M1": "ME-1", "M2": "ME-2", "N1": "NE-1", "N2": "NE-2", "N3": "NE-3"}
 BIDEN_OUT = pd.Timestamp("2024-07-21")
+SUBSAMPLERS = ["Google Consumer Surveys", "Ipsos", "SurveyMonkey", "CVOTER International"]
 COLS = ["cycle", "geo", "poll_id", "question_id", "pollster", "pollster_rating_id", "partisan", "population",
         "sample_size", "start_date", "end_date", "mid_date", "election_date", "days_to_election", "d_candidate",
-        "r_candidate", "d_pct", "r_pct", "margin", "n_answers", "head_to_head", "presumptive", "window",
+        "r_candidate", "d_pct", "r_pct", "margin", "n_answers", "head_to_head", "presumptive", "state_subsample", "window",
         "source", "url"]
 
 
@@ -68,9 +70,9 @@ def geo_archive(s):
 
 
 def raw_polls(all_rows=False):
-    """2000, and 2004 national. all_rows=True returns every presidential row before 2020, for the late-window check."""
+    """2000, and 2004 national. all_rows=True returns every presidential row (2000-2020), for the checks."""
     r = pd.read_csv(latest("538_github", "raw_polls.csv"), low_memory=False)
-    r = r[(r.type_simple == "Pres-G") & (r.cycle < 2020)].copy()
+    r = r[r.type_simple == "Pres-G"].copy()
     if not all_rows:
         r = r[(r.cycle == 2000) | ((r.cycle == 2004) & (r.location == "US"))]
     return pd.DataFrame({
@@ -113,14 +115,18 @@ POP = {"Likely Voters": "lv", "Registered Voters": "rv", "Adults": "a", "lv": "l
 
 
 def economist(year, national_only=False):
-    """2008 and 2012: state code or '--' for national; one row per poll."""
-    e = pd.read_csv(latest("economist_potus", f"all_polls_{year}.csv"))
+    """2008, 2012 and 2016 (the last only for the cross-check): state code or '--' for national. One row per poll in
+    2008 and 2012; 2016 has a row per population and question."""
+    e = pd.read_csv(latest("economist_potus", "all_polls.csv" if year == 2016 else f"all_polls_{year}.csv"))
     if national_only:
         e = e[e.state == "--"].reset_index(drop=True)
-    d_col, r_col = {2008: ("obama", "mccain"), 2012: ("obama", "romney")}[year]
-    start = pd.to_datetime(e["start.date"], format="%m/%d/%y")
-    end = pd.to_datetime(e["end.date"], format="%m/%d/%y")
-    eday = pd.Timestamp({2008: "2008-11-04", 2012: "2012-11-06"}[year])
+    if year == 2016:                       # drop the by-party subsamples ("Likely Voters - Democrat")
+        e = e[e.population.isin(POP)].reset_index(drop=True)
+    d_col, r_col = {2008: ("obama", "mccain"), 2012: ("obama", "romney"), 2016: ("clinton", "trump")}[year]
+    fmt = "%Y-%m-%d" if year == 2016 else "%m/%d/%y"
+    start = pd.to_datetime(e["start.date"], format=fmt)
+    end = pd.to_datetime(e["end.date"], format=fmt)
+    eday = pd.Timestamp({2008: "2008-11-04", 2012: "2012-11-06", 2016: "2016-11-08"}[year])
     ids = [f"econ{year}-{i}" for i in range(len(e))]
     out = pd.DataFrame({
         "cycle": year, "geo": e.state.replace("--", "US"), "poll_id": ids, "question_id": ids, "pollster": e.pollster,
@@ -218,15 +224,34 @@ def wiki_states(year):
     return out
 
 
-def wiki_page(html, rev, year, dw, rw, eday):
+WIKI_NATIONAL = {2008: "Nationwide_opinion_polling_for_the_2008_United_States_presidential_election",
+                 2012: "Nationwide_opinion_polling_for_the_2012_United_States_presidential_election",
+                 2016: "Nationwide_opinion_polling_for_the_2016_United_States_presidential_election"}
+
+
+def wiki_national(year):
+    """National polls from Wikipedia's nationwide page: every table with the two nominees, whatever its heading."""
+    from governors import get_page
+    _, dw, rw, eday = WIKI.get(year, (None, "Clinton", "Trump", "2016-11-08"))
+    html, rev = get_page(WIKI_NATIONAL[year])
+    rows, skipped = wiki_page(html, rev, year, dw, rw, eday, fixed_geo="US")
+    out = pd.DataFrame(rows).drop_duplicates("question_id")
+    out = out[(out.end_date <= pd.Timestamp(eday)) & (out.start_date >= pd.Timestamp(year - 2, 11, 1))]
+    print(f"  wikipedia {year} national: {len(out)} questions, {out.poll_id.nunique()} polls; {skipped} rows unreadable")
+    return out
+
+
+def wiki_page(html, rev, year, dw, rw, eday, fixed_geo=None):
     import io
     import re
 
     from bs4 import BeautifulSoup
     soup = BeautifulSoup(html, "lxml")
-    rows, state, skipped = [], None, 0
+    rows, state, skipped = [], fixed_geo, 0
     for el in soup.find_all(["h2", "h3", "h4", "table"]):
         if el.name in ("h2", "h3", "h4"):
+            if fixed_geo:
+                continue
             head = re.sub(r"\[.*?\]", "", el.get_text(" ", strip=True)).strip()
             m = re.match(r"(Maine|Nebraska)(?:'s)? (\d)", head)
             if m:
@@ -294,8 +319,11 @@ def late_check(df):
 
 
 def build():
-    df = pd.concat([raw_polls(), wiki_states(2004), wiki_states(2008), economist(2008, national_only=True),
-                    economist(2012), fte2016(), archive()], ignore_index=True)
+    df = pd.concat([raw_polls(), wiki_states(2004), wiki_states(2008), wiki_national(2008), wiki_states(2012),
+                    economist(2012, national_only=True), fte2016(), archive()], ignore_index=True)
+    # 2016's file carries state subsamples of national online panels, by the thousand; they pull state averages
+    # 2-3 points from the other sources' (cross-check), so they are flagged for the model to weigh or drop
+    df["state_subsample"] = (df.cycle == 2016) & (df.geo != "US") & df.pollster.isin(SUBSAMPLERS)
     df["margin"] = df.d_pct - df.r_pct
     df["days_to_election"] = (df.election_date - df.mid_date).dt.days
     bad = df.geo.isna()

@@ -1,0 +1,893 @@
+cycle,source_a,source_b,geo,mid_date,pollster,d_pct,r_pct,pollster_b,d_pct_b,r_pct_b,margin_diff
+2004,538 raw_polls,Wikipedia,AR,2004-10-30,SurveyUSA,48.0,48.0,KTHV-TV Little Rock/SurveyUSA,46.0,51.0,5.0
+2004,Wikipedia,538 raw_polls,AZ,2004-09-24,KAET-TV-Phoenix/Channel 8/Arizona State University,38.0,53.0,Arizona State University Morrison Institute for Public Policy,42.0,52.0,-5.0
+2004,538 raw_polls,Wikipedia,AZ,2004-09-25,Arizona State University Morrison Institute for Public Policy,42.0,52.0,KAET-TV-Phoenix/Channel 8/Arizona State University,38.0,53.0,5.0
+2004,538 raw_polls,Wikipedia,CA,2004-09-12,American Research Group,45.0,46.0,American Research Group,52.0,41.0,-12.0
+2004,538 raw_polls,Wikipedia,FL,2004-10-11,InsiderAdvantage,44.0,47.0,InsiderAdvantage,48.0,44.0,-7.0
+2004,Wikipedia,538 raw_polls,LA,2004-10-17,University of New Orleans,38.0,50.0,University of New Orleans Survey Research Center,40.0,48.0,-4.0
+2004,538 raw_polls,Wikipedia,LA,2004-10-17,University of New Orleans Survey Research Center,40.0,48.0,University of New Orleans,38.0,50.0,4.0
+2004,Wikipedia,538 raw_polls,MD,2004-10-25,Baltimore Sun/Ipsos,56.0,39.0,Ipsos,59.0,38.0,-4.0
+2004,538 raw_polls,Wikipedia,MD,2004-10-25,Ipsos,59.0,38.0,Baltimore Sun/Ipsos,56.0,39.0,4.0
+2004,538 raw_polls,Wikipedia,MI,2004-10-28,Zogby Analytics,52.0,44.0,Zogby International (Daily Tracking),45.0,47.0,10.0
+2004,538 raw_polls,Wikipedia,MN,2004-10-28,Zogby Analytics,49.0,47.0,Reuters/Zogby International (Daily Tracking),45.0,46.0,3.0
+2004,538 raw_polls,Wikipedia,NJ,2004-10-11,Fairleigh Dickinson University,46.0,46.0,Fairleigh Dickinson University (PublicMind),48.0,43.0,-5.0
+2004,Wikipedia,538 raw_polls,NM,2004-10-26,Reuters/Zogby International (Daily Tracking),43.0,49.0,Zogby Analytics,44.0,47.0,-3.0
+2004,538 raw_polls,Wikipedia,NM,2004-10-26,Zogby Analytics,44.0,47.0,Reuters/Zogby International (Daily Tracking),43.0,49.0,3.0
+2004,538 raw_polls,Wikipedia,NM,2004-10-28,Zogby Analytics,49.0,49.0,Reuters/Zogby International (Daily Tracking),43.0,49.0,6.0
+2004,Wikipedia,538 raw_polls,NM,2004-10-30,Reuters/Zogby International (Daily Tracking),51.0,48.0,Zogby Analytics,49.0,49.0,3.0
+2004,538 raw_polls,Wikipedia,NM,2004-10-30,Zogby Analytics,49.0,49.0,Reuters/Zogby International (Daily Tracking),51.0,48.0,-3.0
+2004,Wikipedia,538 raw_polls,NV,2004-09-12,KVBC-TV Las Vegas/SurveyUSA,47.0,54.0,SurveyUSA,47.0,51.0,-3.0
+2004,538 raw_polls,Wikipedia,NV,2004-09-12,SurveyUSA,47.0,51.0,KVBC-TV Las Vegas/SurveyUSA,47.0,54.0,3.0
+2004,538 raw_polls,Wikipedia,OH,2004-10-28,Zogby Analytics,44.0,48.0,Reuters/Zogby International (Daily Tracking),47.0,44.0,-7.0
+2004,538 raw_polls,Wikipedia,PA,2004-10-28,Zogby Analytics,50.0,45.0,Reuters/Zogby International (Daily Tracking),47.0,47.0,5.0
+2004,Wikipedia,538 raw_polls,RI,2004-10-26,WLNE-TV Providence/SurveyUSA,54.0,31.0,SurveyUSA,54.0,41.0,10.0
+2004,538 raw_polls,Wikipedia,RI,2004-10-26,SurveyUSA,54.0,41.0,WLNE-TV Providence/SurveyUSA,54.0,31.0,-10.0
+2004,Wikipedia,538 raw_polls,TN,2004-09-15,Wall Street Journal/Zogby Interactive,45.9,51.4,Zogby Analytics,45.9,41.4,-10.0
+2004,538 raw_polls,Wikipedia,TN,2004-09-15,Zogby Analytics,45.9,41.4,Wall Street Journal/Zogby Interactive,45.9,51.4,10.0
+2004,Wikipedia,538 raw_polls,WI,2004-09-06,Rasmussen Reports/Pulse Opinion Research,49.0,47.0,Scott Rasmussen (Rasmussen Reports),47.0,49.0,4.0
+2004,538 raw_polls,Wikipedia,WI,2004-09-07,Scott Rasmussen (Rasmussen Reports),47.0,49.0,Rasmussen Reports/Pulse Opinion Research,49.0,47.0,-4.0
+2004,538 raw_polls,Wikipedia,WI,2004-10-28,Zogby Analytics,51.0,44.0,Reuters/Zogby International (Daily Tracking),49.0,46.0,4.0
+2008,Wikipedia,538 raw_polls,AK,2008-09-10,American Research Group,36.0,60.0,American Research Group,39.0,55.0,-8.0
+2008,538 raw_polls,Wikipedia,AK,2008-09-10,American Research Group,39.0,55.0,American Research Group,36.0,60.0,8.0
+2008,Economist,Wikipedia,AL,2008-02-20,SurveyUSA,34.0,58.0,SurveyUSA,40.0,54.0,-10.0
+2008,Wikipedia,Economist,AL,2008-02-22,SurveyUSA,40.0,54.0,SurveyUSA,34.0,58.0,10.0
+2008,Economist,Wikipedia,AR,2008-07-15,Rasmussen,37.0,47.0,Rasmussen Reports/Pulse Opinion Research,39.0,52.0,3.0
+2008,Wikipedia,Economist,AR,2008-07-17,Rasmussen Reports/Pulse Opinion Research,39.0,52.0,Rasmussen,37.0,47.0,-3.0
+2008,Economist,Wikipedia,CA,2008-03-10,Rasmussen,46.0,39.0,Rasmussen Reports/Pulse Opinion Research,53.0,38.0,-8.0
+2008,Wikipedia,Economist,CA,2008-03-12,Rasmussen Reports/Pulse Opinion Research,53.0,38.0,Rasmussen,46.0,39.0,8.0
+2008,Economist,Wikipedia,CO,2008-07-20,Rasmussen,49.0,42.0,Rasmussen Reports/Pulse Opinion Research,50.0,47.0,4.0
+2008,Wikipedia,Economist,CO,2008-07-21,Rasmussen Reports/Pulse Opinion Research,50.0,47.0,Rasmussen,49.0,42.0,-4.0
+2008,538 raw_polls,Economist,FL,2008-10-21,SEA Polling & Strategic Design,49.0,42.0,Strategic Vision,46.0,48.0,9.0
+2008,Economist,538 raw_polls,FL,2008-10-22,Strategic Vision,46.0,48.0,SEA Polling & Strategic Design,49.0,42.0,-9.0
+2008,Wikipedia,Economist,MA,2008-10-13,Rasmussen Reports/Pulse Opinion Research,62.0,34.0,Rasmussen,58.0,38.0,8.0
+2008,Economist,Wikipedia,MA,2008-10-13,Rasmussen,58.0,38.0,Rasmussen Reports/Pulse Opinion Research,62.0,34.0,-8.0
+2008,Economist,538 raw_polls,MA,2008-10-13,Rasmussen,58.0,38.0,Scott Rasmussen (Rasmussen Reports),62.0,34.0,-8.0
+2008,538 raw_polls,Economist,MA,2008-10-13,Scott Rasmussen (Rasmussen Reports),62.0,34.0,Rasmussen,58.0,38.0,8.0
+2008,Wikipedia,538 raw_polls,ME,2008-10-30,SurveyUSA,60.0,37.0,SurveyUSA,58.0,38.0,3.0
+2008,Economist,Wikipedia,MI,2008-10-29,EPIC/Detroit News,50.0,38.0,Detroit Free Press-Local 4/Selzer & Co.,53.0,37.0,-4.0
+2008,538 raw_polls,Wikipedia,MN,2008-09-30,University of Minnesota Hubert H. Humphrey School of Public Affairs,47.0,43.0,Minnesota Star Tribune/Princeton Survey Research Associates International,55.0,37.0,-14.0
+2008,Economist,Wikipedia,NC,2008-09-27,Public Policy,50.0,44.0,Public Policy Polling,47.0,45.0,4.0
+2008,Economist,538 raw_polls,NC,2008-09-27,Public Policy,50.0,44.0,Public Policy Polling,47.0,45.0,4.0
+2008,Economist,Wikipedia,NC,2008-10-31,FOX/Rasmussen,50.0,48.0,Fox News/Rasmussen Reports/Pulse Opinion Research,49.0,50.0,3.0
+2008,Economist,538 raw_polls,NC,2008-10-31,FOX/Rasmussen,50.0,48.0,Scott Rasmussen (Rasmussen Reports),49.0,50.0,3.0
+2008,Wikipedia,Economist,NC,2008-11-02,Fox News/Rasmussen Reports/Pulse Opinion Research,49.0,50.0,FOX/Rasmussen,50.0,48.0,-3.0
+2008,538 raw_polls,Economist,NC,2008-11-02,Scott Rasmussen (Rasmussen Reports),49.0,50.0,FOX/Rasmussen,50.0,48.0,-3.0
+2008,538 raw_polls,Wikipedia,NH,2008-10-25,University of New Hampshire Survey Center,55.0,39.0,WMUR/University of New Hampshire (Daily Tracking),58.0,33.0,-9.0
+2008,Wikipedia,538 raw_polls,NH,2008-10-26,WMUR/University of New Hampshire (Daily Tracking),58.0,33.0,University of New Hampshire Survey Center,55.0,39.0,9.0
+2008,538 raw_polls,Wikipedia,NH,2008-10-28,University of New Hampshire Survey Center,55.0,39.0,WMUR/University of New Hampshire (Daily Tracking),58.0,33.0,-9.0
+2008,Economist,Wikipedia,NV,2008-09-11,Rasmussen,51.0,47.0,Rasmussen Reports/Pulse Opinion Research,46.0,49.0,7.0
+2008,Economist,538 raw_polls,NV,2008-09-11,Rasmussen,51.0,47.0,Scott Rasmussen (Rasmussen Reports),46.0,49.0,7.0
+2008,Wikipedia,Economist,NV,2008-11-01,Reuters/Zogby International,53.2,42.4,Reuters/Zogby,51.0,43.0,2.8
+2008,Economist,Wikipedia,NV,2008-11-01,Reuters/Zogby,51.0,43.0,Reuters/Zogby International,53.2,42.4,-2.8
+2008,538 raw_polls,Wikipedia,NV,2008-11-01,Zogby Analytics,50.7,42.9,Reuters/Zogby International,53.2,42.4,-3.0
+2008,538 raw_polls,Economist,NV,2008-11-02,Zogby Analytics,53.0,42.0,Reuters/Zogby,51.0,43.0,3.0
+2008,Wikipedia,Economist,NY,2008-10-11,WABC-TV New York/WGRZ-TV Buffalo/WHEC-TV Rochester/WNYT-TV Albany/SurveyUSA,61.0,34.0,SurveyUSA,64.0,31.0,-6.0
+2008,Wikipedia,538 raw_polls,NY,2008-10-11,WABC-TV New York/WGRZ-TV Buffalo/WHEC-TV Rochester/WNYT-TV Albany/SurveyUSA,61.0,34.0,SurveyUSA,64.0,31.0,-6.0
+2008,Economist,Wikipedia,NY,2008-10-11,SurveyUSA,64.0,31.0,WABC-TV New York/WGRZ-TV Buffalo/WHEC-TV Rochester/WNYT-TV Albany/SurveyUSA,61.0,34.0,6.0
+2008,538 raw_polls,Wikipedia,NY,2008-10-11,SurveyUSA,64.0,31.0,WABC-TV New York/WGRZ-TV Buffalo/WHEC-TV Rochester/WNYT-TV Albany/SurveyUSA,61.0,34.0,6.0
+2008,Economist,Wikipedia,OH,2008-07-20,Rasmussen,40.0,46.0,Rasmussen Reports/Pulse Opinion Research,42.0,52.0,4.0
+2008,Wikipedia,Economist,OH,2008-07-21,Rasmussen Reports/Pulse Opinion Research,42.0,52.0,Rasmussen,40.0,46.0,-4.0
+2008,538 raw_polls,Wikipedia,OH,2008-10-20,Big Village,49.0,44.0,Big Ten,52.5,41.0,-6.5
+2008,538 raw_polls,Economist,OH,2008-10-20,Big Village,49.0,44.0,Big Ten Battleground,53.0,41.0,-7.0
+2008,Wikipedia,538 raw_polls,OH,2008-10-25,Bloomberg/Los Angeles Times,49.0,40.0,Los Angeles Times,44.0,39.0,4.0
+2008,538 raw_polls,Wikipedia,OH,2008-10-26,Los Angeles Times,44.0,39.0,Bloomberg/Los Angeles Times,49.0,40.0,-4.0
+2008,Wikipedia,Economist,OH,2008-11-01,Reuters/Zogby International,49.4,47.4,Reuters/Zogby,50.0,44.0,-4.0
+2008,Economist,Wikipedia,OH,2008-11-01,Reuters/Zogby,50.0,44.0,Reuters/Zogby International,49.4,47.4,4.0
+2008,538 raw_polls,Wikipedia,OH,2008-11-01,Zogby Analytics,50.2,43.9,Reuters/Zogby International,49.4,47.4,4.3
+2008,538 raw_polls,Economist,OH,2008-11-02,Zogby Analytics,49.0,47.0,Reuters/Zogby,50.0,44.0,-4.0
+2008,Wikipedia,Economist,OK,2008-09-06,KFOR-TV Oklahoma City/SurveyUSA,35.0,62.0,SurveyUSA,32.0,65.0,6.0
+2008,Wikipedia,538 raw_polls,OK,2008-09-06,KFOR-TV Oklahoma City/SurveyUSA,35.0,62.0,SurveyUSA,32.0,65.0,6.0
+2008,Economist,Wikipedia,OK,2008-09-06,SurveyUSA,32.0,65.0,KFOR-TV Oklahoma City/SurveyUSA,35.0,62.0,-6.0
+2008,538 raw_polls,Wikipedia,OK,2008-09-06,SurveyUSA,32.0,65.0,KFOR-TV Oklahoma City/SurveyUSA,35.0,62.0,-6.0
+2008,Wikipedia,538 raw_polls,OK,2008-09-07,Oklahoma City News9/SoonerPoll,27.9,65.9,SoonerPoll.com,30.0,66.0,-2.0
+2008,538 raw_polls,Wikipedia,OK,2008-09-07,SoonerPoll.com,30.0,66.0,Oklahoma City News9/SoonerPoll,27.9,65.9,2.0
+2008,Wikipedia,Economist,PA,2008-08-07,Franklin & Marshall College,46.0,41.0,Franklin & Marshall,44.0,36.0,-3.0
+2008,Economist,Wikipedia,PA,2008-08-08,Franklin & Marshall,44.0,36.0,Franklin & Marshall College,46.0,41.0,3.0
+2008,Economist,538 raw_polls,PA,2008-09-24,Muhlenberg College,47.0,43.0,Muhlenberg College Institute of Public Opinion,49.0,42.0,-3.0
+2008,538 raw_polls,Economist,PA,2008-09-26,Muhlenberg College Institute of Public Opinion,49.0,42.0,Muhlenberg College,47.0,43.0,3.0
+2008,538 raw_polls,Wikipedia,PA,2008-10-11,Muhlenberg College Institute of Public Opinion,51.0,38.0,Morning Call/Muhlenberg College (Daily Tracking),53.0,37.0,-3.0
+2008,Wikipedia,538 raw_polls,PA,2008-10-13,Morning Call/Muhlenberg College (Daily Tracking),53.0,37.0,Muhlenberg College Institute of Public Opinion,51.0,38.0,3.0
+2008,Wikipedia,Economist,PA,2008-11-01,Reuters/Zogby International,51.2,41.4,Reuters/Zogby,54.0,40.0,-4.2
+2008,Economist,Wikipedia,PA,2008-11-01,Reuters/Zogby,54.0,40.0,Reuters/Zogby International,51.2,41.4,4.2
+2008,538 raw_polls,Wikipedia,PA,2008-11-01,Zogby Analytics,53.7,40.0,Reuters/Zogby International,51.2,41.4,3.9
+2008,538 raw_polls,Economist,PA,2008-11-02,Zogby Analytics,51.0,41.0,Reuters/Zogby,54.0,40.0,-4.0
+2008,Economist,538 raw_polls,RI,2008-09-15,American Research,59.0,33.0,Brown University A. Alfred Taubman Center for American Politics and Policy,47.0,34.0,13.0
+2008,538 raw_polls,Economist,RI,2008-09-15,Brown University A. Alfred Taubman Center for American Politics and Policy,47.0,34.0,American Research,59.0,33.0,-13.0
+2008,Wikipedia,538 raw_polls,TN,2008-09-21,Middle Tennessee State University,35.0,55.0,Middle Tennessee State University,36.0,48.0,-8.0
+2008,538 raw_polls,Wikipedia,TN,2008-09-21,Middle Tennessee State University,36.0,48.0,Middle Tennessee State University,35.0,55.0,8.0
+2008,Economist,Wikipedia,US,2008-01-12,Hotline/FD,38.0,43.0,Diageo/The Hotline/Financial Dynamics,41.0,39.0,-7.0
+2008,Wikipedia,Economist,US,2008-01-31,ABC News/Washington Post,47.0,48.0,ABC News/Washington Post,49.0,46.0,-4.0
+2008,Economist,Wikipedia,US,2008-01-31,ABC News/Washington Post,49.0,46.0,ABC News/Washington Post,47.0,48.0,4.0
+2008,Economist,Wikipedia,US,2008-02-07,Rasmussen,44.0,44.0,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),44.0,40.0,-4.0
+2008,Wikipedia,Economist,US,2008-02-08,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),44.0,40.0,Rasmussen,44.0,44.0,4.0
+2008,Economist,Wikipedia,US,2008-02-10,USA Today/Gallup,48.0,48.0,USA Today/Gallup,50.0,46.0,-4.0
+2008,Economist,Wikipedia,US,2008-03-14,Rasmussen,44.0,44.0,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),42.0,48.0,6.0
+2008,Wikipedia,Economist,US,2008-03-15,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),42.0,48.0,Rasmussen,44.0,44.0,-6.0
+2008,Wikipedia,Economist,US,2008-03-16,CBS News,44.0,46.0,CBS News,48.0,43.0,-7.0
+2008,Economist,Wikipedia,US,2008-03-16,CBS News,48.0,43.0,CBS News,44.0,46.0,7.0
+2008,Wikipedia,Economist,US,2008-04-08,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),44.0,47.0,Rasmussen,48.0,42.0,-9.0
+2008,Economist,Wikipedia,US,2008-04-09,Rasmussen,48.0,42.0,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),44.0,47.0,9.0
+2008,Economist,Wikipedia,US,2008-04-11,Rasmussen,42.0,49.0,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),43.0,47.0,-3.0
+2008,Wikipedia,Economist,US,2008-04-12,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),43.0,47.0,Rasmussen,42.0,49.0,3.0
+2008,Wikipedia,Economist,US,2008-05-14,Rasmussen Reports/Pulse Opinion Research,42.0,38.0,Rasmussen,44.0,45.0,5.0
+2008,Economist,Wikipedia,US,2008-05-14,Gallup,44.0,47.0,Gallup (Daily Tracking),46.0,45.0,-4.0
+2008,Wikipedia,Economist,US,2008-05-16,Gallup (Daily Tracking),46.0,45.0,Gallup,44.0,47.0,4.0
+2008,Economist,Wikipedia,US,2008-05-18,Zogby,46.0,43.0,Reuters/Zogby International,48.0,40.0,-5.0
+2008,Economist,Wikipedia,US,2008-06-13,Rasmussen,46.0,38.0,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),48.0,44.0,4.0
+2008,Wikipedia,Economist,US,2008-06-15,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),48.0,44.0,Rasmussen,46.0,38.0,-4.0
+2008,Economist,Wikipedia,US,2008-06-20,Newsweek,51.0,41.0,Newsweek/Princeton Survey Research Associates International,51.0,36.0,-5.0
+2008,Economist,Wikipedia,US,2008-07-13,Zogby,45.0,42.0,Reuters/Zogby International,47.0,40.0,-4.0
+2008,Economist,Wikipedia,US,2008-07-14,Rasmussen Tracking,48.0,45.0,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),46.0,46.0,3.0
+2008,Wikipedia,Economist,US,2008-07-15,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),46.0,46.0,Rasmussen Tracking,48.0,45.0,-3.0
+2008,Economist,Wikipedia,US,2008-07-16,Rasmussen,47.0,38.0,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),47.0,45.0,7.0
+2008,Wikipedia,Economist,US,2008-07-18,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),47.0,45.0,Rasmussen,47.0,38.0,-7.0
+2008,Economist,Wikipedia,US,2008-08-01,Rasmussen,46.0,40.0,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),46.0,47.0,7.0
+2008,Wikipedia,Economist,US,2008-08-13,Zogby Interactive,43.0,40.0,Reuters/Zogby,41.0,46.0,8.0
+2008,Wikipedia,Economist,US,2008-08-15,Gallup (Daily Tracking),45.0,45.0,Gallup Tracking,46.0,43.0,-3.0
+2008,Wikipedia,Economist,US,2008-08-23,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),48.0,45.0,Rasmussen Tracking,46.0,46.0,3.0
+2008,Economist,Wikipedia,US,2008-08-24,Gallup Tracking,44.0,46.0,Gallup (Daily Tracking),45.0,44.0,-3.0
+2008,Wikipedia,Economist,US,2008-08-25,Gallup (Daily Tracking),45.0,44.0,Gallup Tracking,44.0,46.0,3.0
+2008,Wikipedia,Economist,US,2008-08-29,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),49.0,46.0,Rasmussen Tracking,51.0,45.0,-3.0
+2008,Wikipedia,538 raw_polls,US,2008-09-04,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),49.0,46.0,Scott Rasmussen (Rasmussen Reports),47.0,48.0,4.0
+2008,Wikipedia,Economist,US,2008-09-05,Gallup (Daily Tracking),45.0,48.0,USA Today/Gallup,44.0,54.0,7.0
+2008,538 raw_polls,Economist,US,2008-09-05,Gallup,45.0,48.0,USA Today/Gallup,44.0,54.0,7.0
+2008,Wikipedia,538 raw_polls,US,2008-09-06,Diageo/The Hotline/Financial Dynamics (Daily Tracking),44.0,44.0,Opinion Dynamics,42.0,45.0,3.0
+2008,Wikipedia,Economist,US,2008-09-10,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),46.0,49.0,Rasmussen Tracking,48.0,47.0,-4.0
+2008,538 raw_polls,Economist,US,2008-09-14,Gallup,46.0,47.0,Gallup Tracking,48.0,44.0,-5.0
+2008,Wikipedia,538 raw_polls,US,2008-09-15,Gallup (Daily Tracking),47.0,45.0,Gallup,46.0,47.0,3.0
+2008,Wikipedia,Economist,US,2008-09-18,Diageo/The Hotline/Financial Dynamics (Daily Tracking),45.0,44.0,Hotline/FD Tracking,46.0,42.0,-3.0
+2008,Wikipedia,Economist,US,2008-09-19,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),47.0,46.0,Rasmussen,46.0,41.0,-4.0
+2008,Economist,Wikipedia,US,2008-09-19,Rasmussen,46.0,41.0,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),47.0,46.0,4.0
+2008,Economist,538 raw_polls,US,2008-09-19,Rasmussen,46.0,41.0,Scott Rasmussen (Rasmussen Reports),48.0,47.0,4.0
+2008,538 raw_polls,Economist,US,2008-09-21,Scott Rasmussen (Rasmussen Reports),48.0,48.0,Rasmussen,46.0,41.0,-5.0
+2008,538 raw_polls,Wikipedia,US,2008-09-23,Gallup,46.0,46.0,Gallup (Daily Tracking),48.0,45.0,-3.0
+2008,538 raw_polls,Economist,US,2008-09-23,Gallup,46.0,46.0,Gallup Tracking,49.0,44.0,-5.0
+2008,Wikipedia,538 raw_polls,US,2008-09-24,Gallup (Daily Tracking),48.0,45.0,Gallup,46.0,46.0,3.0
+2008,Economist,538 raw_polls,US,2008-09-25,Gallup Tracking,49.0,44.0,Gallup,50.0,42.0,-3.0
+2008,538 raw_polls,Economist,US,2008-09-26,Gallup,50.0,42.0,Gallup Tracking,49.0,44.0,3.0
+2008,Wikipedia,Economist,US,2008-09-27,Gallup (Daily Tracking),50.0,42.0,Gallup Tracking,49.0,44.0,3.0
+2008,538 raw_polls,Wikipedia,US,2008-09-29,Gallup,48.0,44.0,Gallup (Daily Tracking),50.0,42.0,-4.0
+2008,Wikipedia,538 raw_polls,US,2008-10-03,George Washington University/Tarrance Group/Lake Research Partners (Daily Tracking),48.0,44.0,Lake Research Partners/The Tarrance Group,50.0,43.0,-3.0
+2008,538 raw_polls,Wikipedia,US,2008-10-03,Lake Research Partners/The Tarrance Group,50.0,43.0,George Washington University/Tarrance Group/Lake Research Partners,49.0,45.0,3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-04,George Washington University/Tarrance Group/Lake Research Partners,49.0,45.0,Lake Research Partners/The Tarrance Group,50.0,43.0,-3.0
+2008,Wikipedia,Economist,US,2008-10-06,Diageo/The Hotline/Financial Dynamics,45.0,44.0,Hotline/FD,48.0,41.0,-6.0
+2008,Wikipedia,538 raw_polls,US,2008-10-06,Diageo/The Hotline/Financial Dynamics,45.0,44.0,Opinion Dynamics,46.0,39.0,-6.0
+2008,Economist,Wikipedia,US,2008-10-08,Hotline/FD,48.0,41.0,Diageo/The Hotline/Financial Dynamics,50.0,40.0,-3.0
+2008,Wikipedia,Economist,US,2008-10-09,Diageo/The Hotline/Financial Dynamics,50.0,40.0,Hotline/FD,48.0,41.0,3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-09,Diageo/The Hotline/Financial Dynamics,50.0,40.0,Opinion Dynamics,46.0,39.0,3.0
+2008,Wikipedia,Economist,US,2008-10-10,George Washington University/Tarrance Group/Lake Research Partners (Daily Tracking),53.0,40.0,ABC News/Washington Post,53.0,43.0,3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-10,George Washington University/Tarrance Group/Lake Research Partners (Daily Tracking),53.0,40.0,ABC News/The Washington Post,53.0,43.0,3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-11,USA Today/Gallup (Model II),52.0,45.0,Gallup,53.0,43.0,-3.0
+2008,Economist,Wikipedia,US,2008-10-11,USA Today/Gallup (Traditional)*,50.0,46.0,USA Today/Gallup (Model II),52.0,45.0,-3.0
+2008,Economist,538 raw_polls,US,2008-10-11,USA Today/Gallup (Expanded)*,52.0,45.0,Gallup,53.0,43.0,-3.0
+2008,Economist,538 raw_polls,US,2008-10-11,USA Today/Gallup (Traditional)*,50.0,46.0,Gallup,53.0,43.0,-6.0
+2008,538 raw_polls,Wikipedia,US,2008-10-11,Gallup,53.0,43.0,USA Today/Gallup (Model II),52.0,45.0,3.0
+2008,Wikipedia,Economist,US,2008-10-12,Reuters/C-SPAN/Zogby International (Daily Tracking),48.2,44.4,Reuters/C-SPAN/Zogby,49.0,43.0,-2.2
+2008,Wikipedia,538 raw_polls,US,2008-10-12,Reuters/C-SPAN/Zogby International (Daily Tracking),48.2,44.4,Zogby Analytics,49.0,43.0,-2.2
+2008,Economist,Wikipedia,US,2008-10-12,Reuters/C-SPAN/Zogby,49.0,43.0,Reuters/C-SPAN/Zogby International (Daily Tracking),48.2,44.4,2.2
+2008,Economist,Wikipedia,US,2008-10-12,Gallup (Expanded)*,53.0,43.0,USA Today/Gallup (Model II),52.0,45.0,3.0
+2008,Economist,538 raw_polls,US,2008-10-12,Gallup (Traditional)*,51.0,45.0,Gallup,53.0,43.0,-4.0
+2008,538 raw_polls,Wikipedia,US,2008-10-12,Zogby Analytics,49.0,43.0,Reuters/C-SPAN/Zogby International (Daily Tracking),48.2,44.4,2.2
+2008,538 raw_polls,Wikipedia,US,2008-10-13,TIPP Insights,45.2,41.9,Investor's Business Daily/TIPP (Daily Tracking),47.2,39.8,-4.1
+2008,Wikipedia,538 raw_polls,US,2008-10-14,Gallup (Daily Tracking Model II),51.0,45.0,Gallup,49.0,47.0,4.0
+2008,538 raw_polls,Wikipedia,US,2008-10-14,TIPP Insights,45.2,41.6,Investor's Business Daily/TIPP (Daily Tracking),47.2,39.8,-3.8
+2008,538 raw_polls,Wikipedia,US,2008-10-14,Gallup,49.0,47.0,Gallup (Daily Tracking Model II),51.0,45.0,-4.0
+2008,538 raw_polls,Economist,US,2008-10-14,Gallup,49.0,47.0,Gallup (Traditional)*,51.0,45.0,-4.0
+2008,Wikipedia,Economist,US,2008-10-15,Investor's Business Daily/TIPP (Daily Tracking),47.2,39.8,IBD/TIPP,47.0,42.0,2.4
+2008,Wikipedia,Economist,US,2008-10-15,Diageo/The Hotline/Financial Dynamics (Daily Tracking),50.0,40.0,Diageo/Hotline,48.0,41.0,3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-15,Investor's Business Daily/TIPP (Daily Tracking),47.2,39.8,TIPP Insights,45.2,41.6,3.8
+2008,Economist,Wikipedia,US,2008-10-16,IBD/TIPP,47.0,42.0,Investor's Business Daily/TIPP (Daily Tracking),47.2,39.8,-2.4
+2008,538 raw_polls,Wikipedia,US,2008-10-16,Lake Research Partners/The Tarrance Group,49.0,45.0,George Washington University/Tarrance Group/Lake Research Partners (Daily Tracking),48.0,47.0,3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-17,George Washington University/Tarrance Group/Lake Research Partners (Daily Tracking),48.0,47.0,Lake Research Partners/The Tarrance Group,49.0,45.0,-3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-17,Gallup (Daily Tracking Model II),51.0,44.0,Gallup,49.0,46.0,4.0
+2008,Economist,Wikipedia,US,2008-10-17,Gallup (Traditional)*,49.0,46.0,Gallup (Daily Tracking Model II),51.0,44.0,-4.0
+2008,Economist,538 raw_polls,US,2008-10-17,Gallup (Expanded)*,51.0,44.0,Gallup,49.0,46.0,4.0
+2008,538 raw_polls,Wikipedia,US,2008-10-17,Gallup,49.0,46.0,Gallup (Daily Tracking Model II),51.0,44.0,-4.0
+2008,Wikipedia,538 raw_polls,US,2008-10-18,Diageo/The Hotline/Financial Dynamics (Daily Tracking),47.0,42.0,Opinion Dynamics,49.0,40.0,-4.0
+2008,538 raw_polls,Wikipedia,US,2008-10-18,TIPP Insights,46.7,41.4,Investors Business Daily/TIPP (Daily Tracking),44.8,43.7,4.2
+2008,Wikipedia,Economist,US,2008-10-19,Reuters/C-SPAN/Zogby International (Daily Tracking),50.3,42.4,Reuters/C-SPAN/Zogby,52.0,40.0,-4.1
+2008,Wikipedia,Economist,US,2008-10-19,George Washington University/Tarrance Group/Lake Research Partners (Daily Tracking),48.0,45.0,ABC News/Washington Post,54.0,43.0,-8.0
+2008,Wikipedia,538 raw_polls,US,2008-10-19,George Washington University/Tarrance Group/Lake Research Partners (Daily Tracking),48.0,45.0,ABC News/The Washington Post,54.0,43.0,-8.0
+2008,538 raw_polls,Wikipedia,US,2008-10-19,TIPP Insights,46.9,40.9,Investors Business Daily/TIPP (Daily Tracking),44.8,43.7,4.9
+2008,538 raw_polls,Economist,US,2008-10-19,Zogby Analytics,50.0,42.0,Reuters/C-SPAN/Zogby,52.0,40.0,-4.0
+2008,538 raw_polls,Economist,US,2008-10-19,TIPP Insights,46.9,40.9,IBD/TIPP,45.0,44.0,5.0
+2008,Wikipedia,538 raw_polls,US,2008-10-20,Gallup (Daily Tracking Model II),52.0,44.0,Gallup,50.0,45.0,3.0
+2008,538 raw_polls,Wikipedia,US,2008-10-20,Gallup,50.0,45.0,Gallup (Daily Tracking Model II),52.0,44.0,-3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-21,Diageo/The Hotline/Financial Dynamics (Daily Tracking),48.0,43.0,Opinion Dynamics,49.0,40.0,-4.0
+2008,Economist,Wikipedia,US,2008-10-21,Reuters/C-SPAN/Zogby,52.0,40.0,Reuters/C-SPAN/Zogby International (Daily Tracking),51.1,41.6,2.5
+2008,Economist,Wikipedia,US,2008-10-21,Gallup (Traditional)*,50.0,46.0,Gallup (Daily Tracking Model II),51.0,43.0,-4.0
+2008,Economist,538 raw_polls,US,2008-10-21,Reuters/C-SPAN/Zogby,52.0,40.0,Zogby Analytics,51.0,42.0,3.0
+2008,Wikipedia,Economist,US,2008-10-22,Reuters/C-SPAN/Zogby International (Daily Tracking),51.1,41.6,Reuters/C-SPAN/Zogby,52.0,40.0,-2.5
+2008,538 raw_polls,Economist,US,2008-10-23,Zogby Analytics,51.0,42.0,Reuters/C-SPAN/Zogby,52.0,40.0,-3.0
+2008,Wikipedia,Economist,US,2008-10-24,George Washington University/Tarrance Group/Lake Research Partners (Daily Tracking),49.0,45.0,ABC News/Washington Post,52.0,45.0,-3.0
+2008,538 raw_polls,Economist,US,2008-10-24,Scott Rasmussen (Rasmussen Reports),52.0,44.0,Rasmussen Reports,51.0,46.0,3.0
+2008,Economist,538 raw_polls,US,2008-10-25,Gallup (Expanded)*,53.0,43.0,Gallup,51.0,44.0,3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-26,Gallup (Daily Tracking Model II),51.0,44.0,Gallup,49.0,47.0,5.0
+2008,538 raw_polls,Wikipedia,US,2008-10-26,Gallup,49.0,47.0,Gallup (Daily Tracking Model II),51.0,44.0,-5.0
+2008,538 raw_polls,Economist,US,2008-10-26,Gallup,49.0,47.0,Gallup (Traditional)*,50.0,45.0,-3.0
+2008,Wikipedia,538 raw_polls,US,2008-10-27,Diageo/The Hotline/Financial Dynamics (Daily Tracking),49.0,42.0,Opinion Dynamics,47.0,44.0,4.0
+2008,538 raw_polls,Wikipedia,US,2008-10-31,CBS News,54.0,41.0,CBS News,51.0,42.0,4.0
+2008,538 raw_polls,Economist,US,2008-10-31,CBS News,54.0,41.0,CBS News,51.0,42.0,4.0
+2008,Wikipedia,Economist,US,2008-11-01,Reuters/C-SPAN/Zogby International (Daily Tracking),50.9,43.8,Reuters/C-SPAN/Zogby,54.0,43.0,-3.9
+2008,Wikipedia,Economist,US,2008-11-01,Investor's Daily Business/TIPP (Daily Tracking),47.5,43.0,IBD/TIPP,52.0,44.0,-3.5
+2008,Wikipedia,538 raw_polls,US,2008-11-01,Reuters/C-SPAN/Zogby International (Daily Tracking),50.9,43.8,Zogby Analytics,54.0,43.0,-3.9
+2008,538 raw_polls,Wikipedia,US,2008-11-01,CBS News,54.0,41.0,CBS News,51.0,42.0,4.0
+2008,538 raw_polls,Economist,US,2008-11-01,CBS News,54.0,41.0,CBS News,51.0,42.0,4.0
+2008,Wikipedia,538 raw_polls,US,2008-11-02,Tarrance Group,50.2,48.3,Lake Research Partners/The Tarrance Group,49.0,44.0,-3.1
+2008,Economist,Wikipedia,US,2008-11-02,Reuters/C-SPAN/Zogby,54.0,43.0,Reuters/C-SPAN/Zogby International (Daily Tracking),50.9,43.8,3.9
+2008,Economist,Wikipedia,US,2008-11-02,IBD/TIPP,52.0,44.0,Investor's Daily Business/TIPP (Daily Tracking),47.5,43.0,3.5
+2008,Economist,538 raw_polls,US,2008-11-02,Battleground (Tarrance)*,50.0,48.0,Lake Research Partners/The Tarrance Group,49.0,44.0,-3.0
+2008,Economist,538 raw_polls,US,2008-11-02,IBD/TIPP,52.0,44.0,TIPP Insights,47.5,42.8,3.3
+2008,538 raw_polls,Wikipedia,US,2008-11-02,Zogby Analytics,54.0,43.0,Reuters/C-SPAN/Zogby International (Daily Tracking),50.9,43.8,3.9
+2008,538 raw_polls,Economist,US,2008-11-02,Lake Research Partners/The Tarrance Group,49.0,44.0,Battleground (Tarrance)*,50.0,48.0,3.0
+2008,538 raw_polls,Economist,US,2008-11-02,TIPP Insights,47.5,42.8,IBD/TIPP,52.0,44.0,-3.3
+2008,538 raw_polls,Economist,VA,2008-10-08,Winthrop University Center for Public Opinion & Policy Research,45.0,44.0,Public Policy,51.0,43.0,-7.0
+2008,Wikipedia,Economist,WI,2008-08-05,Rasmussen Reports/Pulse Opinion Research,51.0,44.0,Rasmussen,47.0,43.0,3.0
+2008,Economist,Wikipedia,WI,2008-08-05,Rasmussen,47.0,43.0,Rasmussen Reports/Pulse Opinion Research,51.0,44.0,-3.0
+2008,538 raw_polls,Wikipedia,WI,2008-09-15,Big Village,49.0,45.0,Big Ten,45.2,44.3,3.1
+2008,538 raw_polls,Economist,WI,2008-09-15,Big Village,49.0,45.0,Big Ten Battleground,45.0,44.0,3.0
+2008,Wikipedia,Economist,WV,2008-10-20,CNN/Opinion Research Corporation,41.0,53.0,CNN/Time,44.0,53.0,-3.0
+2012,Wikipedia,538 raw_polls,CA,2012-10-18,USC Dornsife/Los Angeles Times/Greenberg Quinlan Rosner/American Viewpoint,55.0,38.0,Greenberg Quinlan Rosner/American Viewpoint,54.0,40.0,3.0
+2012,538 raw_polls,Wikipedia,CA,2012-10-18,Greenberg Quinlan Rosner/American Viewpoint,54.0,40.0,USC Dornsife/Los Angeles Times/Greenberg Quinlan Rosner/American Viewpoint,55.0,38.0,-3.0
+2012,Economist,Wikipedia,CO,2012-10-07,Gravis Marketing,46.0,49.0,Gravis Marketing,48.0,46.0,-5.0
+2012,Economist,538 raw_polls,CO,2012-10-07,Gravis Marketing,46.0,49.0,Gravis Marketing,48.4,46.0,-5.4
+2012,Wikipedia,Economist,CO,2012-10-08,Gravis Marketing,48.0,46.0,Gravis Marketing,46.0,49.0,5.0
+2012,538 raw_polls,Economist,CO,2012-10-08,Gravis Marketing,48.4,46.0,Gravis Marketing,46.0,49.0,5.4
+2012,Wikipedia,Economist,CO,2012-10-15,Project New America/Grove Insight (D),47.0,44.0,We Ask America,47.0,48.0,4.0
+2012,Economist,Wikipedia,CO,2012-10-17,We Ask America,47.0,48.0,Project New America/Grove Insight (D),47.0,44.0,-4.0
+2012,Economist,Wikipedia,CO,2012-11-04,Ipsos/Reuters,45.0,47.0,Reuters/Ipsos,48.0,47.0,-3.0
+2012,Economist,538 raw_polls,CO,2012-11-04,Ipsos/Reuters,45.0,47.0,Ipsos,48.0,47.0,-3.0
+2012,Wikipedia,538 raw_polls,FL,2012-10-25,CBS News/New York Times/Quinnipiac University,48.0,47.0,Quinnipiac University,50.0,45.0,-4.0
+2012,538 raw_polls,Wikipedia,FL,2012-10-25,Quinnipiac University,50.0,45.0,CBS News/New York Times/Quinnipiac University,48.0,47.0,4.0
+2012,538 raw_polls,Wikipedia,FL,2012-11-01,Ipsos,46.0,43.0,Reuters/Ipsos,46.0,46.0,3.0
+2012,Economist,538 raw_polls,FL,2012-11-03,Ipsos/Reuters,48.0,46.0,Ipsos,47.0,48.0,3.0
+2012,Economist,Wikipedia,IA,2012-11-01,Public Policy,50.0,45.0,Public Policy Polling,50.0,48.0,3.0
+2012,Economist,538 raw_polls,IA,2012-11-01,Public Policy,50.0,45.0,Public Policy Polling,50.0,48.0,3.0
+2012,Economist,Wikipedia,MA,2012-10-30,Boston Globe,52.0,38.0,The Boston Herald/University of Massachusetts Lowell,57.0,37.0,-6.0
+2012,Wikipedia,Economist,MA,2012-11-01,The Boston Herald/University of Massachusetts Lowell,57.0,37.0,Boston Globe,52.0,38.0,6.0
+2012,Economist,Wikipedia,ME,2012-11-03,Public Policy (2nd CD Only),51.0,46.0,Public Policy Polling,55.0,42.0,-8.0
+2012,Wikipedia,Economist,MI,2012-09-18,National Resource Defense Council/Public Policy Polling (D),51.0,42.0,Marketing Resource Group,48.0,42.0,3.0
+2012,Economist,Wikipedia,MI,2012-09-19,Marketing Resource Group,48.0,42.0,National Resource Defense Council/Public Policy Polling (D),51.0,42.0,-3.0
+2012,Wikipedia,Economist,MN,2012-11-02,KSTP-TV Minneapolis/SurveyUSA,52.0,41.0,SurveyUSA,50.0,43.0,4.0
+2012,Economist,Wikipedia,MN,2012-11-02,SurveyUSA,50.0,43.0,KSTP-TV Minneapolis/SurveyUSA,52.0,41.0,-4.0
+2012,Economist,538 raw_polls,MN,2012-11-02,SurveyUSA,50.0,43.0,SurveyUSA,52.0,41.0,-4.0
+2012,538 raw_polls,Economist,MN,2012-11-02,SurveyUSA,52.0,41.0,SurveyUSA,50.0,43.0,4.0
+2012,Wikipedia,Economist,NC,2012-08-28,FOX 8/High Point University/SurveyUSA,43.0,46.0,SurveyUSA,43.0,43.0,-3.0
+2012,Economist,Wikipedia,NC,2012-08-28,SurveyUSA,43.0,43.0,FOX 8/High Point University/SurveyUSA,43.0,46.0,3.0
+2012,Economist,Wikipedia,NC,2012-09-04,SurveyUSA,43.0,46.0,Civitas Institute/SurveyUSA,43.0,53.0,7.0
+2012,Wikipedia,Economist,NC,2012-09-05,Civitas Institute/SurveyUSA,43.0,53.0,SurveyUSA,43.0,46.0,-7.0
+2012,Wikipedia,538 raw_polls,NE,2012-09-18,Wiese Research Associates,40.0,51.0,Wiese Research Associates,39.0,53.0,3.0
+2012,538 raw_polls,Wikipedia,NE,2012-09-19,Wiese Research Associates,39.0,53.0,Wiese Research Associates,40.0,51.0,-3.0
+2012,Wikipedia,Economist,NH,2012-11-02,University of New Hampshire,51.0,48.0,New England College,50.0,44.0,-3.0
+2012,Wikipedia,538 raw_polls,NH,2012-11-02,University of New Hampshire,51.0,48.0,University of New Hampshire Survey Center,48.0,48.0,3.0
+2012,Wikipedia,538 raw_polls,NV,2012-10-09,Public Policy Polling,51.0,47.0,Public Policy Polling,48.0,47.0,3.0
+2012,538 raw_polls,Wikipedia,NV,2012-10-09,Public Policy Polling,48.0,47.0,Public Policy Polling,51.0,47.0,-3.0
+2012,Economist,Wikipedia,OH,2012-09-01,Gravis Marketing,45.0,44.0,Capitol Correspondent/Gravis Marketing,43.7,46.8,4.1
+2012,Wikipedia,Economist,OH,2012-09-02,Capitol Correspondent/Gravis Marketing,43.7,46.8,Gravis Marketing,45.0,44.0,-4.1
+2012,Economist,Wikipedia,OH,2012-09-06,Gravis Marketing,44.0,47.0,Gravis Marketing,45.0,43.0,-5.0
+2012,Economist,538 raw_polls,OH,2012-09-06,Gravis Marketing,44.0,47.0,Gravis Marketing,47.27,43.19,-7.08
+2012,Wikipedia,Economist,OH,2012-09-07,Gravis Marketing,45.0,43.0,Gravis Marketing,44.0,47.0,5.0
+2012,Wikipedia,Economist,OH,2012-09-07,Capitol Correspondent/Gravis Marketing,47.27,43.19,Gravis Marketing,44.0,47.0,7.08
+2012,Wikipedia,538 raw_polls,OH,2012-09-07,Gravis Marketing,45.0,43.0,Gravis Marketing,47.27,43.19,-2.08
+2012,538 raw_polls,Economist,OH,2012-09-07,Gravis Marketing,47.27,43.19,Gravis Marketing,44.0,47.0,7.08
+2012,Wikipedia,538 raw_polls,OH,2012-09-21,Gravis Marketing,45.0,38.0,Gravis Marketing,45.2,44.3,6.1
+2012,Wikipedia,Economist,OH,2012-10-29,Let Freedom Ring/Pulse Opinion Research (R),48.0,46.0,Rasmussen,48.0,50.0,4.0
+2012,538 raw_polls,Economist,OH,2012-10-29,Rasmussen Reports,48.0,46.0,Rasmussen,48.0,50.0,4.0
+2012,538 raw_polls,Wikipedia,OH,2012-11-01,Ipsos,48.0,40.0,Reuters/Ipsos,48.0,44.0,4.0
+2012,538 raw_polls,Economist,OH,2012-11-01,Ipsos,48.0,40.0,Ipsos/Reuters,47.0,45.0,6.0
+2012,Economist,Wikipedia,OH,2012-11-04,Ipsos/Reuters,46.0,45.0,Reuters/Ipsos,48.0,44.0,-3.0
+2012,Economist,538 raw_polls,OH,2012-11-04,Ipsos/Reuters,46.0,45.0,Ipsos,50.0,46.0,-3.0
+2012,Wikipedia,Economist,US,2012-09-08,ABC News/Washington Post,49.0,48.0,ABC News/Washington Post,50.0,44.0,-5.0
+2012,Wikipedia,Economist,US,2012-09-08,Esquire/Yahoo! News/Langer Research Associates,50.0,46.0,Esquire/Yahoo! News,52.0,41.0,-7.0
+2012,538 raw_polls,Economist,US,2012-09-08,ABC News/The Washington Post,49.0,48.0,ABC News/Washington Post,50.0,44.0,-5.0
+2012,Economist,Wikipedia,US,2012-09-09,ABC News/Washington Post,50.0,44.0,ABC News/Washington Post,49.0,48.0,5.0
+2012,Economist,Wikipedia,US,2012-09-09,Esquire/Yahoo! News,52.0,41.0,Esquire/Yahoo! News/Langer Research Associates,50.0,46.0,7.0
+2012,538 raw_polls,Wikipedia,US,2012-09-09,ABC News/The Washington Post,50.0,46.0,ABC News/Washington Post,49.0,48.0,3.0
+2012,Wikipedia,Economist,US,2012-09-10,CBS News/New York Times,49.0,46.0,CBS/New York Times,51.0,43.0,-5.0
+2012,Economist,Wikipedia,US,2012-09-10,CBS/New York Times,51.0,43.0,CBS News/New York Times,49.0,46.0,5.0
+2012,Economist,538 raw_polls,US,2012-09-10,CBS/New York Times,51.0,43.0,CBS News/The New York Times,49.0,46.0,5.0
+2012,Economist,538 raw_polls,US,2012-09-10,Rasmussen ,46.0,45.0,Scott Rasmussen (Rasmussen Reports),47.0,49.0,3.0
+2012,538 raw_polls,Economist,US,2012-09-10,CBS News/The New York Times,49.0,46.0,CBS/New York Times,51.0,43.0,-5.0
+2012,538 raw_polls,Economist,US,2012-09-11,Scott Rasmussen (Rasmussen Reports),47.0,49.0,Rasmussen ,46.0,45.0,-3.0
+2012,Wikipedia,Economist,US,2012-09-14,Monmouth University,48.0,45.0,Monmouth University,48.0,41.0,-4.0
+2012,Wikipedia,Economist,US,2012-09-15,Associated Press/GfK Group/Roper,47.0,46.0,Associated Press/GfK Roper,52.0,37.0,-14.0
+2012,Economist,Wikipedia,US,2012-09-15,Monmouth University,48.0,41.0,Monmouth University,48.0,45.0,4.0
+2012,Economist,Wikipedia,US,2012-09-15,Associated Press/GfK Roper,52.0,37.0,Associated Press/GfK Group/Roper,47.0,46.0,14.0
+2012,Economist,538 raw_polls,US,2012-09-15,Monmouth University,48.0,41.0,Monmouth University Polling Institute,48.0,45.0,4.0
+2012,Economist,538 raw_polls,US,2012-09-15,Associated Press/GfK Roper,52.0,37.0,GfK Group,47.0,46.0,14.0
+2012,538 raw_polls,Economist,US,2012-09-15,Monmouth University Polling Institute,48.0,45.0,Monmouth University,48.0,41.0,-4.0
+2012,538 raw_polls,Economist,US,2012-09-15,GfK Group,47.0,46.0,Associated Press/GfK Roper,52.0,37.0,-14.0
+2012,Wikipedia,Economist,US,2012-09-20,Gallup (Daily Tracking),48.0,46.0,Gallup ,50.0,44.0,-4.0
+2012,538 raw_polls,Economist,US,2012-09-20,Gallup,48.0,46.0,Gallup ,50.0,44.0,-4.0
+2012,Economist,Wikipedia,US,2012-09-21,Gallup ,50.0,44.0,Gallup (Daily Tracking),48.0,46.0,4.0
+2012,Economist,538 raw_polls,US,2012-09-21,Gallup ,50.0,44.0,Gallup,48.0,46.0,4.0
+2012,Wikipedia,Economist,US,2012-09-28,Washington Times/JZ Analytics,49.7,41.1,ABC News/Washington Post,49.0,44.0,3.6
+2012,Wikipedia,Economist,US,2012-09-28,NBC News/Wall Street Journal,49.0,46.0,NBC/Wall Street Journal,51.0,44.0,-4.0
+2012,Wikipedia,538 raw_polls,US,2012-09-28,Washington Times/JZ Analytics,49.7,41.1,ABC News/The Washington Post,49.0,47.0,6.6
+2012,Economist,Wikipedia,US,2012-09-28,ABC News/Washington Post,49.0,44.0,ABC News/Washington Post,49.0,47.0,3.0
+2012,Economist,Wikipedia,US,2012-09-28,NBC/Wall Street Journal,51.0,44.0,NBC News/Wall Street Journal,49.0,46.0,4.0
+2012,Economist,538 raw_polls,US,2012-09-28,ABC News/Washington Post,49.0,44.0,ABC News/The Washington Post,49.0,47.0,3.0
+2012,538 raw_polls,Wikipedia,US,2012-09-28,RAND (American Life Panel),50.05,44.1,American Research Group,49.0,46.0,2.95
+2012,538 raw_polls,Wikipedia,US,2012-10-04,Gallup,50.0,45.0,Gallup (Daily Tracking),48.0,48.0,5.0
+2012,Wikipedia,Economist,US,2012-10-05,Pew Research Center,45.0,49.0,Pew Center,46.0,46.0,-4.0
+2012,538 raw_polls,Wikipedia,US,2012-10-05,RAND (American Life Panel),49.07,45.24,American Research Group,47.0,48.0,4.83
+2012,Wikipedia,538 raw_polls,US,2012-10-06,Investor's Business Daily/TIPP (Daily Tracking),45.7,46.9,TIPP Insights,44.0,49.0,3.8
+2012,Economist,Wikipedia,US,2012-10-06,Pew Center,46.0,46.0,Pew Research Center,45.0,49.0,4.0
+2012,Economist,538 raw_polls,US,2012-10-06,Investor's Business Daily/TIPP,46.0,47.0,TIPP Insights,44.0,49.0,4.0
+2012,Economist,538 raw_polls,US,2012-10-06,Pew Center,46.0,46.0,Pew Research Center,45.0,49.0,4.0
+2012,538 raw_polls,Wikipedia,US,2012-10-06,TIPP Insights,44.0,49.0,Investor's Business Daily/TIPP (Daily Tracking),45.7,46.9,-3.8
+2012,538 raw_polls,Economist,US,2012-10-06,Pew Research Center,45.0,49.0,Pew Center,46.0,46.0,-4.0
+2012,538 raw_polls,Economist,US,2012-10-06,TIPP Insights,44.0,49.0,Investor's Business Daily/TIPP,46.0,47.0,-4.0
+2012,Wikipedia,Economist,US,2012-10-08,Fox News/Anderson Robbins/Shaw & Company,45.0,46.0,Fox News,46.0,44.0,-3.0
+2012,Wikipedia,Economist,US,2012-10-08,Rasmussen Reports/Pulse Opinion Research (Daily Tracking),48.0,47.0,Rasmussen Reports,47.0,49.0,3.0
+2012,Economist,Wikipedia,US,2012-10-09,Fox News,46.0,44.0,Fox News/Anderson Robbins/Shaw & Company,45.0,46.0,3.0
+2012,538 raw_polls,Wikipedia,US,2012-10-12,RAND (American Life Panel),49.66,44.51,American Research Group,47.0,48.0,6.15
+2012,538 raw_polls,Wikipedia,US,2012-10-13,Public Policy Polling,49.0,47.0,Daily Kos/Service Employees' International Union/Service Employees' International Union/Public Policy Polling (D),46.0,50.0,6.0
+2012,538 raw_polls,Wikipedia,US,2012-10-14,Public Policy Polling,40.0,56.0,Daily Kos/Service Employees' International Union/Service Employees' International Union/Public Policy Polling (D),46.0,50.0,-12.0
+2012,538 raw_polls,Wikipedia,US,2012-10-19,RAND (American Life Panel),48.26,46.36,American Research Group,47.0,48.0,2.9
+2012,Economist,538 raw_polls,US,2012-10-20,Washington Times/JZ Analytics,50.0,47.0,ABC News/The Washington Post,48.0,49.0,4.0
+2012,Wikipedia,Economist,US,2012-10-21,Americans United for Change/Public Policy Polling (D),47.0,49.0,PPP/Americans United for Change,49.0,47.0,-4.0
+2012,Wikipedia,Economist,US,2012-10-21,Associated Press/GfK Group/Roper,45.0,47.0,Associated Press/GFK,48.0,40.0,-10.0
+2012,Economist,Wikipedia,US,2012-10-21,Associated Press/GFK,48.0,40.0,Associated Press/GfK Group/Roper,45.0,47.0,10.0
+2012,Economist,538 raw_polls,US,2012-10-21,Associated Press/GFK,48.0,40.0,GfK Group,45.0,47.0,10.0
+2012,538 raw_polls,Economist,US,2012-10-21,Public Policy Polling,47.0,49.0,PPP/Americans United for Change,49.0,47.0,-4.0
+2012,538 raw_polls,Economist,US,2012-10-21,GfK Group,45.0,47.0,Associated Press/GFK,48.0,40.0,-10.0
+2012,Economist,Wikipedia,US,2012-10-24,Gallup ,48.0,48.0,Gallup (Daily Tracking),46.0,51.0,5.0
+2012,Economist,538 raw_polls,US,2012-10-24,Gallup ,48.0,48.0,Gallup,46.0,51.0,5.0
+2012,Wikipedia,Economist,US,2012-10-25,Gallup (Daily Tracking),46.0,51.0,Gallup ,48.0,48.0,-5.0
+2012,Wikipedia,Economist,US,2012-10-25,Reuters/Ipsos (Daily Tracking),47.0,45.0,Ipsos/Reuters,51.0,39.0,-10.0
+2012,538 raw_polls,Economist,US,2012-10-25,Gallup,46.0,51.0,Gallup ,48.0,48.0,-5.0
+2012,Economist,Wikipedia,US,2012-10-26,Ipsos/Reuters,51.0,39.0,Reuters/Ipsos (Daily Tracking),47.0,45.0,10.0
+2012,538 raw_polls,Wikipedia,US,2012-10-26,RAND (American Life Panel),50.36,45.29,American Research Group,48.0,48.0,5.07
+2012,Wikipedia,Economist,US,2012-11-01,Pew Research Center,48.0,45.0,Pew,49.0,42.0,-4.0
+2012,Wikipedia,Economist,US,2012-11-02,Gallup (Daily Tracking),49.0,50.0,Gallup ,49.0,46.0,-4.0
+2012,Economist,Wikipedia,US,2012-11-02,Pew,49.0,42.0,Pew Research Center,48.0,45.0,4.0
+2012,Economist,538 raw_polls,US,2012-11-02,Pew,49.0,42.0,Pew Research Center,48.0,45.0,4.0
+2012,Economist,538 raw_polls,US,2012-11-02,Ipsos/Reuters,48.0,42.0,Ipsos,48.0,46.0,4.0
+2012,538 raw_polls,Wikipedia,US,2012-11-02,RAND (American Life Panel),49.5,46.18,American Research Group,49.0,49.0,3.32
+2012,538 raw_polls,Economist,US,2012-11-02,Pew Research Center,48.0,45.0,Pew,49.0,42.0,-4.0
+2012,Economist,Wikipedia,US,2012-11-03,Gallup ,49.0,46.0,Gallup (Daily Tracking),49.0,50.0,4.0
+2012,538 raw_polls,Wikipedia,US,2012-11-03,ABC News/The Washington Post,50.0,47.0,Politico/George Washington University/Tarrance Group/Lake Research Partners,47.0,47.0,3.0
+2012,538 raw_polls,Wikipedia,US,2012-11-03,Gallup,49.0,46.0,Gallup (Daily Tracking),49.0,50.0,4.0
+2012,538 raw_polls,Economist,US,2012-11-03,Gallup,48.0,49.0,Gallup ,49.0,46.0,-4.0
+2012,538 raw_polls,Economist,US,2012-11-03,Ipsos,48.0,46.0,Ipsos/Reuters,48.0,42.0,-4.0
+2012,Economist,Wikipedia,VA,2012-10-13,Rasmussen,47.0,49.0,Let Freedom Ring/Pulse Opinion Research (R),47.0,46.0,-3.0
+2012,Economist,538 raw_polls,VA,2012-10-13,Rasmussen,47.0,49.0,Rasmussen Reports,47.0,46.0,-3.0
+2012,Wikipedia,Economist,VA,2012-10-18,Rasmussen Reports/Pulse Opinion Research,47.0,50.0,Pulse Opinion Research,47.0,46.0,-4.0
+2012,538 raw_polls,Economist,VA,2012-10-18,Scott Rasmussen (Rasmussen Reports),47.0,50.0,Pulse Opinion Research,47.0,46.0,-4.0
+2012,Economist,Wikipedia,VA,2012-10-21,Public Policy,49.0,47.0,Health Care for America Now/Public Policy Polling (D),51.0,46.0,-3.0
+2012,Economist,538 raw_polls,VA,2012-10-21,Public Policy,49.0,47.0,Public Policy Polling,51.0,46.0,-3.0
+2012,Wikipedia,Economist,VA,2012-10-23,Health Care for America Now/Public Policy Polling (D),51.0,46.0,Public Policy,49.0,47.0,3.0
+2012,538 raw_polls,Economist,VA,2012-10-23,Public Policy Polling,51.0,46.0,Public Policy,49.0,47.0,3.0
+2012,538 raw_polls,Economist,VA,2012-10-25,Roanoke College Institute for Policy and Opinion Research,44.0,49.0,Public Policy,51.0,46.0,-10.0
+2012,Economist,538 raw_polls,VA,2012-10-26,Public Policy,51.0,46.0,Roanoke College Institute for Policy and Opinion Research,44.0,49.0,10.0
+2012,538 raw_polls,Wikipedia,VA,2012-11-01,Ipsos,49.0,40.0,Reuters/Ipsos,49.0,44.0,4.0
+2012,538 raw_polls,Economist,VA,2012-11-01,Ipsos,49.0,40.0,Ipsos/Reuters,49.0,44.0,4.0
+2012,Wikipedia,Economist,WI,2012-09-18,Public Policy Polling,52.0,45.0,Public Policy,49.0,48.0,6.0
+2012,Economist,Wikipedia,WI,2012-09-18,Public Policy,49.0,48.0,Public Policy Polling,52.0,45.0,-6.0
+2012,Economist,538 raw_polls,WI,2012-09-18,Public Policy,49.0,48.0,Public Policy Polling,52.0,45.0,-6.0
+2012,538 raw_polls,Economist,WI,2012-09-18,Public Policy Polling,52.0,45.0,Public Policy,49.0,48.0,6.0
+2016,538 forecast,Economist,AK,2016-10-30,SurveyMonkey,35.0,47.0,SurveyMonkey,38.0,46.0,-4.0
+2016,538 forecast,538 raw_polls,AK,2016-10-30,SurveyMonkey,35.0,47.0,SurveyMonkey,38.0,46.0,-4.0
+2016,538 forecast,Economist,AL,2016-10-27,Ipsos,41.23,53.27,Ipsos/Reuters,38.0,54.0,3.96
+2016,538 forecast,Economist,AL,2016-10-29,SurveyMonkey,37.0,52.0,SurveyMonkey,35.0,55.0,5.0
+2016,538 forecast,538 raw_polls,AL,2016-10-29,SurveyMonkey,37.0,52.0,SurveyMonkey,35.0,55.0,5.0
+2016,Economist,538 forecast,AR,2016-08-20,WashPost/SurveyMonkey,41.0,54.0,SurveyMonkey,37.0,46.0,-4.0
+2016,538 forecast,Economist,AR,2016-10-27,SurveyMonkey,37.0,53.0,SurveyMonkey,39.0,52.0,-3.0
+2016,538 forecast,538 raw_polls,AR,2016-10-27,SurveyMonkey,37.0,53.0,SurveyMonkey,39.0,52.0,-3.0
+2016,538 forecast,Economist,AR,2016-10-30,SurveyMonkey,36.0,53.0,SurveyMonkey,39.0,52.0,-4.0
+2016,538 forecast,538 raw_polls,AR,2016-10-30,SurveyMonkey,36.0,53.0,SurveyMonkey,39.0,52.0,-4.0
+2016,538 forecast,Economist,AR,2016-11-02,SurveyMonkey,34.0,55.0,SurveyMonkey,32.0,56.0,3.0
+2016,538 forecast,538 raw_polls,AR,2016-11-02,SurveyMonkey,34.0,55.0,SurveyMonkey,32.0,56.0,3.0
+2016,Economist,538 forecast,AZ,2016-08-20,WashPost/SurveyMonkey,46.0,45.0,SurveyMonkey,37.0,39.0,3.0
+2016,538 forecast,Economist,AZ,2016-08-24,Arizona State University,39.9,36.8,Arizona Republic/Morrison/Cronkite News ,35.0,34.0,2.1
+2016,Economist,538 forecast,AZ,2016-08-24,Arizona Republic/Morrison/Cronkite News ,35.0,34.0,Arizona State University,39.9,36.8,-2.1
+2016,538 forecast,Economist,AZ,2016-10-27,Ipsos,42.92,44.58,Ipsos/Reuters,42.0,47.0,3.34
+2016,Economist,538 forecast,AZ,2016-10-27,Ipsos/Reuters,42.0,47.0,Ipsos,42.92,44.58,-3.34
+2016,Economist,538 forecast,CA,2016-06-09,SurveyMonkey/USC/LA Times,61.0,31.0,SurveyMonkey,54.0,28.0,4.0
+2016,Economist,538 forecast,CA,2016-06-20,Field,58.0,28.0,Field Research Corporation (Field Poll),50.0,26.0,6.0
+2016,Economist,538 forecast,CA,2016-08-20,WashPost/SurveyMonkey,57.0,33.0,SurveyMonkey,49.0,28.0,3.0
+2016,Economist,538 forecast,CA,2016-09-04,SurveyMonkey/LA Times,58.0,33.0,SurveyMonkey,49.0,29.0,5.0
+2016,538 forecast,Economist,CA,2016-09-12,Ipsos,62.5,24.22,Ipsos/Reuters,60.0,28.0,6.28
+2016,Economist,538 forecast,CA,2016-09-12,Ipsos/Reuters,60.0,28.0,Ipsos,62.5,24.22,-6.28
+2016,Economist,538 raw_polls,CA,2016-09-12,Ipsos/Reuters,60.0,28.0,Ipsos,62.5,24.22,-6.28
+2016,538 raw_polls,Economist,CA,2016-09-12,Ipsos,62.5,24.22,Ipsos/Reuters,60.0,28.0,6.28
+2016,538 forecast,Economist,CA,2016-10-03,Ipsos,61.26,27.86,Ipsos/Reuters,66.0,22.0,-10.6
+2016,Economist,538 forecast,CA,2016-10-03,Ipsos/Reuters,66.0,22.0,Ipsos,61.26,27.86,10.6
+2016,Economist,538 raw_polls,CA,2016-10-03,Ipsos/Reuters,66.0,22.0,Ipsos,61.26,27.86,10.6
+2016,538 raw_polls,Economist,CA,2016-10-03,Ipsos,61.26,27.86,Ipsos/Reuters,66.0,22.0,-10.6
+2016,Economist,538 forecast,CO,2016-09-22,CNN,49.0,47.0,CNN/Opinion Research Corp.,41.0,42.0,3.0
+2016,Economist,538 forecast,CO,2016-10-13,Quinnipiac,51.0,40.0,Quinnipiac University,45.0,37.0,3.0
+2016,Economist,538 raw_polls,CO,2016-10-13,Quinnipiac,51.0,40.0,Quinnipiac University,45.0,37.0,3.0
+2016,538 forecast,Economist,CT,2016-10-27,Ipsos,48.95,41.48,Ipsos/Reuters,50.0,40.0,-2.53
+2016,538 forecast,Economist,CT,2016-10-27,Ipsos,48.11,42.23,Ipsos/Reuters,50.0,40.0,-4.12
+2016,Economist,538 forecast,CT,2016-10-27,Ipsos/Reuters,50.0,40.0,Ipsos,48.95,41.48,2.53
+2016,538 forecast,538 raw_polls,DC,2016-11-02,SurveyMonkey,88.0,7.0,SurveyMonkey,85.0,7.0,3.0
+2016,Economist,538 forecast,DE,2016-08-20,WashPost/SurveyMonkey,50.0,36.0,SurveyMonkey,43.0,33.0,4.0
+2016,538 forecast,Economist,FL,2016-06-27,Gravis Marketing,48.5,48.5,Gravis Marketing/OANN,45.0,49.0,4.0
+2016,Economist,538 forecast,FL,2016-06-27,Gravis Marketing/OANN,45.0,49.0,Gravis Marketing,48.5,48.5,-4.0
+2016,538 forecast,Economist,FL,2016-09-12,Ipsos,46.33,49.84,Ipsos/Reuters,49.0,45.0,-7.51
+2016,Economist,538 forecast,FL,2016-09-12,Ipsos/Reuters,49.0,45.0,Ipsos,46.33,49.84,7.51
+2016,Economist,538 raw_polls,FL,2016-09-12,Ipsos/Reuters,49.0,45.0,Ipsos,46.33,49.84,7.51
+2016,538 raw_polls,Economist,FL,2016-09-12,Ipsos,46.33,49.84,Ipsos/Reuters,49.0,45.0,-7.51
+2016,538 forecast,538 raw_polls,FL,2016-10-23,Rasmussen Reports/Pulse Opinion Research,43.0,46.0,Rasmussen Reports,46.0,43.0,-6.0
+2016,Economist,538 forecast,GA,2016-08-06,Gravis Marketing,44.0,45.0,Gravis Marketing,39.0,43.0,3.0
+2016,538 forecast,Economist,GA,2016-10-03,Ipsos,43.1,48.05,Ipsos/Reuters,42.0,50.0,3.05
+2016,Economist,538 forecast,GA,2016-10-03,Ipsos/Reuters,42.0,50.0,Ipsos,43.1,48.05,-3.05
+2016,Economist,538 forecast,HI,2016-08-20,WashPost/SurveyMonkey,58.0,28.0,SurveyMonkey,51.0,25.0,4.0
+2016,538 forecast,Economist,IA,2016-07-07,Marist College,37.0,37.0,NBC/WSJ/Marist,42.0,39.0,-3.0
+2016,Economist,538 forecast,IA,2016-07-07,NBC/WSJ/Marist,42.0,39.0,Marist College,37.0,37.0,3.0
+2016,Economist,538 forecast,IA,2016-08-05,NBC/WSJ/Marist,41.0,37.0,Marist College,35.0,35.0,4.0
+2016,538 forecast,Economist,IA,2016-10-30,SurveyMonkey,37.0,47.0,SurveyMonkey,40.0,45.0,-5.0
+2016,538 forecast,538 raw_polls,IA,2016-10-30,SurveyMonkey,37.0,47.0,SurveyMonkey,40.0,45.0,-5.0
+2016,538 forecast,Economist,ID,2016-10-29,SurveyMonkey,32.0,47.0,SurveyMonkey,31.0,49.0,3.0
+2016,538 forecast,538 raw_polls,ID,2016-10-29,SurveyMonkey,32.0,47.0,SurveyMonkey,31.0,49.0,3.0
+2016,538 forecast,Economist,IL,2016-09-12,Ipsos,51.5,36.18,Ipsos/Reuters,53.0,31.0,-6.68
+2016,Economist,538 forecast,IL,2016-09-12,Ipsos/Reuters,53.0,31.0,Ipsos,51.5,36.18,6.68
+2016,Economist,538 raw_polls,IL,2016-09-12,Ipsos/Reuters,53.0,31.0,Ipsos,51.5,36.18,6.68
+2016,538 raw_polls,Economist,IL,2016-09-12,Ipsos,51.5,36.18,Ipsos/Reuters,53.0,31.0,-6.68
+2016,538 forecast,Economist,IL,2016-10-03,Ipsos,57.49,31.29,Ipsos/Reuters,60.0,27.0,-6.8
+2016,Economist,538 forecast,IL,2016-10-03,Ipsos/Reuters,60.0,27.0,Ipsos,57.49,31.29,6.8
+2016,Economist,538 raw_polls,IL,2016-10-03,Ipsos/Reuters,60.0,27.0,Ipsos,57.49,31.29,6.8
+2016,538 raw_polls,Economist,IL,2016-10-03,Ipsos,57.49,31.29,Ipsos/Reuters,60.0,27.0,-6.8
+2016,538 forecast,Economist,KY,2016-10-27,Ipsos,36.01,59.44,Ipsos/Reuters,38.0,58.0,-3.43
+2016,538 forecast,Economist,KY,2016-10-27,Ipsos,34.13,61.0,Ipsos/Reuters,38.0,58.0,-6.87
+2016,Economist,538 forecast,KY,2016-10-27,Ipsos/Reuters,38.0,58.0,Ipsos,36.01,59.44,3.43
+2016,538 forecast,Economist,KY,2016-10-29,SurveyMonkey,34.0,57.0,SurveyMonkey,31.0,58.0,4.0
+2016,538 forecast,538 raw_polls,KY,2016-10-29,SurveyMonkey,34.0,57.0,SurveyMonkey,31.0,58.0,4.0
+2016,538 forecast,Economist,KY,2016-10-30,SurveyMonkey,35.0,56.0,SurveyMonkey,31.0,58.0,6.0
+2016,538 forecast,538 raw_polls,KY,2016-10-30,SurveyMonkey,35.0,56.0,SurveyMonkey,31.0,58.0,6.0
+2016,538 forecast,Economist,LA,2016-10-27,SurveyMonkey,36.0,54.0,SurveyMonkey,38.0,51.0,-5.0
+2016,538 forecast,538 raw_polls,LA,2016-10-27,SurveyMonkey,36.0,54.0,SurveyMonkey,38.0,51.0,-5.0
+2016,Economist,538 forecast,MA,2016-08-20,WashPost/SurveyMonkey,56.0,33.0,SurveyMonkey,48.0,29.0,4.0
+2016,Economist,538 forecast,MA,2016-09-08,MassINC/WBUR,60.0,31.0,MassINC Polling Group,54.0,28.0,3.0
+2016,Economist,538 raw_polls,MA,2016-09-08,MassINC/WBUR,60.0,31.0,MassINC Polling Group,54.0,28.0,3.0
+2016,Economist,538 forecast,MD,2016-08-20,WashPost/SurveyMonkey,61.0,31.0,SurveyMonkey,54.0,27.0,3.0
+2016,538 forecast,Economist,MD,2016-10-27,Ipsos,52.92,33.96,Ipsos/Reuters,56.0,34.0,-3.04
+2016,538 forecast,Economist,MD,2016-10-27,Ipsos,53.26,35.12,Ipsos/Reuters,56.0,34.0,-3.86
+2016,Economist,538 forecast,MD,2016-10-27,Ipsos/Reuters,56.0,34.0,Ipsos,52.92,33.96,3.04
+2016,Economist,538 forecast,ME,2016-08-20,WashPost/SurveyMonkey,47.0,39.0,SurveyMonkey,37.0,34.0,5.0
+2016,538 forecast,Economist,ME,2016-09-16,Maine People's Resource Center,37.0,36.7,UNH/Portland Press Herald/Maine Sunday Telegram,40.0,36.0,-3.7
+2016,538 raw_polls,Economist,ME,2016-09-16,Maine People's Resource Center,37.0,36.7,UNH/Portland Press Herald/Maine Sunday Telegram,40.0,36.0,-3.7
+2016,Economist,538 forecast,ME,2016-09-18,UNH/Portland Press Herald/Maine Sunday Telegram,40.0,36.0,Maine People's Resource Center,37.0,36.7,3.7
+2016,Economist,538 forecast,ME,2016-09-18,UNH/Portland Press Herald/Maine Sunday Telegram,42.0,37.0,Maine People's Resource Center,37.0,36.7,4.7
+2016,Economist,538 raw_polls,ME,2016-09-18,UNH/Portland Press Herald/Maine Sunday Telegram,40.0,36.0,Maine People's Resource Center,37.0,36.7,3.7
+2016,Economist,538 raw_polls,ME,2016-09-18,UNH/Portland Press Herald/Maine Sunday Telegram,42.0,37.0,Maine People's Resource Center,37.0,36.7,4.7
+2016,538 forecast,Economist,ME,2016-10-30,SurveyMonkey,47.0,38.0,SurveyMonkey,49.0,37.0,-3.0
+2016,538 forecast,538 raw_polls,ME,2016-10-30,SurveyMonkey,47.0,38.0,SurveyMonkey,49.0,37.0,-3.0
+2016,Economist,538 forecast,MI,2016-06-15,GQR (D-Democracy Corps/Women's Voices Women Vote),50.0,39.0,Greenberg Quinlan Rosner (Democracy Corps),48.0,33.0,-4.0
+2016,Economist,538 forecast,MI,2016-07-07,Gravis Marketing,48.0,41.0,Gravis Marketing,37.0,34.0,4.0
+2016,Economist,538 forecast,MI,2016-10-10,Glengariff/Detroit News/WDIV,47.0,33.0,"Glengariff Group, Inc.",42.2,30.6,2.4
+2016,Economist,538 raw_polls,MI,2016-10-10,Glengariff/Detroit News/WDIV,47.0,33.0,Glengariff Group,42.2,30.6,2.4
+2016,538 forecast,Economist,MN,2016-10-27,Ipsos,42.41,36.96,Ipsos/Reuters,44.0,36.0,-2.55
+2016,538 forecast,Economist,MN,2016-10-27,Ipsos,42.01,37.21,Ipsos/Reuters,44.0,36.0,-3.2
+2016,Economist,538 forecast,MN,2016-10-27,Ipsos/Reuters,44.0,36.0,Ipsos,42.41,36.96,2.55
+2016,538 forecast,Economist,MS,2016-10-27,Ipsos,34.24,53.55,Ipsos/Reuters,36.0,53.0,-2.31
+2016,Economist,538 forecast,MS,2016-10-27,Ipsos/Reuters,36.0,53.0,Ipsos,34.24,53.55,2.31
+2016,538 forecast,Economist,MT,2016-10-27,SurveyMonkey,38.0,48.0,SurveyMonkey,36.0,49.0,3.0
+2016,538 forecast,538 raw_polls,MT,2016-10-27,SurveyMonkey,38.0,48.0,SurveyMonkey,36.0,49.0,3.0
+2016,538 forecast,Economist,MT,2016-10-29,SurveyMonkey,34.0,50.0,SurveyMonkey,36.0,49.0,-3.0
+2016,538 forecast,538 raw_polls,MT,2016-10-29,SurveyMonkey,34.0,50.0,SurveyMonkey,36.0,49.0,-3.0
+2016,538 forecast,Economist,MT,2016-10-30,SurveyMonkey,34.0,51.0,SurveyMonkey,36.0,49.0,-4.0
+2016,538 forecast,538 raw_polls,MT,2016-10-30,SurveyMonkey,34.0,51.0,SurveyMonkey,36.0,49.0,-4.0
+2016,Economist,538 forecast,NC,2016-08-01,SurveyUSA/Civitas (R),41.0,51.0,SurveyUSA,42.0,46.0,-6.0
+2016,538 forecast,Economist,NC,2016-10-03,Ipsos,44.16,43.09,Ipsos/Reuters,46.0,42.0,-2.93
+2016,Economist,538 forecast,NC,2016-10-03,Ipsos/Reuters,46.0,42.0,Ipsos,44.16,43.09,2.93
+2016,Economist,538 raw_polls,NC,2016-10-03,Ipsos/Reuters,46.0,42.0,Ipsos,44.16,43.09,2.93
+2016,538 raw_polls,Economist,NC,2016-10-03,Ipsos,44.16,43.09,Ipsos/Reuters,46.0,42.0,-2.93
+2016,538 forecast,538 raw_polls,NC,2016-10-19,Rasmussen Reports/Pulse Opinion Research,47.0,41.0,Rasmussen Reports,46.0,43.0,3.0
+2016,538 forecast,538 raw_polls,NC,2016-10-28,Rasmussen Reports/Pulse Opinion Research,44.0,46.0,Rasmussen Reports,47.0,44.0,-5.0
+2016,538 forecast,Economist,NC,2016-10-29,SurveyMonkey,49.0,42.0,SurveyMonkey,47.0,44.0,4.0
+2016,538 forecast,538 raw_polls,NC,2016-10-29,Rasmussen Reports/Pulse Opinion Research,46.0,46.0,Rasmussen Reports,47.0,44.0,-3.0
+2016,538 forecast,538 raw_polls,NC,2016-10-29,SurveyMonkey,49.0,42.0,SurveyMonkey,47.0,44.0,4.0
+2016,538 forecast,Economist,NC,2016-10-30,SurveyMonkey,49.0,41.0,SurveyMonkey,47.0,44.0,5.0
+2016,538 forecast,538 raw_polls,NC,2016-10-30,SurveyMonkey,49.0,41.0,SurveyMonkey,47.0,44.0,5.0
+2016,Economist,538 forecast,ND,2016-08-20,WashPost/SurveyMonkey,32.0,60.0,SurveyMonkey,26.0,51.0,-3.0
+2016,538 forecast,Economist,ND,2016-10-22,SurveyMonkey,31.0,52.0,SurveyMonkey,31.0,49.0,-3.0
+2016,538 forecast,Economist,NE,2016-10-30,SurveyMonkey,34.0,50.0,SurveyMonkey,32.0,52.0,4.0
+2016,538 forecast,538 raw_polls,NE,2016-10-30,SurveyMonkey,34.0,50.0,SurveyMonkey,32.0,52.0,4.0
+2016,Economist,538 forecast,NH,2016-08-20,WashPost/SurveyMonkey,49.0,40.0,SurveyMonkey,40.0,34.0,3.0
+2016,Economist,538 forecast,NH,2016-10-12,WashPost/SurveyMonkey,50.0,43.0,SurveyMonkey,47.0,36.0,-4.0
+2016,Economist,538 raw_polls,NH,2016-10-12,WashPost/SurveyMonkey,50.0,43.0,SurveyMonkey,47.0,36.0,-4.0
+2016,538 forecast,Economist,NH,2016-10-20,YouGov,43.0,34.4,UMass Amherst/WBZ-TV/YouGov,43.0,38.0,3.6
+2016,538 raw_polls,Economist,NH,2016-10-20,YouGov,43.0,34.4,UMass Amherst/WBZ-TV/YouGov,43.0,38.0,3.6
+2016,538 forecast,538 raw_polls,NH,2016-10-24,Rasmussen Reports/Pulse Opinion Research,45.0,41.0,Rasmussen Reports,47.0,39.0,-4.0
+2016,538 forecast,Economist,NH,2016-10-27,SurveyMonkey,46.0,36.0,SurveyMonkey,48.0,35.0,-3.0
+2016,538 forecast,Economist,NH,2016-10-27,Ipsos,46.37,39.88,Ipsos/Reuters,44.0,42.0,4.49
+2016,538 forecast,538 raw_polls,NH,2016-10-27,SurveyMonkey,46.0,36.0,SurveyMonkey,48.0,35.0,-3.0
+2016,Economist,538 forecast,NH,2016-10-27,Ipsos/Reuters,44.0,42.0,Ipsos,46.37,39.88,-4.49
+2016,538 forecast,Economist,NH,2016-10-30,SurveyMonkey,47.0,37.0,SurveyMonkey,48.0,35.0,-3.0
+2016,538 forecast,538 raw_polls,NH,2016-10-30,SurveyMonkey,47.0,37.0,SurveyMonkey,48.0,35.0,-3.0
+2016,538 forecast,538 raw_polls,NH,2016-11-01,Rasmussen Reports/Pulse Opinion Research,43.0,42.0,Rasmussen Reports,45.0,41.0,-3.0
+2016,538 forecast,538 raw_polls,NH,2016-11-02,Rasmussen Reports/Pulse Opinion Research,43.0,42.0,Rasmussen Reports,45.0,41.0,-3.0
+2016,538 forecast,538 raw_polls,NH,2016-11-03,University of New Hampshire,47.0,41.0,University of New Hampshire Survey Center,49.0,38.0,-5.0
+2016,Economist,538 forecast,NJ,2016-09-08,Rutgers-Eagleton,59.0,35.0,Rutgers University,50.0,29.0,3.0
+2016,538 forecast,Economist,NJ,2016-10-03,Ipsos,48.52,33.66,Ipsos/Reuters,50.0,32.0,-3.14
+2016,Economist,538 forecast,NJ,2016-10-03,Ipsos/Reuters,50.0,32.0,Ipsos,48.52,33.66,3.14
+2016,Economist,538 forecast,NJ,2016-10-14,Fairleigh Dickinson,51.0,40.0,Fairleigh Dickinson University (PublicMind),49.0,35.0,-3.0
+2016,Economist,538 raw_polls,NJ,2016-10-14,Fairleigh Dickinson,51.0,40.0,Fairleigh Dickinson University,49.0,35.0,-3.0
+2016,538 forecast,Economist,NJ,2016-10-30,SurveyMonkey,54.0,38.0,SurveyMonkey,55.0,35.0,-4.0
+2016,538 forecast,538 raw_polls,NJ,2016-10-30,SurveyMonkey,54.0,38.0,SurveyMonkey,55.0,35.0,-4.0
+2016,Economist,538 forecast,NM,2016-08-20,WashPost/SurveyMonkey,51.0,37.0,SurveyMonkey,37.0,29.0,6.0
+2016,Economist,538 forecast,NM,2016-10-12,WashPost/SurveyMonkey,50.0,39.0,SurveyMonkey,41.0,33.0,3.0
+2016,Economist,538 raw_polls,NM,2016-10-12,WashPost/SurveyMonkey,50.0,39.0,SurveyMonkey,41.0,33.0,3.0
+2016,538 forecast,Economist,NM,2016-10-30,SurveyMonkey,40.0,35.0,SurveyMonkey,44.0,34.0,-5.0
+2016,538 forecast,538 raw_polls,NM,2016-10-30,SurveyMonkey,40.0,35.0,SurveyMonkey,44.0,34.0,-5.0
+2016,Economist,538 forecast,NV,2016-10-12,WashPost/SurveyMonkey,47.0,46.0,SurveyMonkey,40.0,44.0,5.0
+2016,Economist,538 raw_polls,NV,2016-10-12,WashPost/SurveyMonkey,47.0,46.0,SurveyMonkey,40.0,44.0,5.0
+2016,538 forecast,538 raw_polls,NV,2016-10-24,Rasmussen Reports/Pulse Opinion Research,45.0,41.0,Rasmussen Reports,43.0,42.0,3.0
+2016,538 forecast,538 raw_polls,NV,2016-10-29,Rasmussen Reports/Pulse Opinion Research,44.0,40.0,Rasmussen Reports,44.0,44.0,4.0
+2016,Economist,538 forecast,NY,2016-08-06,Gravis Marketing,53.0,36.0,Gravis Marketing,48.0,34.0,3.0
+2016,Economist,538 forecast,NY,2016-08-08,Siena,57.0,27.0,Siena College,50.0,25.0,5.0
+2016,538 forecast,Economist,NY,2016-09-12,Ipsos,53.44,29.97,Ipsos/Reuters,53.0,34.0,4.47
+2016,Economist,538 forecast,NY,2016-09-12,Ipsos/Reuters,53.0,34.0,Ipsos,53.44,29.97,-4.47
+2016,Economist,538 raw_polls,NY,2016-09-12,Ipsos/Reuters,53.0,34.0,Ipsos,53.44,29.97,-4.47
+2016,538 raw_polls,Economist,NY,2016-09-12,Ipsos,53.44,29.97,Ipsos/Reuters,53.0,34.0,4.47
+2016,Economist,538 forecast,NY,2016-09-22,NBC/WSJ/Marist,57.0,33.0,Marist College,52.0,31.0,3.0
+2016,Economist,538 raw_polls,NY,2016-09-22,NBC/WSJ/Marist,57.0,33.0,Marist College,52.0,31.0,3.0
+2016,538 forecast,Economist,NY,2016-10-03,Ipsos,54.76,31.07,Ipsos/Reuters,53.0,27.0,-2.31
+2016,Economist,538 forecast,NY,2016-10-03,Ipsos/Reuters,53.0,27.0,Ipsos,54.76,31.07,2.31
+2016,Economist,538 raw_polls,NY,2016-10-03,Ipsos/Reuters,53.0,27.0,Ipsos,54.76,31.07,2.31
+2016,538 raw_polls,Economist,NY,2016-10-03,Ipsos,54.76,31.07,Ipsos/Reuters,53.0,27.0,-2.31
+2016,538 forecast,Economist,NY,2016-10-30,SurveyMonkey,58.0,32.0,SurveyMonkey,56.0,33.0,3.0
+2016,538 forecast,538 raw_polls,NY,2016-10-30,SurveyMonkey,58.0,32.0,SurveyMonkey,56.0,33.0,3.0
+2016,538 forecast,Economist,OH,2016-06-27,Gravis Marketing,49.0,47.5,Gravis Marketing/OANN,46.0,47.0,2.5
+2016,Economist,538 forecast,OH,2016-06-27,Gravis Marketing/OANN,46.0,47.0,Gravis Marketing,49.0,47.5,-2.5
+2016,Economist,538 forecast,OH,2016-07-07,NBC/WSJ/Marist,39.0,39.0,Marist College,38.0,35.0,-3.0
+2016,Economist,538 forecast,OH,2016-07-19,Suffolk,44.0,44.0,Suffolk University,42.6,38.6,-4.0
+2016,Economist,538 forecast,OH,2016-07-23,PPP (D),45.0,45.0,Public Policy Polling,39.0,42.0,3.0
+2016,Economist,538 forecast,OH,2016-09-02,Quinnipiac,45.0,46.0,Quinnipiac University,37.0,41.0,3.0
+2016,538 forecast,Economist,OH,2016-10-03,Ipsos,46.21,42.56,Ipsos/Reuters,42.0,43.0,4.65
+2016,Economist,538 forecast,OH,2016-10-03,Ipsos/Reuters,42.0,43.0,Ipsos,46.21,42.56,-4.65
+2016,Economist,538 raw_polls,OH,2016-10-03,Ipsos/Reuters,42.0,43.0,Ipsos,46.21,42.56,-4.65
+2016,538 raw_polls,Economist,OH,2016-10-03,Ipsos,46.21,42.56,Ipsos/Reuters,42.0,43.0,4.65
+2016,538 forecast,538 raw_polls,OH,2016-10-28,Rasmussen Reports/Pulse Opinion Research,48.0,41.0,Rasmussen Reports,46.0,42.0,3.0
+2016,538 forecast,538 raw_polls,OH,2016-10-29,Rasmussen Reports/Pulse Opinion Research,47.0,41.0,Rasmussen Reports,46.0,43.0,3.0
+2016,538 forecast,Economist,OK,2016-10-27,SurveyMonkey,30.0,57.0,SurveyMonkey,31.0,54.0,-4.0
+2016,538 forecast,538 raw_polls,OK,2016-10-27,SurveyMonkey,30.0,57.0,SurveyMonkey,31.0,54.0,-4.0
+2016,Economist,538 forecast,OR,2016-08-20,WashPost/SurveyMonkey,55.0,36.0,SurveyMonkey,47.0,32.0,4.0
+2016,538 forecast,Economist,PA,2016-06-15,Greenberg Quinlan Rosner (Democracy Corps),45.0,36.0,GQR (D-Democracy Corps/Women's Voices Women Vote),45.0,32.0,-4.0
+2016,Economist,538 forecast,PA,2016-06-15,GQR (D-Democracy Corps/Women's Voices Women Vote),45.0,32.0,Greenberg Quinlan Rosner (Democracy Corps),45.0,36.0,4.0
+2016,Economist,538 forecast,PA,2016-07-05,Quinnipiac,41.0,43.0,Quinnipiac University,34.0,40.0,4.0
+2016,538 forecast,Economist,PA,2016-09-12,Ipsos,46.11,43.81,Ipsos/Reuters,46.0,46.0,2.3
+2016,Economist,538 forecast,PA,2016-09-12,Ipsos/Reuters,46.0,46.0,Ipsos,46.11,43.81,-2.3
+2016,Economist,538 raw_polls,PA,2016-09-12,Ipsos/Reuters,46.0,46.0,Ipsos,46.11,43.81,-2.3
+2016,538 raw_polls,Economist,PA,2016-09-12,Ipsos,46.11,43.81,Ipsos/Reuters,46.0,46.0,2.3
+2016,Economist,538 forecast,PA,2016-09-30,Franklin and Marshall College,48.0,36.0,Franklin & Marshall College,47.0,38.0,3.0
+2016,Economist,538 raw_polls,PA,2016-09-30,Franklin and Marshall College,48.0,36.0,Franklin & Marshall College Center for Opinion Research,47.0,38.0,3.0
+2016,538 forecast,Economist,PA,2016-10-03,Ipsos,49.34,42.79,Ipsos/Reuters,46.0,42.0,2.55
+2016,Economist,538 forecast,PA,2016-10-03,Ipsos/Reuters,46.0,42.0,Ipsos,49.34,42.79,-2.55
+2016,Economist,538 raw_polls,PA,2016-10-03,Ipsos/Reuters,46.0,42.0,Ipsos,49.34,42.79,-2.55
+2016,538 raw_polls,Economist,PA,2016-10-03,Ipsos,49.34,42.79,Ipsos/Reuters,46.0,42.0,2.55
+2016,Economist,538 forecast,PA,2016-10-12,WashPost/SurveyMonkey,51.0,42.0,SurveyMonkey,46.0,40.0,3.0
+2016,Economist,538 raw_polls,PA,2016-10-12,WashPost/SurveyMonkey,51.0,42.0,SurveyMonkey,46.0,40.0,3.0
+2016,538 forecast,538 raw_polls,PA,2016-10-21,Rasmussen Reports/Pulse Opinion Research,48.0,40.0,Rasmussen Reports,45.0,40.0,3.0
+2016,538 forecast,538 raw_polls,PA,2016-10-28,Rasmussen Reports/Pulse Opinion Research,44.0,42.0,Rasmussen Reports,47.0,40.0,-5.0
+2016,538 forecast,Economist,PA,2016-10-30,SurveyMonkey,47.0,42.0,SurveyMonkey,49.0,41.0,-3.0
+2016,538 forecast,538 raw_polls,PA,2016-10-30,SurveyMonkey,47.0,42.0,SurveyMonkey,49.0,41.0,-3.0
+2016,538 forecast,538 raw_polls,PA,2016-11-02,Rasmussen Reports/Pulse Opinion Research,48.0,42.0,Rasmussen Reports,45.0,44.0,5.0
+2016,538 forecast,Economist,RI,2016-10-30,SurveyMonkey,48.0,38.0,SurveyMonkey,49.0,36.0,-3.0
+2016,538 forecast,538 raw_polls,RI,2016-10-30,SurveyMonkey,48.0,38.0,SurveyMonkey,49.0,36.0,-3.0
+2016,538 forecast,538 raw_polls,SD,2016-10-30,Ipsos,28.45,47.2,Ipsos,29.45,52.16,3.96
+2016,538 forecast,Economist,TN,2016-10-30,SurveyMonkey,41.0,50.0,SurveyMonkey,38.0,51.0,4.0
+2016,538 forecast,538 raw_polls,TN,2016-10-30,SurveyMonkey,41.0,50.0,SurveyMonkey,38.0,51.0,4.0
+2016,538 forecast,Economist,TX,2016-09-12,Ipsos,28.51,51.13,Ipsos/Reuters,33.0,48.0,-7.62
+2016,Economist,538 forecast,TX,2016-09-12,Ipsos/Reuters,33.0,48.0,Ipsos,28.51,51.13,7.62
+2016,Economist,538 raw_polls,TX,2016-09-12,Ipsos/Reuters,33.0,48.0,Ipsos,28.51,51.13,7.62
+2016,538 raw_polls,Economist,TX,2016-09-12,Ipsos,28.51,51.13,Ipsos/Reuters,33.0,48.0,-7.62
+2016,538 forecast,Economist,TX,2016-10-03,Ipsos,33.59,50.14,Ipsos/Reuters,32.0,57.0,8.45
+2016,Economist,538 forecast,TX,2016-10-03,Ipsos/Reuters,32.0,57.0,Ipsos,33.59,50.14,-8.45
+2016,Economist,538 raw_polls,TX,2016-10-03,Ipsos/Reuters,32.0,57.0,Ipsos,33.59,50.14,-8.45
+2016,538 raw_polls,Economist,TX,2016-10-03,Ipsos,33.59,50.14,Ipsos/Reuters,32.0,57.0,8.45
+2016,538 forecast,Economist,TX,2016-10-20,YouGov,36.8,44.7,YouGov/University of Texas/Texas Tribune,42.0,45.0,-4.9
+2016,538 raw_polls,Economist,TX,2016-10-20,YouGov,36.8,44.7,YouGov/University of Texas/Texas Tribune,42.0,45.0,-4.9
+2016,538 forecast,Economist,US,2016-01-30,Ipsos,46.2,35.5,Ipsos/Reuters,44.0,36.0,2.7
+2016,538 forecast,Economist,US,2016-01-31,Ipsos,46.9,35.3,Ipsos/Reuters,44.0,36.0,3.6
+2016,538 forecast,Economist,US,2016-02-02,Ipsos,42.6,39.0,Ipsos/Reuters,44.0,36.0,-4.4
+2016,538 forecast,Economist,US,2016-02-07,Ipsos,47.8,33.7,Ipsos/Reuters,44.0,34.0,4.1
+2016,Economist,538 forecast,US,2016-02-08,Ipsos/Reuters,44.0,34.0,Ipsos,43.7,36.8,3.1
+2016,538 forecast,Economist,US,2016-02-09,Ipsos,43.7,36.8,Ipsos/Reuters,44.0,34.0,-3.1
+2016,538 forecast,Economist,US,2016-02-10,Ipsos,43.2,37.6,Ipsos/Reuters,44.0,34.0,-4.4
+2016,538 forecast,Economist,US,2016-02-17,Ipsos,42.3,37.9,Ipsos/Reuters,44.0,37.0,-2.6
+2016,538 forecast,Economist,US,2016-02-20,Ipsos,41.8,37.5,Ipsos/Reuters,44.0,35.0,-4.7
+2016,538 forecast,Economist,US,2016-02-22,Ipsos,44.3,37.4,Ipsos/Reuters,44.0,35.0,-2.1
+2016,538 forecast,Economist,US,2016-02-23,Ipsos,44.3,37.8,Ipsos/Reuters,44.0,35.0,-2.5
+2016,538 forecast,Economist,US,2016-02-24,Ipsos,44.6,38.1,Ipsos/Reuters,44.0,35.0,-2.5
+2016,538 forecast,Economist,US,2016-02-27,Ipsos,44.8,37.6,Ipsos/Reuters,46.0,35.0,-3.8
+2016,538 forecast,Economist,US,2016-02-28,Ipsos,44.8,37.4,Ipsos/Reuters,46.0,35.0,-3.6
+2016,538 forecast,Economist,US,2016-03-08,Ipsos,45.2,34.4,Ipsos/Reuters,45.0,31.0,-3.2
+2016,538 forecast,Economist,US,2016-03-09,Ipsos,43.6,36.9,Ipsos/Reuters,45.0,31.0,-7.3
+2016,538 forecast,Economist,US,2016-03-12,Ipsos,41.8,39.4,Ipsos/Reuters,42.0,37.0,-2.6
+2016,538 forecast,Economist,US,2016-03-15,Ipsos,42.5,39.6,Ipsos/Reuters,42.0,37.0,-2.1
+2016,538 forecast,Economist,US,2016-03-16,Ipsos,42.8,40.2,Ipsos/Reuters,42.0,37.0,-2.4
+2016,538 forecast,Economist,US,2016-03-19,Ipsos,41.2,40.1,Ipsos/Reuters,43.0,35.0,-6.9
+2016,538 forecast,Economist,US,2016-03-20,Ipsos,41.8,37.8,Ipsos/Reuters,43.0,35.0,-4.0
+2016,538 forecast,Economist,US,2016-03-31,Ipsos,44.1,33.6,Ipsos/Reuters,45.0,32.0,-2.5
+2016,538 forecast,Economist,US,2016-04-02,Ipsos,43.8,33.5,Ipsos/Reuters,39.0,34.0,5.3
+2016,538 forecast,Economist,US,2016-04-04,Ipsos,42.7,34.2,Ipsos/Reuters,39.0,34.0,3.5
+2016,Economist,538 forecast,US,2016-04-04,Ipsos/Reuters,39.0,34.0,Ipsos,42.7,34.2,-3.5
+2016,538 forecast,Economist,US,2016-04-05,Ipsos,43.6,33.6,Ipsos/Reuters,39.0,34.0,5.0
+2016,538 forecast,Economist,US,2016-04-06,Ipsos,44.9,33.2,Ipsos/Reuters,39.0,34.0,6.7
+2016,538 forecast,Economist,US,2016-04-09,Ipsos,48.2,31.9,Ipsos/Reuters,43.0,34.0,7.3
+2016,538 forecast,Economist,US,2016-04-10,Ipsos,47.1,34.1,Ipsos/Reuters,43.0,34.0,4.0
+2016,538 forecast,Economist,US,2016-04-11,Ipsos,46.1,34.2,Ipsos/Reuters,43.0,34.0,2.9
+2016,Economist,538 forecast,US,2016-04-11,Ipsos/Reuters,43.0,34.0,Ipsos,46.1,34.2,-2.9
+2016,538 forecast,Economist,US,2016-04-12,Ipsos,46.3,35.2,Ipsos/Reuters,43.0,34.0,2.1
+2016,538 forecast,Economist,US,2016-04-18,Ipsos,46.6,33.1,Ipsos/Reuters,44.0,33.0,2.5
+2016,538 forecast,Economist,US,2016-04-23,Ipsos,44.8,35.3,Ipsos/Reuters,43.0,36.0,2.5
+2016,538 forecast,Economist,US,2016-05-02,Ipsos,48.1,35.4,Ipsos/Reuters,45.0,36.0,3.7
+2016,538 forecast,Economist,US,2016-05-07,Ipsos,39.9,40.2,Ipsos/Reuters,41.0,37.0,-4.3
+2016,538 forecast,Economist,US,2016-05-08,Ipsos,41.2,40.1,Ipsos/Reuters,41.0,37.0,-2.9
+2016,Economist,538 forecast,US,2016-05-09,Ipsos/Reuters,41.0,37.0,Ipsos,41.2,40.1,2.9
+2016,538 forecast,Economist,US,2016-05-10,Ipsos,40.5,40.4,Ipsos/Reuters,41.0,37.0,-3.9
+2016,538 forecast,Economist,US,2016-05-29,Ipsos,46.0,34.8,Ipsos/Reuters,43.0,34.0,2.2
+2016,Economist,538 forecast,US,2016-05-30,Ipsos/Reuters,43.0,34.0,Ipsos,46.0,34.8,-2.2
+2016,538 forecast,Economist,US,2016-05-31,Ipsos,46.9,35.2,Ipsos/Reuters,43.0,34.0,2.7
+2016,538 forecast,Economist,US,2016-06-01,Ipsos,46.5,34.8,Ipsos/Reuters,43.0,34.0,2.7
+2016,Economist,538 forecast,US,2016-06-02,IBD/TIPP,37.0,36.0,IBD/TIPP,45.0,40.0,-4.0
+2016,Economist,Wikipedia (national),US,2016-06-02,NBC/SurveyMonkey,48.0,44.0,NBC News,39.0,40.0,5.0
+2016,Wikipedia (national),Economist,US,2016-06-02,NBC News,39.0,40.0,NBC/SurveyMonkey,48.0,44.0,-5.0
+2016,538 forecast,Economist,US,2016-06-03,SurveyMonkey,39.0,40.0,NBC/SurveyMonkey,48.0,44.0,-5.0
+2016,538 forecast,Economist,US,2016-06-04,Ipsos,46.1,34.0,Ipsos/Reuters,42.0,34.0,4.1
+2016,538 forecast,Economist,US,2016-06-06,Ipsos,41.8,30.8,Ipsos/Reuters,42.0,34.0,3.0
+2016,538 forecast,Economist,US,2016-06-06,Rasmussen Reports/Pulse Opinion Research,38.0,37.0,Rasmussen,42.0,38.0,-3.0
+2016,Economist,538 forecast,US,2016-06-06,Rasmussen,42.0,38.0,Rasmussen Reports/Pulse Opinion Research,38.0,37.0,3.0
+2016,538 forecast,Economist,US,2016-06-07,Ipsos,43.9,29.0,Ipsos/Reuters,42.0,34.0,6.9
+2016,538 forecast,Economist,US,2016-06-08,Ipsos,44.0,29.9,Ipsos/Reuters,42.0,34.0,6.1
+2016,Economist,538 forecast,US,2016-06-09,NBC/SurveyMonkey,49.0,42.0,SurveyMonkey,42.0,38.0,3.0
+2016,Economist,Wikipedia (national),US,2016-06-09,NBC/SurveyMonkey,49.0,42.0,NBC/Survey Monkey,42.0,38.0,3.0
+2016,538 forecast,Economist,US,2016-06-11,Ipsos,42.4,28.9,Ipsos/Reuters,39.0,29.0,3.5
+2016,538 forecast,Wikipedia (national),US,2016-06-11,Ipsos,42.4,28.9,Ipsos/Reuters,39.0,29.0,3.5
+2016,538 forecast,Economist,US,2016-06-12,Ipsos,42.8,30.2,Ipsos/Reuters,41.0,32.0,3.6
+2016,538 forecast,Wikipedia (national),US,2016-06-12,Ipsos,42.8,30.2,Ipsos/Reuters,39.0,29.0,2.6
+2016,538 forecast,Economist,US,2016-06-13,Ipsos,42.9,30.0,Ipsos/Reuters,41.0,32.0,3.9
+2016,538 forecast,Wikipedia (national),US,2016-06-13,Ipsos,42.9,30.0,Ipsos/Reuters,39.0,29.0,2.9
+2016,Economist,538 forecast,US,2016-06-13,Ipsos/Reuters,41.0,32.0,Ipsos,43.3,31.6,-2.7
+2016,Economist,538 forecast,US,2016-06-13,Ipsos/Reuters,39.0,29.0,Ipsos,42.4,28.9,-3.5
+2016,Wikipedia (national),538 forecast,US,2016-06-13,Ipsos/Reuters,39.0,29.0,Ipsos,42.4,28.9,-3.5
+2016,538 forecast,Economist,US,2016-06-14,Ipsos,44.6,29.6,Ipsos/Reuters,41.0,32.0,6.0
+2016,538 forecast,Wikipedia (national),US,2016-06-14,Ipsos,44.6,29.6,Ipsos/Reuters,39.0,29.0,5.0
+2016,538 forecast,Economist,US,2016-06-15,Ipsos,43.3,31.6,Ipsos/Reuters,41.0,32.0,2.7
+2016,538 forecast,Economist,US,2016-06-18,Ipsos,46.1,32.7,Ipsos/Reuters,44.0,34.0,3.4
+2016,538 forecast,Wikipedia (national),US,2016-06-18,Ipsos,46.1,32.7,Ipsos/Reuters,43.0,34.0,4.4
+2016,538 forecast,Wikipedia (national),US,2016-06-19,Ipsos,45.2,33.9,Ipsos/Reuters,43.0,34.0,2.3
+2016,538 forecast,Wikipedia (national),US,2016-06-20,Ipsos,45.7,34.1,Ipsos/Reuters,43.0,34.0,2.6
+2016,Wikipedia (national),538 forecast,US,2016-06-20,Ipsos/Reuters,43.0,34.0,Ipsos,45.2,33.9,-2.3
+2016,538 forecast,Economist,US,2016-06-21,ABC News/Washington Post,48.0,39.0,ABC/Post,51.0,39.0,-3.0
+2016,538 forecast,Economist,US,2016-06-21,Pew Research Center,51.0,45.0,Pew,45.0,36.0,-3.0
+2016,538 forecast,Wikipedia (national),US,2016-06-21,Ipsos,44.8,32.9,Ipsos/Reuters,43.0,34.0,2.9
+2016,Economist,538 forecast,US,2016-06-21,ABC/Post,51.0,39.0,ABC News/Washington Post,48.0,39.0,3.0
+2016,Economist,538 forecast,US,2016-06-21,ABC/Post,47.0,34.0,ABC News/Washington Post,48.0,39.0,4.0
+2016,Economist,538 forecast,US,2016-06-21,NBC/WSJ,46.0,41.0,NBC News/Wall Street Journal,39.0,38.0,4.0
+2016,Economist,Wikipedia (national),US,2016-06-21,ABC/Post,47.0,34.0,ABC News/Washington Post,47.0,37.0,3.0
+2016,Wikipedia (national),Economist,US,2016-06-21,ABC News/Washington Post,47.0,37.0,ABC/Post,47.0,34.0,-3.0
+2016,538 forecast,Economist,US,2016-06-22,Ipsos,45.8,33.0,Ipsos/Reuters,44.0,34.0,2.8
+2016,538 forecast,Wikipedia (national),US,2016-06-22,Ipsos,45.8,33.0,Ipsos/Reuters,43.0,34.0,3.8
+2016,Economist,538 forecast,US,2016-06-26,IBD/TIPP,44.0,40.0,IBD/TIPP,37.0,36.0,3.0
+2016,Economist,Wikipedia (national),US,2016-06-26,IBD/TIPP,44.0,40.0,IBD/TIPP,37.0,36.0,3.0
+2016,538 forecast,Wikipedia (national),US,2016-07-03,Ipsos,44.3,33.1,Ipsos/Reuters,42.0,33.0,2.2
+2016,538 forecast,Economist,US,2016-07-04,Ipsos,43.3,34.7,Ipsos/Reuters,44.0,33.0,-2.4
+2016,Economist,538 forecast,US,2016-07-04,Ipsos/Reuters,42.0,33.0,Ipsos,44.3,33.1,-2.2
+2016,Wikipedia (national),538 forecast,US,2016-07-04,Ipsos/Reuters,42.0,33.0,Ipsos,44.3,33.1,-2.2
+2016,Wikipedia (national),Economist,US,2016-07-12,icitizen,39.0,35.0,ICITIZEN,39.0,32.0,-3.0
+2016,538 forecast,Economist,US,2016-07-13,icitizen,39.0,35.0,ICITIZEN,39.0,32.0,-3.0
+2016,Economist,538 forecast,US,2016-07-13,ICITIZEN,39.0,32.0,icitizen,39.0,35.0,3.0
+2016,Economist,Wikipedia (national),US,2016-07-13,ICITIZEN,39.0,32.0,icitizen,39.0,35.0,3.0
+2016,538 forecast,Economist,US,2016-07-16,Ipsos,41.6,33.8,Ipsos/Reuters,40.0,36.0,3.8
+2016,538 forecast,Wikipedia (national),US,2016-07-16,Ipsos,41.6,33.8,Ipsos/Reuters,39.0,35.0,3.8
+2016,538 forecast,Economist,US,2016-07-17,Ipsos,41.9,35.4,Ipsos/Reuters,40.0,36.0,2.5
+2016,538 forecast,Wikipedia (national),US,2016-07-17,Ipsos,41.9,35.4,Ipsos/Reuters,39.0,35.0,2.5
+2016,538 forecast,Economist,US,2016-07-20,Ipsos,37.0,39.8,Ipsos/Reuters,40.0,36.0,-6.8
+2016,538 forecast,Wikipedia (national),US,2016-07-20,Ipsos,37.0,39.8,Ipsos/Reuters,39.0,35.0,-6.8
+2016,Economist,538 forecast,US,2016-07-21,NBC/SurveyMonkey,46.0,45.0,SurveyMonkey,39.0,41.0,3.0
+2016,Economist,Wikipedia (national),US,2016-07-21,NBC/SurveyMonkey,46.0,45.0,NBC News/SurveyMonkey,39.0,41.0,3.0
+2016,538 forecast,Economist,US,2016-07-25,Ipsos,39.0,36.9,Ipsos/Reuters,37.0,37.0,2.1
+2016,538 forecast,Wikipedia (national),US,2016-07-25,Ipsos,39.0,36.9,Ipsos/Reuters,37.0,37.0,2.1
+2016,538 forecast,Economist,US,2016-07-26,CVOTER International,47.3,47.8,UPI/CVOTER,49.0,46.0,-3.5
+2016,538 forecast,Economist,US,2016-07-27,Ipsos,38.3,36.1,Ipsos/Reuters,37.0,37.0,2.2
+2016,538 forecast,Economist,US,2016-07-27,CVOTER International,47.4,47.6,UPI/CVOTER,49.0,46.0,-3.2
+2016,538 forecast,Wikipedia (national),US,2016-07-27,Ipsos,38.3,36.1,Ipsos/Reuters,37.0,37.0,2.2
+2016,538 forecast,Wikipedia (national),US,2016-07-27,USC Dornsife/LA Times,41.91,46.14,USC/Los Angeles Times,43.0,45.0,-2.23
+2016,Economist,Wikipedia (national),US,2016-07-27,Ipsos/Reuters,40.0,35.0,Ipsos/Reuters,37.0,37.0,5.0
+2016,538 forecast,Wikipedia (national),US,2016-07-28,USC Dornsife/LA Times,42.13,46.23,USC/Los Angeles Times,43.0,45.0,-2.1
+2016,Economist,538 forecast,US,2016-07-28,NBC/SurveyMonkey,50.0,42.0,SurveyMonkey,43.0,38.0,3.0
+2016,538 forecast,Economist,US,2016-07-29,Ipsos,42.8,34.0,Ipsos/Reuters,40.0,35.0,3.8
+2016,538 forecast,Economist,US,2016-07-30,Ipsos,42.1,34.2,Ipsos/Reuters,42.0,38.0,3.9
+2016,Wikipedia (national),Economist,US,2016-07-30,Ipsos/Reuters,43.0,35.0,Ipsos/Reuters,43.0,39.0,4.0
+2016,538 forecast,Economist,US,2016-07-31,Ipsos,42.9,35.8,Ipsos/Reuters,42.0,38.0,3.1
+2016,Economist,538 forecast,US,2016-08-01,IBD/TIPP,46.0,39.0,IBD/TIPP,39.0,35.0,3.0
+2016,Wikipedia (national),538 forecast,US,2016-08-01,IBD/TIPP,46.0,39.0,IBD/TIPP,39.0,35.0,3.0
+2016,538 forecast,Economist,US,2016-08-03,CVOTER International,50.4,43.1,UPI/CVOTER,49.0,44.0,2.3
+2016,Economist,538 forecast,US,2016-08-04,NBC/SurveyMonkey,51.0,41.0,SurveyMonkey,44.0,38.0,4.0
+2016,538 forecast,Economist,US,2016-08-06,CVOTER International,48.1,45.9,UPI/CVOTER,49.0,44.0,-2.8
+2016,Wikipedia (national),Economist,US,2016-08-06,UPI/CVoter,48.0,46.0,UPI/CVOTER,49.0,44.0,-3.0
+2016,538 forecast,Economist,US,2016-08-07,Ipsos,41.5,33.4,Ipsos/Reuters,42.0,36.0,2.1
+2016,538 forecast,Economist,US,2016-08-10,CVOTER International,49.01,45.51,UPI/CVOTER,51.0,45.0,-2.5
+2016,Wikipedia (national),Economist,US,2016-08-10,UPI/CVoter,49.0,46.0,UPI/CVOTER,51.0,45.0,-3.0
+2016,Economist,538 forecast,US,2016-08-11,NBC/SurveyMonkey,50.0,41.0,SurveyMonkey,43.0,37.0,3.0
+2016,538 forecast,Wikipedia (national),US,2016-08-15,USC Dornsife/LA Times,44.55,43.37,USC/Los Angeles Times,43.0,45.0,3.18
+2016,538 forecast,Economist,US,2016-08-16,CVOTER International,49.45,45.85,UPI/CVOTER,48.0,47.0,2.6
+2016,538 forecast,Economist,US,2016-08-18,RAND (American Life Panel),57.7,32.5,ARG,47.0,42.0,20.2
+2016,538 forecast,Wikipedia (national),US,2016-08-18,RAND (American Life Panel),57.7,32.5,American Research Group,47.0,42.0,20.2
+2016,Economist,538 forecast,US,2016-08-18,NBC/SurveyMonkey,50.0,42.0,SurveyMonkey,43.0,38.0,3.0
+2016,Economist,538 forecast,US,2016-08-19,Morning Consult,44.0,38.0,Morning Consult,39.0,36.0,3.0
+2016,538 forecast,Wikipedia (national),US,2016-08-20,USC Dornsife/LA Times,45.28,43.22,USC/Los Angeles Times,44.0,44.0,2.06
+2016,Economist,538 forecast,US,2016-08-21,Quinnipiac,51.0,41.0,Quinnipiac University,45.0,38.0,3.0
+2016,538 forecast,Economist,US,2016-08-23,CVOTER International,48.48,48.62,UPI/CVOTER,50.0,47.0,-3.14
+2016,538 forecast,Wikipedia (national),US,2016-08-24,USC Dornsife/LA Times,44.21,43.65,USC/Los Angeles Times,42.0,45.0,3.56
+2016,538 forecast,Wikipedia (national),US,2016-08-25,USC Dornsife/LA Times,43.59,43.96,USC/Los Angeles Times,42.0,45.0,2.63
+2016,538 forecast,Economist,US,2016-08-30,CVOTER International,49.25,45.13,UPI/CVOTER,49.0,47.0,2.12
+2016,538 forecast,Economist,US,2016-09-03,CVOTER International,46.84,47.19,UPI/CVOTER,49.0,47.0,-2.35
+2016,538 forecast,Economist,US,2016-09-04,Ipsos,41.3,34.0,Ipsos/Reuters,40.0,38.0,5.3
+2016,538 forecast,Wikipedia (national),US,2016-09-04,Ipsos,41.3,34.0,Ipsos/Reuters,40.0,38.0,5.3
+2016,538 forecast,Economist,US,2016-09-05,Ipsos,40.0,34.8,Ipsos/Reuters,40.0,38.0,3.2
+2016,538 forecast,Wikipedia (national),US,2016-09-05,Ipsos,40.0,34.8,Ipsos/Reuters,40.0,38.0,3.2
+2016,538 forecast,538 raw_polls,US,2016-09-07,USC Dornsife/LA Times,44.99,43.62,University of Southern California Dornsife Center for Economic and Social Research,42.76,45.83,4.44
+2016,538 forecast,Economist,US,2016-09-08,Ipsos,37.8,39.9,Ipsos/Reuters,39.0,39.0,-2.1
+2016,538 forecast,Wikipedia (national),US,2016-09-08,Ipsos,37.8,39.9,Ipsos/Reuters,39.0,39.0,-2.1
+2016,538 forecast,Wikipedia (national),US,2016-09-08,USC Dornsife/LA Times,44.43,44.15,USC/Los Angeles Times,42.0,47.0,5.28
+2016,538 forecast,538 raw_polls,US,2016-09-08,Ipsos,37.8,39.9,Ipsos,39.3,38.8,-2.6
+2016,538 forecast,538 raw_polls,US,2016-09-08,USC Dornsife/LA Times,44.43,44.15,University of Southern California Dornsife Center for Economic and Social Research,42.76,45.83,3.35
+2016,538 forecast,Economist,US,2016-09-10,CVOTER International,47.05,47.93,UPI/CVOTER,46.0,49.0,2.12
+2016,Economist,538 forecast,US,2016-09-10,Quinnipiac,48.0,43.0,Quinnipiac University,41.0,39.0,3.0
+2016,Economist,538 raw_polls,US,2016-09-10,Quinnipiac,48.0,43.0,Quinnipiac University,41.0,39.0,3.0
+2016,538 forecast,Economist,US,2016-09-11,Ipsos,41.2,36.8,Ipsos/Reuters,40.0,39.0,3.4
+2016,538 forecast,538 raw_polls,US,2016-09-11,USC Dornsife/LA Times,41.34,47.22,University of Southern California Dornsife Center for Economic and Social Research,42.76,45.83,-2.81
+2016,538 forecast,538 raw_polls,US,2016-09-11,Ipsos,41.2,36.8,Ipsos,39.3,38.8,3.9
+2016,538 forecast,Economist,US,2016-09-12,Ipsos,42.2,36.9,Ipsos/Reuters,40.0,39.0,4.3
+2016,538 forecast,538 raw_polls,US,2016-09-12,Ipsos,42.2,36.9,Ipsos,39.3,38.8,4.8
+2016,Wikipedia (national),Economist,US,2016-09-12,Ipsos/Reuters,42.0,38.0,Ipsos/Reuters,40.0,39.0,3.0
+2016,Wikipedia (national),538 raw_polls,US,2016-09-12,Ipsos/Reuters,42.0,38.0,Ipsos,39.3,38.8,3.5
+2016,538 forecast,538 raw_polls,US,2016-09-14,Ipsos,42.1,37.3,Ipsos,40.4,38.4,2.8
+2016,538 forecast,Wikipedia (national),US,2016-09-15,Google Consumer Surveys,32.8,34.8,Google Consumer Surveys,36.0,35.0,-3.0
+2016,538 forecast,538 raw_polls,US,2016-09-16,Ipsos,38.7,39.7,Ipsos,40.4,38.4,-3.0
+2016,538 forecast,538 raw_polls,US,2016-09-17,Ipsos,37.4,39.2,Ipsos,40.4,38.4,-3.8
+2016,Economist,538 raw_polls,US,2016-09-17,Ipsos/Reuters,37.0,39.0,Ipsos,40.4,38.4,-4.0
+2016,538 forecast,Economist,US,2016-09-18,Ipsos,37.4,36.6,Ipsos/Reuters,37.0,39.0,2.8
+2016,538 forecast,Economist,US,2016-09-18,RAND (American Life Panel),43.3,33.4,ARG,47.0,44.0,6.9
+2016,538 forecast,Wikipedia (national),US,2016-09-18,RAND (American Life Panel),43.3,33.4,American Research Group,47.0,44.0,6.9
+2016,538 forecast,538 raw_polls,US,2016-09-18,USC Dornsife/LA Times,43.01,45.38,University of Southern California Dornsife Center for Economic and Social Research,41.73,47.09,2.99
+2016,538 forecast,538 raw_polls,US,2016-09-18,Ipsos,37.4,36.6,Ipsos,41.0,35.9,-4.3
+2016,538 raw_polls,Economist,US,2016-09-18,RAND (American Life Panel),43.3,33.4,ARG,47.0,44.0,6.9
+2016,538 raw_polls,Wikipedia (national),US,2016-09-18,RAND (American Life Panel),43.3,33.4,American Research Group,47.0,44.0,6.9
+2016,538 forecast,538 raw_polls,US,2016-09-19,Ipsos,38.3,37.7,Ipsos,41.0,35.9,-4.5
+2016,538 forecast,538 raw_polls,US,2016-09-23,Ipsos,43.8,38.3,Ipsos,40.9,37.9,2.5
+2016,Economist,538 forecast,US,2016-09-23,Morning Consult,44.0,42.0,Morning Consult,38.0,39.0,3.0
+2016,Economist,538 raw_polls,US,2016-09-23,Morning Consult,44.0,42.0,Morning Consult,38.0,39.0,3.0
+2016,538 forecast,538 raw_polls,US,2016-09-24,Ipsos,42.6,37.4,Ipsos,40.9,37.9,2.2
+2016,Economist,538 raw_polls,US,2016-09-24,Ipsos/Reuters,44.0,38.0,Ipsos,40.9,37.9,3.0
+2016,538 forecast,538 raw_polls,US,2016-09-28,Ipsos,40.3,37.9,Ipsos,42.5,36.7,-3.4
+2016,538 forecast,538 raw_polls,US,2016-09-29,Ipsos,41.0,37.6,Ipsos,42.5,36.7,-2.4
+2016,538 forecast,Economist,US,2016-10-01,The Times-Picayune/Lucid,44.0,39.0,Lucid/The Times-Picayune,45.0,37.0,-3.0
+2016,538 raw_polls,Economist,US,2016-10-01,Lucid,44.0,39.0,Lucid/The Times-Picayune,45.0,37.0,-3.0
+2016,538 forecast,538 raw_polls,US,2016-10-03,The Times-Picayune/Lucid,45.0,37.0,Lucid,44.0,39.0,3.0
+2016,Economist,538 raw_polls,US,2016-10-03,Lucid/The Times-Picayune,45.0,37.0,Lucid,44.0,39.0,3.0
+2016,538 forecast,Economist,US,2016-10-04,Rasmussen Reports/Pulse Opinion Research,41.0,43.0,Rasmussen,43.0,42.0,-3.0
+2016,538 forecast,Economist,US,2016-10-04,CVOTER International,47.74,46.71,UPI/CVOTER,50.0,44.0,-4.97
+2016,538 forecast,538 raw_polls,US,2016-10-04,Ipsos,41.6,37.7,Ipsos,43.2,37.3,-2.0
+2016,538 forecast,538 raw_polls,US,2016-10-04,Rasmussen Reports/Pulse Opinion Research,41.0,43.0,Rasmussen Reports,43.0,42.0,-3.0
+2016,538 forecast,538 raw_polls,US,2016-10-04,CVOTER International,47.74,46.71,CVOTER,49.92,44.39,-4.5
+2016,Wikipedia (national),Economist,US,2016-10-04,Rasmussen Reports,41.0,43.0,Rasmussen,43.0,42.0,-3.0
+2016,Wikipedia (national),538 raw_polls,US,2016-10-04,Rasmussen Reports,41.0,43.0,Rasmussen Reports,43.0,42.0,-3.0
+2016,538 forecast,Economist,US,2016-10-05,CVOTER International,48.2,45.86,UPI/CVOTER,50.0,44.0,-3.66
+2016,538 forecast,538 raw_polls,US,2016-10-05,CVOTER International,48.2,45.86,CVOTER,49.92,44.39,-3.19
+2016,538 forecast,Economist,US,2016-10-06,Ipsos,42.3,38.1,Ipsos/Reuters,44.0,37.0,-2.8
+2016,538 forecast,Wikipedia (national),US,2016-10-06,Ipsos,42.3,38.1,Ipsos/Reuters,44.0,37.0,-2.8
+2016,538 forecast,Economist,US,2016-10-07,Ipsos,41.5,37.6,Ipsos/Reuters,44.0,37.0,-3.1
+2016,538 forecast,Economist,US,2016-10-07,Rasmussen Reports/Pulse Opinion Research,45.0,38.0,Rasmussen,43.0,42.0,6.0
+2016,538 forecast,Wikipedia (national),US,2016-10-07,Ipsos,41.5,37.6,Ipsos/Reuters,44.0,37.0,-3.1
+2016,538 forecast,538 raw_polls,US,2016-10-07,Ipsos,41.5,37.6,Ipsos,43.2,37.3,-2.0
+2016,538 forecast,538 raw_polls,US,2016-10-07,Rasmussen Reports/Pulse Opinion Research,45.0,38.0,Rasmussen Reports,43.0,42.0,6.0
+2016,Wikipedia (national),Economist,US,2016-10-07,Rasmussen Reports,45.0,38.0,Rasmussen,43.0,42.0,6.0
+2016,Wikipedia (national),538 raw_polls,US,2016-10-07,Rasmussen Reports,45.0,38.0,Rasmussen Reports,43.0,42.0,6.0
+2016,538 forecast,538 raw_polls,US,2016-10-08,USC Dornsife/LA Times,44.35,43.95,University of Southern California Dornsife Center for Economic and Social Research,43.26,45.28,2.42
+2016,538 forecast,538 raw_polls,US,2016-10-10,George Washington University (Battleground),47.0,39.0,ABC News/The Washington Post,47.0,43.0,4.0
+2016,Wikipedia (national),538 raw_polls,US,2016-10-10,George Washington University,47.0,39.0,ABC News/The Washington Post,47.0,43.0,4.0
+2016,538 forecast,Economist,US,2016-10-11,Rasmussen Reports/Pulse Opinion Research,41.0,43.0,Rasmussen,43.0,39.0,-6.0
+2016,538 forecast,538 raw_polls,US,2016-10-11,Rasmussen Reports/Pulse Opinion Research,41.0,43.0,Rasmussen Reports,43.0,39.0,-6.0
+2016,Wikipedia (national),Economist,US,2016-10-11,Franklin Pierce University/Boston Herald,46.0,41.0,SurveyUSA/Boston Globe/Colby College,46.0,36.0,-5.0
+2016,Wikipedia (national),Economist,US,2016-10-11,Rasmussen Reports,41.0,43.0,Rasmussen,43.0,39.0,-6.0
+2016,Wikipedia (national),538 raw_polls,US,2016-10-11,Rasmussen Reports,41.0,43.0,Rasmussen Reports,43.0,39.0,-6.0
+2016,538 forecast,Economist,US,2016-10-12,CVOTER International,51.17,44.58,UPI/CVOTER,50.0,46.0,2.59
+2016,538 forecast,Economist,US,2016-10-12,Rasmussen Reports/Pulse Opinion Research,41.0,43.0,Rasmussen,43.0,41.0,-4.0
+2016,538 forecast,538 raw_polls,US,2016-10-12,Rasmussen Reports/Pulse Opinion Research,41.0,43.0,Rasmussen Reports,43.0,41.0,-4.0
+2016,Wikipedia (national),Economist,US,2016-10-12,Rasmussen Reports,41.0,43.0,Rasmussen,43.0,41.0,-4.0
+2016,Wikipedia (national),538 raw_polls,US,2016-10-12,Rasmussen Reports,41.0,43.0,Rasmussen Reports,43.0,41.0,-4.0
+2016,538 forecast,Wikipedia (national),US,2016-10-13,Google Consumer Surveys,33.6,30.9,Google Consumer Surveys,38.0,33.0,-2.3
+2016,538 forecast,538 raw_polls,US,2016-10-13,Ipsos,41.4,39.1,Ipsos,42.5,37.6,-2.6
+2016,538 forecast,538 raw_polls,US,2016-10-15,The Times-Picayune/Lucid,43.0,38.0,Lucid,45.0,37.0,-3.0
+2016,Economist,538 raw_polls,US,2016-10-15,Lucid/The Times-Picayune,43.0,38.0,Lucid,45.0,37.0,-3.0
+2016,538 forecast,Economist,US,2016-10-16,Ipsos,41.7,40.2,Ipsos/Reuters,43.0,39.0,-2.5
+2016,538 forecast,Economist,US,2016-10-16,The Times-Picayune/Lucid,45.0,36.0,Lucid/The Times-Picayune,47.0,35.0,-3.0
+2016,538 forecast,Wikipedia (national),US,2016-10-16,Ipsos,41.7,40.2,Ipsos/Reuters,44.0,40.0,-2.5
+2016,538 forecast,538 raw_polls,US,2016-10-16,Ipsos,41.7,40.2,Ipsos,42.5,37.6,-3.4
+2016,538 raw_polls,Economist,US,2016-10-16,Lucid,45.0,36.0,Lucid/The Times-Picayune,47.0,35.0,-3.0
+2016,538 forecast,Economist,US,2016-10-17,Rasmussen Reports/Pulse Opinion Research,42.0,42.0,Rasmussen,40.0,43.0,3.0
+2016,538 forecast,538 raw_polls,US,2016-10-17,Rasmussen Reports/Pulse Opinion Research,42.0,42.0,Rasmussen Reports,40.0,43.0,3.0
+2016,Wikipedia (national),538 forecast,US,2016-10-17,IBD/TIPP,43.0,41.0,IBD/TIPP,40.2,41.1,2.9
+2016,538 forecast,Economist,US,2016-10-18,IBD/TIPP,39.7,42.1,IBD/TIPP,41.0,41.0,-2.4
+2016,538 forecast,Wikipedia (national),US,2016-10-18,Ipsos,45.5,37.0,Ipsos/Reuters,44.0,40.0,4.5
+2016,538 forecast,538 raw_polls,US,2016-10-18,IBD/TIPP,39.7,42.1,TIPP Insights,41.2,41.1,-2.5
+2016,538 forecast,538 raw_polls,US,2016-10-18,The Times-Picayune/Lucid,47.0,35.0,Lucid,45.0,36.0,3.0
+2016,Economist,538 raw_polls,US,2016-10-18,Lucid/The Times-Picayune,47.0,35.0,Lucid,45.0,36.0,3.0
+2016,538 forecast,Wikipedia (national),US,2016-10-19,Ipsos,43.8,37.5,Ipsos/Reuters,43.0,39.0,2.3
+2016,538 forecast,538 raw_polls,US,2016-10-19,Ipsos,43.8,37.5,Ipsos,44.1,35.6,-2.2
+2016,Wikipedia (national),538 raw_polls,US,2016-10-19,IBD/TIPP,41.0,43.0,TIPP Insights,41.2,41.1,-2.1
+2016,538 forecast,Economist,US,2016-10-20,Ipsos,44.1,35.6,Ipsos/Reuters,43.0,37.0,2.5
+2016,538 forecast,Wikipedia (national),US,2016-10-20,USC Dornsife/LA Times,45.11,43.77,USC/Los Angeles Times,44.0,45.0,2.34
+2016,538 forecast,Wikipedia (national),US,2016-10-20,Ipsos,44.1,35.6,Ipsos/Reuters,43.0,37.0,2.5
+2016,538 raw_polls,Economist,US,2016-10-20,Ipsos,44.1,35.6,Ipsos/Reuters,43.0,37.0,2.5
+2016,538 raw_polls,Wikipedia (national),US,2016-10-20,Ipsos,44.1,35.6,Ipsos/Reuters,43.0,37.0,2.5
+2016,538 forecast,Economist,US,2016-10-21,ABC News/Washington Post,50.0,38.0,ABC News,49.0,40.0,3.0
+2016,538 forecast,Economist,US,2016-10-21,Rasmussen Reports/Pulse Opinion Research,41.0,43.0,Rasmussen,43.0,42.0,-3.0
+2016,538 forecast,538 raw_polls,US,2016-10-21,Ipsos,42.5,36.7,Ipsos,44.1,35.6,-2.7
+2016,538 forecast,538 raw_polls,US,2016-10-21,Rasmussen Reports/Pulse Opinion Research,41.0,43.0,Rasmussen Reports,43.0,42.0,-3.0
+2016,Wikipedia (national),Economist,US,2016-10-21,ABC News,50.0,38.0,ABC News,49.0,40.0,3.0
+2016,Wikipedia (national),Economist,US,2016-10-21,Rasmussen Reports,41.0,43.0,Rasmussen,43.0,42.0,-3.0
+2016,Wikipedia (national),Economist,US,2016-10-21,ABC News,50.0,38.0,ABC News,49.0,40.0,3.0
+2016,Wikipedia (national),538 raw_polls,US,2016-10-21,Rasmussen Reports,41.0,43.0,Rasmussen Reports,43.0,42.0,-3.0
+2016,538 raw_polls,Economist,US,2016-10-21,University of Southern California Dornsife Center for Economic and Social Research,44.97,44.07,PPP (D-Social Security Works),46.0,40.0,-5.1
+2016,538 forecast,538 raw_polls,US,2016-10-22,ABC News/Washington Post,49.0,40.0,ABC News/The Washington Post,48.0,42.0,3.0
+2016,538 forecast,538 raw_polls,US,2016-10-22,Ipsos,42.5,37.7,Ipsos,44.1,35.6,-3.7
+2016,Economist,538 raw_polls,US,2016-10-22,Ipsos/Reuters,43.0,37.0,Ipsos,44.1,35.6,-2.5
+2016,Economist,538 raw_polls,US,2016-10-22,ABC News,49.0,40.0,ABC News/The Washington Post,48.0,42.0,3.0
+2016,Economist,538 raw_polls,US,2016-10-22,Ipsos/Reuters,42.0,38.0,Ipsos,44.1,35.6,-4.5
+2016,Wikipedia (national),538 raw_polls,US,2016-10-22,Ipsos/Reuters,43.0,37.0,Ipsos,44.1,35.6,-2.5
+2016,Wikipedia (national),538 raw_polls,US,2016-10-22,ABC News,49.0,40.0,ABC News/The Washington Post,48.0,42.0,3.0
+2016,538 forecast,538 raw_polls,US,2016-10-25,ABC News/Washington Post,47.0,45.0,ABC News/The Washington Post,48.0,42.0,-4.0
+2016,Wikipedia (national),538 raw_polls,US,2016-10-25,ABC News/Washington Post,47.0,45.0,ABC News/The Washington Post,48.0,42.0,-4.0
+2016,538 forecast,Wikipedia (national),US,2016-10-26,Ipsos,41.0,38.1,Ipsos/Reuters,42.0,36.0,-3.1
+2016,538 forecast,538 raw_polls,US,2016-10-26,Ipsos,41.0,38.1,Ipsos,41.7,36.4,-2.4
+2016,538 forecast,Wikipedia (national),US,2016-10-27,USC Dornsife/LA Times,43.2,46.6,USC/Los Angeles Times,42.0,48.0,2.6
+2016,538 forecast,Economist,US,2016-10-28,Rasmussen Reports/Pulse Opinion Research,45.0,42.0,Rasmussen,45.0,45.0,3.0
+2016,538 forecast,Wikipedia (national),US,2016-10-28,USC Dornsife/LA Times,43.28,46.9,USC/Los Angeles Times,42.0,48.0,2.38
+2016,538 forecast,Wikipedia (national),US,2016-10-28,Google Consumer Surveys,37.69,35.07,Red Oak Strategic/Google Consumer Surveys,37.0,37.0,2.62
+2016,538 forecast,538 raw_polls,US,2016-10-28,Rasmussen Reports/Pulse Opinion Research,45.0,42.0,Rasmussen Reports,45.0,45.0,3.0
+2016,Wikipedia (national),Economist,US,2016-10-28,Rasmussen Reports,45.0,42.0,Rasmussen,45.0,45.0,3.0
+2016,Wikipedia (national),538 raw_polls,US,2016-10-28,Rasmussen Reports,45.0,42.0,Rasmussen Reports,45.0,45.0,3.0
+2016,538 forecast,Economist,US,2016-11-01,Rasmussen Reports/Pulse Opinion Research,42.0,45.0,Rasmussen,44.0,44.0,-3.0
+2016,538 forecast,538 raw_polls,US,2016-11-01,Ipsos,43.2,38.3,Ipsos,44.7,37.4,-2.4
+2016,538 forecast,538 raw_polls,US,2016-11-01,Rasmussen Reports/Pulse Opinion Research,42.0,45.0,Rasmussen Reports,44.0,44.0,-3.0
+2016,Wikipedia (national),Economist,US,2016-11-01,Rasmussen Reports,42.0,45.0,Rasmussen,44.0,44.0,-3.0
+2016,Wikipedia (national),538 raw_polls,US,2016-11-01,Rasmussen Reports,42.0,45.0,Rasmussen Reports,44.0,44.0,-3.0
+2016,538 forecast,538 raw_polls,US,2016-11-02,USC Dornsife/LA Times,42.63,48.16,University of Southern California Dornsife Center for Economic and Social Research,43.61,46.84,-2.3
+2016,538 forecast,538 raw_polls,US,2016-11-05,Insights West,49.0,45.0,TIPP Insights,41.2,42.7,5.5
+2016,Economist,538 raw_polls,US,2016-11-05,Insights West,45.0,41.0,TIPP Insights,41.2,42.7,5.5
+2016,Wikipedia (national),538 raw_polls,US,2016-11-05,Insights West,49.0,45.0,TIPP Insights,41.2,42.7,5.5
+2016,Economist,538 forecast,UT,2016-05-31,Gravis Marketing,29.0,36.0,Gravis Marketing,26.0,29.0,-4.0
+2016,Economist,538 forecast,UT,2016-08-20,WashPost/SurveyMonkey,35.0,46.0,SurveyMonkey,27.0,34.0,-4.0
+2016,Economist,538 forecast,UT,2016-08-20,PPP (D),33.0,53.0,Public Policy Polling,24.0,39.0,-5.0
+2016,Economist,538 forecast,VA,2016-08-12,Roanoke College,55.0,36.0,Roanoke College,48.0,32.0,3.0
+2016,538 forecast,Economist,VA,2016-09-12,Ipsos,47.35,37.51,Ipsos/Reuters,47.0,40.0,2.84
+2016,Economist,538 forecast,VA,2016-09-12,Ipsos/Reuters,47.0,40.0,Ipsos,47.35,37.51,-2.84
+2016,Economist,538 raw_polls,VA,2016-09-12,Ipsos/Reuters,47.0,40.0,Ipsos,47.35,37.51,-2.84
+2016,538 raw_polls,Economist,VA,2016-09-12,Ipsos,47.35,37.51,Ipsos/Reuters,47.0,40.0,2.84
+2016,Economist,538 forecast,VA,2016-09-19,Christopher Newport,48.0,38.0,Christopher Newport University,39.0,33.0,4.0
+2016,Economist,538 raw_polls,VA,2016-09-19,Christopher Newport,48.0,38.0,Christopher Newport University Wason Center for Civic Leadership,39.0,33.0,4.0
+2016,Economist,538 forecast,VT,2016-08-20,WashPost/SurveyMonkey,56.0,28.0,SurveyMonkey,45.0,24.0,7.0
+2016,538 forecast,Economist,VT,2016-10-30,SurveyMonkey,55.0,24.0,SurveyMonkey,53.0,25.0,3.0
+2016,538 forecast,538 raw_polls,VT,2016-10-30,SurveyMonkey,55.0,24.0,SurveyMonkey,53.0,25.0,3.0
+2016,538 forecast,Economist,VT,2016-11-02,SurveyMonkey,60.0,27.0,SurveyMonkey,61.0,25.0,-3.0
+2016,538 forecast,538 raw_polls,VT,2016-11-02,SurveyMonkey,60.0,27.0,SurveyMonkey,61.0,25.0,-3.0
+2016,Economist,538 forecast,WA,2016-08-20,WashPost/SurveyMonkey,53.0,37.0,SurveyMonkey,41.0,31.0,6.0
+2016,538 forecast,Economist,WA,2016-10-03,Ipsos,50.9,33.29,Ipsos/Reuters,47.0,37.0,7.61
+2016,Economist,538 forecast,WA,2016-10-03,Ipsos/Reuters,47.0,37.0,Ipsos,50.9,33.29,-7.61
+2016,Economist,538 raw_polls,WA,2016-10-03,Ipsos/Reuters,47.0,37.0,Ipsos,50.9,33.29,-7.61
+2016,538 raw_polls,Economist,WA,2016-10-03,Ipsos,50.9,33.29,Ipsos/Reuters,47.0,37.0,7.61
+2016,Economist,538 forecast,WI,2016-10-07,Marquette Law School,46.0,42.0,Marquette University,44.0,37.0,-3.0
+2016,Economist,538 raw_polls,WI,2016-10-07,Marquette Law School,46.0,42.0,Marquette University Law School,44.0,37.0,-3.0
+2016,538 forecast,Economist,WI,2016-10-27,Ipsos,47.48,38.96,Ipsos/Reuters,46.0,40.0,2.52
+2016,538 forecast,Economist,WV,2016-10-29,SurveyMonkey,29.0,55.0,SurveyMonkey,27.0,58.0,5.0
+2016,538 forecast,538 raw_polls,WV,2016-10-29,SurveyMonkey,29.0,55.0,SurveyMonkey,27.0,58.0,5.0
+2016,538 forecast,Economist,WV,2016-11-02,SurveyMonkey,27.0,57.0,SurveyMonkey,29.0,56.0,-3.0
+2016,538 forecast,538 raw_polls,WV,2016-11-02,SurveyMonkey,27.0,57.0,SurveyMonkey,29.0,56.0,-3.0
+2016,538 forecast,538 raw_polls,WY,2016-11-02,SurveyMonkey,22.0,58.0,SurveyMonkey,21.0,60.0,3.0
+2020,538 archive,538 raw_polls,AL,2020-10-24,SurveyMonkey,38.0,60.0,SurveyMonkey,36.0,62.0,4.0
+2020,538 archive,538 raw_polls,MN,2020-10-24,SurveyMonkey,55.0,43.0,SurveyMonkey,56.0,41.0,-3.0
+2020,538 archive,538 raw_polls,MS,2020-10-07,SurveyMonkey,37.0,61.0,SurveyMonkey,39.0,60.0,-3.0
+2020,538 archive,538 raw_polls,NC,2020-10-24,SurveyMonkey,52.0,47.0,SurveyMonkey,50.0,48.0,3.0
+2020,538 archive,538 raw_polls,SC,2020-10-24,SurveyMonkey,43.0,54.0,SurveyMonkey,42.0,56.0,3.0
+2020,538 raw_polls,538 archive,US,2020-09-20,Harris Insights & Analytics,45.0,40.0,Echelon Insights,50.0,41.0,-4.0
+2020,538 archive,538 raw_polls,US,2020-10-17,TIPP,49.0,46.2,TIPP Insights,49.6,44.4,-2.4
+2020,538 archive,538 raw_polls,US,2020-10-18,TIPP,48.5,46.0,TIPP Insights,49.6,44.4,-2.7
+2020,538 archive,538 raw_polls,US,2020-10-24,Rasmussen,49.0,47.0,Rasmussen Reports,47.0,48.0,3.0

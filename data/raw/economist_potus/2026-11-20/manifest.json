@@ -8,5 +8,10 @@
     "url": "https://raw.githubusercontent.com/TheEconomist/us-potus-model/b89e602ec03e81c797c66cf2743af6fdae4aa526/data/all_polls_2012.csv",
     "retrieved": "2026-11-20T09:03:36",
     "bytes": 89138
+  },
+  "all_polls.csv": {
+    "url": "https://raw.githubusercontent.com/TheEconomist/us-potus-model/b89e602ec03e81c797c66cf2743af6fdae4aa526/data/all_polls.csv",
+    "retrieved": "2026-11-20T09:23:28",
+    "bytes": 1222643
   }
 }
