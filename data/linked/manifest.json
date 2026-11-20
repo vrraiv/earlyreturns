@@ -6,9 +6,54 @@
       "sheet_id": "1D-edaVHTnZNhVU840EPUhz3Cgd7m39Urx7HM8Pq6Pus",
       "gid": 29622862,
       "title": "Presidential results by state, 1828-2024",
-      "retrieved": "2026-11-20T08:43:22",
+      "retrieved": "2026-11-20T11:33:08",
       "bytes": 156249,
       "sha256": "c1c536d785b99deedad1c7cccf2d8c4afdbb6836252f45ff643c926e23af3c3c"
+    },
+    "2026-11-20/special_elections_index.xlsx": {
+      "url": "https://docs.google.com/spreadsheets/d/1mP8z1TWsrJbWGXk_pz3QgOZQpAmQxLY6sZjPp4qzY6c/export?format=xlsx",
+      "page": "https://www.the-downballot.com/p/data",
+      "sheet_id": "1mP8z1TWsrJbWGXk_pz3QgOZQpAmQxLY6sZjPp4qzY6c",
+      "title": "Special Elections Index and results data, 1989-2022",
+      "retrieved": "2026-11-20T11:33:10",
+      "bytes": 308295,
+      "sha256": "700138bcee77b62dc74809bf288f08849f7315a10ce60d12f769027908a7e5bb"
+    },
+    "2026-11-20/open_uncontested_house.xlsx": {
+      "url": "https://docs.google.com/spreadsheets/d/12RhR9oZZpyKKceyLO3C5am84abKzu2XqLWjP2LnQDgI/export?format=xlsx",
+      "page": "https://www.the-downballot.com/p/data",
+      "sheet_id": "12RhR9oZZpyKKceyLO3C5am84abKzu2XqLWjP2LnQDgI",
+      "title": "Open and uncontested congressional districts, 2006-2026",
+      "retrieved": "2026-11-20T11:33:13",
+      "bytes": 248286,
+      "sha256": "652e95b6b0d212ff138c35d6d88855b18b0a2a33e2b24f8084007702b0a3e84c"
+    },
+    "2026-11-20/education_income_cd.xlsx": {
+      "url": "https://docs.google.com/spreadsheets/d/1mCaLsoAuf19srhnU3UL37MoEOk4kcd_JxEgj96vIgJk/export?format=xlsx",
+      "page": "https://www.the-downballot.com/p/data",
+      "sheet_id": "1mCaLsoAuf19srhnU3UL37MoEOk4kcd_JxEgj96vIgJk",
+      "title": "Education and income by congressional district and state, 2018-2022",
+      "retrieved": "2026-11-20T11:33:15",
+      "bytes": 201671,
+      "sha256": "de4d440e21d88c33d3ac211fe5a6b29885e1f9caaeaec09920e37aaccfee7a23"
+    },
+    "2026-11-20/race_age_citizenship_cd.xlsx": {
+      "url": "https://docs.google.com/spreadsheets/d/14gFG9uQgJ-qTq3lkTNQ9YbhB9C8s3Gy78I1eqd7EpRM/export?format=xlsx",
+      "page": "https://www.the-downballot.com/p/data",
+      "sheet_id": "14gFG9uQgJ-qTq3lkTNQ9YbhB9C8s3Gy78I1eqd7EpRM",
+      "title": "Racial demographics by age and citizenship, by district and state, 2016-2019",
+      "retrieved": "2026-11-20T11:33:17",
+      "bytes": 2341162,
+      "sha256": "195c656977161dfd006228fcc40a3a91b20d28c5e6a1e4f111b67b8839586936"
+    },
+    "2026-11-20/urban_rural_cd118.xlsx": {
+      "url": "https://docs.google.com/spreadsheets/d/1COIr226wGZQu1_i2ArF_ap5hUxYQ1Tb1QIH_tpUm0o4/export?format=xlsx",
+      "page": "https://www.the-downballot.com/p/data",
+      "sheet_id": "1COIr226wGZQu1_i2ArF_ap5hUxYQ1Tb1QIH_tpUm0o4",
+      "title": "Rural/Suburban/Urban classification of districts, 118th Congress",
+      "retrieved": "2026-11-20T11:33:18",
+      "bytes": 39251,
+      "sha256": "892dc8cf4f6b31845be6076fd32022fdf41bd13cad15aaf0d3f90d9456c05fed"
     }
   },
   "erikson_wlezien": {

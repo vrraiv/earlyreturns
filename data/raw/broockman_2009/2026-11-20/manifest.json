@@ -1,0 +1,7 @@
+{
+  "RvsCtlsReplication.dta": {
+    "url": "https://dvn-cloud-iqss.s3.amazonaws.com/10.7910/DVN/DCKUNX/1572b931260-6b28273dfb55?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27RvsCtlsReplication%2520to%2520post.dta&response-content-type=application%2Fx-stata&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261120T163101Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAZT3GWQ6FKBSH5I56%2F20261120%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=817821bb2bfae11abd7ca8ce8c018ac3d6cf415907a11c8a7d5fea87f5f24267",
+    "retrieved": "2026-11-20T11:31:01",
+    "bytes": 670771
+  }
+}
