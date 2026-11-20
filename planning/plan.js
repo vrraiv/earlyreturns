@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20p",
+  version: "2026-11-20q",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -520,7 +520,7 @@ window.PLAN = {
             "Outputs: win probability, the electoral vote range, the tipping-point state, the chance that the popular vote and the electoral college split, and the chance of a tie.",
             "Written 2026-11-20: `ELECTORAL_COLLEGE.md`. It lists every feature and where it comes from, the model, the simulation, and the test.",
             "Decided the same day. The test is an as-of backtest at 100, 60, 30 and 7 days before each election, which needs the poll average as of any date (EC-2) first. 2024 is held out and scored once. The burn-in is two elections for this office, so 2008 is scored. Four targets are scored: state margins and winners, the popular vote, the electoral vote count, and the gap between the tipping-point state and the popular vote.",
-            "The check against the lessons list moved to the design freeze (EC-9) on 2026-11-20: the list waits for the final scorecard, and the build (EC-2 to EC-6) does not. The adoption rule for this office is still to be settled, before the first candidate is run at EC-5."
+            "The check against the lessons list moved to the design freeze (EC-9) on 2026-11-20: the list waits for the final scorecard, and the build (EC-2 to EC-6) does not. The adoption rule for this office was settled the same day (section 8 of the note): a candidate has to beat 19 in 20 of its own scrambled versions, clear simulation noise, and be better in at least three of the four scored elections; then 2024, once."
           ],
           checklist: [
             { id: "a", text: "Design note written" },
@@ -552,7 +552,8 @@ window.PLAN = {
           why: "The electoral college is decided by correlated misses in a handful of states.",
           details: [
             "Estimate national, regional and state-level components from past presidential polling misses.",
-            "Test demographic similarity between states against plain regions."
+            "Test demographic similarity between states against plain regions.",
+            "At most three candidates, judged by the rule in `ELECTORAL_COLLEGE.md`, section 8. The baseline they have to beat already has regions and a tilt by lean."
           ],
           refs: ["src/model/error_structure.py"] },
         { id: "EC-6", title: "Simulation and outputs", kind: "story", phase: "p4", needs: ["EC-4", "EC-5"],
