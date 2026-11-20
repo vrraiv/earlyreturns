@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 10 - Districtwide Results",
+  "Reporting": "100% (728 of 728) precincts reporting",
+  "ReportingTime": "November 19, 2026, 1:59 p.m.",
+  "candidates": [
+    {
+      "Name": "Mark DeSaulnier",
+      "Party": "Dem",
+      "Votes": "217,945",
+      "Percent": "69.8",
+      "incumbent": false
+    },
+    {
+      "Name": "Jeff Frese",
+      "Party": "Rep",
+      "Votes": "94,294",
+      "Percent": "30.2",
+      "incumbent": false
+    }
+  ]
+}

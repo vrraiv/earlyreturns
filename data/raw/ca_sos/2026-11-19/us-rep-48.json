@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 48 - Districtwide Results",
+  "Reporting": "100% (692 of 692) precincts reporting",
+  "ReportingTime": "November 19, 2026, 1:59 p.m.",
+  "candidates": [
+    {
+      "Name": "Marni von Wilpert",
+      "Party": "Dem",
+      "Votes": "165,525",
+      "Percent": "59.8",
+      "incumbent": false
+    },
+    {
+      "Name": "Jim Desmond",
+      "Party": "Rep",
+      "Votes": "111,431",
+      "Percent": "40.2",
+      "incumbent": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 50 - Districtwide Results",
+  "Reporting": "100% (713 of 713) precincts reporting",
+  "ReportingTime": "November 19, 2026, 1:59 p.m.",
+  "candidates": [
+    {
+      "Name": "Scott Peters",
+      "Party": "Dem",
+      "Votes": "197,145",
+      "Percent": "63.7",
+      "incumbent": false
+    },
+    {
+      "Name": "Steve Cohen",
+      "Party": "Rep",
+      "Votes": "112,315",
+      "Percent": "36.3",
+      "incumbent": false
+    }
+  ]
+}
