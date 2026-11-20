@@ -1,4 +1,4 @@
-"""Polling collectors: VoteHub (2026) and archived 538 files (2018-2024)."""
+"""Polling collectors: VoteHub (2026) and archived 538 files (2018-2024; presidential 2020-2024)."""
 import sys
 
 from common import fetch
@@ -10,6 +10,12 @@ WAYBACK_538 = {
     "generic_ballot_polls_historical.csv": "20250207030755",
     "president_approval_polls_historical.csv": "20250305204636",
     "governor_polls_historical.csv": None,
+}
+# Presidential polls (DA-5), pinned to the captures checked on 2026-11-20: the general-election file holds the full
+# 2020 and 2024 cycles (state and national), the primary file both parties' 2020 and 2024 primaries.
+WAYBACK_538_PRES = {
+    "president_polls_historical.csv": "20250205084149",
+    "president_primary_polls_historical.csv": "20250212092020",
 }
 GH = "https://raw.githubusercontent.com/fivethirtyeight/data/master/"
 
@@ -37,6 +43,13 @@ def wayback_538():
             print("538", f, p.stat().st_size)
         except Exception as e:  # noqa: BLE001
             print("FAILED", f, e)
+
+
+def wayback_538_pres():
+    for f, ts in WAYBACK_538_PRES.items():
+        url = f"https://web.archive.org/web/{ts}id_/https://projects.fivethirtyeight.com/polls/data/{f}"
+        p = fetch("538_wayback", f, url, timeout=600)
+        print("538", f, p.stat().st_size)
 
 
 def github_538():

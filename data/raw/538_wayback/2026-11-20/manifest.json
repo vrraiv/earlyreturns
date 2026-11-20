@@ -1,0 +1,12 @@
+{
+  "president_polls_historical.csv": {
+    "url": "https://web.archive.org/web/20250205084149id_/https://projects.fivethirtyeight.com/polls/data/president_polls_historical.csv",
+    "retrieved": "2026-11-20T08:43:57",
+    "bytes": 16518564
+  },
+  "president_primary_polls_historical.csv": {
+    "url": "https://web.archive.org/web/20250212092020id_/https://projects.fivethirtyeight.com/polls/data/president_primary_polls_historical.csv",
+    "retrieved": "2026-11-20T08:44:13",
+    "bytes": 18493457
+  }
+}
