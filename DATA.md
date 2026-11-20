@@ -81,7 +81,7 @@ All in git, under the licence in `LICENSE-DATA.md`.
 | `data/final/pollster_effects.json` | `src/model/pollster_effects.py` | 1998-2022 | Pollster house effects and the sponsored-poll shift |
 | `data/final/error_structure.json` | `src/model/error_structure.py` | 1998-2022 | Census-region shocks; slope on lean |
 | `data/final/state_econ.json`, `money_test.json` | `src/model/state_econ.py`, `money_test.py` | 1998-2022 | Tests of local unemployment and fundraising |
-| `data/processed/backtest_asof*` | `src/model/backtest_asof.py` | 2004-2024 | The as-of backtest (BACKTEST.md): Senate and House forecasts made with parameters fitted on earlier cycles, the parameters by cycle, and the scores. House districts for 1998 to 2004 come from Gary Jacobson's file (Linked sources); the 2004 district forecasts are kept beside that file, not here |
+| `data/processed/backtest_asof*` | `src/model/backtest_asof.py` | 2004-2024 | The as-of backtest (BACKTEST.md): Senate, House and governor forecasts made with parameters fitted on earlier cycles, the parameters by cycle, and the scores. House districts for 1998 to 2004 come from Gary Jacobson's file (Linked sources); the 2004 district forecasts are kept beside that file, not here |
 | `data/final/*` (the rest) | the frozen forecast | 2026 | Forecast inputs and outputs; never rewritten |
 | `data/scorecard/*` | `src/run_scorecard.py` | 2026 | Results, margins, poll audit |
 | `data/postmortem/*` | `src/postmortem/*.py` | 1946-2026 | What-if environment, House upsets, history context, state-level error |

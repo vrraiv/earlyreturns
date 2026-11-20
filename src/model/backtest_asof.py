@@ -17,6 +17,9 @@ adoption rule. In short:
                not in the repo (DATA.md). Without that file the House starts in 2006 and is scored from 2012.
   simulation   as forecast.simulate: one shared national draw, a Census-region shock, a random slope on lean and a
                race draw, Student-t with as-of degrees of freedom.
+  governors    the first governor model (governor_model.py) re-estimated as of each cycle: prior = const + b * lean
+               (two-election average) + g * environment + incumbency; blended with the poll average; two national
+               errors, the statewide-poll miss and the environment's. Even years only; two-way races.
 
 Burn-in: a layer is scored for Y only if it has MIN_PRIOR earlier cycles to fit on. 2026 is in no fit and is not scored
 here yet: that needs its polls, results and districts in this script's shape.
@@ -60,6 +63,7 @@ HALF_LIFE_BIAS = 8.0             # years; bias_realtime.py
 CLIP = 0.001                     # win probabilities are clipped to [CLIP, 1 - CLIP] for log loss
 COMP = 15.0                      # "competitive": |forecast margin| <= 15
 VARIANTS = ("polls_only", "polls_fundamentals", "polls_fundamentals_biasadj")
+CHAMBERS = ("senate", "house", "governor")
 ELECTION = {y: pd.Timestamp(d) for y, d in {2018: "2018-11-06", 2020: "2020-11-03", 2022: "2022-11-08", 2024: "2024-11-05"}.items()}
 REGIONS = ["Northeast", "Midwest", "South", "West"]
 STATE_REGION = ES.STATE_REGION
@@ -119,7 +123,7 @@ def load_polls():
     r["source"] = "raw_polls"
     extra = []
     for fname, kind, ts in [("senate_polls_historical.csv", "senate", "Sen-G"), ("house_polls_historical.csv", "house", "House-G"),
-                            ("generic_ballot_polls_historical.csv", "generic", "House-G-US")]:
+                            ("generic_ballot_polls_historical.csv", "generic", "House-G-US"), ("governor_polls_historical.csv", "senate", "Gov-G")]:
         w = wayback_polls(fname, 2024, kind)
         w["type_simple"], w["scored"], w["late"], w["source"] = ts, True, True, "538_wayback"
         w["race_id"] = "wb2024_" + ts + "_" + w.location + "_" + w.cand1_name.map(_lastname)
@@ -132,7 +136,7 @@ def wayback_check(r):
     """How close the rebuilt final-21-day averages are to raw_polls where both exist (2018-2022)."""
     out = {}
     for fname, kind, ts in [("senate_polls_historical.csv", "senate", "Sen-G"), ("house_polls_historical.csv", "house", "House-G"),
-                            ("generic_ballot_polls_historical.csv", "generic", "House-G-US")]:
+                            ("generic_ballot_polls_historical.csv", "generic", "House-G-US"), ("governor_polls_historical.csv", "senate", "Gov-G")]:
         d = []
         for c in (2018, 2020, 2022):
             w = wayback_polls(fname, c, kind).groupby("location").poll2.agg(["mean", "size"])
@@ -318,6 +322,46 @@ def house_history_universe():
     return h
 
 
+def governor_universe():
+    """Two-way governor races in even years from governor_dataset.csv (no recalls, no third candidate at 15% or more),
+    as governor_model.load() selects them. The file's own poll averages are not used: they are 60-day averages for
+    538's rows. Odd years are left to governor_model.py, whose environment for them is a separate estimator."""
+    d = pd.read_csv(ROOT / "data/interim/governor_dataset.csv")
+    d = d[d.contested.astype(bool) & ~d.multi_candidate.astype(bool) & ~d.recall.astype(bool) & (d.year % 2 == 0)]
+    d = d[~d.year.isin(HELD_OUT)]
+    g = pd.DataFrame({"cycle": d.year.values, "state": d.state.values, "key": d.state.values, "lean_avg2": d.lean_avg2.values,
+                      "inc": d.inc.values, "env": d.nat_house.values, "actual": d.margin_2p.values})
+    assert not g.duplicated(["cycle", "state"]).any()
+    return g
+
+
+def gov_estimate(tr, gen_miss, a, b):
+    """governor_model.estimate() on a training table (cycle, lean_avg2, env, inc, actual, poll, n): the prior, the
+    weight on polls and the prior error it implies, and the two national errors. `gen_miss` is the generic ballot's
+    miss by cycle; a and b are the poll-average error curve."""
+    prior = smf.ols("actual ~ lean_avg2 + env + inc", tr).fit()
+    tr = tr.assign(prior=prior.fittedvalues)
+    resid = tr.actual - tr.prior
+    pol = tr[tr.n > 0].copy()
+    pol["y"], pol["x"], pol["yr"] = pol.actual - pol.prior, pol.poll - pol.prior, pol.cycle.astype(str)
+    wfit = smf.ols("y ~ x + C(yr)", pol).fit()
+    w = float(np.clip(wfit.params["x"], 0.01, 0.99))
+    sd_p_typ = float(np.sqrt(np.mean(a ** 2 + b ** 2 / np.maximum(pol.n, 1))))
+    cyc = (pol.actual - pol.poll).groupby(pol.cycle).mean().rename("S").to_frame().join(gen_miss.rename("H"), how="inner").dropna()
+    rho = float(np.corrcoef(cyc.S, cyc.H)[0, 1]) if len(cyc) >= 3 else 0.0
+    return {"g_const": float(prior.params["Intercept"]), "g_b_lean": float(prior.params["lean_avg2"]), "g_env": float(prior.params["env"]),
+            "g_inc": float(prior.params["inc"]), "g_poll_w": w, "g_sd_prior": float(sd_p_typ * np.sqrt(w / (1 - w))),
+            "g_sd_prior_unpolled": float(1.4826 * np.median(np.abs(resid - np.median(resid)))),
+            "g_sd_S": rms(cyc.S), "g_sd_H": rms(cyc.H), "g_rho": rho if np.isfinite(rho) else 0.0,
+            "g_races": int(len(tr)), "g_races_polled": int(len(pol)), "g_cycles": int(tr.cycle.nunique())}
+
+
+def gov_polls(rt):
+    """One poll average per state and cycle from a set of polls (the race with the most polls, if a state has two)."""
+    g = BA.race_level(rt, ["Gov-G"]).sort_values("n").drop_duplicates(["cycle", "location"], keep="last")
+    return g.rename(columns={"location": "state"})[["cycle", "state", "poll", "n"]]
+
+
 def fundamentals_table():
     """fundamentals_dataset.csv plus a 2024 row built the way fundamentals.build() builds the others (stored FRED
     files, Gallup approval from the 538 archive), so 2024 can be forecast. Nothing is fetched."""
@@ -357,7 +401,7 @@ def house_fit(d, cycles, rec_n=4, sd_n=5):
             "sd_district": float(e[m5.fittedvalues.abs() <= COMP].std()), "house_cycles": cycles}
 
 
-def fit_params(r, sen, hh, fund, train, late_only=True):
+def fit_params(r, sen, hh, fund, train, late_only=True, gov=None):
     """Every estimated quantity the forecast uses, from the cycles in `train` only."""
     train = sorted(c for c in train if c not in HELD_OUT)
     rt = r[r.cycle.isin(train) & r.act2.notna() & (r.late | (not late_only))]
@@ -434,6 +478,11 @@ def fit_params(r, sen, hh, fund, train, late_only=True):
         whc = min(max(wh, 0.02), 0.98)
         p["h_poll_w"], p["h_poll_races"] = wh, int(len(hp))
         p["h_sd_poll"] = float(hf["sd_district"] * np.sqrt((1 - whc) / whc))
+    # governors
+    if gov is not None and gov[gov.cycle.isin(train)].cycle.nunique() >= MIN_PRIOR:
+        gt = gov[gov.cycle.isin(train)].merge(gov_polls(rt), on=["cycle", "state"], how="left")
+        gt["n"] = gt.n.fillna(0)
+        p.update(gov_estimate(gt, gen_miss, p["sdn_a"], p["sdn_b"]))
     return p
 
 
@@ -476,7 +525,28 @@ def simulate(rng, p, sen, hou, sd_nat, do_house):
     return out
 
 
-def forecast_cycle(y, variant, p, r, sen_u, hh, fund, seed):
+def gov_forecast(rng, y, G, sd_nat, p, gov_u, pt):
+    """governor_model.forecast(), two-factor structure: a polled race carries the statewide-poll miss in proportion
+    to its weight on polls and the environment's error in proportion to the rest."""
+    g = gov_u[gov_u.cycle == y].merge(pt.rename(columns={"k": "state"}), on="state", how="left")
+    g["n"] = g.n.fillna(0).astype(int)
+    g["prior"] = p["g_const"] + p["g_b_lean"] * g.lean_avg2 + p["g_env"] * G + p["g_inc"] * g.inc
+    sdp, sp = np.sqrt(p["sdn_a"] ** 2 + p["sdn_b"] ** 2 / g.n.clip(lower=1)), p["g_sd_prior"]
+    w = np.where(g.n > 0, sp ** 2 / (sp ** 2 + sdp ** 2), 0.0)
+    g["poll_weight"] = w
+    g["sd_race"] = np.where(g.n > 0, 1 / np.sqrt(1 / sdp ** 2 + 1 / sp ** 2), p["g_sd_prior_unpolled"])
+    g["mu"] = np.where(g.n > 0, w * g.avg.fillna(0) + (1 - w) * g.prior, g.prior)
+    df = p["df_t"]
+    ts = np.sqrt((df - 2) / df)
+    chi = np.sqrt(rng.chisquare(df, NSIM) / df)
+    z1 = rng.standard_normal(NSIM)
+    z2 = p["g_rho"] * z1 + np.sqrt(1 - p["g_rho"] ** 2) * rng.standard_normal(NSIM)
+    S, H = ts * z1 / chi * p["g_sd_S"], ts * z2 / chi * sd_nat
+    nat = S[:, None] * w[None, :] + (p["g_env"] * H)[:, None] * (1 - w)[None, :]
+    return g, g.mu.values[None, :] + nat + rng.standard_t(df, (NSIM, len(g))) * ts * g.sd_race.values[None, :]
+
+
+def forecast_cycle(y, variant, p, r, sen_u, hh, fund, seed, gov_u=None):
     gen = r[(r.cycle == y) & (r.type_simple == "House-G-US") & r.late]
     g_polls = float(gen.poll2.mean())
     adj = variant.endswith("biasadj")
@@ -519,9 +589,13 @@ def forecast_cycle(y, variant, p, r, sen_u, hh, fund, seed):
         h["sd_race"] = np.where(h.n > 0, 1 / np.sqrt(1 / sd_p ** 2 + 1 / p["h_sd_district"] ** 2), p["h_sd_district"])
         h["lean2"] = h.lean2.fillna(0)
     sims = simulate(np.random.default_rng(seed), p, s, h, sd_nat, do_house)
+    gv = None
+    if gov_u is not None and "g_const" in p and y in set(gov_u.cycle):
+        # its own random stream, so the Senate and House draws are the same with or without governors
+        gv, sims["governor"] = gov_forecast(np.random.default_rng(seed + 5_000_000), y, G, sd_nat, p, gov_u, poll_table(r, y, "Gov-G", p["sponsor_statewide"]))
     res = {"national": nat}
     tabs = []
-    for ch, t in (("senate", s), ("house", h)):
+    for ch, t in (("senate", s), ("house", h), ("governor", gv)):
         if ch not in sims:
             continue
         m = sims[ch]
@@ -538,7 +612,9 @@ def forecast_cycle(y, variant, p, r, sen_u, hh, fund, seed):
         q = np.percentile(m, [10, 25, 75, 90], axis=0)
         tt = pd.DataFrame({"cycle": y, "variant": variant, "chamber": ch, "race": t.key.values, "n_polls": t.n.values,
                            "prior": t.prior.values, "poll_avg": t.avg.values, "mu": t.mu.values, "sd_race": t.sd_race.values,
-                           "p_dem": win.mean(0), "q10": q[0], "q25": q[1], "q75": q[2], "q90": q[3], "actual": t.actual.values})[live]
+                           "p_dem": win.mean(0), "q10": q[0], "q25": q[1], "q75": q[2], "q90": q[3], "actual": t.actual.values,
+                           # set before the file is rounded, so a margin of exactly 15 falls the same side here and in --compare
+                           "competitive": np.abs(t.mu.values) <= COMP})[live]
         tabs.append(tt)
         res[ch] = {"races": int(live.sum()), "fixed": int((~live).sum()), "seats_mean": float(seats.mean()),
                    "seats_p10": float(np.percentile(seats, 10)), "seats_p90": float(np.percentile(seats, 90)),
@@ -563,7 +639,7 @@ def summarize(races, cyc):
     out = {}
     for v in VARIANTS:
         out[v] = {}
-        for ch in ("senate", "house"):
+        for ch in CHAMBERS:
             t = races[(races.variant == v) & (races.chamber == ch)]
             if t.empty:
                 continue
@@ -585,7 +661,7 @@ def summarize(races, cyc):
     return out
 
 
-def coverage(r, sen_u, hh, fund):
+def coverage(r, sen_u, hh, fund, gov_u):
     """Component by cycle: is the data there, and is the cycle scored after burn-in."""
     poll_c = sorted(c for c in r[r.source == "raw_polls"].cycle.unique())
     house_c = sorted(hh.year.unique())
@@ -597,6 +673,8 @@ def coverage(r, sen_u, hh, fund):
                      "senate_races_polled": int(r[(r.cycle == y) & (r.type_simple == "Sen-G") & r.scored & r.late].ukey.nunique()),
                      "house_districts_with_lean": int(((hh.year == y) & hh.pvi.notna()).sum()),
                      "house_districts_polled": int(r[(r.cycle == y) & (r.type_simple == "House-G") & r.late].location.nunique()),
+                     "governor_races": int((gov_u.cycle == y).sum()),
+                     "governor_races_polled": int(gov_u[gov_u.cycle == y].state.isin(r[(r.cycle == y) & (r.type_simple == "Gov-G") & r.scored & r.late].location).sum()),
                      "fundamentals": bool(y in set(fund.dropna(subset=FU.PREDICTORS).year)),
                      "prior_poll_cycles": int(sum(c < y for c in poll_c)), "prior_house_cycles": int(sum(c < y for c in house_c)),
                      "senate_scored": bool(sum(c < y for c in poll_c) >= MIN_PRIOR),
@@ -625,6 +703,21 @@ def parity(r, sen_u, hh, fund):
     return [{"parameter": k, "as_of_all_data": float(p[k]), "frozen_2026": float(v)} for k, v in fz.items()]
 
 
+def parity_governor():
+    """gov_estimate() on governor_model.py's own sample, polls and constants, beside governor_model.json: a check that
+    the as-of governor fit is that model's estimator. (The as-of runs differ in data: even years, 21-day polls.)"""
+    import governor_model as GM
+    d = GM.load()
+    t = pd.DataFrame({"cycle": d.year.values, "lean_avg2": d.lean_avg2.values, "env": d.env.values, "inc": d.inc.values, "actual": d.margin_2p.values,
+                      "poll": d.poll_avg.values, "n": d.n_polls.fillna(0).values})
+    e = gov_estimate(t[t.env.notna()], GM.generic_final().generic_miss, GM.SDN["a"], GM.SDN["b"])
+    m = json.loads((OUT / "governor_model.json").read_text())
+    ref = {"g_const": m["prior_coef"]["Intercept"], "g_b_lean": m["prior_coef"]["lean_avg2"], "g_env": m["prior_coef"]["env"], "g_inc": m["prior_coef"]["inc"],
+           "g_poll_w": m["params"]["w"], "g_sd_prior": m["params"]["sd_prior_implied"], "g_sd_prior_unpolled": m["params"]["sd_prior_robust"],
+           "g_sd_S": m["params"]["sd_S"], "g_sd_H": m["params"]["sd_H"], "g_rho": m["params"]["rho"]}
+    return [{"parameter": k, "harness_estimator": float(e[k]), "governor_model": float(v)} for k, v in ref.items()]
+
+
 def compare(tag):
     """A candidate run against the baseline on the baseline's races: the competitive set is fixed by the baseline's
     forecast margins, so both are scored on the same contests. Differences are candidate minus baseline (negative
@@ -638,7 +731,7 @@ def compare(tag):
     j = base.merge(new, on=keys, suffixes=("_b", "_n"))
     print(f"{len(j)} of {len(base)} baseline race forecasts matched in '{tag}'")
     out = {}
-    for (v, ch), g in j[j.mu_b.abs() <= COMP].groupby(["variant", "chamber"]):
+    for (v, ch), g in j[j.competitive_b.astype(bool)].groupby(["variant", "chamber"]):
         rows = []
         for c, x in list(g.groupby("cycle")) + [("all", g), ("all but first", g[g.cycle > g.cycle.min()])]:
             b = score(x.rename(columns=lambda k: k[:-2] if k.endswith("_b") else k).assign(actual=x.actual_b))
@@ -646,13 +739,25 @@ def compare(tag):
             rows.append({"cycle": c, "races": b["races"], **{f"d_{k}": n[k] - b[k] for k in ("log_loss", "brier", "margin_rmse", "cover80")}})
         d = pd.DataFrame(rows)
         cyc = d[~d.cycle.astype(str).str.startswith("all")]
-        out[f"{v}/{ch}"] = {"by_cycle": rows, "cycles_improved": int((cyc.d_log_loss < 0).sum()), "cycles": int(len(cyc))}
-        print(f"\n{v} / {ch}: log loss better in {int((cyc.d_log_loss < 0).sum())} of {len(cyc)} cycles")
+        # how far the pooled gap could move if history had dealt other cycles: whole cycles redrawn with replacement
+        won = (g.actual_b > 0).astype(float)
+        ll = lambda q: -(won * np.log(q.clip(CLIP, 1 - CLIP)) + (1 - won) * np.log(1 - q.clip(CLIP, 1 - CLIP)))  # noqa: E731
+        per = pd.DataFrame({"cycle": g.cycle.values, "d": (ll(g.p_dem_n) - ll(g.p_dem_b)).values}).groupby("cycle").d.agg(["sum", "size"])
+        rng = np.random.default_rng(0)
+        pick = rng.integers(0, len(per), (4000, len(per)))
+        boot = per["sum"].values[pick].sum(1) / per["size"].values[pick].sum(1)
+        lo, hi = np.percentile(boot, [10, 90])
+        out[f"{v}/{ch}"] = {"by_cycle": rows, "cycles_improved": int((cyc.d_log_loss < 0).sum()), "cycles": int(len(cyc)),
+                            "pooled_d_log_loss": float(per["sum"].sum() / per["size"].sum()), "pooled_d_log_loss_sd_over_cycles": float(boot.std()),
+                            "pooled_d_log_loss_80pct_range_over_cycles": [float(lo), float(hi)], "share_of_redraws_improved": float((boot < 0).mean())}
+        print(f"\n{v} / {ch}: log loss better in {int((cyc.d_log_loss < 0).sum())} of {len(cyc)} cycles; "
+              f"pooled gap {per['sum'].sum() / per['size'].sum():+.4f}, SD with cycles redrawn {boot.std():.4f} "
+              f"(80% between {lo:+.4f} and {hi:+.4f}, better in {(boot < 0).mean():.0%} of redraws)")
         print(d.round(4).to_string(index=False))
     sb, sn = (json.loads((OUT / f"backtest_asof{x}.json").read_text())["scores"] for x in ("", f"_{tag}"))
     print("\nseat counts (baseline -> candidate): spread of the result's position in the simulated distribution (0.25 is calibrated), RMSE")
     for v in VARIANTS:
-        for ch in ("senate", "house"):
+        for ch in CHAMBERS:
             if ch in sb[v] and ch in sn[v]:
                 b, n = sb[v][ch]["seats"], sn[v][ch]["seats"]
                 out[f"{v}/{ch}"]["seats"] = {"pit_spread": [b["pit_spread"], n["pit_spread"]], "rmse": [b["rmse"], n["rmse"]]}
@@ -669,22 +774,23 @@ def main(tag=None, seed_shift=0, lean="cook"):
         print(f"data/raw/jacobson/*/{JACOBSON} is not on this machine (it is not in the repo): the House starts in 2006 and is "
               f"scored from 2012, so the House scores will not match BACKTEST.md.")
     sen_u, hh, fund = senate_universe(r), house_universe(jacobson_raw() if jp else None, lean), fundamentals_table()
+    gov_u = governor_universe()
     r = link_senate(r, sen_u)
     vote = pd.read_csv(ROOT / "data/interim/house_national_vote.csv").set_index("year").two_party_margin_D
     hh["nat"] = hh.year.map(vote)
-    cov = coverage(r, sen_u, hh, fund)
+    cov = coverage(r, sen_u, hh, fund, gov_u)
     poll_cycles = sorted(int(c) for c in r.cycle.unique() if c not in HELD_OUT)
     cyc, tabs, prm = [], [], []
     for row in cov:
         y = row["cycle"]
         if not row["senate_scored"] or y in HELD_OUT:
             continue
-        p = fit_params(r, sen_u, hh, fund, [c for c in poll_cycles if c < y])
+        p = fit_params(r, sen_u, hh, fund, [c for c in poll_cycles if c < y], gov=gov_u)
         if not row["house_scored"]:
             p = {k: v for k, v in p.items() if not k.startswith("h_")}
         res = {}
         for i, v in enumerate(VARIANTS):
-            res[v], t = forecast_cycle(y, v, p, r, sen_u, hh, fund, seed=y * 10 + i + 100000 * seed_shift)
+            res[v], t = forecast_cycle(y, v, p, r, sen_u, hh, fund, seed=y * 10 + i + 100000 * seed_shift, gov_u=gov_u)
             tabs.append(t)
         cyc.append({"cycle": y, "res": res, "actual_nat": float(vote[y])})
         prm.append(dict(cycle=y, **{k: v for k, v in p.items() if not k.startswith("_") and k != "train_cycles"}, n_train=len(p["train_cycles"])))
@@ -705,13 +811,13 @@ def main(tag=None, seed_shift=0, lean="cook"):
                                "1998-2004": None if jp is None else {"source": "Gary Jacobson, House elections file (not in the repo)", "file": JACOBSON,
                                                                      "received": jp.parent.name, "sha256": hashlib.sha256(jp.read_bytes()).hexdigest()},
                                "lean_2006_on": lean},
-           "coverage": cov, "wayback_check": wayback_check(r), "parity": parity(r, sen_u, hh[hh.source == "house_history"], fund), "scores": summ}
+           "coverage": cov, "wayback_check": wayback_check(r), "parity": parity(r, sen_u, hh[hh.source == "house_history"], fund), "parity_governor": parity_governor(), "scores": summ}
     (OUT / f"backtest_asof{sfx}.json").write_text(json.dumps(out, indent=1, default=float))
     for v in VARIANTS:
-        for ch in ("senate", "house"):
+        for ch in CHAMBERS:
             if ch in summ[v]:
                 a, c, s = summ[v][ch]["all"], summ[v][ch]["competitive"], summ[v][ch]["seats"]
-                print(f"{v:28} {ch:6} {summ[v][ch]['cycles'][0]}-{summ[v][ch]['cycles'][-1]} n={a['races']:5d} Brier {a['brier']:.4f} logloss {a['log_loss']:.4f} "
+                print(f"{v:28} {ch:8} {summ[v][ch]['cycles'][0]}-{summ[v][ch]['cycles'][-1]} n={a['races']:5d} Brier {a['brier']:.4f} logloss {a['log_loss']:.4f} "
                       f"| competitive n={c['races']} Brier {c['brier']:.3f} logloss {c['log_loss']:.3f} RMSE {c['margin_rmse']:.2f} bias {c['margin_bias']:+.2f} "
                       f"cover80 {c['cover80']:.2f} cover50 {c['cover50']:.2f} | seats in 80% {s['cover80']:.2f} of {s['n_cycles']}, spread {s['pit_spread']:.2f}, mean err {s['mean_error']:+.1f}, RMSE {s['rmse']:.1f}")
         n = summ[v]["national"]

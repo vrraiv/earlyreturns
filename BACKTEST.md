@@ -1,7 +1,7 @@
 # Backtest
 
-The out-of-sample test every change to the House and Senate models has to pass (work plan card CM-1). Each past
-cycle is forecast with every parameter fitted on earlier cycles only, then scored against the result.
+The out-of-sample test every change to the House, Senate and governor models has to pass (work plan card CM-1). Each
+past cycle is forecast with every parameter fitted on earlier cycles only, then scored against the result.
 
 ```powershell
 python src/model/backtest_asof.py                  # the baseline: data/processed/backtest_asof*.{json,csv}
@@ -25,8 +25,9 @@ A cycle is scored only when the part has **three earlier cycles** to fit on (`MI
 | Fundamentals | 1946 (fitted from 1962) | 2004 to 2024 | not binding |
 | Senate prior (state lean, incumbency) | 1998 | 2004 to 2024 | the polls; state lean now runs back to 1828 |
 | House districts | 1998 | 2004 to 2024 | the polls; district lean now runs back to the 1950s |
+| Governors (even years) | 1998 | 2004 to 2024 | the polls |
 
-So both chambers and the national environment are scored on the same 11 cycles.
+So both chambers, governors and the national environment are scored on the same 11 cycles.
 
 **Where the House districts come from.** Two sources, joined at 2006:
 
@@ -88,6 +89,12 @@ The published model's structure, with each estimated number re-estimated as of e
   hand-picked windows in `house_structure.py` become a rule: national slope from every earlier cycle; constant, lean
   slope and incumbency from the latest four; district error from the latest five. Seats with one major party on the
   ballot are fixed.
+- **Governors.** The first governor model (`governor_model.py`), re-estimated as of each cycle: prior = constant +
+  slope x lean (the state's presidential lean, averaged over two elections) + slope x environment + incumbency,
+  blended with the poll average; a polled race carries the statewide polls' shared miss in proportion to its weight
+  on polls, and the environment's error in proportion to the rest. Run on that model's own sample, the harness's
+  estimator returns its ten published parameters exactly (`parity_governor` in `backtest_asof.json`). The lean
+  measure was chosen there with every cycle in view; it is fixed here, not re-chosen each cycle.
 - **Simulation.** As `forecast.simulate`: one national draw shared by both chambers, a region shock, a random slope on
   lean, a race draw. 20,000 draws per cycle.
 - **The three versions**: polls only, polls and fundamentals, and bias-adjusted. The bias-adjusted version here is
@@ -114,6 +121,11 @@ The rest differ for known reasons:
   `backtest.py` still tests those on 2018 and 2022.
 - **Senate races are Democrat against Republican only.** Races with an independent in the top two, all-party November
   rounds and a same-day special with the same two candidates are left out, from both the forecast and the seat count.
+- **Governors are even years only, two-way races, 21-day polls.** Odd years (New Jersey, Virginia, Kentucky,
+  Louisiana, Mississippi) and 2025 need an environment estimate as of each date, which is GV-3's work; they stay in
+  `governor_model.py`'s own backtest. That backtest scores 353 races at log loss 0.244, against 0.212 on 239 races
+  here, and the two are not comparable: it leaves one cycle out at a time (so each fit sees later cycles), includes
+  odd years, and uses 538's 60-day averages. Nothing from 2026 is in either (GV-4).
 - **Appointed senators are not counted as incumbents.** The returns carry no incumbency; the flag is a name match to
   earlier winners.
 - **Economic inputs are today's revised figures**, not what was published at the time.
@@ -152,8 +164,16 @@ points; that is where the seat counts are decided, and the scores to watch.
 | Polls and fundamentals | House | 4172 | 0.034 | 0.123 | 874 | 0.138 | 0.431 | 9.3 | -1.1 | 80% | 45% | 7 of 11 | 0.30 | 12.4 |
 | Bias-adjusted | Senate | 352 | 0.043 | 0.144 | 154 | 0.087 | 0.285 | 8.3 | +0.0 | 82% | 56% | 10 of 11 | 0.25 | 1.9 |
 | Bias-adjusted | House | 4172 | 0.035 | 0.126 | 860 | 0.141 | 0.446 | 9.6 | +0.9 | 76% | 44% | 7 of 11 | 0.31 | 10.9 |
+| Polls only | Governor | 239 | 0.066 | 0.213 | 130 | 0.114 | 0.353 | 7.7 | -2.1 | 82% | 48% | 11 of 11 | 0.24 | 1.4 |
+| Polls and fundamentals | Governor | 239 | 0.065 | 0.212 | 133 | 0.110 | 0.342 | 8.1 | -2.1 | 81% | 51% | 11 of 11 | 0.23 | 1.3 |
+| Bias-adjusted | Governor | 239 | 0.065 | 0.212 | 129 | 0.113 | 0.349 | 6.8 | -1.4 | 81% | 50% | 11 of 11 | 0.23 | 1.3 |
+
+For governors the versions differ only in the environment fed to the prior. "Polls only" is the governor model as
+written (its environment is the generic ballot). "Seat count" for governors is the number of races Democrats won.
 
 Margins are Democratic minus Republican, two-party; a positive mean error means Democrats did better than forecast.
+Rows for different versions are not like for like: each version has its own competitive set (156 Senate races polls
+only, 158 with fundamentals). Version against version on the same races is in the chance section below.
 "Seat spread" is how far, on average, the result sat from the middle of the simulated seat distribution: 0.25 when
 the ranges are right, toward 0.5 when results keep landing in the tails. It moves smoothly, where a count of cycles
 inside a range can flip on one seat.
@@ -185,7 +205,9 @@ What the baseline shows:
   shortfall is in what districts share, which is what CM-2 and CM-3 test. Eleven cycles cannot settle it.
 - **2010 is the largest seat miss**: 221 Democratic seats forecast, 191 won. The fundamentals are a small part of it:
   polls only, with the environment almost exactly right (-7.5 against -7.0), the forecast was still 216.
-- **Fundamentals help the environment** (error 3.7 to 2.7) and the Senate, but not the House scores.
+- **Fundamentals help the environment** (error 3.7 to 2.7) but not clearly the races. On the same races they move
+  log loss by +0.004 for the Senate, +0.002 for the House and -0.005 for governors, each within about one standard
+  deviation of cycle luck (see "How much a score moves by chance").
 - **The simplified bias adjustment is mixed for the House.** District log loss is worse (0.446 against 0.431) and
   fewer districts fall inside their ranges (76%); the seat count is closer (seat RMSE 10.9 against 12.4). It is not
   the published adjustment, so it is a pointer for CM-7, not a verdict.
@@ -193,6 +215,10 @@ What the baseline shows:
   on seven cycles it scores much as it did on three (0.700).
 - **Incumbency has shrunk steadily.** The fitted advantage is 23 points as of 2004 and 6 as of 2024
   (`backtest_asof_params.csv`). The four-cycle window follows it with a lag, which is CM-4's subject.
+- **Governors: few competitive races, and Democrats run behind the forecast.** There are 133 competitive races in 11
+  cycles, and only 3 to 9 in a presidential year. Democrats did 2.1 points worse than forecast on average. The count
+  of Democratic wins fell inside its 80% range in all 11 cycles, which is more often than 80% implies but is no
+  evidence of ranges that are too wide on 11 cycles. The 27 unpolled races are forecast badly (margin RMSE 20).
 - **Senate races without polls are the Senate's weak point.** Their prior misses popular incumbents by 30 to 50
   points in 2004 and 2006 (margin RMSE 19 and 15 in those cycles, 3 to 6 since 2008).
 
@@ -200,34 +226,73 @@ Against the first version of this baseline (House from 2012, seven cycles): ever
 House log loss in 2014 to 2024 moved by 0.02 or less, because those cycles now have 1998 to 2004 in the national
 slope and the district-poll weight.
 
-Forecasts are in `backtest_asof_races.csv` (all but the 2004 districts, as above), the as-of parameters by cycle in
+Forecasts are in `backtest_asof_races.csv` (governors included; all but the 2004 districts, as above), the as-of parameters by cycle in
 `backtest_asof_params.csv`, and coverage, parity, all scores and the checksum of Jacobson's file in
 `backtest_asof.json`.
 
+## How much a score moves by chance
+
+Two kinds of chance sit under every comparison, and they are very different in size.
+
+- **Simulation noise** is small. Rerunning the baseline with other random draws moves pooled log loss on competitive
+  races by at most 0.0015 (House, Senate) and 0.0006 (governors).
+- **Which cycles history dealt** is the large one. `--compare` now estimates it by redrawing the 11 cycles with
+  replacement and recomputing the pooled gap. Between versions of the baseline itself:
+
+| Comparison | Office | Pooled log-loss gap | SD over redrawn cycles | Cycles better |
+|---|---|---|---|---|
+| Polls only to polls and fundamentals | Senate | +0.004 | 0.004 | 7 of 11 |
+| | House | +0.002 | 0.006 | 8 of 11 |
+| | Governor | -0.005 | 0.005 | 7 of 11 |
+| Polls and fundamentals to bias-adjusted | Senate | -0.004 | 0.006 | 4 of 11 |
+| | House | +0.016 | 0.021 | 4 of 11 |
+| | Governor | -0.002 | 0.002 | 5 of 11 |
+
+(A negative gap is an improvement.) Three things follow:
+
+- A gap of 0.005 is about one standard deviation of cycle luck for most of these pairs. It is clear of simulation
+  noise and not clear of history. The standard deviation depends on the change (0.002 to 0.021 here), which is why
+  `--compare` prints it for each candidate and no single threshold stands in for it.
+- The count of cycles can disagree with the pooled gap: fundamentals "improve" 8 of 11 House cycles and make the
+  pooled score slightly worse, because the three bad cycles are worse by more.
+- The redraw test cannot stand without a size threshold either: a rerun that changes only the random draws came out
+  "better in 96% of redraws" for governors, at a gap of 0.0005.
+
 ## Adoption rule
 
-*Confirmed 2026-11-20, with the three-cycle burn-in.*
+*Confirmed 2026-11-20, with the three-cycle burn-in, after the chance table above. A first version asked only for a
+gain of 0.005, which is clear of simulation noise but not of cycle luck; rule 1 now asks for both. No candidate change
+had been scored when it was set.*
 
 Before running a change:
 
-1. Write down the change, the chamber it is aimed at, and what it should improve.
+1. Write down the change, the office it is aimed at (House, Senate or governor), and what it should improve.
 2. Run it with `--tag`, then `--compare`. The comparison scores both versions on the same races: the baseline's
    competitive set.
 
-A change is adopted if, in the chamber it is aimed at, on the polls-and-fundamentals version:
+A change is adopted if, in the office it is aimed at, on the polls-and-fundamentals version:
 
-1. **Log loss on competitive races falls by more than 0.005 pooled over all scored cycles**, and also with the first
-   scored cycle left out. That cycle, 2004, has the thinnest fit, and a change should not pass or fail on it alone.
-   `--compare` prints both.
-2. **It falls in at least two thirds of the cycles** (8 of 11 in either chamber), so one cycle cannot carry it.
+1. **Log loss on competitive races, pooled over all scored cycles, falls by more than 0.005 and by more than its own
+   standard deviation over redrawn cycles.** `--compare` prints the gap and that standard deviation for each
+   candidate. The floor of 0.005 keeps out effects that are consistent but too small to matter; the standard
+   deviation scales the bar to how much this particular change depends on which cycles are in the test. The gap must
+   also exceed 0.005 with the first scored cycle left out: 2004 has the thinnest fit, and a change should not pass
+   or fail on it alone.
+2. **For the House and Senate, it falls in at least two thirds of the cycles** (8 of 11), so one cycle cannot carry
+   it. This does not apply to governors: a presidential year has 3 to 9 competitive governor races, and a cycle that
+   small is close to a coin flip.
 3. **Calibration does not get worse**: the share of competitive races inside the 80% range stays between 75% and 85%
    or moves toward 80%, and the seat spread does not move away from 0.25 by more than 0.02.
-4. **The other chamber does not get worse** by more than 0.005 in log loss.
+4. **No other office gets worse** by more than 0.005 in log loss.
 
-The thresholds sit above what chance in the simulation does. Over reruns of the baseline with other random draws
-(four on the first version, two on this one), pooled log loss moved by at most 0.0015, the 80% share by 0.007 and
-the seat spread by 0.003. The count of cycles moved much more (a rerun that changes nothing "improves" 4 or 5 of 11),
-which is why rule 2 never stands without rule 1.
+One standard deviation is a modest bar: a change with no real effect clears it about one time in six, before the
+other conditions. Two would be the usual standard, and with 11 cycles almost nothing would reach it. That is the
+trade made here, and the 2026 step below is the check on it.
+
+The fixed thresholds sit above what chance in the simulation does. Over reruns of the baseline with other random
+draws, pooled log loss moved by at most 0.0015, the 80% share by 0.007 and the seat spread by 0.003. The count of
+cycles moved much more (a rerun that changes nothing "improves" 4 or 5 of 11), which is why rule 2 never stands
+without rule 1.
 
 A change that only alters uncertainty (ranges, correlations) is judged on 1, 3 and the seat spread, since it cannot
 move margins. Margin RMSE and Brier are reported for every change and decide nothing by themselves.
