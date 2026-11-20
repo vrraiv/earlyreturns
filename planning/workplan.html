@@ -442,7 +442,7 @@ function trackOptions(sel) {
 /* ---------- pages ---------- */
 function weeksTo(date) { return Math.round((new Date(date + "T12:00:00").getTime() - Date.now()) / 6048e5); }
 function overviewView() {
-  var h = "<h1>Overview</h1><p class=\"lede\">Nine parallel tracks take the 2026 forecast code to 2028. Two dates are fixed: a first primaries model by May 2027, if that track goes ahead, and every other model frozen by May 2028. Everything else is ordered by what depends on what.</p>";
+  var h = "<h1>Overview</h1><p class=\"lede\">Nine parallel tracks take the 2026 forecast code to 2028. Two dates are fixed: a first primaries model by May 2027, and every other model frozen by May 2028. Everything else is ordered by what depends on what.</p>";
   h += '<h2>Fixed dates</h2><div class="tiles">' + P.deadlines.map(function (d) {
     var w = weeksTo(d.date);
     return '<div class="tile"><span class="lab">' + esc(d.label) + "</span><b>" + esc(d.display) + '</b><span class="wk">' + (w > 0 ? w + " weeks away" : w === 0 ? "This week" : "Passed") + '</span><p class="tiny">' + esc(d.note) + "</p></div>";
