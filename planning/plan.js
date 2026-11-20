@@ -4,10 +4,10 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-17b",
+  version: "2026-11-20",
 
   deadlines: [
-    { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Only if the primaries track is a go (PP-1)." },
+    { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
     { id: "models", label: "Electoral college and every other model frozen", date: "2028-05-31", display: "May 2028", note: "House, Senate, governors and special elections included." },
     { id: "election", label: "Election Day", date: "2028-11-07", display: "November 7, 2028", note: "Final forecast frozen before polls close." }
   ],
@@ -15,7 +15,7 @@ window.PLAN = {
   events: [
     { when: "December 2026", phase: "p1", text: "Certification ends. California certifies last." },
     { when: "Through 2027", phase: "any", text: "Special elections, as they are called." },
-    { when: "May 2027", phase: "p3", text: "Deadline: first primaries model, if that track goes ahead.", deadline: true },
+    { when: "May 2027", phase: "p3", text: "Deadline: first primaries model.", deadline: true },
     { when: "Fall 2027", phase: "p4", text: "Governor races in Kentucky, Louisiana and Mississippi." },
     { when: "Early 2028", phase: "p4", text: "First primaries and caucuses. The order of states is not set yet." },
     { when: "May 2028", phase: "p4", text: "Deadline: electoral college model and every other model frozen.", deadline: true },
@@ -26,7 +26,7 @@ window.PLAN = {
   phases: [
     { id: "p1", name: "Close out 2026", when: "Now, until the scorecard is final", note: "Counting and certification run into December 2026." },
     { id: "p2", name: "Decide", when: "After the scorecard is final", note: "Lessons, the brainstorm, and the choices that shape everything after." },
-    { id: "p3", name: "Primaries build", when: "To May 2027", note: "Only if the primaries track is a go." },
+    { id: "p3", name: "Primaries build", when: "To May 2027", note: "Decided 2026-11-20: the track goes ahead, both parties." },
     { id: "p4", name: "Build and backtest", when: "Through 2027 to May 2028", note: "Every model designed, tested on history and frozen." },
     { id: "p5", name: "2028 season", when: "May to November 2028", note: "Frozen models running on live polls." },
     { id: "any", name: "Any time", when: "No fixed date", note: "Work that waits on outside events, such as a special election being called." }
@@ -282,7 +282,6 @@ window.PLAN = {
             "District results before 2006: more midterms for the year-type and wave tests.",
             "District lean before 2006: presidential vote by district.",
             "Census demographics by district and state.",
-            "Presidential polls and results by state, for the electoral college model.",
             "Primary polls, results, calendars and delegate rules.",
             "Senate special elections, and polls of past specials.",
             "Who drew each state's map, by cycle.",
@@ -333,9 +332,10 @@ window.PLAN = {
             { id: "c", text: "Districts matched to the lines in force, by cycle" },
             { id: "d", text: "DATA.md updated" }
           ] },
-        { id: "DA-5", title: "Presidential polls and results by state", kind: "story", phase: "p4", needs: ["DA-1"],
+        { id: "DA-5", title: "Presidential polls and results by state", kind: "story", phase: "p2",
           why: "The electoral college model and its backtest are built on these.",
           details: [
+            "Split out of DA-1 on 2026-11-20: the electoral college model needs this whatever the 2026 lessons say, so it does not wait for the brainstorm.",
             "State results from 1992 to 2024 are already in the repo.",
             "Polls: the 538 archive in the repo covers recent cycles, and its raw polls file has the final three weeks back to 1998.",
             "Check coverage by cycle and state before designing the backtest.",
@@ -350,7 +350,6 @@ window.PLAN = {
         { id: "DA-6", title: "Primary polls, results and rules", kind: "story", phase: "p3", needs: ["PP-1"],
           why: "The primaries track can't start without them.",
           details: [
-            "Only if the primaries track is a go.",
             "Past cycles: national and state primary polls, results by state and date, and delegate rules.",
             "2028: a source for primary polls, checked for coverage.",
             "The 2028 calendar is not set. Collect it when each party publishes it."
@@ -361,7 +360,7 @@ window.PLAN = {
             { id: "c", text: "Delegate rules by party and cycle" },
             { id: "d", text: "2028 poll source chosen" }
           ] },
-        { id: "DA-7", title: "Map type by state and cycle", kind: "story", phase: "p4",
+        { id: "DA-7", title: "Map type by state and cycle", kind: "story", phase: "p4", optional: true,
           why: "Tests whether the state shock or the wave response is larger under partisan maps.",
           details: [
             "Who drew each congressional map: a legislature, a commission or a court.",
@@ -466,7 +465,7 @@ window.PLAN = {
       doneWhen: "Backtested on 2008 to 2024, frozen by May 2028, and running on 2028 polls.",
       deadline: "May 2028",
       cards: [
-        { id: "EC-1", title: "Design note", kind: "story", phase: "p4",
+        { id: "EC-1", title: "Design note", kind: "story", phase: "p2",
           why: "The presidential race is the one office the 2026 code has never forecast.",
           details: [
             "State margin from state lean, the national environment and state polls, as in the Senate model.",
@@ -536,8 +535,8 @@ window.PLAN = {
     },
 
     {
-      id: "primaries", code: "PP", name: "Presidential primaries", short: "Primaries", optional: true,
-      goal: "Forecast the 2028 nomination contests, if the track goes ahead.",
+      id: "primaries", code: "PP", name: "Presidential primaries", short: "Primaries",
+      goal: "Forecast the 2028 nomination contests in both parties. Decided 2026-11-20 (PP-1).",
       doneWhen: "A first version by May 2027, with a backtest on past contests behind it.",
       deadline: "May 2027",
       cards: [
@@ -554,7 +553,7 @@ window.PLAN = {
             "Level 1: national and early-state polling averages.",
             "Level 2: state win probabilities, once the calendar is known.",
             "Level 3: delegate projection and nomination odds.",
-            "One party or both."
+            "Both parties, decided with PP-1 on 2026-11-20."
           ] },
         { id: "PP-3", title: "Polling averages", kind: "story", phase: "p3", needs: ["PP-2", "DA-6"],
           why: "The first useful output, and the base for everything else.",
@@ -650,7 +649,7 @@ window.PLAN = {
           details: [
             "Update it when the rework lands, then rerun the backtest."
           ] },
-        { id: "SP-7", title: "Runbook and page for a live special", kind: "story", phase: "any",
+        { id: "SP-7", title: "Runbook and page for a live special", kind: "story", phase: "any", optional: true,
           why: "Being ready early is the nice-to-have for this track.",
           details: [
             "The steps from a special being called to a published page: race details, lean on the lines in force, polls, run, publish.",

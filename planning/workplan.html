@@ -343,6 +343,7 @@ function statusSelect(c) {
 function metaHTML(c) {
   var st = cst(c.id), h = '<span class="chip kind-' + c.kind + '">' + KIND[c.kind] + '</span><span class="chip">' + esc(phases[c.phase].name) + "</span>";
   if (c.due) h += '<span class="chip due">Due ' + esc(c.due) + "</span>";
+  if (c.optional) h += '<span class="chip">Optional</span>';
   if (c.checklist && c.checklist.length) h += "<span>" + c.checklist.filter(function (it) { return tickOf(c, it); }).length + " of " + c.checklist.length + " steps</span>";
   if (c.needs && c.needs.length) h += '<span class="needs">Needs ' + c.needs.map(function (id) {
     var d = cards[id], s = statusOf(d);

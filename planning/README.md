@@ -33,7 +33,7 @@ node -e "global.window={}; require('./planning/plan.js'); console.log(window.PLA
 
 ## Fixed dates
 
-- May 2027: a first presidential primaries model, if that track goes ahead.
+- May 2027: a first presidential primaries model (both parties, decided 2026-11-20).
 - May 2028: the electoral college model and every other model frozen.
 - November 7, 2028: Election Day.
 
