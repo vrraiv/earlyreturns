@@ -320,6 +320,22 @@ Still open:
 - **Scorecard:** collect 2026 governor results only after the governor design is frozen.
 - **Off-cycle environment for 2025:** generic-ballot and approval figures as of each date (VoteHub has both).
 
+*The four open questions, answered (Nov 20, 2026; work plan GV-3; detail and tables in `BACKTEST.md`, "Candidates").*
+Each change was written down before its run and judged by the backtest's adoption rule.
+- **Lean:** presidential lean stays. A composite of recent Senate and governor results, alone or beside it, and
+  the previous governor margin all failed the rule.
+- **Poll averages:** `src/model/governor_inputs.py` builds the 2026 table from the Nov 3 snapshot in the shape the
+  backtest uses (plain 21-day mean), with the weighted average beside it. 28 of 36 races have a late poll, 2 only
+  earlier ones, 6 none. A race with no late poll now has a tested alternative to the prior alone: its polls from 22
+  to 60 days out, which passes the rule (margin error in those races 22.0 to 10.4 points).
+- **Correction to the note above** ("31 of 36 races"): `pollavg.governor()` matched by surname and mixed up
+  Nevada's two Fords. Fixed.
+- **Off-cycle environment:** built as of each odd-year election day and tested with every fit as of the date. The
+  term-year estimator holds up; the generic ballot of the day does not beat it.
+- **Intervals:** about right race by race as of each cycle; the "too wide" reading does not survive. No change.
+- Still to decide at the freeze (GV-4): adopting the earlier-polls change, which poll average the design names,
+  and Rhode Island's three-way race.
+
 **5. Special elections.** Infrastructure to forecast one House, Senate or governor race on its own schedule. Needs:
 the single-race path through the reworked model (environment, lean, incumbency, polls, error layers) without a
 national seat simulation; a history of special-election results against lean, since specials have run well ahead of

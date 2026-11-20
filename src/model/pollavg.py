@@ -174,6 +174,13 @@ def statewide(polls, races, poll_type, since, half_life=None, year=2026):
             share = {n: [y["pct"] for x in rel for y in x["answers"] if lastname(y["choice"]) == n] for n in names}
             return max(names, key=lambda n: np.mean(share[n]) if share[n] else -1)
         dl, rl = pick(r["dem_nominee"]), pick(r["rep_nominee"])
+        full = {lastname(n): n.strip().lower() for cell in (r["dem_nominee"], r["rep_nominee"]) for n in cell.split(",")}
+
+        def by_surname(x):
+            # two candidates can share a surname (Nevada 2026: Aaron Ford and Danielle Ford): the answer closest to the
+            # nominee's full name is written last, so it is the one kept
+            near = lambda y: difflib.SequenceMatcher(None, y["choice"].lower(), full.get(lastname(y["choice"]), "")).ratio()  # noqa: E731
+            return {lastname(y["choice"]): y["pct"] for y in sorted(x["answers"], key=near)}
 
         def find(a, key):
             # exact surname, else one close spelling (VoteHub has "Maura Healy" for Healey in some MA polls)
@@ -183,7 +190,7 @@ def statewide(polls, races, poll_type, since, half_life=None, year=2026):
             return a[close[0]] if len(close) == 1 else None
         rows = []
         for x in rel:
-            a = {lastname(y["choice"]): y["pct"] for y in x["answers"]}
+            a = by_surname(x)
             d_, r_ = find(a, dl), find(a, rl)
             if d_ is not None and r_ is not None:
                 rows.append((x, two_party(d_, r_)))

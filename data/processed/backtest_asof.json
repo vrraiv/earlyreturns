@@ -16,6 +16,9 @@
   },
   "lean_2006_on": "cook"
  },
+ "governor_lean": "pres",
+ "governor_unpolled_sd": "robust",
+ "governor_poll_fallback": null,
  "coverage": [
   {
    "cycle": 1998,

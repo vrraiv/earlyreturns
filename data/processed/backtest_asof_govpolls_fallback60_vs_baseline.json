@@ -1,0 +1,1145 @@
+{
+ "polls_fundamentals/governor": {
+  "by_cycle": [
+   {
+    "cycle": 2004,
+    "races": 7,
+    "d_log_loss": 0.10261445571859984,
+    "d_brier": 0.04192883857142862,
+    "d_margin_rmse": 0.6578671540443759,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2006,
+    "races": 16,
+    "d_log_loss": -0.034661917484119925,
+    "d_brier": -0.009687501250000008,
+    "d_margin_rmse": -0.4972373333836231,
+    "d_cover80": -0.0625
+   },
+   {
+    "cycle": 2008,
+    "races": 3,
+    "d_log_loss": -0.062916914217753,
+    "d_brier": -0.011350676666666684,
+    "d_margin_rmse": -16.009052922873934,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2010,
+    "races": 23,
+    "d_log_loss": -0.015392187869294138,
+    "d_brier": -0.0029099178260869676,
+    "d_margin_rmse": -2.62546974942269,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2012,
+    "races": 6,
+    "d_log_loss": 0.002089433805431695,
+    "d_brier": 0.0018175466666666418,
+    "d_margin_rmse": 0.02532352509898761,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2014,
+    "races": 17,
+    "d_log_loss": -0.01031834039099705,
+    "d_brier": -0.003947022352941185,
+    "d_margin_rmse": 0.017293583411790436,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2016,
+    "races": 9,
+    "d_log_loss": 0.014763466606434905,
+    "d_brier": 0.005554002222222243,
+    "d_margin_rmse": 0.040628540551719716,
+    "d_cover80": -0.11111111111111105
+   },
+   {
+    "cycle": 2018,
+    "races": 24,
+    "d_log_loss": -0.02425991342001743,
+    "d_brier": -0.008328169166666663,
+    "d_margin_rmse": -0.24311566644280447,
+    "d_cover80": -0.04166666666666663
+   },
+   {
+    "cycle": 2020,
+    "races": 4,
+    "d_log_loss": -0.17009691531465684,
+    "d_brier": -0.0597424075,
+    "d_margin_rmse": -11.745441734431466,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2022,
+    "races": 19,
+    "d_log_loss": 0.0009370182340693034,
+    "d_brier": 0.0008212536842105156,
+    "d_margin_rmse": 0.6871378157183665,
+    "d_cover80": -0.10526315789473684
+   },
+   {
+    "cycle": 2024,
+    "races": 5,
+    "d_log_loss": -0.10069906884710525,
+    "d_brier": -0.031173679999999995,
+    "d_margin_rmse": 0.5743195186932564,
+    "d_cover80": -0.20000000000000007
+   },
+   {
+    "cycle": "all",
+    "races": 133,
+    "d_log_loss": -0.01622091818681537,
+    "d_brier": -0.004118771729323317,
+    "d_margin_rmse": -1.9148316926684448,
+    "d_cover80": -0.045112781954887216
+   },
+   {
+    "cycle": "all but first",
+    "races": 126,
+    "d_log_loss": -0.022822883403782912,
+    "d_brier": -0.006676972301587314,
+    "d_margin_rmse": -2.0152523262531528,
+    "d_cover80": -0.04761904761904767
+   }
+  ],
+  "cycles_improved": 7,
+  "cycles": 11,
+  "pooled_d_log_loss": -0.01622091818681537,
+  "pooled_d_log_loss_sd_over_cycles": 0.01046431650601783,
+  "pooled_d_log_loss_80pct_range_over_cycles": [
+   -0.028528721031622427,
+   -0.003145097849150147
+  ],
+  "share_of_redraws_improved": 0.93825,
+  "seats": {
+   "pit_spread": [
+    0.22838863636363635,
+    0.2353840909090909
+   ],
+   "rmse": [
+    1.3074312225957367,
+    1.1597130402309959
+   ]
+  }
+ },
+ "polls_fundamentals/house": {
+  "by_cycle": [
+   {
+    "cycle": 2004,
+    "races": 36,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2006,
+    "races": 94,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2008,
+    "races": 80,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2010,
+    "races": 108,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2012,
+    "races": 75,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2014,
+    "races": 50,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2016,
+    "races": 60,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2018,
+    "races": 97,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2020,
+    "races": 91,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2022,
+    "races": 90,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2024,
+    "races": 93,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all",
+    "races": 874,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all but first",
+    "races": 838,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   }
+  ],
+  "cycles_improved": 0,
+  "cycles": 11,
+  "pooled_d_log_loss": 0.0,
+  "pooled_d_log_loss_sd_over_cycles": 0.0,
+  "pooled_d_log_loss_80pct_range_over_cycles": [
+   0.0,
+   0.0
+  ],
+  "share_of_redraws_improved": 0.0,
+  "seats": {
+   "pit_spread": [
+    0.2957272727272727,
+    0.2957272727272727
+   ],
+   "rmse": [
+    12.38644677746242,
+    12.38644677746242
+   ]
+  }
+ },
+ "polls_fundamentals/senate": {
+  "by_cycle": [
+   {
+    "cycle": 2004,
+    "races": 13,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2006,
+    "races": 14,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2008,
+    "races": 12,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2010,
+    "races": 13,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2012,
+    "races": 16,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2014,
+    "races": 13,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2016,
+    "races": 12,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2018,
+    "races": 19,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2020,
+    "races": 17,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2022,
+    "races": 14,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2024,
+    "races": 15,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all",
+    "races": 158,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all but first",
+    "races": 145,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   }
+  ],
+  "cycles_improved": 0,
+  "cycles": 11,
+  "pooled_d_log_loss": 0.0,
+  "pooled_d_log_loss_sd_over_cycles": 0.0,
+  "pooled_d_log_loss_80pct_range_over_cycles": [
+   0.0,
+   0.0
+  ],
+  "share_of_redraws_improved": 0.0,
+  "seats": {
+   "pit_spread": [
+    0.25831590909090907,
+    0.25831590909090907
+   ],
+   "rmse": [
+    1.9475987804333459,
+    1.9475987804333459
+   ]
+  }
+ },
+ "polls_fundamentals_biasadj/governor": {
+  "by_cycle": [
+   {
+    "cycle": 2004,
+    "races": 7,
+    "d_log_loss": 0.1067775964451344,
+    "d_brier": 0.04244091285714288,
+    "d_margin_rmse": 0.6688966306876392,
+    "d_cover80": -0.1428571428571429
+   },
+   {
+    "cycle": 2006,
+    "races": 16,
+    "d_log_loss": -0.035492776249430646,
+    "d_brier": -0.010055815624999992,
+    "d_margin_rmse": -0.4719631084342488,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2008,
+    "races": 2,
+    "d_log_loss": -0.020590452002148596,
+    "d_brier": -0.006329979999999999,
+    "d_margin_rmse": 0.1745283230286292,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2010,
+    "races": 20,
+    "d_log_loss": -0.007603539048540775,
+    "d_brier": -0.0017161929999999909,
+    "d_margin_rmse": 0.044033577950692404,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2012,
+    "races": 6,
+    "d_log_loss": 0.002492949385331844,
+    "d_brier": 0.002000596666666646,
+    "d_margin_rmse": 0.03637042831967108,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2014,
+    "races": 17,
+    "d_log_loss": -0.010157375270658131,
+    "d_brier": -0.003836936470588262,
+    "d_margin_rmse": 0.013278516644850136,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2016,
+    "races": 9,
+    "d_log_loss": 0.014958044705685958,
+    "d_brier": 0.005241239999999925,
+    "d_margin_rmse": 0.03605489080406166,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2018,
+    "races": 24,
+    "d_log_loss": -0.02084973774320814,
+    "d_brier": -0.006284281666666655,
+    "d_margin_rmse": -0.10995381686399597,
+    "d_cover80": -0.04166666666666663
+   },
+   {
+    "cycle": 2020,
+    "races": 4,
+    "d_log_loss": -0.16076330472031963,
+    "d_brier": -0.05476919500000001,
+    "d_margin_rmse": -11.493333072937837,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2022,
+    "races": 19,
+    "d_log_loss": 0.001192009877858946,
+    "d_brier": 0.000834523684210553,
+    "d_margin_rmse": 0.7058275557903233,
+    "d_cover80": -0.10526315789473684
+   },
+   {
+    "cycle": 2024,
+    "races": 5,
+    "d_log_loss": -0.11523668728275199,
+    "d_brier": -0.038160194,
+    "d_margin_rmse": 0.20866933512491492,
+    "d_cover80": -0.20000000000000007
+   },
+   {
+    "cycle": "all",
+    "races": 129,
+    "d_log_loss": -0.013440080497990614,
+    "d_brier": -0.0035789784496124133,
+    "d_margin_rmse": -0.8359537487402173,
+    "d_cover80": -0.03875968992248058
+   },
+   {
+    "cycle": "all but first",
+    "races": 122,
+    "d_log_loss": -0.02033781606030116,
+    "d_brier": -0.006219464016393436,
+    "d_margin_rmse": -0.9003488728593005,
+    "d_cover80": -0.032786885245901676
+   }
+  ],
+  "cycles_improved": 7,
+  "cycles": 11,
+  "pooled_d_log_loss": -0.01344008049799066,
+  "pooled_d_log_loss_sd_over_cycles": 0.010925349902713852,
+  "pooled_d_log_loss_80pct_range_over_cycles": [
+   -0.026397480127255266,
+   0.00045398299081308795
+  ],
+  "share_of_redraws_improved": 0.893,
+  "seats": {
+   "pit_spread": [
+    0.23039545454545454,
+    0.23720227272727276
+   ],
+   "rmse": [
+    1.2644880342904148,
+    1.136148155751785
+   ]
+  }
+ },
+ "polls_fundamentals_biasadj/house": {
+  "by_cycle": [
+   {
+    "cycle": 2004,
+    "races": 35,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2006,
+    "races": 91,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2008,
+    "races": 69,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2010,
+    "races": 107,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2012,
+    "races": 78,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2014,
+    "races": 52,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2016,
+    "races": 63,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2018,
+    "races": 94,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2020,
+    "races": 95,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2022,
+    "races": 85,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2024,
+    "races": 91,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all",
+    "races": 860,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all but first",
+    "races": 825,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   }
+  ],
+  "cycles_improved": 0,
+  "cycles": 11,
+  "pooled_d_log_loss": 0.0,
+  "pooled_d_log_loss_sd_over_cycles": 0.0,
+  "pooled_d_log_loss_80pct_range_over_cycles": [
+   0.0,
+   0.0
+  ],
+  "share_of_redraws_improved": 0.0,
+  "seats": {
+   "pit_spread": [
+    0.3102318181818182,
+    0.3102318181818182
+   ],
+   "rmse": [
+    10.909474972545238,
+    10.909474972545238
+   ]
+  }
+ },
+ "polls_fundamentals_biasadj/senate": {
+  "by_cycle": [
+   {
+    "cycle": 2004,
+    "races": 13,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2006,
+    "races": 14,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2008,
+    "races": 11,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2010,
+    "races": 14,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2012,
+    "races": 15,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2014,
+    "races": 13,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2016,
+    "races": 12,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2018,
+    "races": 18,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2020,
+    "races": 17,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2022,
+    "races": 13,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2024,
+    "races": 14,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all",
+    "races": 154,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all but first",
+    "races": 141,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   }
+  ],
+  "cycles_improved": 0,
+  "cycles": 11,
+  "pooled_d_log_loss": 0.0,
+  "pooled_d_log_loss_sd_over_cycles": 0.0,
+  "pooled_d_log_loss_80pct_range_over_cycles": [
+   0.0,
+   0.0
+  ],
+  "share_of_redraws_improved": 0.0,
+  "seats": {
+   "pit_spread": [
+    0.25428181818181816,
+    0.25428181818181816
+   ],
+   "rmse": [
+    1.9095246015935246,
+    1.9095246015935246
+   ]
+  }
+ },
+ "polls_only/governor": {
+  "by_cycle": [
+   {
+    "cycle": 2004,
+    "races": 7,
+    "d_log_loss": 0.09965892533763376,
+    "d_brier": 0.042999962857142804,
+    "d_margin_rmse": 0.6054162356335713,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2006,
+    "races": 17,
+    "d_log_loss": -0.04274739271501393,
+    "d_brier": -0.011497787058823525,
+    "d_margin_rmse": -4.224964467600733,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2008,
+    "races": 2,
+    "d_log_loss": -0.025344136551809837,
+    "d_brier": -0.008172574999999987,
+    "d_margin_rmse": 0.2290685736256819,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2010,
+    "races": 20,
+    "d_log_loss": -0.007186292248319709,
+    "d_brier": -0.0014950430000000015,
+    "d_margin_rmse": 0.04096309688400357,
+    "d_cover80": -0.04999999999999993
+   },
+   {
+    "cycle": 2012,
+    "races": 6,
+    "d_log_loss": -0.002475815653686708,
+    "d_brier": -0.0001514650000000034,
+    "d_margin_rmse": 0.0017464860098233004,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2014,
+    "races": 17,
+    "d_log_loss": -0.008094151922089954,
+    "d_brier": -0.003509544117647048,
+    "d_margin_rmse": 0.03063511751370207,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2016,
+    "races": 9,
+    "d_log_loss": 0.016060964251642496,
+    "d_brier": 0.00646650444444441,
+    "d_margin_rmse": 0.05300250396562234,
+    "d_cover80": -0.11111111111111105
+   },
+   {
+    "cycle": 2018,
+    "races": 24,
+    "d_log_loss": -0.024226695802169573,
+    "d_brier": -0.008135107083333301,
+    "d_margin_rmse": -0.2069594619940771,
+    "d_cover80": -0.04166666666666663
+   },
+   {
+    "cycle": 2020,
+    "races": 4,
+    "d_log_loss": -0.1765065641081112,
+    "d_brier": -0.063101225,
+    "d_margin_rmse": -11.861911997270383,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2022,
+    "races": 19,
+    "d_log_loss": -0.001017656574312631,
+    "d_brier": 0.00034223157894737455,
+    "d_margin_rmse": 0.5938464373990779,
+    "d_cover80": -0.05263157894736836
+   },
+   {
+    "cycle": 2024,
+    "races": 5,
+    "d_log_loss": -0.09843202184686212,
+    "d_brier": -0.03015777600000001,
+    "d_margin_rmse": 0.6903521808010602,
+    "d_cover80": -0.20000000000000007
+   },
+   {
+    "cycle": "all",
+    "races": 130,
+    "d_log_loss": -0.01561828196173426,
+    "d_brier": -0.004115500769230757,
+    "d_margin_rmse": -1.5474847961971152,
+    "d_cover80": -0.038461538461538436
+   },
+   {
+    "cycle": "all but first",
+    "races": 123,
+    "d_log_loss": -0.022178773434055887,
+    "d_brier": -0.006796868617886198,
+    "d_margin_rmse": -1.6442697536356876,
+    "d_cover80": -0.04065040650406504
+   }
+  ],
+  "cycles_improved": 9,
+  "cycles": 11,
+  "pooled_d_log_loss": -0.015618281961734174,
+  "pooled_d_log_loss_sd_over_cycles": 0.01094637455419249,
+  "pooled_d_log_loss_80pct_range_over_cycles": [
+   -0.02880781240807641,
+   -0.0015700733968506283
+  ],
+  "share_of_redraws_improved": 0.92275,
+  "seats": {
+   "pit_spread": [
+    0.2421227272727273,
+    0.25031363636363635
+   ],
+   "rmse": [
+    1.3744158535207203,
+    1.2295193455722293
+   ]
+  }
+ },
+ "polls_only/house": {
+  "by_cycle": [
+   {
+    "cycle": 2004,
+    "races": 37,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2006,
+    "races": 109,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2008,
+    "races": 77,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2010,
+    "races": 106,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2012,
+    "races": 81,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2014,
+    "races": 50,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2016,
+    "races": 64,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2018,
+    "races": 98,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2020,
+    "races": 98,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2022,
+    "races": 86,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2024,
+    "races": 91,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all",
+    "races": 897,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all but first",
+    "races": 860,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   }
+  ],
+  "cycles_improved": 0,
+  "cycles": 11,
+  "pooled_d_log_loss": 0.0,
+  "pooled_d_log_loss_sd_over_cycles": 0.0,
+  "pooled_d_log_loss_80pct_range_over_cycles": [
+   0.0,
+   0.0
+  ],
+  "share_of_redraws_improved": 0.0,
+  "seats": {
+   "pit_spread": [
+    0.3026681818181818,
+    0.3026681818181818
+   ],
+   "rmse": [
+    11.81272900177254,
+    11.81272900177254
+   ]
+  }
+ },
+ "polls_only/senate": {
+  "by_cycle": [
+   {
+    "cycle": 2004,
+    "races": 12,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2006,
+    "races": 14,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2008,
+    "races": 12,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2010,
+    "races": 14,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2012,
+    "races": 16,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2014,
+    "races": 13,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2016,
+    "races": 12,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2018,
+    "races": 19,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2020,
+    "races": 17,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2022,
+    "races": 13,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": 2024,
+    "races": 14,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all",
+    "races": 156,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   },
+   {
+    "cycle": "all but first",
+    "races": 144,
+    "d_log_loss": 0.0,
+    "d_brier": 0.0,
+    "d_margin_rmse": 0.0,
+    "d_cover80": 0.0
+   }
+  ],
+  "cycles_improved": 0,
+  "cycles": 11,
+  "pooled_d_log_loss": 0.0,
+  "pooled_d_log_loss_sd_over_cycles": 0.0,
+  "pooled_d_log_loss_80pct_range_over_cycles": [
+   0.0,
+   0.0
+  ],
+  "share_of_redraws_improved": 0.0,
+  "seats": {
+   "pit_spread": [
+    0.26929772727272727,
+    0.26929772727272727
+   ],
+   "rmse": [
+    1.9080221410355325,
+    1.9080221410355325
+   ]
+  }
+ }
+}

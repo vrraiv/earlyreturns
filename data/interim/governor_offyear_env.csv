@@ -1,0 +1,15 @@
+year,election_day,term_year,president,generic_ballot,generic_ballot_source,approval,approval_source,last_house_vote,last_house_year,estimator_m0,estimator_m1,estimator_fit_through
+1999,1999-11-02,3,D,3.43,FiveThirtyEight average,59.444,Gallup (APP sheet),-1.149,1998,3.641,-6.754,1998
+2001,2001-11-06,1,R,4.25,FiveThirtyEight average,70.091,Gallup (APP sheet),-0.528,2000,-6.222,3.726,2000
+2003,2003-11-04,3,R,-0.63,FiveThirtyEight average,55.778,Gallup (APP sheet),-5.042,2002,-8.212,1.235,2002
+2005,2005-11-08,1,R,11.06,FiveThirtyEight average,43.462,Gallup (APP sheet),-2.703,2004,-3.454,5.488,2004
+2007,2007-11-06,3,R,12.42,FiveThirtyEight average,33.167,Gallup (APP sheet),8.282,2006,7.763,16.872,2006
+2009,2009-11-03,1,D,4.42,FiveThirtyEight average,53.333,Gallup (APP sheet),11.018,2008,12.317,3.246,2008
+2011,2011-11-08,3,D,3.24,FiveThirtyEight average,41.267,Gallup (APP sheet),-7.039,2010,-5.489,-14.826,2010
+2013,2013-11-05,1,D,8.12,FiveThirtyEight average,44.533,Gallup (APP sheet),1.14,2012,2.112,-7.465,2012
+2015,2015-11-03,3,D,-0.52,FiveThirtyEight average,46.067,Gallup (APP sheet),-5.895,2014,-3.214,-12.622,2014
+2017,2017-11-07,1,R,7.22,"FiveThirtyEight polls, plain average",36.8,Gallup (APP sheet),-1.046,2016,-0.548,8.913,2016
+2019,2019-11-05,3,R,5.89,"FiveThirtyEight polls, plain average",40.714,Gallup (APP sheet),8.758,2018,6.539,16.054,2018
+2021,2021-11-02,1,D,-0.74,"FiveThirtyEight polls, plain average",46.0,Gallup (538 archive),3.179,2020,4.191,-5.403,2020
+2023,2023-11-07,3,D,-0.12,"FiveThirtyEight polls, plain average",40.0,Gallup (538 archive),-2.775,2022,-1.65,-11.032,2022
+2025,2025-11-04,1,R,2.86,"VoteHub polls, plain average",42.261,VoteHub mean of 197 polls + Gallup house effect -1.2,-2.68,2024,-3.103,6.278,2022

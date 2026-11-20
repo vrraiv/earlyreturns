@@ -1,0 +1,1236 @@
+{
+ "note": "odd-year governor races, prior only, every fit on earlier years (governor_inputs.py)",
+ "burn_in_even_cycles": 3,
+ "summary": [
+  {
+   "environment": "last House vote",
+   "races": 31,
+   "mean": -1.3222118181577909,
+   "rmse": 18.717999092192414,
+   "mae": 14.773977102187256
+  },
+  {
+   "environment": "generic ballot of the day",
+   "races": 31,
+   "mean": -4.472541980511654,
+   "rmse": 18.567536233566795,
+   "mae": 13.863076072004704
+  },
+  {
+   "environment": "estimator, midterm-like",
+   "races": 31,
+   "mean": -0.970656673776134,
+   "rmse": 18.270093514232748,
+   "mae": 13.534044701551517
+  },
+  {
+   "environment": "estimator, by term year",
+   "races": 31,
+   "mean": -2.17611587161312,
+   "rmse": 17.71322310906957,
+   "mae": 13.062085705805785
+  }
+ ],
+ "by_term_year": [
+  {
+   "term_year": 3,
+   "environment": "last House vote",
+   "races": 19,
+   "mean": -1.3528035090618367,
+   "rmse": 20.299250188954492
+  },
+  {
+   "term_year": 3,
+   "environment": "generic ballot of the day",
+   "races": 19,
+   "mean": -4.706351184016737,
+   "rmse": 21.373413835740386
+  },
+  {
+   "term_year": 3,
+   "environment": "estimator, midterm-like",
+   "races": 19,
+   "mean": -0.7046195195737266,
+   "rmse": 21.435800341425477
+  },
+  {
+   "term_year": 3,
+   "environment": "estimator, by term year",
+   "races": 19,
+   "mean": -2.8299626956541535,
+   "rmse": 20.960676212977134
+  },
+  {
+   "term_year": 1,
+   "environment": "last House vote",
+   "races": 12,
+   "mean": -1.2737749742263855,
+   "rmse": 15.895850045512887
+  },
+  {
+   "term_year": 1,
+   "environment": "generic ballot of the day",
+   "races": 12,
+   "mean": -4.102344074961938,
+   "rmse": 12.93484278491862
+  },
+  {
+   "term_year": 1,
+   "environment": "estimator, midterm-like",
+   "races": 12,
+   "mean": -1.3918821679299456,
+   "rmse": 11.609294546150721
+  },
+  {
+   "term_year": 1,
+   "environment": "estimator, by term year",
+   "races": 12,
+   "mean": -1.1408584002148179,
+   "rmse": 10.719365114369408
+  }
+ ],
+ "m_by_year": [
+  {
+   "year": 2003,
+   "m_term_year": 1.5441103665665896,
+   "earlier_races": 2
+  },
+  {
+   "year": 2005,
+   "m_term_year": 2.442769305169118,
+   "earlier_races": 2
+  },
+  {
+   "year": 2007,
+   "m_term_year": 0.44010333223015435,
+   "earlier_races": 5
+  },
+  {
+   "year": 2009,
+   "m_term_year": 1.7270705483499509,
+   "earlier_races": 4
+  },
+  {
+   "year": 2011,
+   "m_term_year": 0.03023929941575101,
+   "earlier_races": 8
+  },
+  {
+   "year": 2013,
+   "m_term_year": 2.390582552652821,
+   "earlier_races": 6
+  },
+  {
+   "year": 2015,
+   "m_term_year": 0.3115522508431687,
+   "earlier_races": 12
+  },
+  {
+   "year": 2017,
+   "m_term_year": 1.9346823806379314,
+   "earlier_races": 8
+  },
+  {
+   "year": 2019,
+   "m_term_year": 0.1391390568420177,
+   "earlier_races": 15
+  },
+  {
+   "year": 2021,
+   "m_term_year": 2.200658504443494,
+   "earlier_races": 10
+  },
+  {
+   "year": 2023,
+   "m_term_year": 0.2356868487808304,
+   "earlier_races": 18
+  },
+  {
+   "year": 2025,
+   "m_term_year": 2.092957249329661,
+   "earlier_races": 12
+  }
+ ],
+ "environments": [
+  {
+   "year": 1999,
+   "election_day": "1999-11-02",
+   "term_year": 3,
+   "president": "D",
+   "generic_ballot": 3.43,
+   "generic_ballot_source": "FiveThirtyEight average",
+   "approval": 59.44444444444444,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": -1.1494252873563235,
+   "last_house_year": 1998,
+   "estimator_m0": 3.640800605149719,
+   "estimator_m1": -6.7538745228701735,
+   "estimator_fit_through": 1998
+  },
+  {
+   "year": 2001,
+   "election_day": "2001-11-06",
+   "term_year": 1,
+   "president": "R",
+   "generic_ballot": 4.25,
+   "generic_ballot_source": "FiveThirtyEight average",
+   "approval": 70.0909090909091,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": -0.5279831045406547,
+   "last_house_year": 2000,
+   "estimator_m0": -6.222300640985408,
+   "estimator_m1": 3.7261861621571715,
+   "estimator_fit_through": 2000
+  },
+  {
+   "year": 2003,
+   "election_day": "2003-11-04",
+   "term_year": 3,
+   "president": "R",
+   "generic_ballot": -0.63,
+   "generic_ballot_source": "FiveThirtyEight average",
+   "approval": 55.77777777777778,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": -5.042016806722686,
+   "last_house_year": 2002,
+   "estimator_m0": -8.212012182479402,
+   "estimator_m1": 1.2352117004085095,
+   "estimator_fit_through": 2002
+  },
+  {
+   "year": 2005,
+   "election_day": "2005-11-08",
+   "term_year": 1,
+   "president": "R",
+   "generic_ballot": 11.06,
+   "generic_ballot_source": "FiveThirtyEight average",
+   "approval": 43.46153846153846,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": -2.7027027027027044,
+   "last_house_year": 2004,
+   "estimator_m0": -3.453635559556681,
+   "estimator_m1": 5.488105771586035,
+   "estimator_fit_through": 2004
+  },
+  {
+   "year": 2007,
+   "election_day": "2007-11-06",
+   "term_year": 3,
+   "president": "R",
+   "generic_ballot": 12.42,
+   "generic_ballot_source": "FiveThirtyEight average",
+   "approval": 33.166666666666664,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": 8.281573498964804,
+   "last_house_year": 2006,
+   "estimator_m0": 7.763254341712714,
+   "estimator_m1": 16.871857628086428,
+   "estimator_fit_through": 2006
+  },
+  {
+   "year": 2009,
+   "election_day": "2009-11-03",
+   "term_year": 1,
+   "president": "D",
+   "generic_ballot": 4.42,
+   "generic_ballot_source": "FiveThirtyEight average",
+   "approval": 53.333333333333336,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": 11.017838405036729,
+   "last_house_year": 2008,
+   "estimator_m0": 12.317003241964073,
+   "estimator_m1": 3.245938699804686,
+   "estimator_fit_through": 2008
+  },
+  {
+   "year": 2011,
+   "election_day": "2011-11-08",
+   "term_year": 3,
+   "president": "D",
+   "generic_ballot": 3.24,
+   "generic_ballot_source": "FiveThirtyEight average",
+   "approval": 41.266666666666666,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": -7.039337474120088,
+   "last_house_year": 2010,
+   "estimator_m0": -5.489025017678333,
+   "estimator_m1": -14.826174798628868,
+   "estimator_fit_through": 2010
+  },
+  {
+   "year": 2013,
+   "election_day": "2013-11-05",
+   "term_year": 1,
+   "president": "D",
+   "generic_ballot": 8.12,
+   "generic_ballot_source": "FiveThirtyEight average",
+   "approval": 44.53333333333333,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": 1.1398963730569889,
+   "last_house_year": 2012,
+   "estimator_m0": 2.112339071299197,
+   "estimator_m1": -7.465291448263042,
+   "estimator_fit_through": 2012
+  },
+  {
+   "year": 2015,
+   "election_day": "2015-11-03",
+   "term_year": 3,
+   "president": "D",
+   "generic_ballot": -0.52,
+   "generic_ballot_source": "FiveThirtyEight average",
+   "approval": 46.06666666666667,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": -5.894519131334025,
+   "last_house_year": 2014,
+   "estimator_m0": -3.2137198806884806,
+   "estimator_m1": -12.621844885789788,
+   "estimator_fit_through": 2014
+  },
+  {
+   "year": 2017,
+   "election_day": "2017-11-07",
+   "term_year": 1,
+   "president": "R",
+   "generic_ballot": 7.22,
+   "generic_ballot_source": "FiveThirtyEight polls, plain average",
+   "approval": 36.8,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": -1.0460251046025104,
+   "last_house_year": 2016,
+   "estimator_m0": -0.5482041776474473,
+   "estimator_m1": 8.912886774842171,
+   "estimator_fit_through": 2016
+  },
+  {
+   "year": 2019,
+   "election_day": "2019-11-05",
+   "term_year": 3,
+   "president": "R",
+   "generic_ballot": 5.89,
+   "generic_ballot_source": "FiveThirtyEight polls, plain average",
+   "approval": 40.714285714285715,
+   "approval_source": "Gallup (APP sheet)",
+   "last_house_vote": 8.757637474541754,
+   "last_house_year": 2018,
+   "estimator_m0": 6.539324603357387,
+   "estimator_m1": 16.054048037712793,
+   "estimator_fit_through": 2018
+  },
+  {
+   "year": 2021,
+   "election_day": "2021-11-02",
+   "term_year": 1,
+   "president": "D",
+   "generic_ballot": -0.74,
+   "generic_ballot_source": "FiveThirtyEight polls, plain average",
+   "approval": 46.0,
+   "approval_source": "Gallup (538 archive)",
+   "last_house_vote": 3.179487179487173,
+   "last_house_year": 2020,
+   "estimator_m0": 4.190715443366825,
+   "estimator_m1": -5.403376386152145,
+   "estimator_fit_through": 2020
+  },
+  {
+   "year": 2023,
+   "election_day": "2023-11-07",
+   "term_year": 3,
+   "president": "D",
+   "generic_ballot": -0.12,
+   "generic_ballot_source": "FiveThirtyEight polls, plain average",
+   "approval": 40.0,
+   "approval_source": "Gallup (538 archive)",
+   "last_house_vote": -2.774922918807814,
+   "last_house_year": 2022,
+   "estimator_m0": -1.6504076380671622,
+   "estimator_m1": -11.032157132994172,
+   "estimator_fit_through": 2022
+  },
+  {
+   "year": 2025,
+   "election_day": "2025-11-04",
+   "term_year": 1,
+   "president": "R",
+   "generic_ballot": 2.86,
+   "generic_ballot_source": "VoteHub polls, plain average",
+   "approval": 42.2605148844784,
+   "approval_source": "VoteHub mean of 197 polls + Gallup house effect -1.2",
+   "last_house_vote": -2.680412371134014,
+   "last_house_year": 2024,
+   "estimator_m0": -3.1033246520414295,
+   "estimator_m1": 6.278424842885579,
+   "estimator_fit_through": 2022
+  }
+ ],
+ "races": [
+  {
+   "year": 2003,
+   "state": "KY",
+   "environment": "last House vote",
+   "env": -5.042,
+   "error": -3.822
+  },
+  {
+   "year": 2003,
+   "state": "LA",
+   "environment": "last House vote",
+   "env": -5.042,
+   "error": 8.147
+  },
+  {
+   "year": 2003,
+   "state": "MS",
+   "environment": "last House vote",
+   "env": -5.042,
+   "error": -15.254
+  },
+  {
+   "year": 2003,
+   "state": "KY",
+   "environment": "generic ballot of the day",
+   "env": -0.63,
+   "error": -6.452
+  },
+  {
+   "year": 2003,
+   "state": "LA",
+   "environment": "generic ballot of the day",
+   "env": -0.63,
+   "error": 5.518
+  },
+  {
+   "year": 2003,
+   "state": "MS",
+   "environment": "generic ballot of the day",
+   "env": -0.63,
+   "error": -17.884
+  },
+  {
+   "year": 2003,
+   "state": "KY",
+   "environment": "estimator, midterm-like",
+   "env": 1.235,
+   "error": -7.563
+  },
+  {
+   "year": 2003,
+   "state": "LA",
+   "environment": "estimator, midterm-like",
+   "env": 1.235,
+   "error": 4.406
+  },
+  {
+   "year": 2003,
+   "state": "MS",
+   "environment": "estimator, midterm-like",
+   "env": 1.235,
+   "error": -18.995
+  },
+  {
+   "year": 2003,
+   "state": "KY",
+   "environment": "estimator, by term year",
+   "env": 6.376,
+   "error": -10.626
+  },
+  {
+   "year": 2003,
+   "state": "LA",
+   "environment": "estimator, by term year",
+   "env": 6.376,
+   "error": 1.343
+  },
+  {
+   "year": 2003,
+   "state": "MS",
+   "environment": "estimator, by term year",
+   "env": 6.376,
+   "error": -22.059
+  },
+  {
+   "year": 2005,
+   "state": "NJ",
+   "environment": "last House vote",
+   "env": -2.703,
+   "error": 10.294
+  },
+  {
+   "year": 2005,
+   "state": "VA",
+   "environment": "last House vote",
+   "env": -2.703,
+   "error": 9.969
+  },
+  {
+   "year": 2005,
+   "state": "NJ",
+   "environment": "generic ballot of the day",
+   "env": 11.06,
+   "error": 2.241
+  },
+  {
+   "year": 2005,
+   "state": "VA",
+   "environment": "generic ballot of the day",
+   "env": 11.06,
+   "error": 1.916
+  },
+  {
+   "year": 2005,
+   "state": "NJ",
+   "environment": "estimator, midterm-like",
+   "env": 5.488,
+   "error": 5.501
+  },
+  {
+   "year": 2005,
+   "state": "VA",
+   "environment": "estimator, midterm-like",
+   "env": 5.488,
+   "error": 5.176
+  },
+  {
+   "year": 2005,
+   "state": "NJ",
+   "environment": "estimator, by term year",
+   "env": 18.389,
+   "error": -2.047
+  },
+  {
+   "year": 2005,
+   "state": "VA",
+   "environment": "estimator, by term year",
+   "env": 18.389,
+   "error": -2.372
+  },
+  {
+   "year": 2007,
+   "state": "KY",
+   "environment": "last House vote",
+   "env": 8.282,
+   "error": 32.003
+  },
+  {
+   "year": 2007,
+   "state": "LA",
+   "environment": "last House vote",
+   "env": 8.282,
+   "error": -55.276
+  },
+  {
+   "year": 2007,
+   "state": "MS",
+   "environment": "last House vote",
+   "env": 8.282,
+   "error": -1.012
+  },
+  {
+   "year": 2007,
+   "state": "KY",
+   "environment": "generic ballot of the day",
+   "env": 12.42,
+   "error": 28.844
+  },
+  {
+   "year": 2007,
+   "state": "LA",
+   "environment": "generic ballot of the day",
+   "env": 12.42,
+   "error": -58.436
+  },
+  {
+   "year": 2007,
+   "state": "MS",
+   "environment": "generic ballot of the day",
+   "env": 12.42,
+   "error": -4.171
+  },
+  {
+   "year": 2007,
+   "state": "KY",
+   "environment": "estimator, midterm-like",
+   "env": 16.872,
+   "error": 25.445
+  },
+  {
+   "year": 2007,
+   "state": "LA",
+   "environment": "estimator, midterm-like",
+   "env": 16.872,
+   "error": -61.834
+  },
+  {
+   "year": 2007,
+   "state": "MS",
+   "environment": "estimator, midterm-like",
+   "env": 16.872,
+   "error": -7.57
+  },
+  {
+   "year": 2007,
+   "state": "KY",
+   "environment": "estimator, by term year",
+   "env": 11.772,
+   "error": 29.338
+  },
+  {
+   "year": 2007,
+   "state": "LA",
+   "environment": "estimator, by term year",
+   "env": 11.772,
+   "error": -57.941
+  },
+  {
+   "year": 2007,
+   "state": "MS",
+   "environment": "estimator, by term year",
+   "env": 11.772,
+   "error": -3.677
+  },
+  {
+   "year": 2009,
+   "state": "NJ",
+   "environment": "last House vote",
+   "env": 11.018,
+   "error": -33.429
+  },
+  {
+   "year": 2009,
+   "state": "VA",
+   "environment": "last House vote",
+   "env": 11.018,
+   "error": -24.673
+  },
+  {
+   "year": 2009,
+   "state": "NJ",
+   "environment": "generic ballot of the day",
+   "env": 4.42,
+   "error": -28.724
+  },
+  {
+   "year": 2009,
+   "state": "VA",
+   "environment": "generic ballot of the day",
+   "env": 4.42,
+   "error": -19.968
+  },
+  {
+   "year": 2009,
+   "state": "NJ",
+   "environment": "estimator, midterm-like",
+   "env": 3.246,
+   "error": -27.887
+  },
+  {
+   "year": 2009,
+   "state": "VA",
+   "environment": "estimator, midterm-like",
+   "env": 3.246,
+   "error": -19.131
+  },
+  {
+   "year": 2009,
+   "state": "NJ",
+   "environment": "estimator, by term year",
+   "env": -3.349,
+   "error": -23.184
+  },
+  {
+   "year": 2009,
+   "state": "VA",
+   "environment": "estimator, by term year",
+   "env": -3.349,
+   "error": -14.428
+  },
+  {
+   "year": 2011,
+   "state": "KY",
+   "environment": "last House vote",
+   "env": -7.039,
+   "error": 17.768
+  },
+  {
+   "year": 2011,
+   "state": "LA",
+   "environment": "last House vote",
+   "env": -7.039,
+   "error": -27.599
+  },
+  {
+   "year": 2011,
+   "state": "MS",
+   "environment": "last House vote",
+   "env": -7.039,
+   "error": -9.83
+  },
+  {
+   "year": 2011,
+   "state": "WV",
+   "environment": "last House vote",
+   "env": -7.039,
+   "error": -3.676
+  },
+  {
+   "year": 2011,
+   "state": "KY",
+   "environment": "generic ballot of the day",
+   "env": 3.24,
+   "error": 9.282
+  },
+  {
+   "year": 2011,
+   "state": "LA",
+   "environment": "generic ballot of the day",
+   "env": 3.24,
+   "error": -36.085
+  },
+  {
+   "year": 2011,
+   "state": "MS",
+   "environment": "generic ballot of the day",
+   "env": 3.24,
+   "error": -18.316
+  },
+  {
+   "year": 2011,
+   "state": "WV",
+   "environment": "generic ballot of the day",
+   "env": 3.24,
+   "error": -12.162
+  },
+  {
+   "year": 2011,
+   "state": "KY",
+   "environment": "estimator, midterm-like",
+   "env": -14.826,
+   "error": 24.196
+  },
+  {
+   "year": 2011,
+   "state": "LA",
+   "environment": "estimator, midterm-like",
+   "env": -14.826,
+   "error": -21.17
+  },
+  {
+   "year": 2011,
+   "state": "MS",
+   "environment": "estimator, midterm-like",
+   "env": -14.826,
+   "error": -3.402
+  },
+  {
+   "year": 2011,
+   "state": "WV",
+   "environment": "estimator, midterm-like",
+   "env": -14.826,
+   "error": 2.752
+  },
+  {
+   "year": 2011,
+   "state": "KY",
+   "environment": "estimator, by term year",
+   "env": -5.771,
+   "error": 16.721
+  },
+  {
+   "year": 2011,
+   "state": "LA",
+   "environment": "estimator, by term year",
+   "env": -5.771,
+   "error": -28.645
+  },
+  {
+   "year": 2011,
+   "state": "MS",
+   "environment": "estimator, by term year",
+   "env": -5.771,
+   "error": -10.877
+  },
+  {
+   "year": 2011,
+   "state": "WV",
+   "environment": "estimator, by term year",
+   "env": -5.771,
+   "error": -4.723
+  },
+  {
+   "year": 2013,
+   "state": "NJ",
+   "environment": "last House vote",
+   "env": 1.14,
+   "error": -9.876
+  },
+  {
+   "year": 2013,
+   "state": "VA",
+   "environment": "last House vote",
+   "env": 1.14,
+   "error": 1.974
+  },
+  {
+   "year": 2013,
+   "state": "NJ",
+   "environment": "generic ballot of the day",
+   "env": 8.12,
+   "error": -15.617
+  },
+  {
+   "year": 2013,
+   "state": "VA",
+   "environment": "generic ballot of the day",
+   "env": 8.12,
+   "error": -3.766
+  },
+  {
+   "year": 2013,
+   "state": "NJ",
+   "environment": "estimator, midterm-like",
+   "env": -7.465,
+   "error": -2.8
+  },
+  {
+   "year": 2013,
+   "state": "VA",
+   "environment": "estimator, midterm-like",
+   "env": -7.465,
+   "error": 9.051
+  },
+  {
+   "year": 2013,
+   "state": "NJ",
+   "environment": "estimator, by term year",
+   "env": -20.784,
+   "error": 8.153
+  },
+  {
+   "year": 2013,
+   "state": "VA",
+   "environment": "estimator, by term year",
+   "env": -20.784,
+   "error": 20.003
+  },
+  {
+   "year": 2015,
+   "state": "KY",
+   "environment": "last House vote",
+   "env": -5.895,
+   "error": 3.985
+  },
+  {
+   "year": 2015,
+   "state": "LA",
+   "environment": "last House vote",
+   "env": -5.895,
+   "error": 24.717
+  },
+  {
+   "year": 2015,
+   "state": "MS",
+   "environment": "last House vote",
+   "env": -5.895,
+   "error": -8.073
+  },
+  {
+   "year": 2015,
+   "state": "KY",
+   "environment": "generic ballot of the day",
+   "env": -0.52,
+   "error": -0.391
+  },
+  {
+   "year": 2015,
+   "state": "LA",
+   "environment": "generic ballot of the day",
+   "env": -0.52,
+   "error": 20.341
+  },
+  {
+   "year": 2015,
+   "state": "MS",
+   "environment": "generic ballot of the day",
+   "env": -0.52,
+   "error": -12.449
+  },
+  {
+   "year": 2015,
+   "state": "KY",
+   "environment": "estimator, midterm-like",
+   "env": -12.622,
+   "error": 9.462
+  },
+  {
+   "year": 2015,
+   "state": "LA",
+   "environment": "estimator, midterm-like",
+   "env": -12.622,
+   "error": 30.195
+  },
+  {
+   "year": 2015,
+   "state": "MS",
+   "environment": "estimator, midterm-like",
+   "env": -12.622,
+   "error": -2.595
+  },
+  {
+   "year": 2015,
+   "state": "KY",
+   "environment": "estimator, by term year",
+   "env": -6.145,
+   "error": 4.189
+  },
+  {
+   "year": 2015,
+   "state": "LA",
+   "environment": "estimator, by term year",
+   "env": -6.145,
+   "error": 24.921
+  },
+  {
+   "year": 2015,
+   "state": "MS",
+   "environment": "estimator, by term year",
+   "env": -6.145,
+   "error": -7.869
+  },
+  {
+   "year": 2017,
+   "state": "NJ",
+   "environment": "last House vote",
+   "env": -1.046,
+   "error": 11.31
+  },
+  {
+   "year": 2017,
+   "state": "VA",
+   "environment": "last House vote",
+   "env": -1.046,
+   "error": 9.653
+  },
+  {
+   "year": 2017,
+   "state": "NJ",
+   "environment": "generic ballot of the day",
+   "env": 7.22,
+   "error": 4.564
+  },
+  {
+   "year": 2017,
+   "state": "VA",
+   "environment": "generic ballot of the day",
+   "env": 7.22,
+   "error": 2.907
+  },
+  {
+   "year": 2017,
+   "state": "NJ",
+   "environment": "estimator, midterm-like",
+   "env": 8.913,
+   "error": 3.183
+  },
+  {
+   "year": 2017,
+   "state": "VA",
+   "environment": "estimator, midterm-like",
+   "env": 8.913,
+   "error": 1.526
+  },
+  {
+   "year": 2017,
+   "state": "NJ",
+   "environment": "estimator, by term year",
+   "env": 17.756,
+   "error": -4.035
+  },
+  {
+   "year": 2017,
+   "state": "VA",
+   "environment": "estimator, by term year",
+   "env": 17.756,
+   "error": -5.692
+  },
+  {
+   "year": 2019,
+   "state": "KY",
+   "environment": "last House vote",
+   "env": 8.758,
+   "error": 20.839
+  },
+  {
+   "year": 2019,
+   "state": "LA",
+   "environment": "last House vote",
+   "env": 8.758,
+   "error": -10.018
+  },
+  {
+   "year": 2019,
+   "state": "MS",
+   "environment": "last House vote",
+   "env": 8.758,
+   "error": -4.046
+  },
+  {
+   "year": 2019,
+   "state": "KY",
+   "environment": "generic ballot of the day",
+   "env": 5.89,
+   "error": 22.785
+  },
+  {
+   "year": 2019,
+   "state": "LA",
+   "environment": "generic ballot of the day",
+   "env": 5.89,
+   "error": -8.072
+  },
+  {
+   "year": 2019,
+   "state": "MS",
+   "environment": "generic ballot of the day",
+   "env": 5.89,
+   "error": -2.1
+  },
+  {
+   "year": 2019,
+   "state": "KY",
+   "environment": "estimator, midterm-like",
+   "env": 16.054,
+   "error": 15.887
+  },
+  {
+   "year": 2019,
+   "state": "LA",
+   "environment": "estimator, midterm-like",
+   "env": 16.054,
+   "error": -14.969
+  },
+  {
+   "year": 2019,
+   "state": "MS",
+   "environment": "estimator, midterm-like",
+   "env": 16.054,
+   "error": -8.998
+  },
+  {
+   "year": 2019,
+   "state": "KY",
+   "environment": "estimator, by term year",
+   "env": 7.863,
+   "error": 21.446
+  },
+  {
+   "year": 2019,
+   "state": "LA",
+   "environment": "estimator, by term year",
+   "env": 7.863,
+   "error": -9.411
+  },
+  {
+   "year": 2019,
+   "state": "MS",
+   "environment": "estimator, by term year",
+   "env": 7.863,
+   "error": -3.439
+  },
+  {
+   "year": 2021,
+   "state": "NJ",
+   "environment": "last House vote",
+   "env": 3.179,
+   "error": -16.964
+  },
+  {
+   "year": 2021,
+   "state": "VA",
+   "environment": "last House vote",
+   "env": 3.179,
+   "error": -4.214
+  },
+  {
+   "year": 2021,
+   "state": "NJ",
+   "environment": "generic ballot of the day",
+   "env": -0.74,
+   "error": -14.464
+  },
+  {
+   "year": 2021,
+   "state": "VA",
+   "environment": "generic ballot of the day",
+   "env": -0.74,
+   "error": -1.714
+  },
+  {
+   "year": 2021,
+   "state": "NJ",
+   "environment": "estimator, midterm-like",
+   "env": -5.403,
+   "error": -11.489
+  },
+  {
+   "year": 2021,
+   "state": "VA",
+   "environment": "estimator, midterm-like",
+   "env": -5.403,
+   "error": 1.261
+  },
+  {
+   "year": 2021,
+   "state": "NJ",
+   "environment": "estimator, by term year",
+   "env": -16.923,
+   "error": -4.141
+  },
+  {
+   "year": 2021,
+   "state": "VA",
+   "environment": "estimator, by term year",
+   "env": -16.923,
+   "error": 8.61
+  },
+  {
+   "year": 2023,
+   "state": "KY",
+   "environment": "last House vote",
+   "env": -2.775,
+   "error": 4.555
+  },
+  {
+   "year": 2023,
+   "state": "LA",
+   "environment": "last House vote",
+   "env": -2.775,
+   "error": -21.726
+  },
+  {
+   "year": 2023,
+   "state": "MS",
+   "environment": "last House vote",
+   "env": -2.775,
+   "error": 22.616
+  },
+  {
+   "year": 2023,
+   "state": "KY",
+   "environment": "generic ballot of the day",
+   "env": -0.12,
+   "error": 2.849
+  },
+  {
+   "year": 2023,
+   "state": "LA",
+   "environment": "generic ballot of the day",
+   "env": -0.12,
+   "error": -23.432
+  },
+  {
+   "year": 2023,
+   "state": "MS",
+   "environment": "generic ballot of the day",
+   "env": -0.12,
+   "error": 20.91
+  },
+  {
+   "year": 2023,
+   "state": "KY",
+   "environment": "estimator, midterm-like",
+   "env": -11.032,
+   "error": 9.862
+  },
+  {
+   "year": 2023,
+   "state": "LA",
+   "environment": "estimator, midterm-like",
+   "env": -11.032,
+   "error": -16.419
+  },
+  {
+   "year": 2023,
+   "state": "MS",
+   "environment": "estimator, midterm-like",
+   "env": -11.032,
+   "error": 27.923
+  },
+  {
+   "year": 2023,
+   "state": "KY",
+   "environment": "estimator, by term year",
+   "env": -3.862,
+   "error": 5.253
+  },
+  {
+   "year": 2023,
+   "state": "LA",
+   "environment": "estimator, by term year",
+   "env": -3.862,
+   "error": -21.028
+  },
+  {
+   "year": 2023,
+   "state": "MS",
+   "environment": "estimator, by term year",
+   "env": -3.862,
+   "error": 23.315
+  },
+  {
+   "year": 2025,
+   "state": "NJ",
+   "environment": "last House vote",
+   "env": -2.68,
+   "error": 14.326
+  },
+  {
+   "year": 2025,
+   "state": "VA",
+   "environment": "last House vote",
+   "env": -2.68,
+   "error": 16.346
+  },
+  {
+   "year": 2025,
+   "state": "NJ",
+   "environment": "generic ballot of the day",
+   "env": 2.86,
+   "error": 10.688
+  },
+  {
+   "year": 2025,
+   "state": "VA",
+   "environment": "generic ballot of the day",
+   "env": 2.86,
+   "error": 12.708
+  },
+  {
+   "year": 2025,
+   "state": "NJ",
+   "environment": "estimator, midterm-like",
+   "env": 6.278,
+   "error": 8.443
+  },
+  {
+   "year": 2025,
+   "state": "VA",
+   "environment": "estimator, midterm-like",
+   "env": 6.278,
+   "error": 10.463
+  },
+  {
+   "year": 2025,
+   "state": "NJ",
+   "environment": "estimator, by term year",
+   "env": 16.532,
+   "error": 1.71
+  },
+  {
+   "year": 2025,
+   "state": "VA",
+   "environment": "estimator, by term year",
+   "env": 16.532,
+   "error": 3.73
+  }
+ ]
+}

@@ -1,0 +1,384 @@
+state,pollster,start_date,end_date,days_out,population,sample_size,sponsor_party,sponsor_listed,dem,rep,dem_pct,rep_pct,poll2,candidates_named,third_pct,window
+AL,Cygnal,2025-11-12,2025-11-13,355,lv,605.0,REP,False,jones,tuberville,34.0,53.0,-21.839,2,0.0,older
+AL,yes. every kid.,2026-07-08,2026-07-11,115,lv,601.0,,False,jones,tuberville,41.0,49.0,-8.889,2,0.0,older
+AL,RMG Research,2026-09-21,2026-09-25,39,rv,800.0,REP,True,jones,tuberville,37.0,50.0,-14.943,2,0.0,earlier
+AL,The Alabama Poll,2026-10-15,2026-10-16,18,lv,600.0,,False,jones,tuberville,39.0,51.0,-13.333,2,0.0,late
+AL,Blueprint Polling,2026-10-22,2026-10-24,10,lv,695.0,,False,jones,tuberville,45.0,48.0,-3.226,2,0.0,late
+AK,"Fabrizio, Lee & Associates/Impact Research",2026-09-08,2026-09-11,53,lv,800.0,,True,kreiss-tomkins,wilson,55.0,45.0,10.0,2,0.0,earlier
+AK,Cygnal,2026-09-24,2026-09-27,37,lv,502.0,REP,False,kreiss-tomkins,wilson,44.0,24.0,29.412,4,9.0,earlier
+AK,The New York Times/Siena University,2026-09-24,2026-10-01,33,lv,431.0,,False,kreiss-tomkins,wilson,52.0,48.0,4.0,2,0.0,earlier
+AK,Data for Progress,2026-10-08,2026-10-16,18,lv,629.0,,False,kreiss-tomkins,wilson,53.0,47.0,6.0,2,0.0,late
+AK,Alaska Survey Research,2026-10-15,2026-10-18,16,lv,1568.0,,False,kreiss-tomkins,wilson,55.0,45.0,10.0,2,0.0,late
+AK,Alaska Survey Research,2026-10-23,2026-10-25,9,lv,1068.0,,False,kreiss-tomkins,wilson,53.4,46.6,6.8,2,0.0,late
+AK,The New York Times/Siena University,2026-10-23,2026-10-30,4,lv,610.0,,False,kreiss-tomkins,wilson,54.0,46.0,8.0,2,0.0,late
+AZ,Kreate Strategies,2025-02-05,2025-02-07,634,lv,924.0,REP,True,hobbs,biggs,43.0,44.0,-1.149,2,0.0,older
+AZ,Noble Predictive Insights,2025-02-11,2025-02-13,628,rv,1006.0,,False,hobbs,biggs,40.0,38.0,2.564,2,0.0,older
+AZ,Pulse Decision Science,2025-04-06,2025-04-09,573,lv,501.0,REP,True,hobbs,biggs,46.0,42.0,4.545,2,0.0,older
+AZ,Noble Predictive Insights,2025-05-12,2025-05-16,536,rv,1026.0,,False,hobbs,biggs,40.0,38.0,2.564,2,0.0,older
+AZ,Noble Predictive Insights,2025-08-11,2025-08-18,442,rv,948.0,,False,hobbs,biggs,39.0,37.0,2.632,2,0.0,older
+AZ,Emerson College,2025-11-08,2025-11-10,358,rv,850.0,,False,hobbs,biggs,44.1,43.4,0.8,2,0.0,older
+AZ,NextGen P,2025-12-15,2025-12-17,321,lv,2725.0,,False,hobbs,biggs,51.0,32.0,22.892,2,0.0,older
+AZ,Center for Excellence in Polling,2026-01-22,2026-01-24,283,lv,519.0,,False,hobbs,biggs,50.0,41.0,9.89,2,0.0,older
+AZ,Noble Predictive Insights,2026-02-23,2026-02-26,250,rv,1023.0,,False,hobbs,biggs,42.0,37.0,6.329,2,0.0,older
+AZ,Noble Predictive Insights,2026-05-05,2026-05-07,180,rv,996.0,,False,hobbs,biggs,41.0,37.0,5.128,2,0.0,older
+AZ,"Fabrizio, Lee & Associates/Impact Research",2026-07-26,2026-07-28,98,lv,913.0,,True,hobbs,biggs,52.0,44.0,8.333,2,0.0,older
+AZ,The Tarrance Group,2026-07-27,2026-07-30,96,lv,600.0,,True,hobbs,biggs,52.0,48.0,4.0,2,0.0,older
+AZ,Noble Predictive Insights,2026-08-10,2026-08-13,82,lv,923.0,,False,hobbs,biggs,48.0,35.0,15.663,4,2.0,older
+AZ,Stealth Analytics,2026-08-11,2026-08-13,82,lv,530.0,,False,hobbs,biggs,43.0,38.0,6.173,2,0.0,older
+AZ,Kreate Strategies,2026-08-13,2026-08-16,79,lv,900.0,REP,True,hobbs,biggs,45.0,40.0,5.882,2,0.0,older
+AZ,Quantus Insights,2026-08-14,2026-08-17,78,lv,780.0,,False,hobbs,biggs,49.0,43.0,6.522,2,0.0,older
+AZ,HighGround,2026-08-15,2026-08-18,77,lv,400.0,,False,hobbs,biggs,50.0,34.0,19.048,4,2.0,older
+AZ,NextGen Polling,2026-08-17,2026-08-19,76,rv,1627.0,,False,hobbs,biggs,39.0,38.0,1.299,4,1.0,older
+AZ,BSP Research,2026-08-18,2026-09-04,60,lv,,,True,hobbs,biggs,47.0,34.0,16.049,4,2.0,earlier
+AZ,Lake Research Partners,2026-09-16,2026-09-30,34,rv,600.0,,True,hobbs,biggs,56.0,33.0,25.843,2,0.0,earlier
+AZ,Equis Research,2026-10-01,2026-10-09,25,rv,1214.0,,False,hobbs,biggs,49.0,43.0,6.522,2,0.0,earlier
+AZ,GrayHouse,2026-10-18,2026-10-20,14,lv,550.0,,False,hobbs,biggs,51.0,45.0,6.25,4,2.0,late
+AZ,Kreate Strategies,2026-10-25,2026-10-27,7,lv,900.0,REP,True,hobbs,biggs,48.0,43.0,5.495,4,1.0,late
+AZ,Noble Predictive Insights,2026-10-26,2026-10-28,6,lv,511.0,,False,hobbs,biggs,51.0,45.0,6.25,4,1.0,late
+CA,Kreate Strategies,2026-06-13,2026-06-17,139,lv,900.0,,False,becerra,hilton,58.0,33.0,27.473,2,0.0,older
+CA,UC Berkeley Institute of Governmental Studies,2026-08-03,2026-08-09,86,lv,2310.0,,True,becerra,hilton,55.0,37.0,19.565,2,0.0,older
+CA,University of California Berkeley Jack Citrin Center for Public Opinion Research/Verasight/TrueDot,2026-09-11,2026-09-16,48,lv,1983.0,,True,becerra,hilton,54.0,36.0,20.0,2,0.0,earlier
+CA,SurveyUSA,2026-09-15,2026-09-20,44,lv,742.0,,True,becerra,hilton,55.0,33.0,25.0,2,0.0,earlier
+CA,UC Berkeley Institute of Governmental Studies,2026-09-15,2026-09-20,44,lv,4512.0,,True,becerra,hilton,58.0,33.0,27.473,2,0.0,earlier
+CA,University of California Berkeley Jack Citrin Center for Public Opinion Research/Verasight/TrueDot,2026-10-09,2026-10-14,20,lv,909.0,,True,becerra,hilton,55.0,35.0,22.222,2,0.0,late
+CA,Emerson College,2026-10-17,2026-10-19,15,lv,1000.0,,False,becerra,hilton,64.0,36.0,28.0,2,0.0,late
+CA,SurveyUSA,2026-10-19,2026-10-24,10,lv,799.0,,True,becerra,hilton,54.0,32.0,25.581,2,0.0,late
+CA,UC Berkeley Institute of Governmental Studies,2026-10-19,2026-10-25,9,lv,1477.0,,True,becerra,hilton,61.0,34.0,28.421,2,0.0,late
+CO,Lake Research Partners,2026-09-16,2026-10-30,4,rv,600.0,,True,weiser,marx,51.0,36.0,17.241,2,0.0,late
+CT,University of New Hampshire,2026-06-18,2026-06-23,133,lv,828.0,,False,lamont,fazio,49.0,36.0,15.294,2,0.0,older
+CT,GreatBlue Research,2026-07-21,2026-07-26,100,rv,1000.0,,True,lamont,fazio,49.7,29.5,25.505,2,0.0,older
+CT,University of New Hampshire,2026-08-20,2026-08-24,71,lv,809.0,,False,lamont,fazio,52.0,37.0,16.854,2,0.0,older
+CT,University of New Hampshire,2026-09-17,2026-09-21,43,lv,540.0,,False,lamont,fazio,55.0,38.0,18.28,2,0.0,earlier
+CT,Wesleyan University Survey Lab/YouGov,2026-09-22,2026-10-07,27,lv,,,True,lamont,fazio,57.0,34.0,25.275,2,0.0,earlier
+CT,Emerson College,2026-10-10,2026-10-12,22,lv,800.0,,True,lamont,fazio,51.4,37.8,15.247,2,0.0,earlier
+CT,Quinnipiac University,2026-10-08,2026-10-12,22,lv,702.0,,False,lamont,fazio,58.0,38.0,20.833,2,0.0,earlier
+CT,GreatBlue Research,2026-10-06,2026-10-12,22,rv,1000.0,,True,lamont,fazio,56.0,33.0,25.843,2,0.0,earlier
+CT,University of New Hampshire,2026-10-27,2026-10-31,3,lv,811.0,,False,lamont,fazio,54.0,41.0,13.684,2,0.0,late
+FL,Victory Insights,2025-06-07,2025-06-10,511,lv,600.0,,False,jolly,donalds,31.4,36.7,-7.783,2,0.0,older
+FL,McLaughlin & Associates,2025-08-25,2025-08-27,433,lv,800.0,REP,True,jolly,donalds,41.0,49.0,-8.889,2,0.0,older
+FL,Targoz Market Research,2025-09-16,2025-09-18,411,rv,1118.0,,True,jolly,donalds,32.0,36.0,-5.882,2,0.0,older
+FL,University of North Florida,2025-10-15,2025-10-25,374,lv,728.0,DEM,True,jolly,donalds,34.0,45.0,-13.924,2,0.0,older
+FL,Targoz Market Research,2026-02-13,2026-02-16,260,rv,1200.0,,False,jolly,donalds,34.0,36.0,-2.857,2,0.0,older
+FL,Public Sentiment Institute,2026-02-20,2026-02-20,256,rv,200.0,,False,jolly,donalds,42.3,35.8,8.323,2,0.0,older
+FL,University of North Florida,2026-02-21,2026-03-02,246,lv,786.0,,False,jolly,donalds,36.0,42.0,-7.692,2,0.0,older
+FL,Emerson College,2026-03-29,2026-03-31,217,lv,1125.0,,False,jolly,donalds,39.4,44.2,-5.742,2,0.0,older
+FL,MDW Communications,2026-03-27,2026-04-03,214,lv,1834.0,,True,jolly,donalds,40.5,41.2,-0.857,2,0.0,older
+FL,Echelon Insights,2026-04-03,2026-04-09,208,lv,406.0,,True,jolly,donalds,43.0,49.0,-6.522,2,0.0,older
+FL,The Public Sentiment Institute,2026-04-27,2026-04-27,190,lv,687.0,,False,jolly,donalds,40.0,40.0,0.0,2,0.0,older
+FL,Cherry Communications,2026-05-01,2026-05-09,178,lv,604.0,REP,True,jolly,donalds,39.0,47.0,-9.302,2,0.0,older
+FL,Change Research,2026-05-13,2026-05-16,171,lv,1593.0,,True,jolly,donalds,46.0,42.0,4.545,2,0.0,older
+FL,University of North Florida,2026-07-08,2026-07-17,109,lv,848.0,,False,jolly,donalds,41.0,46.0,-5.747,2,0.0,older
+FL,Targoz Market Research,2026-07-20,2026-07-26,100,rv,1026.0,,True,jolly,donalds,38.0,45.0,-8.434,2,0.0,older
+FL,Change Research,2026-09-07,2026-09-09,55,lv,1107.0,,True,jolly,donalds,47.0,44.0,3.297,2,0.0,earlier
+FL,St. Pete Polls,2026-09-15,2026-09-17,47,lv,913.0,,True,jolly,donalds,43.4,43.5,-0.115,2,0.0,earlier
+FL,Stetson University Center for Public Opinion Research,2026-09-14,2026-09-21,43,lv,830.0,,False,jolly,donalds,39.0,51.0,-13.333,2,0.0,earlier
+FL,Change Research,2026-09-25,2026-09-27,37,lv,1063.0,,True,jolly,donalds,48.0,46.0,2.128,2,0.0,earlier
+FL,Targoz Market Research,2026-09-28,2026-10-04,30,lv,857.0,,True,jolly,donalds,42.0,52.0,-10.638,2,0.0,earlier
+FL,St. Pete Polls,2026-10-05,2026-10-07,27,lv,836.0,,True,jolly,donalds,45.0,45.0,0.0,2,0.0,earlier
+FL,Change Research,2026-10-08,2026-10-10,24,lv,920.0,DEM,True,jolly,donalds,47.0,47.0,0.0,2,0.0,earlier
+FL,MDW Communications,2026-10-04,2026-10-10,24,lv,2351.0,,True,jolly,donalds,44.0,46.0,-2.222,2,0.0,earlier
+FL,YouGov,2026-10-02,2026-10-15,19,rv,825.0,,True,jolly,donalds,42.0,50.0,-8.696,2,0.0,late
+FL,ActiVote,2026-10-01,2026-10-19,15,lv,400.0,,False,jolly,donalds,48.3,51.7,-3.4,2,0.0,late
+FL,University of North Florida,2026-10-12,2026-10-19,15,lv,1378.0,,False,jolly,donalds,47.0,49.0,-2.083,2,0.0,late
+FL,co/efficient,2026-10-18,2026-10-20,14,lv,1014.0,REP,False,jolly,donalds,40.0,49.0,-10.112,2,0.0,late
+FL,Echelon Insights,2026-10-16,2026-10-23,11,lv,515.0,,True,jolly,donalds,44.0,50.0,-6.383,3,1.0,late
+FL,RedBox Research,2026-10-30,2026-10-31,3,lv,2898.0,,True,jolly,donalds,46.0,47.0,-1.075,8,1.0,late
+GA,Echelon Insights,2026-04-03,2026-04-09,208,lv,407.0,,True,bottoms,jackson,49.0,43.0,6.522,2,0.0,older
+GA,Concord Public Opinion Partners,2026-05-30,2026-06-02,154,lv,510.0,DEM,True,bottoms,jackson,53.0,38.0,16.484,2,0.0,older
+GA,Beacon Research/Shaw & Co. Research,2026-06-23,2026-06-27,129,rv,1002.0,,True,bottoms,jackson,52.0,47.0,5.051,2,0.0,older
+GA,Wick,2026-06-27,2026-06-30,126,lv,1175.0,,False,bottoms,jackson,42.7,43.2,-0.582,2,0.0,older
+GA,"Fabrizio, Lee & Associates/Impact Research",2026-07-13,2026-07-16,110,lv,1060.0,,True,bottoms,jackson,48.0,46.0,2.128,2,0.0,older
+GA,Quantus Insights,2026-07-29,2026-08-01,94,lv,815.0,,True,bottoms,jackson,46.4,44.9,1.643,2,0.0,older
+GA,InsiderAdvantage,2026-08-16,2026-08-17,78,lv,800.0,,True,bottoms,jackson,46.2,46.3,-0.108,2,0.0,older
+GA,Big Data Poll,2026-09-21,2026-09-23,41,lv,678.0,,True,bottoms,jackson,49.5,50.5,-1.0,2,0.0,earlier
+GA,InsiderAdvantage,2026-09-22,2026-09-23,41,lv,1200.0,,False,bottoms,jackson,46.0,48.0,-2.128,2,0.0,earlier
+GA,Wedgewood Polls,2026-10-02,2026-10-03,31,lv,600.0,,False,bottoms,jackson,49.0,51.0,-2.0,2,0.0,earlier
+GA,InsiderAdvantage,2026-10-12,2026-10-13,21,lv,800.0,,False,bottoms,jackson,47.0,49.0,-2.083,2,0.0,late
+GA,GBAO Strategies,2026-10-07,2026-10-15,19,rv,2000.0,,True,bottoms,jackson,45.0,46.0,-1.099,2,0.0,late
+GA,Quantus Insights,2026-10-15,2026-10-17,17,lv,755.0,,False,bottoms,jackson,46.6,48.2,-1.688,2,0.0,late
+GA,ActiVote,2026-10-06,2026-10-20,14,lv,400.0,,False,bottoms,jackson,48.5,51.5,-3.0,2,0.0,late
+GA,Echelon Insights,2026-10-16,2026-10-23,11,lv,508.0,,True,bottoms,jackson,49.0,48.0,1.031,2,0.0,late
+GA,InsiderAdvantage,2026-10-31,2026-11-02,1,lv,2500.0,,False,bottoms,jackson,49.03,49.0,0.031,2,0.0,late
+IL,Victory Research,2025-11-20,2025-11-24,344,lv,1208.0,,False,pritzker,bailey,54.0,34.0,22.727,2,0.0,older
+IL,Public Policy Polling,2026-09-30,2026-10-01,33,lv,569.0,DEM,True,pritzker,bailey,54.0,34.0,22.727,3,6.0,earlier
+IL,ActiVote,2026-10-02,2026-10-22,12,lv,400.0,,False,pritzker,bailey,58.7,41.3,17.4,2,0.0,late
+IA,Z to A Research,2025-10-09,2025-10-13,386,lv,1351.0,DEM,False,sand,lahn,45.0,43.0,2.273,2,0.0,older
+IA,GBAO Strategies,2026-03-10,2026-03-16,232,lv,1200.0,DEM,True,sand,lahn,50.0,42.0,8.696,2,0.0,older
+IA,Echelon Insights,2026-04-03,2026-04-09,208,lv,377.0,,True,sand,lahn,51.0,39.0,13.333,2,0.0,older
+IA,The New York Times/Siena University,2026-06-15,2026-06-17,139,lv,600.0,,False,sand,lahn,48.0,47.0,1.053,2,0.0,older
+IA,Cygnal,2026-06-16,2026-06-19,137,lv,600.0,REP,True,sand,lahn,47.7,43.4,4.72,2,0.0,older
+IA,Beacon Research/Shaw & Co. Research,2026-06-23,2026-06-27,129,rv,1003.0,,True,sand,lahn,53.0,44.0,9.278,2,0.0,older
+IA,Emerson College,2026-08-02,2026-08-04,91,lv,712.0,,True,sand,lahn,48.0,43.0,5.495,2,0.0,older
+IA,Suffolk University,2026-08-20,2026-08-23,72,lv,500.0,,False,sand,lahn,47.8,43.6,4.595,2,0.0,older
+IA,Wedgewood Polls,2026-08-27,2026-08-29,66,lv,600.0,,False,sand,lahn,51.0,46.0,5.155,2,0.0,older
+IA,Emerson College,2026-08-31,2026-09-01,63,lv,750.0,,True,sand,lahn,49.0,46.0,3.158,2,0.0,older
+IA,YouGov,2026-09-03,2026-09-08,56,lv,2041.0,,False,sand,lahn,51.0,41.0,10.87,2,0.0,earlier
+IA,co/efficient,2026-09-14,2026-09-16,48,lv,831.0,REP,False,sand,lahn,46.0,42.0,4.545,2,0.0,earlier
+IA,Marist University,2026-09-17,2026-09-20,44,rv,1050.0,,False,sand,lahn,54.0,42.0,12.5,2,0.0,earlier
+IA,Beacon Research/Shaw & Co. Research,2026-09-24,2026-09-28,36,lv,1008.0,,True,sand,lahn,53.0,44.0,9.278,2,0.0,earlier
+IA,The New York Times/Siena University,2026-09-22,2026-10-01,33,lv,606.0,,False,sand,lahn,52.0,41.0,11.828,2,0.0,earlier
+IA,CNN/SSRS,2026-09-29,2026-10-05,29,lv,801.0,,False,sand,lahn,51.0,42.0,9.677,2,0.0,earlier
+IA,Emerson College,2026-10-05,2026-10-06,28,lv,650.0,,True,sand,lahn,49.0,45.3,3.924,2,0.0,earlier
+IA,Marist University,2026-10-08,2026-10-11,23,lv,1100.0,,False,sand,lahn,52.0,45.0,7.216,2,0.0,earlier
+IA,National Public Affairs,2026-10-08,2026-10-12,22,lv,678.0,,False,sand,lahn,50.0,45.0,5.263,2,0.0,earlier
+IA,YouGov,2026-10-06,2026-10-12,22,lv,2245.0,,False,sand,lahn,50.0,44.0,6.383,2,0.0,earlier
+IA,New River,2026-10-09,2026-10-13,21,lv,602.0,,True,sand,lahn,54.0,43.0,11.34,2,0.0,late
+IA,co/efficient,2026-10-15,2026-10-19,15,lv,863.0,REP,False,sand,lahn,49.0,45.0,4.255,2,0.0,late
+IA,Echelon Insights,2026-10-16,2026-10-23,11,lv,403.0,,True,sand,lahn,50.0,46.0,4.167,2,0.0,late
+IA,co/efficient,2026-10-28,2026-10-28,6,lv,1020.0,REP,False,sand,lahn,50.0,45.0,5.263,2,0.0,late
+IA,YouGov,2026-10-26,2026-10-29,5,lv,2020.0,,False,sand,lahn,53.0,46.0,7.071,2,0.0,late
+IA,The New York Times/Siena University,2026-10-26,2026-11-01,2,lv,705.0,,False,sand,lahn,51.0,43.0,8.511,2,0.0,late
+KS,Emerson College,2026-09-15,2026-09-16,48,lv,750.0,,True,holscher,masterson,44.0,51.0,-7.368,2,0.0,earlier
+KS,Wedgewood Polls,2026-09-22,2026-09-24,40,lv,500.0,,False,holscher,masterson,48.0,52.0,-4.0,2,0.0,earlier
+KS,The New York Times/Siena University,2026-09-22,2026-09-30,34,lv,605.0,,False,holscher,masterson,44.0,49.0,-5.376,2,0.0,earlier
+KS,CNN/SSRS,2026-10-20,2026-10-26,8,lv,838.0,,False,holscher,masterson,45.0,50.0,-5.263,2,0.0,late
+KS,The Washington Post/George Mason University School of Policy and Government,2026-10-22,2026-10-26,8,lv,801.0,,False,holscher,masterson,51.0,45.0,6.25,2,0.0,late
+KS,Emerson College,2026-10-26,2026-10-28,6,lv,800.0,,False,holscher,masterson,47.5,52.5,-5.0,2,0.0,late
+KS,YouGov,2026-10-26,2026-10-29,5,lv,2092.0,,False,holscher,masterson,49.0,50.0,-1.01,2,0.0,late
+KS,The New York Times/Siena University,2026-10-27,2026-11-01,2,lv,736.0,,False,holscher,masterson,48.0,47.0,1.053,2,0.0,late
+KS,Survey 160,2026-10-27,2026-11-01,2,lv,1267.0,,False,holscher,masterson,49.0,47.0,2.083,2,0.0,late
+ME,The New York Times/Siena University,2026-06-19,2026-06-26,130,lv,608.0,,True,pingree,charles,55.0,40.0,15.789,2,0.0,older
+ME,Beacon Research/Shaw & Co. Research,2026-06-23,2026-06-27,129,rv,1003.0,,True,pingree,charles,53.0,42.0,11.579,2,0.0,older
+ME,University of New Hampshire,2026-07-15,2026-07-20,106,lv,1178.0,,False,pingree,charles,49.0,35.0,16.667,3,6.0,older
+ME,Beacon Research/Shaw & Co. Research,2026-08-06,2026-08-10,85,rv,1000.0,,True,pingree,charles,49.0,38.0,12.644,3,9.0,older
+ME,YouGov,2026-09-02,2026-09-08,56,lv,1334.0,,False,pingree,charles,47.0,36.0,13.253,3,2.0,earlier
+ME,University of Massachusetts Lowell Center for Public Opinion/YouGov,2026-08-28,2026-09-14,50,lv,650.0,,False,pingree,charles,49.0,38.0,12.644,2,0.0,earlier
+ME,University of New Hampshire,2026-09-17,2026-09-21,43,lv,1312.0,,False,pingree,charles,48.0,40.0,9.091,3,5.0,earlier
+ME,"Fabrizio, Lee & Associates/Impact Research",2026-09-20,2026-09-22,42,lv,982.0,,True,pingree,charles,52.0,39.0,14.286,3,6.0,earlier
+ME,The New York Times/Siena University,2026-09-15,2026-09-22,42,lv,619.0,,True,pingree,charles,47.0,34.0,16.049,3,8.0,earlier
+ME,co/efficient,2026-09-28,2026-09-30,34,lv,1240.0,,False,pingree,charles,47.0,38.0,10.588,3,6.0,earlier
+ME,Marist University,2026-10-01,2026-10-04,30,rv,1505.0,,False,pingree,charles,52.0,40.0,13.043,3,6.0,earlier
+ME,The Washington Post/George Mason University School of Policy and Government,2026-09-30,2026-10-05,29,lv,800.0,,False,pingree,charles,49.0,36.0,15.294,3,11.0,earlier
+ME,Beacon Research/Shaw & Co. Research,2026-10-16,2026-10-20,14,lv,1514.0,,True,pingree,charles,49.0,39.0,11.364,3,9.0,late
+ME,Echelon Insights,2026-10-16,2026-10-23,11,lv,413.0,,True,pingree,charles,51.0,38.0,14.607,3,7.0,late
+ME,Marist University,2026-10-22,2026-10-25,9,lv,1449.0,,False,pingree,charles,44.0,44.0,0.0,3,6.0,late
+ME,CNN/SSRS,2026-10-20,2026-10-26,8,lv,783.0,,False,pingree,charles,53.0,39.0,15.217,2,0.0,late
+ME,YouGov,2026-10-26,2026-10-29,5,lv,1503.0,,False,pingree,charles,53.0,45.0,8.163,2,0.0,late
+ME,University of New Hampshire,2026-10-27,2026-10-31,3,lv,1654.0,,False,pingree,charles,51.0,40.0,12.088,3,7.0,late
+ME,Survey 160,2026-10-27,2026-11-01,2,lv,1322.0,,False,pingree,charles,53.0,41.0,12.766,2,0.0,late
+ME,The New York Times/Siena University,2026-10-27,2026-11-01,2,lv,714.0,,False,pingree,charles,49.0,37.0,13.953,3,8.0,late
+MD,Zenith Research,2026-07-27,2026-08-03,92,lv,800.0,DEM,True,moore,cox,58.0,31.0,30.337,2,0.0,older
+MD,University of Maryland Baltimore County Institute of Politics,2026-09-22,2026-09-27,37,lv,776.0,,False,moore,cox,51.0,24.0,36.0,4,3.0,earlier
+MA,UMass Amherst/YouGov,2025-10-21,2025-10-29,370,a,800.0,,False,healey,minogue,51.0,26.0,32.468,2,0.0,older
+MA,University of New Hampshire,2026-02-12,2026-02-16,260,lv,620.0,,False,healey,minogue,56.0,27.0,34.94,2,0.0,older
+MA,University of New Hampshire,2026-04-16,2026-04-20,197,lv,599.0,,False,healey,minogue,52.0,32.0,23.81,2,0.0,older
+MA,Suffolk University,2026-06-08,2026-06-12,144,rv,500.0,,True,healey,minogue,56.0,31.0,28.736,2,0.0,older
+MA,University of New Hampshire,2026-06-18,2026-06-23,133,lv,623.0,,False,healey,minogue,51.0,32.0,22.892,2,0.0,older
+MA,University of New Hampshire,2026-08-20,2026-08-24,71,lv,881.0,,False,healey,minogue,54.0,30.0,28.571,2,0.0,older
+MA,University of New Hampshire,2026-09-17,2026-09-21,43,lv,564.0,,False,healey,minogue,54.0,38.0,17.391,2,0.0,earlier
+MA,MassINC Polling Group,2026-09-14,2026-09-22,42,lv,800.0,,True,healey,minogue,51.0,30.0,25.926,3,3.0,earlier
+MA,University of Massachusetts Department of Political Science/YouGov,2026-10-05,2026-10-12,22,rv,800.0,,True,healey,minogue,57.0,32.0,28.09,3,6.0,earlier
+MA,Suffolk University,2026-10-14,2026-10-17,17,lv,500.0,,True,healey,minogue,59.0,36.0,24.211,3,2.0,late
+MA,University of Massachusetts Lowell Center for Public Opinion/YouGov,2026-10-07,2026-10-18,16,lv,850.0,,False,healey,minogue,57.0,29.0,32.558,3,4.0,late
+MA,University of New Hampshire,2026-10-27,2026-10-31,3,lv,905.0,,False,healey,minogue,55.0,36.0,20.879,3,5.0,late
+MI,TIPP Insights,2026-05-20,2026-05-23,164,lv,1163.0,,True,benson,james,49.0,38.0,12.644,2,0.0,older
+MI,"Glengariff Group, Inc.",2026-07-22,2026-07-24,102,lv,600.0,,True,benson,james,43.7,38.7,6.068,2,0.0,older
+MI,Mitchell Research & Communications,2026-07-28,2026-07-29,97,lv,672.0,,False,benson,james,46.0,44.0,2.222,2,0.0,older
+MI,EPIC-MRA,2026-07-24,2026-07-31,95,lv,600.0,,True,benson,james,47.0,38.0,10.588,2,0.0,older
+MI,Beacon Research/Shaw & Co. Research,2026-08-06,2026-08-10,85,rv,1006.0,,True,benson,james,52.0,47.0,5.051,2,0.0,older
+MI,"Fabrizio, Lee & Associates/Impact Research",2026-08-09,2026-08-11,84,lv,877.0,,True,benson,james,49.0,44.0,5.376,2,0.0,older
+MI,Michigan State University Institute for Public Policy and Social Research/YouGov,2026-08-10,2026-08-20,75,lv,779.0,,False,benson,james,52.0,43.0,9.474,2,0.0,older
+MI,EPIC-MRA,2026-08-22,2026-08-28,67,lv,600.0,,False,benson,james,45.0,41.0,4.651,2,0.0,older
+MI,The Washington Post/George Mason University School of Policy and Government,2026-09-10,2026-09-14,50,lv,803.0,,False,benson,james,53.0,41.0,12.766,2,0.0,earlier
+MI,Emerson College,2026-09-12,2026-09-14,50,lv,1000.0,,True,benson,james,48.6,41.9,7.403,5,1.8,earlier
+MI,Suffolk University,2026-09-16,2026-09-20,44,lv,500.0,,False,benson,james,51.0,34.0,20.0,5,2.0,earlier
+MI,Cygnal/Beacon Research,2026-09-18,2026-09-21,43,lv,600.0,,True,benson,james,45.0,38.0,8.434,5,3.0,earlier
+MI,The New York Times/Siena University,2026-09-15,2026-09-22,42,lv,605.0,,False,benson,james,48.0,43.0,5.495,2,0.0,earlier
+MI,co/efficient,2026-09-21,2026-09-23,41,lv,843.0,,False,benson,james,47.0,44.0,3.297,2,0.0,earlier
+MI,Beacon Research/Shaw & Co. Research,2026-09-24,2026-09-28,36,lv,1028.0,,True,benson,james,54.0,45.0,9.091,2,0.0,earlier
+MI,Z to A Research,2026-09-28,2026-10-01,33,lv,483.0,DEM,True,benson,james,50.0,40.0,11.111,4,4.0,earlier
+MI,Marist University,2026-10-15,2026-10-18,16,lv,,,False,benson,james,51.0,45.0,6.25,2,0.0,late
+MI,Michigan State University Institute for Public Policy and Social Research/YouGov,2026-10-02,2026-10-19,15,lv,836.0,,False,benson,james,53.3,40.9,13.163,2,0.0,late
+MI,"Glengariff Group, Inc.",2026-10-19,2026-10-22,12,lv,600.0,,True,benson,james,51.4,44.5,7.195,2,0.0,late
+MI,Michigan State University Department of Political Science/Verasight,2026-10-08,2026-10-23,11,lv,1383.0,,False,benson,james,50.9,41.5,10.173,2,0.0,late
+MI,Mitchell Research & Communications,2026-10-26,2026-10-27,7,lv,636.0,,True,benson,james,49.0,44.0,5.376,2,0.0,late
+MI,CNN/SSRS,2026-10-20,2026-10-27,7,lv,768.0,,False,benson,james,53.0,41.0,12.766,2,0.0,late
+MI,Guidant Polling and Strategy,2026-09-20,2026-10-27,7,lv,800.0,,True,benson,james,50.0,45.0,5.263,2,0.0,late
+MI,YouGov,2026-10-26,2026-10-29,5,lv,2093.0,,False,benson,james,52.0,46.0,6.122,2,0.0,late
+MI,The New York Times/Siena University,2026-10-23,2026-11-01,2,lv,1011.0,,False,benson,james,52.0,39.0,14.286,2,0.0,late
+MN,SurveyUSA,2026-01-27,2026-01-30,277,rv,575.0,,True,klobuchar,demuth,49.0,34.0,18.072,2,0.0,older
+MN,Emerson College,2026-02-06,2026-02-08,268,lv,1000.0,,False,klobuchar,demuth,51.1,37.7,15.09,2,0.0,older
+MN,"Mason-Dixon Polling & Research, Inc.",2026-06-08,2026-06-10,146,lv,800.0,,True,klobuchar,demuth,48.0,40.0,9.091,2,0.0,older
+MN,SurveyUSA,2026-08-13,2026-08-17,78,lv,661.0,,True,klobuchar,demuth,52.0,36.0,18.182,3,1.0,older
+MN,SurveyUSA,2026-09-09,2026-09-14,50,lv,654.0,,True,klobuchar,demuth,47.0,40.0,8.046,3,3.0,earlier
+MN,Mason-Dixon,2026-10-05,2026-10-07,27,lv,800.0,,True,klobuchar,demuth,50.0,41.0,9.89,2,0.0,earlier
+MN,SurveyUSA,2026-10-08,2026-10-12,22,lv,718.0,,True,klobuchar,demuth,48.0,41.0,7.865,3,3.0,earlier
+MN,State Navigate,2026-10-26,2026-10-28,6,lv,806.0,,False,klobuchar,demuth,52.0,42.0,10.638,3,3.0,late
+MN,Survey 160,2026-10-27,2026-11-01,2,lv,1365.0,,False,klobuchar,demuth,53.0,42.0,11.579,2,0.0,late
+NE,Public Policy Polling,2026-04-06,2026-04-07,210,rv,670.0,DEM,False,walz,pillen,33.0,38.0,-7.042,2,0.0,older
+NE,National Public Affairs,2026-10-02,2026-10-05,29,lv,800.0,,False,walz,pillen,40.0,44.0,-4.762,4,7.0,earlier
+NE,National Public Affairs,2026-10-15,2026-10-18,16,lv,598.0,,False,walz,pillen,41.0,47.0,-6.818,4,5.0,late
+NE,Echelon Insights,2026-10-16,2026-10-23,11,lv,407.0,,True,walz,pillen,40.0,47.0,-8.046,4,7.0,late
+NE,YouGov,2026-10-26,2026-10-29,5,lv,1979.0,,False,walz,pillen,47.0,50.0,-3.093,2,0.0,late
+NV,Noble Predictive Insights,2025-10-07,2025-10-13,386,rv,766.0,,False,ford,lombardo,37.0,40.0,-3.896,2,0.0,older
+NV,Emerson College,2025-11-16,2025-11-18,350,rv,800.0,,False,ford,lombardo,41.1,41.1,0.0,2,0.0,older
+NV,Hart Research Associates,2026-02-11,2026-02-17,259,lv,800.0,DEM,True,ford,lombardo,43.0,46.0,-3.371,2,0.0,older
+NV,Noble Predictive Insights,2026-03-10,2026-03-13,235,rv,845.0,,False,ford,lombardo,38.0,39.0,-1.299,2,0.0,older
+NV,Emerson College,2026-09-05,2026-09-08,56,lv,680.0,,True,ford,lombardo,44.2,42.0,2.552,3,2.4,earlier
+NV,Noble Predictive Insights,2026-09-22,2026-09-26,38,rv,800.0,,False,ford,lombardo,37.0,38.0,-1.333,3,7.0,earlier
+NV,Hart Research Associates,2026-10-20,2026-10-25,9,lv,950.0,,True,ford,lombardo,49.0,45.0,4.255,2,0.0,late
+NH,Saint Anselm,2026-03-16,2026-03-18,230,rv,1491.0,,False,warmington,ayotte,39.0,46.0,-8.235,2,0.0,older
+NH,University of New Hampshire,2026-04-17,2026-04-21,196,lv,1117.0,,False,warmington,ayotte,39.0,47.0,-9.302,2,0.0,older
+NH,University of New Hampshire,2026-06-18,2026-06-23,133,,,,False,warmington,ayotte,39.0,44.0,-6.024,2,0.0,older
+NH,Saint Anselm,2026-06-24,2026-06-25,131,rv,1614.0,,False,warmington,ayotte,37.0,45.0,-9.756,2,0.0,older
+NH,Saint Anselm College Survey Center,2026-08-17,2026-08-18,77,lv,1411.0,,False,warmington,ayotte,38.0,49.0,-12.644,2,0.0,older
+NH,University of New Hampshire,2026-08-20,2026-08-24,71,lv,1878.0,,False,warmington,ayotte,39.0,49.0,-11.364,2,0.0,older
+NH,co/efficient,2026-09-09,2026-09-11,53,lv,958.0,,False,warmington,ayotte,34.0,55.0,-23.596,2,0.0,earlier
+NH,University of New Hampshire,2026-09-17,2026-09-21,43,lv,1418.0,,False,warmington,ayotte,43.0,47.0,-4.444,3,2.0,earlier
+NH,The New York Times/Siena University,2026-09-15,2026-09-22,42,lv,613.0,,False,warmington,ayotte,41.0,52.0,-11.828,2,0.0,earlier
+NH,University of Massachusetts Lowell Center for Public Opinion/YouGov,2026-10-02,2026-10-19,15,lv,600.0,,False,warmington,ayotte,42.0,48.0,-6.667,3,3.0,late
+NH,Saint Anselm,2026-10-19,2026-10-20,14,lv,1672.0,,False,warmington,ayotte,42.0,50.0,-8.696,2,0.0,late
+NH,National Public Affairs,2026-10-25,2026-10-29,5,lv,800.0,REP,True,warmington,ayotte,43.0,52.0,-9.474,3,3.0,late
+NH,University of New Hampshire,2026-10-27,2026-10-31,3,lv,2040.0,,False,warmington,ayotte,48.0,48.0,0.0,3,2.0,late
+NM,BSP Research,2026-07-22,2026-08-07,88,rv,800.0,,False,haaland,hull,41.0,24.0,26.154,2,0.0,older
+NY,Grayhouse,2025-04-22,2025-04-24,558,rv,600.0,REP,False,hochul,blakeman,44.0,36.0,10.0,2,0.0,older
+NY,J.L. Partners,2025-11-09,2025-11-10,358,lv,500.0,REP,False,hochul,blakeman,47.0,36.0,13.253,2,0.0,older
+NY,Siena College,2025-12-08,2025-12-12,326,rv,801.0,,False,hochul,blakeman,50.0,25.0,33.333,2,0.0,older
+NY,John Zogby Strategies,2026-01-06,2026-01-08,299,lv,844.0,,False,hochul,blakeman,53.0,39.0,15.217,2,0.0,older
+NY,Siena College,2026-01-26,2026-01-28,279,rv,802.0,,False,hochul,blakeman,54.0,28.0,31.707,2,0.0,older
+NY,MAD Global Strategy,2026-02-02,2026-02-04,272,lv,600.0,DEM,True,hochul,blakeman,47.0,34.0,16.049,2,0.0,older
+NY,Marist College,2026-02-16,2026-02-19,257,rv,1442.0,,False,hochul,blakeman,50.0,33.0,20.482,2,0.0,older
+NY,Siena College,2026-02-23,2026-02-26,250,rv,805.0,,False,hochul,blakeman,51.0,31.0,24.39,2,0.0,older
+NY,Echelon Insights/Tusk Strategies,2026-03-24,2026-03-26,222,rv,500.0,,False,hochul,blakeman,55.0,40.0,15.789,2,0.0,older
+NY,Siena College,2026-03-23,2026-03-26,222,rv,804.0,,False,hochul,blakeman,47.0,34.0,16.049,2,0.0,older
+NY,Siena University,2026-04-27,2026-04-30,187,rv,806.0,,False,hochul,blakeman,49.0,33.0,19.512,2,0.0,older
+NY,Pollfinity,2026-06-11,2026-06-14,142,lv,229.0,,False,hochul,blakeman,50.0,40.0,11.111,2,0.0,older
+NY,Siena University,2026-06-17,2026-06-23,133,rv,1120.0,,False,hochul,blakeman,52.0,32.0,23.81,2,0.0,older
+NY,Siena College,2025-06-23,2026-06-26,130,rv,800.0,,False,hochul,blakeman,44.0,19.0,39.683,2,0.0,older
+NY,co/efficient,2026-06-30,2026-07-02,124,lv,1085.0,,True,hochul,blakeman,47.0,41.0,6.818,2,0.0,older
+NY,Red Oak Strategic,2026-07-07,2026-07-12,114,rv,2000.0,REP,True,hochul,blakeman,47.0,43.0,4.444,2,0.0,older
+NY,Siena University,2026-08-03,2026-08-06,89,lv,811.0,,False,hochul,blakeman,49.0,39.0,11.364,2,0.0,older
+NY,Concord Public Opinion Partners,2026-08-19,2026-08-21,74,lv,505.0,DEM,True,hochul,blakeman,50.0,34.0,19.048,2,0.0,older
+NY,Quinnipiac University,2026-09-17,2026-09-20,44,lv,1026.0,,False,hochul,blakeman,58.0,39.0,19.588,2,0.0,earlier
+NY,co/efficient,2026-09-23,2026-09-25,39,lv,1046.0,REP,True,hochul,blakeman,48.0,41.0,7.865,2,0.0,earlier
+NY,Emerson College,2026-10-03,2026-10-05,29,lv,900.0,,True,hochul,blakeman,52.4,39.7,13.789,2,0.0,earlier
+NY,Beacon Research,2026-10-01,2026-10-06,28,rv,820.0,,True,hochul,blakeman,53.0,31.0,26.19,2,0.0,earlier
+NY,Quinnipiac University,2026-10-15,2026-10-19,15,lv,1167.0,,False,hochul,blakeman,55.0,41.0,14.583,2,0.0,late
+OH,Emerson College,2025-08-18,2025-08-19,441,rv,1000.0,,False,acton,ramaswamy,39.4,48.7,-10.556,2,0.0,older
+OH,Hart Research Associates,2025-09-19,2025-09-22,407,lv,800.0,,True,acton,ramaswamy,46.0,45.0,1.099,2,0.0,older
+OH,Bowling Green State University,2025-10-02,2025-10-14,385,rv,800.0,,False,acton,ramaswamy,47.0,50.0,-3.093,2,0.0,older
+OH,Data Targeting,2025-12-03,2025-12-08,330,lv,603.0,,True,acton,ramaswamy,43.0,45.0,-2.273,2,0.0,older
+OH,Emerson College,2025-12-06,2025-12-08,330,rv,850.0,,False,acton,ramaswamy,45.9,45.2,0.768,2,0.0,older
+OH,EMC Research,2026-02-10,2026-02-22,254,lv,1343.0,,True,acton,ramaswamy,53.0,43.0,10.417,2,0.0,older
+OH,Quantus Insights,2026-03-13,2026-03-14,234,lv,809.0,,False,acton,ramaswamy,45.9,44.9,1.101,2,0.0,older
+OH,Echelon Insights,2026-04-03,2026-04-09,208,lv,413.0,,True,acton,ramaswamy,44.0,49.0,-5.376,2,0.0,older
+OH,Bowling Green State University/YouGov,2026-04-07,2026-04-14,203,rv,1000.0,,False,acton,ramaswamy,47.0,48.0,-1.053,2,0.0,older
+OH,Beacon Research/Shaw & Co. Research,2026-05-28,2026-06-01,155,rv,1015.0,,True,acton,ramaswamy,50.0,49.0,1.01,2,0.0,older
+OH,Fabrizio Ward/Impact Research,2026-06-14,2026-06-16,140,lv,800.0,,True,acton,ramaswamy,47.0,44.0,3.297,2,0.0,older
+OH,The New York Times/Siena University,2026-06-15,2026-06-28,128,lv,601.0,,False,acton,ramaswamy,47.0,47.0,0.0,2,0.0,older
+OH,Beacon Research/Shaw & Co. Research,2026-08-06,2026-08-10,85,rv,1008.0,,True,acton,ramaswamy,48.0,50.0,-2.041,2,0.0,older
+OH,Wedgewood Polls,2026-08-11,2026-08-13,82,lv,800.0,,False,acton,ramaswamy,47.0,46.0,1.075,2,0.0,older
+OH,Concord Public Opinion Partners,2026-08-29,2026-08-31,64,lv,504.0,DEM,True,acton,ramaswamy,49.0,37.0,13.953,3,2.0,older
+OH,Big Data Poll,2026-09-26,2026-09-27,37,lv,680.0,,True,acton,ramaswamy,46.8,47.9,-1.162,3,5.3,earlier
+OH,Marist University,2026-09-24,2026-09-27,37,rv,1298.0,,False,acton,ramaswamy,50.0,44.0,6.383,2,0.0,earlier
+OH,Suffolk University,2026-09-23,2026-09-27,37,lv,500.0,,True,acton,ramaswamy,50.0,41.0,9.89,3,3.0,earlier
+OH,The New York Times/Siena University,2026-09-22,2026-10-01,33,lv,616.0,,False,acton,ramaswamy,49.0,45.0,4.255,2,0.0,earlier
+OH,CNN/SSRS,2026-09-29,2026-10-05,29,lv,760.0,,False,acton,ramaswamy,50.0,42.0,8.696,2,0.0,earlier
+OH,co/efficient,2026-10-05,2026-10-06,28,lv,925.0,REP,False,acton,ramaswamy,43.0,45.0,-2.273,3,3.0,earlier
+OH,Bowling Green State University/YouGov,2026-09-29,2026-10-09,25,lv,1000.0,,False,acton,ramaswamy,50.0,44.0,6.383,3,4.0,earlier
+OH,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,21,lv,959.0,,True,acton,ramaswamy,49.0,44.0,5.376,3,6.0,late
+OH,Marist University,2026-10-15,2026-10-18,16,lv,1176.0,,False,acton,ramaswamy,50.0,43.0,7.527,2,0.0,late
+OH,Beacon Research/Shaw & Co. Research,2026-10-15,2026-10-19,15,lv,1592.0,,True,acton,ramaswamy,50.0,48.0,2.041,2,0.0,late
+OH,ActiVote,2026-09-27,2026-10-19,15,lv,400.0,,False,acton,ramaswamy,48.6,51.4,-2.8,2,0.0,late
+OH,VoteHub/Verasight,2026-10-01,2026-10-20,14,lv,531.0,,True,acton,ramaswamy,46.2,45.4,0.873,3,2.0,late
+OH,Echelon Insights,2026-10-16,2026-10-23,11,lv,508.0,,True,acton,ramaswamy,45.0,47.0,-2.174,3,2.0,late
+OH,Concord Public Opinion Partners,2026-10-22,2026-10-24,10,lv,469.0,DEM,True,acton,ramaswamy,49.0,39.0,11.364,3,5.0,late
+OH,YouGov,2026-10-26,2026-10-29,5,lv,2090.0,,False,acton,ramaswamy,52.0,46.0,6.122,2,0.0,late
+OH,The New York Times/Siena University,2026-10-26,2026-11-01,2,lv,717.0,,False,acton,ramaswamy,49.0,43.0,6.522,2,0.0,late
+OH,Survey 160,2026-10-27,2026-11-01,2,lv,1122.0,,False,acton,ramaswamy,50.0,44.0,6.383,2,0.0,late
+OR,FM3 Research,2026-01-26,2026-02-04,272,lv,1065.0,DEM,True,kotek,drazan,45.0,40.0,5.882,2,0.0,older
+OR,DHM Research,2026-09-11,2026-09-11,53,lv,600.0,,True,kotek,drazan,43.0,45.0,-2.273,2,0.0,earlier
+OR,DHM Research,2026-09-24,2026-10-01,33,lv,549.0,,True,kotek,drazan,46.0,44.0,2.222,3,3.0,earlier
+PA,Susquehanna Polling & Research,2025-09-22,2025-09-28,401,lv,700.0,,False,shapiro,garrity,54.0,36.0,20.0,2,0.0,older
+PA,Quinnipiac University,2025-09-25,2025-09-29,400,rv,1579.0,,False,shapiro,garrity,55.0,39.0,17.021,2,0.0,older
+PA,Quinnipiac University,2026-02-19,2026-02-23,253,rv,836.0,,False,shapiro,garrity,55.0,37.0,19.565,2,0.0,older
+PA,Franklin & Marshall College,2026-02-18,2026-03-01,247,rv,834.0,,False,shapiro,garrity,48.0,28.0,26.316,2,0.0,older
+PA,Susquehanna Polling & Research,2026-03-18,2026-03-29,219,lv,700.0,REP,False,shapiro,garrity,58.0,36.0,23.404,2,0.0,older
+PA,Bravo Group,2026-05-20,2026-05-24,163,lv,684.0,,True,shapiro,garrity,53.0,29.0,29.268,2,0.0,older
+PA,MAD Global Strategy,2026-06-09,2026-06-11,145,lv,600.0,,True,shapiro,garrity,48.0,31.0,21.519,2,0.0,older
+PA,Franklin & Marshall College Center for Opinion Research,2026-06-08,2026-06-14,142,rv,546.0,,False,shapiro,garrity,50.0,28.0,28.205,2,0.0,older
+PA,Bravo Group,2026-07-17,2026-07-24,102,lv,630.0,,True,shapiro,garrity,53.0,28.0,30.864,2,0.0,older
+PA,National Public Affairs,2026-07-26,2026-07-30,96,lv,600.0,REP,False,shapiro,garrity,50.0,43.0,7.527,2,0.0,older
+PA,The New York Times/Siena University,2026-08-17,2026-08-21,74,lv,760.0,,True,shapiro,garrity,55.0,39.0,17.021,2,0.0,older
+PA,Bravo Group,2026-08-18,2026-08-22,73,lv,711.0,,True,shapiro,garrity,56.0,25.0,38.272,2,0.0,older
+PA,Franklin & Marshall College,2026-08-17,2026-08-23,72,rv,501.0,,False,shapiro,garrity,50.0,25.0,33.333,3,2.0,older
+PA,Bravo Group,2026-09-16,2026-09-22,42,rv,624.0,,True,shapiro,garrity,55.0,28.0,32.53,2,0.0,earlier
+PA,The New York Times/Siena University,2026-09-15,2026-09-22,42,lv,615.0,,True,shapiro,garrity,58.0,38.0,20.833,2,0.0,earlier
+PA,Z to A Research,2026-09-28,2026-10-01,33,lv,630.0,,False,shapiro,garrity,53.0,34.0,21.839,3,3.0,earlier
+PA,ActiVote,2026-10-01,2026-10-21,13,lv,400.0,,False,shapiro,garrity,61.5,38.5,23.0,2,0.0,late
+RI,University of New Hampshire,2026-09-17,2026-09-21,43,lv,598.0,,False,foulkes,guckian,44.0,17.0,44.262,5,25.0,earlier
+RI,Embold Research,2026-10-05,2026-10-08,26,lv,815.0,,True,foulkes,guckian,39.0,17.0,39.286,5,28.0,earlier
+RI,University of New Hampshire,2026-10-27,2026-10-31,3,lv,753.0,,False,foulkes,guckian,55.0,8.0,74.603,5,34.0,late
+SC,Public Policy Polling,2026-07-16,2026-07-17,109,lv,577.0,DEM,True,johnson,wilson,37.0,45.0,-9.756,2,0.0,older
+SC,Trafalgar Group,2026-10-16,2026-10-18,16,lv,1095.0,REP,False,johnson,wilson,36.5,52.5,-17.978,4,4.2,late
+SC,Targoz Market Research,2026-10-16,2026-10-25,9,lv,895.0,,True,johnson,wilson,41.0,51.0,-10.87,4,1.0,late
+SC,Resonance Media Services,2026-10-30,2026-10-30,4,lv,600.0,,False,johnson,wilson,42.3,50.6,-8.934,2,0.0,late
+SD,Emerson College,2026-10-19,2026-10-20,14,lv,803.0,,True,ahlers,rhoden,41.0,60.0,-18.812,2,0.0,late
+SD,Concord Public Opinion Partners,2026-10-22,2026-10-26,8,lv,448.0,DEM,True,ahlers,rhoden,39.0,48.0,-10.345,2,0.0,late
+TN,Quantus Insights,2025-08-05,2025-08-07,453,rv,600.0,REP,False,green,blackburn,28.0,49.0,-27.273,2,0.0,older
+TN,Targoz Market Research,2026-04-20,2026-04-27,190,rv,1157.0,,True,green,blackburn,27.0,51.0,-30.769,2,0.0,older
+TN,Targoz Market Research,2026-08-15,2026-08-26,69,rv,1149.0,,True,green,blackburn,33.0,46.0,-16.456,3,8.0,older
+TN,TargetSmart,2026-09-09,2026-09-12,52,lv,600.0,DEM,True,green,blackburn,36.0,45.0,-11.111,4,19.0,earlier
+TN,Spry Strategies,2026-10-10,2026-10-16,18,lv,635.0,,False,green,blackburn,32.0,44.0,-15.789,4,12.0,late
+TX,Emerson College,2026-01-10,2026-01-12,295,rv,1165.0,,True,hinojosa,abbott,42.3,50.2,-8.541,2,0.0,older
+TX,University of Houston/YouGov,2026-01-20,2026-01-31,276,lv,1502.0,,False,hinojosa,abbott,42.0,49.0,-7.692,2,0.0,older
+TX,University of Houston Hobby School of Public Affairs/YouGov,2026-01-20,2026-01-31,276,lv,1502.0,,False,hinojosa,abbott,42.0,49.0,-7.692,2,0.0,older
+TX,University of Texas at Tyler Center for Opinion Research,2026-02-13,2026-02-22,254,rv,1117.0,,False,hinojosa,abbott,41.0,49.0,-8.889,2,0.0,older
+TX,University of Texas at Tyler,2026-02-13,2026-02-22,254,rv,1117.0,,False,hinojosa,abbott,41.0,49.0,-8.889,2,0.0,older
+TX,Slingshot Strategies,2026-04-17,2026-04-20,197,lv,1018.0,,True,hinojosa,abbott,43.0,48.0,-5.495,2,0.0,older
+TX,The Texas Politics Project at the University of Texas at Austin/YouGov,2026-04-10,2026-04-20,197,rv,1200.0,,False,hinojosa,abbott,38.0,44.0,-7.317,2,0.0,older
+TX,Texas Southern University Barbara Jordan Public Policy Research and Survey Center,2026-04-22,2026-05-06,181,lv,1223.0,,False,hinojosa,abbott,43.0,49.0,-6.522,2,0.0,older
+TX,Public Policy Polling,2026-05-22,2026-05-23,164,lv,643.0,DEM,True,hinojosa,abbott,44.0,48.0,-4.348,2,0.0,older
+TX,Slingshot Strategies,2026-05-27,2026-05-28,159,lv,1670.0,,True,hinojosa,abbott,41.0,46.0,-5.747,2,0.0,older
+TX,ReconMR/Siena University,2026-06-01,2026-06-04,152,lv,807.0,,True,hinojosa,abbott,44.0,49.0,-5.376,3,0.0,older
+TX,Texas Politics Project at the University of Texas/YouGov,2026-06-05,2026-06-12,144,rv,1200.0,,False,hinojosa,abbott,40.0,47.0,-8.046,2,0.0,older
+TX,The New York Times/Siena University,2026-06-19,2026-06-27,129,lv,656.0,,False,hinojosa,abbott,44.0,51.0,-7.368,2,0.0,older
+TX,Slingshot Strategies,2026-07-15,2026-07-17,109,lv,1048.0,,True,hinojosa,abbott,42.0,45.0,-3.448,4,1.0,older
+TX,Beacon Research/Shaw & Co. Research,2026-07-23,2026-07-27,99,rv,1006.0,,True,hinojosa,abbott,49.0,50.0,-1.01,2,0.0,older
+TX,ReconMR/Siena University,2026-07-27,2026-07-30,96,lv,619.0,,True,hinojosa,abbott,45.0,46.0,-1.099,3,0.0,older
+TX,Texas Southern University Barbara Jordan Public Policy Research and Survey Center,2026-07-27,2026-07-30,96,lv,1200.0,,False,hinojosa,abbott,43.0,49.0,-6.522,3,3.0,older
+TX,Wedgewood Polls,2026-07-30,2026-07-31,95,lv,800.0,,False,hinojosa,abbott,44.0,50.0,-6.383,2,0.0,older
+TX,Cygnal,2026-07-29,2026-07-31,95,lv,800.0,REP,True,hinojosa,abbott,46.0,49.0,-3.158,2,0.0,older
+TX,Emerson College,2026-08-09,2026-08-10,85,lv,1000.0,,True,hinojosa,abbott,45.0,49.0,-4.255,2,0.0,older
+TX,The Texas Politics Project at the University of Texas at Austin/YouGov,2026-08-05,2026-08-13,82,rv,1218.0,,False,hinojosa,abbott,40.0,45.0,-5.882,3,3.0,older
+TX,Slingshot Strategies,2026-08-21,2026-08-24,71,lv,1000.0,,True,hinojosa,abbott,42.0,49.0,-7.692,4,1.0,older
+TX,Fabrizio Ward/Impact Research,2026-08-30,2026-09-01,63,lv,895.0,,False,hinojosa,abbott,46.0,49.0,-3.158,2,0.0,older
+TX,YouGov,2026-08-27,2026-09-04,60,rv,1000.0,,True,hinojosa,abbott,47.0,47.0,0.0,2,0.0,earlier
+TX,ReconMR/Siena University,2026-09-08,2026-09-11,53,lv,614.0,,False,hinojosa,abbott,49.0,45.0,4.255,3,0.0,earlier
+TX,Emerson College,2026-09-12,2026-09-14,50,lv,1000.0,,True,hinojosa,abbott,46.0,49.0,-3.158,3,2.0,earlier
+TX,Texas Southern University Barbara Jordan Public Policy Research and Survey Center,2026-09-15,2026-09-19,45,lv,1800.0,,False,hinojosa,abbott,45.0,49.0,-4.255,3,2.0,earlier
+TX,Slingshot Strategies,2026-09-19,2026-09-22,42,lv,1007.0,,True,hinojosa,abbott,46.0,50.0,-4.167,3,2.0,earlier
+TX,Beacon Research/Shaw & Co. Research,2026-09-24,2026-09-28,36,lv,881.0,,True,hinojosa,abbott,47.0,52.0,-5.051,2,0.0,earlier
+TX,Guidant Polling and Strategy,2026-09-20,2026-09-28,36,lv,800.0,,True,hinojosa,abbott,44.0,46.0,-2.222,3,4.0,earlier
+TX,University of Massachusetts Lowell Center for Public Opinion/YouGov,2026-09-18,2026-09-28,36,lv,850.0,,False,hinojosa,abbott,44.0,48.0,-4.348,3,1.0,earlier
+TX,The New York Times/Siena University,2026-09-22,2026-09-30,34,lv,605.0,,False,hinojosa,abbott,49.0,46.0,3.158,2,0.0,earlier
+TX,ReconMR/Siena University,2026-10-05,2026-10-08,26,lv,617.0,,False,hinojosa,abbott,47.0,48.0,-1.053,2,0.0,earlier
+TX,New River Strategies/GS Strategy Group,2026-10-09,2026-10-13,21,lv,934.0,,True,hinojosa,abbott,46.0,48.0,-2.128,2,0.0,late
+TX,ActiVote,2026-09-30,2026-10-14,20,lv,400.0,,False,hinojosa,abbott,49.1,50.9,-1.8,2,0.0,late
+TX,Slingshot Strategies,2026-10-15,2026-10-18,16,lv,969.0,,True,hinojosa,abbott,48.0,51.0,-3.03,3,1.0,late
+TX,Pollfinity,2026-10-15,2026-10-18,16,lv,278.0,,False,hinojosa,abbott,46.0,45.0,1.099,3,2.0,late
+TX,Beacon Research/Shaw & Co. Research,2026-10-15,2026-10-19,15,lv,1398.0,,True,hinojosa,abbott,47.0,52.0,-5.051,2,0.0,late
+TX,Emerson College,2026-10-17,2026-10-19,15,lv,1000.0,,True,hinojosa,abbott,45.0,49.0,-4.255,3,1.0,late
+TX,VoteHub/Verasight,2026-10-01,2026-10-20,14,lv,601.0,,False,hinojosa,abbott,46.4,47.7,-1.382,3,0.7,late
+TX,ActiVote,2026-10-17,2026-10-21,13,lv,400.0,,False,hinojosa,abbott,47.5,52.5,-5.0,2,0.0,late
+TX,YouGov,2026-10-13,2026-10-21,13,rv,1000.0,,True,hinojosa,abbott,46.0,48.0,-2.128,2,0.0,late
+TX,Texas Southern University Barbara Jordan Public Policy Research and Survey Center,2026-10-21,2026-10-25,9,lv,2000.0,,False,hinojosa,abbott,47.0,50.0,-3.093,3,2.0,late
+TX,CNN/SSRS,2026-10-20,2026-10-27,7,lv,923.0,,False,hinojosa,abbott,46.0,48.0,-2.128,2,0.0,late
+TX,Quantus Insights,2026-10-26,2026-10-28,6,lv,1221.0,,False,hinojosa,abbott,46.3,51.6,-5.414,2,0.0,late
+TX,ActiVote,2026-10-23,2026-10-29,5,lv,400.0,,False,hinojosa,abbott,47.9,52.1,-4.2,2,0.0,late
+TX,YouGov,2026-10-26,2026-10-29,5,lv,2141.0,,False,hinojosa,abbott,49.0,50.0,-1.01,2,0.0,late
+TX,The New York Times/Siena University,2026-10-27,2026-11-01,2,lv,1215.0,,False,hinojosa,abbott,48.0,47.0,1.053,2,0.0,late
+VT,University of New Hampshire,2026-06-18,2026-06-23,133,lv,511.0,,False,janoo,scott,27.0,42.0,-21.739,2,0.0,older
+VT,University of New Hampshire,2026-07-15,2026-07-20,106,lv,954.0,,False,janoo,scott,33.0,44.0,-14.286,3,2.0,older
+VT,University of New Hampshire,2026-09-17,2026-09-21,43,lv,835.0,,False,janoo,scott,49.0,43.0,6.522,5,2.0,earlier
+VT,State Navigate,2026-10-23,2026-10-25,9,lv,1752.0,,False,janoo,scott,46.0,49.0,-3.158,2,0.0,late
+VT,University of New Hampshire,2026-10-27,2026-10-31,3,lv,1172.0,,False,janoo,scott,51.0,43.0,8.511,5,4.0,late
+WI,TIPP Insights,2026-03-13,2026-03-19,229,lv,1175.0,REP,True,crowley,tiffany,42.0,41.0,1.205,2,0.0,older
+WI,RMG Research,2026-07-20,2026-07-24,102,rv,800.0,,True,crowley,tiffany,46.0,43.0,3.371,2,0.0,older
+WI,GBAO Strategies,2026-07-30,2026-08-03,92,lv,800.0,DEM,True,crowley,tiffany,47.0,44.0,3.297,2,0.0,older
+WI,Platform Communications,2026-08-12,2026-08-13,82,lv,500.0,,False,crowley,tiffany,48.0,44.0,4.348,2,0.0,older
+WI,TIPP Insights,2026-08-14,2026-08-18,77,lv,1119.0,REP,True,crowley,tiffany,47.0,43.0,4.444,2,0.0,older
+WI,Marquette University Law School,2026-08-12,2026-08-20,75,lv,738.0,,False,crowley,tiffany,49.0,44.0,5.376,2,0.0,older
+WI,Marquette University Law School,2026-09-16,2026-09-23,41,lv,692.0,,False,crowley,tiffany,49.0,46.0,3.158,2,0.0,earlier
+WI,Z to A Research,2026-09-28,2026-10-01,33,lv,662.0,DEM,True,crowley,tiffany,49.0,44.0,5.376,2,0.0,earlier
+WI,Wick,2026-10-19,2026-10-23,11,lv,1213.0,REP,True,crowley,tiffany,48.0,45.0,3.226,2,0.0,late

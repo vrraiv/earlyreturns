@@ -74,6 +74,8 @@ All in git, under the licence in `LICENSE-DATA.md`.
 | `data/interim/governor_history.csv` | `src/collect/governors.py` | 1998-2025 | Every governor race: incumbent, status, candidates and shares |
 | `data/interim/governor_dataset.csv` | `src/collect/governors.py` | 1998-2025 | Governor races with lean, environment, approval, previous margin, poll averages |
 | `data/interim/governor_polls_wiki.csv` | `src/collect/governors.py` | 2022-2024 | Governor polls from Wikipedia race pages |
+| `data/interim/governor_2026_polls.csv`, `governor_2026_inputs.csv` | `src/model/governor_inputs.py` | 2026 | The 2026 governor polls in the final forecast's snapshot that name both nominees, and one row per race with incumbency, lean and the poll averages the backtest's governor model takes. No results |
+| `data/interim/governor_offyear_env.csv` | `src/model/governor_inputs.py` | 1999-2025 | For each odd-year election day: the generic-ballot average, approval, last House vote and the off-cycle estimator, each from figures known that day |
 | `data/interim/house_specials.csv` | `src/collect/specials.py` | 2007-2026 | House specials with district lean on the lines in force |
 | `data/interim/generic_ballot_daily.csv` | `src/collect/generic_ballot.py` | 1995-2026 | Generic-ballot polling average by day: FiveThirtyEight's average to 2016, then a plain average of FiveThirtyEight's and VoteHub's polls (latest per pollster, 30 days) |
 | `data/final/bias_race_level.csv` | `src/model/bias_analysis.py` | 2002-2022 | Senate and governor races: average of polls from the final 60 days vs result |
@@ -81,11 +83,11 @@ All in git, under the licence in `LICENSE-DATA.md`.
 | `data/final/pollster_effects.json` | `src/model/pollster_effects.py` | 1998-2022 | Pollster house effects and the sponsored-poll shift |
 | `data/final/error_structure.json` | `src/model/error_structure.py` | 1998-2022 | Census-region shocks; slope on lean |
 | `data/final/state_econ.json`, `money_test.json` | `src/model/state_econ.py`, `money_test.py` | 1998-2022 | Tests of local unemployment and fundraising |
-| `data/processed/backtest_asof*` | `src/model/backtest_asof.py` | 2004-2024 | The as-of backtest (BACKTEST.md): Senate, House and governor forecasts made with parameters fitted on earlier cycles, the parameters by cycle, and the scores. House districts for 1998 to 2004 come from Gary Jacobson's file (Linked sources); the 2004 district forecasts are kept beside that file, not here |
+| `data/processed/backtest_asof*` | `src/model/backtest_asof.py` | 2004-2024 | The as-of backtest (BACKTEST.md): Senate, House and governor forecasts made with parameters fitted on earlier cycles, the parameters by cycle, and the scores. `backtest_asof_<candidate>_vs_baseline.json` is each tested change against the baseline. The governor lean candidates read Senate results from the MIT Election Lab file (`data/raw/medsl/`). House districts for 1998 to 2004 come from Gary Jacobson's file (Linked sources); the 2004 district forecasts are kept beside that file, not here |
 | `data/final/*` (the rest) | the frozen forecast | 2026 | Forecast inputs and outputs; never rewritten |
 | `data/scorecard/*` | `src/run_scorecard.py` | 2026 | Results, margins, poll audit |
 | `data/postmortem/*` | `src/postmortem/*.py` | 1946-2026 | What-if environment, House upsets, history context, state-level error |
-| `data/processed/governor_*`, `environment_offcycle.json`, `specials_environment.json` | `governor_model.py`, `environment.py`, `special_model.py` | 1946-2026 | Governor model and backtest, off-cycle environment, special elections |
+| `data/processed/governor_*`, `environment_offcycle.json`, `specials_environment.json` | `governor_model.py`, `governor_inputs.py`, `environment.py`, `special_model.py` | 1946-2026 | Governor model and backtest, off-cycle environment, special elections |
 
 ## Election data pages
 

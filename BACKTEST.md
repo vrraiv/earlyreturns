@@ -122,8 +122,9 @@ The rest differ for known reasons:
 - **Senate races are Democrat against Republican only.** Races with an independent in the top two, all-party November
   rounds and a same-day special with the same two candidates are left out, from both the forecast and the seat count.
 - **Governors are even years only, two-way races, 21-day polls.** Odd years (New Jersey, Virginia, Kentucky,
-  Louisiana, Mississippi) and 2025 need an environment estimate as of each date, which is GV-3's work; they stay in
-  `governor_model.py`'s own backtest. That backtest scores 353 races at log loss 0.244, against 0.212 on 239 races
+  Louisiana, Mississippi) and 2025 have no House vote to stand for the environment. `governor_inputs.py` now builds
+  an environment for each as of its election day and tests it on the prior alone (results below); the odd-year
+  races themselves stay in `governor_model.py`'s own backtest. That backtest scores 353 races at log loss 0.244, against 0.212 on 239 races
   here, and the two are not comparable: it leaves one cycle out at a time (so each fit sees later cycles), includes
   odd years, and uses 538's 60-day averages. Nothing from 2026 is in either (GV-4).
 - **Appointed senators are not counted as incumbents.** The returns carry no incumbency; the flag is a name match to
@@ -305,3 +306,194 @@ Then 2026, once:
 
 A change to the harness itself (a new score, a wider poll window, new cycles from DA-2) is not a model change: it is
 made first, the baseline is rerun and recorded, and candidates are compared with the new baseline.
+
+## Candidates
+
+Each entry is written before its first run, and every candidate that was run is reported, pass or fail.
+
+### Governor lean (GV-3), written 2026-11-20 before any run
+
+The baseline governor prior uses the state's presidential lean, averaged over the last two elections. Presidential
+lean explains little of a governor's margin (slope about 0.4), so the question is whether recent statewide results
+do better. Office: governor. Expected to improve: log loss and margin error on competitive races, mostly through
+the races with few or no polls, since a polled race puts about 0.85 of its weight on polls.
+
+Definitions, each using only results from before the race:
+
+- *Statewide lean*: the mean of the state's Senate and governor general elections in the six years before the
+  cycle, each as its two-party margin minus that year's national House margin. Senate results from MEDSL (1976 on),
+  governor results from `governor_history.csv` (1998 on, even years; so the earliest training cycles lean on Senate
+  results alone). Past margins include whatever the incumbents of the time were worth; no adjustment.
+- *Previous governor margin*: the state's last governor race, two-party margin minus that year's national House
+  margin. Where there is none on file (odd-year or pre-1998), the race falls back to the baseline prior.
+
+Three candidates, run with `--gov-lean`:
+
+| Tag | Prior |
+|---|---|
+| `govlean_statewide` | statewide lean in place of presidential lean |
+| `govlean_both` | presidential lean and statewide lean together |
+| `govlean_prevgov` | presidential lean and the previous governor margin together |
+
+With three candidates, the chance that at least one clears the one-standard-deviation part of rule 1 by luck is
+about 40%. If more than one passes, the one with the larger pooled gain is taken.
+
+### Governor interval width (GV-3), written 2026-11-20 before any run
+
+The first governor backtest (leave-one-cycle-out, 60-day polls) suggested count ranges that were too wide. No
+candidate is defined in advance. The as-of baseline is read first: race-level coverage of the 50% and 80% ranges,
+and where the count of Democratic wins fell in its forecast distribution in the five midterm cycles. A width change
+is proposed, and written here before its run, only if those point the same way.
+
+### Governor polls: earlier polls where there are no late ones (GV-3), written 2026-11-20 before its run
+
+Found while building the 2026 poll table: under the 21-day rule 34 of 318 governor races (1998 to 2024) have no
+polls, and 17 of those have polls ending 22 to 60 days out. The baseline forecasts such a race from the prior alone.
+In 2026, 8 of the 36 races have no poll in the final 21 days.
+
+Candidate `govpolls_fallback60` (`--gov-poll-fallback all`): a governor race with no polls ending in the final 21 days
+uses its polls ending 22 to 60 days out, averaged and weighted exactly as late polls are. Late polls, where there
+are any, are used alone as now. Office: governor. Expected to improve: margin error and log loss in the races
+concerned; the rest should not move. Older polls are treated as being as accurate as late ones, which flatters
+them; if the candidate passes, that is the next thing to test, not something to tune here.
+
+### The same, in the forecast only (GV-3), written 2026-11-20 after the run above and before its own
+
+`govpolls_fallback60` was run and its result is in the results section. It also fed the earlier polls into the fit,
+which lowered the weight on polls for every race (0.86 to 0.83 by 2024) and moved races it was not aimed at: of
+its pooled gain of 0.016, the 7 competitive races it changed directly gave 0.018 and the other 126 lost 0.002.
+
+Candidate `govpolls_fallback60_fcst` (`--gov-poll-fallback forecast`): the fit is the baseline's, on late polls
+only; the earlier polls enter only the forecast of a race that has no late ones. Expected: the same gain in those
+races, and nothing else moves. This is a second look at one idea, chosen after seeing the first result, and counts
+as such.
+
+### Governor interval width, read first (GV-3), 2026-11-20
+
+Read from the baseline before proposing anything, as written above:
+
+- **Races.** On the 133 competitive races the 80% range held 81% of results and the 50% range 51%.
+- **Counts.** The number of Democratic wins fell inside its 80% range in all 11 cycles, and in the five midterms
+  sat at the 16th, 61st, 27th, 20th and 78th percentile of its forecast distribution. Eleven of eleven happens by
+  chance about one time in twelve when the ranges are right, so this is weak evidence of ranges that are too wide.
+- **Shared error.** Each cycle's mean error on the margin, set against the spread the model gives it: in the five
+  midterms it was 0.6 of that spread on average (too wide, if anything), and in the six presidential years 1.8
+  (too narrow), with 2020 alone at 3.6. The two halves disagree, and both rest on five or six cycles.
+
+These do not point the same way, so no change to the overall width is proposed. The first backtest's "too wide"
+reading does not survive the as-of test.
+
+One part does stand out. For the 27 races forecast from the prior alone, the 80% range held 52% of results. Their
+spread is a robust (median-based) estimate of the prior's error, about 13 points, and their actual error was 20.
+
+Candidate `govwidth_unpolled` (`--gov-unpolled-sd rms`): a race forecast from the prior alone takes the prior's
+root-mean-square error over the training races (about 15 points) as its spread, in place of the robust estimate.
+Office: governor. It changes uncertainty only, so it is judged on log loss, coverage and the count spread. Expected:
+better coverage in those races and a small log-loss gain; nothing else moves.
+
+### Results (GV-3), 2026-11-20
+
+Six candidates were run, all against the governor baseline on its 133 competitive races, polls-and-fundamentals
+version. Every baseline forecast was matched in every run, and no Senate or House forecast moved in any of them.
+A negative gap is an improvement.
+
+| Candidate | Pooled log-loss gap | Its SD over redrawn cycles | Gap without 2004 | Cycles better | Share in 80% range (0.81) | Count spread (0.228) | Rule |
+|---|---|---|---|---|---|---|---|
+| `govlean_statewide` | -0.007 | 0.009 | -0.007 | 7 of 11 | 0.79 | 0.210 | fails: gain smaller than its SD |
+| `govlean_both` | +0.003 | 0.002 | +0.002 | 4 of 11 | 0.81 | 0.231 | fails: worse |
+| `govlean_prevgov` | +0.034 | 0.036 | +0.038 | 6 of 11 | 0.79 | 0.235 | fails: worse |
+| `govpolls_fallback60` | -0.016 | 0.011 | -0.023 | 7 of 11 | 0.77 | 0.235 | passes |
+| `govpolls_fallback60_fcst` | -0.018 | 0.008 | -0.019 | 6 of 11 | 0.80 | 0.229 | passes |
+| `govwidth_unpolled` | +0.001 | 0.001 | +0.001 | 3 of 11 | 0.81 | 0.230 | fails: worse |
+
+The comparison files are `data/processed/backtest_asof_<candidate>_vs_baseline.json`.
+
+One more run was made and is not a candidate: the forecast-only earlier-polls change and the width change together
+(gap -0.017, SD 0.008). It was meant as the combined design if both passed alone; the width change did not, so it
+shows only that the two together score as the first does.
+
+**Lean: presidential lean stays.** Recent statewide results do not beat it.
+
+- In place of presidential lean, the statewide measure gets a slope of 0.05 to 0.29 against 0.21 to 0.36, and
+  the prior's error over all 239 races rises from 15.5 to 15.9 points. Its log-loss gain is within what a redraw
+  of cycles produces.
+- Beside presidential lean it adds nothing: its slope is between -0.11 and +0.07.
+- The previous governor margin makes things worse. It can only be fitted on states with an earlier race on file
+  (35 races for 2004, 46 for 2006), and there its slope comes out negative (-0.29) with an environment slope above
+  1.3. In 2006 it put three safe Republican seats (Hawaii, Vermont, Nebraska) at 76% to 91% Democratic. By 2016 the
+  slope is near zero. More history (DA-2) would settle whether there is anything here; this test cannot.
+- As run, "governor results" in both measures are the harness's own races: two-way, even years, 1998 on. None of
+  the measures was adjusted for who the incumbents were.
+
+**Earlier polls where there are no late ones: passes, in both versions.** In 17 scored races with no poll in the
+final 21 days but some 22 to 60 days out, the margin error falls from 22.0 points to 10.4 (forecast-only) or 10.8
+(refit). Seven of them were "competitive" in the baseline only because the prior put them near even, and in both
+versions those seven carry the whole gain: Vermont 2006 and 2020, North Dakota 2008, Wyoming 2010, Maryland 2018
+and Delaware 2024 improve, Nebraska 2022 gets slightly worse. The baseline had Maryland 2018 (Hogan, re-elected by
+12) at 47% Democratic and Vermont 2020 (Scott, by 43) at 48%. Over all 239 races, competitive or not, log loss
+falls from 0.212 to 0.200 (forecast-only) or 0.201 (refit).
+
+- The forecast-only version is the cleaner of the two: the other 222 races are unchanged to the last digit, the gain
+  is more than twice its standard deviation, and coverage stays at 80%. The version that also refits on the earlier
+  polls lowers the weight on polls for every race, takes the 80% range's coverage down to 77%, and makes the other
+  126 competitive races slightly worse (+0.002).
+- The ranges for these 17 races are too narrow: the 80% range held 53% of results in the baseline, 53% in the
+  forecast-only version and 47% in the refit. Earlier polls are given a late poll's accuracy, which they do not
+  have. That is the next thing to test, and it was not tuned here.
+- Every historical gain is a lopsided race the prior had near even. In 2026 the change applies to Maryland and
+  Oregon, and Oregon is not of that kind: its earlier polls are about even where the prior expects a clear
+  Democratic win. History says nothing about how well earlier polls do in a case like that.
+- Not adopted in the harness's default yet: fixing the design is GV-4's step. The baseline tables above are
+  unchanged.
+
+**Interval width: no change.** The overall width is about right on races and not clearly wrong on counts (above).
+Widening the prior-only races failed: log loss on competitive races got slightly worse (+0.001) and coverage in
+those 27 races moved only from 52% to 56%. Their problem is the prior's centre in races with a popular incumbent,
+not its spread, and the earlier-polls change addresses 17 of the 27 directly.
+
+**Chance.** With six candidates, about one would be expected to clear the one-standard-deviation bar by luck.
+One idea passed. Its two versions are not two confirmations: both gains come from the same seven races. What
+speaks for it is the size of the gain (more than two standard deviations in the forecast-only version) and a
+mechanism visible race by race. It still gets its single test on 2026 (rule 5).
+
+### Odd-year environment as of each date (GV-3), 2026-11-20
+
+`python src/model/governor_inputs.py offyear` writes, for each odd year 1999 to 2025, what was known on election
+day: the generic-ballot average of the day before, the president's approval, the last House vote, and the
+off-cycle estimator fitted on elections before that year (`data/interim/governor_offyear_env.csv`). Each odd-year
+race is then forecast from the prior alone, fitted on even years before it (31 races, 2003 to 2025;
+`data/processed/governor_offyear_env.json`). Margin error by environment:
+
+| Environment | All 31 | Year after a presidential election (12) | Year before one (19) |
+|---|---|---|---|
+| Last House vote, carried forward | 18.7 | 15.9 | 20.3 |
+| Generic ballot of the day | 18.6 | 12.9 | 21.4 |
+| Estimator, midterm-like | 18.3 | 11.6 | 21.4 |
+| Estimator, scaled by term year on earlier odd years | 17.7 | 10.7 | 21.0 |
+
+The term-year estimator holds up when every fit is as of the date: in New Jersey and Virginia it has the lowest
+error, and the generic ballot of the day does not beat it. For 2025 it gave D+16.5 from data through 2024 (the
+generic ballot said D+2.9), and the prior's errors were 1.7 and 3.7 points. In the year before a presidential
+election no environment helps; those races turn on the candidates. Twelve races is a small sample, and before
+2016 the generic-ballot series is FiveThirtyEight's published historical average, not a rebuild from polls.
+
+### 2026 inputs (GV-3), 2026-11-20
+
+`python src/model/governor_inputs.py 2026` reads the final forecast's poll snapshot (Nov 3, before polls closed)
+and writes the 2026 races in the harness's shape, with no results: `data/interim/governor_2026_polls.csv` (383
+polls naming both nominees) and `data/interim/governor_2026_inputs.csv` (36 races: incumbency, lean, the plain
+21-day mean, the 22-to-60-day mean, and the published forecast's weighted average for comparison).
+
+- 28 races have a poll in the final 21 days; 2 more (Maryland, Oregon) have only earlier ones; 6 have none in 60
+  days (Arkansas, Hawaii, Idaho, New Mexico, Oklahoma, Wyoming).
+- The plain late mean and the weighted average differ by 4.4 points RMS over 28 races, but most of that is Rhode
+  Island; without it the gap is about 2. The model was fitted on plain 21-day means, so that is the one to feed
+  it. Which average the frozen design names is for GV-4.
+- The sponsor columns count VoteHub's party flag, which also marks a pollster's affiliation where no sponsor is
+  listed; the backtest's sponsor shift was fitted on FiveThirtyEight's flag. The poll file carries
+  `sponsor_listed` so the two can be told apart when the shift is applied.
+- Rhode Island is a three-way race in the polls (an independent at 25% to 34%). The model covers two-way races, so
+  it needs a decision at GV-4, before any result is read.
+- Found on the way: `pollavg.statewide()` matched candidates by surname alone, and Nevada has two Fords on the
+  ballot. Its weighted average read R+36; it is D+2.6 once the nominee's full name decides. Fixed there and in
+  the new table. No published number used that function.

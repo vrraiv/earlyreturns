@@ -20,6 +20,7 @@ adoption rule. In short:
   governors    the first governor model (governor_model.py) re-estimated as of each cycle: prior = const + b * lean
                (two-election average) + g * environment + incumbency; blended with the poll average; two national
                errors, the statewide-poll miss and the environment's. Even years only; two-way races.
+               --gov-lean swaps the prior's lean measure (GV-3's candidates, BACKTEST.md).
 
 Burn-in: a layer is scored for Y only if it has MIN_PRIOR earlier cycles to fit on. 2026 is in no fit and is not scored
 here yet: that needs its polls, results and districts in this script's shape.
@@ -28,6 +29,10 @@ Run:  python src/model/backtest_asof.py                  the baseline: writes da
       python src/model/backtest_asof.py --tag NAME       a candidate change: writes backtest_asof_NAME*.{json,csv}
       python src/model/backtest_asof.py --compare NAME   NAME against the baseline, cycle by cycle, on the same races
       options: --seed-shift N (other random draws, to see how much a score moves by chance)
+               --gov-lean pres|statewide|both|prevgov (the governor prior's lean; pres is the baseline)
+               --gov-poll-fallback all|forecast (a governor race with no polls in the final 21 days uses those 22
+               to 60 days out: in the fit and the forecast, or in the forecast only)
+               --gov-unpolled-sd robust|rms (the spread of a governor race forecast from the prior alone)
 """
 import argparse
 import hashlib
@@ -64,6 +69,10 @@ CLIP = 0.001                     # win probabilities are clipped to [CLIP, 1 - C
 COMP = 15.0                      # "competitive": |forecast margin| <= 15
 VARIANTS = ("polls_only", "polls_fundamentals", "polls_fundamentals_biasadj")
 CHAMBERS = ("senate", "house", "governor")
+GOV_LEAN = "pres"                # the governor prior's lean measure; main() sets it from --gov-lean
+GOV_PRIORS = {"pres": "actual ~ lean_avg2 + env + inc", "statewide": "actual ~ lean_sw + env + inc",
+              "both": "actual ~ lean_avg2 + lean_sw + env + inc", "prevgov": "actual ~ lean_avg2 + prevgov + env + inc"}
+SW_YEARS = 6                     # statewide lean: Senate and governor results this many years back
 ELECTION = {y: pd.Timestamp(d) for y, d in {2018: "2018-11-06", 2020: "2020-11-03", 2022: "2022-11-08", 2024: "2024-11-05"}.items()}
 REGIONS = ["Northeast", "Midwest", "South", "West"]
 STATE_REGION = ES.STATE_REGION
@@ -79,14 +88,14 @@ def rms(x):
 
 
 # ---------------------------------------------------------------- data
-def wayback_polls(fname, cycle, kind):
+def wayback_polls(fname, cycle, kind, lo=0, hi=21):
     """Final-21-day polls for one cycle from the archived 538 files, in raw_polls shape: one row per poll, two-party
     Democratic margin `poll2`. Used for 2024 (raw_polls stops in 2022) and, on 2018-2022, to check the rebuild."""
     p = pd.read_csv(latest("538_wayback", fname), low_memory=False)
     p = p[p.cycle == cycle].copy()
     p["end"] = pd.to_datetime(p.end_date, format="%m/%d/%y", errors="coerce")
     e = ELECTION[cycle]
-    p = p[(p.end <= e) & (p.end >= e - pd.Timedelta(days=21))]
+    p = p[(p.end <= e - pd.Timedelta(days=lo)) & (p.end >= e - pd.Timedelta(days=hi))]
     if kind == "generic":
         q = p.assign(DEM=p.dem, REP=p.rep, location="US", race_key="US")
     else:
@@ -129,7 +138,26 @@ def load_polls():
         w["race_id"] = "wb2024_" + ts + "_" + w.location + "_" + w.cand1_name.map(_lastname)
         w["act2"] = np.nan
         extra.append(w)
-    return pd.concat([r] + extra, ignore_index=True)
+    return pd.concat([r] + extra, ignore_index=True).assign(gov_fb=False)
+
+
+FALLBACK_DAYS = (22, 60)         # --gov-poll-fallback: the earlier window (raw_polls itself stops about 60 days out)
+GOV_UNPOLLED_SD = "robust"       # --gov-unpolled-sd: "rms" uses the prior's root-mean-square error instead
+GOV_FB_FIT = True                # whether the governor fit reads the marked polls too ("all") or only the forecast does
+
+
+def gov_fallback(r):
+    """Mark (`gov_fb`) the governor polls ending 22 to 60 days out in races that have no poll in the final 21 days, and
+    add 2024's from the archived file. Only the governor fit and forecast read the mark."""
+    w = wayback_polls("governor_polls_historical.csv", 2024, "senate", *FALLBACK_DAYS)
+    w["type_simple"], w["scored"], w["late"], w["source"], w["act2"], w["gov_fb"] = "Gov-G", True, False, "538_wayback", np.nan, False
+    w["race_id"] = "wb2024_Gov-G_" + w.location + "_" + w.cand1_name.map(_lastname)
+    r = pd.concat([r, w], ignore_index=True)
+    g = (r.type_simple == "Gov-G") & r.scored
+    key = r.cycle.astype(int).astype(str) + r.location.astype(str)
+    days = r.time_to_election.fillna(FALLBACK_DAYS[0])                  # the archive rows are already in the window
+    r["gov_fb"] = g & ~r.late & ~key.isin(set(key[g & r.late])) & days.between(*FALLBACK_DAYS)
+    return r
 
 
 def wayback_check(r):
@@ -322,16 +350,58 @@ def house_history_universe():
     return h
 
 
-def governor_universe():
+def senate_results():
+    """Senate general elections 1976-2024 from MEDSL: year, state, two-party margin between the leading Democrat and
+    the leading Republican (a candidate's votes summed over party lines). Races without both are left out, as are
+    runoffs."""
+    m = pd.read_csv(latest("medsl", "1976-2024-senate-state.tab"), sep=None, engine="python")
+    m = m[m.stage.str.lower().eq("gen") & ~m.writein.fillna(False).astype(bool) & m.candidate.notna()]
+    m = m[~m.year.isin(HELD_OUT)]
+    k = ["year", "state_po", "special", "candidate"]
+    c = m.groupby(k).candidatevotes.sum().rename("v").reset_index()
+    for pty, col in (("DEMOCRAT", "d"), ("REPUBLICAN", "r")):
+        c = c.merge(m[m.party_simplified == pty][k].drop_duplicates().assign(**{col: True}), on=k, how="left")
+    c["d"], c["r"] = c.d.eq(True) & ~c.r.eq(True), c.r.eq(True) & ~c.d.eq(True)
+    top = lambda col: c[c[col]].groupby(["year", "state_po", "special"]).v.max()  # noqa: E731
+    t = pd.concat([top("d").rename("dv"), top("r").rename("rv")], axis=1).dropna().reset_index()
+    t["margin"] = 100 * (t.dv - t.rv) / (t.dv + t.rv)
+    return t.rename(columns={"state_po": "state"})[["year", "state", "margin"]]
+
+
+def governor_universe(sen_res=None, gov_res=None):
     """Two-way governor races in even years from governor_dataset.csv (no recalls, no third candidate at 15% or more),
     as governor_model.load() selects them. The file's own poll averages are not used: they are 60-day averages for
-    538's rows. Odd years are left to governor_model.py, whose environment for them is a separate estimator."""
+    538's rows. Odd years are left to governor_model.py, whose environment for them is a separate estimator.
+
+    Two more lean measures for GV-3's candidates, each from results before the race only, each result taken as its
+    two-party margin minus that year's national House margin:
+      lean_sw   mean of the state's Senate and even-year governor results in the SW_YEARS years before the cycle
+      prevgov   the state's previous governor race, if it was in an even year
+    `sen_res` and `gov_res` (year, state, margin) can be passed in, for the leak test."""
     d = pd.read_csv(ROOT / "data/interim/governor_dataset.csv")
     d = d[d.contested.astype(bool) & ~d.multi_candidate.astype(bool) & ~d.recall.astype(bool) & (d.year % 2 == 0)]
     d = d[~d.year.isin(HELD_OUT)]
     g = pd.DataFrame({"cycle": d.year.values, "state": d.state.values, "key": d.state.values, "lean_avg2": d.lean_avg2.values,
                       "inc": d.inc.values, "env": d.nat_house.values, "actual": d.margin_2p.values})
     assert not g.duplicated(["cycle", "state"]).any()
+    nat = pd.read_csv(ROOT / "data/interim/house_national_vote.csv").set_index("year").two_party_margin_D
+    gov_res = g.rename(columns={"cycle": "year", "actual": "margin"})[["year", "state", "margin"]] if gov_res is None else gov_res
+    past = pd.concat([senate_results() if sen_res is None else sen_res, gov_res], ignore_index=True)
+    past["dev"] = past.margin - past.year.map(nat)
+    by_state = {s: x for s, x in past.groupby("state")}
+    gs = {s: x.sort_values("year") for s, x in gov_res.groupby("state")}
+
+    def sw(c, s):
+        x = by_state.get(s)
+        x = x[(x.year < c) & (x.year >= c - SW_YEARS)] if x is not None else None
+        return float(x.dev.mean()) if x is not None and len(x) else np.nan
+
+    def pg(c, s):
+        x = gs.get(s)
+        x = x[x.year < c] if x is not None else None
+        return float(x.margin.iloc[-1] - nat[x.year.iloc[-1]]) if x is not None and len(x) else np.nan
+    g["lean_sw"] = [sw(c, s) for c, s in zip(g.cycle, g.state)]
+    g["prevgov"] = [pg(c, s) for c, s in zip(g.cycle, g.state)]
     return g
 
 
@@ -339,8 +409,10 @@ def gov_estimate(tr, gen_miss, a, b):
     """governor_model.estimate() on a training table (cycle, lean_avg2, env, inc, actual, poll, n): the prior, the
     weight on polls and the prior error it implies, and the two national errors. `gen_miss` is the generic ballot's
     miss by cycle; a and b are the poll-average error curve."""
-    prior = smf.ols("actual ~ lean_avg2 + env + inc", tr).fit()
-    tr = tr.assign(prior=prior.fittedvalues)
+    base = smf.ols(GOV_PRIORS["pres"], tr).fit()
+    prior = base if GOV_LEAN == "pres" else smf.ols(GOV_PRIORS[GOV_LEAN], tr).fit()
+    # a race without the candidate's lean measure takes the baseline prior
+    tr = tr.assign(prior=prior.fittedvalues if GOV_LEAN == "pres" else prior.predict(tr).fillna(base.predict(tr)))
     resid = tr.actual - tr.prior
     pol = tr[tr.n > 0].copy()
     pol["y"], pol["x"], pol["yr"] = pol.actual - pol.prior, pol.poll - pol.prior, pol.cycle.astype(str)
@@ -349,11 +421,14 @@ def gov_estimate(tr, gen_miss, a, b):
     sd_p_typ = float(np.sqrt(np.mean(a ** 2 + b ** 2 / np.maximum(pol.n, 1))))
     cyc = (pol.actual - pol.poll).groupby(pol.cycle).mean().rename("S").to_frame().join(gen_miss.rename("H"), how="inner").dropna()
     rho = float(np.corrcoef(cyc.S, cyc.H)[0, 1]) if len(cyc) >= 3 else 0.0
-    return {"g_const": float(prior.params["Intercept"]), "g_b_lean": float(prior.params["lean_avg2"]), "g_env": float(prior.params["env"]),
-            "g_inc": float(prior.params["inc"]), "g_poll_w": w, "g_sd_prior": float(sd_p_typ * np.sqrt(w / (1 - w))),
+    return {"g_const": float(base.params["Intercept"]), "g_b_lean": float(base.params["lean_avg2"]), "g_env": float(prior.params["env"]),
+            "g_inc": float(base.params["inc"]), "g_poll_w": w, "g_sd_prior": float(sd_p_typ * np.sqrt(w / (1 - w))),
             "g_sd_prior_unpolled": float(1.4826 * np.median(np.abs(resid - np.median(resid)))),
             "g_sd_S": rms(cyc.S), "g_sd_H": rms(cyc.H), "g_rho": rho if np.isfinite(rho) else 0.0,
-            "g_races": int(len(tr)), "g_races_polled": int(len(pol)), "g_cycles": int(tr.cycle.nunique())}
+            "g_races": int(len(tr)), "g_races_polled": int(len(pol)), "g_cycles": int(tr.cycle.nunique()),
+            **({"g_sd_prior_rms": rms(resid)} if GOV_UNPOLLED_SD == "rms" else {}),
+            **({} if GOV_LEAN == "pres" else {"_g_fit": (prior, base), "g_races_lean_fit": int(prior.nobs),
+                                               **{"g_c_" + k: float(v) for k, v in prior.params.items()}})}
 
 
 def gov_polls(rt):
@@ -480,7 +555,7 @@ def fit_params(r, sen, hh, fund, train, late_only=True, gov=None):
         p["h_sd_poll"] = float(hf["sd_district"] * np.sqrt((1 - whc) / whc))
     # governors
     if gov is not None and gov[gov.cycle.isin(train)].cycle.nunique() >= MIN_PRIOR:
-        gt = gov[gov.cycle.isin(train)].merge(gov_polls(rt), on=["cycle", "state"], how="left")
+        gt = gov[gov.cycle.isin(train)].merge(gov_polls(r[r.cycle.isin(train) & r.act2.notna() & (r.late | (r.gov_fb & GOV_FB_FIT))]), on=["cycle", "state"], how="left")
         gt["n"] = gt.n.fillna(0)
         p.update(gov_estimate(gt, gen_miss, p["sdn_a"], p["sdn_b"]))
     return p
@@ -499,7 +574,7 @@ def fundamentals_pred(p, row):
 # ---------------------------------------------------------------- one cycle
 def poll_table(r, cycle, ts, shift):
     """Race-level average of a cycle's late polls, sponsored polls moved `shift` points away from the sponsor."""
-    x = r[(r.cycle == cycle) & (r.type_simple == ts) & r.scored & r.late].copy()
+    x = r[(r.cycle == cycle) & (r.type_simple == ts) & r.scored & (r.late | r.gov_fb)].copy()
     x["k"] = x.ukey if ts == "Sen-G" else x.location
     sg = np.where(x.partisan.astype(str).str.upper() == "DEM", 1, np.where(x.partisan.astype(str).str.upper() == "REP", -1, 0))
     x["m"] = x.poll2 - shift * sg
@@ -531,10 +606,12 @@ def gov_forecast(rng, y, G, sd_nat, p, gov_u, pt):
     g = gov_u[gov_u.cycle == y].merge(pt.rename(columns={"k": "state"}), on="state", how="left")
     g["n"] = g.n.fillna(0).astype(int)
     g["prior"] = p["g_const"] + p["g_b_lean"] * g.lean_avg2 + p["g_env"] * G + p["g_inc"] * g.inc
+    if "_g_fit" in p:
+        g["prior"] = p["_g_fit"][0].predict(g.assign(env=G)).fillna(p["_g_fit"][1].predict(g.assign(env=G)))
     sdp, sp = np.sqrt(p["sdn_a"] ** 2 + p["sdn_b"] ** 2 / g.n.clip(lower=1)), p["g_sd_prior"]
     w = np.where(g.n > 0, sp ** 2 / (sp ** 2 + sdp ** 2), 0.0)
     g["poll_weight"] = w
-    g["sd_race"] = np.where(g.n > 0, 1 / np.sqrt(1 / sdp ** 2 + 1 / sp ** 2), p["g_sd_prior_unpolled"])
+    g["sd_race"] = np.where(g.n > 0, 1 / np.sqrt(1 / sdp ** 2 + 1 / sp ** 2), p.get("g_sd_prior_rms", p["g_sd_prior_unpolled"]))
     g["mu"] = np.where(g.n > 0, w * g.avg.fillna(0) + (1 - w) * g.prior, g.prior)
     df = p["df_t"]
     ts = np.sqrt((df - 2) / df)
@@ -707,10 +784,13 @@ def parity_governor():
     """gov_estimate() on governor_model.py's own sample, polls and constants, beside governor_model.json: a check that
     the as-of governor fit is that model's estimator. (The as-of runs differ in data: even years, 21-day polls.)"""
     import governor_model as GM
+    global GOV_LEAN
+    keep, GOV_LEAN = GOV_LEAN, "pres"       # that model has the baseline lean only
     d = GM.load()
     t = pd.DataFrame({"cycle": d.year.values, "lean_avg2": d.lean_avg2.values, "env": d.env.values, "inc": d.inc.values, "actual": d.margin_2p.values,
                       "poll": d.poll_avg.values, "n": d.n_polls.fillna(0).values})
     e = gov_estimate(t[t.env.notna()], GM.generic_final().generic_miss, GM.SDN["a"], GM.SDN["b"])
+    GOV_LEAN = keep
     m = json.loads((OUT / "governor_model.json").read_text())
     ref = {"g_const": m["prior_coef"]["Intercept"], "g_b_lean": m["prior_coef"]["lean_avg2"], "g_env": m["prior_coef"]["env"], "g_inc": m["prior_coef"]["inc"],
            "g_poll_w": m["params"]["w"], "g_sd_prior": m["params"]["sd_prior_implied"], "g_sd_prior_unpolled": m["params"]["sd_prior_robust"],
@@ -765,10 +845,12 @@ def compare(tag):
     (OUT / f"backtest_asof_{tag}_vs_baseline.json").write_text(json.dumps(out, indent=1, default=float))
 
 
-def main(tag=None, seed_shift=0, lean="cook"):
+def main(tag=None, seed_shift=0, lean="cook", gov_lean="pres", gov_fb=None, gov_unpolled_sd="robust"):
+    global GOV_LEAN, GOV_FB_FIT, GOV_UNPOLLED_SD
+    GOV_LEAN, GOV_FB_FIT, GOV_UNPOLLED_SD = gov_lean, gov_fb != "forecast", gov_unpolled_sd
     pd.set_option("display.width", 220)
     sfx = f"_{tag}" if tag else ""
-    r = load_polls()
+    r = gov_fallback(load_polls()) if gov_fb else load_polls()
     jp = jacobson_path()
     if jp is None:
         print(f"data/raw/jacobson/*/{JACOBSON} is not on this machine (it is not in the repo): the House starts in 2006 and is "
@@ -811,6 +893,7 @@ def main(tag=None, seed_shift=0, lean="cook"):
                                "1998-2004": None if jp is None else {"source": "Gary Jacobson, House elections file (not in the repo)", "file": JACOBSON,
                                                                      "received": jp.parent.name, "sha256": hashlib.sha256(jp.read_bytes()).hexdigest()},
                                "lean_2006_on": lean},
+           "governor_lean": gov_lean, "governor_unpolled_sd": gov_unpolled_sd, "governor_poll_fallback": {"days": list(FALLBACK_DAYS), "used_in": gov_fb} if gov_fb else None,
            "coverage": cov, "wayback_check": wayback_check(r), "parity": parity(r, sen_u, hh[hh.source == "house_history"], fund), "parity_governor": parity_governor(), "scores": summ}
     (OUT / f"backtest_asof{sfx}.json").write_text(json.dumps(out, indent=1, default=float))
     for v in VARIANTS:
@@ -828,10 +911,13 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--tag"); ap.add_argument("--compare"); ap.add_argument("--seed-shift", type=int, default=0)
     ap.add_argument("--house-lean", choices=("cook", "jacobson"), default="cook")
+    ap.add_argument("--gov-lean", choices=tuple(GOV_PRIORS), default="pres")
+    ap.add_argument("--gov-poll-fallback", choices=("all", "forecast"))
+    ap.add_argument("--gov-unpolled-sd", choices=("robust", "rms"), default="robust")
     a = ap.parse_args()
     if a.compare:
         compare(a.compare)
     else:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", RuntimeWarning)     # empty region cells in the first cycles
-            main(a.tag, a.seed_shift, a.house_lean)
+            main(a.tag, a.seed_shift, a.house_lean, a.gov_lean, a.gov_poll_fallback, a.gov_unpolled_sd)
