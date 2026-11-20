@@ -497,3 +497,49 @@ polls naming both nominees) and `data/interim/governor_2026_inputs.csv` (36 race
 - Found on the way: `pollavg.statewide()` matched candidates by surname alone, and Nevada has two Fords on the
   ballot. Its weighted average read R+36; it is D+2.6 once the nominee's full name decides. Fixed there and in
   the new table. No published number used that function.
+
+### Presidential approval in the governor prior, written 2026-11-20 before any run
+
+The prior already carries the national environment, which moves with the president's approval and shifts every
+race alike. The idea tested here is that approval also bears unevenly: more on a state whose governor is of the
+president's party, and more or less depending on the state's lean. Approval is Gallup's average from July 15 to
+October 31 of the election year, known before the election; a = approval minus 50, and s = +1 under a Democratic
+president, -1 under a Republican.
+
+- *Party agreement*: s x a x agree, where agree = +1 if the sitting governor is of the president's party (running
+  or not) and -1 if not. A positive slope means a popular president helps his party hold its own governorships
+  more than he helps it take the other side's.
+- *Lean*: a x lean (the presidential lean already in the prior). A positive slope means a popular president helps
+  his party more in the states that already lean to it.
+
+Candidate `govprior_approval` (`--gov-lean approval`): both terms added to the baseline prior. Office: governor.
+Expected to improve: the prior, and so mostly races with few or no polls. Approval takes one value per cycle, and
+the first fits have three to five cycles, so the slopes will be unstable early; the slopes by cycle are reported
+with the result. One candidate, not one per term, to keep the count of tries down.
+
+**Result (2026-11-20): fails.** Pooled gap -0.0025 against a standard deviation of 0.0030 (-0.0047 without 2004;
+better in 7 of 11 cycles; coverage and count spread unchanged). The gain is under the 0.005 floor and under its
+own standard deviation. That makes seven candidates run in GV-3.
+
+- Both slopes keep their sign in every fit, which is more than the lean candidates managed. The lean term is
+  about -0.06 per point of approval per 10 points of lean: under a president at 40%, state lean counts for roughly
+  0.39 a point where the baseline has 0.33. On all 14 cycles its t-ratio is -2.2 with errors clustered by cycle.
+- The party-agreement term is about -0.10 to -0.23 and not distinguishable from zero (t = -1.2).
+- The prior's own error does not fall (15.5 to 15.6 points); the model's margin error falls from 9.0 to 8.7, and
+  in the 27 races without polls from 20.2 to 19.3.
+- Worth another look when DA-2 adds cycles: a term that is steady in sign but too small to clear the bar on 11
+  cycles is the kind of thing more history can settle.
+
+### A governor's own approval: not tested, no data on hand (2026-11-20)
+
+Nothing in the repo measures a governor's approval, so this is a question for the data track, not a candidate.
+What the backtest can say is how much there is to gain:
+
+- **Polls carry most of it, not all.** In the 125 polled races with an incumbent running, the prior misses by 15.4
+  points and the model by 6.2. But the model's miss still follows the prior's: for each point the incumbent beats
+  the prior, the result beats the final forecast by 0.21 of a point. About 0.14 of that is the weight the model
+  keeps on the prior; the rest is polls understating well-liked incumbents.
+- **Without polls there is nothing else.** In the 21 unpolled races with an incumbent the prior misses by 19.7
+  points. These are the Hogan and Scott cases: governors far more popular than their state's lean.
+- So approval would matter most where polls are thin or absent, which is also every forecast made early in a cycle
+  (2027's races, and 2028 before the autumn).

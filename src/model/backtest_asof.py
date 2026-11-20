@@ -29,7 +29,7 @@ Run:  python src/model/backtest_asof.py                  the baseline: writes da
       python src/model/backtest_asof.py --tag NAME       a candidate change: writes backtest_asof_NAME*.{json,csv}
       python src/model/backtest_asof.py --compare NAME   NAME against the baseline, cycle by cycle, on the same races
       options: --seed-shift N (other random draws, to see how much a score moves by chance)
-               --gov-lean pres|statewide|both|prevgov (the governor prior's lean; pres is the baseline)
+               --gov-lean pres|statewide|both|prevgov|approval (the governor prior; pres is the baseline)
                --gov-poll-fallback all|forecast (a governor race with no polls in the final 21 days uses those 22
                to 60 days out: in the fit and the forecast, or in the forecast only)
                --gov-unpolled-sd robust|rms (the spread of a governor race forecast from the prior alone)
@@ -71,7 +71,8 @@ VARIANTS = ("polls_only", "polls_fundamentals", "polls_fundamentals_biasadj")
 CHAMBERS = ("senate", "house", "governor")
 GOV_LEAN = "pres"                # the governor prior's lean measure; main() sets it from --gov-lean
 GOV_PRIORS = {"pres": "actual ~ lean_avg2 + env + inc", "statewide": "actual ~ lean_sw + env + inc",
-              "both": "actual ~ lean_avg2 + lean_sw + env + inc", "prevgov": "actual ~ lean_avg2 + prevgov + env + inc"}
+              "both": "actual ~ lean_avg2 + lean_sw + env + inc", "prevgov": "actual ~ lean_avg2 + prevgov + env + inc",
+              "approval": "actual ~ lean_avg2 + env + inc + ap_agree + ap_lean"}
 SW_YEARS = 6                     # statewide lean: Senate and governor results this many years back
 ELECTION = {y: pd.Timestamp(d) for y, d in {2018: "2018-11-06", 2020: "2020-11-03", 2022: "2022-11-08", 2024: "2024-11-05"}.items()}
 REGIONS = ["Northeast", "Midwest", "South", "West"]
@@ -400,6 +401,13 @@ def governor_universe(sen_res=None, gov_res=None):
         x = gs.get(s)
         x = x[x.year < c] if x is not None else None
         return float(x.margin.iloc[-1] - nat[x.year.iloc[-1]]) if x is not None and len(x) else np.nan
+    # presidential approval (Gallup, Jul 15 - Oct 31, known before the election), centred on 50, by party agreement
+    # between the sitting governor and the president and by state lean (BACKTEST.md, "Presidential approval ...")
+    import environment as EN
+    appr = {int(y): (float(a) if pd.notna(a) else EN.approval_on(f"{int(y)}-11-04")[0]) for y, a in d.groupby("year").approval.first().items()}
+    a50, sgn = g.cycle.map(appr) - 50, np.where(d.pres_party.values == "D", 1, -1)
+    g["ap_agree"] = sgn * a50 * np.where(d.inc_party.values == d.pres_party.values, 1, -1)
+    g["ap_lean"] = a50 * g.lean_avg2 / 10
     g["lean_sw"] = [sw(c, s) for c, s in zip(g.cycle, g.state)]
     g["prevgov"] = [pg(c, s) for c, s in zip(g.cycle, g.state)]
     return g
