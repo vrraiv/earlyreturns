@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20e",
+  version: "2026-11-20f",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -149,15 +149,18 @@ window.PLAN = {
             "Today's backtest covers the Senate and the generic ballot in 2018 and 2022. Extend it to House districts and to 2006 through 2024.",
             "Each cycle is forecast with parameters fitted on earlier data only.",
             "Scores: Brier, log loss, margin error, interval coverage and seat-count coverage.",
-            "2026 stays out of every fit and is scored once per change."
+            "2026 stays out of every fit and is scored once per change.",
+            "Governors go through the same harness, with the office as a setting. The first governor model already has its own backtest on 353 races; its scores become the governor baseline that GV-3 tries to beat.",
+            "Mostly implementation. The one decision is the adoption rule, and it is written after the baseline: the baseline scores, and how much they move by chance from cycle to cycle, set how large a gain has to be. It is still fixed before any candidate change is scored."
           ],
           checklist: [
             { id: "a", text: "House districts in the backtest" },
             { id: "b", text: "Cycles extended back to 2006" },
-            { id: "c", text: "Adoption rule written down" },
-            { id: "d", text: "Baseline scores recorded for the current model" }
+            { id: "e", text: "Governors in the harness" },
+            { id: "d", text: "Baseline scores recorded for the current model, governors included" },
+            { id: "c", text: "Adoption rule written down, before any candidate change is scored" }
           ],
-          refs: ["src/model/backtest.py", "src/model/house_structure.py"] },
+          refs: ["src/model/backtest.py", "src/model/house_structure.py", "src/model/governor_model.py"] },
         { id: "CM-2", title: "State-level House error and a carried state intercept", kind: "story", phase: "p4", needs: ["CM-1", "SC-6"],
           why: "History shows a shared state shock of about 3.3 points that the model left out.",
           details: [
