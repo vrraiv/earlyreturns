@@ -8,5 +8,10 @@
     "url": "https://web.archive.org/web/20250212092020id_/https://projects.fivethirtyeight.com/polls/data/president_primary_polls_historical.csv",
     "retrieved": "2026-11-20T08:44:13",
     "bytes": 18493457
+  },
+  "president_general_polls_2016.csv": {
+    "url": "https://web.archive.org/web/20250305151657id_/https://projects.fivethirtyeight.com/general-model/president_general_polls_2016.csv",
+    "retrieved": "2026-11-20T09:03:35",
+    "bytes": 3794540
   }
 }
