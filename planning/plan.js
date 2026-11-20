@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20o",
+  version: "2026-11-20p",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -520,12 +520,12 @@ window.PLAN = {
             "Outputs: win probability, the electoral vote range, the tipping-point state, the chance that the popular vote and the electoral college split, and the chance of a tie.",
             "Written 2026-11-20: `ELECTORAL_COLLEGE.md`. It lists every feature and where it comes from, the model, the simulation, and the test.",
             "Decided the same day. The test is an as-of backtest at 100, 60, 30 and 7 days before each election, which needs the poll average as of any date (EC-2) first. 2024 is held out and scored once. The burn-in is two elections for this office, so 2008 is scored. Four targets are scored: state margins and winners, the popular vote, the electoral vote count, and the gap between the tipping-point state and the popular vote.",
-            "Still open: the adoption rule (the governors' rule does not carry over to four elections), and the check against the lessons list, which waits for SC-4."
+            "The check against the lessons list moved to the design freeze (EC-9) on 2026-11-20: the list waits for the final scorecard, and the build (EC-2 to EC-6) does not. The adoption rule for this office is still to be settled, before the first candidate is run at EC-5."
           ],
           checklist: [
             { id: "a", text: "Design note written" },
             { id: "b", text: "Open questions listed" },
-            { id: "c", text: "Checked against the lessons list" }
+            { id: "c", text: "Check against the lessons list: moved to EC-9", done: true }
           ] },
         { id: "EC-2", title: "Presidential poll average", kind: "story", phase: "p4", needs: ["EC-1", "DA-5"],
           why: "The Senate poll average needs to handle national and state presidential polls.",
@@ -575,11 +575,15 @@ window.PLAN = {
           details: [
             "Options: nothing until there are nominees, a generic party matchup, or the leading candidates' matchups."
           ] },
-        { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8"],
+        { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8", "SC-4"],
           why: "After this the model only takes in new polls.",
           details: [
             "Backtest published on the site.",
-            "Parameters frozen for the season."
+            "Parameters frozen for the season.",
+            "Before the freeze, the design is checked against the 2026 lessons list (moved here from EC-1)."
+          ],
+          checklist: [
+            { id: "a", text: "Design checked against the lessons list" }
           ] }
       ]
     },
