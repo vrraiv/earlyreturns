@@ -14,9 +14,15 @@ WAYBACK_538 = {
 # Presidential polls (DA-5), pinned to the captures checked on 2026-11-20: the general-election file holds the full
 # 2020 and 2024 cycles (state and national), the primary file both parties' 2020 and 2024 primaries.
 WAYBACK_538_PRES = {
-    "president_polls_historical.csv": "20250205084149",
-    "president_primary_polls_historical.csv": "20250212092020",
+    "president_polls_historical.csv": ("20250205084149", "polls/data"),
+    "president_primary_polls_historical.csv": ("20250212092020", "polls/data"),
+    # 2016's full cycle (Nov 2015 to Election Day), as the 2016 forecast used it
+    "president_general_polls_2016.csv": ("20250305151657", "general-model"),
 }
+# The Economist's 2020 presidential model (github.com/TheEconomist/us-potus-model, MIT licence), pinned to its last
+# commit: full-cycle state and national polls for 2008 and 2012, compiled from HuffPost Pollster and others.
+ECONOMIST_SHA = "b89e602ec03e81c797c66cf2743af6fdae4aa526"
+ECONOMIST_FILES = ["all_polls_2008.csv", "all_polls_2012.csv"]
 GH = "https://raw.githubusercontent.com/fivethirtyeight/data/master/"
 
 
@@ -46,10 +52,17 @@ def wayback_538():
 
 
 def wayback_538_pres():
-    for f, ts in WAYBACK_538_PRES.items():
-        url = f"https://web.archive.org/web/{ts}id_/https://projects.fivethirtyeight.com/polls/data/{f}"
+    for f, (ts, path) in WAYBACK_538_PRES.items():
+        url = f"https://web.archive.org/web/{ts}id_/https://projects.fivethirtyeight.com/{path}/{f}"
         p = fetch("538_wayback", f, url, timeout=600)
         print("538", f, p.stat().st_size)
+
+
+def economist_potus():
+    for f in ECONOMIST_FILES:
+        url = f"https://raw.githubusercontent.com/TheEconomist/us-potus-model/{ECONOMIST_SHA}/data/{f}"
+        p = fetch("economist_potus", f, url)
+        print("economist", f, p.stat().st_size)
 
 
 def github_538():
