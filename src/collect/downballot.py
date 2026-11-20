@@ -9,6 +9,10 @@ recorded in data/linked/manifest.json, and only tables derived here are committe
                -> data/interim/state_presidential_history.csv: two-party margin, the nation's, and the state's lean,
                computed here from the counts. The sheet's own partisanship score is not carried over.
 
+Fetched for later cards and not yet used (whole workbooks, as .xlsx): the special elections index (1989-2022), open
+and uncontested House seats (2006-2026), and district demographics (education and income; race by age and citizenship;
+urban-rural classes). See DA-1 and DA-4 in the work plan.
+
 Run:  python src/collect/downballot.py [fetch|build|all]   (default all; fetch skips files already in today's store)
 """
 import csv
@@ -24,6 +28,18 @@ PAGE = "https://www.the-downballot.com/p/data"
 SHEETS = {
     "pres_state.csv": {"sheet_id": "1D-edaVHTnZNhVU840EPUhz3Cgd7m39Urx7HM8Pq6Pus", "gid": 29622862,
                        "title": "Presidential results by state, 1828-2024"},
+}
+BOOKS = {
+    "special_elections_index.xlsx": {"sheet_id": "1mP8z1TWsrJbWGXk_pz3QgOZQpAmQxLY6sZjPp4qzY6c",
+                                     "title": "Special Elections Index and results data, 1989-2022"},
+    "open_uncontested_house.xlsx": {"sheet_id": "12RhR9oZZpyKKceyLO3C5am84abKzu2XqLWjP2LnQDgI",
+                                    "title": "Open and uncontested congressional districts, 2006-2026"},
+    "education_income_cd.xlsx": {"sheet_id": "1mCaLsoAuf19srhnU3UL37MoEOk4kcd_JxEgj96vIgJk",
+                                 "title": "Education and income by congressional district and state, 2018-2022"},
+    "race_age_citizenship_cd.xlsx": {"sheet_id": "14gFG9uQgJ-qTq3lkTNQ9YbhB9C8s3Gy78I1eqd7EpRM",
+                                     "title": "Racial demographics by age and citizenship, by district and state, 2016-2019"},
+    "urban_rural_cd118.xlsx": {"sheet_id": "1COIr226wGZQu1_i2ArF_ap5hUxYQ1Tb1QIH_tpUm0o4",
+                               "title": "Rural/Suburban/Urban classification of districts, 118th Congress"},
 }
 INTERIM = ROOT / "data" / "interim"
 
@@ -42,6 +58,10 @@ STATE_ABBR = {"Alabama": "AL", "Alaska": "AK", "Arizona": "AZ", "Arkansas": "AR"
 def fetch():
     for name, s in SHEETS.items():
         p = fetch_linked("downballot", name, gsheet_csv(s["sheet_id"], s["gid"]), PAGE, meta=s)
+        print("downballot", name, p.stat().st_size)
+    for name, s in BOOKS.items():
+        url = f"https://docs.google.com/spreadsheets/d/{s['sheet_id']}/export?format=xlsx"
+        p = fetch_linked("downballot", name, url, PAGE, meta=s)
         print("downballot", name, p.stat().st_size)
 
 

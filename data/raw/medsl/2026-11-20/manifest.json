@@ -1,0 +1,17 @@
+{
+  "1976-2018-house.csv": {
+    "url": "https://raw.githubusercontent.com/MEDSL/constituency-returns/fe67c056502fc09ddb1ace2ff8f87c53233a744e/1976-2018-house.csv",
+    "retrieved": "2026-11-20T11:32:14",
+    "bytes": 3870744
+  },
+  "1976-2024-senate-state.tab": {
+    "url": "https://dvn-cloud-iqss.s3.amazonaws.com/10.7910/DVN/PEJ5QU/19e17cc9bc2-05615a632744.orig?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%271976-2024-senate-state.csv&response-content-type=text%2Fcomma-separated-values&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261120T163215Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAZT3GWQ6FKBSH5I56%2F20261120%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=0fb1ee2d42fd6fd00f0d39de1a7b314196cd7fce7dd729e2f2611e3d50deeffc",
+    "retrieved": "2026-11-20T11:32:16",
+    "bytes": 530501
+  },
+  "sources-senate.tab": {
+    "url": "https://dvn-cloud-iqss.s3.amazonaws.com/10.7910/DVN/PEJ5QU/1771b2e25b0-43d511c60ed0.orig?response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27sources-senate.csv&response-content-type=text%2Fcsv&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20261120T163306Z&X-Amz-SignedHeaders=host&X-Amz-Credential=AKIAZT3GWQ6FKBSH5I56%2F20261120%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Expires=3600&X-Amz-Signature=68f6fed2805d2b3a74f5eaa1bcbf880740a5e20677d49884f874eb205b525b3a",
+    "retrieved": "2026-11-20T11:33:07",
+    "bytes": 3049
+  }
+}
