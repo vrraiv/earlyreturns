@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20",
+  version: "2026-11-20b",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -39,7 +39,8 @@ window.PLAN = {
     { title: "2026 governor results stay unscored until the governor design is frozen.", text: "That keeps 2026 a true out-of-sample test for the governors model." },
     { title: "Scorecard numbers are provisional until counting ends.", text: "Nothing built on them is final before then." },
     { title: "Plan changes and forecast changes never share a commit.", text: "Changes reach main through a pull request." },
-    { title: "No manual live-results tools.", text: "Only an automatic results feed is worth building." }
+    { title: "No manual live-results tools.", text: "Only an automatic results feed is worth building." },
+    { title: "Sources that ask not to be copied are linked, not committed.", text: "The Downballot, and any source with the same terms: raw copies live in a gitignored store, only derived tables are committed, each use is cited in DATA.md, and the site links to the source's own page where it would otherwise link to our data (OP-8)." }
   ],
 
   tracks: [
@@ -252,7 +253,8 @@ window.PLAN = {
           details: [
             "Senate: the class 3 seats, plus any specials.",
             "House: districts on the lines in force, with lean rebuilt where lines changed.",
-            "Candidates and incumbents collected as nominees are chosen."
+            "Candidates and incumbents collected as nominees are chosen.",
+            "Lean on new lines: The Downballot's presidential results by district for each map since 2006, with predecessor-district versions and its 2010s and 2020s redistribution analyses (store-and-link, OP-8)."
           ],
           checklist: [
             { id: "a", text: "Senate race list for 2028" },
@@ -285,7 +287,8 @@ window.PLAN = {
             "Primary polls, results, calendars and delegate rules.",
             "Senate special elections, and polls of past specials.",
             "Who drew each state's map, by cycle.",
-            "For each: the question it answers, the source and licence, the hours to collect, and what is lost by skipping it."
+            "For each: the question it answers, the source and licence, the hours to collect, and what is lost by skipping it.",
+            "The Downballot's data page (the-downballot.com/p/data) has a start on several of these; each card below says which. Its terms: free use with a citation and a link, no reproducing whole spreadsheets, so it follows the store-and-link rule (OP-8)."
           ] },
         { id: "DA-2", title: "House district history before 2006", kind: "story", phase: "p2", needs: ["DA-1"],
           why: "Six midterms can't separate the type of year from the drift over time.",
@@ -294,7 +297,8 @@ window.PLAN = {
             "Stage 2: districts back to 1976, using the MIT Election Lab House returns plus a lean source.",
             "Stage 3: the 1950s, only if a district presidential vote file arrives (DA-3).",
             "Wikipedia's House pages before 2006 carry no district lean, so even 1998 and 2002 need a second source.",
-            "Older years only help if coefficients are allowed to drift over time. Pooling them would hurt."
+            "Older years only help if coefficients are allowed to drift over time. Pooling them would hurt.",
+            "The Downballot's presidential results by district start with 2008, so the years before 2006 still rest on the authors' files (DA-3)."
           ],
           checklist: [
             { id: "a", text: "National-series test done" },
@@ -324,7 +328,8 @@ window.PLAN = {
             "Education, race and ethnicity, age, income and urban share.",
             "By congressional district on the lines in force each cycle, and by state.",
             "Needs a free Census API key, which you create.",
-            "Decide how far back to go. District tables from the yearly survey start in the mid-2000s."
+            "Decide how far back to go. District tables from the yearly survey start in the mid-2000s.",
+            "A start without the Census: The Downballot publishes education and income, race by age and citizenship, and urban-rural classifications by district for 2016 to 2022 (store-and-link, OP-8)."
           ],
           checklist: [
             { id: "a", text: "API key in `.env`" },
@@ -339,7 +344,8 @@ window.PLAN = {
             "State results from 1992 to 2024 are already in the repo.",
             "Polls: the 538 archive in the repo covers recent cycles, and its raw polls file has the final three weeks back to 1998.",
             "Check coverage by cycle and state before designing the backtest.",
-            "National polls too, for the popular vote layer."
+            "National polls too, for the popular vote layer.",
+            "State results before 1992: The Downballot's presidential results by state, 1828 to 2020, with a partisanship score (store-and-link, OP-8)."
           ],
           checklist: [
             { id: "a", text: "Coverage table by cycle and state" },
@@ -352,7 +358,8 @@ window.PLAN = {
           details: [
             "Past cycles: national and state primary polls, results by state and date, and delegate rules.",
             "2028: a source for primary polls, checked for coverage.",
-            "The 2028 calendar is not set. Collect it when each party publishes it."
+            "The 2028 calendar is not set. Collect it when each party publishes it.",
+            "The Downballot's primary and filing-deadline calendars cover 2018 to 2026 and will carry 2028 once it is set. It has no presidential primary polls or state results."
           ],
           checklist: [
             { id: "a", text: "Past primary polls collected" },
@@ -370,7 +377,8 @@ window.PLAN = {
         { id: "DA-8", title: "Sources and licences kept current", kind: "story", phase: "any",
           why: "The data catalogue is public, and derived data carries a licence.",
           details: [
-            "Each new source goes into DATA.md with its licence before its data is committed."
+            "Each new source goes into DATA.md with its licence before its data is committed.",
+            "Sources whose terms ask that whole tables not be reproduced follow the store-and-link rule (OP-8): raw copies gitignored, derived tables committed, the site linking to the source."
           ],
           refs: ["DATA.md", "LICENSE-DATA.md"] }
       ]
@@ -625,7 +633,8 @@ window.PLAN = {
           why: "The single-race path covers House specials and off-cycle governors, not Senate specials.",
           details: [
             "A history like the House one: results against state lean and the environment.",
-            "Few races, so borrow the House pattern and test it."
+            "Few races, so borrow the House pattern and test it.",
+            "Source: The Downballot's Special Elections Index, 1989 to 2022, partisan congressional and legislative specials with the district's presidential vote (store-and-link, OP-8). It also extends the House specials history back from 2007."
           ],
           checklist: [
             { id: "a", text: "Senate specials history collected" },
@@ -663,7 +672,8 @@ window.PLAN = {
         { id: "SP-8", title: "Watch list", kind: "story", phase: "any",
           why: "Specials are called on short notice.",
           details: [
-            "Vacancies and scheduled specials, checked monthly."
+            "Vacancies and scheduled specials, checked monthly.",
+            "The Downballot keeps a special elections sheet for 2027 to 2028, with results as they come."
           ] }
       ]
     },
@@ -801,14 +811,30 @@ window.PLAN = {
           why: "District lines can change again before 2028.",
           details: [
             "Track passed plans and court rulings.",
-            "Rebuild district lean on the lines in force."
+            "Rebuild district lean on the lines in force.",
+            "The Downballot's redistribution analyses show how each new district is built from old ones; see CM-9."
           ] },
         { id: "OP-7", title: "Freeze routine for 2028", kind: "story", phase: "p4", needs: ["OP-1"],
           why: "The final-forecast routine handles one election date and two chambers.",
           details: [
             "Freeze, tag and lock label, extended to more offices and more than one date."
           ],
-          refs: ["src/run_all.py"] }
+          refs: ["src/run_all.py"] },
+        { id: "OP-8", title: "Store for sources that are linked, not committed", kind: "story", phase: "p2",
+          why: "The Downballot's data is free to use with a citation and a link, but it asks that whole spreadsheets not be reproduced. The repo commits its raw inputs, which would do just that.",
+          details: [
+            "A gitignored raw store for such sources, filled by script and rebuilt on demand. A committed manifest records each fetch: sheet id, tab, date.",
+            "Only derived tables are committed, each cited in DATA.md with a link to the source's page.",
+            "Where the site would link to our copy of the data, it links to the source's own page instead.",
+            "Needed before the first Downballot table is used: specials history (SP-3), state presidential results (DA-5), presidential results by district (CM-9, OP-6), district demographics (DA-4)."
+          ],
+          checklist: [
+            { id: "a", text: "Gitignored store and committed manifest in place" },
+            { id: "b", text: "Fetch helper for Google Sheets tabs" },
+            { id: "c", text: "DATA.md and LICENSE-DATA.md describe the convention" },
+            { id: "d", text: "Site build links to the source where a data link would be" }
+          ],
+          refs: ["DATA.md", "LICENSE-DATA.md", "src/collect/common.py", ".gitignore"] }
       ]
     }
   ]
