@@ -10,5 +10,16 @@
       "bytes": 156249,
       "sha256": "c1c536d785b99deedad1c7cccf2d8c4afdbb6836252f45ff643c926e23af3c3c"
     }
+  },
+  "erikson_wlezien": {
+    "2026-11-20/Timeline_Poll_Data.xlsx": {
+      "url": "https://web.archive.org/web/20220222171405id_/https://liberalarts.utexas.edu/government/_files/wlezien/Timeline_Poll_Data.xlsx",
+      "page": "https://liberalarts.utexas.edu/government/faculty/cw26629",
+      "title": "Poll Data for Erikson and Wlezien 2012, The Timeline of Presidential Elections",
+      "note": "the page's link is dead; this is the Internet Archive capture of 2022-02-22",
+      "retrieved": "2026-11-20T10:05:39",
+      "bytes": 123393,
+      "sha256": "3857a98508ebf066b8680726a91ea1a9f09073bd595bd12ef449b4e56bf3e6c8"
+    }
   }
 }

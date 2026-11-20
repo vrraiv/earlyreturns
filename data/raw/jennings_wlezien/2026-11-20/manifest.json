@@ -9,5 +9,11 @@
     "retrieved": "2026-11-20T09:59:48",
     "bytes": 20648,
     "note": "rows of the 2008-11-04 presidential election with a poll"
+  },
+  "us_presidential_2008_2012_from_2016_version.csv": {
+    "url": "https://dataverse.harvard.edu/api/access/datafile/2533797",
+    "retrieved": "2026-11-20T10:04:55",
+    "bytes": 36790,
+    "note": "rows of the 2008-11-04 and 2012-11-06 presidential elections with a poll"
   }
 }
