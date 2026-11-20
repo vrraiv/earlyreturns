@@ -36,6 +36,11 @@ records every fetch with its URL, the source's page, the sheet and tab, the retr
 collector rebuilds the store. Only tables derived from them are committed, and the site links to the source's own page
 wherever it would otherwise link to a copy of the data.
 
+**Backup.** Files kept out of git exist only on the machine that fetched them, and some of their sources are live pages
+that can change. `python src/backup_offrepo.py` copies every git-ignored file under `data/` to the folder named by
+`backup_dir` in `.env`, with a manifest of checksums. It never deletes from the backup. Run it after fetching a new
+off-repo source.
+
 | Source | What we take | Years | Collector | Credit and link |
 |---|---|---|---|---|
 | **Erikson and Wlezien**, poll data for *The Timeline of Presidential Elections* (2012) | The Democrat's two-party poll share by day; used only to check the national poll-day table | 1952-2012 | `src/collect/pres_polls_national_history.py` | Robert S. Erikson and Christopher Wlezien, via [Wlezien's page](https://liberalarts.utexas.edu/government/faculty/cw26629) (link dead; Internet Archive copy). No licence stated |
