@@ -185,3 +185,79 @@ Then 2024, once, recorded whichever way it goes.
 3. Third candidates: a state where one polls in double digits needs a rule, as for governors.
 4. The check against the 2026 lessons list is done at the design freeze (EC-9). The list (SC-4) waits for the final
    scorecard, and the build does not wait for it.
+
+## 11. From today's polls to election day: evaluation plan (EC-2)
+
+*Plan written 2026-11-20. Nothing in it has been run.* A poll average says how people would vote today. The
+forecast needs what the polls will say on election day, and the adjustment between the two is the heart of this
+model. Sections 6 and 7 only widened the range with distance from the election; this section adds changes to the
+centre. Where it differs from sections 6, 7, 8 and 10 it is marked **proposed** until confirmed.
+
+**Decided 2026-11-20**
+
+- Only the forecast is published. The nowcast is kept as the yardstick: every adjustment is scored as forecast
+  against nowcast.
+- The forecast starts when both nominees are presumptive, which can be June. A test date near 150 days is added to
+  100, 60, 30 and 7.
+- Third-party support is dropped. Undecided voters are modelled, not just dropped.
+- Polls of registered voters are corrected to likely voters, as the Senate average does.
+- 2024 is out of everything in this section, including the tests that use no results.
+
+**What the files show already** (checks, not fits)
+
+- Conventions are mostly inside the last 100 days. The later convention ended between 61 and 103 days before the
+  election in every year from 1952 to 2024, and within 100 days in 16 of 19. So the 100-day and 60-day forecasts
+  often sit inside a bounce. (Dates from Wikipedia's convention lists; to be collected into the repo.)
+- Undecided voters can be measured: in head-to-head questions, the share for neither candidate falls from about
+  9 to 11 points five months out to 3 or 4 in the last week (2004 to 2012 and 2020; 2016 ran about twice that).
+  Questions that name other candidates mix third-party support in, and the national series before 2004 always does.
+
+**Two test beds**
+
+| | National | States |
+|---|---|---|
+| Data | daily national average 1952 to 2016, plus 2020 built from the repo's polls | state polls 2004 to 2020 |
+| Scored elections | about 11 (1980 to 2020, where polls are dense), fitted on earlier ones | 2012 to 2020 at 150, 100 and 60 days; 2008 as well at 30 and 7 |
+| Decides | how polls move over a campaign | what to do in states with few polls |
+
+**Baseline.** Forecast = nowcast, with a range that widens with days out. The nowcast is the Senate average's
+weighting applied to presidential polls.
+
+**Stages, in order. Each candidate is written down before its run.**
+
+1. *The nowcast itself.* How fast a poll goes stale, the registered-to-likely-voter correction and pollster
+   effects, each chosen by how well the average predicts the next polls. No results are used. The weighting that
+   gives the best nowcast is not necessarily the best for the forecast, so it is fixed here and not retuned later.
+2. *Convention windows.* Three treatments: subtract a fitted rise and fade; down-weight polls in the window; only
+   widen the range. National test bed.
+3. *Reversion and trend.* National test bed, at most six candidates:
+   - pull toward an anchor, by an amount that depends on days out. The anchor until EC-3 exists: the incumbent
+     party's margin predicted from the sitting president's approval on that date and the previous result;
+   - continue (or reverse) the last month's movement;
+   - durability: how long the lead has stood at its present level;
+   - undecided voters: how they break (in proportion to decided voters, evenly, or a fitted mix), and a wider
+     range when there are many;
+   - whether a shift that comes with a change in presidential approval lasts longer. Candidate approval is not in
+     the repo, so only the president's can be tested;
+   - whether a shift spread evenly across states lasts longer than a concentrated one. Only the state polls from
+     2004 can test this, so it is the weakest of the six.
+4. *States with few polls.* Scored on states with no poll in the previous 30 days; at 100 days that was 15 to 29
+   of 51 states in 2004 to 2016. Three ways to fill the gap: the prior (national estimate plus lean); the average
+   swing in the polled states; the state's last poll carried forward by the national movement since.
+5. *The add-up.* **Open decision.** Section 5 builds the popular vote from the state draws. The alternatives: let
+   national polls set the popular vote and spread the difference over states by their uncertainty and size; or
+   publish two numbers that need not agree, with a caveat on the split probability and the gap.
+
+**Adoption rule for stages 2 to 4 (proposed; changes section 8).** Section 8 judges at 7 days, where an adjustment
+from nowcast to forecast is close to nothing. For these candidates:
+
+- the score is the forecast's error against the result, averaged over 150, 100 and 60 days; 30 and 7 days are
+  reported and must not get worse;
+- on the national test bed, a candidate with a feature (an anchor, a trend, an undecided share) has to beat 19 in
+  20 versions with that feature shuffled between elections, and be better in at least two thirds of the scored
+  elections;
+- a candidate with nothing to shuffle has to pass a sign test on its election-by-election gains at the same 1 in 20;
+- on the state test bed, section 8 applies as written, at the dates above.
+
+**Not in the repo yet:** convention dates; the date each nominee became presumptive; a 2020 national series built
+the same way as 1952 to 2016; candidate favourability.
