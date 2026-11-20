@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20c",
+  version: "2026-11-20d",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -764,14 +764,15 @@ window.PLAN = {
             "Seats not up, key dates, the poll-closing time, and filenames with 2026 in them.",
             "Move them into one cycle config that can describe any election, midterm or presidential.",
             "Include the scorecard and post-mortem scripts, so the cycle of forecast, scorecard, post-mortem and archive repeats for 2028 and 2030 without rewriting them.",
-            "Confirm the frozen 2026 forecast still rebuilds exactly."
+            "Confirm the frozen 2026 forecast still rebuilds exactly.",
+            "Step (a) done 2026-11-20: planning/op1-hardcoded-2026-audit.md lists every occurrence, sorted into config values, historical constants and 2026-by-design, with a proposed config and the order for steps (b) and (c). Those two wait until the daily scorecard has finished in mid-December, since they touch the modules it imports."
           ],
           checklist: [
             { id: "a", text: "Hardcoded values listed" },
             { id: "b", text: "Cycle config in place" },
             { id: "c", text: "Frozen forecast rebuild check passes" }
           ],
-          refs: ["src/model/forecast.py", "src/run_all.py"] },
+          refs: ["planning/op1-hardcoded-2026-audit.md", "src/model/forecast.py", "src/run_all.py"] },
         { id: "OP-2", title: "Two poll sources and a blocklist", kind: "story", phase: "p4",
           why: "The poll audit on the scorecard page found polls missing from our one source, and polls from a pollster that should have been left out.",
           details: [
