@@ -1,4 +1,4 @@
-"""National presidential trial-heat polls by day, 1952-2016 without 2008 (DA-5): the long history for poll decay and convention
+"""National presidential trial-heat polls by day, 1952-2016 (DA-5): the long history for poll decay and convention
 bounces, which the poll-level table (president_general_polls.csv, from 2004) is too short to estimate.
 
 Source: Will Jennings and Christopher Wlezien, "Election Polling Errors across Time and Space", Nature Human
@@ -11,11 +11,17 @@ The 290 MB file is fetched into data/raw/jennings_wlezien/<date>/ and not commit
 presidential rows that have a poll are saved beside it as us_presidential_poll_days.csv, which is committed.
 
 Two cautions found on 2026-11-20:
-- 2008 is dropped. The file's 2008 series is its 2004 series again (91% of days carry identical shares at the same
-  distance from the election; its last fortnight has McCain ahead). The results attached to it are 2008's.
-  president_general_polls.csv has 2008 from Wikipedia.
-- 2012 runs about 2 points more Republican than The Economist's compilation of the same months. It holds 1,044
-  poll readings against 191 there, so daily tracking polls are probably counted on each release.
+- 2008 comes from the earlier version of the same collection. In the 2018 file the 2008 series is its 2004 series
+  again (91% of days carry identical shares at the same distance from the election; its last fortnight has McCain
+  ahead), in the Dataverse copy and in the identical file on Wlezien's website. The 2016 version (Jennings and
+  Wlezien, "The Timeline of Elections: A Comparative Perspective", AJPS 60, doi:10.7910/DVN/28856, CC0) has the real
+  2008: Obama 54-46 of the two-party total in the last fortnight, against a result of 53.7-46.3. That version gives
+  shares of the two-party total and no poll counts. Its 2000 and 2004 match the 2018 file to 0.1 point.
+- 2012 differs between the versions: the 2018 file has 438 poll-days and 1,044 readings, the 2016 one 143 days, and
+  the 2018 one runs about 1 point more Republican than the 2016 one and 2 more than The Economist's compilation.
+  Daily tracking polls are probably counted on each release. The 2018 series is kept; treat 2012 with care.
+The column source_version says which file a row comes from.
+Results are taken from state_presidential_history.csv, not from the source (they agree but for 2008).
 
 Output: data/interim/president_national_poll_days.csv, one row per cycle and day with a poll: the Democrat's and
 Republican's poll shares (as published: of all respondents to 2012, of the two-party total in 2016), the two-party
@@ -30,11 +36,13 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import ROOT, fetch, latest  # noqa: E402
+from common import ROOT, fetch, latest, raw_dir  # noqa: E402
 
 INTERIM = ROOT / "data" / "interim"
 URL = "https://dataverse.harvard.edu/api/access/datafile/3107210"     # LONG_MI_NATURE_20180111.tab
 BIG, SMALL = "LONG_MI_NATURE_20180111.tab", "us_presidential_poll_days.csv"
+URL_2016 = "https://dataverse.harvard.edu/api/access/datafile/2533797"   # LONG_MI.tab, 1.4 GB: streamed, not kept
+SMALL_2008 = "us_presidential_2008_from_2016_version.csv"
 
 
 def extract():
@@ -52,26 +60,63 @@ def extract():
     return d
 
 
+def extract_2008():
+    """2008's poll-days from the 2016 version: the committed extract if present, else streamed from Dataverse, keeping
+    only the rows of the 2008-11-04 presidential election (the file has no country name; no other country voted for a
+    president that day)."""
+    import datetime as dt
+    import io
+    import json
+
+    import requests
+    try:
+        return pd.read_csv(latest("jennings_wlezien", SMALL_2008))
+    except FileNotFoundError:
+        pass
+    r = requests.get(URL_2016, stream=True, timeout=600)
+    r.raise_for_status()
+    lines = []
+    for i, line in enumerate(r.iter_lines(decode_unicode=True)):
+        if i == 0 or "\t2008-11-04\t" in line:
+            lines.append(line)
+    d = pd.read_csv(io.StringIO("\n".join(lines)), sep="\t", low_memory=False)
+    d = d[(d.election == "Presidential") & d.poll_.notna()].drop_duplicates(["daysbeforeED", "partyid"])
+    d = d[["polldate", "electionyr", "elecdate", "daysbeforeED", "partyid", "poll_", "vote_", "inc_"]]
+    out = raw_dir("jennings_wlezien") / SMALL_2008
+    d.to_csv(out, index=False)
+    mf = out.parent / "manifest.json"
+    m = json.loads(mf.read_text()) if mf.exists() else {}
+    m[SMALL_2008] = {"url": URL_2016, "retrieved": dt.datetime.now().isoformat(timespec="seconds"),
+                     "bytes": out.stat().st_size, "note": "rows of the 2008-11-04 presidential election with a poll"}
+    mf.write_text(json.dumps(m, indent=2))
+    return d
+
+
 def build():
     d = extract()
+    d = d[d.electionyr != 2008].assign(source_version="2018")     # its 2008 is a copy of 2004: see the docstring
+    d = pd.concat([d, extract_2008().assign(source_version="2016")], ignore_index=True)
     d["cycle"] = d.electionyr.astype(int)
-    d = d[d.cycle != 2008]                  # a copy of 2004's polls: see the docstring
     two = d[d.partyid.isin([1, 2])]         # 1 = the Democrat, 2 = the Republican, in every cycle
     w = two.pivot_table(index=["cycle", "polldate", "elecdate", "daysbeforeED"], columns="partyid",
                         values=["poll_", "vote_"]).reset_index()
     w.columns = ["cycle", "date", "election_date", "days_to_election", "d_pct", "r_pct", "d_vote", "r_vote"]
-    meta = two[two.partyid == 1].set_index(["cycle", "polldate"])[["npolls", "sample", "inc_"]]
+    meta = two[two.partyid == 1].set_index(["cycle", "polldate"])[["npolls", "sample", "inc_", "source_version"]]
     w = w.join(meta, on=["cycle", "date"]).rename(columns={"inc_": "d_incumbent_party"})
     w["margin_2p"] = 100 * (w.d_pct - w.r_pct) / (w.d_pct + w.r_pct)
-    w["result_margin_2p"] = 100 * (w.d_vote - w.r_vote) / (w.d_vote + w.r_vote)
+    # The result comes from our own table (state_presidential_history.csv). The source's agrees with it within 0.2
+    # points in every cycle but 2008, where the 2016 version carries 55.4-44.6 against the actual 53.7-46.3.
+    ours = pd.read_csv(INTERIM / "state_presidential_history.csv").groupby("year").national_margin_2p.first()
+    w["result_margin_2p"] = w.cycle.map(ours)
     w["days_to_election"] = w.days_to_election.astype(int)
     w["d_incumbent_party"] = w.d_incumbent_party.astype(int)
     w = w[["cycle", "date", "election_date", "days_to_election", "d_pct", "r_pct", "margin_2p", "npolls", "sample",
-           "d_incumbent_party", "result_margin_2p"]].sort_values(["cycle", "date"])
+           "d_incumbent_party", "result_margin_2p", "source_version"]].sort_values(["cycle", "date"])
     w.round(3).to_csv(INTERIM / "president_national_poll_days.csv", index=False)
+    w["wt"] = w.npolls.fillna(1)            # 2008 has no poll counts: each day counts once
     g = w.groupby("cycle")
     last = w[w.days_to_election <= 14].groupby("cycle").apply(
-        lambda x: (x.margin_2p * x.npolls).sum() / x.npolls.sum(), include_groups=False)
+        lambda x: (x.margin_2p * x.wt).sum() / x.wt.sum(), include_groups=False)
     summ = pd.DataFrame({"poll_days": g.size(), "polls": g.npolls.sum().round().astype(int),
                          "first_poll_days_out": g.days_to_election.max(),
                          "days_60_to_200_out": w[w.days_to_election.between(60, 200)].groupby("cycle").size(),
@@ -90,7 +135,7 @@ def crosscheck(w):
     p["week"] = p.days_to_election // 7
     ours = p.groupby(["cycle", "poll_id"]).agg(m2=("m2", "mean"), week=("week", "first")).groupby(["cycle", "week"]).m2.mean()
     w = w.assign(week=w.days_to_election // 7)
-    theirs = w.groupby(["cycle", "week"]).apply(lambda x: (x.margin_2p * x.npolls).sum() / x.npolls.sum(),
+    theirs = w.groupby(["cycle", "week"]).apply(lambda x: (x.margin_2p * x.wt).sum() / x.wt.sum(),
                                                 include_groups=False)
     j = pd.concat({"ours": ours, "jw": theirs}, axis=1).dropna().reset_index()
     j["gap"] = j.ours - j.jw
