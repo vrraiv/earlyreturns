@@ -191,7 +191,7 @@ Then 2024, once, recorded whichever way it goes.
 *Plan written 2026-11-20. Nothing in it has been run.* A poll average says how people would vote today. The
 forecast needs what the polls will say on election day, and the adjustment between the two is the heart of this
 model. Sections 6 and 7 only widened the range with distance from the election; this section adds changes to the
-centre. Where it differs from sections 6, 7, 8 and 10 it is marked **proposed** until confirmed.
+centre. It was confirmed the same day, and where it differs from sections 4 to 8 and 10, this section stands.
 
 **Decided 2026-11-20**
 
@@ -202,6 +202,9 @@ centre. Where it differs from sections 6, 7, 8 and 10 it is marked **proposed** 
 - Third-party support is dropped. Undecided voters are modelled, not just dropped.
 - Polls of registered voters are corrected to likely voters, as the Senate average does.
 - 2024 is out of everything in this section, including the tests that use no results.
+- The date a nominee became presumptive is taken late when in doubt. Starting early is not worth a wrong matchup.
+- The popular vote and the states come from the same draw, so the chance of a split and the gap to the
+  tipping-point state stay meaningful. Two numbers that need not agree are ruled out.
 
 **What the files show already** (checks, not fits)
 
@@ -236,21 +239,25 @@ weighting applied to presidential polls.
    - continue (or reverse) the last month's movement;
    - durability: a lead that has held for longer is pulled less toward the anchor. Measured as how much the
      average has moved over the campaign so far (its day-to-day spread), so a steady race gets both a weaker pull
-     and a narrower range. Compared at the same number of days out, since every lead is older late in the year;
+     and a narrower range. Compared at the same number of days out, since every lead is older late in the year.
+     This measure is agreed for now and may be revisited once the later cards are settled. 2008 is the case to
+     look at by eye: after the financial crisis broke in mid-September the Democratic lead stopped moving. One
+     case picked with hindsight illustrates a result; it cannot pass or fail a candidate;
    - undecided voters: how they break (in proportion to decided voters, evenly, or a fitted mix), and a wider
      range when there are many;
-   - whether a shift that comes with a change in presidential approval lasts longer. Candidate approval is not in
-     the repo, so only the president's can be tested;
+   - whether a shift that comes with a change in presidential approval lasts longer. Candidate favourability is
+     not in the repo; collecting it for past elections is on the data track (DA-9), and it is tested beside the
+     president's approval once it is. News is left out: nothing in the data measures it;
    - whether a shift spread evenly across states lasts longer than a concentrated one. Only the state polls from
      2004 can test this, so it is the weakest of the six.
 4. *States with few polls.* Scored on states with no poll in the previous 30 days; at 100 days that was 15 to 29
    of 51 states in 2004 to 2016. Three ways to fill the gap: the prior (national estimate plus lean); the average
    swing in the polled states; the state's last poll carried forward by the national movement since.
-5. *The add-up.* **Open decision.** Section 5 builds the popular vote from the state draws. The alternatives: let
-   national polls set the popular vote and spread the difference over states by their uncertainty and size; or
-   publish two numbers that need not agree, with a caveat on the split probability and the gap.
+5. *The add-up.* One candidate against section 4's states-first rule: national polls set the popular vote, and the
+   difference from the states' sum is spread over the states by their uncertainty and size, so large, thinly
+   polled states absorb most of it. Either way the two come from one draw.
 
-**Adoption rule for stages 2 to 4 (proposed; changes section 8).** Section 8 judges at 7 days, where an adjustment
+**Adoption rule for stages 2 to 4 (decided 2026-11-20; adds to section 8).** Section 8 judges at 7 days, where an adjustment
 from nowcast to forecast is close to nothing. For these candidates:
 
 - the score is the forecast's error against the result, averaged over 150, 100 and 60 days; 30 and 7 days are
@@ -263,3 +270,12 @@ from nowcast to forecast is close to nothing. For these candidates:
 
 **Not in the repo yet:** convention dates; the date each nominee became presumptive; a 2020 national series built
 the same way as 1952 to 2016; candidate favourability.
+
+**Assumed unless changed.** Three things the decisions above imply and nobody ruled on:
+
+- How polls move over a campaign is learned on the national series and applied to the national part of every
+  state. A state's own distance from the nation gets no separate rule for bounces or reversion: four elections of
+  state polls cannot support one.
+- Before both nominees are presumptive there is no forecast. That answers most of EC-8, which stays open for what
+  the page shows in the meantime.
+- A state where a third candidate polls in double digits still needs a rule (section 10).
