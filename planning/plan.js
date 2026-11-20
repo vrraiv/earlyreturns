@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20i",
+  version: "2026-11-20j",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -156,7 +156,7 @@ window.PLAN = {
             "The start was reassessed against the data now in hand. Polls with results begin in 1998, so both chambers and the national environment are scored from 2004 (three earlier cycles to fit on) to 2024: 11 cycles.",
             "House districts for 1998 to 2004 come from Gary Jacobson's House elections file, which arrived the same day (DA-3). It is used with credit to him and is not in the repo, so a clone without it scores the House from 2012 only. Districts from 2006 stay on `house_history.csv`.",
             "The polls now set the start, not district lean. Jacobson's file runs back to 1946, but fitting on years before 1998 is DA-2's and CM-4's question.",
-            "Governors are in the harness: the first governor model re-estimated as of each cycle, even years 2004 to 2024, 239 races. Odd years and 2025 stay in `governor_model.py`'s own backtest until GV-3 supplies their environment as of each date.",
+            "Governors are in the harness: the first governor model re-estimated as of each cycle, even years 2004 to 2024, 239 races. Odd years and 2025 stay in `governor_model.py`'s own backtest. GV-3 built their environment as of each date and tested it on the prior alone; putting the odd-year races themselves through the harness is not done.",
             "Still to build: scoring 2026. The 2026 polls and results have to be put in the harness's shape, and that waits for the final scorecard (SC-1)."
           ],
           checklist: [
@@ -726,7 +726,15 @@ window.PLAN = {
             "Lean: presidential lean explains little. Test a composite of recent statewide results against it.",
             "Poll average: generalize the Senate average to governors for the 2026 snapshot.",
             "Off-cycle environment for 2025, using figures as of each date.",
-            "Intervals look too wide in cycles with ten or more races. Suggestive, not conclusive."
+            "Intervals look too wide in cycles with ten or more races. Suggestive, not conclusive.",
+            "Worked through 2026-11-20. Six changes were each written into BACKTEST.md before being run, then judged by the adoption rule on the as-of backtest (\"Candidates\" there has the table).",
+            "Lean: presidential lean stays. A composite of recent Senate and governor results, alone or beside it, and the previous governor margin all failed.",
+            "Poll average: `src/model/governor_inputs.py` builds the 2026 poll table from the final forecast's snapshot in the shape the backtest uses, with the published weighted average beside it. No results are read. A surname-matching fault in `pollavg.statewide()` was fixed on the way.",
+            "Found while building it: a race with no poll in the final 21 days was forecast from the prior alone. Using its polls from 22 to 60 days out passes the rule; in the 17 past races concerned, the margin error falls from 22 to about 10 points. This is the one change that passed. It is not switched on in the harness: that is GV-4's decision.",
+            "Off-cycle environment: built for every odd-year election day from 1999 to 2025 and tested with every fit as of the date. The term-year estimator holds up; the generic ballot of the day does not beat it.",
+            "Intervals: about right race by race, and the count of wins was inside its range in all 11 cycles. The \"too wide\" reading does not survive the as-of test. Widening the races forecast from the prior alone failed the rule. No change.",
+            "Added the same day, a seventh change: presidential approval in the prior, by party agreement between governor and president and by state lean. It failed the rule (the gain is under the floor), though the lean term keeps its sign in every fit. Worth rerunning when DA-2 adds cycles.",
+            "A governor's own approval could not be tested: there is no such data in the repo. The backtest shows where it would matter: races with few or no polls, where a popular incumbent can beat the prior by 20 points, and any forecast made before polls exist. Finding a source is a data question, not yet a card."
           ],
           checklist: [
             { id: "a", text: "Lean measure tested" },
@@ -734,12 +742,13 @@ window.PLAN = {
             { id: "c", text: "2025 environment as of each date" },
             { id: "d", text: "Interval width reviewed" }
           ],
-          refs: ["src/model/governor_model.py", "src/model/pollavg.py"] },
+          refs: ["src/model/governor_model.py", "src/model/pollavg.py", "src/model/governor_inputs.py", "BACKTEST.md"] },
         { id: "GV-4", title: "Freeze the design before touching 2026 results", kind: "gate", phase: "p2", needs: ["GV-3"],
           why: "2026 is only a real test if the design is fixed first.",
           details: [
             "2026 governor results stay uncollected and unscored until this gate is passed.",
-            "Record the frozen design: the commit, the parameters and the scoring rule."
+            "Record the frozen design: the commit, the parameters and the scoring rule.",
+            "Three decisions come from GV-3: whether to adopt the earlier-polls change (and in which of its two versions), which poll average the design names (the plain 21-day mean the model was fitted on, or the published weighted one), and what to do with a race that is three-way in the polls, since the model covers two-way races."
           ] },
         { id: "GV-5", title: "Score 2026", kind: "story", phase: "p2", needs: ["GV-4", "SC-1"],
           why: "One clean out-of-sample test.",
