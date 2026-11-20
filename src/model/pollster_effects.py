@@ -1,6 +1,6 @@
 """Pollster house effects (538-style) instead of a flat penalty for sponsored polls.
 
-Data: 538 raw_polls.csv, general-election polls 2010-2022 (final 21 days), two-party margins.
+Data: 538 raw_polls.csv, general-election polls 2010-2022 (final 60 days), two-party margins.
   rel = poll margin - average of all polls of the same race       (+ = more Democratic than other polls)
   s   = +1 Democratic-sponsored, -1 Republican-sponsored, 0 otherwise
 Model: rel = alpha_pollster + beta * s + e      (pollster fixed effects; beta = sponsor effect WITHIN a pollster)
@@ -190,7 +190,7 @@ if __name__ == "__main__":
 
 
 def big_loco(r):
-    """Leave-one-cycle-out on 538 raw_polls itself: Senate + governor races 2010-2022, final-21-day polls.
+    """Leave-one-cycle-out on 538 raw_polls itself: Senate + governor races 2010-2022, polls from the final 60 days.
     Per held-out cycle: estimate beta / thin shift / flat shift on the other cycles, adjust that cycle's polls,
     average each race's polls, score against the result. Paired comparison flat vs tiered per race."""
     base = r[r.type_simple.isin(["Sen-G", "Gov-G"]) & (r.cycle >= 2010)].copy()

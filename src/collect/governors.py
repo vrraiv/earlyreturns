@@ -290,7 +290,7 @@ def races_2026():
 
 
 def poll_averages():
-    """Final-three-week governor poll averages (538 raw polls: every poll in the last 21 days, D vs R two-party), all
+    """Late governor poll averages (538 raw polls: every poll in the file, the last 60 days, D vs R two-party), all
     cycles including odd years. Same construction as bias_analysis.load()/race_level(), which keeps even years only."""
     from common import latest  # noqa: E402
     r = pd.read_csv(latest("538_github", "raw_polls.csv"), low_memory=False)

@@ -1,4 +1,4 @@
-"""Polling-bias structure, 1998-2022 (538 raw_polls.csv: final-21-day polls vs. results).
+"""Polling-bias structure, 1998-2022 (538 raw_polls.csv: polls from the final 60 days vs. results).
 
 Part A: national bias. Does the generic-ballot (and pooled race-level) miss depend on a time trend,
         the president's party, or midterm vs. presidential years?

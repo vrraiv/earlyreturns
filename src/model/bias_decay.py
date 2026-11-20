@@ -37,7 +37,7 @@ CYCLE_INFO = {  # president, party, term, House majority going into the election
 def frame():
     r = BA.load()
     gen = BA.race_level(r, ["House-G-US"])[["cycle", "poll", "act", "err"]]
-    try:  # 2024 is not in raw_polls; take it from the archived generic-ballot file (same final-21-day definition)
+    try:  # 2024 is not in raw_polls; take it from the archived generic-ballot file (its final 21 days; raw_polls runs to 60)
         import bias_confidence as BC
         rec = BC.generic_recent_by_population()
         e24 = float(rec.loc[rec.cycle == 2024, "all"].iloc[0]); a24 = float(rec.loc[rec.cycle == 2024, "actual"].iloc[0])

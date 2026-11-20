@@ -2,7 +2,7 @@
 
 Data: Wikipedia 2018/2022/2024 House election pages (cached in data/raw/wikipedia_hist): every district's Cook PVI
 at the time, incumbent, status and candidate vote shares. National two-party House margin from
-data/interim/house_national_vote.csv. District polls (final 21 days) with results: 538 raw_polls.csv, 2018 & 2022.
+data/interim/house_national_vote.csv. District polls (final 60 days) with results: 538 raw_polls.csv, 2018 & 2022.
 
 Model (contested D-vs-R races; two-party D-R margin):
     margin = a + b*(2*PVI) + c*national_margin + inc*(+1 Dem incumbent running / -1 Rep incumbent running / 0 open) + e

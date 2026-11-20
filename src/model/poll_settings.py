@@ -1,7 +1,7 @@
 """Estimate the poll-averaging settings that were assumed:
 
 1. Partisan-sponsor shift   (was 2 pts statewide, 4 pts House districts)
-   538 raw_polls 1998-2022, final 21 days, two-party. Within each race, a sponsored poll's miss (poll - result)
+   538 raw_polls 1998-2022, final 60 days, two-party. Within each race, a sponsored poll's miss (poll - result)
    is compared with the race's independent polls: shift = mean(miss_sponsored - mean miss_independent in that race),
    oriented so positive = toward the sponsor's party. Separately for statewide (Sen/Gov) and House district races.
 2. Population weights        (was LV 1.0, RV 0.8, adults 0.5)

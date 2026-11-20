@@ -1,7 +1,7 @@
 """Governors model (PLAN.md, "After the scorecard", item 4): estimation and backtest. Not part of the frozen forecast.
 
 Data: data/interim/governor_dataset.csv (src/collect/governors.py): every governor race 1998-2025 with its result,
-incumbency, prior presidential lean, national House vote, previous governor margin and final-three-week poll average.
+incumbency, prior presidential lean, national House vote, previous governor margin and late-poll average (538's file: the final 60 days; other sources: 21).
 Scored and fitted on two-way races (both a Democrat, or D-side, and a Republican; no third candidate at 15%+; no recalls).
 
 Model, per race (two-party D-R margin):
@@ -66,7 +66,7 @@ def load():
 
 
 def generic_final():
-    """Final-three-week generic-ballot average (two-party, D-R) by cycle: 538 raw polls 1998-2022, VoteHub for 2025.
+    """Late generic-ballot average (two-party, D-R) by cycle: 538 raw polls 1998-2022 (final 60 days), VoteHub for 2025 (21).
     Also the realized national House vote, so the generic miss per cycle is known."""
     import bias_analysis as BA
     g = BA.race_level(BA.load(), ["House-G-US"]).groupby("cycle").agg(generic=("poll", "mean"), generic_actual=("act", "first"))

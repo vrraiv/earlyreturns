@@ -1,7 +1,7 @@
 """How much should late Senate polls be pulled toward a partisanship prior?  (tests the assumed prior SD of 10)
 
-Data: 1998-2022 Senate races with polls in the final 21 days (538 raw_polls via bias_analysis), two-party margins.
-  poll  = average of final-21-day polls
+Data: 1998-2022 Senate races with polls in the final 60 days (538 raw_polls via bias_analysis), two-party margins.
+  poll  = average of those polls
   prior = prior-presidential state lean (margin vs nation) + national environment, where the environment is the
           final generic-ballot poll average that cycle (known before the election), as in the 2026 model.
           (No incumbency term: raw_polls doesn't record it; the 2026 prior adds +/-2.)

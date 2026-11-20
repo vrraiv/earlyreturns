@@ -6,7 +6,7 @@ site/assets/charts.js from the specs embedded in each page; styles in site/asset
     python src/site/history.py
 
 These pages stand apart from the forecast: no chart or caption compares results with the forecast or the model's
-predictions. Where a 2026 or off-cycle result needs a benchmark, it is the polls (each race's final three weeks of
+predictions. Where a 2026 or off-cycle result needs a benchmark, it is the polls (each race's late
 polls, or the national generic ballot of the time). 2026 figures that depend on the count are marked provisional while
 data/scorecard/scorecard.json says so.
 """
@@ -544,7 +544,7 @@ def page_polling(D):
                   {"type": "xy", "height": 290, "series": ser, "x": {"fmt": "year", "ticks": yrs[::2]}, "y": {"fmt": "dr0", "label": "Result minus final polls"},
                    "refs": [{"y": 0, "label": "polls exactly right"}], "legend": [{"name": s["name"], "color": s["color"], "line": True} for s in ser]},
                   csv, [SRC["538"], SRC["model"]],
-                  f"Average miss of the final three weeks' polls in each election; below zero, the result was more Republican than the polls. "
+                  f"Average miss of the final two months' polls in each election; below zero, the result was more Republican than the polls. "
                   f"The generic ballot overstated Democrats in {over} of {len(yrs)} elections."))
 
     S = np.array([cy["Sen-G"][y] for y in yrs]); G = np.array([cy["Gov-G"][y] for y in yrs]); H = np.array([cy["House-G-US"][y] for y in yrs])
@@ -563,7 +563,7 @@ def page_polling(D):
                                                                                      "tips": [f"{k} polls ({v['n_races']} races): SD {v['sd']:.1f}" for k, v in bins.items()]}],
                  "y": {"fmt": "int", "label": "Race-level SD of the miss (pts)"}, "width": 420, "height": 320, "values": True},
                 pd.DataFrame([{"polls": k, **v} for k, v in bins.items()]).round(3), [SRC["538"], SRC["model"]],
-                f"Error of a race's final-three-week average beyond the election's shared miss, by how many polls it holds "
+                f"Error of a race's average of polls from the final two months beyond the election's shared miss, by how many polls it holds "
                 f"({cal['pollavg_sd_by_n']['n_races']} Senate and governor races). A floor of about {cal['pollavg_sd_by_n']['a']:.1f} points remains however many polls there are.")
     pg.grid(f1, f2)
 
@@ -623,10 +623,10 @@ def page_offcycle(D):
                                     "against": "against_president_party"})[["year", "state", "president_party", "final_polls", "n_polls", "result",
                                                                              "result_minus_polls", "against_president_party", "poll_source"]].round(2),
                   [SRC["538"], SRC["vh"], SRC["wiki"]],
-                  f"Each odd-year governor race's result minus the average of its final three weeks of polls, signed so that above zero means the "
+                  f"Each odd-year governor race's result minus the average of its late polls, signed so that above zero means the "
                   f"result ran against the president's party. New Jersey and Virginia, the year after each presidential election: {int((nj.against > 0).sum())} "
                   f"of {len(nj)} races (average {sg(nj.against.mean())} points). The other odd-year races: {int((rest.against > 0).sum())} of {len(rest)} "
-                  f"({sg(rest.against.mean())}). Polls: FiveThirtyEight to 2023, VoteHub for 2025; races without final polls are left out."))
+                  f"({sg(rest.against.mean())}). Polls: FiveThirtyEight to 2023 (the final two months), VoteHub for 2025 (the final three weeks); races without final polls are left out."))
 
     gb = pd.read_csv(I / "generic_ballot_daily.csv", parse_dates=["date"])
     gbs = gb.set_index("date").margin_2p
@@ -711,7 +711,7 @@ def page_sources(D):
         [f"<a href='{w}Main_Page'>Wikipedia</a>", "House, Senate, governor and presidential results; candidates and incumbents; House specials; "
          "2026 race pages and poll tables", "1946-2026"],
         ["<a href='https://www.cookpolitical.com'>Cook Political Report</a>, via Wikipedia", "District and state partisan lean (Cook PVI)", "2006-2026"],
-        ["<a href='https://github.com/fivethirtyeight/data'>FiveThirtyEight</a> (ABC News)", "Final-three-week polls with results; pollster ratings; "
+        ["<a href='https://github.com/fivethirtyeight/data'>FiveThirtyEight</a> (ABC News)", "Polls from the final two months, with results; pollster ratings; "
          "generic-ballot average", "1995-2023"],
         ["FiveThirtyEight poll files, via the <a href='https://web.archive.org'>Internet Archive</a>", "Approval, generic-ballot, Senate, House and "
          "governor polls", "2016-2025"],

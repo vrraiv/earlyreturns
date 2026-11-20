@@ -1,4 +1,4 @@
-"""Polling-error calibration from 538 raw_polls.csv (final 21 days, poll vs. actual result).
+"""Polling-error calibration from 538 raw_polls.csv (final 60 days, poll vs. actual result).
 
 For each race: average the polls (D-R margin), compare with the actual D-R margin.
 Split error into a per-cycle shared (national) component and a race-specific residual.
@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "collect"))
 from common import ROOT, latest
 
 def load():
-    """Final-21-day polls vs results, oriented to TWO-PARTY D-R margins (same basis as the forecast)."""
+    """Late polls (final 60 days) vs results, oriented to TWO-PARTY D-R margins (same basis as the forecast)."""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import bias_analysis as BA
     r = BA.load()   # even-year D-vs-R polls with poll2 / act2 two-party margins
@@ -33,7 +33,7 @@ def summarize(r, kind):
     return out
 
 def sd_by_n(r):
-    """Error of a final-21-day poll average vs. number of polls n, Senate + governor races, cycle mean removed.
+    """Error of a late-poll average (final 60 days) vs. number of polls n, Senate + governor races, cycle mean removed.
     Fit E[resid^2] = a^2 + b^2 / n by least squares on race-level squared residuals."""
     s = r[r.type_simple.isin(["Sen-G", "Gov-G"])]
     races = s.groupby(["cycle", "race_id"]).agg(poll=("poll_m", "mean"), act=("act_m", "first"), n=("poll_m", "size")).reset_index()

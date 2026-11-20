@@ -72,7 +72,7 @@ _SDN = CAL.get("pollavg_sd_by_n")
 
 def pollavg_sd(pa):
     """Error of a race's poll average as a function of how many polls it has (calibrate.py: SD(n) = sqrt(a^2 + b^2/n),
-    fitted on final-3-week averages 1998-2022). n = polls in the last 21 days; older polls count half (staler)."""
+    fitted on averages of polls from the final 60 days, 1998-2022). n = polls in the last 21 days; older polls count half (staler)."""
     if not _SDN:
         return np.sqrt(SD_RACE_POLLAVG ** 2 + (max(pa["spread_sd"], 4.0) ** 2) / pa["neff"])
     n = max(pa.get("n_recent", 0) + 0.5 * (pa["n_polls"] - pa.get("n_recent", 0)), 1.0)
