@@ -29,10 +29,12 @@ Run:  python src/model/backtest_asof.py                  the baseline: writes da
       python src/model/backtest_asof.py --tag NAME       a candidate change: writes backtest_asof_NAME*.{json,csv}
       python src/model/backtest_asof.py --compare NAME   NAME against the baseline, cycle by cycle, on the same races
       options: --seed-shift N (other random draws, to see how much a score moves by chance)
-               --gov-lean pres|statewide|both|prevgov|approval (the governor prior; pres is the baseline)
+               --gov-lean pres|statewide|both|prevgov|approval|incprev|ratings (the governor prior; pres is the baseline)
                --gov-poll-fallback all|forecast (a governor race with no polls in the final 21 days uses those 22
                to 60 days out: in the fit and the forecast, or in the forecast only)
                --gov-unpolled-sd robust|rms (the spread of a governor race forecast from the prior alone)
+               --gov-unpolled flat|demo (an unpolled governor race borrows the polled races' gap from the prior:
+               from all alike, or by demographic similarity; needs The Downballot's tables in data/linked/)
 """
 import argparse
 import hashlib
@@ -72,7 +74,9 @@ CHAMBERS = ("senate", "house", "governor")
 GOV_LEAN = "pres"                # the governor prior's lean measure; main() sets it from --gov-lean
 GOV_PRIORS = {"pres": "actual ~ lean_avg2 + env + inc", "statewide": "actual ~ lean_sw + env + inc",
               "both": "actual ~ lean_avg2 + lean_sw + env + inc", "prevgov": "actual ~ lean_avg2 + prevgov + env + inc",
-              "approval": "actual ~ lean_avg2 + env + inc + ap_agree + ap_lean"}
+              "approval": "actual ~ lean_avg2 + env + inc + ap_agree + ap_lean",
+              "incprev": "actual ~ lean_avg2 + env + inc + inc_prev", "ratings": "actual ~ lean_avg2 + env + inc + rating"}
+GOV_PRIOR_SD_SCALE, GOV_SD_SCALE = 1.0, 1.0   # --gov-prior-sd-scale, --gov-sd-scale (polled races)
 SW_YEARS = 6                     # statewide lean: Senate and governor results this many years back
 ELECTION = {y: pd.Timestamp(d) for y, d in {2018: "2018-11-06", 2020: "2020-11-03", 2022: "2022-11-08", 2024: "2024-11-05"}.items()}
 REGIONS = ["Northeast", "Midwest", "South", "West"]
@@ -144,6 +148,7 @@ def load_polls():
 
 FALLBACK_DAYS = (22, 60)         # --gov-poll-fallback: the earlier window (raw_polls itself stops about 60 days out)
 GOV_UNPOLLED_SD = "robust"       # --gov-unpolled-sd: "rms" uses the prior's root-mean-square error instead
+GOV_UNPOLLED = None              # --gov-unpolled
 GOV_FB_FIT = True                # whether the governor fit reads the marked polls too ("all") or only the forecast does
 
 
@@ -409,8 +414,51 @@ def governor_universe(sen_res=None, gov_res=None):
     g["ap_agree"] = sgn * a50 * np.where(d.inc_party.values == d.pres_party.values, 1, -1)
     g["ap_lean"] = a50 * g.lean_avg2 / 10
     g["lean_sw"] = [sw(c, s) for c, s in zip(g.cycle, g.state)]
+    rp = ROOT / "data/interim/governor_ratings.csv"
+    if rp.exists():
+        rt_ = pd.read_csv(rp)
+        rt_ = rt_[~rt_.year.isin(HELD_OUT)].groupby(["year", "state"]).value.mean()
+        g["rating"] = [rt_.get((c, s), np.nan) for c, s in zip(g.cycle, g.state)]
+    # the incumbent's own last margin: the state's previous governor race, if the incumbent now running won it
+    h = pd.read_csv(ROOT / "data/interim/governor_dataset.csv")
+    h = h[~h.recall.astype(bool) & ~h.year.isin(HELD_OUT)].sort_values(["state", "year", "special"])
+    h["pw"], h["py"], h["pm"] = h.groupby("state").winner.shift(1), h.groupby("state").year.shift(1), h.groupby("state").margin_2p.shift(1)
+    h = h.drop_duplicates(["year", "state"], keep="last").set_index(["year", "state"]).reindex(list(zip(g.cycle, g.state)))
+    same = [isinstance(a, str) and isinstance(b, str) and _lastname(a) == _lastname(b) for a, b in zip(h.incumbent, h.pw)]
+    dev = h.pm.values - h.py.map(nat).values
+    g["inc_prev"] = np.where(g.inc.values == 0, 0.0, np.where(np.array(same), dev, np.nan))
     g["prevgov"] = [pg(c, s) for c, s in zip(g.cycle, g.state)]
     return g
+
+
+_SIM = {}
+
+
+def state_similarity():
+    """Weight of state t's polls for state s: exp(-d^2 / 2m^2) on seven standardized demographic measures (2015-19 ACS,
+    from The Downballot's state tables in the gitignored data/linked/ store), m the median distance between states."""
+    if "w" not in _SIM:
+        d = sorted((ROOT / "data/linked/downballot").glob("*/education_income_cd.xlsx"))[-1].parent
+        e = pd.read_excel(d / "education_income_cd.xlsx", sheet_name="2019 - State").set_index("State")
+        x = pd.ExcelFile(d / "race_age_citizenship_cd.xlsx")
+        rc = x.parse([n for n in x.sheet_names if n.startswith("Senate") and n.endswith("2019")][0], header=None).iloc[3:, :4].set_index(0)
+        u = pd.read_excel(d / "urban_rural_cd118.xlsx").drop_duplicates("CD").set_index("CD")
+        f = pd.DataFrame({"ba": e["Bachelor's"], "inc": np.log(e["Median Income"].astype(float)), "white": rc[1], "black": rc[2], "latino": rc[3],
+                          "urban": u["Urban %"], "rural": u["Rural %"]}).astype(float)
+        f = f[f.index.isin(STATE_ABBR)].dropna()
+        f.index = f.index.map(STATE_ABBR)
+        z = ((f - f.mean()) / f.std()).values
+        dist = np.sqrt(((z[:, None, :] - z[None, :, :]) ** 2).sum(2))
+        m = np.median(dist[np.triu_indices(len(f), 1)])
+        _SIM["w"] = pd.DataFrame(np.exp(-dist ** 2 / (2 * m ** 2)), index=f.index, columns=f.index)
+    return _SIM["w"]
+
+
+def borrowed_gap(states, gap, polled):
+    """For each race, the weighted mean of (poll - prior) over the cycle's other polled races."""
+    W = state_similarity().reindex(index=states, columns=states).values if GOV_UNPOLLED == "demo" else np.ones((len(states), len(states)))
+    W = W * polled[None, :] * (1 - np.eye(len(states)))
+    return (W * np.where(polled, gap, 0.0)[None, :]).sum(1) / np.maximum(W.sum(1), 1e-9)
 
 
 def gov_estimate(tr, gen_miss, a, b):
@@ -418,15 +466,21 @@ def gov_estimate(tr, gen_miss, a, b):
     weight on polls and the prior error it implies, and the two national errors. `gen_miss` is the generic ballot's
     miss by cycle; a and b are the poll-average error curve."""
     base = smf.ols(GOV_PRIORS["pres"], tr).fit()
-    prior = base if GOV_LEAN == "pres" else smf.ols(GOV_PRIORS[GOV_LEAN], tr).fit()
+    thin = GOV_LEAN == "ratings" and tr[tr.rating.notna()].cycle.nunique() < MIN_PRIOR      # too few rated cycles yet
+    prior = base if GOV_LEAN == "pres" or thin else smf.ols(GOV_PRIORS[GOV_LEAN], tr).fit()
     # a race without the candidate's lean measure takes the baseline prior
-    tr = tr.assign(prior=prior.fittedvalues if GOV_LEAN == "pres" else prior.predict(tr).fillna(base.predict(tr)))
+    tr = tr.assign(prior=prior.fittedvalues if prior is base else prior.predict(tr).fillna(base.predict(tr)))
     resid = tr.actual - tr.prior
     pol = tr[tr.n > 0].copy()
     pol["y"], pol["x"], pol["yr"] = pol.actual - pol.prior, pol.poll - pol.prior, pol.cycle.astype(str)
     wfit = smf.ols("y ~ x + C(yr)", pol).fit()
     w = float(np.clip(wfit.params["x"], 0.01, 0.99))
     sd_p_typ = float(np.sqrt(np.mean(a ** 2 + b ** 2 / np.maximum(pol.n, 1))))
+    unp = {}
+    if GOV_UNPOLLED and "state" in tr:
+        zs = pd.concat([pd.Series(borrowed_gap(x.state.values, (x.poll - x.prior).values, (x.n > 0).values), index=x.index) for _, x in tr.groupby("cycle")])
+        zp = zs[pol.index]
+        unp = {"g_unp_c": float((zp * pol.y).sum() / (zp ** 2).sum())}
     cyc = (pol.actual - pol.poll).groupby(pol.cycle).mean().rename("S").to_frame().join(gen_miss.rename("H"), how="inner").dropna()
     rho = float(np.corrcoef(cyc.S, cyc.H)[0, 1]) if len(cyc) >= 3 else 0.0
     return {"g_const": float(base.params["Intercept"]), "g_b_lean": float(base.params["lean_avg2"]), "g_env": float(prior.params["env"]),
@@ -434,8 +488,8 @@ def gov_estimate(tr, gen_miss, a, b):
             "g_sd_prior_unpolled": float(1.4826 * np.median(np.abs(resid - np.median(resid)))),
             "g_sd_S": rms(cyc.S), "g_sd_H": rms(cyc.H), "g_rho": rho if np.isfinite(rho) else 0.0,
             "g_races": int(len(tr)), "g_races_polled": int(len(pol)), "g_cycles": int(tr.cycle.nunique()),
-            **({"g_sd_prior_rms": rms(resid)} if GOV_UNPOLLED_SD == "rms" else {}),
-            **({} if GOV_LEAN == "pres" else {"_g_fit": (prior, base), "g_races_lean_fit": int(prior.nobs),
+            **({"g_sd_prior_rms": rms(resid)} if GOV_UNPOLLED_SD == "rms" else {}), **unp,
+            **({} if prior is base else {"_g_fit": (prior, base), "g_races_lean_fit": int(prior.nobs),
                                                **{"g_c_" + k: float(v) for k, v in prior.params.items()}})}
 
 
@@ -616,11 +670,14 @@ def gov_forecast(rng, y, G, sd_nat, p, gov_u, pt):
     g["prior"] = p["g_const"] + p["g_b_lean"] * g.lean_avg2 + p["g_env"] * G + p["g_inc"] * g.inc
     if "_g_fit" in p:
         g["prior"] = p["_g_fit"][0].predict(g.assign(env=G)).fillna(p["_g_fit"][1].predict(g.assign(env=G)))
-    sdp, sp = np.sqrt(p["sdn_a"] ** 2 + p["sdn_b"] ** 2 / g.n.clip(lower=1)), p["g_sd_prior"]
+    sdp, sp = np.sqrt(p["sdn_a"] ** 2 + p["sdn_b"] ** 2 / g.n.clip(lower=1)), p["g_sd_prior"] * GOV_PRIOR_SD_SCALE
     w = np.where(g.n > 0, sp ** 2 / (sp ** 2 + sdp ** 2), 0.0)
     g["poll_weight"] = w
-    g["sd_race"] = np.where(g.n > 0, 1 / np.sqrt(1 / sdp ** 2 + 1 / sp ** 2), p.get("g_sd_prior_rms", p["g_sd_prior_unpolled"]))
+    g["sd_race"] = np.where(g.n > 0, GOV_SD_SCALE / np.sqrt(1 / sdp ** 2 + 1 / sp ** 2), p.get("g_sd_prior_rms", p["g_sd_prior_unpolled"]))
     g["mu"] = np.where(g.n > 0, w * g.avg.fillna(0) + (1 - w) * g.prior, g.prior)
+    if "g_unp_c" in p and (g.n > 0).any():
+        z = borrowed_gap(g.state.values, (g.avg - g.prior).values, (g.n > 0).values)
+        g["mu"] = np.where(g.n > 0, g.mu, g.prior + p["g_unp_c"] * z)
     df = p["df_t"]
     ts = np.sqrt((df - 2) / df)
     chi = np.sqrt(rng.chisquare(df, NSIM) / df)
@@ -853,9 +910,10 @@ def compare(tag):
     (OUT / f"backtest_asof_{tag}_vs_baseline.json").write_text(json.dumps(out, indent=1, default=float))
 
 
-def main(tag=None, seed_shift=0, lean="cook", gov_lean="pres", gov_fb=None, gov_unpolled_sd="robust"):
-    global GOV_LEAN, GOV_FB_FIT, GOV_UNPOLLED_SD
-    GOV_LEAN, GOV_FB_FIT, GOV_UNPOLLED_SD = gov_lean, gov_fb != "forecast", gov_unpolled_sd
+def main(tag=None, seed_shift=0, lean="cook", gov_lean="pres", gov_fb=None, gov_unpolled_sd="robust", gov_unpolled=None, gov_scales=(1.0, 1.0)):
+    global GOV_LEAN, GOV_FB_FIT, GOV_UNPOLLED_SD, GOV_UNPOLLED, GOV_PRIOR_SD_SCALE, GOV_SD_SCALE
+    GOV_PRIOR_SD_SCALE, GOV_SD_SCALE = gov_scales
+    GOV_LEAN, GOV_FB_FIT, GOV_UNPOLLED_SD, GOV_UNPOLLED = gov_lean, gov_fb != "forecast", gov_unpolled_sd, gov_unpolled
     pd.set_option("display.width", 220)
     sfx = f"_{tag}" if tag else ""
     r = gov_fallback(load_polls()) if gov_fb else load_polls()
@@ -901,7 +959,7 @@ def main(tag=None, seed_shift=0, lean="cook", gov_lean="pres", gov_fb=None, gov_
                                "1998-2004": None if jp is None else {"source": "Gary Jacobson, House elections file (not in the repo)", "file": JACOBSON,
                                                                      "received": jp.parent.name, "sha256": hashlib.sha256(jp.read_bytes()).hexdigest()},
                                "lean_2006_on": lean},
-           "governor_lean": gov_lean, "governor_unpolled_sd": gov_unpolled_sd, "governor_poll_fallback": {"days": list(FALLBACK_DAYS), "used_in": gov_fb} if gov_fb else None,
+           "governor_lean": gov_lean, "governor_unpolled_sd": gov_unpolled_sd, "governor_unpolled": gov_unpolled, "governor_prior_sd_scale": GOV_PRIOR_SD_SCALE, "governor_sd_scale": GOV_SD_SCALE, "governor_poll_fallback": {"days": list(FALLBACK_DAYS), "used_in": gov_fb} if gov_fb else None,
            "coverage": cov, "wayback_check": wayback_check(r), "parity": parity(r, sen_u, hh[hh.source == "house_history"], fund), "parity_governor": parity_governor(), "scores": summ}
     (OUT / f"backtest_asof{sfx}.json").write_text(json.dumps(out, indent=1, default=float))
     for v in VARIANTS:
@@ -922,10 +980,12 @@ if __name__ == "__main__":
     ap.add_argument("--gov-lean", choices=tuple(GOV_PRIORS), default="pres")
     ap.add_argument("--gov-poll-fallback", choices=("all", "forecast"))
     ap.add_argument("--gov-unpolled-sd", choices=("robust", "rms"), default="robust")
+    ap.add_argument("--gov-unpolled", choices=("flat", "demo"))
+    ap.add_argument("--gov-prior-sd-scale", type=float, default=1.0); ap.add_argument("--gov-sd-scale", type=float, default=1.0)
     a = ap.parse_args()
     if a.compare:
         compare(a.compare)
     else:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", RuntimeWarning)     # empty region cells in the first cycles
-            main(a.tag, a.seed_shift, a.house_lean, a.gov_lean, a.gov_poll_fallback, a.gov_unpolled_sd)
+            main(a.tag, a.seed_shift, a.house_lean, a.gov_lean, a.gov_poll_fallback, a.gov_unpolled_sd, a.gov_unpolled, (a.gov_prior_sd_scale, a.gov_sd_scale))

@@ -1,0 +1,782 @@
+year,state,rater,rating,as_of,value
+2002,AL,Cook,Tossup,"October 31, 2002",0.0
+2002,AL,Sabato,Lean R (flip),"November 4, 2002",-1.0
+2002,AK,Cook,Tossup,"October 31, 2002",0.0
+2002,AK,Sabato,Lean R (flip),"November 4, 2002",-1.0
+2002,AZ,Cook,Tossup,"October 31, 2002",0.0
+2002,AZ,Sabato,Lean D (flip),"November 4, 2002",1.0
+2002,AR,Cook,Tossup,"October 31, 2002",0.0
+2002,AR,Sabato,Lean R,"November 4, 2002",-1.0
+2002,CA,Cook,Lean D,"October 31, 2002",1.0
+2002,CA,Sabato,Likely D,"November 4, 2002",2.0
+2002,CO,Cook,Safe R,"October 31, 2002",-3.0
+2002,CO,Sabato,Safe R,"November 4, 2002",-3.0
+2002,CT,Cook,Likely R,"October 31, 2002",-2.0
+2002,CT,Sabato,Likely R,"November 4, 2002",-2.0
+2002,FL,Cook,Tossup,"October 31, 2002",0.0
+2002,FL,Sabato,Leans R,"November 4, 2002",-1.0
+2002,GA,Cook,Likely D,"October 31, 2002",2.0
+2002,GA,Sabato,Likely D,"November 4, 2002",2.0
+2002,HI,Cook,Tossup,"October 31, 2002",0.0
+2002,HI,Sabato,Lean R (flip),"November 4, 2002",-1.0
+2002,ID,Cook,Safe R,"October 31, 2002",-3.0
+2002,ID,Sabato,Lean R,"November 4, 2002",-1.0
+2002,IL,Cook,Lean D (flip),"October 31, 2002",1.0
+2002,IL,Sabato,Safe D (flip),"November 4, 2002",3.0
+2002,IA,Cook,Tossup,"October 31, 2002",0.0
+2002,IA,Sabato,Leans D,"November 4, 2002",1.0
+2002,KS,Cook,Lean D (flip),"October 31, 2002",1.0
+2002,KS,Sabato,Lean D (flip),"November 4, 2002",1.0
+2002,ME,Cook,Lean D (flip),"October 31, 2002",1.0
+2002,ME,Sabato,Likely D (flip),"November 4, 2002",2.0
+2002,MD,Cook,Tossup,"October 31, 2002",0.0
+2002,MD,Sabato,Leans R (flip),"November 4, 2002",-1.0
+2002,MA,Cook,Tossup,"October 31, 2002",0.0
+2002,MA,Sabato,Leans D (flip),"November 4, 2002",1.0
+2002,MI,Cook,Lean D (flip),"October 31, 2002",1.0
+2002,MI,Sabato,Likely D (flip),"November 4, 2002",2.0
+2002,MN,Cook,Tossup,"October 31, 2002",0.0
+2002,MN,Sabato,Lean R (flip),"November 4, 2002",-1.0
+2002,NE,Cook,Safe R,"October 31, 2002",-3.0
+2002,NE,Sabato,Safe R,"November 4, 2002",-3.0
+2002,NV,Cook,Safe R,"October 31, 2002",-3.0
+2002,NV,Sabato,Safe R,"November 4, 2002",-3.0
+2002,NH,Cook,Lean R (flip),"October 31, 2002",-1.0
+2002,NH,Sabato,Likely R (flip),"November 4, 2002",-2.0
+2002,NM,Cook,Likely D (flip),"October 31, 2002",2.0
+2002,NM,Sabato,Likely D (flip),"November 4, 2002",2.0
+2002,NY,Cook,Likely R,"October 31, 2002",-2.0
+2002,NY,Sabato,Likely R,"November 4, 2002",-2.0
+2002,OH,Cook,Safe R,"October 31, 2002",-3.0
+2002,OH,Sabato,Likely R,"November 4, 2002",-2.0
+2002,OK,Cook,Likely R,"October 31, 2002",-2.0
+2002,OK,Sabato,Lean R,"November 4, 2002",-1.0
+2002,OR,Cook,Leans D,"October 31, 2002",1.0
+2002,OR,Sabato,Lean D,"November 4, 2002",1.0
+2002,PA,Cook,Lean D (flip),"October 31, 2002",1.0
+2002,PA,Sabato,Likely D (flip),"November 4, 2002",2.0
+2002,RI,Cook,Tossup,"October 31, 2002",0.0
+2002,RI,Sabato,Lean D (flip),"November 4, 2002",1.0
+2002,SC,Cook,Tossup,"October 31, 2002",0.0
+2002,SC,Sabato,Lean R (flip),"November 4, 2002",-1.0
+2002,SD,Cook,Lean R,"October 31, 2002",-1.0
+2002,SD,Sabato,Likely R,"November 4, 2002",-2.0
+2002,TN,Cook,Tossup,"October 31, 2002",0.0
+2002,TN,Sabato,Lean D (flip),"November 4, 2002",1.0
+2002,TX,Cook,Lean R,"October 31, 2002",-1.0
+2002,TX,Sabato,Likely R,"November 4, 2002",-2.0
+2002,VT,Cook,Tossup,"October 31, 2002",0.0
+2002,VT,Sabato,Lean R (flip),"November 4, 2002",-1.0
+2002,WI,Cook,Tossup,"October 31, 2002",0.0
+2002,WI,Sabato,Lean D (flip),"November 4, 2002",1.0
+2002,WY,Cook,Tossup,"October 31, 2002",0.0
+2002,WY,Sabato,Lean R,"November 4, 2002",-1.0
+2006,AL,Cook,Safe R,"November 6, 2006",-3.0
+2006,AL,Sabato,Likely R,"November 6, 2006",-2.0
+2006,AL,IE,Safe R,"November 2, 2006",-3.0
+2006,AK,Cook,Tossup,"November 6, 2006",0.0
+2006,AK,Sabato,Leans R,"November 6, 2006",-1.0
+2006,AK,IE,Leans R,"November 2, 2006",-1.0
+2006,AZ,Cook,Safe D,"November 6, 2006",3.0
+2006,AZ,Sabato,Safe D,"November 6, 2006",3.0
+2006,AZ,IE,Safe D,"November 2, 2006",3.0
+2006,AR,Cook,Leans D (flip),"November 6, 2006",1.0
+2006,AR,Sabato,Likely D (flip),"November 6, 2006",2.0
+2006,AR,IE,Likely D (flip),"November 2, 2006",2.0
+2006,CA,Cook,Leans R,"November 6, 2006",-1.0
+2006,CA,Sabato,Likely R,"November 6, 2006",-2.0
+2006,CA,IE,Safe R,"November 2, 2006",-3.0
+2006,CO,Cook,Likely D (flip),"November 6, 2006",2.0
+2006,CO,Sabato,Likely D (flip),"November 6, 2006",2.0
+2006,CO,IE,Likely D (flip),"November 2, 2006",2.0
+2006,CT,Cook,Safe R,"November 6, 2006",-3.0
+2006,CT,Sabato,Safe R,"November 6, 2006",-3.0
+2006,CT,IE,Safe R,"November 2, 2006",-3.0
+2006,FL,Cook,Leans R,"November 6, 2006",-1.0
+2006,FL,Sabato,Leans R,"November 6, 2006",-1.0
+2006,FL,IE,Likely R,"November 2, 2006",-2.0
+2006,GA,Cook,Leans R,"November 6, 2006",-1.0
+2006,GA,Sabato,Likely R,"November 6, 2006",-2.0
+2006,GA,IE,Safe R,"November 2, 2006",-3.0
+2006,HI,Cook,Safe R,"November 6, 2006",-3.0
+2006,HI,Sabato,Safe R,"November 6, 2006",-3.0
+2006,HI,IE,Safe R,"November 2, 2006",-3.0
+2006,ID,Cook,Tossup,"November 6, 2006",0.0
+2006,ID,Sabato,Tilt R,"November 6, 2006",-0.5
+2006,ID,IE,Leans R,"November 2, 2006",-1.0
+2006,IL,Cook,Leans D,"November 6, 2006",1.0
+2006,IL,Sabato,Leans D,"November 6, 2006",1.0
+2006,IL,IE,Likely D,"November 2, 2006",2.0
+2006,IA,Cook,Tossup,"November 6, 2006",0.0
+2006,IA,Sabato,Leans D,"November 6, 2006",1.0
+2006,IA,IE,Leans D,"November 2, 2006",1.0
+2006,KS,Cook,Safe D,"November 6, 2006",3.0
+2006,KS,Sabato,Likely D,"November 6, 2006",2.0
+2006,KS,IE,Safe D,"November 2, 2006",3.0
+2006,ME,Cook,Leans D,"November 6, 2006",1.0
+2006,ME,Sabato,Leans D,"November 6, 2006",1.0
+2006,ME,IE,Likely D,"November 2, 2006",2.0
+2006,MD,Cook,Tossup,"November 6, 2006",0.0
+2006,MD,Sabato,Leans D (flip),"November 6, 2006",1.0
+2006,MD,IE,Leans D (flip),"November 2, 2006",1.0
+2006,MA,Cook,Leans D (flip),"November 6, 2006",1.0
+2006,MA,Sabato,Likely D (flip),"November 6, 2006",2.0
+2006,MA,IE,Likely D (flip),"November 2, 2006",2.0
+2006,MI,Cook,Tossup,"November 6, 2006",0.0
+2006,MI,Sabato,Leans D,"November 6, 2006",1.0
+2006,MI,IE,Likely D,"November 2, 2006",2.0
+2006,MN,Cook,Tossup,"November 6, 2006",0.0
+2006,MN,Sabato,Tilt D (flip),"November 6, 2006",0.5
+2006,MN,IE,Tossup,"November 2, 2006",0.0
+2006,NE,Cook,Safe R,"November 6, 2006",-3.0
+2006,NE,Sabato,Safe R,"November 6, 2006",-3.0
+2006,NE,IE,Safe R,"November 2, 2006",-3.0
+2006,NV,Cook,Tossup,"November 6, 2006",0.0
+2006,NV,Sabato,Leans R,"November 6, 2006",-1.0
+2006,NV,IE,Tossup,"November 2, 2006",0.0
+2006,NH,Cook,Safe D,"November 6, 2006",3.0
+2006,NH,Sabato,Safe D,"November 6, 2006",3.0
+2006,NH,IE,Safe D,"November 2, 2006",3.0
+2006,NM,Cook,Safe D,"November 6, 2006",3.0
+2006,NM,Sabato,Safe D,"November 6, 2006",3.0
+2006,NM,IE,Safe D,"November 2, 2006",3.0
+2006,NY,Cook,Safe D (flip),"November 6, 2006",3.0
+2006,NY,Sabato,Safe D (flip),"November 6, 2006",3.0
+2006,NY,IE,Likely D (flip),"November 2, 2006",2.0
+2006,OH,Cook,Safe D (flip),"November 6, 2006",3.0
+2006,OH,Sabato,Likely D (flip),"November 6, 2006",2.0
+2006,OH,IE,Likely D (flip),"November 2, 2006",2.0
+2006,OK,Cook,Safe D,"November 6, 2006",3.0
+2006,OK,Sabato,Safe D,"November 6, 2006",3.0
+2006,OK,IE,Safe D,"November 2, 2006",3.0
+2006,OR,Cook,Tossup,"November 6, 2006",0.0
+2006,OR,Sabato,Tilt D,"November 6, 2006",0.5
+2006,OR,IE,Leans D,"November 2, 2006",1.0
+2006,PA,Cook,Safe D,"November 6, 2006",3.0
+2006,PA,Sabato,Safe D,"November 6, 2006",3.0
+2006,PA,IE,Safe D,"November 2, 2006",3.0
+2006,RI,Cook,Tossup,"November 6, 2006",0.0
+2006,RI,Sabato,Leans R,"November 6, 2006",-1.0
+2006,RI,IE,Leans R,"November 2, 2006",-1.0
+2006,SC,Cook,Likely R,"November 6, 2006",-2.0
+2006,SC,Sabato,Likely R,"November 6, 2006",-2.0
+2006,SC,IE,Safe R,"November 2, 2006",-3.0
+2006,SD,Cook,Safe R,"November 6, 2006",-3.0
+2006,SD,Sabato,Safe R,"November 6, 2006",-3.0
+2006,SD,IE,Safe R,"November 2, 2006",-3.0
+2006,TN,Cook,Safe D,"November 6, 2006",3.0
+2006,TN,Sabato,Safe D,"November 6, 2006",3.0
+2006,TN,IE,Safe D,"November 2, 2006",3.0
+2006,TX,Cook,Likely R,"November 6, 2006",-2.0
+2006,TX,Sabato,Safe R,"November 6, 2006",-3.0
+2006,TX,IE,Likely R,"November 2, 2006",-2.0
+2006,VT,Cook,Likely R,"November 6, 2006",-2.0
+2006,VT,Sabato,Safe R,"November 6, 2006",-3.0
+2006,VT,IE,Safe R,"November 2, 2006",-3.0
+2006,WI,Cook,Tossup,"November 6, 2006",0.0
+2006,WI,Sabato,Leans D,"November 6, 2006",1.0
+2006,WI,IE,Tossup,"November 2, 2006",0.0
+2006,WY,Cook,Safe D,"November 6, 2006",3.0
+2006,WY,Sabato,Safe D,"November 6, 2006",3.0
+2006,WY,IE,Safe D,"November 2, 2006",3.0
+2008,DE,Cook,Safe D,"October 16, 2008",3.0
+2008,DE,Sabato,Safe D,"November 3, 2008",3.0
+2008,DE,IE,Safe D,"November 2, 2008",3.0
+2008,IN,Cook,Lean R,"October 16, 2008",-1.0
+2008,IN,Sabato,Lean R,"November 3, 2008",-1.0
+2008,IN,IE,Likely R,"November 2, 2008",-2.0
+2008,MO,Cook,Lean D (flip),"October 16, 2008",1.0
+2008,MO,Sabato,Lean D (flip),"November 3, 2008",1.0
+2008,MO,IE,Likely D (flip),"November 2, 2008",2.0
+2008,MT,Cook,Safe D,"October 16, 2008",3.0
+2008,MT,Sabato,Safe D,"November 3, 2008",3.0
+2008,MT,IE,Safe D,"November 2, 2008",3.0
+2008,NH,Cook,Safe D,"October 16, 2008",3.0
+2008,NH,Sabato,Safe D,"November 3, 2008",3.0
+2008,NH,IE,Safe D,"November 2, 2008",3.0
+2008,NC,Cook,Tossup,"October 16, 2008",0.0
+2008,NC,Sabato,Lean D,"November 3, 2008",1.0
+2008,NC,IE,Tossup,"November 2, 2008",0.0
+2008,ND,Cook,Safe R,"October 16, 2008",-3.0
+2008,ND,Sabato,Safe R,"November 3, 2008",-3.0
+2008,ND,IE,Safe R,"November 2, 2008",-3.0
+2008,UT,Cook,Safe R,"October 16, 2008",-3.0
+2008,UT,Sabato,Safe R,"November 3, 2008",-3.0
+2008,UT,IE,Safe R,"November 2, 2008",-3.0
+2008,VT,Cook,Likely R,"October 16, 2008",-2.0
+2008,VT,Sabato,Likely R,"November 3, 2008",-2.0
+2008,VT,IE,Safe R,"November 2, 2008",-3.0
+2008,WA,Cook,Tossup,"October 16, 2008",0.0
+2008,WA,Sabato,Lean D,"November 3, 2008",1.0
+2008,WA,IE,Tossup,"November 2, 2008",0.0
+2008,WV,Cook,Safe D,"October 16, 2008",3.0
+2008,WV,Sabato,Safe D,"November 3, 2008",3.0
+2008,WV,IE,Safe D,"November 2, 2008",3.0
+2010,AL,Cook,Leans R,"October 1, 2010",-1.0
+2010,AL,Sabato,Likely R,"November 1, 2010",-2.0
+2010,AL,IE,Safe R,"October 28, 2010",-3.0
+2010,AK,Cook,Safe R,"October 1, 2010",-3.0
+2010,AK,Sabato,Safe R,"November 1, 2010",-3.0
+2010,AK,IE,Safe R,"October 28, 2010",-3.0
+2010,AZ,Cook,Likely R,"October 1, 2010",-2.0
+2010,AZ,Sabato,Likely R,"November 1, 2010",-2.0
+2010,AZ,IE,Leans R,"October 28, 2010",-1.0
+2010,AR,Cook,Safe D,"October 1, 2010",3.0
+2010,AR,Sabato,Likely D,"November 1, 2010",2.0
+2010,AR,IE,Safe D,"October 28, 2010",3.0
+2010,CA,Cook,Tossup,"October 1, 2010",0.0
+2010,CA,Sabato,Leans D (flip),"November 1, 2010",1.0
+2010,CA,IE,Leans D (flip),"October 28, 2010",1.0
+2010,CO,Cook,Likely D,"October 1, 2010",2.0
+2010,CO,Sabato,Leans D,"November 1, 2010",1.0
+2010,CO,IE,Leans D,"October 28, 2010",1.0
+2010,CT,Cook,Tossup,"October 1, 2010",0.0
+2010,CT,Sabato,Leans R,"November 1, 2010",-1.0
+2010,CT,IE,Tossup,"October 28, 2010",0.0
+2010,FL,Cook,Tossup,"October 1, 2010",0.0
+2010,FL,Sabato,Leans R (flip),"November 1, 2010",-1.0
+2010,FL,IE,Tossup,"October 28, 2010",0.0
+2010,GA,Cook,Tossup,"October 1, 2010",0.0
+2010,GA,Sabato,Leans R,"November 1, 2010",-1.0
+2010,GA,IE,Leans R,"October 28, 2010",-1.0
+2010,HI,Cook,Leans D (flip),"October 1, 2010",1.0
+2010,HI,Sabato,Leans D (flip),"November 1, 2010",1.0
+2010,HI,IE,Tilt D (flip),"October 28, 2010",0.5
+2010,ID,Cook,Safe R,"October 1, 2010",-3.0
+2010,ID,Sabato,Likely R,"November 1, 2010",-2.0
+2010,ID,IE,Safe R,"October 28, 2010",-3.0
+2010,IL,Cook,Tossup,"October 1, 2010",0.0
+2010,IL,Sabato,Leans R (flip),"November 1, 2010",-1.0
+2010,IL,IE,Tilt R (flip),"October 28, 2010",-0.5
+2010,IA,Cook,Likely R (flip),"October 1, 2010",-2.0
+2010,IA,Sabato,Likely R (flip),"November 1, 2010",-2.0
+2010,IA,IE,Likely R (flip),"October 28, 2010",-2.0
+2010,KS,Cook,Safe R (flip),"October 1, 2010",-3.0
+2010,KS,Sabato,Safe R (flip),"November 1, 2010",-3.0
+2010,KS,IE,Safe R (flip),"October 28, 2010",-3.0
+2010,ME,Cook,Tossup,"October 1, 2010",0.0
+2010,ME,Sabato,Leans R (flip),"November 1, 2010",-1.0
+2010,ME,IE,Tilt R (flip),"October 28, 2010",-0.5
+2010,MD,Cook,Tossup,"October 1, 2010",0.0
+2010,MD,Sabato,Likely D,"November 1, 2010",2.0
+2010,MD,IE,Likely D,"October 28, 2010",2.0
+2010,MA,Cook,Tossup,"October 1, 2010",0.0
+2010,MA,Sabato,Leans D,"November 1, 2010",1.0
+2010,MA,IE,Tilt D,"October 28, 2010",0.5
+2010,MI,Cook,Leans R (flip),"October 1, 2010",-1.0
+2010,MI,Sabato,Likely R (flip),"November 1, 2010",-2.0
+2010,MI,IE,Likely R (flip),"October 28, 2010",-2.0
+2010,MN,Cook,Tossup,"October 1, 2010",0.0
+2010,MN,Sabato,Leans D (flip),"November 1, 2010",1.0
+2010,MN,IE,Tilt D (flip),"October 28, 2010",0.5
+2010,NE,Cook,Safe R,"October 1, 2010",-3.0
+2010,NE,Sabato,Safe R,"November 1, 2010",-3.0
+2010,NE,IE,Safe R,"October 28, 2010",-3.0
+2010,NV,Cook,Tossup,"October 1, 2010",0.0
+2010,NV,Sabato,Likely R,"November 1, 2010",-2.0
+2010,NV,IE,Safe R,"October 28, 2010",-3.0
+2010,NH,Cook,Tossup,"October 1, 2010",0.0
+2010,NH,Sabato,Leans D,"November 1, 2010",1.0
+2010,NH,IE,Leans D,"October 28, 2010",1.0
+2010,NM,Cook,Tossup,"October 1, 2010",0.0
+2010,NM,Sabato,Likely R (flip),"November 1, 2010",-2.0
+2010,NM,IE,Leans R (flip),"October 28, 2010",-1.0
+2010,NY,Cook,Safe D,"October 1, 2010",3.0
+2010,NY,Sabato,Safe D,"November 1, 2010",3.0
+2010,NY,IE,Safe D,"October 28, 2010",3.0
+2010,OH,Cook,Tossup,"October 1, 2010",0.0
+2010,OH,Sabato,Leans R (flip),"November 1, 2010",-1.0
+2010,OH,IE,Tilt R (flip),"October 28, 2010",-0.5
+2010,OK,Cook,Leans R (flip),"October 1, 2010",-1.0
+2010,OK,Sabato,Likely R (flip),"November 1, 2010",-2.0
+2010,OK,IE,Safe R (flip),"October 28, 2010",-3.0
+2010,OR,Cook,Tossup,"October 1, 2010",0.0
+2010,OR,Sabato,Leans R (flip),"November 1, 2010",-1.0
+2010,OR,IE,Tossup,"October 28, 2010",0.0
+2010,PA,Cook,Leans R (flip),"October 1, 2010",-1.0
+2010,PA,Sabato,Likely R (flip),"November 1, 2010",-2.0
+2010,PA,IE,Leans R (flip),"October 28, 2010",-1.0
+2010,RI,Cook,Tossup,"October 1, 2010",0.0
+2010,SC,Cook,Likely R,"October 1, 2010",-2.0
+2010,SC,Sabato,Likely R,"November 1, 2010",-2.0
+2010,SC,IE,Safe R,"October 28, 2010",-3.0
+2010,SD,Cook,Likely R,"October 1, 2010",-2.0
+2010,SD,Sabato,Likely R,"November 1, 2010",-2.0
+2010,SD,IE,Safe R,"October 28, 2010",-3.0
+2010,TN,Cook,Likely R (flip),"October 1, 2010",-2.0
+2010,TN,Sabato,Likely R (flip),"November 1, 2010",-2.0
+2010,TN,IE,Safe R (flip),"October 28, 2010",-3.0
+2010,TX,Cook,Tossup,"October 1, 2010",0.0
+2010,TX,Sabato,Likely R,"November 1, 2010",-2.0
+2010,TX,IE,Leans R,"October 28, 2010",-1.0
+2010,UT,Cook,Safe R,"October 1, 2010",-3.0
+2010,UT,Sabato,Safe R,"November 1, 2010",-3.0
+2010,UT,IE,Safe R,"October 28, 2010",-3.0
+2010,VT,Cook,Tossup,"October 1, 2010",0.0
+2010,VT,Sabato,Leans D (flip),"November 1, 2010",1.0
+2010,VT,IE,Tilt D (flip),"October 28, 2010",0.5
+2010,WI,Cook,Tossup,"October 1, 2010",0.0
+2010,WI,Sabato,Likely R (flip),"November 1, 2010",-2.0
+2010,WI,IE,Leans R (flip),"October 28, 2010",-1.0
+2010,WY,Cook,Safe R (flip),"October 1, 2010",-3.0
+2010,WY,Sabato,Safe R (flip),"November 1, 2010",-3.0
+2010,WY,IE,Safe R (flip),"October 28, 2010",-3.0
+2012,DE,Cook,Solid D,"Nov 1, 2012",3.0
+2012,DE,Sabato,Safe D,"Nov 5, 2012",3.0
+2012,DE,IE,Solid D,"Nov 2, 2012",3.0
+2012,IN,Cook,Likely R,"Nov 1, 2012",-2.0
+2012,IN,Sabato,Likely R,"Nov 5, 2012",-2.0
+2012,IN,IE,Likely R,"Nov 2, 2012",-2.0
+2012,MO,Cook,Lean D,"Nov 1, 2012",1.0
+2012,MO,Sabato,Likely D,"Nov 5, 2012",2.0
+2012,MO,IE,Likely D,"Nov 2, 2012",2.0
+2012,MT,Cook,Tossup,"Nov 1, 2012",0.0
+2012,MT,Sabato,Lean R (flip),"Nov 5, 2012",-1.0
+2012,MT,IE,Tossup,"Nov 2, 2012",0.0
+2012,NH,Cook,Tossup,"Nov 1, 2012",0.0
+2012,NH,Sabato,Lean D,"Nov 5, 2012",1.0
+2012,NH,IE,Tossup,"Nov 2, 2012",0.0
+2012,NC,Cook,Lean R (flip),"Nov 1, 2012",-1.0
+2012,NC,Sabato,Likely R (flip),"Nov 5, 2012",-2.0
+2012,NC,IE,Likely R (flip),"Nov 2, 2012",-2.0
+2012,ND,Cook,Solid R,"Nov 1, 2012",-3.0
+2012,ND,Sabato,Safe R,"Nov 5, 2012",-3.0
+2012,ND,IE,Solid R,"Nov 2, 2012",-3.0
+2012,UT,Cook,Solid R,"Nov 1, 2012",-3.0
+2012,UT,Sabato,Safe R,"Nov 5, 2012",-3.0
+2012,UT,IE,Solid R,"Nov 2, 2012",-3.0
+2012,VT,Cook,Solid D,"Nov 1, 2012",3.0
+2012,VT,Sabato,Safe D,"Nov 5, 2012",3.0
+2012,VT,IE,Solid D,"Nov 2, 2012",3.0
+2012,WA,Cook,Tossup,"Nov 1, 2012",0.0
+2012,WA,Sabato,Lean D,"Nov 5, 2012",1.0
+2012,WA,IE,Tilt D,"Nov 2, 2012",0.5
+2012,WV,Cook,Lean D,"Nov 1, 2012",1.0
+2012,WV,Sabato,Lean D,"Nov 5, 2012",1.0
+2012,WV,IE,Lean D,"Nov 2, 2012",1.0
+2014,AL,Cook,Solid R,"Nov 3, 2014",-3.0
+2014,AL,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,AL,IE,Solid R,"Nov 3, 2014",-3.0
+2014,AK,Cook,Tossup,"Nov 3, 2014",0.0
+2014,AK,Sabato,Lean I (flip),"Nov 3, 2014",1.0
+2014,AK,IE,Tossup,"Nov 3, 2014",0.0
+2014,AZ,Cook,Lean R,"Nov 3, 2014",-1.0
+2014,AZ,Sabato,Likely R,"Nov 3, 2014",-2.0
+2014,AZ,IE,Lean R,"Nov 3, 2014",-1.0
+2014,AR,Cook,Lean R (flip),"Nov 3, 2014",-1.0
+2014,AR,Sabato,Likely R (flip),"Nov 3, 2014",-2.0
+2014,AR,IE,Lean R (flip),"Nov 3, 2014",-1.0
+2014,CA,Cook,Solid D,"Nov 3, 2014",3.0
+2014,CA,Sabato,Safe D,"Nov 3, 2014",3.0
+2014,CA,IE,Solid D,"Nov 3, 2014",3.0
+2014,CO,Cook,Tossup,"Nov 3, 2014",0.0
+2014,CO,Sabato,Lean D,"Nov 3, 2014",1.0
+2014,CO,IE,Tilt D,"Nov 3, 2014",0.5
+2014,CT,Cook,Tossup,"Nov 3, 2014",0.0
+2014,CT,Sabato,Lean D,"Nov 3, 2014",1.0
+2014,CT,IE,Tossup,"Nov 3, 2014",0.0
+2014,FL,Cook,Tossup,"Nov 3, 2014",0.0
+2014,FL,Sabato,Lean D (flip),"Nov 3, 2014",1.0
+2014,FL,IE,Tossup,"Nov 3, 2014",0.0
+2014,GA,Cook,Tossup,"Nov 3, 2014",0.0
+2014,GA,Sabato,Lean R,"Nov 3, 2014",-1.0
+2014,GA,IE,Lean R,"Nov 3, 2014",-1.0
+2014,HI,Cook,Lean D,"Nov 3, 2014",1.0
+2014,HI,Sabato,Likely D,"Nov 3, 2014",2.0
+2014,HI,IE,Lean D,"Nov 3, 2014",1.0
+2014,ID,Cook,Solid R,"Nov 3, 2014",-3.0
+2014,ID,Sabato,Likely R,"Nov 3, 2014",-2.0
+2014,ID,IE,Likely R,"Nov 3, 2014",-2.0
+2014,IL,Cook,Tossup,"Nov 3, 2014",0.0
+2014,IL,Sabato,Lean D,"Nov 3, 2014",1.0
+2014,IL,IE,Tossup,"Nov 3, 2014",0.0
+2014,IA,Cook,Likely R,"Nov 3, 2014",-2.0
+2014,IA,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,IA,IE,Solid R,"Nov 3, 2014",-3.0
+2014,KS,Cook,Tossup,"Nov 3, 2014",0.0
+2014,KS,Sabato,Lean D (flip),"Nov 3, 2014",1.0
+2014,KS,IE,Tossup,"Nov 3, 2014",0.0
+2014,ME,Cook,Tossup,"Nov 3, 2014",0.0
+2014,ME,Sabato,Lean D (flip),"Nov 3, 2014",1.0
+2014,ME,IE,Tossup,"Nov 3, 2014",0.0
+2014,MD,Cook,Tossup,"Nov 3, 2014",0.0
+2014,MD,Sabato,Lean D,"Nov 3, 2014",1.0
+2014,MD,IE,Tilt D,"Nov 3, 2014",0.5
+2014,MA,Cook,Tossup,"Nov 3, 2014",0.0
+2014,MA,Sabato,Lean R (flip),"Nov 3, 2014",-1.0
+2014,MA,IE,Tilt R (flip),"Nov 3, 2014",-0.5
+2014,MI,Cook,Tossup,"Nov 3, 2014",0.0
+2014,MI,Sabato,Lean R,"Nov 3, 2014",-1.0
+2014,MI,IE,Tilt R,"Nov 3, 2014",-0.5
+2014,MN,Cook,Likely D,"Nov 3, 2014",2.0
+2014,MN,Sabato,Likely D,"Nov 3, 2014",2.0
+2014,MN,IE,Solid D,"Nov 3, 2014",3.0
+2014,NE,Cook,Solid R,"Nov 3, 2014",-3.0
+2014,NE,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,NE,IE,Solid R,"Nov 3, 2014",-3.0
+2014,NV,Cook,Solid R,"Nov 3, 2014",-3.0
+2014,NV,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,NV,IE,Solid R,"Nov 3, 2014",-3.0
+2014,NH,Cook,Lean D,"Nov 3, 2014",1.0
+2014,NH,Sabato,Lean D,"Nov 3, 2014",1.0
+2014,NH,IE,Likely D,"Nov 3, 2014",2.0
+2014,NM,Cook,Likely R,"Nov 3, 2014",-2.0
+2014,NM,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,NM,IE,Solid R,"Nov 3, 2014",-3.0
+2014,NY,Cook,Solid D,"Nov 3, 2014",3.0
+2014,NY,Sabato,Safe D,"Nov 3, 2014",3.0
+2014,NY,IE,Solid D,"Nov 3, 2014",3.0
+2014,OH,Cook,Solid R,"Nov 3, 2014",-3.0
+2014,OH,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,OH,IE,Solid R,"Nov 3, 2014",-3.0
+2014,OK,Cook,Solid R,"Nov 3, 2014",-3.0
+2014,OK,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,OK,IE,Solid R,"Nov 3, 2014",-3.0
+2014,OR,Cook,Likely D,"Nov 3, 2014",2.0
+2014,OR,Sabato,Likely D,"Nov 3, 2014",2.0
+2014,OR,IE,Safe D,"Nov 3, 2014",3.0
+2014,PA,Cook,Likely D (flip),"Nov 3, 2014",2.0
+2014,PA,Sabato,Safe D (flip),"Nov 3, 2014",3.0
+2014,PA,IE,Likely D (flip),"Nov 3, 2014",2.0
+2014,RI,Cook,Tossup,"Nov 3, 2014",0.0
+2014,RI,Sabato,Lean D,"Nov 3, 2014",1.0
+2014,RI,IE,Tilt D,"Nov 3, 2014",0.5
+2014,SC,Cook,Likely R,"Nov 3, 2014",-2.0
+2014,SC,Sabato,Likely R,"Nov 3, 2014",-2.0
+2014,SC,IE,Likely R,"Nov 3, 2014",-2.0
+2014,SD,Cook,Solid R,"Nov 3, 2014",-3.0
+2014,SD,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,SD,IE,Solid R,"Nov 3, 2014",-3.0
+2014,TN,Cook,Solid R,"Nov 3, 2014",-3.0
+2014,TN,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,TN,IE,Solid R,"Nov 3, 2014",-3.0
+2014,TX,Cook,Likely R,"Nov 3, 2014",-2.0
+2014,TX,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,TX,IE,Solid R,"Nov 3, 2014",-3.0
+2014,VT,Cook,Solid D,"Nov 3, 2014",3.0
+2014,VT,Sabato,Safe D,"Nov 3, 2014",3.0
+2014,VT,IE,Solid D,"Nov 3, 2014",3.0
+2014,WI,Cook,Tossup,"Nov 3, 2014",0.0
+2014,WI,Sabato,Lean R,"Nov 3, 2014",-1.0
+2014,WI,IE,Tilt R,"Nov 3, 2014",-0.5
+2014,WY,Cook,Solid R,"Nov 3, 2014",-3.0
+2014,WY,Sabato,Safe R,"Nov 3, 2014",-3.0
+2014,WY,IE,Solid R,"Nov 3, 2014",-3.0
+2016,DE,Cook,Solid D,"Aug 12, 2016",3.0
+2016,DE,Sabato,Safe D,"Nov 7, 2016",3.0
+2016,DE,IE,Solid D,"Nov 3, 2016",3.0
+2016,IN,Cook,Tossup,"Aug 12, 2016",0.0
+2016,IN,Sabato,Lean D (flip),"Nov 7, 2016",1.0
+2016,IN,IE,Tilt R,"Nov 3, 2016",-0.5
+2016,MO,Cook,Tossup,"Aug 12, 2016",0.0
+2016,MO,Sabato,Lean R (flip),"Nov 7, 2016",-1.0
+2016,MO,IE,Tossup,"Nov 3, 2016",0.0
+2016,MT,Cook,Lean D,"Aug 12, 2016",1.0
+2016,MT,Sabato,Lean D,"Nov 7, 2016",1.0
+2016,MT,IE,Lean D,"Nov 3, 2016",1.0
+2016,NH,Cook,Tossup,"Aug 12, 2016",0.0
+2016,NH,Sabato,Lean D,"Nov 7, 2016",1.0
+2016,NH,IE,Tossup,"Nov 3, 2016",0.0
+2016,NC,Cook,Tossup,"Aug 12, 2016",0.0
+2016,NC,Sabato,Lean D (flip),"Nov 7, 2016",1.0
+2016,NC,IE,Tilt D (flip),"Nov 3, 2016",0.5
+2016,ND,Cook,Solid R,"Aug 12, 2016",-3.0
+2016,ND,Sabato,Safe R,"Nov 7, 2016",-3.0
+2016,ND,IE,Solid R,"Nov 3, 2016",-3.0
+2016,OR,Cook,Likely D,"Aug 12, 2016",2.0
+2016,OR,Sabato,Safe D,"Nov 7, 2016",3.0
+2016,OR,IE,Solid D,"Nov 3, 2016",3.0
+2016,UT,Cook,Solid R,"Aug 12, 2016",-3.0
+2016,UT,Sabato,Safe R,"Nov 7, 2016",-3.0
+2016,UT,IE,Solid R,"Nov 3, 2016",-3.0
+2016,VT,Cook,Tossup,"Aug 12, 2016",0.0
+2016,VT,Sabato,Lean R (flip),"Nov 7, 2016",-1.0
+2016,VT,IE,Tilt R (flip),"Nov 3, 2016",-0.5
+2016,WA,Cook,Solid D,"Aug 12, 2016",3.0
+2016,WA,Sabato,Safe D,"Nov 7, 2016",3.0
+2016,WA,IE,Solid D,"Nov 3, 2016",3.0
+2016,WV,Cook,Tossup,"Aug 12, 2016",0.0
+2016,WV,Sabato,Lean D,"Nov 7, 2016",1.0
+2016,WV,IE,Tilt D,"Nov 3, 2016",0.5
+2018,AL,Cook,Safe R,"October 26, 2018",-3.0
+2018,AL,Sabato,Safe R,"November 5, 2018",-3.0
+2018,AL,IE,Safe R,"November 1, 2018",-3.0
+2018,AK,Cook,Lean R (flip),"October 26, 2018",-1.0
+2018,AK,Sabato,Lean R (flip),"November 5, 2018",-1.0
+2018,AK,IE,Tilt R (flip),"November 1, 2018",-0.5
+2018,AZ,Cook,Likely R,"October 26, 2018",-2.0
+2018,AZ,Sabato,Likely R,"November 5, 2018",-2.0
+2018,AZ,IE,Likely R,"November 1, 2018",-2.0
+2018,AR,Cook,Safe R,"October 26, 2018",-3.0
+2018,AR,Sabato,Safe R,"November 5, 2018",-3.0
+2018,AR,IE,Safe R,"November 1, 2018",-3.0
+2018,CA,Cook,Safe D,"October 26, 2018",3.0
+2018,CA,Sabato,Safe D,"November 5, 2018",3.0
+2018,CA,IE,Safe D,"November 1, 2018",3.0
+2018,CO,Cook,Lean D,"October 26, 2018",1.0
+2018,CO,Sabato,Lean D,"November 5, 2018",1.0
+2018,CO,IE,Lean D,"November 1, 2018",1.0
+2018,CT,Cook,Tossup,"October 26, 2018",0.0
+2018,CT,Sabato,Lean D,"November 5, 2018",1.0
+2018,CT,IE,Lean D,"November 1, 2018",1.0
+2018,FL,Cook,Tossup,"October 26, 2018",0.0
+2018,FL,Sabato,Lean D (flip),"November 5, 2018",1.0
+2018,FL,IE,Tilt D (flip),"November 1, 2018",0.5
+2018,GA,Cook,Tossup,"October 26, 2018",0.0
+2018,GA,Sabato,Tossup,"November 5, 2018",0.0
+2018,GA,IE,Tilt R,"November 1, 2018",-0.5
+2018,HI,Cook,Safe D,"October 26, 2018",3.0
+2018,HI,Sabato,Safe D,"November 5, 2018",3.0
+2018,HI,IE,Safe D,"November 1, 2018",3.0
+2018,ID,Cook,Safe R,"October 26, 2018",-3.0
+2018,ID,Sabato,Safe R,"November 5, 2018",-3.0
+2018,ID,IE,Safe R,"November 1, 2018",-3.0
+2018,IL,Cook,Likely D (flip),"October 26, 2018",2.0
+2018,IL,Sabato,Likely D (flip),"November 5, 2018",2.0
+2018,IL,IE,Likely D (flip),"November 1, 2018",2.0
+2018,IA,Cook,Tossup,"October 26, 2018",0.0
+2018,IA,Sabato,Lean D (flip),"November 5, 2018",1.0
+2018,IA,IE,Tilt D (flip),"November 1, 2018",0.5
+2018,KS,Cook,Tossup,"October 26, 2018",0.0
+2018,KS,Sabato,Lean D (flip),"November 5, 2018",1.0
+2018,KS,IE,Tossup,"November 1, 2018",0.0
+2018,ME,Cook,Tossup,"October 26, 2018",0.0
+2018,ME,Sabato,Lean D (flip),"November 5, 2018",1.0
+2018,ME,IE,Tilt D (flip),"November 1, 2018",0.5
+2018,MD,Cook,Likely R,"October 26, 2018",-2.0
+2018,MD,Sabato,Likely R,"November 5, 2018",-2.0
+2018,MD,IE,Likely R,"November 1, 2018",-2.0
+2018,MA,Cook,Safe R,"October 26, 2018",-3.0
+2018,MA,Sabato,Safe R,"November 5, 2018",-3.0
+2018,MA,IE,Safe R,"November 1, 2018",-3.0
+2018,MI,Cook,Lean D (flip),"October 26, 2018",1.0
+2018,MI,Sabato,Likely D (flip),"November 5, 2018",2.0
+2018,MI,IE,Lean D (flip),"November 1, 2018",1.0
+2018,MN,Cook,Likely D,"October 26, 2018",2.0
+2018,MN,Sabato,Lean D,"November 5, 2018",1.0
+2018,MN,IE,Likely D,"November 1, 2018",2.0
+2018,NE,Cook,Safe R,"October 26, 2018",-3.0
+2018,NE,Sabato,Safe R,"November 5, 2018",-3.0
+2018,NE,IE,Safe R,"November 1, 2018",-3.0
+2018,NV,Cook,Tossup,"October 26, 2018",0.0
+2018,NV,Sabato,Lean D (flip),"November 5, 2018",1.0
+2018,NV,IE,Tilt D (flip),"November 1, 2018",0.5
+2018,NH,Cook,Lean R,"October 26, 2018",-1.0
+2018,NH,Sabato,Lean R,"November 5, 2018",-1.0
+2018,NH,IE,Lean R,"November 1, 2018",-1.0
+2018,NM,Cook,Lean D (flip),"October 26, 2018",1.0
+2018,NM,Sabato,Lean D (flip),"November 5, 2018",1.0
+2018,NM,IE,Lean D (flip),"November 1, 2018",1.0
+2018,NY,Cook,Safe D,"October 26, 2018",3.0
+2018,NY,Sabato,Safe D,"November 5, 2018",3.0
+2018,NY,IE,Safe D,"November 1, 2018",3.0
+2018,OH,Cook,Tossup,"October 26, 2018",0.0
+2018,OH,Sabato,Lean D (flip),"November 5, 2018",1.0
+2018,OH,IE,Tossup,"November 1, 2018",0.0
+2018,OK,Cook,Tossup,"October 26, 2018",0.0
+2018,OK,Sabato,Lean R,"November 5, 2018",-1.0
+2018,OK,IE,Lean R,"November 1, 2018",-1.0
+2018,OR,Cook,Tossup,"October 26, 2018",0.0
+2018,OR,Sabato,Lean D,"November 5, 2018",1.0
+2018,OR,IE,Tilt D,"November 1, 2018",0.5
+2018,PA,Cook,Likely D,"October 26, 2018",2.0
+2018,PA,Sabato,Safe D,"November 5, 2018",3.0
+2018,PA,IE,Likely D,"November 1, 2018",2.0
+2018,RI,Cook,Lean D,"October 26, 2018",1.0
+2018,RI,Sabato,Likely D,"November 5, 2018",2.0
+2018,RI,IE,Lean D,"November 1, 2018",1.0
+2018,SC,Cook,Likely R,"October 26, 2018",-2.0
+2018,SC,Sabato,Safe R,"November 5, 2018",-3.0
+2018,SC,IE,Safe R,"November 1, 2018",-3.0
+2018,SD,Cook,Tossup,"October 26, 2018",0.0
+2018,SD,Sabato,Lean R,"November 5, 2018",-1.0
+2018,SD,IE,Tilt R,"November 1, 2018",-0.5
+2018,TN,Cook,Likely R,"October 26, 2018",-2.0
+2018,TN,Sabato,Safe R,"November 5, 2018",-3.0
+2018,TN,IE,Safe R,"November 1, 2018",-3.0
+2018,TX,Cook,Safe R,"October 26, 2018",-3.0
+2018,TX,Sabato,Safe R,"November 5, 2018",-3.0
+2018,TX,IE,Safe R,"November 1, 2018",-3.0
+2018,VT,Cook,Safe R,"October 26, 2018",-3.0
+2018,VT,Sabato,Safe R,"November 5, 2018",-3.0
+2018,VT,IE,Safe R,"November 1, 2018",-3.0
+2018,WI,Cook,Tossup,"October 26, 2018",0.0
+2018,WI,Sabato,Lean D (flip),"November 5, 2018",1.0
+2018,WI,IE,Tossup,"November 1, 2018",0.0
+2018,WY,Cook,Safe R,"October 26, 2018",-3.0
+2018,WY,Sabato,Safe R,"November 5, 2018",-3.0
+2018,WY,IE,Safe R,"November 1, 2018",-3.0
+2020,DE,Cook,Safe D,"Oct 23, 2020",3.0
+2020,DE,Sabato,Safe D,"Nov 2, 2020",3.0
+2020,DE,IE,Safe D,"Oct 28, 2020",3.0
+2020,IN,Cook,Safe R,"Oct 23, 2020",-3.0
+2020,IN,Sabato,Safe R,"Nov 2, 2020",-3.0
+2020,IN,IE,Safe R,"Oct 28, 2020",-3.0
+2020,MO,Cook,Lean R,"Oct 23, 2020",-1.0
+2020,MO,Sabato,Lean R,"Nov 2, 2020",-1.0
+2020,MO,IE,Lean R,"Oct 28, 2020",-1.0
+2020,MT,Cook,Tossup,"Oct 23, 2020",0.0
+2020,MT,Sabato,Lean R (flip),"Nov 2, 2020",-1.0
+2020,MT,IE,Tossup,"Oct 28, 2020",0.0
+2020,NH,Cook,Safe R,"Oct 23, 2020",-3.0
+2020,NH,Sabato,Likely R,"Nov 2, 2020",-2.0
+2020,NH,IE,Likely R,"Oct 28, 2020",-2.0
+2020,NC,Cook,Likely D,"Oct 23, 2020",2.0
+2020,NC,Sabato,Likely D,"Nov 2, 2020",2.0
+2020,NC,IE,Lean D,"Oct 28, 2020",1.0
+2020,ND,Cook,Safe R,"Oct 23, 2020",-3.0
+2020,ND,Sabato,Safe R,"Nov 2, 2020",-3.0
+2020,ND,IE,Safe R,"Oct 28, 2020",-3.0
+2020,UT,Cook,Safe R,"Oct 23, 2020",-3.0
+2020,UT,Sabato,Safe R,"Nov 2, 2020",-3.0
+2020,UT,IE,Safe R,"Oct 28, 2020",-3.0
+2020,VT,Cook,Safe R,"Oct 23, 2020",-3.0
+2020,VT,Sabato,Safe R,"Nov 2, 2020",-3.0
+2020,VT,IE,Safe R,"Oct 28, 2020",-3.0
+2020,WA,Cook,Safe D,"Oct 23, 2020",3.0
+2020,WA,Sabato,Safe D,"Nov 2, 2020",3.0
+2020,WA,IE,Safe D,"Oct 28, 2020",3.0
+2020,WV,Cook,Safe R,"Oct 23, 2020",-3.0
+2020,WV,Sabato,Likely R,"Nov 2, 2020",-2.0
+2020,WV,IE,Safe R,"Oct 28, 2020",-3.0
+2022,AL,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,AL,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,AL,IE,Solid R,"Nov 3, 2022",-3.0
+2022,AK,Cook,Likely R,"Oct 28, 2022",-2.0
+2022,AK,Sabato,Likely R,"Nov 7, 2022",-2.0
+2022,AK,IE,Likely R,"Nov 3, 2022",-2.0
+2022,AZ,Cook,Tossup,"Oct 28, 2022",0.0
+2022,AZ,Sabato,Lean R,"Nov 7, 2022",-1.0
+2022,AZ,IE,Tossup,"Nov 3, 2022",0.0
+2022,AR,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,AR,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,AR,IE,Solid R,"Nov 3, 2022",-3.0
+2022,CA,Cook,Solid D,"Oct 28, 2022",3.0
+2022,CA,Sabato,Safe D,"Nov 7, 2022",3.0
+2022,CA,IE,Solid D,"Nov 3, 2022",3.0
+2022,CO,Cook,Solid D,"Oct 28, 2022",3.0
+2022,CO,Sabato,Safe D,"Nov 7, 2022",3.0
+2022,CO,IE,Solid D,"Nov 3, 2022",3.0
+2022,CT,Cook,Solid D,"Oct 28, 2022",3.0
+2022,CT,Sabato,Likely D,"Nov 7, 2022",2.0
+2022,CT,IE,Solid D,"Nov 3, 2022",3.0
+2022,FL,Cook,Likely R,"Oct 28, 2022",-2.0
+2022,FL,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,FL,IE,Likely R,"Nov 3, 2022",-2.0
+2022,GA,Cook,Lean R,"Oct 28, 2022",-1.0
+2022,GA,Sabato,Likely R,"Nov 7, 2022",-2.0
+2022,GA,IE,Lean R,"Nov 3, 2022",-1.0
+2022,HI,Cook,Solid D,"Oct 28, 2022",3.0
+2022,HI,Sabato,Safe D,"Nov 7, 2022",3.0
+2022,HI,IE,Solid D,"Nov 3, 2022",3.0
+2022,ID,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,ID,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,ID,IE,Solid R,"Nov 3, 2022",-3.0
+2022,IL,Cook,Solid D,"Oct 28, 2022",3.0
+2022,IL,Sabato,Safe D,"Nov 7, 2022",3.0
+2022,IL,IE,Solid D,"Nov 3, 2022",3.0
+2022,IA,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,IA,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,IA,IE,Solid R,"Nov 3, 2022",-3.0
+2022,KS,Cook,Tossup,"Oct 28, 2022",0.0
+2022,KS,Sabato,Lean R (flip),"Nov 7, 2022",-1.0
+2022,KS,IE,Tossup,"Nov 3, 2022",0.0
+2022,ME,Cook,Lean D,"Oct 28, 2022",1.0
+2022,ME,Sabato,Lean D,"Nov 7, 2022",1.0
+2022,ME,IE,Lean D,"Nov 3, 2022",1.0
+2022,MD,Cook,Solid D (flip),"Oct 28, 2022",3.0
+2022,MD,Sabato,Safe D (flip),"Nov 7, 2022",3.0
+2022,MD,IE,Likely D (flip),"Nov 3, 2022",2.0
+2022,MA,Cook,Solid D (flip),"Oct 28, 2022",3.0
+2022,MA,Sabato,Safe D (flip),"Nov 7, 2022",3.0
+2022,MA,IE,Likely D (flip),"Nov 3, 2022",2.0
+2022,MI,Cook,Lean D,"Oct 28, 2022",1.0
+2022,MI,Sabato,Lean D,"Nov 7, 2022",1.0
+2022,MI,IE,Tilt D,"Nov 3, 2022",0.5
+2022,MN,Cook,Likely D,"Oct 28, 2022",2.0
+2022,MN,Sabato,Likely D,"Nov 7, 2022",2.0
+2022,MN,IE,Lean D,"Nov 3, 2022",1.0
+2022,NE,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,NE,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,NE,IE,Solid R,"Nov 3, 2022",-3.0
+2022,NV,Cook,Tossup,"Oct 28, 2022",0.0
+2022,NV,Sabato,Lean R (flip),"Nov 7, 2022",-1.0
+2022,NV,IE,Tossup,"Nov 3, 2022",0.0
+2022,NH,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,NH,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,NH,IE,Solid R,"Nov 3, 2022",-3.0
+2022,NM,Cook,Lean D,"Oct 28, 2022",1.0
+2022,NM,Sabato,Lean D,"Nov 7, 2022",1.0
+2022,NM,IE,Tilt D,"Nov 3, 2022",0.5
+2022,NY,Cook,Likely D,"Oct 28, 2022",2.0
+2022,NY,Sabato,Likely D,"Nov 7, 2022",2.0
+2022,NY,IE,Likely D,"Nov 3, 2022",2.0
+2022,OH,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,OH,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,OH,IE,Solid R,"Nov 3, 2022",-3.0
+2022,OK,Cook,Likely R,"Oct 28, 2022",-2.0
+2022,OK,Sabato,Likely R,"Nov 7, 2022",-2.0
+2022,OK,IE,Likely R,"Nov 3, 2022",-2.0
+2022,OR,Cook,Tossup,"Oct 28, 2022",0.0
+2022,OR,Sabato,Lean D,"Nov 7, 2022",1.0
+2022,OR,IE,Tossup,"Nov 3, 2022",0.0
+2022,PA,Cook,Likely D,"Oct 28, 2022",2.0
+2022,PA,Sabato,Likely D,"Nov 7, 2022",2.0
+2022,PA,IE,Lean D,"Nov 3, 2022",1.0
+2022,RI,Cook,Solid D,"Oct 28, 2022",3.0
+2022,RI,Sabato,Likely D,"Nov 7, 2022",2.0
+2022,RI,IE,Solid D,"Nov 3, 2022",3.0
+2022,SC,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,SC,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,SC,IE,Solid R,"Nov 3, 2022",-3.0
+2022,SD,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,SD,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,SD,IE,Solid R,"Nov 3, 2022",-3.0
+2022,TN,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,TN,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,TN,IE,Solid R,"Nov 3, 2022",-3.0
+2022,TX,Cook,Likely R,"Oct 28, 2022",-2.0
+2022,TX,Sabato,Likely R,"Nov 7, 2022",-2.0
+2022,TX,IE,Solid R,"Nov 3, 2022",-3.0
+2022,VT,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,VT,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,VT,IE,Solid R,"Nov 3, 2022",-3.0
+2022,WI,Cook,Tossup,"Oct 28, 2022",0.0
+2022,WI,Sabato,Lean R (flip),"Nov 7, 2022",-1.0
+2022,WI,IE,Tossup,"Nov 3, 2022",0.0
+2022,WY,Cook,Solid R,"Oct 28, 2022",-3.0
+2022,WY,Sabato,Safe R,"Nov 7, 2022",-3.0
+2022,WY,IE,Solid R,"Nov 3, 2022",-3.0
+2024,DE,Cook,Solid D,"October 15, 2024",3.0
+2024,DE,Sabato,Safe D,"November 4, 2024",3.0
+2024,DE,IE,Solid D,"September 26, 2024",3.0
+2024,IN,Cook,Likely R,"October 15, 2024",-2.0
+2024,IN,Sabato,Likely R,"November 4, 2024",-2.0
+2024,IN,IE,Likely R,"September 26, 2024",-2.0
+2024,MO,Cook,Solid R,"October 15, 2024",-3.0
+2024,MO,Sabato,Safe R,"November 4, 2024",-3.0
+2024,MO,IE,Solid R,"September 26, 2024",-3.0
+2024,MT,Cook,Solid R,"October 15, 2024",-3.0
+2024,MT,Sabato,Safe R,"November 4, 2024",-3.0
+2024,MT,IE,Solid R,"September 26, 2024",-3.0
+2024,NH,Cook,Tossup,"October 15, 2024",0.0
+2024,NH,Sabato,Lean R,"November 4, 2024",-1.0
+2024,NH,IE,Tossup,"September 26, 2024",0.0
+2024,NC,Cook,Likely D,"October 15, 2024",2.0
+2024,NC,Sabato,Likely D,"November 4, 2024",2.0
+2024,NC,IE,Likely D,"September 26, 2024",2.0
+2024,ND,Cook,Solid R,"October 15, 2024",-3.0
+2024,ND,Sabato,Safe R,"November 4, 2024",-3.0
+2024,ND,IE,Solid R,"September 26, 2024",-3.0
+2024,UT,Cook,Solid R,"October 15, 2024",-3.0
+2024,UT,Sabato,Safe R,"November 4, 2024",-3.0
+2024,UT,IE,Solid R,"September 26, 2024",-3.0
+2024,VT,Cook,Solid R,"October 15, 2024",-3.0
+2024,VT,Sabato,Safe R,"November 4, 2024",-3.0
+2024,VT,IE,Solid R,"September 26, 2024",-3.0
+2024,WA,Cook,Likely D,"October 15, 2024",2.0
+2024,WA,Sabato,Likely D,"November 4, 2024",2.0
+2024,WA,IE,Likely D,"September 26, 2024",2.0
+2024,WV,Cook,Solid R,"October 15, 2024",-3.0
+2024,WV,Sabato,Safe R,"November 4, 2024",-3.0
+2024,WV,IE,Solid R,"September 26, 2024",-3.0

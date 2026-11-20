@@ -543,3 +543,137 @@ What the backtest can say is how much there is to gain:
   points. These are the Hogan and Scott cases: governors far more popular than their state's lean.
 - So approval would matter most where polls are thin or absent, which is also every forecast made early in a cycle
   (2027's races, and 2028 before the autumn).
+
+### Unpolled governor races from the polled ones, written 2026-11-20 before any run
+
+A race with no polls is forecast from the prior alone. The idea: the polled races of the same cycle show how far
+polls sit from the prior, and an unpolled state can borrow that gap, either from all polled states alike or mostly
+from the states that resemble it.
+
+- For each polled race, gap = poll average minus prior. For an unpolled race, z = the weighted mean gap of that
+  cycle's polled races, and the forecast is prior + c x z. The spread of the forecast is unchanged.
+- c is fitted as of each cycle on the earlier cycles' polled races, each treated as if it were unpolled: its result
+  minus its prior, regressed on the z it would have had from the other polled races of its cycle.
+- *Flat* weights every polled race equally. *Demographic* weights a polled state by exp(-d^2 / 2m^2), where d is
+  the distance between the two states on seven standardized measures (share with a bachelor's degree, log median
+  income, white, Black and Latino shares, urban and rural shares) and m is the median distance between states.
+
+Candidates: `govunpolled_flat` and `govunpolled_demo` (`--gov-unpolled flat|demo`). Office: governor. Expected to
+improve: margin error and log loss in the unpolled races. Flat is the control: demographic similarity has to beat
+it, not just the baseline.
+
+Two limits known in advance. The demographics are one snapshot (the 2015-2019 American Community Survey, from The
+Downballot's state tables), used for every cycle back to 2004; states change slowly, but for the early cycles this
+is a look ahead at demographics, though not at any result. And the largest unpolled misses so far were popular
+incumbents, which no neighbouring state's polls can see.
+
+### The incumbent's own last margin, written 2026-11-20 before its run
+
+`govlean_prevgov` above used the state's previous governor race whoever was running, and failed. This is the
+narrower idea: when the incumbent is running, how they did last time says something about them as a candidate.
+
+- *Incumbent's last margin*: where the incumbent is running and won the state's previous governor race (matched
+  by surname), that race's two-party margin minus that year's national House margin. Zero for an open seat. Where
+  an incumbent is running and there is no such race on file (first elected before 1998 or in an odd year, or
+  never elected: a successor), the race keeps the baseline prior and is left out of this term's fit.
+
+Candidate `govprior_incprev` (`--gov-lean incprev`): the term added to the baseline prior. Office: governor.
+Expected to improve: races with an incumbent and few or no polls. Known in advance: results on file start in 1998,
+so the 2004 and 2006 fits have few incumbents with a past margin, the weakness that sank `govlean_prevgov`; open
+seats are kept in the fit this time, which should steady the other slopes.
+
+**Results (2026-11-20): all three fail.**
+
+| Candidate | Pooled log-loss gap | Its SD | Margin error, 27 unpolled races (20.2) | Rule |
+|---|---|---|---|---|
+| `govunpolled_flat` | +0.001 | 0.001 | 20.7 | fails: worse |
+| `govunpolled_demo` | +0.001 | 0.001 | 20.6 | fails: worse |
+| `govprior_incprev` | +0.027 | 0.017 | 22.1 | fails: worse |
+
+- Borrowing from polled races does not help, and the fitted c is negative in every cycle (-0.06 to -0.6): where
+  polls sit above the prior in the polled states, the unpolled states did not follow. Demographic weights are no
+  better than flat ones. An unpolled governor race is unpolled because it is not close, and what the prior gets
+  wrong there is the candidate, which other states' polls do not carry.
+- The incumbent's last margin has the same weakness as the previous-governor margin: the slope is -0.45 in the
+  fits for 2004 to 2008, when few incumbents have a race on file, and it wrecks 2006 and 2008. From 2010 the slope
+  is small and positive (0.08 to 0.22) and the forecasts barely move. It needs governor results from before 1998
+  to be tested fairly (DA-2).
+
+### Expert ratings in the governor prior, written 2026-11-20 before any run
+
+The governor model uses no expert ratings. The yearly Wikipedia overview pages, already cached, carry the final
+pre-election ratings for 2002 and every even year from 2006 (`python src/model/governor_inputs.py ratings` ->
+`data/interim/governor_ratings.csv`).
+
+- *Rating*: the mean of Cook, Sabato and Rothenberg / Inside Elections where each rated the race, on a scale from
+  -3 (safe Republican) through 0 (toss-up) to +3 (safe Democratic), with tilt at 0.5, lean at 1 and likely at 2.
+  These three are the raters present throughout. The dates are the ones on the page, mostly the final week, a few
+  earlier (Cook: August 2016, early October 2010); none is after the election.
+- Candidate `govprior_ratings` (`--gov-lean ratings`): the rating added to the baseline prior, everything else
+  (weight on polls, spreads) refitted as of each cycle as usual. A cycle is forecast this way once three earlier
+  cycles have ratings, so 2010 to 2024; 2004 to 2008 keep the baseline. Office: governor.
+- Expected to improve: races with few or no polls, where a rating knows what the prior cannot (a popular
+  incumbent). In polled races ratings mostly restate the polls, so little should change there.
+- Known in advance: raters see the polls, so this is not independent information; and the pages are today's
+  versions of the tables, trusted to show the ratings as they stood before each election.
+
+### More weight on polls, with more uncertainty, written 2026-11-20 before any run
+
+The weight on polls is fitted (0.75 rising to 0.86) and the prior's spread follows from it. The question is whether
+forecasts would do better leaning harder on polls while admitting more uncertainty. In the model the two are tied:
+a wider prior raises the weight on polls and widens the race's spread together.
+
+| Tag | Change |
+|---|---|
+| `govw_prior15` | the prior's spread x 1.5 in polled races: weight on polls about 0.93, race spread up about 4% |
+| `gov_wide15` | the spread of every polled race x 1.15, weights unchanged |
+| `govw_prior15_wide15` | both |
+
+(`--gov-prior-sd-scale`, `--gov-sd-scale`.) Office: governor. The baseline's coverage on competitive races is
+already 81% and 51%, so the expectation is that widening alone fails; the open question is the weight.
+
+### Results: ratings, and weight with uncertainty (2026-11-20)
+
+| Candidate | Pooled log-loss gap | Its SD | Gap without 2004 | Cycles better | Share in 80% range (0.81) | Count spread (0.228) | Rule |
+|---|---|---|---|---|---|---|---|
+| `govprior_ratings` | -0.018 | 0.017 | -0.019 | 6 of 11 | 0.77 | 0.261 | passes, narrowly |
+| `govw_prior15` | +0.007 | 0.009 | +0.013 | 3 of 11 | 0.81 | 0.237 | fails: worse |
+| `gov_wide15` | +0.005 | 0.003 | +0.006 | 2 of 11 | 0.83 | 0.228 | fails: worse |
+| `govw_prior15_wide15` | +0.012 | 0.010 | +0.018 | 3 of 11 | 0.84 | 0.236 | fails: worse |
+
+**More weight on polls, more uncertainty: the data does not support either.** Raising the weight on polls to
+about 0.93 makes log loss worse, widening the ranges makes it worse, and doing both is worst. The fitted weight
+and the present widths stand.
+
+**Ratings: pass, by a hair, and the gain is in the races without polls.** The gain (0.018) is just over its
+standard deviation (0.017). Ratings enter only from 2010, so the test is eight cycles, not eleven. Over those 184
+races:
+
+| | Races | Prior's margin error | Model's margin error | Log loss |
+|---|---|---|---|---|
+| No polls | 20 | 19.2 to 10.4 | 19.2 to 10.4 | 0.350 to 0.066 |
+| One or two polls | 53 | 18.9 to 12.1 | 9.0 to 8.0 | 0.083 to 0.060 |
+| All polled races | 164 | 14.4 to 9.6 | 6.6 to 6.3 | 0.207 to 0.206 |
+
+- With a rating in it the prior's error falls by a third, the slope on lean drops from about 0.33 to 0.06 and
+  incumbency from 15 points to about 2: the raters have already priced both in. The fitted weight on polls falls
+  from 0.86 to 0.76.
+- In polled races it is a wash on log loss. It fixes Vermont 2020 and Maryland 2018, the same races the
+  earlier-polls change fixes, and it moves some polled toss-ups the wrong way (Kansas 2014 from 39% to 65%
+  Democratic, Iowa 2018 from 41% to 61%; Republicans won both).
+- Ranges get too narrow: the 80% range's coverage on competitive races falls from 81% to 77%, and over all races
+  from 77% to 74%. The spread given to an unpolled race drops to about 8.5 points where its error is 10.4. A
+  design that adopts ratings needs its widths looked at again.
+- Limits: raters see the polls, so a rating is not independent of them; the tables are today's versions of the
+  pages; Cook's rating is from August in 2016 and early October in 2010.
+
+**Ratings and earlier polls together** (a confirmation run, since each passed alone, not a new candidate): gap
+-0.022, SD 0.018, better in 8 of 11 cycles; log loss over all 239 races 0.212 to 0.185 (ratings alone 0.188,
+earlier polls alone 0.200). Coverage on competitive races is 75%, at the edge of the band the rule allows.
+
+**Count.** Fourteen candidates have now been run for governors. About two would be expected to clear the
+one-standard-deviation bar by luck. Two ideas passed, and both act on the same weakness: races the polls do not
+reach. Ratings passed with almost no margin; what speaks for them is the table above, not the pooled score.
+
+One version not run: ratings used only for races without late polls, which is where the whole gain is. It was not
+written down in advance, so it is left as the next candidate, not slipped in here.

@@ -18,6 +18,9 @@
  },
  "governor_lean": "pres",
  "governor_unpolled_sd": "robust",
+ "governor_unpolled": null,
+ "governor_prior_sd_scale": 1.0,
+ "governor_sd_scale": 1.0,
  "governor_poll_fallback": null,
  "coverage": [
   {

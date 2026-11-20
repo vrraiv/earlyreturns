@@ -15,10 +15,17 @@
           races, each forecast from the prior alone, fitted on even years before it.
           -> data/interim/governor_offyear_env.csv, data/processed/governor_offyear_env.json
 
-Run:  python src/model/governor_inputs.py [2026|offyear]     (default both)
+  ratings the final pre-election ratings of Cook, Sabato and Rothenberg / Inside Elections for each governor race,
+          from the ratings table of the cached yearly Wikipedia overview pages (2002, and even years from 2006; the
+          2026 page as it stood at the forecast snapshot). Only the state and rating columns are read: the table's
+          result column is never touched. value: -3 safe R ... 0 toss-up ... +3 safe D.
+          -> data/interim/governor_ratings.csv
+
+Run:  python src/model/governor_inputs.py [2026|offyear|ratings]     (default: 2026 and offyear)
 """
 import difflib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -195,9 +202,57 @@ def offyear_test(env):
     print(r[r.year == 2025].round(1).to_string(index=False))
 
 
+# ---------------------------------------------------------------- ratings
+RATERS = {"Cook": r"^(Ratings )?Cook", "Sabato": r"^(Ratings )?Sabato", "IE": r"^(Ratings )?(IE|Rothenberg|Inside)"}
+SCALE = {"safe": 3, "solid": 3, "likely": 2, "lean": 1, "leans": 1, "tilt": 0.5, "tilts": 0.5}
+
+
+def rating_value(text, d_side_independent=False):
+    t = re.sub(r"\(.*?\)|\[.*?\]|\^", "", str(text)).strip().lower()
+    if t.startswith(("tossup", "toss-up", "toss up")):
+        return 0.0
+    m = re.match(r"(safe|solid|likely|leans?|tilts?)\s+([dri])\b", t)
+    if not m or (m.group(2) == "i" and not d_side_independent):
+        return np.nan
+    return SCALE[m.group(1)] * (-1 if m.group(2) == "r" else 1)
+
+
+def ratings():
+    from io import StringIO
+    from governors import DSIDE_OVERRIDES
+    rows = []
+    for y in range(1998, 2027, 2):
+        hits = sorted((ROOT / "data/raw/wikipedia_hist").glob(f"*/{y}_United_States_gubernatorial_elections.html"))
+        if not hits:
+            continue
+        for t in pd.read_html(StringIO(hits[-1].read_text(encoding="utf-8"))):
+            cols = [" ".join(dict.fromkeys(map(str, c))) if isinstance(c, tuple) else str(c) for c in t.columns]
+            use = {k: [i for i, c in enumerate(cols) if re.search(pat, c)] for k, pat in RATERS.items()}
+            if sum(bool(v) for v in use.values()) < 2 or len(t) < 8:
+                continue
+            for _, r in t.iterrows():
+                st = STATE_ABBR.get(re.sub(r"\[.*?\]|\(.*?\)", "", str(r.iloc[0])).strip())
+                if st is None:
+                    continue
+                for k, idx in use.items():
+                    if idx:
+                        v = rating_value(r.iloc[idx[0]], (y, st) in DSIDE_OVERRIDES)
+                        if pd.notna(v):
+                            rows.append({"year": y, "state": st, "rater": k, "rating": re.sub(r"\[.*?\]", "", str(r.iloc[idx[0]])).strip(),
+                                         "as_of": re.sub(r"\[.*?\]", "", cols[idx[0]]).replace("Ratings ", "").split(" ", 1)[-1].strip(), "value": v})
+            break
+    out = pd.DataFrame(rows).drop_duplicates(["year", "state", "rater"])
+    out.to_csv(INTERIM / "governor_ratings.csv", index=False)
+    print(f"governor_ratings.csv: {len(out)} ratings;", out.groupby("year").state.nunique().to_dict())
+    print(out.groupby(["year", "rater"]).as_of.first().unstack().to_string())
+    return out
+
+
 if __name__ == "__main__":
     what = sys.argv[1] if len(sys.argv) > 1 else "both"
     if what in ("2026", "both"):
         polls_2026()
     if what in ("offyear", "both"):
         offyear_test(offyear_env())
+    if what == "ratings":
+        ratings()
