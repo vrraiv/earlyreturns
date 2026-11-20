@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20j",
+  version: "2026-11-20k",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -734,7 +734,9 @@ window.PLAN = {
             "Off-cycle environment: built for every odd-year election day from 1999 to 2025 and tested with every fit as of the date. The term-year estimator holds up; the generic ballot of the day does not beat it.",
             "Intervals: about right race by race, and the count of wins was inside its range in all 11 cycles. The \"too wide\" reading does not survive the as-of test. Widening the races forecast from the prior alone failed the rule. No change.",
             "Added the same day, a seventh change: presidential approval in the prior, by party agreement between governor and president and by state lean. It failed the rule (the gain is under the floor), though the lean term keeps its sign in every fit. Worth rerunning when DA-2 adds cycles.",
-            "A governor's own approval could not be tested: there is no such data in the repo. The backtest shows where it would matter: races with few or no polls, where a popular incumbent can beat the prior by 20 points, and any forecast made before polls exist. Finding a source is a data question, not yet a card."
+            "A governor's own approval could not be tested: there is no such data in the repo. The backtest shows where it would matter: races with few or no polls, where a popular incumbent can beat the prior by 20 points, and any forecast made before polls exist. Finding a source is a data question, not yet a card.",
+            "Seven more changes followed, all the same day. Failed: borrowing the polled races' gap for unpolled states (flat or by demographic similarity, using The Downballot's state tables), the incumbent's own last margin, more weight on polls, wider ranges, and both of those together. The incumbent's last margin, like the previous governor margin, cannot be tested fairly without governor results from before 1998 (DA-2).",
+            "Passed, narrowly: expert ratings (Cook, Sabato, Rothenberg / Inside Elections) in the prior, parsed from the cached Wikipedia pages for 2002 and every even year from 2006. The gain is in races with few or no polls; in polled races it is a wash, and the ranges become too narrow. Fourteen changes were run in all and two ideas passed, both for races the polls do not reach."
           ],
           checklist: [
             { id: "a", text: "Lean measure tested" },
@@ -748,7 +750,7 @@ window.PLAN = {
           details: [
             "2026 governor results stay uncollected and unscored until this gate is passed.",
             "Record the frozen design: the commit, the parameters and the scoring rule.",
-            "Three decisions come from GV-3: whether to adopt the earlier-polls change (and in which of its two versions), which poll average the design names (the plain 21-day mean the model was fitted on, or the published weighted one), and what to do with a race that is three-way in the polls, since the model covers two-way races."
+            "Three decisions come from GV-3: whether to adopt the earlier-polls change (and in which of its two versions), which poll average the design names (the plain 21-day mean the model was fitted on, or the published weighted one), and what to do with a race that is three-way in the polls, since the model covers two-way races. A fourth: whether ratings go into the prior, for every race or only those without late polls (not yet tested), and the widths that would then need another look."
           ] },
         { id: "GV-5", title: "Score 2026", kind: "story", phase: "p2", needs: ["GV-4", "SC-1"],
           why: "One clean out-of-sample test.",
