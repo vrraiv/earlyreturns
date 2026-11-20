@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20d",
+  version: "2026-11-20e",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -288,8 +288,16 @@ window.PLAN = {
             "Senate special elections, and polls of past specials.",
             "Who drew each state's map, by cycle.",
             "For each: the question it answers, the source and licence, the hours to collect, and what is lost by skipping it.",
-            "The Downballot's data page (the-downballot.com/p/data) has a start on several of these; each card below says which. Its terms: free use with a citation and a link, no reproducing whole spreadsheets, so it follows the store-and-link rule (OP-8)."
-          ] },
+            "The Downballot's data page (the-downballot.com/p/data) has a start on several of these; each card below says which. Its terms: free use with a citation and a link, no reproducing whole spreadsheets, so it follows the store-and-link rule (OP-8).",
+            "Availability checked on 2026-11-20. What to keep is still decided here, after the brainstorm.",
+            "District results before 2006: in the repo for 1976 to 2018 (MIT Election Lab). The lab's current file, to 2024, needs a sign-in form that you would fill in. 1946 to 1974 exist only as saved Wikipedia pages, not yet parsed.",
+            "District lean before 2006: a public file has the presidential vote in every district for 1952 to 2004 (Broockman 2009, public domain), but without district labels. A trial on 2000 matched three in four contested districts on the House vote alone. Proving the match is DA-2.",
+            "Census demographics: The Downballot's district tables for 2016 to 2022 are fetched. Anything earlier needs the Census key.",
+            "Primaries: 538's primary polls for 2020 and 2024 are in the repo. Earlier polls, results by state and date, and delegate rules are not collected.",
+            "Senate specials: results with a special-election flag are in the repo for 1976 to 2024 (MIT Election Lab). Polls of past specials sit in 538's late-polls file, to be picked out with that flag.",
+            "Who drew each map: one search found boundary files but no table of who drew them. Assume hand work (DA-7)."
+          ],
+          refs: ["DATA.md", "data/raw/medsl", "data/raw/broockman_2009"] },
         { id: "DA-2", title: "House district history before 2006", kind: "story", phase: "p2", needs: ["DA-1"],
           why: "Six midterms can't separate the type of year from the drift over time.",
           details: [
@@ -298,7 +306,8 @@ window.PLAN = {
             "Stage 3: the 1950s, only if a district presidential vote file arrives (DA-3).",
             "Wikipedia's House pages before 2006 carry no district lean, so even 1998 and 2002 need a second source.",
             "Older years only help if coefficients are allowed to drift over time. Pooling them would hurt.",
-            "The Downballot's presidential results by district start with 2008, so the years before 2006 still rest on the authors' files (DA-3)."
+            "The Downballot's presidential results by district start with 2008, so the years before 2006 still rest on the authors' files (DA-3).",
+            "Update 2026-11-20: the MIT House returns for 1976 to 2018 are in the repo, and so is a public file of district presidential vote for 1952 to 2004 without district labels (see DA-1). If its rows can be matched to districts on the House vote, stages 2 and 3 no longer wait for the authors."
           ],
           checklist: [
             { id: "a", text: "National-series test done" },
@@ -341,18 +350,18 @@ window.PLAN = {
           why: "The electoral college model and its backtest are built on these.",
           details: [
             "Split out of DA-1 on 2026-11-20: the electoral college model needs this whatever the 2026 lessons say, so it does not wait for the brainstorm.",
-            "State results from 1992 to 2024 are already in the repo.",
-            "Polls: the 538 archive in the repo covers recent cycles, and its raw polls file has the final three weeks back to 1998.",
-            "Check coverage by cycle and state before designing the backtest.",
-            "National polls too, for the popular vote layer.",
-            "State results before 1992: The Downballot's presidential results by state, 1828 to 2020, with a partisanship score (store-and-link, OP-8)."
+            "Done on 2026-11-20.",
+            "State results: every state from 1828 to 2024, built from The Downballot's vote counts (store-and-link, OP-8).",
+            "State and national polls: whole cycles from 2004 to 2024 and the final three weeks of 2000, with the sources cross-checked poll by poll.",
+            "National polls by day: 17 cycles from 1952 to 2016, from Jennings and Wlezien, checked on every run against Erikson and Wlezien's original file.",
+            "Limits: whole-cycle state polls start in 2004, and the daily national series stops at 2016."
           ],
           checklist: [
             { id: "a", text: "Coverage table by cycle and state" },
             { id: "b", text: "State poll history assembled" },
             { id: "c", text: "National poll history assembled" }
           ],
-          refs: ["data/interim/state_presidential.csv", "data/raw/538_wayback"] },
+          refs: ["data/interim/state_presidential_history.csv", "data/interim/president_general_polls.csv", "data/interim/president_national_poll_days.csv", "data/interim/president_poll_coverage.csv", "src/collect/pres_polls_crosscheck.py"] },
         { id: "DA-6", title: "Primary polls, results and rules", kind: "story", phase: "p3", needs: ["PP-1"],
           why: "The primaries track can't start without them.",
           details: [
