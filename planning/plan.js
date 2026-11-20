@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20h",
+  version: "2026-11-20i",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -152,11 +152,12 @@ window.PLAN = {
             "2026 stays out of every fit and is scored once per change.",
             "Governors go through the same harness, with the office as a setting. The first governor model already has its own backtest on 353 races; its scores become the governor baseline that GV-3 tries to beat.",
             "Mostly implementation. The one decision is the adoption rule, and it is written after the baseline: the baseline scores, and how much they move by chance from cycle to cycle, set how large a gain has to be. It is still fixed before any candidate change is scored.",
-            "Built 2026-11-20: `src/model/backtest_asof.py`, written up in BACKTEST.md with the baseline scores and the adoption rule. The rule and the three-cycle burn-in were confirmed the same day, on the House and Senate baseline.",
+            "Built 2026-11-20: `src/model/backtest_asof.py`, written up in BACKTEST.md with the baseline scores and the adoption rule. The three-cycle burn-in is confirmed. The adoption rule was confirmed after the baseline and its chance analysis: a gain has to exceed 0.005 and its own standard deviation over redrawn cycles (BACKTEST.md, \"How much a score moves by chance\"). Governors use the same rule without the count of cycles.",
             "The start was reassessed against the data now in hand. Polls with results begin in 1998, so both chambers and the national environment are scored from 2004 (three earlier cycles to fit on) to 2024: 11 cycles.",
             "House districts for 1998 to 2004 come from Gary Jacobson's House elections file, which arrived the same day (DA-3). It is used with credit to him and is not in the repo, so a clone without it scores the House from 2012 only. Districts from 2006 stay on `house_history.csv`.",
             "The polls now set the start, not district lean. Jacobson's file runs back to 1946, but fitting on years before 1998 is DA-2's and CM-4's question.",
-            "Still to build: governors in the harness, with their baseline, and scoring 2026. The 2026 polls and results have to be put in the harness's shape, and that waits for the final scorecard (SC-1)."
+            "Governors are in the harness: the first governor model re-estimated as of each cycle, even years 2004 to 2024, 239 races. Odd years and 2025 stay in `governor_model.py`'s own backtest until GV-3 supplies their environment as of each date.",
+            "Still to build: scoring 2026. The 2026 polls and results have to be put in the harness's shape, and that waits for the final scorecard (SC-1)."
           ],
           checklist: [
             { id: "a", text: "House districts in the backtest" },
