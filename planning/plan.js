@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20q",
+  version: "2026-11-20r",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -531,7 +531,11 @@ window.PLAN = {
           why: "The Senate poll average needs to handle national and state presidential polls.",
           details: [
             "Recency, sample size, pollster effects and voter-population adjustments, as for the Senate.",
-            "Check that pollster effects estimated on Senate and generic-ballot polls hold for presidential polls."
+            "Check that pollster effects estimated on Senate and generic-ballot polls hold for presidential polls.",
+            "Scope widened 2026-11-20: the average says how people would vote today, and the forecast needs election day. The evaluation plan is section 11 of `ELECTORAL_COLLEGE.md`: the nowcast itself, convention windows, reversion and trend, states with few polls, and how state and national numbers add up. Every adjustment is scored as forecast against nowcast.",
+            "Decided the same day: only the forecast is published; it starts when both nominees are presumptive, so a test date near 150 days is added; third-party support is dropped and undecided voters are modelled; registered-voter polls are corrected to likely voters; 2024 stays out of every test.",
+            "Open: the adoption rule for these candidates (section 8 judges at 7 days, where the adjustment is nearly nothing), and whether the popular vote must add up from the states.",
+            "To collect first: convention dates, the date each nominee became presumptive, and a 2020 national series."
           ],
           refs: ["src/model/pollavg.py", "src/model/pollster_effects.py"] },
         { id: "EC-3", title: "Presidential fundamentals", kind: "story", phase: "p4", needs: ["EC-1"],
