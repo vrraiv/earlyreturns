@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20b",
+  version: "2026-11-20c",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -787,13 +787,20 @@ window.PLAN = {
             { id: "d", text: "Fallback tested" }
           ],
           refs: ["src/model/pollavg.py", "src/model/poll_audit.py", "src/collect/wiki_polls.py"] },
-        { id: "OP-3", title: "Dependable scheduled runs", kind: "decision", phase: "p1",
+        { id: "OP-3", title: "Dependable scheduled runs", kind: "decision", phase: "p3",
           why: "GitHub's scheduler has run the daily job hours late or not at all.",
           details: [
-            "Options: an outside trigger that starts the workflow, or starting it by hand on days it misses.",
-            "Every run still ends in a pull request."
+            "Decided 2026-11-20: an outside trigger, a small Cloudflare cron Worker that starts the workflow through workflow_dispatch with a fine-grained token. Not built for 2026, where a late scorecard run costs nothing; built when the first 2027 daily job exists, the primaries refresh.",
+            "One Worker serves every scheduled job after that: the 2027 governor and 2028 primaries scorecards, the specials check (SP-8) and the redistricting watch (OP-6). A new job is one more cron line and a workflow name.",
+            "Until then late runs are tolerated and a missed run is dispatched by hand. Every run still ends in a pull request.",
+            "The token expires within a year, so building it in spring 2027 lines up its lifetime with the 2028 season."
           ],
-          refs: [".github/workflows/scorecard.yml"] },
+          checklist: [
+            { id: "a", text: "Worker written and deployed, token stored as a secret" },
+            { id: "b", text: "GitHub cron removed from the workflow it replaces" },
+            { id: "c", text: "A missed GitHub run no longer possible: one week of on-time triggers" }
+          ],
+          refs: [".github/workflows/scorecard.yml", "wrangler.jsonc"] },
         { id: "OP-4", title: "Results collectors for 2027 and 2028", kind: "story", phase: "p4", needs: ["OP-1"],
           why: "The scorecard collectors are written for the 2026 races.",
           details: [
