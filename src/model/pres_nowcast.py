@@ -20,7 +20,9 @@ squared error; mean by cycle; cycles weighted equally. The targets are the same 
 
 Run:  python src/model/pres_nowcast.py checks         (2024 refusal, leak test, parity with pollavg.weighted_avg)
       python src/model/pres_nowcast.py baseline
-      python src/model/pres_nowcast.py <candidate>     (half_life | house | rv_lean)
+      python src/model/pres_nowcast.py <candidate>     (round 1: half_life | house | rv_lean; round 2: count_decay | trend
+                                                    | house_week | total_error | method | no_rv)
+      python src/model/pres_nowcast.py checks2         (round 2: target count and a leak test per candidate)
       python src/model/pres_nowcast.py density         (diagnostic: the half-life grid by poll density)
 Writes data/processed/pres_nowcast_<name>.json
 """
@@ -91,16 +93,42 @@ def load(cycles=CYCLES):
 
 
 def adjusted(pool, s):
-    """Each pool poll's margin after the population lean, the sponsor shift and (if any) house effects."""
+    """Each pool poll's margin after the population lean, the sponsor shift and (if any) house effects and the
+    national trend (round 2, candidates 5 and 6; columns set by predict)."""
     m = pool.m.values - pool["pop"].map(s["pop_lean"]).fillna(0).values - s["sponsor_shift"] * pool.sg.values
     if s.get("house") is not None:
         m = m - pool.house.values
+    if s.get("trend") is not None:
+        m = m + pool.trend.values
     return m
 
 
+def count_decay(pool, H):
+    """Round 2, candidate 4: weight halves with every H firms that published a newer poll of the place (a firm counts
+    once however many newer polls it has; polls ending the same day do not count each other)."""
+    r = np.zeros(len(pool))
+    seen = set()
+    ends = pool.end.values
+    firms = pool.pkey.values
+    for d in np.unique(ends)[::-1]:
+        at = ends == d
+        r[at] = len(seen)
+        seen.update(firms[at])
+    return 0.5 ** (r / H)
+
+
 def weights(pool, t, s):
-    age = (t - pool.end).dt.days.values
-    w = 0.5 ** (age / s["half_life"]) * np.sqrt(np.minimum(pool.n.values, 3000) / 600)
+    if s.get("count_decay") is not None:
+        w = count_decay(pool, s["count_decay"])
+    else:
+        age = (t - pool.end).dt.days.values
+        w = 0.5 ** (age / s["half_life"])
+    if s.get("size_tau2") is not None:                  # round 2, candidate 7: total expected error
+        w = w / (s["size_tau2"] + 1e4 / pool.n.values)
+    else:
+        w = w * np.sqrt(np.minimum(pool.n.values, 3000) / 600)
+    if s.get("method_w") is not None:                   # round 2, candidate 8
+        w = w * pool.method.map(s["method_w"]).fillna(1.0).values
     w = w * pool["pop"].map(s["pop_w"]).fillna(0.7).values
     k = pool.groupby("pkey").pkey.transform("size").values
     return w / np.sqrt(k)
@@ -139,6 +167,13 @@ def predict(q, tg, s):
         d = q[(q.cycle == c) & (q.geo == g) & (q.end < t)]
         if s.get("house") is not None:
             d = d.assign(house=s["house"](c, t, d))
+        if s.get("trend") is not None:
+            d = d.assign(trend=s["trend"](c, t, d))
+        if s.get("count_decay") is not None:            # weights depend on the firms present: no shortcut
+            for j in idx:
+                e = d[d.pkey != tg.at[j, "pkey"]]
+                out[tg.index.get_loc(j)] = np.average(adjusted(e, s), weights=weights(e, t, s))
+            continue
         a, w = adjusted(d, s), weights(d, t, s)
         S, W = (a * w).sum(), w.sum()
         by = pd.DataFrame({"p": d.pkey.values, "aw": a * w, "w": w}).groupby("p").sum()
@@ -302,6 +337,170 @@ def paired_2020():
             "se": round(float(d.std() / np.sqrt(len(d))), 3)}
 
 
+# ---------------- round 2 builders ----------------
+COUNT_H = (1, 2, 4, 8, 16)
+TREND_NAT_HL = (7, 14, 30)
+TREND_STATE_HL = (60, 90, 180)
+SIZE_S = (0.0, 0.5, 1.0, 2.0)
+WEEK_DAYS = 7
+MIN_FIRMS = 5
+
+
+def trend_fn(q, h_nat):
+    """Candidate 5: shift for each state or district poll = national average at t minus at the poll's end date.
+    The national average is the baseline's (half-life h_nat) from national polls that ended before each date."""
+    nat = {c: d for c, d in q[q.geo == "US"].groupby("cycle")}
+    s_nat = dict(BASE, half_life=float(h_nat))
+    cache = {}
+
+    def N(c, d):
+        if (c, d) not in cache:
+            cache[(c, d)] = average(nat[c], d, s_nat) if c in nat else np.nan
+        return cache[(c, d)]
+
+    def f(c, t, d):
+        if not len(d) or d.geo.iloc[0] == "US":
+            return np.zeros(len(d))
+        now = N(c, t)
+        then = np.array([N(c, e + pd.Timedelta(days=1)) for e in d.end])
+        return np.nan_to_num(now - then, nan=0.0)
+    return f
+
+
+def house_week_fn(q):
+    """Candidate 6: house effects from gaps against other firms' polls of the same place within 7 days either side,
+    using only polls that ended before t; shrinkage estimated within the cycle as of t."""
+    s0 = dict(BASE)
+    pairs = []
+    for (c, g), d in q.groupby(["cycle", "geo"]):
+        if len(d) < 2:
+            continue
+        a = adjusted(d, s0)
+        w0 = np.sqrt(np.minimum(d.n.values, 3000) / 600) * d["pop"].map(s0["pop_w"]).fillna(0.7).values
+        e = d.end.values.astype("datetime64[D]").astype(int)
+        f = d.pkey.to_numpy(dtype=object)
+        I, J = np.where((np.abs(e[:, None] - e[None, :]) <= WEEK_DAYS) & (f[:, None] != f[None, :]))
+        pairs.append(pd.DataFrame({"cycle": c, "i": d.index.values[I], "firm": f[I], "m_i": a[I], "end_i": e[I],
+                                   "end_j": e[J], "wm_j": w0[J] * a[J], "w_j": w0[J]}))
+    P = pd.concat(pairs, ignore_index=True)
+    P = {c: x for c, x in P.groupby("cycle")}
+    cache = {}
+
+    def effects(c, t):
+        tt = np.datetime64(t.date()).astype("datetime64[D]").astype(int)
+        x = P.get(c)
+        if x is None:
+            return pd.Series(dtype=float)
+        x = x[(x.end_i < tt) & (x.end_j < tt)]
+        g = x.groupby("i").agg(firm=("firm", "first"), m=("m_i", "first"), wm=("wm_j", "sum"), w=("w_j", "sum"))
+        g["gap"] = g.m - g.wm / g.w
+        fs = g.groupby("firm").gap.agg(["mean", "size", "var"])
+        two = fs[fs["size"] >= 2]
+        if len(two) < MIN_FIRMS:
+            return pd.Series(0.0, index=fs.index)
+        sigma2 = float(((two["size"] - 1) * two["var"]).sum() / (two["size"] - 1).sum())
+        tau2 = float(two["mean"].var(ddof=1) - (sigma2 / two["size"]).mean())
+        if tau2 <= 0:
+            return pd.Series(0.0, index=fs.index)
+        lam = sigma2 / tau2
+        return fs["mean"] * fs["size"] / (fs["size"] + lam)
+
+    def fn(c, t, d):
+        if (c, t) not in cache:
+            cache[(c, t)] = effects(c, t)
+        return d.pkey.map(cache[(c, t)]).fillna(0.0).values
+    return fn
+
+
+def method_class(s):
+    if not isinstance(s, str) or not s.strip():
+        return "unknown"
+    cls = set()
+    for part in s.split("/"):
+        p = part.strip().lower()
+        if p == "live phone":
+            cls.add("live phone")
+        elif p == "ivr":
+            cls.add("ivr")
+        elif p == "probability panel":
+            cls.add("probability panel")
+        elif p in ("text", ""):
+            continue                                    # text alone or with IVR: folded into its partner
+        elif "online" in p or "text-to-web" in p or p == "email":
+            cls.add("online")
+        else:
+            cls.add("other")
+    if not cls:
+        return "ivr" if "text" in s.lower() else "unknown"
+    return cls.pop() if len(cls) == 1 else "mixed"
+
+
+def attach_methods(q):
+    """Each firm's main method in each cycle, from FiveThirtyEight's late-poll file (pollster, cycle and method
+    columns only; the file's results columns are not read)."""
+    import glob
+    f = sorted(glob.glob(str(ROOT / "data/raw/538_github/*/raw_polls.csv")))[-1]
+    r = pd.read_csv(f, usecols=["cycle", "type_simple", "pollster", "methodology"], low_memory=False)
+    r = r[(r.type_simple == "Pres-G") & r.cycle.isin(CYCLES)]
+    assert 2024 not in set(r.cycle)
+    r["pkey"] = [firm_key(n, i) for n, i in zip(r.pollster, range(len(r)))]
+    r["cls"] = r.methodology.map(method_class)
+    main = r[r.cls != "unknown"].groupby(["cycle", "pkey"]).cls.agg(lambda x: x.value_counts().index[0])
+    return q.assign(method=[main.get((c, k), "unknown") for c, k in zip(q.cycle, q.pkey)])
+
+
+def poll_density(q):
+    """Polls of the same place that ended in the 30 days before each poll."""
+    out = pd.Series(0, index=q.index)
+    for _, d in q.groupby(["cycle", "geo"]):
+        e = d.end.values.astype("datetime64[D]").astype(int)
+        out[d.index] = ((e[None, :] < e[:, None]) & (e[None, :] >= e[:, None] - 30)).sum(axis=1)
+    return pd.cut(out, [-1, 3, 9, 10 ** 6], labels=["3 or fewer", "4-9", "10+"]).astype(str)
+
+
+def method_weights(q, gp, held_out):
+    """Candidate 8: weight of method k = spread of all gaps / spread of method k's gaps (mean squared gap), each
+    within a density class, combined in proportion to method k's polls; other cycles only."""
+    x = q.assign(gap=gp)
+    x = x[(x.cycle != held_out) & x.gap.notna()]
+    allc = x.groupby("dens").gap.apply(lambda v: (v ** 2).mean())
+    w = {}
+    for k, d in x[x.method != "unknown"].groupby("method"):
+        byc = d.groupby("dens").gap.agg(lambda v: (v ** 2).mean())
+        n = d.groupby("dens").size()
+        w[k] = float((n * allc[n.index]).sum() / (n * byc).sum())
+    return w
+
+
+def size_tau2(q, gp, held_out):
+    """Candidate 7: non-sampling variance = intercept of squared gaps on 10,000/n, mean over the other cycles."""
+    x = q.assign(gap=gp).dropna(subset=["gap"])
+    a = []
+    for c, d in x[x.cycle != held_out].groupby("cycle"):
+        v = 1e4 / d.n.values
+        b, a0 = np.polyfit(v, d.gap.values ** 2, 1)
+        a.append(a0)
+    return max(float(np.mean(a)), 0.0)
+
+
+def leak_check(q, tg, s_builder, label, n=15, seed=1):
+    """Moving every poll that ends on or after t (all places, same cycle) by 50 points leaves predictions unchanged.
+    s_builder(q) -> settings, rebuilt on the moved polls."""
+    rng = np.random.default_rng(seed)
+    groups = list(tg.groupby(["cycle", "geo", "t"]).groups.items())
+    bad = 0
+    for k in rng.choice(len(groups), size=n, replace=False):
+        (c, g, t), idx = groups[k]
+        sub = tg.loc[idx]
+        a = predict(q, sub, s_builder(q))
+        q2 = q.copy()
+        q2.loc[(q2.cycle == c) & (q2.end >= t), "m"] += 50
+        b = predict(q2, sub, s_builder(q2))
+        bad += int(np.max(np.abs(a - b)) > 1e-9)
+    print(f"leak test, {label}: {'PASS' if bad == 0 else f'FAIL in {bad} of {n}'}", flush=True)
+    return bad == 0
+
+
 def candidate(name, q, tg):
     if name == "half_life":
         table = {}
@@ -337,6 +536,58 @@ def candidate(name, q, tg):
                 "paired_2020": paired_2020()}
         return run_per_cycle(q, tg, {c: dict(BASE, pop_lean=dict(BASE["pop_lean"], rv=v, a=v))
                                      for c, v in corr.items()}), info
+    if name == "count_decay":
+        table = {}
+        for h in COUNT_H:
+            table[h] = cycle_losses(tg, predict(q, tg, dict(BASE, count_decay=float(h))))
+            print(f"  H {h}: " + ", ".join(f"{c} {v:.2f}" for c, v in table[h].items()), flush=True)
+        table = pd.DataFrame(table).T
+        pick = loo_pick(table)
+        info = {"grid": {int(h): {int(c): round(float(v), 3) for c, v in r.items()} for h, r in table.iterrows()},
+                "picked": {int(c): int(h) for c, h in pick.items()}}
+        return run_per_cycle(q, tg, {c: dict(BASE, count_decay=float(h)) for c, h in pick.items()}), info
+    if name == "trend":
+        table = {}
+        fns = {hn: trend_fn(q, hn) for hn in TREND_NAT_HL}
+        for hn in TREND_NAT_HL:
+            for hs in TREND_STATE_HL:
+                table[(hn, hs)] = cycle_losses(tg, predict(q, tg, dict(BASE, half_life=float(hs), trend=fns[hn])))
+                print(f"  national {hn}, state {hs}: " + ", ".join(f"{c} {v:.2f}" for c, v in table[(hn, hs)].items()),
+                      flush=True)
+        table = pd.DataFrame(table).T
+        pick = loo_pick(table)
+        info = {"grid": {f"{hn}/{hs}": {int(c): round(float(v), 3) for c, v in r.items()}
+                         for (hn, hs), r in table.iterrows()},
+                "picked": {int(c): f"{k[0]}/{k[1]}" for c, k in pick.items()}}
+        return run_per_cycle(q, tg, {c: dict(BASE, half_life=float(k[1]), trend=fns[k[0]])
+                                     for c, k in pick.items()}), info
+    if name == "house_week":
+        return predict(q, tg, dict(BASE, house=house_week_fn(q))), {"note": "no grid; shrinkage within cycle"}
+    if name in ("total_error", "method"):
+        gp = gaps(q)
+        if name == "total_error":
+            tau = {c: size_tau2(q, gp, c) for c in CYCLES}
+            table = {}
+            for sv in SIZE_S:
+                pred = run_per_cycle(q, tg, {c: dict(BASE, size_tau2=sv * tau[c]) for c in CYCLES})
+                table[sv] = cycle_losses(tg, pred)
+                print(f"  s {sv}: " + ", ".join(f"{c} {v:.2f}" for c, v in table[sv].items()), flush=True)
+            table = pd.DataFrame(table).T
+            pick = loo_pick(table)
+            info = {"tau2": {int(c): round(v, 2) for c, v in tau.items()},
+                    "grid": {float(k): {int(c): round(float(v), 3) for c, v in r.items()} for k, r in table.iterrows()},
+                    "picked": {int(c): float(k) for c, k in pick.items()}}
+            return run_per_cycle(q, tg, {c: dict(BASE, size_tau2=k * tau[c]) for c, k in pick.items()}), info
+        qm = attach_methods(q)
+        qm["dens"] = poll_density(qm)
+        mw = {c: method_weights(qm, gp, c) for c in CYCLES}
+        cov = qm.groupby("cycle").method.apply(lambda v: round(float((v != "unknown").mean()), 3))
+        info = {"weights": {int(c): {k: round(v, 3) for k, v in w.items()} for c, w in mw.items()},
+                "coverage": {int(c): v for c, v in cov.items()},
+                "polls_by_method": qm.groupby(["cycle", "method"]).size().unstack(fill_value=0).to_dict("index")}
+        return run_per_cycle(qm, tg, {c: dict(BASE, method_w=mw[c]) for c in CYCLES}), info
+    if name == "no_rv":
+        return predict(q, tg, dict(BASE, pop_lean={k: 0.0 for k in BASE["pop_lean"]})), {"note": "nothing fitted"}
     raise SystemExit(f"unknown candidate {name}")
 
 
@@ -360,6 +611,20 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "baseline"
     if cmd == "checks":
         checks()
+    elif cmd == "checks2":
+        q = load()
+        tg = targets(q)
+        assert len(tg) == 7547, len(tg)
+        print("targets: 7,547 PASS")
+        qm = attach_methods(q)
+        ok = [leak_check(q, tg, lambda x: dict(BASE, count_decay=4.0), "memory by poll count"),
+              leak_check(q, tg, lambda x: dict(BASE, half_life=90.0, trend=trend_fn(x, 14)), "national trend"),
+              leak_check(q, tg, lambda x: dict(BASE, house=house_week_fn(x)), "house effects, same week"),
+              leak_check(q, tg, lambda x: dict(BASE, size_tau2=20.0), "total expected error"),
+              leak_check(qm, tg, lambda x: dict(BASE, method_w={"ivr": 0.5, "online": 0.8}), "method weights"),
+              leak_check(q, tg, lambda x: dict(BASE, pop_lean={k: 0.0 for k in BASE["pop_lean"]}), "no correction")]
+        if not all(ok):
+            raise SystemExit("a leak test failed")
     elif cmd == "density":
         q = load()
         out = half_life_by_density(q, targets(q))
