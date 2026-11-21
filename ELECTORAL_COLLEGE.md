@@ -2068,3 +2068,28 @@ and pull the states' sum toward the national estimate. So a verdict here holds u
   - It enters twice: in the sum the states are reconciled to, and in how A spreads the gap.
   - It is reported beside the results and carried to EC-6, where a forecast of each state's turnout share is a
     candidate.
+
+**Stage 5: amendments after the code review, before any loss was read** (`src/model/pres_addup.py`).
+
+- **What the excess score cannot see.**
+  - The allowance (the national forecast's miss) is the same for every candidate, and A and C are built to hit the
+    national forecast.
+  - When that forecast is wrong and the state polls were right, A and C pull states toward the wrong number, and the
+    allowance forgives most of that. When the forecast is right, they get full credit.
+  - So the score is lenient to A and C on their main risk.
+  - The national miss also differs by election, larger in 2016 and 2020, so elections are not on the same footing.
+    Each election's national error is reported beside its loss.
+  - For every candidate, the same clauses are computed on the plain squared error, by election. This is reported
+    and decides nothing, unless the user decides otherwise (question below).
+- **The sign-flip units** are 10: five pairs of dates from the same election, which behave more like 5. The
+  election-level version is reported.
+- A's sign-flip p is reported, and C's shuffle is not defined; neither decides anything.
+- 30 and 7 days are reported separately.
+- **Checks, run and passed:**
+  - A and C sum exactly to the national forecast on every election and date.
+  - On the code's own output: A's shift always has the gap's sign and is larger for states with fewer recent
+    polls, and C moves every state by the gap.
+  - With D = 0 nothing moves.
+  - With u = 0 throughout, B equals the baseline.
+  - The leak and deletion tests pass, as does changing the scored election's results.
+  - 2024 is absent from the polls, the results and the national series.
