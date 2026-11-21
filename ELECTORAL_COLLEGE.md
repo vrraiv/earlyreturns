@@ -2174,7 +2174,7 @@ Open items, carried forward:
 
 ## 12. Presidential fundamentals: evaluation plan (EC-3)
 
-*Plan written 2026-11-21, before any fit; questions at the end await the user.* The fundamentals give the national
+*Plan written 2026-11-21, before any fit; confirmed by the user the same day (decisions below), with the economic measure still open.* The fundamentals give the national
 estimate a prior that does not depend on polls. Section 4 combines that prior with the poll average by precision.
 EC-2's stage 3 tried a crude version (approval plus the previous result) and it failed as built.
 
@@ -2267,3 +2267,26 @@ reported number.
 5. **The tests:** test 1 reported; test 2 decides, with the constant-prior control row?
 6. **Open seats** reported, and a candidate only through test 2?
 7. **One round per test,** written down here before each run, as for EC-2?
+
+**EC-3: decisions of 2026-11-21 (before any fit).**
+
+1. **The outcome** as proposed: 1952 to 2020, 1948 only where every predictor exists, 2024 refused.
+2. **Time in office: one coding, "a term-limited incumbent"** (the user's).
+   - It is 1 when the sitting president has already won two elections and cannot run: 1960, 1988, 2000, 2008,
+     2016 and 2028. Consecutive and non-consecutive terms are not told apart, since the history is too sparse;
+     2028 is coded like 2008 and 2016.
+   - 1952 and 1968 are coded 0. Truman was exempt from the two-term limit and Johnson had won only once; both
+     chose not to run.
+   - The variant "no sitting president on the ballot", which differs only in those two years, is reported beside
+     it and decides nothing.
+   - The other codings in the plan are dropped.
+3. **Thin early fits:** shrink, and use all the data. Ridge toward approval alone, no burn-in.
+4. **Revised data:** today's vintage, with ALFRED as a check where it exists, and the publication lags as written.
+5. **The tests:** test 1 is reported; test 2 decides, with the constant-prior control row.
+6. **Open seats:** reported, and a candidate only through test 2.
+7. **One round per test,** each written down here before it runs.
+
+**Still open: the economic measure.** The user would consider inflation, gas prices and unemployment as well as
+income and GDP. With approval and the term-limit flag, one slot remains. Proposed: a composite of the five
+(standardized, equal weights, signs fixed in advance: income growth and GDP growth +, the rise in unemployment,
+inflation and real gas-price growth −). The alternative is picking one measure inside each as-of fit.
