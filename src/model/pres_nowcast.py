@@ -21,7 +21,8 @@ squared error; mean by cycle; cycles weighted equally. The targets are the same 
 Run:  python src/model/pres_nowcast.py checks         (2024 refusal, leak test, parity with pollavg.weighted_avg)
       python src/model/pres_nowcast.py baseline
       python src/model/pres_nowcast.py <candidate>     (round 1: half_life | house | rv_lean; round 2: count_decay | trend
-                                                    | house_week | total_error | method | no_rv)
+                                                    | house_week | house_week_corrected | total_error | method
+                                                    | no_rv)
       python src/model/pres_nowcast.py checks2         (round 2: target count and a leak test per candidate)
       python src/model/pres_nowcast.py density         (diagnostic: the half-life grid by poll density)
 Writes data/processed/pres_nowcast_<name>.json
@@ -165,6 +166,13 @@ def predict(q, tg, s):
     out = np.empty(len(tg))
     for (c, g, t), idx in tg.groupby(["cycle", "geo", "t"]).groups.items():
         d = q[(q.cycle == c) & (q.geo == g) & (q.end < t)]
+        if s.get("house") is not None and getattr(s["house"], "per_target", False):
+            for j in idx:                               # effects estimated again without the target's firm
+                pk = tg.at[j, "pkey"]
+                e = d[d.pkey != pk]
+                e = e.assign(house=s["house"](c, t, e, pk))
+                out[tg.index.get_loc(j)] = np.average(adjusted(e, s), weights=weights(e, t, s))
+            continue
         if s.get("house") is not None:
             d = d.assign(house=s["house"](c, t, d))
         if s.get("trend") is not None:
@@ -367,9 +375,12 @@ def trend_fn(q, h_nat):
     return f
 
 
-def house_week_fn(q):
+def house_week_fn(q, corrected=False):
     """Candidate 6: house effects from gaps against other firms' polls of the same place within 7 days either side,
-    using only polls that ended before t; shrinkage estimated within the cycle as of t."""
+    using only polls that ended before t; shrinkage estimated within the cycle as of t.
+    corrected=True (the version of record): the effects are estimated again without the target's own firm, which
+    otherwise reaches its prediction through the other firms' gaps; and in each same-week mean a firm's weight is
+    divided by the square root of its polls there, as the baseline's weights are."""
     s0 = dict(BASE)
     pairs = []
     for (c, g), d in q.groupby(["cycle", "geo"]):
@@ -381,17 +392,23 @@ def house_week_fn(q):
         f = d.pkey.to_numpy(dtype=object)
         I, J = np.where((np.abs(e[:, None] - e[None, :]) <= WEEK_DAYS) & (f[:, None] != f[None, :]))
         pairs.append(pd.DataFrame({"cycle": c, "i": d.index.values[I], "firm": f[I], "m_i": a[I], "end_i": e[I],
-                                   "end_j": e[J], "wm_j": w0[J] * a[J], "w_j": w0[J]}))
+                                   "end_j": e[J], "firm_j": f[J], "a_j": a[J], "wm_j": w0[J] * a[J], "w_j": w0[J]}))
     P = pd.concat(pairs, ignore_index=True)
     P = {c: x for c, x in P.groupby("cycle")}
     cache = {}
 
-    def effects(c, t):
+    def effects(c, t, excl=None):
         tt = np.datetime64(t.date()).astype("datetime64[D]").astype(int)
         x = P.get(c)
         if x is None:
             return pd.Series(dtype=float)
         x = x[(x.end_i < tt) & (x.end_j < tt)]
+        if corrected:
+            if excl is not None:
+                x = x[(x.firm != excl) & (x.firm_j != excl)]
+            k = x.groupby(["i", "firm_j"]).i.transform("size").values
+            x = x.assign(w_j=x.w_j.values / np.sqrt(k))
+            x = x.assign(wm_j=x.w_j.values * x.a_j.values)
         g = x.groupby("i").agg(firm=("firm", "first"), m=("m_i", "first"), wm=("wm_j", "sum"), w=("w_j", "sum"))
         g["gap"] = g.m - g.wm / g.w
         fs = g.groupby("firm").gap.agg(["mean", "size", "var"])
@@ -405,10 +422,12 @@ def house_week_fn(q):
         lam = sigma2 / tau2
         return fs["mean"] * fs["size"] / (fs["size"] + lam)
 
-    def fn(c, t, d):
-        if (c, t) not in cache:
-            cache[(c, t)] = effects(c, t)
-        return d.pkey.map(cache[(c, t)]).fillna(0.0).values
+    def fn(c, t, d, excl=None):
+        key = (c, t, excl if corrected else None)
+        if key not in cache:
+            cache[key] = effects(c, t, excl if corrected else None)
+        return d.pkey.map(cache[key]).fillna(0.0).values
+    fn.per_target = corrected
     return fn
 
 
@@ -501,6 +520,22 @@ def leak_check(q, tg, s_builder, label, n=15, seed=1):
     return bad == 0
 
 
+def own_firm_check(q, tg, s_builder, label, n=20, seed=2):
+    """A target's own firm must not reach its prediction: moving all that firm's polls in the cycle (every place,
+    every date) by 50 points leaves the target's prediction unchanged."""
+    rng = np.random.default_rng(seed)
+    bad = 0
+    for j in rng.choice(tg.index.values, size=n, replace=False):
+        sub = tg.loc[[j]]
+        c, pk = sub.cycle.iloc[0], sub.pkey.iloc[0]
+        a = predict(q, sub, s_builder(q))
+        q2 = q.copy()
+        q2.loc[(q2.cycle == c) & (q2.pkey == pk), "m"] += 50
+        b = predict(q2, sub, s_builder(q2))
+        bad += int(np.max(np.abs(a - b)) > 1e-9)
+    print(f"own-firm test, {label}: {'PASS' if bad == 0 else f'FAIL in {bad} of {n}'}", flush=True)
+    return bad == 0
+
 def candidate(name, q, tg):
     if name == "half_life":
         table = {}
@@ -562,7 +597,11 @@ def candidate(name, q, tg):
         return run_per_cycle(q, tg, {c: dict(BASE, half_life=float(k[1]), trend=fns[k[0]])
                                      for c, k in pick.items()}), info
     if name == "house_week":
-        return predict(q, tg, dict(BASE, house=house_week_fn(q))), {"note": "no grid; shrinkage within cycle"}
+        return predict(q, tg, dict(BASE, house=house_week_fn(q))), {"note": "no grid; shrinkage within cycle; "
+                                                                    "first version (target firm in other gaps)"}
+    if name == "house_week_corrected":
+        return predict(q, tg, dict(BASE, house=house_week_fn(q, corrected=True))), {
+            "note": "no grid; shrinkage within cycle; effects without the target's firm; firm weight / sqrt(polls)"}
     if name in ("total_error", "method"):
         gp = gaps(q)
         if name == "total_error":
@@ -620,10 +659,17 @@ if __name__ == "__main__":
         ok = [leak_check(q, tg, lambda x: dict(BASE, count_decay=4.0), "memory by poll count"),
               leak_check(q, tg, lambda x: dict(BASE, half_life=90.0, trend=trend_fn(x, 14)), "national trend"),
               leak_check(q, tg, lambda x: dict(BASE, house=house_week_fn(x)), "house effects, same week"),
+              leak_check(q, tg, lambda x: dict(BASE, house=house_week_fn(x, corrected=True)),
+                         "house effects, same week, corrected"),
               leak_check(q, tg, lambda x: dict(BASE, size_tau2=20.0), "total expected error"),
               leak_check(qm, tg, lambda x: dict(BASE, method_w={"ivr": 0.5, "online": 0.8}), "method weights"),
               leak_check(q, tg, lambda x: dict(BASE, pop_lean={k: 0.0 for k in BASE["pop_lean"]}), "no correction")]
-        if not all(ok):
+        own = {"baseline": own_firm_check(q, tg, lambda x: dict(BASE), "baseline"),
+               "first version": own_firm_check(q, tg, lambda x: dict(BASE, house=house_week_fn(x)),
+                                               "house effects, same week, first version"),
+               "corrected": own_firm_check(q, tg, lambda x: dict(BASE, house=house_week_fn(x, corrected=True)),
+                                           "house effects, same week, corrected")}
+        if not all(ok) or not own["baseline"] or not own["corrected"]:
             raise SystemExit("a leak test failed")
     elif cmd == "density":
         q = load()
