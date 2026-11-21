@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20u",
+  version: "2026-11-21a",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -548,7 +548,8 @@ window.PLAN = {
             "Decided the same day: only the forecast is published; it starts when both nominees are presumptive, so a test date near 150 days is added; third-party support is dropped and undecided voters are modelled; registered-voter polls are corrected to likely voters; 2024 stays out of every test.",
             "Settled 2026-11-20. Adoption rule for these candidates: judged on the average over 150, 100 and 60 days, with 30 and 7 days not allowed to get worse; on the national series a candidate has to beat 19 in 20 versions with its feature shuffled between elections and be better in two thirds of them. The popular vote and the states come from one draw; letting national polls set the popular vote, with the difference spread over states by uncertainty and size, is a candidate against states-first.",
             "To collect first: convention dates, the date each nominee became presumptive (taken late when in doubt), and a 2020 national series. Candidate favourability is DA-9.",
-            "Collected 2026-11-20: convention dates (1948 to 2028), the date each nominee became presumptive (1980 to 2020), and a 2020 national series built from the repo's polls. The rule for presumptive, confirmed the same day: the day news delegate counts gave a majority, the latest where sources differ; the forecast waits for a rival who is still contesting. Next is stage 1, the nowcast."
+            "Collected 2026-11-20: convention dates (1948 to 2028), the date each nominee became presumptive (1980 to 2020), and a 2020 national series built from the repo's polls. The rule for presumptive, confirmed the same day: the day news delegate counts gave a majority, the latest where sources differ; the forecast waits for a rival who is still contesting. Next is stage 1, the nowcast.",
+            "Stage 1 done 2026-11-21 (`src/model/pres_nowcast.py`; section 11 of the note). The score is how well the average predicts the next week's likely-voter polls, without the target's own firm. Nine candidates in two rounds. One passed: house effects measured against other firms' polls of the same week (loss 27.29 to 25.95, better in all five cycles). Half-life, memory by poll count, national trend adjustment, total-error and method weights, and both registered-voter changes failed. A short half-life is best where polls are dense and a long one where they are sparse. Next is stage 2, convention windows."
           ],
           refs: ["src/model/pollavg.py", "src/model/pollster_effects.py"] },
         { id: "EC-3", title: "Presidential fundamentals", kind: "story", phase: "p4", needs: ["EC-1"],
