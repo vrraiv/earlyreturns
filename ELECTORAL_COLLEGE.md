@@ -2533,3 +2533,28 @@ One round. If it fails, EC-3 closes with the fundamentals reported and unused.
   - a huge γ gives the polls at every date but 150 days;
   - γ's fit uses no scored election;
   - on made-up pieces, noisy fundamentals pick the top of the grid and exact ones pick 0.
+
+### EC-3, round 2: results (run 2026-11-21). It fails; EC-3 closes with the fundamentals unused.
+
+`src/model/pres_fundamentals.py test2b`, `data/processed/pres_fundamentals_round2.json`.
+
+- **γ came out at 0 in every one of the 11 fits**, the bottom edge of the grid. Measured on the earlier elections'
+  out-of-sample pieces, a falling weight never helped. So the candidate is round 1 exactly, and it fails on the same
+  clause: at 30 days its error is 17.37 against the polls' 16.14. Its other clauses pass as in round 1: gain 23.52,
+  8 of 11, beats every shuffle.
+- **Reported, deciding nothing: a fixed γ = 1** (the fundamentals' weight falling in proportion to days).
+  - It would have passed every clause: gain 23.34, better in 8 of 11, and 30 and 7 days better (13.91 against
+    16.14; 12.76 against 13.11).
+  - But γ = 1 was not what the pre-registered fit chose, and it is reported only because round 1 suggested it.
+    Adopting it now would be choosing after seeing the scored elections.
+- **The constant-prior control with the same falling weight** gains 2.0 in 6 of 11, unchanged; its γ was 0 too.
+
+**EC-3 closed (2026-11-21).**
+
+- Two rounds; neither passes. **Section 4's national estimate stays stage 3's poll forecast.**
+- **The fundamentals are reported, not used.** They are approval-led, with a term-limited penalty of a few points,
+  and their leave-one-out error is about 6 to 8 points.
+- Blended with the polls, they cut the error by almost half at 150 to 60 days in these elections, and lose only in
+  the last month. **That is the case for revisiting them at the design freeze (EC-9).** A blend with a weight
+  falling in proportion to days (γ = 1) can be written down as a candidate there and tested on 2024, the one
+  election that has not shaped it, together with the rest of the model. It could not be adopted here.
