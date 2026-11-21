@@ -1882,3 +1882,25 @@ or the prior if they have none.
   that allows the lean to move (from demographics, DA-4, or a trend in lean over two elections) would address what
   the thin states got wrong.
 - **Carry-forward** came close (97% of shuffles, better at 30 and 7 days) but won only 1 election of 5.
+
+**Stage 4, a pointer for EC-4 (in-sample, written 2026-11-21 after the results; decides nothing).** The user asked
+whether unpolled states should lean more on the prior.
+
+- At 150, 100 and 60 days, a mix of a state's own polls and the prior (national plus lean) was scored at every
+  weight from 0 to 1 against the same results. The best weight was chosen after seeing them, so these are not tested
+  numbers:
+
+  | States | Cases | Polls only | Prior only | Best mix | Best weight on prior | By election |
+  |---|---|---|---|---|---|---|
+  | No recent poll, old polls only | 171 | 68.4 | 66.4 | 47.1 | 0.50 | 0.20 (2008) to 0.85 (2020) |
+  | 1 to 3 recent polls | 388 | 42.7 | 34.7 | 26.3 | 0.60 | 0.40 to 0.85 |
+  | 4 to 9 recent polls | 110 | 27.0 | 26.1 | 24.0 | 0.55 | 0.0 to 1.0 |
+
+- **What it says:**
+  - The baseline gives the prior no weight once a state has any poll. That is too little where polling is thin
+    or light; a roughly even mix cuts the error by about a third there.
+  - The weight moves a lot between elections, so it should come from each side's uncertainty, not be fixed.
+  - The gain fades as polls accumulate.
+  - The prior is weakest where the lean shifts most (lopsided states, and 2008).
+- **Where it goes:** EC-4 (state prior and weight on polls). There the weight on polls is estimated on earlier
+  elections only and tested under section 8, and a prior that lets the lean move is a candidate.
