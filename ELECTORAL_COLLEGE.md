@@ -1054,3 +1054,35 @@ weight of an average firm, and one SD worse about 0.7 times.
     23.77 (2020).
   - The grid is smooth: every γ from 0.1 to 0.5 beats the baseline at 7 days in both years. γ = 0.75 or more is
     worse.
+
+### Pollster quality: 2024 (run once, 2026-11-21). It passes.
+
+`src/model/pres_quality.py test2024`, `data/processed/pres_quality_2024.json`. The fit was committed first; the run
+refuses otherwise. 2024 polls: Harris against Trump, ending on or after 21 July; 82% of them rated.
+
+| 2024 | Places | Baseline | γ 0.35, z_u 1 | Gain | p (sign-flip) | Mean error removed: baseline | candidate |
+|---|---|---|---|---|---|---|---|
+| **7 days** | 45 | 39.88 | 38.00 | **+1.88** | **0.0085** | 16.19 | 15.61 |
+| 30 days | 42 | 46.71 | 46.02 | +0.69 | 0.12 | 22.78 | 22.51 |
+| 60 days | 32 | 44.32 | 45.21 | −0.89 | 0.93 | 33.51 | 33.85 |
+
+- **At 7 days it passes both clauses:** lower loss, and p 0.0085.
+- **It also helps once each year's lean is removed** (16.19 to 15.61). So it is not only that better-rated firms
+  leaned the right way in 2024.
+- **The nation improves** at every date: its squared error goes from 17.07 to 15.83 at 7 days.
+- **The average still missed toward the Democrat by about 4.8 points across places.** Quality weighting moves that
+  by 0.1; it is not a fix for a shared miss.
+- **The caveats:**
+  - One election.
+  - Places share most of their error, so p overstates the evidence.
+  - It is worse at 60 days in 2024, and at 30 and 60 days in 2020.
+  - The unrated weight is tied to γ.
+
+**Whether it joins the nowcast is the user's decision.** Two things bear on that:
+
+- **Where the gain is.** It is consistent at 7 days (all three years), mixed at 30 days and negative at 60. So it
+  may belong only close to the election, or be tied to how far out the date is. That would be a new candidate, not
+  this one.
+- **2028 needs a source of ratings.** 538 stopped publishing in 2025, and its last ratings are those of September
+  2024. Using them in 2028 means ratings four years old, with every firm new since then unrated, or another rater
+  (Silver Bulletin publishes its own) with its own scale. Either needs a check before it is relied on.
