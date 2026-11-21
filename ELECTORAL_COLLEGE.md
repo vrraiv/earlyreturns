@@ -2171,3 +2171,390 @@ Open items, carried forward:
 - **Demographics in how state errors move together** (EC-5, after DA-4).
 - **Each state's turnout share** in the popular vote (EC-6).
 - **Stage 5's rerun** once EC-4 exists.
+
+## 12. Presidential fundamentals: evaluation plan (EC-3)
+
+*Plan written 2026-11-21, before any fit; confirmed by the user the same day (decisions below).* The fundamentals give the national
+estimate a prior that does not depend on polls. Section 4 combines that prior with the poll average by precision.
+EC-2's stage 3 tried a crude version (approval plus the previous result) and it failed as built.
+
+**2028 is a case the history has never seen.**
+
+| Terms the incumbent party has held | Sitting president running | Not running |
+|---|---|---|
+| One | 9 elections | **none (2028; and 2024, held out)** |
+| Two or more | 2 (1976, 1992) | 7 |
+
+- 2028 is one term with no president running. "Time in office" says no penalty; "a sitting president running" says a
+  penalty. Only 1976 and 1992 separate the two codings.
+- The classic coding, "a first-term president running", treats 2028 like a long-held seat.
+- So the 2028 fundamentals depend on which coding a model keeps. It is reported under each coding, and selection is
+  not allowed to choose among them silently.
+
+**What is predicted.**
+
+- The incumbent party's national two-party margin, 1952 to 2020 (18 elections). 1948 is added only where every
+  predictor exists.
+- 2024 is refused at load (the result history holds it) and scored once at the design freeze (section 7).
+- Turned into the Democratic margin by the president's party, as in stage 3.
+
+**Candidate predictors.**
+
+| Predictor | Measure | From |
+|---|---|---|
+| Approval | Gallup job approval: mean of readings ending in the 30 days before the date, else the latest one | 1948 |
+| The economy | one of: real GDP growth over the latest two published quarters; real disposable income per head, growth over the latest published year; the change in unemployment over the latest year | GDP 1947, income 1959, unemployment 1948 |
+| Time in office | one of three codings: one term against two or more; a sitting president running; a first-term president running | all |
+
+The previous result is not a candidate; the card does not list it, and stage 3's version failed.
+
+**As of a date.** Only figures published by the date are used.
+
+- **Publication lags:**
+  - a GDP quarter counts from 35 days after the quarter ends;
+  - an income month from 35 days after the month ends;
+  - an unemployment month from 10 days after it ends.
+- **A gate** checks that changing not-yet-published periods changes nothing.
+- **Revisions.** GDP and income are revised, and the repo's copies are today's vintage. Real-time vintages (ALFRED)
+  are checked for coverage before any fit. Where they exist they are a check; elsewhere the limit is stated.
+- **Approval after January 2021.** The Gallup file ends then. A source for 2024's scoring and for 2028 is written
+  down before 2024 is scored.
+
+**Small-sample rules.**
+
+- **One primary model, written down in advance** (question 2), fitted with ridge shrinkage toward approval alone.
+  Every model of up to three predictors is reported as "how far the choice of predictors moves the answer". It is
+  compared on a common sample (1960 on wherever income enters) and decides nothing.
+- **Nested as-of fitting.** Every choice made from data (the shrinkage penalty, any weights) happens inside each
+  as-of fit, using earlier elections only. Each earlier election's fundamentals error, used for the weights and the
+  standard error, comes from a fit that left that election out.
+- **Thin early fits.** 1980's fit has 7 earlier elections (5 where income enters). The ridge penalty carries this:
+  with few elections it holds the model near approval alone. Or there is a burn-in (question 3).
+
+**Tests.**
+
+1. **The fundamentals alone** (reported). Leave-one-out error of the primary model, of every model of up to three
+   predictors, of a constant (the average incumbent margin) and of approval alone. Plus the 2028 case under each
+   time-in-office coding.
+2. **Do they improve the forecast?** This decides adoption.
+   - At 150, 100, 60, 30 and 7 days, EC-2's adopted national forecast (the poll average's raw margin) is combined
+     with the primary model by precision.
+   - The polls' precision comes from the fitted range (a + b × days); the fundamentals' from their nested
+     leave-one-out error. Both are fitted on earlier elections only.
+   - It is scored against results on EC-2's national test bed, 1980 to 2020, under the rule for stages 2 to 4: a
+     positive gain; better in 8 of 11; beat 19 in 20 shuffles of the fundamentals between elections; 30 and 7 days
+     not worse.
+   - **A control row:** the polls blended with a constant prior (the earlier elections' average incumbent margin),
+     at the same precision rule. Stage 3 showed that shrinking toward a centre helps by itself. The shuffle asks
+     whether the fundamentals add to that.
+3. **Open seats** (reported; a candidate only through test 2). Whether approval counts for less when no president is
+   running: an interaction, shrunk toward none.
+
+**If test 2 fails,** section 4's national estimate is the polls alone (EC-2's forecast), and the fundamentals stay a
+reported number.
+
+**Questions for the user:**
+
+1. **The outcome:** the incumbent party's two-party margin 1952 to 2020, 1948 only where every predictor exists, 2024
+   refused?
+2. **The primary model.** Proposed: approval, real disposable income growth (the measure most models use, 1960 on),
+   and one time-in-office coding. Which coding? The choice decides 2028:
+   - two or more terms (2028: no penalty);
+   - a sitting president running (2028: a penalty);
+   - a first-term president running (2028: treated like a long-held seat).
+3. **Thin early fits:** ridge toward approval alone, or a burn-in (score from 1988, needing two thirds of 9)?
+4. **Revised data:** today's vintage, with ALFRED as a check where it exists, and the publication lags above?
+5. **The tests:** test 1 reported; test 2 decides, with the constant-prior control row?
+6. **Open seats** reported, and a candidate only through test 2?
+7. **One round per test,** written down here before each run, as for EC-2?
+
+**EC-3: decisions of 2026-11-21 (before any fit).**
+
+1. **The outcome** as proposed: 1952 to 2020, 1948 only where every predictor exists, 2024 refused.
+2. **Time in office: one coding, "a term-limited incumbent"** (the user's).
+   - It is 1 when the sitting president has already won two elections and cannot run: 1960, 1988, 2000, 2008,
+     2016 and 2028. Consecutive and non-consecutive terms are not told apart, since the history is too sparse;
+     2028 is coded like 2008 and 2016.
+   - 1952 and 1968 are coded 0. Truman was exempt from the two-term limit and Johnson had won only once; both
+     chose not to run.
+   - The variant "no sitting president on the ballot", which differs only in those two years, is reported beside
+     it and decides nothing.
+   - The other codings in the plan are dropped.
+3. **Thin early fits:** shrink, and use all the data. Ridge toward approval alone, no burn-in.
+4. **Revised data:** today's vintage, with ALFRED as a check where it exists, and the publication lags as written.
+5. **The tests:** test 1 is reported; test 2 decides, with the constant-prior control row.
+6. **Open seats:** reported, and a candidate only through test 2.
+7. **One round per test,** each written down here before it runs.
+
+**Still open: the economic measure.** The user would consider inflation, gas prices and unemployment as well as
+income and GDP. With approval and the term-limit flag, one slot remains. Proposed: a composite of the five
+(standardized, equal weights, signs fixed in advance: income growth and GDP growth +, the rise in unemployment,
+inflation and real gas-price growth −). The alternative is picking one measure inside each as-of fit.
+
+**EC-3: the economic measure, decided 2026-11-21 (before any fit).**
+
+- **A composite index of six measures**, equal weights, signs fixed in advance:
+
+  | Measure | Series | Sign | From |
+  |---|---|---|---|
+  | Real disposable income per head, growth over the latest published year | A229RX0 | + | 1959 |
+  | Real GDP growth, mean of the latest two published quarters | A191RL1Q225SBEA | + | 1947 |
+  | Change in unemployment over the latest year | UNRATE | − | 1948 |
+  | Inflation over the latest published year | CPIAUCNS | − | 1913 |
+  | Real gasoline price growth over the latest year | CUUR0000SETB01 / CPIAUCNS | − | 1935 |
+  | S&P Composite, change in the monthly average over 12 months | Shiller (store-and-link) | + | 1871 |
+
+- **The S&P** was the user's addition. FRED keeps only ten years of the S&P 500 and the Dow, so the history is Robert
+  Shiller's monthly series. The copy fetched ends in September 2023; a newer copy is needed before 2024 is scored
+  or 2028 is forecast.
+- **Standardizing.** Each measure is standardized against its own monthly history from 1948 up to the date (never
+  later data). The index is the mean of the signed standardized values available on the date. 1952 and 1956 have no
+  income figure, so their index averages the other five.
+- **Why equal weights over PCA:**
+  - PCA weights measures by how much they move together, not by what voters respond to. It would turn the index into
+    a growth factor and mostly drop inflation and gas prices.
+  - On 15 to 18 elections its loadings (even their sign) would shift between as-of fits.
+  - Equal weights are fixed before any data is seen.
+  - The PCA version (first component of the monthly standardized series, on data before each date, signed so that
+    income growth loads positively) is reported in test 1 and decides nothing.
+- **Publication lags:**
+  - income, CPI and gasoline months count from 35 days after the month ends;
+  - a GDP quarter from 35 days after the quarter ends;
+  - an unemployment month from 10 days after it ends;
+  - an S&P month from the day after it ends.
+
+### EC-3, test 1 (reported) and test 2 (decides): pre-registration (written 2026-11-21, before any fit)
+
+**The primary model.** The incumbent party's two-party margin = a + b1 × (approval − 50) + b2 × economic index +
+b3 × term-limited.
+
+- a and b1 are unpenalized. b2 and b3 carry a ridge penalty, so the model shrinks toward approval alone.
+- The penalty is chosen by leaving one election out at a time, among the elections the fit uses.
+- Approval is Gallup's mean over readings ending in the 30 days before the date, or else the latest reading.
+- Dates: 150, 100, 60, 30 and 7 days before each election. Each date has its own inputs and its own fit.
+
+**Test 1, the fundamentals alone (reported, deciding nothing).** At each date, on 1952 to 2020:
+
+- the leave-one-out error of:
+  - the primary model;
+  - a constant (the average incumbent margin);
+  - approval alone;
+  - every model of up to three predictors drawn from approval, term-limited, the index, the PCA index and each of
+    the six measures alone, on the common sample 1960 to 2020;
+- the primary model with "no sitting president on the ballot" in place of term-limited;
+- the fitted coefficients, and what term-limited does to the 2028 prediction (its coefficient), with its uncertainty.
+
+**Test 2, does it improve the forecast (decides adoption)?**
+
+- **Scored elections.** 1980 to 2020 on EC-2's national test bed. Each is fitted only on the elections before it,
+  from 1952, with every choice inside that fit (the ridge penalty, the weights).
+- **The forecast.** At each date: (stage 3's forecast) × w + (fundamentals) × (1 − w), with
+  w = 1/V_polls ÷ (1/V_polls + 1/V_fund).
+  - V_polls is the stage 2 range (a + b × days), refitted on the earlier elections' errors of stage 3's forecast.
+  - V_fund is the mean squared error of the fundamentals on the earlier elections, each from a fit that left that
+    election out.
+- **The score.** Squared error against the result, averaged over 150, 100 and 60 days, elections equal.
+- **The rule (stages 2 to 4):**
+  - a positive gain;
+  - better in at least 8 of 11;
+  - beat 19 in 20 of 200 shuffles, in which each election's fundamentals inputs (approval, the index and the
+    term-limited flag, in the incumbent party's terms) are handed to another election from 1952 to 2020, with the
+    fit redone inside;
+  - 30 and 7 days not worse on average.
+- **A control row,** deciding nothing: the same blend with a constant prior (the earlier elections' average
+  incumbent margin) in place of the fundamentals. The shuffle asks whether the fundamentals add to that.
+- **Open seats** (reported): the primary model plus approval × term-limited, shrunk toward none.
+
+**If test 2 fails,** section 4's national estimate is stage 3's poll forecast alone, and the fundamentals stay a
+reported number.
+
+**Checks before any result is read.**
+
+- 2024 is refused.
+- Publication: changing not-yet-published months and quarters changes no input.
+- As-of: changing a scored election's result and every later election leaves its fit unchanged.
+- Behaviour:
+  - a planted relation is recovered;
+  - with a huge penalty the model is approval alone;
+  - with V_fund huge the forecast is stage 3's;
+  - the index is the mean of the signed standardized values.
+
+One round per test.
+
+**EC-3: amendments after the code review, before any result was read** (`src/model/pres_fundamentals.py`).
+
+- **When a measure counts.** It needs at least two years of published history by the date. Income's yearly change
+  begins in 1960, so 1952, 1956 and 1960 have no income figure (not only 1952 and 1956 as written above). Their
+  index averages the other five.
+- **1948 is left out.** Its unemployment change would need 1947, which FRED does not hold, and it has no income
+  figure.
+- **The common sample for the full table** of models of up to three predictors is 1964 to 2020, where all six
+  measures and the PCA index exist. The table reports every model, not the top ten, and where the primary model
+  ranks. The constant, approval alone and the primary model are shown on that same sample.
+- **The fundamentals' variance is nested.** Each earlier election's error comes from a fit that left it out, with the
+  penalty chosen again inside that fit. Without this the variance is optimistic: on a check that reads no scored
+  result, the weight on polls rose from 0.405 to 0.551 in 1980 at 60 days. This applies in the real run and in
+  every shuffle.
+- **Real-time vintages, coverage checked.** ALFRED holds as-published real disposable income (total, not per head)
+  from about 1980 and real GDP from about 1991, but not the per-head income or the GDP growth series the index uses.
+  Test 1 reports how far today's figures differ from the as-published ones for 1980 to 2020, at every date. That is
+  a check on the size of revisions and decides nothing.
+- **Further checks, passed:**
+  - the two result sources (the Downballot history and the national series) agree exactly for 1952 to 2020;
+  - in a Republican-held year the fundamentals enter as minus the incumbent prediction;
+  - a huge fundamentals variance gives stage 3's forecast, and a huge poll variance the fundamentals.
+- **Also reported:**
+  - the term-limited effect unshrunk, beside the shrunk value and its penalty;
+  - each as-of fit's count of term-limited elections (one in 1980's fit, 1960 alone);
+  - the age of the approval reading by election and date.
+
+### EC-3: results (run 2026-11-21). Test 2 fails on one clause, so the fundamentals are not adopted.
+
+`src/model/pres_fundamentals.py test1` (`data/processed/pres_fundamentals_test1.json`) and `test2`
+(`pres_fundamentals_test2.json`).
+
+**Test 1, the fundamentals alone** (leave-one-out error, in points of margin, 1952 to 2020; reported):
+
+| Days out | 150 | 100 | 60 | 30 | 7 |
+|---|---|---|---|---|---|
+| Constant | 11.06 | 11.06 | 11.06 | 11.06 | 11.06 |
+| Approval alone | 7.01 | 5.99 | 7.03 | 6.73 | 6.80 |
+| Primary (approval, index, term-limited) | 7.30 | 5.96 | 6.79 | 7.53 | 7.90 |
+| Primary with "no sitting president" | 7.40 | 6.06 | 6.73 | 7.29 | 7.54 |
+
+- **Approval carries the fundamentals.** It cuts the error from 11 to 6 or 7 points. The economic index and the
+  term-limited flag add little on their own terms, and at 30 and 7 days the primary model does worse than approval
+  alone.
+- **The term-limited effect:** −0.6 to −3.4 points shrunk (penalties 10 to 100), −3.0 to −4.6 unshrunk. Leaving one
+  election out moves it between about 0 and −6. So a term-limited incumbent's party does worse by a few points, but
+  the estimate rests on five elections.
+- **The full table (1964 to 2020, 175 models).**
+  - The primary ranks 7th of 175 at 150 and 100 days, and 18th to 32nd later.
+  - The best single models are approval alone (150 days) and approval + term-limited + the S&P (100 days and
+    later, 5.3 to 6.1 points). That is chosen after seeing the table, so it is a pointer, not a result.
+  - The index alone scores 7.7 to 9.3, the PCA version 9.4 to 9.5. Equal weights did no worse than PCA, and with
+    approval the PCA does slightly better late (6.2 against 6.8 at 7 days).
+- **Revisions.** Today's real income and GDP growth differ from the as-published figures by 1.3 points on average
+  (up to 5.9 for income, 2.5 for GDP), over 95 cases from 1980 to 2020.
+- **Approval** was at most 20 days old at 150 days, but up to 134 days old at 7 days (sparse Gallup years).
+
+**Test 2, blended with the polls** (squared error, 1980 to 2020, each fitted on earlier elections):
+
+| | 150 | 100 | 60 | 30 | 7 | Score (150/100/60) | Better | Shuffles beaten |
+|---|---|---|---|---|---|---|---|---|
+| Stage 3's poll forecast | 82.7 | 47.6 | 26.1 | 16.1 | 13.1 | 52.1 | | |
+| **Blended with the primary model** | 45.7 | 20.4 | 19.7 | **17.4** | 10.5 | 28.6 | **8 of 11** | **100% (95th: 7.3)** |
+| Blended with a constant (control) | 73.0 | 48.5 | 28.7 | 19.3 | 13.5 | 50.1 | 6 | |
+| Primary + approval × term-limited (reported) | 52.1 | 24.0 | 15.9 | 12.5 | 10.0 | 30.7 | 7 | |
+
+- **It fails the rule on "30 and 7 days not worse".** At 30 days its error is 17.37 against the polls' 16.14.
+  Every other clause passes, by a wide margin:
+  - the gain is 23.5;
+  - it is better in 8 of 11 (1980, 1988, 1992, 1996, 2004, 2008, 2016, and 2000 by a hair);
+  - it beats every one of the 200 shuffles.
+  It is worse in 1984 (78.8 against 32.9), 2012 and 2020.
+- **The fundamentals carry real information.** The constant prior gains only 2.0, in 6 of 11, so the gain is not
+  just shrinkage toward a centre.
+- **The weight on polls** is about 0.2 to 0.3 at 150 and 100 days, 0.4 to 0.5 at 60 and 30 days, and 0.65 to 0.77 at
+  7 days. At 30 days the fundamentals still get about half the weight; that is where the blend loses.
+- **The open-seat interaction** (reported, no shuffle run) keeps 30 and 7 days better (12.5 and 10.0) but is
+  better in only 7 of 11. It is not a candidate that passed.
+
+**EC-3 closed for this round.** One round, as agreed.
+
+- The primary model fails test 2 on one clause, so **section 4's national estimate stays stage 3's poll forecast**.
+- The fundamentals stay a reported number: approval-led, with a term-limited penalty of a few points and a
+  leave-one-out error of about 6 to 8 points.
+- Nothing is refitted after seeing these results. A second round would need new candidates written down first.
+  The obvious one, a weight on the fundamentals that falls faster as the election nears, was suggested by these
+  results, and that has to be said if it is tried.
+
+### EC-3, round 2: pre-registration (written 2026-11-21, before any round 2 run)
+
+Agreed with the user on 2026-11-21: one candidate, a weight on the fundamentals that falls faster as the election
+nears. **It was suggested by round 1's results** (the blend lost at 30 days, where the fundamentals still had about
+half the weight), so a pass here is weaker evidence than a candidate written down blind. That is stated with any
+result.
+
+**The candidate.**
+
+- **The weight.** Round 1's weight on the fundamentals is (1 − w), where w is the polls' precision weight. Round 2
+  multiplies it by (days / 150)^γ:
+  - w' = 1 − (1 − w) × (days / 150)^γ;
+  - at 150 days the weight is unchanged;
+  - closer in, the fundamentals' share falls faster the larger γ is;
+  - γ = 0 is round 1.
+- **How γ is fitted.** From the grid 0, 0.25, 0.5, 1, 2 and 4, on the earlier elections only.
+  - For each earlier election and date, the blend is built from that election's out-of-sample fundamentals
+    prediction (its leave-one-out prediction within the fit, as already used for the variance), the polls'
+    forecast, and the two variances.
+  - γ minimizes the squared error over the earlier elections at all five dates (150, 100, 60, 30 and 7), so that the
+    late dates count in the fit.
+  - Ties go to the smaller γ.
+- **Everything else is round 1's:** the primary model, its ridge penalty, the nested variance and the polls' range.
+
+**The rule (stages 2 to 4), as in round 1:**
+
+- a positive gain;
+- better in at least 8 of 11;
+- beat 19 in 20 of 200 shuffles of the fundamentals inputs between elections, with γ refitted inside each;
+- 30 and 7 days not worse on average.
+
+**Reported, deciding nothing:**
+
+- γ picked for each election;
+- a fixed γ = 1 (the weight falls in proportion to days);
+- the constant-prior control with the same falling weight.
+
+**Checks before any result is read:**
+
+- γ = 0 reproduces round 1 exactly;
+- with γ huge, the forecast is the polls' everywhere but at 150 days;
+- γ's fit uses no scored election (as-of test).
+
+One round. If it fails, EC-3 closes with the fundamentals reported and unused.
+
+**EC-3 round 2: amendments after the code review, before any result was read.**
+
+- **The 30-day clause is applied as written,** however small the difference, and the margin is reported. From
+  γ = 2 up, the fundamentals' weight at 30 days is about 2% or less, so the blend and the polls may differ by
+  hundredths of a point there. A tolerance would change the user's rule, so there is none.
+- **Every piece of γ's fit must be finite.** It is checked: no poll forecast is missing at the five dates in any
+  election from 1952 to 2020.
+- **Limits, written now:**
+  - 150 days carries no information about γ.
+  - 1980's γ rests on 7 earlier elections and four informative dates.
+  - Each earlier election's weight uses variances that include its own error.
+  - These 11 elections suggested the candidate, so the only untouched test is 2024 at the design freeze.
+- **Reported:** γ by election, with any pick at a grid edge (0 or 4) flagged, and the weight on polls at each date.
+- **Checks, passed:**
+  - γ = 0 reproduces round 1;
+  - round 1's stored result reproduces exactly;
+  - a huge γ gives the polls at every date but 150 days;
+  - γ's fit uses no scored election;
+  - on made-up pieces, noisy fundamentals pick the top of the grid and exact ones pick 0.
+
+### EC-3, round 2: results (run 2026-11-21). It fails; EC-3 closes with the fundamentals unused.
+
+`src/model/pres_fundamentals.py test2b`, `data/processed/pres_fundamentals_round2.json`.
+
+- **γ came out at 0 in every one of the 11 fits**, the bottom edge of the grid. Measured on the earlier elections'
+  out-of-sample pieces, a falling weight never helped. So the candidate is round 1 exactly, and it fails on the same
+  clause: at 30 days its error is 17.37 against the polls' 16.14. Its other clauses pass as in round 1: gain 23.52,
+  8 of 11, beats every shuffle.
+- **Reported, deciding nothing: a fixed γ = 1** (the fundamentals' weight falling in proportion to days).
+  - It would have passed every clause: gain 23.34, better in 8 of 11, and 30 and 7 days better (13.91 against
+    16.14; 12.76 against 13.11).
+  - But γ = 1 was not what the pre-registered fit chose, and it is reported only because round 1 suggested it.
+    Adopting it now would be choosing after seeing the scored elections.
+- **The constant-prior control with the same falling weight** gains 2.0 in 6 of 11, unchanged; its γ was 0 too.
+
+**EC-3 closed (2026-11-21).**
+
+- Two rounds; neither passes. **Section 4's national estimate stays stage 3's poll forecast.**
+- **The fundamentals are reported, not used.** They are approval-led, with a term-limited penalty of a few points,
+  and their leave-one-out error is about 6 to 8 points.
+- Blended with the polls, they cut the error by almost half at 150 to 60 days in these elections, and lose only in
+  the last month. **That is the case for revisiting them at the design freeze (EC-9).** A blend with a weight
+  falling in proportion to days (γ = 1) can be written down as a candidate there and tested on 2024, the one
+  election that has not shaped it, together with the rest of the model. It could not be adopted here.
