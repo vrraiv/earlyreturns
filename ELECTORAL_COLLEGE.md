@@ -286,7 +286,7 @@ from nowcast to forecast is close to nothing. For these candidates:
 
 Still not in the repo: candidate favourability (DA-9).
 
-**Presumptive rule (a default, awaiting confirmation).**
+**Presumptive rule (confirmed 2026-11-20).**
 
 - A nominee is presumptive from the day news delegate counts gave them a majority of the convention's delegates.
   Where sources give different days for that, the latest is used. The convention's roll call is not such a day.
@@ -300,7 +300,7 @@ Still not in the repo: candidate favourability (DA-9).
   elections from 1980 to 2020 qualify at 150 days, but narrowly: in seven of them the majority came 151 to 155
   days out (151 in 2020). The polls of the eventual matchup exist in every one.
 - The stricter reading, which also waits for the rival, would score 6 of 11 at 150 days and 10 of 11 at 100 (1980
-  drops out: Kennedy withdrew 85 days before the election). It is reported beside the default as a check. 1980 is
+  drops out: Kennedy withdrew 85 days before the election). It is reported beside the rule as a check. 1980 is
   the election the choice matters most for: Carter had his majority in June and Kennedy contested it to the
   convention, so it is scored at 150 and 100 days under the default and at neither under the stricter reading.
 
