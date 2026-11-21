@@ -2468,3 +2468,48 @@ One round per test.
 - Nothing is refitted after seeing these results. A second round would need new candidates written down first.
   The obvious one, a weight on the fundamentals that falls faster as the election nears, was suggested by these
   results, and that has to be said if it is tried.
+
+### EC-3, round 2: pre-registration (written 2026-11-21, before any round 2 run)
+
+Agreed with the user on 2026-11-21: one candidate, a weight on the fundamentals that falls faster as the election
+nears. **It was suggested by round 1's results** (the blend lost at 30 days, where the fundamentals still had about
+half the weight), so a pass here is weaker evidence than a candidate written down blind. That is stated with any
+result.
+
+**The candidate.**
+
+- **The weight.** Round 1's weight on the fundamentals is (1 − w), where w is the polls' precision weight. Round 2
+  multiplies it by (days / 150)^γ:
+  - w' = 1 − (1 − w) × (days / 150)^γ;
+  - at 150 days the weight is unchanged;
+  - closer in, the fundamentals' share falls faster the larger γ is;
+  - γ = 0 is round 1.
+- **How γ is fitted.** From the grid 0, 0.25, 0.5, 1, 2 and 4, on the earlier elections only.
+  - For each earlier election and date, the blend is built from that election's out-of-sample fundamentals
+    prediction (its leave-one-out prediction within the fit, as already used for the variance), the polls'
+    forecast, and the two variances.
+  - γ minimizes the squared error over the earlier elections at all five dates (150, 100, 60, 30 and 7), so that the
+    late dates count in the fit.
+  - Ties go to the smaller γ.
+- **Everything else is round 1's:** the primary model, its ridge penalty, the nested variance and the polls' range.
+
+**The rule (stages 2 to 4), as in round 1:**
+
+- a positive gain;
+- better in at least 8 of 11;
+- beat 19 in 20 of 200 shuffles of the fundamentals inputs between elections, with γ refitted inside each;
+- 30 and 7 days not worse on average.
+
+**Reported, deciding nothing:**
+
+- γ picked for each election;
+- a fixed γ = 1 (the weight falls in proportion to days);
+- the constant-prior control with the same falling weight.
+
+**Checks before any result is read:**
+
+- γ = 0 reproduces round 1 exactly;
+- with γ huge, the forecast is the polls' everywhere but at 150 days;
+- γ's fit uses no scored election (as-of test).
+
+One round. If it fails, EC-3 closes with the fundamentals reported and unused.
