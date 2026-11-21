@@ -8,7 +8,7 @@ including any announced future convention.
 Presumptive nominees, 1980 to 2020: entered by hand below, each row with its source. 2024 is left out on purpose: it
 is added, under the rule fixed here, when the 2024 holdout is scored (ELECTORAL_COLLEGE.md, section 11).
   clinched         the day news delegate counts gave the nominee a majority of convention delegates. Where sources
-                   give different days, the latest. A sitting president whom no rival took delegates from has no
+                   give different days for that, the latest; a roll call is not such a day. A sitting president whom no rival took delegates from has no
                    such day on record in one case (Reagan, 1984): the first contest is entered and flagged.
   other_dates      the other days found in sources, so the choice can be seen.
   contested_until  where a rival with a large share of the delegates fought on after that day: the day the rival

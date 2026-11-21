@@ -276,26 +276,33 @@ from nowcast to forecast is close to nothing. For these candidates:
   with a source on each row. 2024 gets its rows, under the rule below, when the holdout is scored.
 - A 2020 national series, added to `president_national_poll_days.csv`. It is built from the repo's polls the way
   the source describes its own series: one reading per poll, and a plain mean of the polls centred on each day.
-  The check is 2016 built the same way against the source's 2016 rows. In the last 150 days the two agree on
-  average (0.1 point apart) and differ by about 2 points on a typical day and 1.6 by week; they draw on different
-  sets of polls (1,106 against 816). So 2020 is comparable on average and noisier day to day than a like-for-like
-  series would be.
+  The check is 2016 built the same way against the source's 2016 rows. Over the whole campaign ours is 0.5 point
+  more Democratic on average, and the two differ by 2.0 points on a typical day and 1.6 by week. In the last 150
+  days the average gap is 0.1 point and the typical day's 1.9. They draw on different sets of polls (1,106 against
+  816). So 2020 is comparable on average and noisier day to day than a like-for-like series would be.
+  That check covers how polls are dated and averaged. It does not test which question is taken from a poll that
+  asked several, because every 2016 poll in the repo has one. In 2020, taking every question instead moves the
+  weekly series by 0.1 point on average and by 1.1 in the worst week.
 
 Still not in the repo: candidate favourability (DA-9).
 
 **Presumptive rule (a default, awaiting confirmation).**
 
 - A nominee is presumptive from the day news delegate counts gave them a majority of the convention's delegates.
-  Where sources give different days, the latest is used.
+  Where sources give different days for that, the latest is used. The convention's roll call is not such a day.
+- A sitting president whom no rival took delegates from is presumptive throughout. Reagan in 1984 is the one case;
+  no count day was found for him, and the table carries the first contest as a placeholder.
 - Where a rival with a large share of the delegates fought on after that day, the table also records the day the
   rival stopped: Kennedy in 1980, Hart in 1984, Jackson in 1988, Brown in 1992, Clinton in 2008, Sanders in 2016.
 - In 2028 the forecast starts on the later of the two parties' days, and waits for a rival who is still
   contesting. That is what "late when in doubt" means here.
 - In the backtest, an election is scored at a test date if both nominees had their majority by then. All 11
-  elections from 1980 to 2020 qualify at 150 days, but narrowly: in seven of them the majority came with the last
-  primaries, 151 to 155 days out (151 in 2020). The polls of the eventual matchup exist in every one.
+  elections from 1980 to 2020 qualify at 150 days, but narrowly: in seven of them the majority came 151 to 155
+  days out (151 in 2020). The polls of the eventual matchup exist in every one.
 - The stricter reading, which also waits for the rival, would score 6 of 11 at 150 days and 10 of 11 at 100 (1980
-  drops out: Kennedy withdrew 85 days before the election). It is reported beside the default as a check.
+  drops out: Kennedy withdrew 85 days before the election). It is reported beside the default as a check. 1980 is
+  the election the choice matters most for: Carter had his majority in June and Kennedy contested it to the
+  convention, so it is scored at 150 and 100 days under the default and at neither under the stricter reading.
 
 **Confirmed 2026-11-20.** Three things the decisions above imply, written first as assumptions and then confirmed,
 with the two under them:
