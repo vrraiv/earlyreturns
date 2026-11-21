@@ -253,7 +253,8 @@ weighting applied to presidential polls.
      2004 can test this, so it is the weakest of the six.
 4. *States with few polls.* Scored on states with no poll in the previous 30 days; at 100 days that was 15 to 29
    of 51 states in 2004 to 2016. Three ways to fill the gap: the prior (national estimate plus lean); the average
-   swing in the polled states; the state's last poll carried forward by the national movement since.
+   swing in the polled states; the state's last poll carried forward by the national movement since. (The third
+   is tested for every state at stage 1, round 2. If it is adopted there, it is stage 4's starting point.)
 5. *The add-up.* One candidate against section 4's states-first rule: national polls set the popular vote, and the
    difference from the states' sum is spread over the states by their uncertainty and size, so large, thinly
    polled states absorb most of it. Either way the two come from one draw.
@@ -396,7 +397,8 @@ adopted, the combination is run and reported, but it is not a fourth candidate.
      reported as a check and not used.
    - The targets are likely-voter polls, so this candidate is judged on the quantity the forecast needs.
 
-Anything that moves a state's polls using the national series belongs to stage 4, not here.
+Anything that moves a state's polls using the national series belonged to stage 4 when this was written. After
+round 1 it moved to stage 1 (round 2, candidate 5).
 
 **Adoption rule for stage 1 (confirmed 2026-11-20, with the score).** A candidate is adopted if all four hold:
 
@@ -476,3 +478,69 @@ Where polls are dense, a short half-life is best, as the published models find. 
 half-life leaves little more than the last poll, and its errors are large enough to decide the pooled score. So
 the score is not at fault: one half-life for every place was the wrong shape of candidate. Published models also
 carry old state polls forward by the national movement since they were taken, which this baseline does not do.
+
+### Stage 1, round 2: pre-registration (written 2026-11-21, before any round 2 run)
+
+Agreed with the user on 2026-11-21. Four candidates come from round 1's results and the diagnostic above, and two
+are the user's (sample size and survey method). That makes nine candidates for stage 1 in all. The score, the
+targets (the same 7,547) and the four clauses of the rule are unchanged. Grids are picked on the other four cycles
+and scored on the held-out one, as in round 1. Each candidate is run alone against the baseline.
+
+4. **Memory by poll count.** A poll's weight halves with every H firms that have published a newer poll of the same
+   place before the date. A firm's own newer poll counts as one, and a daily tracker counts once however many polls
+   it publishes. There is no decay by days. When a target is predicted without its own firm, the counts are taken
+   again without that firm. Grid for H: 1, 2, 4, 8 and 16 firms.
+5. **National trend adjustment.**
+   - Each state or district poll is moved by the change in the national average between the poll's end date and the
+     date of the forecast.
+   - The national average is the baseline's, built from national polls that ended before each date. Where it
+     cannot be built at either date, the poll is not moved.
+   - National polls are not moved, and the nation's own average is the baseline's.
+   - Grid, picked jointly: the national half-life for this trend line (7, 14, 30 days) and the state half-life
+     (60, 90, 180 days).
+   - 2004 is nearly inert: its national polls begin 61 days out. It counts in the 4-of-5 clause as it falls.
+6. **House effects against polls of the same week.**
+   - A poll's gap is its margin minus the mean of other firms' polls of the same place that ended within 7 days of
+     it, either side. Only polls that ended before the date are used, so a poll's gap firms up as later polls
+     arrive. That mean uses the baseline's weights without decay.
+   - A firm's effect is the mean of its gaps in that cycle before the date, shrunk by gaps × k / (k + λ), where
+     λ = σ² / τ²: σ² is the spread of gaps within firms and τ² the spread of firm means beyond it.
+   - λ is estimated from the same cycle's gaps before the date, so nothing is picked from other cycles. Where fewer
+     than 5 firms have two or more gaps, or τ² comes out at zero or below, every effect is zero.
+7. **Weight by a poll's total expected error.** The baseline's square-root sample weight is replaced by
+   1 / (s × τ² + 10,000 / n). Here 10,000 / n is the sampling variance of a two-party margin, in points squared, and
+   τ² is the error that does not shrink with sample size. τ² is the intercept of a regression of squared gaps
+   (round 1's gap against the other firms' average) on 10,000 / n, fitted on the other four cycles. There is no cap
+   on n. Grid for s: 0, 0.5, 1, 2. At s = 0 the weight is in proportion to the sample, giving large polls more weight
+   than the baseline does. At s = 1 or 2 a 1,500-person poll may get less extra weight over a 600-person one than
+   the baseline's 1.58 times. So the grid tests both directions.
+8. **Weight by survey method.**
+   - **Source.** Each firm's main method in a cycle is taken from FiveThirtyEight's late-poll file (`raw_polls.csv`,
+     read for the pollster, cycle and method only; it also carries results, which are not read).
+   - **Classes.** Live phone, IVR (automated phone, alone or with text), online (opt-in and matched panels, online
+     ads, text-to-web), probability panel, mixed (more than one of these), and unknown.
+   - **Coverage.** The file records a method for about two thirds of its polls in 2004 to 2012 and for all of them
+     in 2016 and 2020. Coverage of our polls is reported.
+   - **Weights.** A method's weight is the spread of all gaps divided by the spread of that method's gaps, both
+     measured on the other four cycles. Both are measured within the same density class, since gaps are larger
+     wherever a place is thinly polled: 10 or more, 4 to 9, or 1 to 3 polls in the 30 days before the poll. The
+     classes are then combined in proportion to the method's polls.
+   - **Unknown.** A poll of unknown method, or a method with no polls in the other cycles, keeps a weight of 1.
+9. **No registered-voter correction.** Registered-voter and adult polls are not moved; their 0.69 and 0.5 weights
+   stay. Nothing is fitted.
+
+**Mechanical checks before any result is read.**
+
+- Each candidate passes its own leak test: moving every poll that ends on or after the date by 50 points, in every
+  place of that cycle, leaves its predictions unchanged.
+- The target set is still the 7,547.
+- The baseline file is unchanged byte for byte.
+
+**If more than one passes.**
+
+- The passing candidates are combined. Candidate 5's adjustment works with either memory: with candidate 4's
+  weights if candidate 4 passed, otherwise with its own half-lives. Candidates 6, 7 and 8 combine by multiplying
+  their adjustments and weights. Each component keeps the grid value it was picked at alone.
+- The combination must pass the same four clauses against the baseline.
+- If it fails, the single passing candidate with the largest gain is adopted.
+- If none passes, stage 1 keeps the baseline and says so.
