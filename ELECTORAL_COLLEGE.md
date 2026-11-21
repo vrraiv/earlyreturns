@@ -258,6 +258,13 @@ weighting applied to presidential polls.
    place-weeks there is no eligible new poll to score, and three in four where a place had 0 to 3 polls in the past
    month. So stage 1 says little about it there, and it stays a stage 4 candidate, scored against results. Its
    settings are written when stage 4 is pre-registered; stage 1's grid picks are not carried over.)
+   *Selection, raised by the user on 2026-11-21 and placed here:* polls are fielded where races are close, so an
+   unpolled state is usually lopsided, and being unpolled is itself evidence. And a lone poll in a thin state may
+   be there because someone expected, or wanted to show, a surprise. Stage 4's pre-registration answers, against
+   results in 2004 to 2020: how far thinly polled states landed from their no-poll forecast (national result plus
+   lean), by how many polls they had; whether the few polls there moved toward the result or away from it, against
+   that forecast alone; and sponsored against independent polls there, if there are enough. Thin-state results are
+   not looked at before that pre-registration.
 5. *The add-up.* One candidate against section 4's states-first rule: national polls set the popular vote, and the
    difference from the states' sum is spread over the states by their uncertainty and size, so large, thinly
    polled states absorb most of it. Either way the two come from one draw.
