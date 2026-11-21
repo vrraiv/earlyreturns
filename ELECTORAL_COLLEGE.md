@@ -1905,7 +1905,7 @@ whether unpolled states should lean more on the prior.
 - **Where it goes:** EC-4 (state prior and weight on polls). There the weight on polls is estimated on earlier
   elections only and tested under section 8, and a prior that lets the lean move is a candidate.
 
-### Stage 5: the add-up, pre-registration (written 2026-11-21, before any run; six questions await the user)
+### Stage 5: the add-up, pre-registration (written 2026-11-21, before any run; confirmed by the user the same day, with the score amended below)
 
 Section 4 puts states first: the popular vote is the vote-weighted sum of the state estimates, and the gap between
 that sum and the national estimate is only reported. Stage 5 tests the plan's one alternative: national polls set
@@ -2038,3 +2038,33 @@ and pull the states' sum toward the national estimate. So a verdict here holds u
   waits for DA-4 (demographics by year), so it is tested on demographics as they stood in each election rather than
   one late-2010s snapshot.
 - **What stays here.** Candidate A stays as written, spreading the gap by vote share and uncertainty.
+
+**Stage 5: confirmed by the user on 2026-11-21, with the score amended (before any run).**
+
+- **Confirmed as written:**
+  - three candidates (A, B, C);
+  - σ²_s = 1 / (1 + recent polls);
+  - A's shuffle, and the sign-flip test for B and C;
+  - 4 of 5 elections better, and a positive gain;
+  - one round;
+  - the verdict provisional until EC-4's state estimates exist, then rerun with this pre-registration.
+- **The score, amended at the user's direction.** Results blur many causes over long gaps, and the add-up is not to
+  blame for the shared national miss.
+  - **Dates:** only 30 and 7 days are scored. 150, 100 and 60 are reported. 14 and 7 were considered; with a 60-day
+    half-life, those two averages share most of their polls.
+  - **Loss:** for each state on each scored date, excess = max(0, |state error| − |national error|), squared and
+    averaged over the 51 states, then over the two dates, with elections weighted equally.
+  - **The national error** is stage 3's national forecast against the national result, the same for every
+    candidate. A state that misses by no more than the nation costs nothing.
+  - The plain squared error is reported beside it.
+  - With 30 and 7 days now the score, the "30 and 7 days not worse" clause falls away.
+  - The sign-flip units are 10 (5 elections × 2 dates).
+- **Turnout, a known limit (raised by the user).**
+  - Every add-up weights states by their share of the previous election's two-party vote, so differential turnout
+    never enters. Applied to the actual results, the previous election's weights put the popular vote 0.1 to 0.2
+    points off the actual weights' figure (−0.17, +0.09, +0.11, −0.17 and −0.17 for 2004 to 2020). That is 10 to
+    15% of the typical gap stage 5 is about.
+  - The largest change in one state's share in a cycle is 0.34 to 0.73 points (California in 2020).
+  - It enters twice: in the sum the states are reconciled to, and in how A spreads the gap.
+  - It is reported beside the results and carried to EC-6, where a forecast of each state's turnout share is a
+    candidate.
