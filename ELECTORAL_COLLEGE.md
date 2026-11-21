@@ -1146,3 +1146,93 @@ stays as stage 1 fixed it. Ratings moved too much from 2020 to 2024 to trust a f
 the ratings that will exist then are not known. It comes back when they are, or once the repo has its own
 pollster tiers built from 2026 polls and results (plan card DA-10). Either goes through this test's rule again,
 written down first. The 2024 holdout is not spent a second time.
+
+### Stage 2: convention windows, pre-registration (written 2026-11-21, before any run; two points await the user)
+
+The three treatments are those confirmed on 2026-11-20: subtract a fitted rise and fade, down-weight polls in the
+window, or only widen the range. Stage 2 runs on the national test bed and is scored against results under the
+rule for stages 2 to 4.
+
+**Test bed.** `president_national_poll_days.csv`: daily national readings for 1952 to 2020.
+
+- Scored elections are 1980 to 2020 (11). Each is fitted only on the elections before it, from 1952 on.
+- All 11 qualify at 150 days under the presumptive rule.
+- 2024 is not in the file, which is checked.
+- The early fits are thin (17 to 33 readings a cycle in 1952 to 1976), so 1980 to 1988 are also reported apart.
+
+**What stands in for the nowcast on this series.** The file holds daily means, not polls, before 2004. The same rule
+is used for every year.
+
+- The forecast for a date uses every reading of the eventual matchup dated at least 3 days before it. Readings are
+  dated by the middle of the field period, so the lag keeps out most polls still in the field. A poll fielded for
+  longer than about five days can still end after the date. That is a limit of the file, and the leak test cannot
+  see it.
+- Each reading has weight 0.5^(age / 60): the fixed nowcast's 60-day half-life. Readings are not weighted by their
+  number of polls, which is missing in some cycles. No firm, population or sponsor information exists here.
+- **Baseline: forecast = nowcast**, with a range as in section 6: squared spread a + b × days, fitted on the
+  earlier elections' squared errors at every date from 7 to 150 days.
+- **A diagnostic, deciding nothing:** the same with a 7-day half-life. Stage 1 found that short memory suits the
+  nation, and a 60-day memory already damps a bounce.
+
+**Dates and score.** The rule's score is the forecast's error against the result, averaged over 150, 100 and 60
+days.
+
+- No convention has started by 150 days in any year from 1952 to 2020 (the earliest start is 120 days out). So at
+  150 days the three treatments are the baseline. 100 and 60 days are also reported on their own.
+- Loss is the squared error, averaged over the three dates within each election, with elections weighted equally.
+- 30 and 7 days are reported. "Must not get worse" means the mean over the 11 elections is not higher than the
+  baseline's at either date.
+
+**The treatments.**
+
+1. **Subtract a rise and fade.**
+   - Each convention adds a bump to the margin in its party's favour. It rises in a straight line from the
+     convention's first day to B on its last, then fades with half-life τ.
+   - Readings are adjusted by subtracting both parties' bumps. Convention dates are scheduled in advance, so using
+     them leaks nothing.
+   - **Fitted to the poll path, not to results.** In each earlier election, the readings from the first
+     convention's start to 60 days after the second one's end are measured against the mean of the readings in the
+     21 days before the first convention. B is fitted by least squares for each τ in 7, 14, 30 and 60 days, and τ
+     is the best of the four. That uses many readings per election and keeps results for scoring. An election with
+     no reading in the 21 days before is left out of the fit.
+2. **Down-weight the window.**
+   - Readings dated from a convention's first day to W days after its last get weight ω times their usual weight.
+   - There is no path to fit this to, so ω and W are picked by the score on the earlier elections. The grid is kept
+     small because so few elections inform it: ω 0 or 0.5, W 14 or 30 days.
+   - If no reading is left at a date, the readings before the window are used.
+3. **Only widen the range.** The forecast is the baseline's; the squared spread gains κ on dates within 30 days of a
+   convention's end. κ ≥ 0 is fitted by maximum likelihood on the earlier elections. This needs a score that sees
+   the spread (point 1 below).
+
+**The rule for stages 2 to 4, as it applies here.**
+
+- **The shuffle.** Each election's convention timing is handed to another election as a unit: both conventions'
+  start and end, counted in days before the election, and which party went first. Elections 1952 to 2020 are
+  permuted; 2024 and 2028 are not in the pool. The whole as-of backtest is rerun with the fit inside, for 200
+  shuffles. The candidate's gain must beat the gain of 19 in 20 shuffles (above the 95th percentile).
+- **Elections better:** at least 8 of the 11.
+- **A limit, written now:** convention timing is much alike from year to year, so shuffled windows overlap the real
+  ones. The test is weak, most of all for the down-weight, which has no party sign.
+
+**Outcomes.**
+
+- Treatments 1 and 2 both change the centre; if both pass, the larger gain is adopted.
+- Treatment 3 changes only the range, and can join either.
+- If none passes, the forecast is the nowcast, with the baseline's range.
+- One round only, unless the user decides otherwise.
+
+**Checks before any loss is read.**
+
+- Changing a scored election's result, or anything in a later election, leaves its fitted values and its forecast
+  unchanged.
+- Moving readings dated within 3 days of the date, or after it, leaves the forecast unchanged.
+- 2024 is absent.
+
+**Awaiting the user:**
+
+1. **A score for treatment 3.** Widening the range cannot change the error, so as the rule stands treatment 3 can
+   neither pass nor fail. Proposed: the mean log score of a normal forecast (centre, and spread from the range) at
+   the same dates, with the same shuffle and 8-of-11 clauses, and 30 and 7 days not worse. The log score is also
+   reported for treatments 1 and 2.
+2. **One round.** Stage 1 ran three rounds under the user's decision then. For stage 2 the proposal is one round,
+   with the three treatments above.
