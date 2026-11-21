@@ -202,7 +202,9 @@ centre. It was confirmed the same day, and where it differs from sections 4 to 8
   100, 60, 30 and 7.
 - Third-party support is dropped. Undecided voters are modelled, not just dropped.
 - Polls of registered voters are corrected to likely voters, as the Senate average does.
-- 2024 is out of everything in this section, including the tests that use no results.
+- 2024 is out of everything in this section, including the tests that use no results. *One exception, decided
+  2026-11-21:* the pollster-quality test below reads 2024 polls and results, and only if its fit on 2016 and 2020
+  picks something other than the baseline. EC-7's 2024 score is then in-sample for that one choice.
 - The date a nominee became presumptive is taken late when in doubt. Starting early is not worth a wrong matchup.
 - The popular vote and the states come from the same draw, so the chance of a split and the gap to the
   tipping-point state stay meaningful. Two numbers that need not agree are ruled out.
@@ -958,3 +960,69 @@ Open, carried forward:
   likely voters 1.46 more Republican than registered voters, the opposite sign.
 - Pollster quality gets its own test (decided 2026-11-21): grades as they stood, fit on 2016 and 2020 and tested
   on 2024. How that spends the 2024 holdout is still to be settled.
+
+### Pollster quality: a separate test (pre-registration, written 2026-11-21, before any run)
+
+Decided with the user on 2026-11-21. It does not fit stage 1: 538's ratings are built from accuracy against
+results, so they are tested against results, and the only ratings that existed before an election are for 2016,
+2020 and 2024. It is a detour from the stages, not a stage, and it is the one use of 2024 in this section.
+
+**Ratings as they stood**, from 538's public repository: the last version committed before each election. That is
+30 July 2016 (commit f2c6f781a6, `pollster-ratings-2016.csv`), May 2020 (commit 7b6455abc3,
+`pollster-ratings-2020.csv`; its latest poll is from March 2020) and 13 September 2024
+(`pollster-ratings-combined.csv`, fetched 2026-11-01; the last change to that file). The 2016 and 2020 files are
+byte-identical to the copies 538 later archived in its `2016` and `2020` folders. Each is built from earlier elections, so applying it to every
+poll of its year leaks none of that year's general-election results. No version predates 2004, 2008 or 2012, so
+those years are not used.
+
+- **The measure:** 538's error score, lower is better: predictive plus-minus in 2016 and 2020, POLLSCORE in 2024.
+  The scales differ (SD 0.56 and 0.68 against 0.41), so each version is standardized across the firms it rates
+  (mean 0, SD 1), giving z.
+- **Matching:** 2020 and 2024 polls carry 538's pollster rating id. 2016 polls come from 538's forecast file and
+  are matched by exact name. Coverage, counted before any margin was read: 81% of 2016 polls, 91% of 2020, 82% of
+  2024. Most unmatched 2016 polls are firms 538 had not rated yet (USC Dornsife/LA Times, Lucid, Morning Consult). A
+  looser search of the 2016 file for the 15 most common unmatched names found no variant spellings.
+  Firms 538 had banned keep their score.
+
+**Polls.** Those of stage 1's loader: one question per poll, two-party margins, the same adjustments. 2024 uses
+Harris against Trump only, from polls that ended on or after 21 July 2024, the day Biden withdrew. Maine's and
+Nebraska's districts are left out, since the repo has no results for them.
+
+**The candidate.** Each poll's baseline weight is multiplied by exp(−γ × z) for its firm. An unrated firm gets z_u
+in place of z. Everything else is the fixed nowcast.
+
+- Grid: γ 0, 0.1, 0.2, 0.35, 0.5, 0.75, 1; z_u 0 (an average firm), 0.5 or 1 (half or one SD worse). At γ = 0
+  every factor is 1, so all three γ = 0 cells are the baseline and count as one. The unrated weight is tied to γ:
+  it cannot down-weight unrated firms on its own.
+- Fitted on 2016 and 2020 together: the lowest loss at 7 days, cycles weighted equally.
+
+**The score.** At 7 days before the election (30 and 60 days reported), each place's average from polls that ended
+before that date, against its result (two-party margin). Places are the 50 states, DC and the nation, wherever at
+least one poll ended before the date. Loss is the mean squared error over places; the nation is also reported
+alone.
+
+Polls in 2016 and 2020 missed in the same direction across most states, so a fit against results on those two
+years can learn which firms leaned the right way that year rather than which were better. The raw loss decides.
+Beside it, every loss (fit and 2024) is also reported with each year's mean error removed, as the Senate half-life
+test did.
+
+**2024.**
+
+- 2024 is opened only if the picked setting is not the baseline and its 7-day loss is lower than the baseline's
+  in 2016 and in 2020, each on its own. Otherwise the test ends with the baseline kept, and 2024 stays closed.
+  (Without that second condition the gate would nearly always open: one of 18 alternatives will beat the baseline
+  in-sample by chance.)
+- If it opens, the picked setting is run on 2024 once. It passes if, at 7 days, its loss is lower than the
+  baseline's and a paired sign-flip test over places (2,000 flips) gives p < 0.05. 30 and 60 days are reported.
+- Places in one year share most of their error, so a sign-flip over places overstates the evidence. A pass would
+  rest on one election.
+- If it passes, the user decides whether it joins the nowcast. If it fails, the baseline stands. Nothing is refitted
+  after 2024 is seen.
+
+**Checks before any loss is read:** the leak test (moving polls that end on or after the date leaves the average
+unchanged), and γ = 0 reproducing the baseline average exactly. The fit on 2016 and 2020 is written here and
+committed before any code reads a 2024 margin or result. The 2024 loader checks the Harris-Trump matchup and the
+21 July cutoff, and stage 1's refusal of 2024 stays in place.
+
+**Where this differs from what the user approved on 2026-11-21:** the gate (when 2024 is opened) is added, and the
+unrated weight is tied to γ. The fit and the pass are at 7 days, with 30 and 60 days reported, as approved.
