@@ -1261,3 +1261,50 @@ Checks passed before the run:
 - The leak test passes.
 - The as-of test passes: changing an election's own result and every later election leaves its fits and forecasts
   unchanged.
+
+### Stage 2: results (run 2026-11-21). None of the three is adopted.
+
+`src/model/pres_conventions.py run`, `data/processed/pres_conventions.json`. 11 scored elections, 200 shuffles.
+The empty-window fallback never triggered.
+
+| | Score (150/100/60) | 100 days | 60 days | 30 days | 7 days | Log score | Gain | Elections better | Beats shuffles | Verdict |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Baseline (nowcast) | 64.68 | 57.32 | 30.26 | 19.18 | 17.03 | −3.654 | | | | |
+| 1. Rise and fade | 64.54 | 54.58 | 32.60 | 22.83 | 19.12 | −3.666 | +0.13 | 6 | 68% (needs 95%) | fails |
+| 2. Down-weight | 66.99 | 61.69 | 32.83 | 19.26 | 17.08 | −3.674 | −2.32 | 5 | 42% | fails |
+| 3. Widen the range | (same as baseline) | | | | | −3.662 | −0.008 | 1 | 6% | fails |
+
+The 150-day loss is 106.46 for all three, as expected.
+
+**1. Rise and fade.** Fails on every clause but the positive gain (+0.13). It is better in 6 of 11 elections, falls
+far short of the shuffles' 95th percentile (2.99), and is worse at 30 and 7 days (22.83 and 19.12 against 19.18
+and 17.03).
+
+- **The fit does not look like a bounce.** B comes out at 11 to 19 points, with τ = 60 days (the top of the grid)
+  in 9 of 11 fits and 30 in the other two.
+- The two parties' bumps mostly cancel, so the net adjustment is smaller: 6.4 points at the end of 1984's second
+  convention, 4.3 in 2004, 0.8 in 2020. But it hardly fades. In 1984 it is still 5.4 at 60 days out.
+- So the fit is taking up lasting movement after the conventions, not a rise that goes away. That is stage 3's
+  question (reversion and trend) more than stage 2's.
+- It helps most in 1988, 1984 and 2000, and hurts most in 1996, 1992 and 1980. The fits pool readings, so recent,
+  densely polled elections weigh most; 5 elections informed 1980's fit, 15 informed 2020's.
+
+**2. Down-weight.** Worse overall (−2.32) and worse at 100 days (61.69 against 57.32). The pick was a weight of 0.5
+for 14 days after a convention in every election. As written beforehand, this test was weak, and it was not needed:
+the treatment does not help.
+
+**3. Widen the range.** The extra term κ came out positive in every election (2.1 to 19.1), but the log score is
+slightly worse in 10 of 11 (−3.662 against −3.654). The range fitted to all dates already covers the convention
+weeks. No evidence for a wider range there.
+
+**1980 to 1988 apart:** baseline 130.61, rise and fade 118.52, down-weight 130.44. From 1992 on: 39.95, 44.30 and
+43.20. The rise and fade's gain comes from 1984 and 1988, whose fits are thin.
+
+**A diagnostic (decides nothing):** the nowcast with a 7-day half-life does worse on this test bed: 66.13 against
+64.68, and 24.41 and 22.20 at 30 and 7 days against 19.18 and 17.03. Against results, the 60-day memory is the
+better one for the nation, though stage 1 found short memory best at predicting the next national polls. Polls
+that move fast also move back.
+
+**Stage 2 closed.** One round, as agreed. **The forecast through the convention window is the nowcast**, with the
+baseline's range (squared spread a + b × days). Conventions get no special treatment. What the rise and fade did
+pick up, a lasting shift after the conventions, goes to stage 3.
