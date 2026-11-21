@@ -1067,8 +1067,19 @@ refuses otherwise. 2024 polls: Harris against Trump, ending on or after 21 July;
 | 60 days | 32 | 44.32 | 45.21 | −0.89 | 0.93 | 33.51 | 33.85 |
 
 - **At 7 days it passes both clauses:** lower loss, and p 0.0085.
-- **It also helps once each year's lean is removed** (16.19 to 15.61). So it is not only that better-rated firms
-  leaned the right way in 2024.
+- **Most of the gain is a shared shift, not better accuracy state by state.** Each loss is the within-year part
+  plus the square of the mean error. The 7-day gain splits as follows:
+
+  | Year | Gain | Within-year part | Shift of the mean error | Mean error, baseline to candidate |
+  |---|---|---|---|---|
+  | 2016 (fit) | 0.84 | 1.20 | −0.36 | 5.61 to 5.64 |
+  | 2020 (fit) | 1.02 | 0.10 | 0.92 | 5.43 to 5.35 |
+  | 2024 (test) | 1.88 | 0.57 | 1.31 | 4.87 to 4.73 |
+
+  In 2024 about 70% of the gain is the average moving 0.14 point toward the Republican in a year the polls missed
+  toward the Democrat. The rest (0.57) is real accuracy across states. p was computed on the raw loss, so it
+  mostly reflects that shared shift. No test of the within-year part alone was written beforehand, and none is
+  added now.
 - **The nation improves** at every date: its squared error goes from 17.07 to 15.83 at 7 days.
 - **The average still missed toward the Democrat by about 4.8 points across places.** Quality weighting moves that
   by 0.1; it is not a fix for a shared miss.
@@ -1080,9 +1091,12 @@ refuses otherwise. 2024 polls: Harris against Trump, ending on or after 21 July;
 
 **Whether it joins the nowcast is the user's decision.** Two things bear on that:
 
-- **Where the gain is.** It is consistent at 7 days (all three years), mixed at 30 days and negative at 60. So it
-  may belong only close to the election, or be tied to how far out the date is. That would be a new candidate, not
-  this one.
+- **Where the gain is.** At 7 days it was chosen on 2016 and 2020, so only 2024 is out of sample there. It is mixed
+  at 30 days and worse at 60 in all three years. So it may belong only close to the election, or be tied to how
+  far out the date is. That would be a new candidate, not this one.
+- **What adoption would touch.** Ratings as they stood exist only for 2016, 2020 and 2024, while stage 4 and EC-7
+  also score 2008 and 2012, so a quality weight could not be applied the same way there. And stage 1 fixed the
+  nowcast; adopting this would amend that.
 - **2028 needs a source of ratings.** 538 stopped publishing in 2025, and its last ratings are those of September
   2024. Using them in 2028 means ratings four years old, with every firm new since then unrated, or another rater
-  (Silver Bulletin publishes its own) with its own scale. Either needs a check before it is relied on.
+  if one is available, with its own scale. Either needs a check before it is relied on.
