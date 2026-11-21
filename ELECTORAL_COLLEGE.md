@@ -2171,3 +2171,99 @@ Open items, carried forward:
 - **Demographics in how state errors move together** (EC-5, after DA-4).
 - **Each state's turnout share** in the popular vote (EC-6).
 - **Stage 5's rerun** once EC-4 exists.
+
+## 12. Presidential fundamentals: evaluation plan (EC-3)
+
+*Plan written 2026-11-21, before any fit; questions at the end await the user.* The fundamentals give the national
+estimate a prior that does not depend on polls. Section 4 combines that prior with the poll average by precision.
+EC-2's stage 3 tried a crude version (approval plus the previous result) and it failed as built.
+
+**2028 is a case the history has never seen.**
+
+| Terms the incumbent party has held | Sitting president running | Not running |
+|---|---|---|
+| One | 9 elections | **none (2028; and 2024, held out)** |
+| Two or more | 2 (1976, 1992) | 7 |
+
+- 2028 is one term with no president running. "Time in office" says no penalty; "a sitting president running" says a
+  penalty. Only 1976 and 1992 separate the two codings.
+- The classic coding, "a first-term president running", treats 2028 like a long-held seat.
+- So the 2028 fundamentals depend on which coding a model keeps. It is reported under each coding, and selection is
+  not allowed to choose among them silently.
+
+**What is predicted.**
+
+- The incumbent party's national two-party margin, 1952 to 2020 (18 elections). 1948 is added only where every
+  predictor exists.
+- 2024 is refused at load (the result history holds it) and scored once at the design freeze (section 7).
+- Turned into the Democratic margin by the president's party, as in stage 3.
+
+**Candidate predictors.**
+
+| Predictor | Measure | From |
+|---|---|---|
+| Approval | Gallup job approval: mean of readings ending in the 30 days before the date, else the latest one | 1948 |
+| The economy | one of: real GDP growth over the latest two published quarters; real disposable income per head, growth over the latest published year; the change in unemployment over the latest year | GDP 1947, income 1959, unemployment 1948 |
+| Time in office | one of three codings: one term against two or more; a sitting president running; a first-term president running | all |
+
+The previous result is not a candidate; the card does not list it, and stage 3's version failed.
+
+**As of a date.** Only figures published by the date are used.
+
+- **Publication lags:**
+  - a GDP quarter counts from 35 days after the quarter ends;
+  - an income month from 35 days after the month ends;
+  - an unemployment month from 10 days after it ends.
+- **A gate** checks that changing not-yet-published periods changes nothing.
+- **Revisions.** GDP and income are revised, and the repo's copies are today's vintage. Real-time vintages (ALFRED)
+  are checked for coverage before any fit. Where they exist they are a check; elsewhere the limit is stated.
+- **Approval after January 2021.** The Gallup file ends then. A source for 2024's scoring and for 2028 is written
+  down before 2024 is scored.
+
+**Small-sample rules.**
+
+- **One primary model, written down in advance** (question 2), fitted with ridge shrinkage toward approval alone.
+  Every model of up to three predictors is reported as "how far the choice of predictors moves the answer". It is
+  compared on a common sample (1960 on wherever income enters) and decides nothing.
+- **Nested as-of fitting.** Every choice made from data (the shrinkage penalty, any weights) happens inside each
+  as-of fit, using earlier elections only. Each earlier election's fundamentals error, used for the weights and the
+  standard error, comes from a fit that left that election out.
+- **Thin early fits.** 1980's fit has 7 earlier elections (5 where income enters). The ridge penalty carries this:
+  with few elections it holds the model near approval alone. Or there is a burn-in (question 3).
+
+**Tests.**
+
+1. **The fundamentals alone** (reported). Leave-one-out error of the primary model, of every model of up to three
+   predictors, of a constant (the average incumbent margin) and of approval alone. Plus the 2028 case under each
+   time-in-office coding.
+2. **Do they improve the forecast?** This decides adoption.
+   - At 150, 100, 60, 30 and 7 days, EC-2's adopted national forecast (the poll average's raw margin) is combined
+     with the primary model by precision.
+   - The polls' precision comes from the fitted range (a + b × days); the fundamentals' from their nested
+     leave-one-out error. Both are fitted on earlier elections only.
+   - It is scored against results on EC-2's national test bed, 1980 to 2020, under the rule for stages 2 to 4: a
+     positive gain; better in 8 of 11; beat 19 in 20 shuffles of the fundamentals between elections; 30 and 7 days
+     not worse.
+   - **A control row:** the polls blended with a constant prior (the earlier elections' average incumbent margin),
+     at the same precision rule. Stage 3 showed that shrinking toward a centre helps by itself. The shuffle asks
+     whether the fundamentals add to that.
+3. **Open seats** (reported; a candidate only through test 2). Whether approval counts for less when no president is
+   running: an interaction, shrunk toward none.
+
+**If test 2 fails,** section 4's national estimate is the polls alone (EC-2's forecast), and the fundamentals stay a
+reported number.
+
+**Questions for the user:**
+
+1. **The outcome:** the incumbent party's two-party margin 1952 to 2020, 1948 only where every predictor exists, 2024
+   refused?
+2. **The primary model.** Proposed: approval, real disposable income growth (the measure most models use, 1960 on),
+   and one time-in-office coding. Which coding? The choice decides 2028:
+   - two or more terms (2028: no penalty);
+   - a sitting president running (2028: a penalty);
+   - a first-term president running (2028: treated like a long-held seat).
+3. **Thin early fits:** ridge toward approval alone, or a burn-in (score from 1988, needing two thirds of 9)?
+4. **Revised data:** today's vintage, with ALFRED as a check where it exists, and the publication lags above?
+5. **The tests:** test 1 reported; test 2 decides, with the constant-prior control row?
+6. **Open seats** reported, and a candidate only through test 2?
+7. **One round per test,** written down here before each run, as for EC-2?
