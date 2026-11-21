@@ -142,6 +142,7 @@ clearly worse. Seven elections to learn from and four to score on will probably 
 **The national layer on a longer history.** `president_national_poll_days.csv` has a daily national average for 17
 elections, 1952 to 2016. It tests how the poll average's error shrinks as the election nears and how fundamentals
 should be weighed against it. It is a plain average, not EC-2's, it says nothing about states, and it stops at 2016.
+(2020 was added on 2026-11-20, built from the repo's polls: section 11.)
 
 ## 8. Adoption rule
 
@@ -210,7 +211,7 @@ centre. It was confirmed the same day, and where it differs from sections 4 to 8
 
 - Conventions are mostly inside the last 100 days. The later convention ended between 61 and 103 days before the
   election in every year from 1952 to 2024, and within 100 days in 16 of 19. So the 100-day and 60-day forecasts
-  often sit inside a bounce. (Dates from Wikipedia's convention lists; to be collected into the repo.)
+  often sit inside a bounce. (`data/interim/convention_dates.csv`, from Wikipedia's convention lists.)
 - Undecided voters can be measured: in head-to-head questions, the share for neither candidate falls from about
   9 to 11 points five months out to 3 or 4 in the last week (2004 to 2012 and 2020; 2016 ran about twice that).
   Questions that name other candidates mix third-party support in, and the national series before 2004 always does.
@@ -219,7 +220,7 @@ centre. It was confirmed the same day, and where it differs from sections 4 to 8
 
 | | National | States |
 |---|---|---|
-| Data | daily national average 1952 to 2016, plus 2020 built from the repo's polls | state polls 2004 to 2020 |
+| Data | daily national average 1952 to 2020 (2020 built from the repo's polls) | state polls 2004 to 2020 |
 | Scored elections | about 11 (1980 to 2020, where polls are dense), fitted on earlier ones | 2012 to 2020 at 150, 100 and 60 days; 2008 as well at 30 and 7 |
 | Decides | how polls move over a campaign | what to do in states with few polls |
 
@@ -268,8 +269,33 @@ from nowcast to forecast is close to nothing. For these candidates:
 - a candidate with nothing to shuffle has to pass a sign test on its election-by-election gains at the same 1 in 20;
 - on the state test bed, section 8 applies as written, at the dates above.
 
-**Not in the repo yet:** convention dates; the date each nominee became presumptive; a 2020 national series built
-the same way as 1952 to 2016; candidate favourability.
+**Collected 2026-11-20** (calendar facts and polls; no results are used)
+
+- Convention dates, 1948 to 2028: `data/interim/convention_dates.csv`. The figures above hold.
+- The date each nominee became presumptive, 1980 to 2020: `data/interim/presumptive_nominees.csv`, entered by hand
+  with a source on each row. 2024 gets its rows, under the rule below, when the holdout is scored.
+- A 2020 national series, added to `president_national_poll_days.csv`. It is built from the repo's polls the way
+  the source describes its own series: one reading per poll, and a plain mean of the polls centred on each day.
+  The check is 2016 built the same way against the source's 2016 rows. In the last 150 days the two agree on
+  average (0.1 point apart) and differ by about 2 points on a typical day and 1.6 by week; they draw on different
+  sets of polls (1,106 against 816). So 2020 is comparable on average and noisier day to day than a like-for-like
+  series would be.
+
+Still not in the repo: candidate favourability (DA-9).
+
+**Presumptive rule (a default, awaiting confirmation).**
+
+- A nominee is presumptive from the day news delegate counts gave them a majority of the convention's delegates.
+  Where sources give different days, the latest is used.
+- Where a rival with a large share of the delegates fought on after that day, the table also records the day the
+  rival stopped: Kennedy in 1980, Hart in 1984, Jackson in 1988, Brown in 1992, Clinton in 2008, Sanders in 2016.
+- In 2028 the forecast starts on the later of the two parties' days, and waits for a rival who is still
+  contesting. That is what "late when in doubt" means here.
+- In the backtest, an election is scored at a test date if both nominees had their majority by then. All 11
+  elections from 1980 to 2020 qualify at 150 days, but narrowly: in seven of them the majority came with the last
+  primaries, 151 to 155 days out (151 in 2020). The polls of the eventual matchup exist in every one.
+- The stricter reading, which also waits for the rival, would score 6 of 11 at 150 days and 10 of 11 at 100 (1980
+  drops out: Kennedy withdrew 85 days before the election). It is reported beside the default as a check.
 
 **Confirmed 2026-11-20.** Three things the decisions above imply, written first as assumptions and then confirmed,
 with the two under them:

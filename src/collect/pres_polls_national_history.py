@@ -1,4 +1,4 @@
-"""National presidential trial-heat polls by day, 1952-2016 (DA-5): the long history for poll decay and convention
+"""National presidential trial-heat polls by day, 1952-2020 (DA-5, EC-2): the long history for poll decay and convention
 bounces, which the poll-level table (president_general_polls.csv, from 2004) is too short to estimate.
 
 Source: Will Jennings and Christopher Wlezien, "Election Polling Errors across Time and Space", Nature Human
@@ -23,11 +23,17 @@ Where the series comes from, and which version is used (checked 2026-11-20):
   in the last fortnight, and 2012 is a different compilation: three times the readings, about 2 points more
   Republican than the book's file and than The Economist's polls. The 2016 version gives shares of the two-party
   total, has no poll counts, and starts 300 days out.
-The column source_version says which file a row comes from.
+- 2020 is not in either file. It is built here from the national polls in president_general_polls.csv
+  (FiveThirtyEight), the way the source describes its own series: one reading per poll, dated by the middle of its
+  field period, and a plain mean of the polls centred on each day. A poll that asked several questions gives its
+  head-to-head question, and of those the likely-voter one, then registered voters, then adults. The same build
+  for 2016 is printed against the source 2016 rows on each run. Shares are of all respondents.
+  2024 is never built: it is held out (ELECTORAL_COLLEGE.md, section 11), and from_polls refuses it.
+The column source_version says which file a row comes from ("polls" for 2020).
 Results are taken from state_presidential_history.csv, not from the source (they agree but for 2008).
 
 Output: data/interim/president_national_poll_days.csv, one row per cycle and day with a poll: the Democrat's and
-Republican's poll shares (as published: of all respondents to 2012, of the two-party total in 2016), the two-party
+Republican's poll shares (as published: of all respondents to 2012 and in 2020, of the two-party total in 2016), the two-party
 margin, polls and sample that day, and the result's two-party margin. Third candidates (1968, 1980, 1992, 1996) are
 in the source but not carried here.
 
@@ -98,6 +104,49 @@ def extract_2016_version():
     return d
 
 
+POP_RANK = {"lv": 0, "v": 1, "rv": 2, "a": 3}
+D_INCUMBENT = {2016: 1, 2020: 0}
+
+
+def from_polls(cycle):
+    """One cycle of poll-days built from president_general_polls.csv (see the docstring): for 2020, and for 2016
+    as a check on the method. Never 2024."""
+    assert cycle in D_INCUMBENT and cycle != 2024, "only 2016 and 2020; 2024 is held out"
+    p = pd.read_csv(INTERIM / "president_general_polls.csv", low_memory=False)
+    p = p[(p.cycle == cycle) & (p.geo == "US") & ~p.presumptive & ~p.state_subsample]
+    p = p.assign(h2h=p.head_to_head.fillna(False).astype(bool), pop=p.population.map(POP_RANK).fillna(4))
+    p = p[p.h2h == p.groupby("poll_id").h2h.transform("max")]
+    p = p[p["pop"] == p.groupby("poll_id")["pop"].transform("min")]
+    q = p.groupby("poll_id").agg(date=("mid_date", "first"), election_date=("election_date", "first"),
+                                 d_pct=("d_pct", "mean"), r_pct=("r_pct", "mean"), sample=("sample_size", "mean"))
+    d = q.groupby(["date", "election_date"]).agg(d_pct=("d_pct", "mean"), r_pct=("r_pct", "mean"),
+                                                 npolls=("d_pct", "size"), sample=("sample", "sum")).reset_index()
+    # days from the middle of the field period, as in the source (the poll table counts from the last day)
+    d["days_to_election"] = (pd.to_datetime(d.election_date) - pd.to_datetime(d.date)).dt.days
+    return d.assign(cycle=cycle, d_incumbent_party=D_INCUMBENT[cycle], source_version="polls",
+                    npolls=d.npolls.astype(float))
+
+
+def polls_check(w):
+    """The method of from_polls against the source, on the one cycle both cover (2016): two-party margin by day."""
+    b = from_polls(2016)
+    b["ours"] = 100 * (b.d_pct - b.r_pct) / (b.d_pct + b.r_pct)
+    s = w[w.cycle == 2016]
+    j = b.merge(s[["date", "margin_2p", "npolls"]], on="date", how="outer", suffixes=("", "_src"))
+    both = j.dropna(subset=["ours", "margin_2p"])
+    gap = both.ours - both.margin_2p
+    late = both[both.days_to_election <= 150]
+    wk = both.assign(week=both.days_to_election // 7).groupby("week")[["ours", "margin_2p"]].mean()
+    print()
+    print("check of the 2020 build: 2016 built the same way from our polls, against the source 2016 rows")
+    print(f"  days with a reading: ours {b.date.nunique()}, source {len(s)}, both {len(both)}")
+    print(f"  two-party margin, ours minus source: mean {gap.mean():+.2f}, mean abs {gap.abs().mean():.2f} by day; "
+          f"last 150 days mean {(late.ours - late.margin_2p).mean():+.2f}, mean abs "
+          f"{(late.ours - late.margin_2p).abs().mean():.2f}; by week mean abs "
+          f"{(wk.ours - wk.margin_2p).abs().mean():.2f}, correlation {wk.ours.corr(wk.margin_2p):.2f}")
+    print(f"  polls: ours {int(b.npolls.sum())}, source {int(s.npolls.sum())}")
+
+
 def build():
     d = extract()
     d = d[~d.electionyr.isin([2008, 2012])].assign(source_version="2018")      # see the docstring
@@ -109,6 +158,8 @@ def build():
     w.columns = ["cycle", "date", "election_date", "days_to_election", "d_pct", "r_pct", "d_vote", "r_vote"]
     meta = two[two.partyid == 1].set_index(["cycle", "polldate"])[["npolls", "sample", "inc_", "source_version"]]
     w = w.join(meta, on=["cycle", "date"]).rename(columns={"inc_": "d_incumbent_party"})
+    w = pd.concat([w, from_polls(2020)], ignore_index=True)
+    assert 2024 not in set(w.cycle)
     w["margin_2p"] = 100 * (w.d_pct - w.r_pct) / (w.d_pct + w.r_pct)
     # The result comes from our own table (state_presidential_history.csv). The source's agrees with it within 0.2
     # points in every cycle but 2008, where the 2016 version carries 55.4-44.6 against the actual 53.7-46.3.
@@ -130,8 +181,9 @@ def build():
     summ["miss"] = (summ.final_2w_margin - summ.result).round(1)
     print(f"president_national_poll_days.csv: {len(w)} poll-days, {w.cycle.nunique()} cycles")
     print(summ.to_string())
-    crosscheck(w)
+    crosscheck(w[w.source_version != "polls"])
     book_check(w)
+    polls_check(w)
 
 
 def book_check(w):
