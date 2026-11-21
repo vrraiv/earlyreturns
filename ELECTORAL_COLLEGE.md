@@ -758,3 +758,40 @@ What it shows, as a hint and not a verdict:
 
 **Stage 1 after this.** Unchanged: no candidate passes, and the nowcast is the baseline. A third round follows,
 written here before it runs.
+
+### How good is the baseline: naive benchmarks (written 2026-11-21, before any run)
+
+Asked by the user on 2026-11-21: nothing beats the baseline, but how good is it? The Senate average's settings
+were tested across half-lives against results (2018 and 2022); no comparison with a naive average was found. So
+the presidential baseline is compared with three naive averages, each with no free parameter and no grid.
+
+**The floor first** (from the stored baseline file, no new run). Of the baseline's 27.29, 12.47 is the sampling
+variance of the target polls themselves, which no average can remove; 14.82 is beyond it. By cycle the part
+beyond sampling is 9.3, 24.9, 5.2, 22.2 and 12.5. This is a lower bound on what is irreducible: it assumes simple
+random samples, and a missing sample size is taken as 600. So a gain of 0.40 is about 3% of the reducible part.
+
+**The benchmarks.** Same 7,547 targets, same score, polls that ended before the week, the target's own firm left
+out. Margins are taken raw: the poll's chosen question as it is, any population, no registered-voter lean, no
+sponsor shift, no weights.
+
+- **N1. Latest poll.** The most recent poll of the place by another firm. If several end on that day, their plain
+  mean.
+- **N2. Latest five firms.** Each other firm's latest poll of the place (several on its latest day are averaged
+  into one reading). The five firms whose latest readings are most recent, with every firm tied at the fifth
+  date included, or all of them if fewer than five. The plain mean of those readings. This is the familiar
+  "latest poll from each firm" average, with a fixed count and no time window.
+- **N3. Every poll so far.** The plain mean of every poll of the place in the cycle by other firms, each poll
+  counted once (so a daily tracker counts every day).
+
+**Checks before any result is read.** Each passes the leak test and the own-firm test (20 each), and the baseline
+file is unchanged byte for byte.
+
+**What is reported.** For each benchmark: the loss overall, by cycle, by band, for the nation and the states, and
+by density class; and the baseline against it under the four clauses of the stage 1 rule (gain, cycles better,
+sign-flip p, the 91 to 161 day band).
+
+**If a benchmark beats the baseline.** It is reported as such under the same four clauses. Whether it replaces the
+baseline is the user's decision; it would enter round 3 as a candidate. Benchmarks are not candidates and do not
+count among the nine. A benchmark that wins in one density class is a hint for round 3, not a verdict. A previous
+election's result would make a fourth benchmark but would bring results into stage 1, so it is left out unless the
+user asks.
