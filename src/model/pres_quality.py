@@ -9,6 +9,7 @@ against the result; places are the states, DC and the nation.
 
 Run:  python src/model/pres_quality.py fit        (checks, then the fit on 2016 and 2020; never reads 2024)
       python src/model/pres_quality.py test2024   (refuses unless the committed fit opened the gate)
+      python src/model/pres_quality.py stability  (how much ratings change between versions; reads no 2024 result)
 """
 import json
 import sys
@@ -209,6 +210,79 @@ def test2024():
     print("passes:", out["passes"])
 
 
+def _norm(s):
+    import re
+    return re.sub(r"[^a-z0-9 ]", "", str(s).lower().replace("&", "and")).strip()
+
+
+def stability():
+    """How stable are the ratings? Firms rated in consecutive versions (2016-2020 by name, 2016's ids being another
+    scheme; 2020-2024 by rating id), their z in each, and what a four-year-old version would do to each poll's weight
+    at the fitted setting. Also, as a diagnostic on a fit year only: the 2016 ratings applied to 2020's polls."""
+    r16 = pd.read_csv(RAW / "2026-11-21" / "pollster-ratings-2016.csv")
+    r20 = pd.read_csv(RAW / "2026-11-21" / "pollster-ratings-2020.csv", encoding="utf-8-sig")
+    r20.columns = [" ".join(c.split()) for c in r20.columns]
+    r24 = pd.read_csv(RAW / "2026-11-01" / "pollster-ratings-combined.csv")
+    R = ratings()
+    z16 = {_norm(k): v for k, v in R[2016][1].items()}
+    z20, z24 = R[2020][1], R[2024][1]
+    name20 = {i: _norm(n) for i, n in zip(r20["Pollster Rating ID"], r20.Pollster)}
+    f = json.loads((OUT / "pres_quality_fit.json").read_text())
+    g, zu = f["picked"]["gamma"], f["picked"]["z_u"]
+    q = load((2016, 2020))
+    # 2024 polls: pollster ids only, for coverage and poll counts; no margin or result is used
+    p24 = pd.read_csv(INTERIM / "president_general_polls.csv", low_memory=False,
+                      usecols=["cycle", "poll_id", "pollster_rating_id", "presumptive", "end_date", "geo"])
+    p24 = p24[(p24.cycle == 2024) & ~p24.presumptive.astype(bool) & (pd.to_datetime(p24.end_date) >= BIDEN_OUT)
+              & ~p24.geo.str.contains("-", na=False)].drop_duplicates("poll_id")
+    out = {}
+    pairs = {
+        "2016_to_2020": (q[q.cycle == 2020].rid.map(name20).map(z16), q[q.cycle == 2020].z),
+        "2020_to_2024": (p24.pollster_rating_id.map(z20), p24.pollster_rating_id.map(z24)),
+    }
+    firm_pairs = {
+        "2016_to_2020": pd.DataFrame({"old": [z16.get(name20[i]) for i in z20], "new": list(z20.values())}),
+        "2020_to_2024": pd.DataFrame({"old": [z20.get(i) for i in z24], "new": list(z24.values())}),
+    }
+    for k, (old, new) in pairs.items():
+        fp = firm_pairs[k].dropna()
+        both = old.notna() & new.notna()
+        lr = (-g * old.fillna(zu)) - (-g * new.fillna(zu))           # log of old weight factor over new
+        out[k] = {
+            "firms_in_both": int(len(fp)),
+            "corr_firms_pearson": round(float(fp.old.corr(fp.new)), 3),
+            "corr_firms_spearman": round(float(fp.old.corr(fp.new, method="spearman")), 3),
+            "corr_polls_pearson": round(float(old[both].corr(new[both])), 3),
+            "polls_rated_new": round(float(new.notna().mean()), 3),
+            "polls_rated_old": round(float(old.notna().mean()), 3),
+            "polls_rated_new_not_old": round(float((new.notna() & old.isna()).mean()), 3),
+            "median_abs_weight_change_pct": round(float(100 * np.median(np.abs(np.exp(lr) - 1))), 1),
+            "polls_weight_off_by_25pct_or_more": round(float((np.abs(np.exp(lr) - 1) >= 0.25).mean()), 3),
+        }
+    # the firms that carry the most polls, z in each version
+    cnt20 = q[q.cycle == 2020].groupby("rid").size().sort_values(ascending=False).head(12)
+    cnt24 = p24.groupby("pollster_rating_id").size().sort_values(ascending=False).head(12)
+    out["top_2020_firms"] = [{"firm": r20.set_index("Pollster Rating ID").Pollster.get(i), "polls": int(n),
+                              "z2016": z16.get(name20.get(i)), "z2020": z20.get(i)} for i, n in cnt20.items()]
+    out["top_2024_firms"] = [{"firm": r24.set_index("pollster_rating_id").pollster.get(i), "polls": int(n),
+                              "z2020": z20.get(i), "z2024": z24.get(i)} for i, n in cnt24.items()]
+    # diagnostic on a fit year: 2020's polls weighted by the 2016 ratings (four years stale), fitted setting
+    q20 = q[q.cycle == 2020].copy()
+    res = results((2020,))
+    stale = q20.assign(z=q20.rid.map(name20).map(z16))
+    out["stale_2016_ratings_on_2020"] = {}
+    for d in DATES:
+        b = losses(errors(q20, res, 0.0, 0.0, d))[2020]
+        cur = losses(errors(q20, res, g, zu, d))[2020]
+        st = losses(errors(stale, res, g, zu, d))[2020]
+        out["stale_2016_ratings_on_2020"][str(d)] = {
+            "baseline": [round(b["loss"], 3), round(b["loss_within"], 3)],
+            "current_2020_ratings": [round(cur["loss"], 3), round(cur["loss_within"], 3)],
+            "stale_2016_ratings": [round(st["loss"], 3), round(st["loss_within"], 3)]}
+    (OUT / "pres_quality_stability.json").write_text(json.dumps(out, indent=1, default=float))
+    print(json.dumps(out, indent=1, default=float))
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "fit"
-    {"fit": fit, "test2024": test2024}[cmd]()
+    {"fit": fit, "test2024": test2024, "stability": stability}[cmd]()
