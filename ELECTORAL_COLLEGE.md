@@ -1140,3 +1140,9 @@ No 2024 margin or result is read; 2024 polls are used only for which firm fielde
   - Every firm new since 2024 would be unrated, as a third of 2020's polls and a sixth of 2024's were against the
     version four years older.
   - Some firms' ratings swing with their last election's luck.
+
+**Decided 2026-11-21: deferred.** The quality weight passed its 2024 test but does not join the nowcast now, which
+stays as stage 1 fixed it. Ratings moved too much from 2020 to 2024 to trust a four-year-old version in 2028, and
+the ratings that will exist then are not known. It comes back when they are, or once the repo has its own
+pollster tiers built from 2026 polls and results (plan card DA-10). Either goes through this test's rule again,
+written down first. The 2024 holdout is not spent a second time.
