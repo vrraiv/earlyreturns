@@ -1496,7 +1496,7 @@ The user decided:
 - **Early fits for candidate 2** also use the 1952 to 1976 episodes. 1980 to 1988 are reported apart.
 - **Candidate 6 is a diagnostic,** deciding nothing on its own.
 
-**What diagnostics may do** (proposed; question 1 below).
+**What diagnostics may do** (confirmed by the user on 2026-11-21).
 
 - No diagnostic can turn a failing candidate into a pass.
 - A diagnostic can only **flag** a pass. A flagged pass goes to the user to decide; an unflagged pass is adopted
@@ -1516,7 +1516,4 @@ The user decided:
     pull.
 - Otherwise a diagnostic is reported for what it shows, and it points to later work, not to a change now.
 
-**Questions still open:**
-
-1. The diagnostic rule above.
-2. One round, as in stage 2.
+**Confirmed by the user on 2026-11-21:** the diagnostic rule above, and one round, as in stage 2.
