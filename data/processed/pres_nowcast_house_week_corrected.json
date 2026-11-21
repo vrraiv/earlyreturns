@@ -1,0 +1,75 @@
+{
+ "gain": 0.395,
+ "cycles_better": 3,
+ "p_signflip": 0.006,
+ "gain_91_161": 1.216,
+ "adopted": false,
+ "by_cycle": {
+  "2004": {
+   "baseline": 24.25,
+   "candidate": 24.26
+  },
+  "2008": {
+   "baseline": 39.173,
+   "candidate": 37.768
+  },
+  "2012": {
+   "baseline": 18.465,
+   "candidate": 18.127
+  },
+  "2016": {
+   "baseline": 33.839,
+   "candidate": 33.999
+  },
+  "2020": {
+   "baseline": 20.718,
+   "candidate": 20.318
+  }
+ },
+ "score": {
+  "loss": 26.894315211964475,
+  "by_cycle": {
+   "2004": {
+    "targets": 1098,
+    "mse": 24.26,
+    "sampling": 14.992,
+    "beyond_sampling": 9.268
+   },
+   "2008": {
+    "targets": 1179,
+    "mse": 37.768,
+    "sampling": 14.309,
+    "beyond_sampling": 23.459
+   },
+   "2012": {
+    "targets": 939,
+    "mse": 18.127,
+    "sampling": 13.249,
+    "beyond_sampling": 4.878
+   },
+   "2016": {
+    "targets": 1562,
+    "mse": 33.999,
+    "sampling": 11.617,
+    "beyond_sampling": 22.383
+   },
+   "2020": {
+    "targets": 2769,
+    "mse": 20.318,
+    "sampling": 8.184,
+    "beyond_sampling": 12.134
+   }
+  },
+  "by_band": {
+   "1-30": 23.11,
+   "31-90": 27.588,
+   "91-161": 34.684
+  },
+  "national": 19.128,
+  "states": 28.279,
+  "targets": 7547
+ },
+ "info": {
+  "note": "no grid; shrinkage within cycle; effects without the target's firm; firm weight / sqrt(polls)"
+ }
+}
