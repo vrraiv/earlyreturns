@@ -271,7 +271,8 @@ from nowcast to forecast is close to nothing. For these candidates:
 **Not in the repo yet:** convention dates; the date each nominee became presumptive; a 2020 national series built
 the same way as 1952 to 2016; candidate favourability.
 
-**Assumed unless changed.** Three things the decisions above imply and nobody ruled on:
+**Confirmed 2026-11-20.** Three things the decisions above imply, written first as assumptions and then confirmed,
+with the two under them:
 
 - How polls move over a campaign is learned on the national series and applied to the national part of every
   state. A state's own distance from the nation gets no separate rule for bounces or reversion: four elections of
@@ -279,3 +280,5 @@ the same way as 1952 to 2016; candidate favourability.
 - Before both nominees are presumptive there is no forecast. That answers most of EC-8, which stays open for what
   the page shows in the meantime.
 - A state where a third candidate polls in double digits still needs a rule (section 10).
+- Until the fundamentals model exists (EC-3), the anchor is the president's approval plus the previous result.
+- The three convention treatments are the ones listed in stage 2.
