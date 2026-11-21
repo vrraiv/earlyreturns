@@ -1630,3 +1630,39 @@ the 95% needed). It is better at every date and in 8 of 11 elections.
 - Stage 5 and the 2028 model need the undecided share measured the way it is here. In 2028 that means asking which
   polls report it and whether third-party support is in it.
 - The anchor returns with EC-3.
+
+**Stage 3 results: corrections and additions after review (2026-11-21; no rerun).**
+
+- **How narrowly 4(a) passes.**
+  - The 8 of 11 includes 2004 at 6.80 against 6.89.
+  - It beats 97.5% of the shuffles, where 95% is needed.
+  - α sat on its bound (0) in every fit.
+  - With about a 30% chance of a fluke across seven tests, this is a pass at the margin.
+- **What 4(a) is, plainly.** The two-party margin × (1 − u/100) is the raw margin: the Democrat's share minus the
+  Republican's, in points of all respondents. For example, 1992 at 43.5 against 46.5 gives −3.0 against −3.33
+  two-party. The forecast is the raw margin averaged like the nowcast.
+- **Third-party support is in u after 2004 too.** In 2016 the repo's national polls give a median share of about 13
+  where a poll asked the head-to-head question and 20 where it asked only the full field (Johnson, Stein). So the
+  adjustment depends heavily on which question a poll asked. For 2028 this is a decision, not a detail: full field
+  or head-to-head, and how to treat a third candidate (section 10).
+- **Bounds hide signs.** Several picks sat on a bound:
+  - k = 1 in 8 of 11 fits;
+  - α = 0 in all;
+  - κ = 0, ρ = 0 and both reversion variants at 0 in all;
+  - β at 0 or 0.1.
+
+  ρ could not go negative, so "no part of the last month's movement reverts" is supported, but "it does not
+  continue" is not. Candidate 2's gain and the 14-day row both lean toward continuation at 150 to 60 days.
+- **Candidate 1 failed as built.** In the fit for k, each earlier election's anchor came from all the other earlier
+  elections, including ones after it. The scored election's anchor came only from strictly earlier ones. That
+  flatters the anchor in the fitting rows and probably explains k at its bound with no shrinkage. The failure is
+  this build's, not necessarily the idea's. It is not rerun (one round). EC-3 replaces the anchor.
+- **Periods.** 4(a) scores 121.34 against 130.61 in 1980 to 1988, and 26.14 against 39.95 from 1992 on. Most of
+  the 7-day gain is 1992 and 1996, when third-party support was large.
+- **Leave-one-out ranges** were computed for 2020's fit only.
+- **Reading density**, readings within 260 days: 14 to 29 a cycle in 1952 to 1976, 61 to 97 in 1980 to 1988, and 114
+  to 242 from 1992.
+- **Open items the adoption creates:**
+  - **The range.** The baseline's range was fitted to the nowcast's errors; the adopted centre's are smaller. It is
+    refitted when the model is assembled.
+  - **States.** How the raw-margin scaling applies to state margins is stage 5's question.
