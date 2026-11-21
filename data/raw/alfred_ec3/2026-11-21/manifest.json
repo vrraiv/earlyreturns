@@ -1,0 +1,487 @@
+{
+  "DSPIC96.csv": {
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=DSPIC96",
+    "retrieved": "2026-11-21T14:25:53",
+    "bytes": 14974
+  },
+  "GDPC1.csv": {
+    "url": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=GDPC1",
+    "retrieved": "2026-11-21T14:25:53",
+    "bytes": 6548
+  },
+  "DSPIC96_v1980-06-07.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1980-06-07",
+    "retrieved": "2026-11-21T14:25:54",
+    "bytes": 4370
+  },
+  "DSPIC96_v1980-07-27.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1980-07-27",
+    "retrieved": "2026-11-21T14:25:55",
+    "bytes": 4404
+  },
+  "DSPIC96_v1980-09-05.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1980-09-05",
+    "retrieved": "2026-11-21T14:25:55",
+    "bytes": 4421
+  },
+  "DSPIC96_v1980-10-05.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1980-10-05",
+    "retrieved": "2026-11-21T14:25:56",
+    "bytes": 4438
+  },
+  "DSPIC96_v1980-10-28.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1980-10-28",
+    "retrieved": "2026-11-21T14:25:56",
+    "bytes": 4455
+  },
+  "DSPIC96_v1984-06-09.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1984-06-09",
+    "retrieved": "2026-11-21T14:25:57",
+    "bytes": 5250
+  },
+  "DSPIC96_v1984-07-29.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1984-07-29",
+    "retrieved": "2026-11-21T14:25:57",
+    "bytes": 5286
+  },
+  "DSPIC96_v1984-09-07.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1984-09-07",
+    "retrieved": "2026-11-21T14:25:57",
+    "bytes": 5304
+  },
+  "DSPIC96_v1984-10-07.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1984-10-07",
+    "retrieved": "2026-11-21T14:25:58",
+    "bytes": 5322
+  },
+  "DSPIC96_v1984-10-30.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1984-10-30",
+    "retrieved": "2026-11-21T14:25:58",
+    "bytes": 5340
+  },
+  "DSPIC96_v1988-06-11.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1988-06-11",
+    "retrieved": "2026-11-21T14:25:59",
+    "bytes": 6352
+  },
+  "DSPIC96_v1988-07-31.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1988-07-31",
+    "retrieved": "2026-11-21T14:26:00",
+    "bytes": 6388
+  },
+  "DSPIC96_v1988-09-09.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1988-09-09",
+    "retrieved": "2026-11-21T14:26:01",
+    "bytes": 6406
+  },
+  "DSPIC96_v1988-10-09.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1988-10-09",
+    "retrieved": "2026-11-21T14:26:01",
+    "bytes": 6424
+  },
+  "DSPIC96_v1988-11-01.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1988-11-01",
+    "retrieved": "2026-11-21T14:26:01",
+    "bytes": 6460
+  },
+  "DSPIC96_v1992-06-06.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1992-06-06",
+    "retrieved": "2026-11-21T14:26:02",
+    "bytes": 7234
+  },
+  "GDPC1_v1992-06-06.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1992-06-06",
+    "retrieved": "2026-11-21T14:26:02",
+    "bytes": 2426
+  },
+  "DSPIC96_v1992-07-26.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1992-07-26",
+    "retrieved": "2026-11-21T14:26:03",
+    "bytes": 7252
+  },
+  "GDPC1_v1992-07-26.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1992-07-26",
+    "retrieved": "2026-11-21T14:26:03",
+    "bytes": 2426
+  },
+  "DSPIC96_v1992-09-04.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1992-09-04",
+    "retrieved": "2026-11-21T14:26:04",
+    "bytes": 7288
+  },
+  "GDPC1_v1992-09-04.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1992-09-04",
+    "retrieved": "2026-11-21T14:26:04",
+    "bytes": 2444
+  },
+  "DSPIC96_v1992-10-04.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1992-10-04",
+    "retrieved": "2026-11-21T14:26:04",
+    "bytes": 7306
+  },
+  "GDPC1_v1992-10-04.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1992-10-04",
+    "retrieved": "2026-11-21T14:26:05",
+    "bytes": 2444
+  },
+  "DSPIC96_v1992-10-27.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1992-10-27",
+    "retrieved": "2026-11-21T14:26:05",
+    "bytes": 7306
+  },
+  "GDPC1_v1992-10-27.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1992-10-27",
+    "retrieved": "2026-11-21T14:26:06",
+    "bytes": 2462
+  },
+  "DSPIC96_v1996-06-08.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1996-06-08",
+    "retrieved": "2026-11-21T14:26:06",
+    "bytes": 8098
+  },
+  "GDPC1_v1996-06-08.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1996-06-08",
+    "retrieved": "2026-11-21T14:26:07",
+    "bytes": 2678
+  },
+  "DSPIC96_v1996-07-28.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1996-07-28",
+    "retrieved": "2026-11-21T14:26:07",
+    "bytes": 8116
+  },
+  "GDPC1_v1996-07-28.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1996-07-28",
+    "retrieved": "2026-11-21T14:26:07",
+    "bytes": 2678
+  },
+  "DSPIC96_v1996-09-06.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1996-09-06",
+    "retrieved": "2026-11-21T14:26:08",
+    "bytes": 8152
+  },
+  "GDPC1_v1996-09-06.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1996-09-06",
+    "retrieved": "2026-11-21T14:26:08",
+    "bytes": 2696
+  },
+  "DSPIC96_v1996-10-06.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1996-10-06",
+    "retrieved": "2026-11-21T14:26:09",
+    "bytes": 8170
+  },
+  "GDPC1_v1996-10-06.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1996-10-06",
+    "retrieved": "2026-11-21T14:26:09",
+    "bytes": 2696
+  },
+  "DSPIC96_v1996-10-29.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=1996-10-29",
+    "retrieved": "2026-11-21T14:26:09",
+    "bytes": 8170
+  },
+  "GDPC1_v1996-10-29.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=1996-10-29",
+    "retrieved": "2026-11-21T14:26:10",
+    "bytes": 2696
+  },
+  "DSPIC96_v2000-06-10.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2000-06-10",
+    "retrieved": "2026-11-21T14:26:10",
+    "bytes": 8962
+  },
+  "GDPC1_v2000-06-10.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2000-06-10",
+    "retrieved": "2026-11-21T14:26:11",
+    "bytes": 3866
+  },
+  "DSPIC96_v2000-07-30.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2000-07-30",
+    "retrieved": "2026-11-21T14:26:11",
+    "bytes": 8980
+  },
+  "GDPC1_v2000-07-30.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2000-07-30",
+    "retrieved": "2026-11-21T14:26:12",
+    "bytes": 3884
+  },
+  "DSPIC96_v2000-09-08.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2000-09-08",
+    "retrieved": "2026-11-21T14:26:12",
+    "bytes": 9016
+  },
+  "GDPC1_v2000-09-08.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2000-09-08",
+    "retrieved": "2026-11-21T14:26:13",
+    "bytes": 3884
+  },
+  "DSPIC96_v2000-10-08.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2000-10-08",
+    "retrieved": "2026-11-21T14:26:13",
+    "bytes": 9034
+  },
+  "GDPC1_v2000-10-08.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2000-10-08",
+    "retrieved": "2026-11-21T14:26:13",
+    "bytes": 3884
+  },
+  "DSPIC96_v2000-10-31.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2000-10-31",
+    "retrieved": "2026-11-21T14:26:14",
+    "bytes": 9052
+  },
+  "GDPC1_v2000-10-31.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2000-10-31",
+    "retrieved": "2026-11-21T14:26:14",
+    "bytes": 3902
+  },
+  "DSPIC96_v2004-06-05.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2004-06-05",
+    "retrieved": "2026-11-21T14:26:15",
+    "bytes": 9826
+  },
+  "GDPC1_v2004-06-05.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2004-06-05",
+    "retrieved": "2026-11-21T14:26:15",
+    "bytes": 4162
+  },
+  "DSPIC96_v2004-07-25.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2004-07-25",
+    "retrieved": "2026-11-21T14:26:15",
+    "bytes": 9844
+  },
+  "GDPC1_v2004-07-25.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2004-07-25",
+    "retrieved": "2026-11-21T14:26:16",
+    "bytes": 4162
+  },
+  "DSPIC96_v2004-09-03.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2004-09-03",
+    "retrieved": "2026-11-21T14:26:16",
+    "bytes": 9880
+  },
+  "GDPC1_v2004-09-03.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2004-09-03",
+    "retrieved": "2026-11-21T14:26:17",
+    "bytes": 4181
+  },
+  "DSPIC96_v2004-10-03.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2004-10-03",
+    "retrieved": "2026-11-21T14:26:17",
+    "bytes": 9898
+  },
+  "GDPC1_v2004-10-03.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2004-10-03",
+    "retrieved": "2026-11-21T14:26:18",
+    "bytes": 4181
+  },
+  "DSPIC96_v2004-10-26.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2004-10-26",
+    "retrieved": "2026-11-21T14:26:18",
+    "bytes": 9898
+  },
+  "GDPC1_v2004-10-26.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2004-10-26",
+    "retrieved": "2026-11-21T14:26:18",
+    "bytes": 4181
+  },
+  "DSPIC96_v2008-06-07.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2008-06-07",
+    "retrieved": "2026-11-21T14:26:19",
+    "bytes": 10690
+  },
+  "GDPC1_v2008-06-07.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2008-06-07",
+    "retrieved": "2026-11-21T14:26:19",
+    "bytes": 4466
+  },
+  "DSPIC96_v2008-07-27.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2008-07-27",
+    "retrieved": "2026-11-21T14:26:20",
+    "bytes": 10708
+  },
+  "GDPC1_v2008-07-27.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2008-07-27",
+    "retrieved": "2026-11-21T14:26:20",
+    "bytes": 4466
+  },
+  "DSPIC96_v2008-09-05.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2008-09-05",
+    "retrieved": "2026-11-21T14:26:21",
+    "bytes": 10744
+  },
+  "GDPC1_v2008-09-05.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2008-09-05",
+    "retrieved": "2026-11-21T14:26:21",
+    "bytes": 4485
+  },
+  "DSPIC96_v2008-10-05.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2008-10-05",
+    "retrieved": "2026-11-21T14:26:22",
+    "bytes": 10762
+  },
+  "GDPC1_v2008-10-05.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2008-10-05",
+    "retrieved": "2026-11-21T14:26:22",
+    "bytes": 4485
+  },
+  "DSPIC96_v2008-10-28.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2008-10-28",
+    "retrieved": "2026-11-21T14:26:23",
+    "bytes": 10762
+  },
+  "GDPC1_v2008-10-28.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2008-10-28",
+    "retrieved": "2026-11-21T14:26:23",
+    "bytes": 4485
+  },
+  "DSPIC96_v2012-06-09.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2012-06-09",
+    "retrieved": "2026-11-21T14:26:24",
+    "bytes": 11593
+  },
+  "GDPC1_v2012-06-09.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2012-06-09",
+    "retrieved": "2026-11-21T14:26:24",
+    "bytes": 4788
+  },
+  "DSPIC96_v2012-07-29.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2012-07-29",
+    "retrieved": "2026-11-21T14:26:24",
+    "bytes": 11612
+  },
+  "GDPC1_v2012-07-29.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2012-07-29",
+    "retrieved": "2026-11-21T14:26:25",
+    "bytes": 4807
+  },
+  "DSPIC96_v2012-09-07.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2012-09-07",
+    "retrieved": "2026-11-21T14:26:26",
+    "bytes": 11649
+  },
+  "GDPC1_v2012-09-07.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2012-09-07",
+    "retrieved": "2026-11-21T14:26:26",
+    "bytes": 4807
+  },
+  "DSPIC96_v2012-10-07.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2012-10-07",
+    "retrieved": "2026-11-21T14:26:26",
+    "bytes": 11668
+  },
+  "GDPC1_v2012-10-07.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2012-10-07",
+    "retrieved": "2026-11-21T14:26:27",
+    "bytes": 4807
+  },
+  "DSPIC96_v2012-10-30.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2012-10-30",
+    "retrieved": "2026-11-21T14:26:27",
+    "bytes": 11687
+  },
+  "GDPC1_v2012-10-30.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2012-10-30",
+    "retrieved": "2026-11-21T14:26:28",
+    "bytes": 4826
+  },
+  "DSPIC96_v2016-06-11.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2016-06-11",
+    "retrieved": "2026-11-21T14:26:28",
+    "bytes": 12562
+  },
+  "GDPC1_v2016-06-11.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2016-06-11",
+    "retrieved": "2026-11-21T14:26:29",
+    "bytes": 5104
+  },
+  "DSPIC96_v2016-07-31.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2016-07-31",
+    "retrieved": "2026-11-21T14:26:29",
+    "bytes": 12581
+  },
+  "GDPC1_v2016-07-31.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2016-07-31",
+    "retrieved": "2026-11-21T14:26:29",
+    "bytes": 5123
+  },
+  "DSPIC96_v2016-09-09.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2016-09-09",
+    "retrieved": "2026-11-21T14:26:30",
+    "bytes": 12619
+  },
+  "GDPC1_v2016-09-09.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2016-09-09",
+    "retrieved": "2026-11-21T14:26:30",
+    "bytes": 5123
+  },
+  "DSPIC96_v2016-10-09.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2016-10-09",
+    "retrieved": "2026-11-21T14:26:31",
+    "bytes": 12638
+  },
+  "GDPC1_v2016-10-09.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2016-10-09",
+    "retrieved": "2026-11-21T14:26:31",
+    "bytes": 5123
+  },
+  "DSPIC96_v2016-11-01.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2016-11-01",
+    "retrieved": "2026-11-21T14:26:32",
+    "bytes": 12657
+  },
+  "GDPC1_v2016-11-01.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2016-11-01",
+    "retrieved": "2026-11-21T14:26:32",
+    "bytes": 5142
+  },
+  "DSPIC96_v2020-06-06.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2020-06-06",
+    "retrieved": "2026-11-21T14:26:32",
+    "bytes": 13499
+  },
+  "GDPC1_v2020-06-06.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2020-06-06",
+    "retrieved": "2026-11-21T14:26:33",
+    "bytes": 5998
+  },
+  "DSPIC96_v2020-07-26.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2020-07-26",
+    "retrieved": "2026-11-21T14:26:33",
+    "bytes": 13518
+  },
+  "GDPC1_v2020-07-26.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2020-07-26",
+    "retrieved": "2026-11-21T14:26:34",
+    "bytes": 5998
+  },
+  "DSPIC96_v2020-09-04.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2020-09-04",
+    "retrieved": "2026-11-21T14:26:34",
+    "bytes": 13556
+  },
+  "GDPC1_v2020-09-04.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2020-09-04",
+    "retrieved": "2026-11-21T14:26:34",
+    "bytes": 6019
+  },
+  "DSPIC96_v2020-10-04.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2020-10-04",
+    "retrieved": "2026-11-21T14:26:35",
+    "bytes": 13575
+  },
+  "GDPC1_v2020-10-04.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2020-10-04",
+    "retrieved": "2026-11-21T14:26:35",
+    "bytes": 6019
+  },
+  "DSPIC96_v2020-10-27.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=DSPIC96&vintage_date=2020-10-27",
+    "retrieved": "2026-11-21T14:26:36",
+    "bytes": 13575
+  },
+  "GDPC1_v2020-10-27.csv": {
+    "url": "https://alfred.stlouisfed.org/graph/alfredgraph.csv?id=GDPC1&vintage_date=2020-10-27",
+    "retrieved": "2026-11-21T14:26:36",
+    "bytes": 6019
+  }
+}
