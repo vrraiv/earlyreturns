@@ -2174,7 +2174,7 @@ Open items, carried forward:
 
 ## 12. Presidential fundamentals: evaluation plan (EC-3)
 
-*Plan written 2026-11-21, before any fit; confirmed by the user the same day (decisions below), with the economic measure still open.* The fundamentals give the national
+*Plan written 2026-11-21, before any fit; confirmed by the user the same day (decisions below).* The fundamentals give the national
 estimate a prior that does not depend on polls. Section 4 combines that prior with the poll average by precision.
 EC-2's stage 3 tried a crude version (approval plus the previous result) and it failed as built.
 
@@ -2290,3 +2290,93 @@ reported number.
 income and GDP. With approval and the term-limit flag, one slot remains. Proposed: a composite of the five
 (standardized, equal weights, signs fixed in advance: income growth and GDP growth +, the rise in unemployment,
 inflation and real gas-price growth −). The alternative is picking one measure inside each as-of fit.
+
+**EC-3: the economic measure, decided 2026-11-21 (before any fit).**
+
+- **A composite index of six measures**, equal weights, signs fixed in advance:
+
+  | Measure | Series | Sign | From |
+  |---|---|---|---|
+  | Real disposable income per head, growth over the latest published year | A229RX0 | + | 1959 |
+  | Real GDP growth, mean of the latest two published quarters | A191RL1Q225SBEA | + | 1947 |
+  | Change in unemployment over the latest year | UNRATE | − | 1948 |
+  | Inflation over the latest published year | CPIAUCNS | − | 1913 |
+  | Real gasoline price growth over the latest year | CUUR0000SETB01 / CPIAUCNS | − | 1935 |
+  | S&P Composite, change in the monthly average over 12 months | Shiller (store-and-link) | + | 1871 |
+
+- **The S&P** was the user's addition. FRED keeps only ten years of the S&P 500 and the Dow, so the history is Robert
+  Shiller's monthly series. The copy fetched ends in September 2023; a newer copy is needed before 2024 is scored
+  or 2028 is forecast.
+- **Standardizing.** Each measure is standardized against its own monthly history from 1948 up to the date (never
+  later data). The index is the mean of the signed standardized values available on the date. 1952 and 1956 have no
+  income figure, so their index averages the other five.
+- **Why equal weights over PCA:**
+  - PCA weights measures by how much they move together, not by what voters respond to. It would turn the index into
+    a growth factor and mostly drop inflation and gas prices.
+  - On 15 to 18 elections its loadings (even their sign) would shift between as-of fits.
+  - Equal weights are fixed before any data is seen.
+  - The PCA version (first component of the monthly standardized series, on data before each date, signed so that
+    income growth loads positively) is reported in test 1 and decides nothing.
+- **Publication lags:**
+  - income, CPI and gasoline months count from 35 days after the month ends;
+  - a GDP quarter from 35 days after the quarter ends;
+  - an unemployment month from 10 days after it ends;
+  - an S&P month from the day after it ends.
+
+### EC-3, test 1 (reported) and test 2 (decides): pre-registration (written 2026-11-21, before any fit)
+
+**The primary model.** The incumbent party's two-party margin = a + b1 × (approval − 50) + b2 × economic index +
+b3 × term-limited.
+
+- a and b1 are unpenalized. b2 and b3 carry a ridge penalty, so the model shrinks toward approval alone.
+- The penalty is chosen by leaving one election out at a time, among the elections the fit uses.
+- Approval is Gallup's mean over readings ending in the 30 days before the date, or else the latest reading.
+- Dates: 150, 100, 60, 30 and 7 days before each election. Each date has its own inputs and its own fit.
+
+**Test 1, the fundamentals alone (reported, deciding nothing).** At each date, on 1952 to 2020:
+
+- the leave-one-out error of:
+  - the primary model;
+  - a constant (the average incumbent margin);
+  - approval alone;
+  - every model of up to three predictors drawn from approval, term-limited, the index, the PCA index and each of
+    the six measures alone, on the common sample 1960 to 2020;
+- the primary model with "no sitting president on the ballot" in place of term-limited;
+- the fitted coefficients, and what term-limited does to the 2028 prediction (its coefficient), with its uncertainty.
+
+**Test 2, does it improve the forecast (decides adoption)?**
+
+- **Scored elections.** 1980 to 2020 on EC-2's national test bed. Each is fitted only on the elections before it,
+  from 1952, with every choice inside that fit (the ridge penalty, the weights).
+- **The forecast.** At each date: (stage 3's forecast) × w + (fundamentals) × (1 − w), with
+  w = 1/V_polls ÷ (1/V_polls + 1/V_fund).
+  - V_polls is the stage 2 range (a + b × days), refitted on the earlier elections' errors of stage 3's forecast.
+  - V_fund is the mean squared error of the fundamentals on the earlier elections, each from a fit that left that
+    election out.
+- **The score.** Squared error against the result, averaged over 150, 100 and 60 days, elections equal.
+- **The rule (stages 2 to 4):**
+  - a positive gain;
+  - better in at least 8 of 11;
+  - beat 19 in 20 of 200 shuffles, in which each election's fundamentals inputs (approval, the index and the
+    term-limited flag, in the incumbent party's terms) are handed to another election from 1952 to 2020, with the
+    fit redone inside;
+  - 30 and 7 days not worse on average.
+- **A control row,** deciding nothing: the same blend with a constant prior (the earlier elections' average
+  incumbent margin) in place of the fundamentals. The shuffle asks whether the fundamentals add to that.
+- **Open seats** (reported): the primary model plus approval × term-limited, shrunk toward none.
+
+**If test 2 fails,** section 4's national estimate is stage 3's poll forecast alone, and the fundamentals stay a
+reported number.
+
+**Checks before any result is read.**
+
+- 2024 is refused.
+- Publication: changing not-yet-published months and quarters changes no input.
+- As-of: changing a scored election's result and every later election leaves its fit unchanged.
+- Behaviour:
+  - a planted relation is recovered;
+  - with a huge penalty the model is approval alone;
+  - with V_fund huge the forecast is stage 3's;
+  - the index is the mean of the signed standardized values.
+
+One round per test.
