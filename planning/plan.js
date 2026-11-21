@@ -584,7 +584,11 @@ window.PLAN = {
             "The weight on polls is estimated from history, as it was for the Senate.",
             "From EC-2's stage 4 (2026-11-21, in-sample, deciding nothing): the prior should never get zero weight. A state's own polls with only 1 to 3 recent polls beat the prior just 43% of the time, and a roughly even mix of polls and prior cut the error by about a third where polling was thin or light. The best weight moved between elections (0.2 in 2008 to 0.85 in 2020) and faded with 4 or more recent polls. So the weight should come from each side's uncertainty and grow with the number of recent polls, learned on earlier elections only (`ELECTORAL_COLLEGE.md`, section 11, stage 4).",
             "Also from stage 4: unpolled states land further from a lean-based prior, not closer, because lopsided states are where lean shifts most (toward the Democrat in 2008, the Republican in 2016). A prior that lets the lean move (a two-election trend, or demographics from DA-4) is a candidate, with a wider range for lopsided states.",
-            "Carried from EC-2 (closed 2026-11-21): once this card's blended state estimates exist, rerun EC-2's stage 5 (the add-up, `src/model/pres_addup.py`) with its pre-registration unchanged. Its adoption of the even shift is provisional until then, because the blend itself moves the states' sum toward the national estimate."
+            "Carried from EC-2 (closed 2026-11-21): once this card's blended state estimates exist, rerun EC-2's stage 5 (the add-up, `src/model/pres_addup.py`) with its pre-registration unchanged. Its adoption of the even shift is provisional until then, because the blend itself moves the states' sum toward the national estimate.",
+            "Human gate (added 2026-11-21): once this card's pre-registration is drafted, and before its first run, stop and prompt the project owner for an off-tracker review. Nothing on this card is run until the owner says that review is done."
+          ],
+          checklist: [
+            { id: "a", text: "Off-tracker review: owner prompted after the pre-registration is drafted, before the first run" }
           ],
           refs: ["src/model/prior_weight.py"] },
         { id: "EC-5", title: "How state errors move together", kind: "story", phase: "p4", needs: ["EC-1", "DA-5", "DA-4"],
