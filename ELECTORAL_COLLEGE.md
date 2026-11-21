@@ -1236,3 +1236,28 @@ days.
    reported for treatments 1 and 2.
 2. **One round.** Stage 1 ran three rounds under the user's decision then. For stage 2 the proposal is one round,
    with the three treatments above.
+
+**Stage 2: four clarifications, written 2026-11-21 after the checks and before any loss was read.**
+
+- **When no reading is left.** The text above says that if down-weighting leaves no reading at a date, the readings
+  before the window are used. But if every eligible reading is in the window, there are none before it. So the
+  window's readings are then used at their usual weight. How often that happens is counted.
+- **A negative bump.** The fitted B is not constrained. If it comes out negative it is used and reported as fitted.
+- **Gain above zero.** A treatment must also have a positive gain. Beating the 95th percentile of the shuffles is not
+  enough if that percentile is negative.
+- **Treatment 3 at 30 and 7 days.** The latest convention ends 61 days out (2004 to 2012), so no date 30 or 7 days
+  out is within 30 days of a convention's end. The extra term never applies there, and that clause is met trivially
+  for treatment 3.
+
+Checks passed before the run:
+
+- On a made-up flat series with 2016's dates:
+  - The bump shape is 0 before the start and on the first day, the party's sign on the last day, and half that one
+    half-life later.
+  - A planted bump (4 points, 14 days) is recovered exactly and removed by the adjustment.
+  - Down-weighting to 0 equals deleting the window, which runs to W days after the end.
+  - The extra range applies 100 days out in 2016 and not at 60.
+  - With a very long half-life, the baseline is the plain mean of the eligible readings.
+- The leak test passes.
+- The as-of test passes: changing an election's own result and every later election leaves its fits and forecasts
+  unchanged.
