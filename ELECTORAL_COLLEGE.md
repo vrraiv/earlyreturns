@@ -1147,7 +1147,7 @@ the ratings that will exist then are not known. It comes back when they are, or 
 pollster tiers built from 2026 polls and results (plan card DA-10). Either goes through this test's rule again,
 written down first. The 2024 holdout is not spent a second time.
 
-### Stage 2: convention windows, pre-registration (written 2026-11-21, before any run; two points await the user)
+### Stage 2: convention windows, pre-registration (written 2026-11-21, before any run; confirmed by the user the same day)
 
 The three treatments are those confirmed on 2026-11-20: subtract a fitted rise and fade, down-weight polls in the
 window, or only widen the range. Stage 2 runs on the national test bed and is scored against results under the
@@ -1228,7 +1228,7 @@ days.
 - Moving readings dated within 3 days of the date, or after it, leaves the forecast unchanged.
 - 2024 is absent.
 
-**Awaiting the user:**
+**Confirmed by the user on 2026-11-21, both as proposed:**
 
 1. **A score for treatment 3.** Widening the range cannot change the error, so as the rule stands treatment 3 can
    neither pass nor fail. Proposed: the mean log score of a normal forecast (centre, and spread from the range) at
