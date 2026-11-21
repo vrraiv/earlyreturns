@@ -842,6 +842,84 @@ def density_split():
     print(G.round(2).T.to_string())
 
 
+# ---------------- naive benchmarks (not candidates) ----------------
+NAIVE = ("latest_poll", "latest_five_firms", "every_poll")
+
+
+def naive_one(pool, kind):
+    """pool: other firms' polls of the place that ended before the date. Raw margins, no weights or adjustments."""
+    if kind == "every_poll":
+        return float(pool.m.mean())
+    if kind == "latest_poll":
+        return float(pool.m[pool.end == pool.end.max()].mean())
+    last = pool.groupby("pkey").end.transform("max")
+    rd = pool[pool.end == last].groupby("pkey").agg(end=("end", "first"), m=("m", "mean"))
+    if len(rd) > 5:
+        cut = rd.end.sort_values(ascending=False).iloc[4]
+        rd = rd[rd.end >= cut]
+    return float(rd.m.mean())
+
+
+def naive_predict(q, tg, kind):
+    out = np.empty(len(tg))
+    for (c, g, t), idx in tg.groupby(["cycle", "geo", "t"]).groups.items():
+        d = q[(q.cycle == c) & (q.geo == g) & (q.end < t)]
+        for j in idx:
+            out[tg.index.get_loc(j)] = naive_one(d[d.pkey != tg.at[j, "pkey"]], kind)
+    return out
+
+
+def benchmarks():
+    q = load()
+    tg = targets(q)
+    assert len(tg) == 7547, len(tg)
+    rng = np.random.default_rng(1)
+    groups = list(tg.groupby(["cycle", "geo", "t"]).groups.items())
+    ok = True
+    for kind in NAIVE:
+        bad = 0
+        for k in rng.choice(len(groups), size=15, replace=False):
+            (c, g, t), idx = groups[k]
+            sub = tg.loc[idx]
+            q2 = q.copy()
+            q2.loc[(q2.cycle == c) & (q2.end >= t), "m"] += 50
+            bad += int(np.max(np.abs(naive_predict(q, sub, kind) - naive_predict(q2, sub, kind))) > 1e-9)
+        own = 0
+        for j in np.random.default_rng(2).choice(tg.index.values, size=20, replace=False):
+            sub = tg.loc[[j]]
+            q2 = q.copy()
+            q2.loc[(q2.cycle == sub.cycle.iloc[0]) & (q2.pkey == sub.pkey.iloc[0]), "m"] += 50
+            own += int(np.max(np.abs(naive_predict(q, sub, kind) - naive_predict(q2, sub, kind))) > 1e-9)
+        print(f"{kind}: leak test {'PASS' if not bad else f'FAIL {bad}/15'}; own-firm test "
+              f"{'PASS' if not own else f'FAIL {own}/20'}", flush=True)
+        ok = ok and not bad and not own
+    if not ok:
+        raise SystemExit("a check failed")
+    base_pred = predict(q, tg, BASE)
+    preds = pd.read_csv(OUT / "pres_nowcast_target_preds.csv", index_col="target")
+    assert np.allclose(preds.baseline.values, base_pred, atol=1e-3)
+    cls = preds.cls.values
+    out = {}
+    for kind in NAIVE:
+        pred = naive_predict(q, tg, kind)
+        _, sc = score(tg, pred)
+        # adoption() reports the baseline as the candidate's comparator; here the benchmark is the comparator, so
+        # gain > 0 means the baseline is better
+        res = adoption(tg, pred, base_pred)
+        res["by_cycle"] = {c: {"benchmark": v["baseline"], "baseline": v["candidate"]} for c, v in res["by_cycle"].items()}
+        res.pop("adopted")
+        res["benchmark_passes_rule"] = adoption(tg, base_pred, pred)["adopted"]
+        se = tg.assign(se=(pred - tg.y) ** 2, cls=cls)
+        dens = se.groupby(["cls", "cycle"]).se.mean().groupby("cls").mean().reindex(DENS_CLASSES)
+        out[kind] = {"baseline_vs_benchmark": res, "score": sc, "loss_by_density": dens.round(3).to_dict()}
+        preds[kind] = np.round(pred, 4)
+        print(f"\n== {kind}: loss {sc['loss']:.3f}; nation {sc['national']}, states {sc['states']}; bands {sc['by_band']}")
+        print("   baseline against it: " + json.dumps(res))
+        print("   by density: " + json.dumps(out[kind]["loss_by_density"]))
+    preds.to_csv(OUT / "pres_nowcast_target_preds.csv", index_label="target")
+    (OUT / "pres_nowcast_benchmarks.json").write_text(json.dumps(out, indent=1, default=float))
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "baseline"
     if cmd == "checks":
@@ -869,6 +947,8 @@ if __name__ == "__main__":
             raise SystemExit("a leak test failed")
     elif cmd == "checks3":
         checks3()
+    elif cmd == "benchmarks":
+        benchmarks()
     elif cmd == "split":
         density_split()
     elif cmd == "density":

@@ -1,0 +1,245 @@
+{
+ "latest_poll": {
+  "baseline_vs_benchmark": {
+   "gain": 9.291,
+   "cycles_better": 5,
+   "p_signflip": 0.0005,
+   "gain_91_161": 14.046,
+   "by_cycle": {
+    "2004": {
+     "benchmark": 35.019,
+     "baseline": 24.25
+    },
+    "2008": {
+     "benchmark": 50.141,
+     "baseline": 39.173
+    },
+    "2012": {
+     "benchmark": 26.579,
+     "baseline": 18.465
+    },
+    "2016": {
+     "benchmark": 43.108,
+     "baseline": 33.839
+    },
+    "2020": {
+     "benchmark": 28.054,
+     "baseline": 20.718
+    }
+   },
+   "benchmark_passes_rule": false
+  },
+  "score": {
+   "loss": 36.580256951209016,
+   "by_cycle": {
+    "2004": {
+     "targets": 1098,
+     "mse": 35.019,
+     "sampling": 14.992,
+     "beyond_sampling": 20.027
+    },
+    "2008": {
+     "targets": 1179,
+     "mse": 50.141,
+     "sampling": 14.309,
+     "beyond_sampling": 35.832
+    },
+    "2012": {
+     "targets": 939,
+     "mse": 26.579,
+     "sampling": 13.249,
+     "beyond_sampling": 13.331
+    },
+    "2016": {
+     "targets": 1562,
+     "mse": 43.108,
+     "sampling": 11.617,
+     "beyond_sampling": 31.491
+    },
+    "2020": {
+     "targets": 2769,
+     "mse": 28.054,
+     "sampling": 8.184,
+     "beyond_sampling": 19.87
+    }
+   },
+   "by_band": {
+    "1-30": 30.716,
+    "31-90": 37.57,
+    "91-161": 49.945
+   },
+   "national": 22.282,
+   "states": 40.042,
+   "targets": 7547
+  },
+  "loss_by_density": {
+   "nation": 22.282,
+   "10+": 26.184,
+   "4-9": 37.915,
+   "1-3": 53.458,
+   "0": 75.476
+  }
+ },
+ "latest_five_firms": {
+  "baseline_vs_benchmark": {
+   "gain": 0.252,
+   "cycles_better": 4,
+   "p_signflip": 0.2949,
+   "gain_91_161": 1.461,
+   "by_cycle": {
+    "2004": {
+     "benchmark": 25.64,
+     "baseline": 24.25
+    },
+    "2008": {
+     "benchmark": 34.703,
+     "baseline": 39.173
+    },
+    "2012": {
+     "benchmark": 20.048,
+     "baseline": 18.465
+    },
+    "2016": {
+     "benchmark": 35.716,
+     "baseline": 33.839
+    },
+    "2020": {
+     "benchmark": 21.595,
+     "baseline": 20.718
+    }
+   },
+   "benchmark_passes_rule": false
+  },
+  "score": {
+   "loss": 27.540570720697986,
+   "by_cycle": {
+    "2004": {
+     "targets": 1098,
+     "mse": 25.64,
+     "sampling": 14.992,
+     "beyond_sampling": 10.648
+    },
+    "2008": {
+     "targets": 1179,
+     "mse": 34.703,
+     "sampling": 14.309,
+     "beyond_sampling": 20.394
+    },
+    "2012": {
+     "targets": 939,
+     "mse": 20.048,
+     "sampling": 13.249,
+     "beyond_sampling": 6.8
+    },
+    "2016": {
+     "targets": 1562,
+     "mse": 35.716,
+     "sampling": 11.617,
+     "beyond_sampling": 24.1
+    },
+    "2020": {
+     "targets": 2769,
+     "mse": 21.595,
+     "sampling": 8.184,
+     "beyond_sampling": 13.411
+    }
+   },
+   "by_band": {
+    "1-30": 22.997,
+    "31-90": 28.272,
+    "91-161": 37.361
+   },
+   "national": 20.38,
+   "states": 28.821,
+   "targets": 7547
+  },
+  "loss_by_density": {
+   "nation": 20.38,
+   "10+": 17.01,
+   "4-9": 26.606,
+   "1-3": 41.087,
+   "0": 53.787
+  }
+ },
+ "every_poll": {
+  "baseline_vs_benchmark": {
+   "gain": 2.312,
+   "cycles_better": 3,
+   "p_signflip": 0.0005,
+   "gain_91_161": 4.852,
+   "by_cycle": {
+    "2004": {
+     "benchmark": 26.901,
+     "baseline": 24.25
+    },
+    "2008": {
+     "benchmark": 47.032,
+     "baseline": 39.173
+    },
+    "2012": {
+     "benchmark": 17.774,
+     "baseline": 18.465
+    },
+    "2016": {
+     "benchmark": 36.361,
+     "baseline": 33.839
+    },
+    "2020": {
+     "benchmark": 19.937,
+     "baseline": 20.718
+    }
+   },
+   "benchmark_passes_rule": false
+  },
+  "score": {
+   "loss": 29.601073932740228,
+   "by_cycle": {
+    "2004": {
+     "targets": 1098,
+     "mse": 26.901,
+     "sampling": 14.992,
+     "beyond_sampling": 11.909
+    },
+    "2008": {
+     "targets": 1179,
+     "mse": 47.032,
+     "sampling": 14.309,
+     "beyond_sampling": 32.723
+    },
+    "2012": {
+     "targets": 939,
+     "mse": 17.774,
+     "sampling": 13.249,
+     "beyond_sampling": 4.526
+    },
+    "2016": {
+     "targets": 1562,
+     "mse": 36.361,
+     "sampling": 11.617,
+     "beyond_sampling": 24.744
+    },
+    "2020": {
+     "targets": 2769,
+     "mse": 19.937,
+     "sampling": 8.184,
+     "beyond_sampling": 11.753
+    }
+   },
+   "by_band": {
+    "1-30": 26.053,
+    "31-90": 28.128,
+    "91-161": 40.751
+   },
+   "national": 20.912,
+   "states": 30.661,
+   "targets": 7547
+  },
+  "loss_by_density": {
+   "nation": 20.912,
+   "10+": 20.667,
+   "4-9": 27.796,
+   "1-3": 41.701,
+   "0": 52.784
+  }
+ }
+}
