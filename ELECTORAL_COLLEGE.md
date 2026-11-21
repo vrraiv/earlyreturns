@@ -1904,3 +1904,270 @@ whether unpolled states should lean more on the prior.
   - The prior is weakest where the lean shifts most (lopsided states, and 2008).
 - **Where it goes:** EC-4 (state prior and weight on polls). There the weight on polls is estimated on earlier
   elections only and tested under section 8, and a prior that lets the lean move is a candidate.
+
+### Stage 5: the add-up, pre-registration (written 2026-11-21, before any run; confirmed by the user the same day, with the score amended below)
+
+Section 4 puts states first: the popular vote is the vote-weighted sum of the state estimates, and the gap between
+that sum and the national estimate is only reported. Stage 5 tests the plan's one alternative: national polls set
+the popular vote, and the gap is spread over the states by their uncertainty and size, so large, thinly polled
+states absorb most of it. Stage 3 also left a question here: how its raw-margin scaling applies to states.
+
+**Test bed.** State polls 2004 to 2020 (stage 1's loader; 2024 refused, and no 2024 result row read), the national
+series, and `state_presidential.csv`.
+
+- Every state and DC is scored. Maine's and Nebraska's districts are left out, having no results.
+- Dates are 150, 100 and 60 days (scored) and 30 and 7 (reported), as in stages 2 to 4.
+
+**Pieces, all as the earlier stages left them:**
+
+- **State estimates, states-first:** each state's nowcast from its own polls, however old, or, with none yet, the
+  prior (national two-party nowcast plus previous lean). That is stage 4's outcome.
+- **National estimate:** stage 3's adopted forecast, the national nowcast × (1 − u/100), with u the undecided share
+  averaged like the nowcast.
+- **Vote weights:** each state's share of the two-party vote at the previous election.
+- **A state's uncertainty, for spreading the gap:** σ²_s = 1 / (1 + n_s), where n_s is the number of the state's
+  polls in the 30 days before the date. It has no fitted number, and only its relative size matters. An unpolled
+  state has the largest.
+
+**Baseline (section 4, states first).** State margins are the state estimates; the popular vote is their
+vote-weighted sum. The gap to the national estimate is reported on every date.
+
+**Candidates.**
+
+- **A. National polls set the popular vote.**
+  - The gap D = national estimate − the states' vote-weighted sum is spread so that the new sum equals the national
+    estimate exactly.
+  - Each state moves by D × σ²_s / Σ_j (v_j × σ²_j). So a state's share of the correction is in proportion to its
+    vote share times its uncertainty.
+- **B. Stage 3's scaling applied to every state, states first.** Each state's margin × (1 − u/100), with u the
+  national undecided share. The popular vote is still their sum.
+  - Only a national u exists for every year: state polls' undecided shares are not kept consistently. So this
+    scales every state alike.
+  - B has nothing to shuffle across states.
+- **C. Every state moves by the same amount** so that the sum meets the national estimate. This is the alternative
+  section 4 names. Its "blend of itself and N" is set to N in full, as in A, so A and C differ only in how the gap
+  is spread. C has nothing to shuffle.
+- **Reported only:** A with the national two-party nowcast in place of stage 3's forecast. This separates spreading
+  the gap from the scaling.
+
+**What the gap is made of** (no results used). Two parts:
+
+- The national two-party nowcast minus the states' vote-weighted sum: state and national polls disagreeing. This
+  ranges from −1.08 to +2.50 across the 25 election-dates.
+- Stage 3's scaling: −0.06 to −1.14.
+
+The scaling is the larger part only in 2016, where u was 16 to 18. So A and C mostly decide how far state polls are
+pulled toward national polls, and only partly where stage 3's shift lands. Typical moves:
+
+| | 2004 | 2008 | 2012 | 2016 | 2020 |
+|---|---|---|---|---|---|
+| A, mean absolute shift | 0.1 to 1.2 | 0.3 to 3.0 | 1.1 to 2.0 | 1.6 to 2.6 | 1.2 to 2.5 |
+| B, mean absolute shift | 1.2 to 1.8 | 1.3 to 1.7 | 1.2 to 1.5 | 2.7 to 3.1 | 1.2 to 1.7 |
+
+σ²'s coefficient of variation across states within an election and date is 0.3 to 1.0, so A's shuffle can pass
+or fail. It is lowest in 2020 at 7 days.
+
+Previous-election vote weights are adequate: the weighted sum of each year's actual state results lands within 0.17
+points of the national result.
+
+**Score.**
+
+- State margins: the squared error, averaged over the 51 on each date, then over 150, 100 and 60 days, with
+  elections weighted equally.
+- 30 and 7 days must not be worse on average.
+- The popular vote's error, and a vote-weighted state score, are reported beside it.
+
+**The rule (section 8 on the state test bed, as stage 4 applied it).**
+
+- A positive gain, and at least 4 of 5 elections better.
+- **A:** σ² shuffled across states within each election and date, 200 times; the gain must beat 19 in 20. This asks
+  whether spreading by uncertainty matters, not whether the national estimate helps at all.
+- **B:** a paired sign-flip test over election-date units, at p < 0.05, as for stage 4's methods 1 and 2. Its limits
+  are the same: about 13 units that behave more like 5, and an election-level version reported beside it.
+- **C:** the sign-flip test, as for B.
+- **Sign-flip units:** every state is scored on every date, so there are 15 election-date units at 150, 100 and 60
+  days.
+- **If more than one passes:** A and C are alternatives, and the larger gain is adopted. B can join either (A or C
+  after B's scaling). A combination is adopted only if it passes the same clauses; otherwise the largest single gain.
+- **None passes:** section 4's states-first rule stands.
+
+**Reported, so B and the others are not over-read.**
+
+- B's shift is in proportion to the margin, so it is near zero in close states and largest in lopsided ones, which
+  drive an equally weighted score. Close states (forecast margin under 10 points) and lopsided ones are reported
+  apart.
+- Shrinking toward a tie helps one party's states and hurts the other's, depending on the year's shared miss.
+  Results are reported by the leading party's states, and with each year's mean error removed.
+- Every candidate is reported by election. 2016's u (full-field questions) makes B much larger that year.
+
+**Provisional.** The states-first baseline is a stand-in. Section 4's state estimate blends polls with the prior,
+and that blend is EC-4's work, which does not exist yet. Stage 4's pointer says EC-4 will move thin states a lot
+and pull the states' sum toward the national estimate. So a verdict here holds until EC-4's estimates exist
+(question 6).
+
+**Checks before any loss is read.**
+
+- 2024 is absent.
+- The leak, deletion and own-results tests, as in stage 4.
+- Behaviour:
+  - A's new vote-weighted sum equals the national estimate exactly;
+  - with D = 0 nothing moves;
+  - with equal σ², every state moves by D, which is C;
+  - B with u = 0 is the baseline.
+
+**Questions for the user:**
+
+1. **Three candidates, A, B and C, where the plan has one.** C is section 4's named alternative (an even shift). B
+   answers stage 3's open question within this stage.
+2. **The score:** state margins, equally weighted over the 51, with the popular vote and a vote-weighted score
+   reported. The alternative is to put the popular vote into the score.
+3. **σ²_s = 1 / (1 + recent polls),** no fitted number. The full model's spreads (section 4) do not exist yet.
+4. **The rule as above:** a shuffle for A; a sign-flip for B and C; 4 of 5; positive gain; 30 and 7 days not worse.
+5. **One round.**
+6. **Retest after EC-4.** Proposed: stage 5's verdict is provisional and is rerun once EC-4's blended state
+   estimates exist, with the same pre-registration.
+
+**Stage 5: demographics considered and moved to EC-5 (2026-11-21, before any run).**
+
+- **What was asked.** The user asked whether candidate A should spread the gap by more than uncertainty: by
+  demographics, fitted on how past national-state disagreements lined up with age, race and education.
+- **Why it moved.** On reflection the user judged that demographics may matter, but not through this mechanism.
+  2016's state polling errors were correlated across states, yet they did not come from the national polls
+  missing.
+- **Where it went.** So the question belongs with how state errors move together. It is recorded on EC-5, which now
+  waits for DA-4 (demographics by year), so it is tested on demographics as they stood in each election rather than
+  one late-2010s snapshot.
+- **What stays here.** Candidate A stays as written, spreading the gap by vote share and uncertainty.
+
+**Stage 5: confirmed by the user on 2026-11-21, with the score amended (before any run).**
+
+- **Confirmed as written:**
+  - three candidates (A, B, C);
+  - σ²_s = 1 / (1 + recent polls);
+  - A's shuffle, and the sign-flip test for B and C;
+  - 4 of 5 elections better, and a positive gain;
+  - one round;
+  - the verdict provisional until EC-4's state estimates exist, then rerun with this pre-registration.
+- **The score, amended at the user's direction.** Results blur many causes over long gaps, and the add-up is not to
+  blame for the shared national miss.
+  - **Dates:** only 30 and 7 days are scored. 150, 100 and 60 are reported. 14 and 7 were considered; with a 60-day
+    half-life, those two averages share most of their polls.
+  - **Loss:** for each state on each scored date, excess = max(0, |state error| − |national error|), squared and
+    averaged over the 51 states, then over the two dates, with elections weighted equally.
+  - **The national error** is stage 3's national forecast against the national result, the same for every
+    candidate. A state that misses by no more than the nation costs nothing.
+  - The plain squared error is reported beside it.
+  - With 30 and 7 days now the score, the "30 and 7 days not worse" clause falls away.
+  - The sign-flip units are 10 (5 elections × 2 dates).
+- **Turnout, a known limit (raised by the user).**
+  - Every add-up weights states by their share of the previous election's two-party vote, so differential turnout
+    never enters. Applied to the actual results, the previous election's weights put the popular vote 0.1 to 0.2
+    points off the actual weights' figure (−0.17, +0.09, +0.11, −0.17 and −0.17 for 2004 to 2020). That is 10 to
+    15% of the typical gap stage 5 is about.
+  - The largest change in one state's share in a cycle is 0.34 to 0.73 points (California in 2020).
+  - It enters twice: in the sum the states are reconciled to, and in how A spreads the gap.
+  - It is reported beside the results and carried to EC-6, where a forecast of each state's turnout share is a
+    candidate.
+
+**Stage 5: amendments after the code review, before any loss was read** (`src/model/pres_addup.py`).
+
+- **What the excess score cannot see.**
+  - The allowance (the national forecast's miss) is the same for every candidate, and A and C are built to hit the
+    national forecast.
+  - When that forecast is wrong and the state polls were right, A and C pull states toward the wrong number, and the
+    allowance forgives most of that. When the forecast is right, they get full credit.
+  - So the score is lenient to A and C on their main risk.
+  - The national miss also differs by election, larger in 2016 and 2020, so elections are not on the same footing.
+    Each election's national error is reported beside its loss.
+  - For every candidate, the same clauses are computed on the plain squared error, by election. This is reported
+    and decides nothing, unless the user decides otherwise (question below).
+- **The sign-flip units** are 10: five pairs of dates from the same election, which behave more like 5. The
+  election-level version is reported.
+- A's sign-flip p is reported, and C's shuffle is not defined; neither decides anything.
+- 30 and 7 days are reported separately.
+- **Checks, run and passed:**
+  - A and C sum exactly to the national forecast on every election and date.
+  - On the code's own output: A's shift always has the gap's sign and is larger for states with fewer recent
+    polls, and C moves every state by the gap.
+  - With D = 0 nothing moves.
+  - With u = 0 throughout, B equals the baseline.
+  - The leak and deletion tests pass, as does changing the scored election's results.
+  - 2024 is absent from the polls, the results and the national series.
+
+**Stage 5: the flag, decided by the user on 2026-11-21 before any run.** A candidate that passes on the excess score
+but is worse than the baseline on the plain squared error (mean over elections at 30 and 7 days) is flagged, and the
+pass goes to the user. An unflagged pass is adopted under the rule. The same holds when stage 5 is rerun after EC-4.
+
+### Stage 5: results (run 2026-11-21). C passes and is adopted, provisionally.
+
+`src/model/pres_addup.py run`, `data/processed/pres_addup.json` (and `pres_addup_frame.csv`).
+
+| | Excess score (30 and 7 days) | 2004 | 2008 | 2012 | 2016 | 2020 | Elections better | Test | Plain squared error | Verdict |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Baseline (states first) | 20.46 | 10.09 | 13.75 | 14.40 | 48.47 | 15.57 | | | 36.64 | |
+| A. Spread by uncertainty | 16.75 | 10.42 | 10.67 | 17.11 | 34.41 | 11.14 | 3 | 90.5% of shuffles (needs 95%) | 30.88 | fails |
+| B. Scale every state | 29.60 | 15.79 | 22.59 | 18.28 | 70.83 | 20.51 | 0 | p 1.0 | 48.00 | fails |
+| **C. Even shift** | **16.82** | 9.18 | 11.31 | 15.13 | 36.81 | 11.66 | **4** | **p 0.012** | **31.08** | **passes** |
+
+The excess score is the mean of the five elections' columns. The national forecast's miss, which is each state's
+allowance, averaged 0.7 (2004), 3.3 (2008), 1.4 (2012), 1.7 (2016) and 3.2 (2020) at 30 and 7 days.
+
+**C passes, and no flag applies, so it is adopted under the rule, provisionally until the rerun after EC-4.**
+
+- Its gain is 3.64, better in 4 of 5 elections (2012 slightly worse), with sign-flip p 0.012 over the 10
+  election-date units. The election-level version, reported only, is 0.062.
+- It is also better on the plain squared error (31.08 against 36.64), in the same 4 elections, so the flag does
+  not apply.
+- It is better at every date, reported ones included: 27.5 against 33.5 at 150 days, 16.8 against 20.5 at 30, and
+  16.8 against 20.4 at 7.
+- **What it means.** The forecast popular vote is the national forecast (stage 3's: the national nowcast's raw
+  margin), not the states' sum. Every state moves by the same amount so the states add up to it.
+  - With each year's mean error removed, C equals the baseline (23.48 both). All of its gain is in the level the
+    states share; it changes nothing between states.
+  - The popular vote's squared error falls from 9.68 to 5.41.
+
+**The others.**
+
+- **A** gains about as much (3.71), but is better in only 3 of 5 elections and beats 90.5% of its shuffles. Spreading
+  the gap by uncertainty adds a little error between states (24.57 against 23.48 with each year's mean error
+  removed). So the gain comes from closing the gap, not from where it goes. Its sign-flip p, reported only, is
+  0.047.
+- **B** is worse in every election and at every date, mostly in lopsided states (39.4 against 25.3). Shrinking every
+  state toward a tie does not carry stage 3's national finding down to the states. It is flagged as well.
+- **A with the unscaled national nowcast** (reported) gains 2.69 against A's 3.71. So stage 3's scaling helps when
+  it enters through the national total.
+
+**Where the gain is.** Close states 9.38 against 12.74; lopsided 21.46 against 25.28. Republican-leaning states gain
+more (37.5 against 45.3) than Democratic-leaning ones (24.6 against 27.9).
+
+**Turnout.** As written beforehand, the vote weights are the previous election's, which puts the popular vote 0.1 to
+0.2 points off each cycle. Carried to EC-6.
+
+**Stage 5 closed.** One round, as agreed. **Section 4's states-first rule is replaced, provisionally, by C:** national
+polls (stage 3's forecast) set the popular vote, and every state moves by the same amount to meet it. The verdict is
+rerun with this pre-registration once EC-4's blended state estimates exist, since EC-4 will itself move the states'
+sum toward the national estimate.
+
+### EC-2's stages, closed (2026-11-21)
+
+What the five stages fixed, for the forecast from poll averages to election day:
+
+1. **The nowcast** is the Senate average's weighting (stage 1).
+2. **No convention treatment** (stage 2).
+3. **The national forecast** is the nowcast's raw margin: the two-party margin × (1 − u/100) (stage 3; a narrow
+   pass).
+4. **Thinly polled states keep their own polls**, or the prior if they have none (stage 4).
+5. **States move together** to meet the national forecast (stage 5; provisional).
+
+Open items, carried forward:
+
+- **The registered-voter lean** stays in the nowcast, though the 2020 paired questions point the other way (stage 1).
+- **The range** is refitted around the adopted forecast when the model is assembled (stage 3).
+- **Head-to-head or full-field questions** for the undecided share in 2028, and a third candidate (stage 3;
+  section 10).
+- **The pollster-quality weight** passed in 2024 and is deferred until 2028's ratings are known, or the repo's own
+  tiers from 2026 exist (DA-10).
+- **Blending a state's polls with its prior,** with a lean that can move (EC-4, from stage 4).
+- **Demographics in how state errors move together** (EC-5, after DA-4).
+- **Each state's turnout share** in the popular vote (EC-6).
+- **Stage 5's rerun** once EC-4 exists.
