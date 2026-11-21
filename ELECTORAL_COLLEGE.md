@@ -1100,3 +1100,43 @@ refuses otherwise. 2024 polls: Harris against Trump, ending on or after 21 July;
 - **2028 needs a source of ratings.** 538 stopped publishing in 2025, and its last ratings are those of September
   2024. Using them in 2028 means ratings four years old, with every firm new since then unrated, or another rater
   if one is available, with its own scale. Either needs a check before it is relied on.
+
+### Pollster quality: how stable are the ratings? (run 2026-11-21)
+
+Asked by the user: in 2027 and 2028 the model would work from the September 2024 ratings unless newer ones turn up,
+so how much do ratings change in four years? `pres_quality.py stability`, `data/processed/pres_quality_stability.json`.
+No 2024 margin or result is read; 2024 polls are used only for which firm fielded them.
+
+| | 2016 to 2020 | 2020 to 2024 |
+|---|---|---|
+| Firms rated in both versions | 318 | 419 |
+| Correlation of z across firms, Pearson (Spearman) | 0.73 (0.69) | 0.55 (0.48) |
+| Correlation across polls (each firm counted by its polls in the later year) | 0.93 | 0.57 |
+| Later year's polls rated in the later version | 91% | 82% |
+| ... and in the version four years older | 59% | 67% |
+| Median change in a poll's weight, older version against current, at the fitted setting | 25% | 27% |
+| Polls whose weight is off by 25% or more | 51% | 53% |
+
+- **2020 to 2024 changed a lot.** 538 also changed its method in between (predictive plus-minus to POLLSCORE), so
+  this is the same kind of break a new rater would bring in 2028.
+  - Among the firms with the most 2024 polls, AtlasIntel went from below average (z +0.46) to near the top (−1.99),
+    Morning Consult from +0.61 to −0.77, and RMG Research from +0.91 to −1.01.
+  - Trafalgar (+1.05 to +1.42) and NYT/Siena (−2.49 to −3.69) kept their places.
+- **2016 to 2020 was steadier,** and the poll-weighted correlation (0.93) is carried by the heaviest pollster,
+  SurveyMonkey, rated poorly both times.
+- **A diagnostic on a fit year, not a test:** the 2016 ratings applied to 2020's polls at the fitted setting.
+
+  | 2020 | Baseline | Current (2020) ratings | Four-year-old (2016) ratings |
+  |---|---|---|---|
+  | 7 days | 51.75 | 50.73 | 50.89 |
+  | 30 days | 28.44 | 35.24 | 30.85 |
+  | 60 days | 28.68 | 33.08 | 29.99 |
+
+  - At 7 days the stale ratings kept most of the gain (and more of the within-year part: 21.91 against 22.23 for
+    the baseline).
+  - But that was over the steadier interval, and 2020 helped choose the setting.
+- **For 2028:**
+  - The September 2024 ratings would be four years old across a period that has already shown one break.
+  - Every firm new since 2024 would be unrated, as a third of 2020's polls and a sixth of 2024's were against the
+    version four years older.
+  - Some firms' ratings swing with their last election's luck.
