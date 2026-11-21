@@ -1789,3 +1789,32 @@ pooled and by election, since states in one year share the national miss.
    the result than the prior in fewer than half the cases, a pass by method 3, which leans on those polls, goes to
    the user. Otherwise the diagnostics are reported and point to later work.
 5. **One round.**
+
+**Stage 4: amendments after the code review, before any loss was read** (`src/model/pres_thin_states.py`).
+
+- **What method 3's scramble tests.** It shuffles the movement term between states, so it asks whether matching the
+  movement to each state's own gap since its last poll matters. It does not ask whether adding national movement
+  helps at all.
+  - The terms do differ between states. Within an election and date their spread is mostly as large as their mean
+    size (for example 2.08 against 2.97 in 2016 at 100 days).
+  - A few cells are tight: 2008 at 7 days, 0.25 against 4.47; 2004 at 100 days, 0.44 against 1.05.
+- **The sign-flip test's limits.**
+  - Its 13 units are three dates of the same election, with largely the same states and the same national miss.
+    They behave more like 5 units than 13, so p overstates the evidence.
+  - It weights units equally, where the gain weights elections equally; 2020 has one date and the others three.
+  - The election-level version (5 units; the smallest possible p is about 0.03) is reported beside it and decides
+    nothing.
+- **Behaviour checks, as run:**
+  - method 1 equals national plus lean;
+  - with no national movement, method 3 equals the baseline;
+  - a planted national step after a state's last poll moves method 3 the right way and no further than the step,
+    in both directions;
+  - with every 2012 state poll set to its state's 2008 result plus 3 points, method 2 gives exactly the previous
+    result plus 3 in the thin states.
+- **Other checks, passed:**
+  - 2024 is absent from the polls and the results;
+  - the leak and deletion tests (scored set, polled set and every forecast unchanged);
+  - changing the scored election's results leaves every forecast unchanged.
+- **Method 2 with no recently polled state** falls back to the prior.
+- **Also reported:** diagnostic (a)'s mean signed error by election, and each method's error on the states it
+  actually changes.
