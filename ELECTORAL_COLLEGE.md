@@ -1517,3 +1517,36 @@ The user decided:
 - Otherwise a diagnostic is reported for what it shows, and it points to later work, not to a change now.
 
 **Confirmed by the user on 2026-11-21:** the diagnostic rule above, and one round, as in stage 2.
+
+**Stage 3: amendments after the code review, before any loss was read** (`src/model/pres_reversion.py`).
+
+- **Candidate 2's drift is on the same clock as the hazard.** Each episode's final, partial week up to the
+  confirmation day is included.
+  - Between two confirmations an episode's net movement is its swing less twice the threshold, so the drift could
+    have come out near zero. Checked without results, it does not.
+  - Over 92 finished episodes (1952 to 2020, found from 260 days out), the mean net movement is +1.18 points in the
+    episode's direction, and the mean weekly movement +0.30.
+  - The adjustments it gives are typically 0.1 to 2 points.
+  - A negative fitted drift would be used as fitted.
+  - Episodes are found from 260 days out, not the 200 behind the counts above, so there are more of them.
+- **The null rebuilds the readings, then smooths.** The text said the light average's own changes are shuffled; that
+  would remove the smoothing too. Instead, each election's reading-to-reading changes are shuffled, the readings
+  rebuilt, the 14-day average recomputed and the episodes found again.
+- **Seven tests on five candidates:** 1, 2, 3(a), 3(b), 4(a), 4(b) and 5; candidate 6 is a diagnostic. At 1 in 20
+  each, the chance that at least one passes by noise is about 30%, not one in four.
+- **Candidate 6 uses five elections** (2004 to 2020), not three. Its flag says so.
+- **What candidate 1's shuffle tests.** With the inputs shuffled, the pull is still toward an average incumbent
+  margin. Passing means approval and the previous result add to that, not that a pull helps at all.
+- **Approval has no publication lag.** It uses readings that ended before the date; Gallup published within days.
+- **Checks, rerun and passed:**
+  - the nowcast equals stage 2's exactly;
+  - a pull is recovered;
+  - turning points are confirmed on the right days and never before;
+  - geometric durations give back their rate;
+  - the drift's net movement over a made-up episode is zero, and the sign of the adjustment follows the drift;
+  - u = 0 gives the baseline;
+  - the leak test passes;
+  - the as-of test passes, with later elections' series reshaped (scaled and noised, not shifted) and their
+    results moved by random amounts.
+- Every forecast and spread is checked to be finite before it is scored. The real-data results are written to disk
+  before the shuffles start.
