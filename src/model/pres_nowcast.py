@@ -21,6 +21,7 @@ squared error; mean by cycle; cycles weighted equally. The targets are the same 
 Run:  python src/model/pres_nowcast.py checks         (2024 refusal, leak test, parity with pollavg.weighted_avg)
       python src/model/pres_nowcast.py baseline
       python src/model/pres_nowcast.py <candidate>     (half_life | house | rv_lean)
+      python src/model/pres_nowcast.py density         (diagnostic: the half-life grid by poll density)
 Writes data/processed/pres_nowcast_<name>.json
 """
 import json
@@ -339,10 +340,31 @@ def candidate(name, q, tg):
     raise SystemExit(f"unknown candidate {name}")
 
 
+def half_life_by_density(q, tg):
+    """Diagnostic, not a candidate: the half-life grid's loss split by the nation and by how many polls the place had
+    in the 30 days before the target's week (cycles weighted equally)."""
+    dens = [((q.cycle == r.cycle) & (q.geo == r.geo) & (q.end < r.t) & (q.end >= r.t - pd.Timedelta(days=30))).sum()
+            for r in tg.itertuples()]
+    tg = tg.assign(kind=np.where(tg.geo == "US", "nation", np.select(
+        [np.array(dens) >= 10, np.array(dens) >= 4], ["state, 10+ polls", "state, 4-9 polls"], "state, 1-3 polls")))
+    rows = {}
+    for h in HALF_LIVES + (180, 10000):
+        se = (predict(q, tg, dict(BASE, half_life=float(h))) - tg.y) ** 2
+        rows[h] = tg.assign(se=se).groupby(["kind", "cycle"]).se.mean().groupby("kind").mean()
+    out = pd.DataFrame(rows)
+    out["targets"] = tg.groupby("kind").size()
+    return out
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "baseline"
     if cmd == "checks":
         checks()
+    elif cmd == "density":
+        q = load()
+        out = half_life_by_density(q, targets(q))
+        out.round(3).to_json(OUT / "pres_nowcast_half_life_by_density.json", orient="index", indent=1)
+        print(out.round(2).to_string())
     elif cmd == "baseline":
         q = load()
         tg = targets(q)
