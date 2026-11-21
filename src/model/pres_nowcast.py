@@ -173,6 +173,15 @@ def predict(q, tg, s):
                 e = e.assign(house=s["house"](c, t, e, pk))
                 out[tg.index.get_loc(j)] = np.average(adjusted(e, s), weights=weights(e, t, s))
             continue
+        if s.get("trend") is not None and getattr(s["trend"], "per_target", False):
+            for j in idx:                               # national line again without the target's firm
+                pk = tg.at[j, "pkey"]
+                e = d[d.pkey != pk]
+                e = e.assign(trend=s["trend"](c, t, e, pk))
+                if s.get("house") is not None:
+                    e = e.assign(house=s["house"](c, t, e))
+                out[tg.index.get_loc(j)] = np.average(adjusted(e, s), weights=weights(e, t, s))
+            continue
         if s.get("house") is not None:
             d = d.assign(house=s["house"](c, t, d))
         if s.get("trend") is not None:
@@ -354,24 +363,28 @@ WEEK_DAYS = 7
 MIN_FIRMS = 5
 
 
-def trend_fn(q, h_nat):
+def trend_fn(q, h_nat, corrected=False):
     """Candidate 5: shift for each state or district poll = national average at t minus at the poll's end date.
-    The national average is the baseline's (half-life h_nat) from national polls that ended before each date."""
+    The national average is the baseline's (half-life h_nat) from national polls that ended before each date.
+    corrected: the national line leaves out the target's own firm (called per target, with its firm key)."""
     nat = {c: d for c, d in q[q.geo == "US"].groupby("cycle")}
+    nat_firms = {c: set(d.pkey) for c, d in nat.items()}
     s_nat = dict(BASE, half_life=float(h_nat))
     cache = {}
 
-    def N(c, d):
-        if (c, d) not in cache:
-            cache[(c, d)] = average(nat[c], d, s_nat) if c in nat else np.nan
-        return cache[(c, d)]
+    def N(c, d, ex=None):
+        if (c, d, ex) not in cache:
+            cache[(c, d, ex)] = average(nat[c], d, s_nat, exclude=ex) if c in nat else np.nan
+        return cache[(c, d, ex)]
 
-    def f(c, t, d):
+    def f(c, t, d, pk=None):
         if not len(d) or d.geo.iloc[0] == "US":
             return np.zeros(len(d))
-        now = N(c, t)
-        then = np.array([N(c, e + pd.Timedelta(days=1)) for e in d.end])
+        ex = pk if (pk is not None and pk in nat_firms.get(c, ())) else None
+        now = N(c, t, ex)
+        then = np.array([N(c, e + pd.Timedelta(days=1), ex) for e in d.end])
         return np.nan_to_num(now - then, nan=0.0)
+    f.per_target = corrected
     return f
 
 
@@ -596,6 +609,33 @@ def candidate(name, q, tg):
                 "picked": {int(c): f"{k[0]}/{k[1]}" for c, k in pick.items()}}
         return run_per_cycle(q, tg, {c: dict(BASE, half_life=float(k[1]), trend=fns[k[0]])
                                      for c, k in pick.items()}), info
+    if name == "trend_corrected":
+        # pre-registration: national polls are not moved and the nation's own average is the baseline's, so the
+        # state half-life applies to states and districts only (the first run applied it to the nation too)
+        nat = (tg.geo == "US").values
+        base_nat = predict(q, tg[nat], BASE)
+
+        def nat_base(pred):
+            pred = pred.copy()
+            pred[nat] = base_nat
+            return pred
+        table = {}
+        fns = {hn: trend_fn(q, hn, corrected=True) for hn in TREND_NAT_HL}
+        for hn in TREND_NAT_HL:
+            for hs in TREND_STATE_HL:
+                table[(hn, hs)] = cycle_losses(tg, nat_base(
+                    predict(q, tg, dict(BASE, half_life=float(hs), trend=fns[hn]))))
+                print(f"  national {hn}, state {hs}: " + ", ".join(f"{c} {v:.2f}" for c, v in table[(hn, hs)].items()),
+                      flush=True)
+        table = pd.DataFrame(table).T
+        pick = loo_pick(table)
+        info = {"grid": {f"{hn}/{hs}": {int(c): round(float(v), 3) for c, v in r.items()}
+                         for (hn, hs), r in table.iterrows()},
+                "picked": {int(c): f"{k[0]}/{k[1]}" for c, k in pick.items()},
+                "note": "national line without the target's own firm; grid picked again; the nation's average "
+                        "is the baseline's"}
+        return nat_base(run_per_cycle(q, tg, {c: dict(BASE, half_life=float(k[1]), trend=fns[k[0]])
+                                              for c, k in pick.items()})), info
     if name == "house_week":
         return predict(q, tg, dict(BASE, house=house_week_fn(q))), {"note": "no grid; shrinkage within cycle; "
                                                                     "first version (target firm in other gaps)"}
@@ -646,6 +686,162 @@ def half_life_by_density(q, tg):
     return out
 
 
+# ---------------- who the score sees: loss by density (diagnostic) ----------------
+DENS_CLASSES = ["nation", "10+", "4-9", "1-3", "0"]
+
+
+def density_class(q, tg):
+    """Polls of the target's place in the 30 days before its week starts, not counting the target's own firm."""
+    out = []
+    for r in tg.itertuples():
+        if r.geo == "US":
+            out.append("nation")
+            continue
+        k = int(((q.cycle == r.cycle) & (q.geo == r.geo) & (q.end < r.t) & (q.end >= r.t - pd.Timedelta(days=30))
+                 & (q.pkey != r.pkey)).sum())
+        out.append("10+" if k >= 10 else "4-9" if k >= 4 else "1-3" if k >= 1 else "0")
+    return np.array(out)
+
+
+def stored(name):
+    return json.loads((OUT / f"pres_nowcast_{name}.json").read_text())
+
+
+def rebuild_settings(q, gp=None, qm=None):
+    """Per held-out cycle settings for every candidate in the table, from the stored picks (refitted where the
+    stored figure is rounded: the method weights and tau2, both fitted on the other cycles)."""
+    S = {"baseline": {c: dict(BASE) for c in CYCLES}}
+    pk = {int(c): v for c, v in stored("half_life")["info"]["picked"].items()}
+    S["half_life"] = {c: dict(BASE, half_life=float(pk[c])) for c in CYCLES}
+    lam = {int(c): v for c, v in stored("house")["info"]["picked"].items()}
+    hf = {l: house_fn(q, gp, l) for l in set(lam.values())}
+    S["house"] = {c: dict(BASE, house=hf[lam[c]]) for c in CYCLES}
+    cor = {int(c): v for c, v in stored("rv_lean")["info"]["correction_used"].items()}
+    S["rv_lean"] = {c: dict(BASE, pop_lean=dict(BASE["pop_lean"], rv=cor[c], a=cor[c])) for c in CYCLES}
+    pk = {int(c): v for c, v in stored("count_decay")["info"]["picked"].items()}
+    S["count_decay"] = {c: dict(BASE, count_decay=float(pk[c])) for c in CYCLES}
+    hw = house_week_fn(q, corrected=True)
+    S["house_week_corrected"] = {c: dict(BASE, house=hw) for c in CYCLES}
+    pk = {int(c): v for c, v in stored("total_error")["info"]["picked"].items()}
+    S["total_error"] = {c: dict(BASE, size_tau2=pk[c] * size_tau2(q, gp, c)) for c in CYCLES}
+    S["method"] = {c: dict(BASE, method_w=method_weights(qm, gp, c)) for c in CYCLES}
+    S["no_rv"] = {c: dict(BASE, pop_lean={k: 0.0 for k in BASE["pop_lean"]}) for c in CYCLES}
+    return S
+
+
+def trend_settings(q):
+    """The corrected trend at its picks, and the same state half-lives with the trend off (the control)."""
+    pk = {int(c): v.split("/") for c, v in stored("trend_corrected")["info"]["picked"].items()}
+    fns = {hn: trend_fn(q, int(hn), corrected=True) for hn in {v[0] for v in pk.values()}}
+    return ({c: dict(BASE, half_life=float(pk[c][1]), trend=fns[pk[c][0]]) for c in CYCLES},
+            {c: dict(BASE, half_life=float(pk[c][1])) for c in CYCLES})
+
+
+def own_firm_check_by_cycle(q, tg, builder, label, n=20, seed=2):
+    """own_firm_check for settings that differ by cycle: builder(x, c) -> settings, rebuilt on the moved polls."""
+    rng = np.random.default_rng(seed)
+    bad = 0
+    for j in rng.choice(tg.index.values, size=n, replace=False):
+        sub = tg.loc[[j]]
+        c, pk = sub.cycle.iloc[0], sub.pkey.iloc[0]
+        a = predict(q, sub, builder(q, c))
+        q2 = q.copy()
+        q2.loc[(q2.cycle == c) & (q2.pkey == pk), "m"] += 50
+        b = predict(q2, sub, builder(q2, c))
+        bad += int(np.max(np.abs(a - b)) > 1e-9)
+    print(f"own-firm test, {label}: {'PASS' if bad == 0 else f'FAIL in {bad} of {n}'}", flush=True)
+    return bad
+
+
+def checks3():
+    """Gates for the corrected trend (before its results are read) and the own-firm test for every table row."""
+    q = load()
+    tg = targets(q)
+    assert len(tg) == 7547, len(tg)
+    qm = attach_methods(q)
+    qm["dens"] = poll_density(qm)
+    ok = leak_check(q, tg, lambda x: dict(BASE, half_life=180.0, trend=trend_fn(x, 7, corrected=True)),
+                    "national trend, corrected")
+    # regression: where the target's firm has no national polls, corrected = first version
+    natf = {c: set(d.pkey) for c, d in q[q.geo == "US"].groupby("cycle")}
+    sub = tg[(tg.geo != "US") & ~np.array([p in natf.get(c, ()) for c, p in zip(tg.cycle, tg.pkey)])]
+    sub = sub.sample(300, random_state=3)
+    a = predict(q, sub, dict(BASE, half_life=180.0, trend=trend_fn(q, 7)))
+    b = predict(q, sub, dict(BASE, half_life=180.0, trend=trend_fn(q, 7, corrected=True)))
+    same = float(np.max(np.abs(a - b)))
+    print(f"corrected = first version where the firm has no national polls (300 targets): "
+          f"{'PASS' if same < 1e-9 else 'FAIL'} (max diff {same:.2e})", flush=True)
+    res = {"leak_trend_corrected": ok, "regression_max_diff": same}
+
+    def gp_cycle(x, c):
+        return gaps(x[x.cycle == c])
+    gp = gaps(q)
+    S = rebuild_settings(q, gp, qm)
+    lam = {int(c): v for c, v in stored("house")["info"]["picked"].items()}
+    builders = {
+        "trend_corrected (7/180)": lambda x, c: dict(BASE, half_life=180.0, trend=trend_fn(x, 7, corrected=True)),
+        "trend first version (7/180)": lambda x, c: dict(BASE, half_life=180.0, trend=trend_fn(x, 7)),
+        "house (round 1)": lambda x, c: dict(BASE, house=house_fn(x, gp_cycle(x, c), lam[c])),
+        "house_week_corrected": lambda x, c: dict(BASE, house=house_week_fn(x, corrected=True)),
+    }
+    for k in ["baseline", "half_life", "rv_lean", "count_decay", "total_error", "no_rv"]:
+        builders[k] = (lambda k: lambda x, c: S[k][c])(k)
+    own = {k: own_firm_check_by_cycle(q, tg, b, k) for k, b in builders.items()}
+    # method weights come from other cycles' gaps: moving the target's firm in its own cycle cannot change them
+    own["method"] = own_firm_check_by_cycle(qm, tg, lambda x, c: S["method"][c], "method")
+    res["own_firm_fails_of_20"] = own
+    (OUT / "pres_nowcast_checks3.json").write_text(json.dumps(res, indent=1, default=float))
+    if not ok or same >= 1e-9 or own["trend_corrected (7/180)"] or own["baseline"]:
+        raise SystemExit("a gate failed")
+
+
+def density_split():
+    q = load()
+    tg = targets(q)
+    assert len(tg) == 7547, len(tg)
+    qm = attach_methods(q)
+    qm["dens"] = poll_density(qm)
+    gp = gaps(q)
+    S = rebuild_settings(q, gp, qm)
+    S["trend_corrected"], S["trend_control"] = trend_settings(q)
+    cls = density_class(q, tg)
+    preds, check = {}, {}
+    for name, sc in S.items():
+        qq = qm if name == "method" else q
+        pred = run_per_cycle(qq, tg, sc)
+        if name.startswith("trend"):                    # the nation's average is the baseline's
+            pred[(tg.geo == "US").values] = preds["baseline"][(tg.geo == "US").values]
+        got = cycle_losses(tg, pred).round(3)
+        if name != "trend_control":
+            ref = stored(name)
+            want = (pd.Series({int(c): v["mse"] for c, v in ref["by_cycle"].items()}) if name == "baseline" else
+                    pd.Series({int(c): v["candidate"] for c, v in ref["by_cycle"].items()}))
+            diff = float((got - want).abs().max())
+            check[name] = diff
+            print(f"rebuilt {name}: max per-cycle difference from stored {diff:.4f}", flush=True)
+            assert diff <= 0.0011, (name, got.to_dict(), want.to_dict())
+        preds[name] = pred
+    t = tg[["cycle", "geo", "week", "pkey", "y"]].assign(cls=cls)
+    for k, v in preds.items():
+        t[k] = v
+    t.round(4).to_csv(OUT / "pres_nowcast_target_preds.csv", index_label="target")
+    cnt = t.groupby(["cls", "cycle"]).size().unstack(fill_value=0)
+    loss = {}
+    for k in preds:
+        se = (t[k] - t.y) ** 2
+        loss[k] = t.assign(se=se).groupby(["cls", "cycle"]).se.mean().groupby("cls").mean()
+    L = pd.DataFrame(loss).reindex(DENS_CLASSES)
+    G = L.drop(columns="baseline").rsub(L.baseline, axis=0)
+    G["trend_own_part"] = L.trend_control - L.trend_corrected
+    out = {"targets": cnt.reindex(DENS_CLASSES).to_dict("index"), "loss": L.round(3).to_dict("index"),
+           "gain_vs_baseline": G.round(3).to_dict("index"), "rebuild_max_diff": check}
+    (OUT / "pres_nowcast_density_split.json").write_text(json.dumps(out, indent=1, default=float))
+    pd.set_option("display.width", 250)
+    print(cnt.reindex(DENS_CLASSES).to_string())
+    print(L.round(2).T.to_string())
+    print(G.round(2).T.to_string())
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "baseline"
     if cmd == "checks":
@@ -671,6 +867,10 @@ if __name__ == "__main__":
                                            "house effects, same week, corrected")}
         if not all(ok) or not own["baseline"] or not own["corrected"]:
             raise SystemExit("a leak test failed")
+    elif cmd == "checks3":
+        checks3()
+    elif cmd == "split":
+        density_split()
     elif cmd == "density":
         q = load()
         out = half_life_by_density(q, targets(q))
