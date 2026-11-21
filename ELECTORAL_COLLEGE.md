@@ -1550,3 +1550,83 @@ The user decided:
     results moved by random amounts.
 - Every forecast and spread is checked to be finite before it is scored. The real-data results are written to disk
   before the shuffles start.
+
+### Stage 3: results (run 2026-11-21). One test passes: the undecided break, 4(a).
+
+`src/model/pres_reversion.py run` (`data/processed/pres_reversion.json`) and `report`
+(`data/processed/pres_reversion_report.json`). 11 scored elections; 200 shuffles per candidate.
+
+| Test | Score | Gain | Elections better | Shuffles beaten | 30 and 7 days not worse | Verdict |
+|---|---|---|---|---|---|---|
+| Baseline (nowcast) | 64.68 | | | | | |
+| 1. Pull toward an anchor | 76.93 | −12.25 | 6 | 12% | no | fails |
+| 2. Trend survival | 63.37 | +1.31 | 6 | 81% | no (7 days worse) | fails |
+| 3(a). Durability, pull | 76.25 | −11.57 | 6 | 76% | no | fails |
+| 3(b). Durability, range (log score) | −3.55 against −3.65 | +0.105 | 5 | 99% | yes | fails (5 of 11) |
+| **4(a). Undecided break** | **52.10** | **+12.58** | **8** | **97.5%** | **yes** | **passes** |
+| 4(b). Undecided, range | κ = 0 in every fit: the baseline | 0 | 0 | | | fails |
+| 5. Approval shifts | ρ = 0 in every fit: the baseline | 0 | 0 | | | fails |
+
+**4(a) passes every clause, and no diagnostic flag applies to it, so under the rule it is adopted.**
+
+- α came out at 0 in every fit, the edge of its grid: an even break, so the forecast is the nowcast × (1 − u/100).
+- It is better at every date: 100 days 47.58 against 57.32, 60 days 26.07 against 30.26, 30 days 16.14 against
+  19.18, and 7 days 13.11 against 17.03.
+- **What carries it.** With the undecided share shuffled between elections, the gain is still positive in every
+  shuffle (median 8.2, 95th percentile 11.84). So most of the gain comes from shrinking the margin toward a tie by
+  about the size of a typical undecided share. The election's own share adds the rest (12.58 against the
+  shuffles' 8.2), enough to beat 19 in 20.
+- Before 2004 the share includes third-party support (Anderson 1980, Perot 1992 and 1996), so "undecided" there
+  partly means third-party voters. The formula treats them as splitting evenly, which they do not. It works
+  empirically, but the mechanism is a margin that shrinks toward a tie, not only undecided voters breaking.
+- For 2008 to 2016 the share comes from the repo's polls.
+- By election at 7 days its squared error is lower in 1992, 1996, 2000, 2016 and 2020, and higher in 1980, 1984,
+  1988, 2004, 2008 and 2012. Most of the 7-day gain is 1992 and 1996, the Perot years.
+
+**The others.**
+
+- **1. The anchor pull fails badly.** k came out at its bound of 1 (full pull to the anchor at 150 days) in 8 of 11
+  fits, with no shrinkage chosen. The anchor from approval and the previous result is far worse than the polls at
+  150 days (134.89 against 106.46). It helps in 1988, 1992, 1996, 2000, 2004 and 2008, and is very wrong in 1980
+  (530 against 197) and 1984. EC-3's fundamentals model replaces this anchor later. The diagnostic pull before and after the conventions
+  is 0.94 and 1.0, so no flag.
+- **2. Trend survival fails.** It gains 1.31 and beats 81% of the shuffles, but is better in only 6 elections and
+  worse at 7 days (18.16 against 17.03).
+  - Both of its flags would have applied had it passed. The 14-day average alone scores better (60.50).
+  - The episodes' survival curve lies inside the shuffled-readings null at every week: about half still running at
+    4 weeks and a quarter at 8, as noise and smoothing alone would give.
+  - The hazard's age term was kept (about +0.03 to +0.04 a week, older episodes slightly likelier to end) in 7 of
+    11 fits, and shrunk to 0 in 4. The unshrunk Firth fits agree (+0.025 to +0.048).
+  - The bootstrap over elections puts survival at 4 weeks between about 0.47 and 0.61.
+  - At thresholds of 1.0 and 2.0 points, the gains are −3.69 and +2.00, each better in 5 and 6 elections and worse
+    at 30 and 7 days.
+  - The approval series would add 1 to 6 episodes an election if pooled.
+- **3. Durability fails.** β was 0 or 0.1, so the pull is candidate 1's and fails with it.
+  - The range part, 3(b), beat 99% of its shuffles and kept 30 and 7 days, but is better in only 5 of 11
+    elections.
+  - γ rose from 0 to 0.5 as elections were added, so later fits say an unsteady race deserves a wider range. That
+    is worth testing again with more years.
+- **4(b) and 5 never moved off the baseline.**
+  - κ = 0 and ρ = 0 in every fit; the undecided share adds nothing to the range, and no part of the last month's
+    movement reverts, whether it came with approval or not.
+  - The pooled approval effect is about 0.2 points of margin per point of approval over 30 days.
+  - Leave-one-out ranges for the 2020 fit: k 0.72 to 1.0, drift 0.20 to 0.30 a week, α 0 and ρ 0 throughout.
+- **6. Evenness diagnostic.**
+  - Only 8 cases qualified: a national shift of a point or more in 30 days, with five or more states polled in
+    both windows, in 2004, 2008 and 2016. Every one held.
+  - So there is no difference between even and concentrated shifts, and no flag. Too few to say anything.
+
+**Many tests.** Seven tests, about a 30% chance of one fluke pass. 4(a) beats its shuffles narrowly (97.5% against
+the 95% needed). It is better at every date and in 8 of 11 elections.
+
+**Stage 3 closed.** One round, as agreed.
+
+- **The forecast is the nowcast scaled by (1 − u/100)**, u being the undecided (and, before 2004, third-party)
+  share averaged like the nowcast. Its range is the baseline's.
+- No pull toward an anchor, no trend term and no reversion of recent movement.
+
+**For later:**
+
+- Stage 5 and the 2028 model need the undecided share measured the way it is here. In 2028 that means asking which
+  polls report it and whether third-party support is in it.
+- The anchor returns with EC-3.
