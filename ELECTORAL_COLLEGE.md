@@ -1308,3 +1308,361 @@ that move fast also move back.
 **Stage 2 closed.** One round, as agreed. **The forecast through the convention window is the nowcast**, with the
 baseline's range (squared spread a + b × days). Conventions get no special treatment. What the rise and fade did
 pick up, a lasting shift after the conventions, goes to stage 3.
+
+### Stage 3: reversion and trend, pre-registration (written 2026-11-21, before any run; three questions await the user)
+
+Stage 3 runs on the national test bed, under the rule for stages 2 to 4 as stage 2 applied it:
+
+- **Elections.** 1980 to 2020 are scored, each fitted on the elections before it.
+- **Forecast inputs.** Readings dated at least 3 days before the date; the nowcast with its 60-day half-life.
+- **Score.** Squared error against the result, averaged over 150, 100 and 60 days.
+- **Clauses.** Beat 19 in 20 of 200 shuffles; better in at least 8 of 11 elections; a positive gain; and 30 and 7
+  days not worse on average.
+- **Baseline.** Forecast = nowcast, with stage 2's range (a + b × days). Stage 2 found no convention treatment, so
+  the nowcast enters stage 3 unchanged.
+
+**Decided with the user on 2026-11-21:**
+
+- Estimators must behave well in small samples.
+- The user's trend-survival model replaces "continue or reverse the last month's movement".
+- Its episode panel is presidential only. What pooling other series would add is reported.
+
+**Small-sample commitments, for every candidate.**
+
+- At most two fitted numbers in a candidate's adjustment. Not counted: the anchor's own regression, and a survival
+  curve estimated without parameters.
+- Every adjustment is shrunk toward none:
+  - a ridge penalty, chosen by leaving one earlier election out at a time within the fit (nested inside the
+    as-of backtest);
+  - or bounded to the range that makes sense (a pull between 0 and 1).
+- Elections are the independent units. Uncertainty on fitted values comes from leaving one election out at a time.
+- Every fitted value is reported election by election, with any grid-edge pick.
+- A yes/no model is fitted by Firth's bias-reduced method.
+
+**Data.**
+
+- **Approval:** `gallup_approval.csv` (Gallup, 1941 to January 2021). Approval on a date is the mean of the
+  readings that ended in the 30 days before it, or else the latest one before it. Readings are sparse in some
+  years (2 to 4 in the 200 days before 1972 and 1976). The 30-day change is zero in 18 of the 90 election-date
+  cells, so candidate 5 has little to work with there.
+- **The president's party:** `fundamentals_dataset.csv`.
+  - The series' `d_incumbent_party` column is not used. In the source years it appears to mark an incumbent
+    president running (1 in 1964, 1980, 1996 and 2012; 0 in 1952, 1968 and 2000).
+  - The repo's own 2016 and 2020 rows mark the party in office instead.
+  - Approval moves the incumbent party's margin: + for a Democratic president, − for a Republican.
+- **The previous result:** the series' result for the election before. 1952 has none, so it is left out wherever
+  the previous result is needed (fits and shuffles for candidates 1 and 3).
+- **The undecided share u:** 100 minus both candidates' shares, averaged like the nowcast.
+  - The series has it for 1952 to 2004 and for 2020. Before 2004 it includes third-party support, which cannot be
+    separated.
+  - Its 2008 to 2016 sources are two-party only (u is 0 on every row), so for those years u comes from the repo's
+    national polls (`president_general_polls.csv`). There the margin and the share come from different sets of
+    polls.
+- **Reading density** rises from 17 readings a cycle (1952) to 347 (2020). Measures built from the lighter average
+  (episodes, spread) will partly track density. Standardizing against earlier, sparser elections builds a time
+  trend into them. Density is reported beside them.
+
+**The six candidates.**
+
+1. **Pull toward an anchor.**
+   - The anchor is the incumbent party's margin, predicted from approval on that date and the previous result: a
+     ridge regression on the earlier elections at the same number of days out, with an unpenalized intercept.
+     Turned into the Democratic margin by the president's party.
+   - Forecast = nowcast + λ × (anchor − nowcast), with λ = k × days / 150, bounded to 0 to 1.
+   - k is fitted by ridge least squares on the earlier elections, at every tenth day from 150 to 10 and at 7.
+   - Reported, not decided: k fitted separately before and after the second convention ends. Stage 2 found that
+     movement after the conventions lasts.
+2. **Trend survival** (the user's idea, replacing "continue or reverse").
+   - **The lighter average.** The nowcast with a 14-day half-life, computed each day.
+   - **Episodes, on the clock of what is known.** A turning point is confirmed on the day the lighter average has
+     moved back 1.5 points from its latest extreme (a zig-zag filter). An episode runs from one confirmed turning
+     point to the next. Its age on a day is the weeks since its start was confirmed, and it ends in the week the
+     next turning point is confirmed. Fit and forecast both use this clock, so neither uses a peak that was not yet
+     known. An episode still running on election day is censored. Thresholds of 1.0 and 2.0 points are reported.
+   - **Episode counts** (no results used):
+
+     | Threshold | 1980 to 2020 | 1952 to 1976 |
+     |---|---|---|
+     | 1.0 | 82 | 23 |
+     | 1.5 | 50 | 17 |
+     | 2.0 | 33 | 14 |
+
+     2020 has none at 1.5 points. 1980 has 6.
+   - **The survival curve.** The chance an episode is still running after each week, by Kaplan-Meier on the earlier
+     elections' episodes (no parameters). A discrete-time logistic hazard with one term for age, fitted by Firth's
+     method, is reported beside it.
+   - **Uncertainty, reported only.** A bootstrap that resamples elections, and leave-one-election-out. With few
+     elections the bootstrap understates uncertainty, and early fits have too few elections for it to mean much.
+   - **The drift.** The lighter average's mean weekly movement in the episode's direction, over the weeks the
+     earlier elections' episodes were running, on the same clock. Pooled and shrunk toward zero (ridge). This is the
+     one fitted number.
+   - **The forecast.** Forecast = nowcast + drift × direction × the expected weeks the current episode has left,
+     given its age, capped at the weeks to the election.
+   - **A control row, deciding nothing.** The 60-day nowcast lags the 14-day average, so a trend term partly just
+     catches up. The 14-day average alone, with no trend term, is reported beside it.
+   - **The null, deciding nothing.** The same episode-finding is run on each election's daily changes in shuffled
+     order. Its survival curve is shown beside the real one, to show whether episodes last longer than noise and
+     smoothing alone make them.
+3. **Durability.** A steady race gets a weaker pull and a narrower range, as the plan says.
+   - s is the spread of the lighter average's weekly changes so far, standardized against the earlier elections at
+     the same number of days out. High s means an unsteady race.
+   - **(a) The pull.** λ × exp(β × s), with β ≥ 0. A steady race (low s) is pulled less; an unsteady one more. β is
+     ridge-shrunk toward 0. Squared error decides.
+   - **(b) The range.** The squared spread × exp(γ × s), with γ ≥ 0 fitted by maximum likelihood. Log score decides.
+   - Judged against the baseline under the rule, and also reported against candidate 1, to show what steadiness
+     adds.
+4. **Undecided voters.**
+   - **(a) How they break.** A proportional break leaves the two-party margin as it is; an even break gives the
+     margin in points of all respondents, which is the two-party margin × (1 − u/100). Centre = nowcast ×
+     (1 − (1 − α) × u/100), with α between 0 and 1 fitted on the earlier elections. Squared error decides.
+   - **(b) A wider range when there are many.** The squared spread gains κ × u. κ ≥ 0 is fitted by maximum
+     likelihood. Log score decides.
+5. **Shifts that come with approval.**
+   - The nowcast's movement over the last 30 days is split in two: the part predicted by the change in approval over
+     the same 30 days (a pooled regression on the earlier elections, in the incumbent party's terms), and the rest.
+   - Forecast = nowcast − ρ × the rest, with ρ between 0 and 1 and ridge-shrunk. The part that comes with approval is
+     kept.
+   - The variant that reverts both parts by the same ρ is reported beside it, so the comparison shows whether the
+     approval part lasts longer.
+6. **Shifts spread evenly against concentrated ones.** Only the state polls from 2004 can measure this, so at most
+   2012, 2016 and 2020 could be scored (question 2 below).
+
+Candidates 3 and 4 have two parts each. Each part is tested on its own and can pass on its own; they count as one
+candidate each toward the six.
+
+**The shuffle.** Each candidate's feature is handed between elections as a whole series by days out, and the fit is
+redone inside each of 200 shuffles:
+
+- **1:** the anchor's inputs (approval series and previous result, in the incumbent party's terms, turned into the
+  Democratic margin by the receiving election's president's party). Elections 1956 to 2020.
+- **2:** the lighter average's path, which carries the episode state.
+- **3:** the spread series only, with the anchor left as it is. So this tests what steadiness adds.
+- **4:** the undecided share.
+- **5:** the approval series.
+
+This is weak wherever a feature is much alike from year to year.
+
+**Many tests.** Six candidates, eight tests, each at 1 in 20: there is roughly a one-in-four chance that at least
+one passes by noise alone.
+
+**If more than one passes.**
+
+- 1 and 3(a) are alternatives: the larger gain is adopted.
+- 2 and 5 adjust for movement and may join 1 or 3(a). A combination is adopted only if it passes the rule against
+  the baseline; otherwise the single best.
+- 3(b) and 4(b) change only the range. If both pass, the one with the better log score is adopted.
+- 4(a) changes the centre for undecided voters and may join anything.
+- If none passes, the forecast is the nowcast with the baseline's range.
+
+**Checks before any loss is read.**
+
+- 2024 is absent.
+- The leak test.
+- The as-of test: changing an election's own result, and every later election, leaves its fits and forecast
+  unchanged.
+- Behaviour on made-up series:
+  - a planted pull is recovered;
+  - a made-up series with known turning points gives the right confirmation days, and none before they happen;
+  - planted episode lengths give back their survival curve;
+  - u = 0 makes candidate 4(a) the baseline.
+
+**Questions for the user:**
+
+1. **Early fits for candidate 2.** With 1980 as the first scored election and fits only on earlier ones, 1980 has no
+   presidential episodes from 1980 on to learn from, and 1984 only 1980's six.
+   - Either the early fits also use 1952 to 1976 (17 episodes at 1.5 points, from sparse readings);
+   - or candidate 2 gets a burn-in and is scored on 1988 to 2020 only (9 elections, needing 6 of 9 better).
+
+   Proposed: the first, with 1980 to 1988 reported apart.
+2. **Candidate 6.** Three scored elections cannot meet a rule built for eleven. Proposed: a diagnostic deciding
+   nothing. It shows how often a 30-day national shift that was evenly spread across states (a small standard
+   deviation of the state shifts, against the national shift) held over the next 30 days, against a concentrated
+   one.
+3. **One round,** as in stage 2.
+
+**Stage 3: decisions of 2026-11-21, and amendments before any run.**
+
+The user decided:
+
+- **The survival curve** is a discrete-time hazard: the chance an episode ends in a given week, as a logistic
+  function of its age.
+  - The age term is shrunk toward zero by a ridge penalty, chosen by leaving one earlier election out at a time.
+    With no clear age effect it becomes a constant weekly chance of ending (a geometric model).
+  - Kaplan-Meier, the unshrunk Firth fit and the bootstrap over elections are reported beside it as checks.
+  - A random survival forest was considered and set aside: about 50 episodes in 11 elections are too few, they are
+    not independent, and a forest has no shrinkage toward "no effect".
+  - **Exception to the two-number limit:** candidate 2 has three fitted numbers (the base rate, the age term and the
+    drift). The extra one is shrunk toward zero, so at worst it adds nothing.
+- **Early fits for candidate 2** also use the 1952 to 1976 episodes. 1980 to 1988 are reported apart.
+- **Candidate 6 is a diagnostic,** deciding nothing on its own.
+
+**What diagnostics may do** (confirmed by the user on 2026-11-21).
+
+- No diagnostic can turn a failing candidate into a pass.
+- A diagnostic can only **flag** a pass. A flagged pass goes to the user to decide; an unflagged pass is adopted
+  under the rule. The flags, fixed now:
+  - **Candidate 2:**
+    - The 14-day average with no trend term scores at least as well as candidate 2 on the rule's score. The gain is
+      then shorter memory, not the trend.
+    - Or the real survival curve lies inside the range of the shuffled-changes null. The episodes then last no longer
+      than noise makes them.
+  - **Candidate 3:** candidate 1 alone scores at least as well as 3(a). Steadiness then adds nothing.
+  - **Candidates 1, 2 and 5 against candidate 6.** These forecast that recent movement reverts (1, 5) or continues
+    (2). The flag is raised if candidate 6 finds that evenly spread shifts held more often than concentrated ones
+    by 15 percentage points or more over the next 30 days, in either direction. A forecast that treats all shifts
+    alike would then be missing something. The flag also says the evidence is three elections.
+  - **Candidate 1:** the pull fitted after the conventions is less than half the pull fitted before them, on the
+    elections where both can be fitted. Stage 2's lasting post-convention shift would then be at odds with a single
+    pull.
+- Otherwise a diagnostic is reported for what it shows, and it points to later work, not to a change now.
+
+**Confirmed by the user on 2026-11-21:** the diagnostic rule above, and one round, as in stage 2.
+
+**Stage 3: amendments after the code review, before any loss was read** (`src/model/pres_reversion.py`).
+
+- **Candidate 2's drift is on the same clock as the hazard.** Each episode's final, partial week up to the
+  confirmation day is included.
+  - Between two confirmations an episode's net movement is its swing less twice the threshold, so the drift could
+    have come out near zero. Checked without results, it does not.
+  - Over 92 finished episodes (1952 to 2020, found from 260 days out), the mean net movement is +1.18 points in the
+    episode's direction, and the mean weekly movement +0.30.
+  - The adjustments it gives are typically 0.1 to 2 points.
+  - A negative fitted drift would be used as fitted.
+  - Episodes are found from 260 days out, not the 200 behind the counts above, so there are more of them.
+- **The null rebuilds the readings, then smooths.** The text said the light average's own changes are shuffled; that
+  would remove the smoothing too. Instead, each election's reading-to-reading changes are shuffled, the readings
+  rebuilt, the 14-day average recomputed and the episodes found again.
+- **Seven tests on five candidates:** 1, 2, 3(a), 3(b), 4(a), 4(b) and 5; candidate 6 is a diagnostic. At 1 in 20
+  each, the chance that at least one passes by noise is about 30%, not one in four.
+- **Candidate 6 uses five elections** (2004 to 2020), not three. Its flag says so.
+- **What candidate 1's shuffle tests.** With the inputs shuffled, the pull is still toward an average incumbent
+  margin. Passing means approval and the previous result add to that, not that a pull helps at all.
+- **Approval has no publication lag.** It uses readings that ended before the date; Gallup published within days.
+- **Checks, rerun and passed:**
+  - the nowcast equals stage 2's exactly;
+  - a pull is recovered;
+  - turning points are confirmed on the right days and never before;
+  - geometric durations give back their rate;
+  - the drift's net movement over a made-up episode is zero, and the sign of the adjustment follows the drift;
+  - u = 0 gives the baseline;
+  - the leak test passes;
+  - the as-of test passes, with later elections' series reshaped (scaled and noised, not shifted) and their
+    results moved by random amounts.
+- Every forecast and spread is checked to be finite before it is scored. The real-data results are written to disk
+  before the shuffles start.
+
+### Stage 3: results (run 2026-11-21). One test passes: the undecided break, 4(a).
+
+`src/model/pres_reversion.py run` (`data/processed/pres_reversion.json`) and `report`
+(`data/processed/pres_reversion_report.json`). 11 scored elections; 200 shuffles per candidate.
+
+| Test | Score | Gain | Elections better | Shuffles beaten | 30 and 7 days not worse | Verdict |
+|---|---|---|---|---|---|---|
+| Baseline (nowcast) | 64.68 | | | | | |
+| 1. Pull toward an anchor | 76.93 | −12.25 | 6 | 12% | no | fails |
+| 2. Trend survival | 63.37 | +1.31 | 6 | 81% | no (7 days worse) | fails |
+| 3(a). Durability, pull | 76.25 | −11.57 | 6 | 76% | no | fails |
+| 3(b). Durability, range (log score) | −3.55 against −3.65 | +0.105 | 5 | 99% | yes | fails (5 of 11) |
+| **4(a). Undecided break** | **52.10** | **+12.58** | **8** | **97.5%** | **yes** | **passes** |
+| 4(b). Undecided, range | κ = 0 in every fit: the baseline | 0 | 0 | | | fails |
+| 5. Approval shifts | ρ = 0 in every fit: the baseline | 0 | 0 | | | fails |
+
+**4(a) passes every clause, and no diagnostic flag applies to it, so under the rule it is adopted.**
+
+- α came out at 0 in every fit, the edge of its grid: an even break, so the forecast is the nowcast × (1 − u/100).
+- It is better at every date: 100 days 47.58 against 57.32, 60 days 26.07 against 30.26, 30 days 16.14 against
+  19.18, and 7 days 13.11 against 17.03.
+- **What carries it.** With the undecided share shuffled between elections, the gain is still positive in every
+  shuffle (median 8.2, 95th percentile 11.84). So most of the gain comes from shrinking the margin toward a tie by
+  about the size of a typical undecided share. The election's own share adds the rest (12.58 against the
+  shuffles' 8.2), enough to beat 19 in 20.
+- Before 2004 the share includes third-party support (Anderson 1980, Perot 1992 and 1996), so "undecided" there
+  partly means third-party voters. The formula treats them as splitting evenly, which they do not. It works
+  empirically, but the mechanism is a margin that shrinks toward a tie, not only undecided voters breaking.
+- For 2008 to 2016 the share comes from the repo's polls.
+- By election at 7 days its squared error is lower in 1992, 1996, 2000, 2016 and 2020, and higher in 1980, 1984,
+  1988, 2004, 2008 and 2012. Most of the 7-day gain is 1992 and 1996, the Perot years.
+
+**The others.**
+
+- **1. The anchor pull fails badly.** k came out at its bound of 1 (full pull to the anchor at 150 days) in 8 of 11
+  fits, with no shrinkage chosen. The anchor from approval and the previous result is far worse than the polls at
+  150 days (134.89 against 106.46). It helps in 1988, 1992, 1996, 2000, 2004 and 2008, and is very wrong in 1980
+  (530 against 197) and 1984. EC-3's fundamentals model replaces this anchor later. The diagnostic pull before and after the conventions
+  is 0.94 and 1.0, so no flag.
+- **2. Trend survival fails.** It gains 1.31 and beats 81% of the shuffles, but is better in only 6 elections and
+  worse at 7 days (18.16 against 17.03).
+  - Both of its flags would have applied had it passed. The 14-day average alone scores better (60.50).
+  - The episodes' survival curve lies inside the shuffled-readings null at every week: about half still running at
+    4 weeks and a quarter at 8, as noise and smoothing alone would give.
+  - The hazard's age term was kept (about +0.03 to +0.04 a week, older episodes slightly likelier to end) in 7 of
+    11 fits, and shrunk to 0 in 4. The unshrunk Firth fits agree (+0.025 to +0.048).
+  - The bootstrap over elections puts survival at 4 weeks between about 0.47 and 0.61.
+  - At thresholds of 1.0 and 2.0 points, the gains are −3.69 and +2.00, each better in 5 and 6 elections and worse
+    at 30 and 7 days.
+  - The approval series would add 1 to 6 episodes an election if pooled.
+- **3. Durability fails.** β was 0 or 0.1, so the pull is candidate 1's and fails with it.
+  - The range part, 3(b), beat 99% of its shuffles and kept 30 and 7 days, but is better in only 5 of 11
+    elections.
+  - γ rose from 0 to 0.5 as elections were added, so later fits say an unsteady race deserves a wider range. That
+    is worth testing again with more years.
+- **4(b) and 5 never moved off the baseline.**
+  - κ = 0 and ρ = 0 in every fit; the undecided share adds nothing to the range, and no part of the last month's
+    movement reverts, whether it came with approval or not.
+  - The pooled approval effect is about 0.2 points of margin per point of approval over 30 days.
+  - Leave-one-out ranges for the 2020 fit: k 0.72 to 1.0, drift 0.20 to 0.30 a week, α 0 and ρ 0 throughout.
+- **6. Evenness diagnostic.**
+  - Only 8 cases qualified: a national shift of a point or more in 30 days, with five or more states polled in
+    both windows, in 2004, 2008 and 2016. Every one held.
+  - So there is no difference between even and concentrated shifts, and no flag. Too few to say anything.
+
+**Many tests.** Seven tests, about a 30% chance of one fluke pass. 4(a) beats its shuffles narrowly (97.5% against
+the 95% needed). It is better at every date and in 8 of 11 elections.
+
+**Stage 3 closed.** One round, as agreed.
+
+- **The forecast is the nowcast scaled by (1 − u/100)**, u being the undecided (and, before 2004, third-party)
+  share averaged like the nowcast. Its range is the baseline's.
+- No pull toward an anchor, no trend term and no reversion of recent movement.
+
+**For later:**
+
+- Stage 5 and the 2028 model need the undecided share measured the way it is here. In 2028 that means asking which
+  polls report it and whether third-party support is in it.
+- The anchor returns with EC-3.
+
+**Stage 3 results: corrections and additions after review (2026-11-21; no rerun).**
+
+- **How narrowly 4(a) passes.**
+  - The 8 of 11 includes 2004 at 6.80 against 6.89.
+  - It beats 97.5% of the shuffles, where 95% is needed.
+  - α sat on its bound (0) in every fit.
+  - With about a 30% chance of a fluke across seven tests, this is a pass at the margin.
+- **What 4(a) is, plainly.** The two-party margin × (1 − u/100) is the raw margin: the Democrat's share minus the
+  Republican's, in points of all respondents. For example, 1992 at 43.5 against 46.5 gives −3.0 against −3.33
+  two-party. The forecast is the raw margin averaged like the nowcast.
+- **Third-party support is in u after 2004 too.** In 2016 the repo's national polls give a median share of about 13
+  where a poll asked the head-to-head question and 20 where it asked only the full field (Johnson, Stein). So the
+  adjustment depends heavily on which question a poll asked. For 2028 this is a decision, not a detail: full field
+  or head-to-head, and how to treat a third candidate (section 10).
+- **Bounds hide signs.** Several picks sat on a bound:
+  - k = 1 in 8 of 11 fits;
+  - α = 0 in all;
+  - κ = 0, ρ = 0 and both reversion variants at 0 in all;
+  - β at 0 or 0.1.
+
+  ρ could not go negative, so "no part of the last month's movement reverts" is supported, but "it does not
+  continue" is not. Candidate 2's gain and the 14-day row both lean toward continuation at 150 to 60 days.
+- **Candidate 1 failed as built.** In the fit for k, each earlier election's anchor came from all the other earlier
+  elections, including ones after it. The scored election's anchor came only from strictly earlier ones. That
+  flatters the anchor in the fitting rows and probably explains k at its bound with no shrinkage. The failure is
+  this build's, not necessarily the idea's. It is not rerun (one round). EC-3 replaces the anchor.
+- **Periods.** 4(a) scores 121.34 against 130.61 in 1980 to 1988, and 26.14 against 39.95 from 1992 on. Most of
+  the 7-day gain is 1992 and 1996, when third-party support was large.
+- **Leave-one-out ranges** were computed for 2020's fit only.
+- **Reading density**, readings within 260 days: 14 to 29 a cycle in 1952 to 1976, 61 to 97 in 1980 to 1988, and 114
+  to 242 from 1992.
+- **Open items the adoption creates:**
+  - **The range.** The baseline's range was fitted to the nowcast's errors; the adopted centre's are smaller. It is
+    refitted when the model is assembled.
+  - **States.** How the raw-margin scaling applies to state margins is stage 5's question.
