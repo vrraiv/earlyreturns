@@ -315,3 +315,96 @@ with the two under them:
 - A state where a third candidate polls in double digits still needs a rule (section 10).
 - Until the fundamentals model exists (EC-3), the anchor is the president's approval plus the previous result.
 - The three convention treatments are the ones listed in stage 2.
+
+### Stage 1: pre-registration (written 2026-11-20, before any candidate run)
+
+The harness is `src/model/pres_nowcast.py`. Only its baseline has been run.
+
+**Test bed.** The repo's presidential polls, 2004 to 2020: states, the Maine and Nebraska districts, and the nation
+(11,427 polls). Each poll contributes one question: the head-to-head question if the poll asked one, then the
+likely-voter version, then voters, registered voters and adults. Its limits:
+
+- 2000 is out: only the last 60 days are held, and there is no population field.
+- 2004 has only late national polls, with no population field. A missing population is read as likely voters.
+- 2012's national polls carry no head-to-head flag.
+- 2016's 1,944 state subsamples of national online panels are left out, as the collector flags them.
+- The partisan-sponsor flag exists only in 2020. The sponsor shift does nothing in the other cycles.
+- Pollster names come from different sources by cycle, so pollster effects are estimated within a cycle only.
+- 2024 is refused at load.
+
+**Score (no candidate can move it).**
+
+- The test runs each week from 161 days before the election. The polls that end in the next 7 days are that
+  week's targets, so each poll is a target at most once.
+- A target is a likely-voter (or "voters") poll with no sponsor flag, taken as published. Its prediction is the
+  average at the start of its week, built only from polls that ended before then and without its own pollster's
+  polls. Otherwise a pollster with overlapping field periods would predict itself, and short half-lives would win
+  for that reason.
+- A target counts if a different pollster polled the same place in the 60 days before. The target set is fixed
+  before any candidate runs: 7,549 polls.
+- Loss is the squared error in the two-party margin. It is averaged within each cycle and the cycles are weighted
+  equally, because 2020 alone has more than twice the targets of any cycle before 2016. It is also reported for the
+  nation and the states, and for three bands: 1 to 30, 31 to 90 and 91 to 161 days out.
+- Each cycle's sampling variance of the targets is reported beside its loss. No average can remove it.
+
+**Baseline: the Senate average's weighting, borrowed as it is.** Checks passed: it matches `pollavg.weighted_avg`
+exactly on 25 random places and dates; moving every poll that ends on or after the date by 50 points leaves the
+average unchanged in 40 random cases; and 2024 is refused at load.
+
+- **60-day half-life.** Chosen on the 2018 and 2022 Senate backtest against results, over about the last 140 days.
+  No decay at all was best there, by 0.12 points; 60 days was kept so the average still reacts to late shifts.
+- **Population weights.** Registered voters 0.69, adults 0.5. From Senate and House polls of 2018 to 2024, against
+  results.
+- **Population lean.** Registered-voter and adult polls are moved 0.45 points toward the Democrat. This is paired
+  likely-against-registered questions in generic-ballot, Senate and House polls of 2018 to 2024, updated with 2026's.
+  It is a figure for midterms under a Republican president, which presidential years may not share.
+- **Sponsor shift.** A flat 4.3 points.
+- **Pollster weight.** Each pollster's weight is divided by the square root of its number of polls in the place.
+
+None of these figures used presidential polls or results. Some of the inputs are 2024 Senate and House polls.
+
+| | 2004 | 2008 | 2012 | 2016 | 2020 | Cycles equal |
+|---|---|---|---|---|---|---|
+| Targets | 1,098 | 1,181 | 939 | 1,562 | 2,769 | 7,549 |
+| Loss (points squared) | 24.1 | 38.4 | 18.2 | 33.8 | 20.7 | **27.1** |
+| Sampling part | 15.0 | 14.3 | 13.2 | 11.6 | 8.2 | |
+
+By band the loss is 23.2 (1 to 30 days), 27.4 (31 to 90) and 35.5 (91 to 161). It is 19.2 for the nation and 28.4
+for the states.
+
+**Candidates.** Three, one per item the plan names. Each is run alone against the baseline. If more than one is
+adopted, the combination is run and reported, but it is not a fourth candidate.
+
+1. **Half-life.** Grid: 7, 10, 14, 21, 30, 45, 60 and 90 days. For each cycle, the value is the one with the lowest
+   loss on the other four cycles, and it is scored on the held-out cycle. A value picked and scored on the same
+   cycles is not a test.
+2. **Pollster house effects, as of each date.**
+   - Every poll's gap is its margin minus the baseline average of the other pollsters in the same place, as of
+     the poll's end date.
+   - A pollster's effect at date t is the mean of its gaps from polls that ended before t, in the same cycle,
+     shrunk toward zero as gaps × k / (k + λ), where k is its number of polls.
+   - The effect is subtracted from each of its polls in the average.
+   - λ is chosen from 2, 5, 10, 20 and 50 on the other four cycles. No results are used.
+   - The existing `pollster_effects.json` is not used: it was fitted on 2010 to 2022 polls, including the
+     presidential polls scored here.
+3. **Registered-to-likely correction re-estimated for presidential polls.**
+   - Each registered-voter poll's gap is its margin minus the average of other pollsters' likely-voter polls in the
+     same place, as of its end date.
+   - The correction for a cycle is the mean of those gaps in the other four cycles, each cycle's mean weighted
+     equally. It replaces the borrowed 0.45 for registered-voter and adult polls.
+   - Paired questions (the same poll asked of both groups) exist only in 2020, in 1,653 polls. Their mean is
+     reported as a check and not used.
+   - The targets are likely-voter polls, so this candidate is judged on the quantity the forecast needs.
+
+Anything that moves a state's polls using the national series belongs to stage 4, not here.
+
+**Adoption rule for stage 1 (a default, awaiting a ruling).** A candidate is adopted if all four hold:
+
+- its loss, with cycles weighted equally, is lower than the baseline's;
+- it is lower in at least 4 of the 5 cycles;
+- it passes a paired sign-flip test at 1 in 20, over place-and-cycle units with 2,000 flips. Each unit is the mean
+  loss difference over that place's targets in that cycle, weighted as in the loss;
+- it is not worse in the 91 to 161 day band, where the forecast's first test dates fall.
+
+A sign test over five cycles alone cannot reach 1 in 20 unless all five agree. That is why the place-and-cycle test
+carries the significance and the cycle count guards against one cycle driving the result.
