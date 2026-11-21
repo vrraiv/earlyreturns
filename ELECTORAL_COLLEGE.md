@@ -444,7 +444,8 @@ Ninety days was picked for every held-out cycle, and 90 is the edge of the grid.
 days to 60 and barely moves after that (27.29 to 27.21). Short half-lives are clearly worse.
 
 **2. Pollster house effects.** Fails: p 0.35, though better in 4 cycles, with a gain of 0.79 in the 91 to 161 day
-band.
+band. (Found 2026-11-21: these figures leak. The own-firm test fails in 18 of 20; see "Who the score sees: results".
+They are not rerun.)
 
 - Every λ in the grid has a lower loss than the baseline over the five cycles: 26.71 at λ = 2 or 5, up to 26.85
   at 50, against 27.29. The held-out test fails because the cycles disagree on how strong the effects should be:
@@ -556,7 +557,7 @@ byte-identical baseline file.
 | Candidate | Gain | Cycles better | p (sign-flip) | Gain, 91 to 161 days | Verdict |
 |---|---|---|---|---|---|
 | 4. Memory by poll count | −0.09 | 2 | 0.61 | −1.07 | fails |
-| 5. National trend adjustment | −0.01 | 2 | 0.51 | −0.06 | fails |
+| 5. National trend adjustment (leaked; superseded by the corrected run below) | −0.01 | 2 | 0.51 | −0.06 | fails |
 | 6. House effects, same week: first version (leaked; withdrawn) | +1.34 | 5 | 0.0005 | +2.22 | void |
 | **6. House effects, same week: corrected, of record** | **+0.40** | **3** | **0.006** | **+1.22** | **fails** |
 | 7. Weight by total expected error | −0.19 | 0 | 0.99 | −0.15 | fails |
@@ -685,7 +686,8 @@ leak and is not a new candidate.
   7e-15 over 300 targets).
 - Every candidate in the table, rebuilt at its stored picks, matches its stored per-cycle losses to three decimals.
 - Own-firm test, 20 targets each: every candidate passes except **round 1's house effects, which fail in 18 of
-  20**. They compare each poll with other firms' earlier polls, and those other firms' effects were measured
+  20**. Candidates 3, 7 and 8 pass by construction: they are fitted on the other four cycles, and the test moves
+  only the target's cycle, so their settings were not refitted for it. They compare each poll with other firms' earlier polls, and those other firms' effects were measured
   against the target firm's polls too: the same leak as the first version of same-week house effects. They failed
   the rule even with that help, so they are not rerun. Their row below leaks.
 
@@ -709,7 +711,8 @@ leak and is not a new candidate.
 **Loss by density.** Classes count the polls of the target's place in the 30 days before its week, without the
 target's own firm. Cycles weighted equally within each class.
 
-Targets per class and cycle:
+Targets per class and cycle (the 0 class is 215 here, not the "about 90" written beforehand, because the
+target's own firm is now left out of the count):
 
 | | 2004 | 2008 | 2012 | 2016 | 2020 |
 |---|---|---|---|---|---|
@@ -739,12 +742,14 @@ Baseline loss: 19.26 (nation), 17.39 (10+), 25.80 (4 to 9), 40.96 (1 to 3), 53.6
 What it shows, as a hint and not a verdict:
 
 - **What helps thin places hurts dense ones.** Slower forgetting (1, 4 and the trend's half-lives) gains 0.5 to 1.9 in
-  places with 0 to 3 recent polls and loses 0.2 to 0.6 where there are 10 or more. Dense places give 61% of the
-  targets, so the dense losses cancel the thin gains in the overall score. This is the density diagnostic's
+  places with 0 to 3 recent polls and loses 0.2 to 0.6 where there are 10 or more. In this table's classes, states
+  with 10 or more polls give 2,080 targets (28%) and the nation 1,866 (25%), against 1,952 (26%) for states with 0
+  to 3. The thin gains are larger per target, but they are cancelled in the overall score. This is the density diagnostic's
   finding again, now for every candidate.
 - **The trend adds little beyond the longer memory it brings.** Against the control with the same half-life, the
-  trend itself gains 0.91 in the 0 class, 0.24 at 4 to 9, and loses 0.17 at 1 to 3. The 0 class has 215 targets
-  (26 to 89 a cycle), so 0.91 is within noise.
+  trend itself gains 0.91 in the 0 class, 0.24 at 4 to 9, and loses 0.17 at 1 to 3. By cycle, its part in the 0
+  class is −0.86, +2.30, +3.24, −1.86 and +1.71 (2004 to 2020), on 26 to 89 targets a cycle; at 1 to 3 it is
+  −0.23, +3.26, −2.20, −1.96 and +0.29. 2008 gains in every class (+3.0 to +3.3); the other cycles split.
 - **Corrected same-week house effects are the only candidate with a real gain in the nation (+0.14).** They also
   gain in every state class except the dense one (−0.29).
 - The weight changes (7, 8) and the registered-voter changes (3, 9) barely move any class.
