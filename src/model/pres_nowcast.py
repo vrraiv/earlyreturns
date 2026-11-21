@@ -161,11 +161,43 @@ def targets(q):
     return pd.DataFrame(rows)
 
 
+def firm_readings(e, s):
+    """Round 3, candidate 10: each firm's latest reading (its polls on its latest end date, weighted mean of the
+    adjusted margins) with its weight (mean sample-size x population weight) and date, newest first."""
+    w0 = np.sqrt(np.minimum(e.n.values, 3000) / 600) * e["pop"].map(s["pop_w"]).fillna(0.7).values
+    a = adjusted(e, s)
+    x = pd.DataFrame({"pkey": e.pkey.values, "end": e.end.values, "aw": a * w0, "w": w0})
+    x = x[x.end.values == x.groupby("pkey").end.transform("max").values]
+    r = x.groupby("pkey").agg(end=("end", "first"), aw=("aw", "sum"), w=("w", "sum"), cnt=("w", "size"))
+    r["m"] = r.aw / r.w
+    r["wt"] = r.w / r.cnt
+    return r.sort_values("end", ascending=False)
+
+
+def latest_k_value(r, k):
+    if len(r) > k:
+        r = r[r.end >= r.end.iloc[k - 1]]
+    return float(np.average(r.m, weights=r.wt))
+
+
 def predict(q, tg, s):
     """Prediction for every target: the average at its week's start without its own pollster."""
     out = np.empty(len(tg))
     for (c, g, t), idx in tg.groupby(["cycle", "geo", "t"]).groups.items():
         d = q[(q.cycle == c) & (q.geo == g) & (q.end < t)]
+        if s.get("latest_k") is not None:               # round 3, candidate 10
+            for j in idx:
+                e = d[d.pkey != tg.at[j, "pkey"]]
+                out[tg.index.get_loc(j)] = latest_k_value(firm_readings(e, s), int(s["latest_k"]))
+            continue
+        if s.get("dens_hl") is not None:                # round 3, candidate 11
+            hd, hs, D = s["dens_hl"]
+            for j in idx:
+                e = d[d.pkey != tg.at[j, "pkey"]]
+                k = int((e.end >= t - pd.Timedelta(days=30)).sum())
+                s2 = dict(s, half_life=float(hd if k >= D else hs))
+                out[tg.index.get_loc(j)] = np.average(adjusted(e, s2), weights=weights(e, t, s2))
+            continue
         if s.get("house") is not None and getattr(s["house"], "per_target", False):
             for j in idx:                               # effects estimated again without the target's firm
                 pk = tg.at[j, "pkey"]
@@ -636,6 +668,60 @@ def candidate(name, q, tg):
                         "is the baseline's"}
         return nat_base(run_per_cycle(q, tg, {c: dict(BASE, half_life=float(k[1]), trend=fns[k[0]])
                                               for c, k in pick.items()})), info
+    if name == "latest_k":
+        allk = {k: np.empty(len(tg)) for k in LATEST_K}
+        for (c, g, t), idx in tg.groupby(["cycle", "geo", "t"]).groups.items():
+            d = q[(q.cycle == c) & (q.geo == g) & (q.end < t)]
+            for j in idx:
+                r = firm_readings(d[d.pkey != tg.at[j, "pkey"]], BASE)
+                for k in LATEST_K:
+                    allk[k][tg.index.get_loc(j)] = latest_k_value(r, k)
+        table = pd.DataFrame({k: cycle_losses(tg, v) for k, v in allk.items()}).T
+        for k, r in table.iterrows():
+            print(f"  k {k}: " + ", ".join(f"{c} {v:.2f}" for c, v in r.items()), flush=True)
+        pick = loo_pick(table)
+        pred = run_per_cycle(q, tg, {c: dict(BASE, latest_k=int(k)) for c, k in pick.items()})
+        fast = np.empty(len(tg))
+        for c, k in pick.items():
+            m = (tg.cycle == c).values
+            fast[m] = allk[k][m]
+        assert np.allclose(pred, fast, atol=1e-9), "grid path and predict path differ"
+        info = {"grid": {int(k): {int(c): round(float(v), 3) for c, v in r.items()} for k, r in table.iterrows()},
+                "picked": {int(c): int(k) for c, k in pick.items()},
+                "edge_picks": sorted({int(k) for k in pick.values() if k in (min(LATEST_K), max(LATEST_K))})}
+        return pred, info
+    if name == "dens_hl":
+        hls = sorted(set(DENS_HD) | set(DENS_HS))
+        ph = {h: predict(q, tg, dict(BASE, half_life=float(h))) for h in hls}
+        cnt = np.array([int(((q.cycle == r.cycle) & (q.geo == r.geo) & (q.end < r.t)
+                             & (q.end >= r.t - pd.Timedelta(days=30)) & (q.pkey != r.pkey)).sum())
+                        for r in tg.itertuples()])
+        table, preds = {}, {}
+        for hd in DENS_HD:
+            for hs in DENS_HS:
+                for D in DENS_D:
+                    preds[(hd, hs, D)] = np.where(cnt >= D, ph[hd], ph[hs])
+                    table[(hd, hs, D)] = cycle_losses(tg, preds[(hd, hs, D)])
+                    print(f"  dense {hd}, sparse {hs}, D {D}: "
+                          + ", ".join(f"{c} {v:.2f}" for c, v in table[(hd, hs, D)].items()), flush=True)
+        table = pd.DataFrame(table).T
+        pick = loo_pick(table)
+        pred = run_per_cycle(q, tg, {c: dict(BASE, dens_hl=k) for c, k in pick.items()})
+        fast = np.empty(len(tg))
+        for c, k in pick.items():
+            m = (tg.cycle == c).values
+            fast[m] = preds[k][m]
+        assert np.allclose(pred, fast, atol=1e-9), "grid path and predict path differ"
+        edges = []
+        for c, (hd, hs, D) in pick.items():
+            if hd in (min(DENS_HD), max(DENS_HD)) or hs in (min(DENS_HS), max(DENS_HS)):
+                edges.append(int(c))
+        info = {"grid": {f"{hd}/{hs}/{D}": {int(c): round(float(v), 3) for c, v in r.items()}
+                         for (hd, hs, D), r in table.iterrows()},
+                "picked": {int(c): f"{k[0]}/{k[1]}/{k[2]}" for c, k in pick.items()},
+                "cycles_with_an_edge_pick": edges,
+                "share_dense_at_D": {int(D): round(float((cnt >= D).mean()), 3) for D in DENS_D}}
+        return pred, info
     if name == "house_week":
         return predict(q, tg, dict(BASE, house=house_week_fn(q))), {"note": "no grid; shrinkage within cycle; "
                                                                     "first version (target firm in other gaps)"}
@@ -842,6 +928,50 @@ def density_split():
     print(G.round(2).T.to_string())
 
 
+# ---------------- round 3 ----------------
+LATEST_K = (2, 3, 5, 8, 12, 20)
+DENS_HD = (7, 14, 30)
+DENS_HS = (60, 90, 180, 365)
+DENS_D = (4, 10)
+
+
+def deletion_check(q, tg, s_builder, label, n=15, seed=4):
+    """Deleting polls must not change predictions: (a) every poll ending on or after t (all places, same cycle);
+    (b) every poll by the target's firm in the cycle."""
+    rng = np.random.default_rng(seed)
+    groups = list(tg.groupby(["cycle", "geo", "t"]).groups.items())
+    bad_a = 0
+    for k in rng.choice(len(groups), size=n, replace=False):
+        (c, g, t), idx = groups[k]
+        sub = tg.loc[idx]
+        q2 = q[~((q.cycle == c) & (q.end >= t))]
+        bad_a += int(np.max(np.abs(predict(q, sub, s_builder(q)) - predict(q2, sub, s_builder(q2)))) > 1e-9)
+    bad_b = 0
+    for j in rng.choice(tg.index.values, size=20, replace=False):
+        sub = tg.loc[[j]]
+        q2 = q[~((q.cycle == sub.cycle.iloc[0]) & (q.pkey == sub.pkey.iloc[0]))]
+        bad_b += int(np.max(np.abs(predict(q, sub, s_builder(q)) - predict(q2, sub, s_builder(q2)))) > 1e-9)
+    print(f"deletion tests, {label}: later polls {'PASS' if not bad_a else f'FAIL {bad_a}/{n}'}; "
+          f"own firm {'PASS' if not bad_b else f'FAIL {bad_b}/20'}", flush=True)
+    return bad_a == 0 and bad_b == 0
+
+
+def checks4():
+    q = load()
+    tg = targets(q)
+    assert len(tg) == 7547, len(tg)
+    ok = True
+    for label, b in [("baseline", lambda x: dict(BASE)),
+                     ("latest 5 firms", lambda x: dict(BASE, latest_k=5)),
+                     ("half-life by density 14/180/10", lambda x: dict(BASE, dens_hl=(14, 180, 10))),
+                     ("half-life by density 7/365/4", lambda x: dict(BASE, dens_hl=(7, 365, 4)))]:
+        ok &= leak_check(q, tg, b, label)
+        ok &= own_firm_check(q, tg, b, label)
+        ok &= deletion_check(q, tg, b, label)
+    if not ok:
+        raise SystemExit("a check failed")
+
+
 # ---------------- naive benchmarks (not candidates) ----------------
 NAIVE = ("latest_poll", "latest_five_firms", "every_poll")
 
@@ -947,6 +1077,8 @@ if __name__ == "__main__":
             raise SystemExit("a leak test failed")
     elif cmd == "checks3":
         checks3()
+    elif cmd == "checks4":
+        checks4()
     elif cmd == "benchmarks":
         benchmarks()
     elif cmd == "split":
@@ -970,6 +1102,13 @@ if __name__ == "__main__":
         pred, info = candidate(cmd, q, tg)
         _, sc = score(tg, pred)
         res = adoption(tg, base_pred, pred) | {"score": sc, "info": info}
+        if cmd in ("latest_k", "dens_hl"):              # round 3: keep per-target predictions and the density split
+            pp = pd.read_csv(OUT / "pres_nowcast_target_preds.csv", index_col="target")
+            pp[cmd] = np.round(pred, 4)
+            pp.to_csv(OUT / "pres_nowcast_target_preds.csv", index_label="target")
+            se = tg.assign(se=(pred - tg.y) ** 2, cls=pp.cls.values)
+            res["loss_by_density"] = (se.groupby(["cls", "cycle"]).se.mean().groupby("cls").mean()
+                                      .reindex(DENS_CLASSES).round(3).to_dict())
         (OUT / f"pres_nowcast_{cmd}.json").write_text(json.dumps(res, indent=1, default=float))
         print(f"\n== {cmd}: " + json.dumps({k: v for k, v in res.items() if k not in ("info", "score")}))
         print("score: " + json.dumps({k: sc[k] for k in ("loss", "national", "states", "by_band")}))
