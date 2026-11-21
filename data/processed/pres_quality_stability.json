@@ -1,0 +1,216 @@
+{
+ "2016_to_2020": {
+  "firms_in_both": 318,
+  "corr_firms_pearson": 0.727,
+  "corr_firms_spearman": 0.69,
+  "corr_polls_pearson": 0.93,
+  "polls_rated_new": 0.909,
+  "polls_rated_old": 0.593,
+  "polls_rated_new_not_old": 0.316,
+  "median_abs_weight_change_pct": 25.4,
+  "polls_weight_off_by_25pct_or_more": 0.514
+ },
+ "2020_to_2024": {
+  "firms_in_both": 419,
+  "corr_firms_pearson": 0.548,
+  "corr_firms_spearman": 0.478,
+  "corr_polls_pearson": 0.565,
+  "polls_rated_new": 0.822,
+  "polls_rated_old": 0.666,
+  "polls_rated_new_not_old": 0.156,
+  "median_abs_weight_change_pct": 26.9,
+  "polls_weight_off_by_25pct_or_more": 0.529
+ },
+ "top_2020_firms": [
+  {
+   "firm": "SurveyMonkey",
+   "polls": 1422,
+   "z2016": 1.4992927207348006,
+   "z2020": 2.971770439956549
+  },
+  {
+   "firm": "Morning Consult",
+   "polls": 466,
+   "z2016": null,
+   "z2020": 0.6105128047005671
+  },
+  {
+   "firm": "YouGov",
+   "polls": 123,
+   "z2016": -0.6251628366158635,
+   "z2020": -0.42253741072392487
+  },
+  {
+   "firm": "Change Research",
+   "polls": 104,
+   "z2016": null,
+   "z2020": 1.0532486113110637
+  },
+  {
+   "firm": "Ipsos",
+   "polls": 94,
+   "z2016": -1.5930793817452533,
+   "z2020": -0.12738020631692715
+  },
+  {
+   "firm": "Public Policy Polling",
+   "polls": 89,
+   "z2016": -0.9478785969924165,
+   "z2020": -0.7176946151309226
+  },
+  {
+   "firm": null,
+   "polls": 89,
+   "z2016": null,
+   "z2020": null
+  },
+  {
+   "firm": "Emerson College",
+   "polls": 77,
+   "z2016": -0.3813014180749095,
+   "z2020": -1.4555876261484169
+  },
+  {
+   "firm": "USC Dornsife/Los Angeles Times",
+   "polls": 72,
+   "z2016": null,
+   "z2020": 0.7580914069040661
+  },
+  {
+   "firm": "Data for Progress",
+   "polls": 64,
+   "z2016": null,
+   "z2020": -0.12738020631692715
+  },
+  {
+   "firm": "Quinnipiac University",
+   "polls": 55,
+   "z2016": -1.5653275958667179,
+   "z2020": -1.160430421741419
+  },
+  {
+   "firm": "Harris Insights & Analytics",
+   "polls": 51,
+   "z2016": null,
+   "z2020": 0.6105128047005671
+  }
+ ],
+ "top_2024_firms": [
+  {
+   "firm": "Morning Consult",
+   "polls": 179,
+   "z2020": 0.6105128047005671,
+   "z2024": -0.7706422679863838
+  },
+  {
+   "firm": "Redfield & Wilton Strategies",
+   "polls": 118,
+   "z2020": null,
+   "z2024": 0.9338795418372153
+  },
+  {
+   "firm": null,
+   "polls": 80,
+   "z2020": null,
+   "z2024": null
+  },
+  {
+   "firm": "Emerson College",
+   "polls": 71,
+   "z2020": -1.4555876261484169,
+   "z2024": -2.7186671934990687
+  },
+  {
+   "firm": "YouGov",
+   "polls": 70,
+   "z2020": -0.42253741072392487,
+   "z2024": -2.7186671934990687
+  },
+  {
+   "firm": "AtlasIntel",
+   "polls": 54,
+   "z2020": 0.46293420249706824,
+   "z2024": -1.9881578464318117
+  },
+  {
+   "firm": "TIPP Insights",
+   "polls": 36,
+   "z2020": -1.7507448305554143,
+   "z2024": -1.0141453836754695
+  },
+  {
+   "firm": "The New York Times/Siena College",
+   "polls": 33,
+   "z2020": -2.488637841572909,
+   "z2024": -3.692679656255411
+  },
+  {
+   "firm": "InsiderAdvantage",
+   "polls": 31,
+   "z2020": -0.274958808520426,
+   "z2024": -0.7706422679863838
+  },
+  {
+   "firm": "Trafalgar Group",
+   "polls": 31,
+   "z2020": 1.0532486113110637,
+   "z2024": 1.4208857732153866
+  },
+  {
+   "firm": "RMG Research",
+   "polls": 29,
+   "z2020": 0.9056700091075647,
+   "z2024": -1.0141453836754695
+  },
+  {
+   "firm": null,
+   "polls": 24,
+   "z2020": null,
+   "z2024": null
+  }
+ ],
+ "stale_2016_ratings_on_2020": {
+  "7": {
+   "baseline": [
+    51.746,
+    22.234
+   ],
+   "current_2020_ratings": [
+    50.728,
+    22.135
+   ],
+   "stale_2016_ratings": [
+    50.886,
+    21.911
+   ]
+  },
+  "30": {
+   "baseline": [
+    28.444,
+    13.761
+   ],
+   "current_2020_ratings": [
+    35.241,
+    18.421
+   ],
+   "stale_2016_ratings": [
+    30.846,
+    15.302
+   ]
+  },
+  "60": {
+   "baseline": [
+    28.683,
+    15.377
+   ],
+   "current_2020_ratings": [
+    33.082,
+    16.542
+   ],
+   "stale_2016_ratings": [
+    29.989,
+    15.51
+   ]
+  }
+ }
+}

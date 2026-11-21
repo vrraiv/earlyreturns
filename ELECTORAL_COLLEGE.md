@@ -202,7 +202,9 @@ centre. It was confirmed the same day, and where it differs from sections 4 to 8
   100, 60, 30 and 7.
 - Third-party support is dropped. Undecided voters are modelled, not just dropped.
 - Polls of registered voters are corrected to likely voters, as the Senate average does.
-- 2024 is out of everything in this section, including the tests that use no results.
+- 2024 is out of everything in this section, including the tests that use no results. *One exception, decided
+  2026-11-21:* the pollster-quality test below reads 2024 polls and results, and only if its fit on 2016 and 2020
+  picks something other than the baseline. EC-7's 2024 score is then in-sample for that one choice.
 - The date a nominee became presumptive is taken late when in doubt. Starting early is not worth a wrong matchup.
 - The popular vote and the states come from the same draw, so the chance of a split and the gap to the
   tipping-point state stay meaningful. Two numbers that need not agree are ruled out.
@@ -958,3 +960,189 @@ Open, carried forward:
   likely voters 1.46 more Republican than registered voters, the opposite sign.
 - Pollster quality gets its own test (decided 2026-11-21): grades as they stood, fit on 2016 and 2020 and tested
   on 2024. How that spends the 2024 holdout is still to be settled.
+
+### Pollster quality: a separate test (pre-registration, written 2026-11-21, before any run)
+
+Decided with the user on 2026-11-21. It does not fit stage 1: 538's ratings are built from accuracy against
+results, so they are tested against results, and the only ratings that existed before an election are for 2016,
+2020 and 2024. It is a detour from the stages, not a stage, and it is the one use of 2024 in this section.
+
+**Ratings as they stood**, from 538's public repository: the last version committed before each election. That is
+30 July 2016 (commit f2c6f781a6, `pollster-ratings-2016.csv`), May 2020 (commit 7b6455abc3,
+`pollster-ratings-2020.csv`; its latest poll is from March 2020) and 13 September 2024
+(`pollster-ratings-combined.csv`, fetched 2026-11-01; the last change to that file). The 2016 and 2020 files are
+byte-identical to the copies 538 later archived in its `2016` and `2020` folders. Each is built from earlier elections, so applying it to every
+poll of its year leaks none of that year's general-election results. No version predates 2004, 2008 or 2012, so
+those years are not used.
+
+- **The measure:** 538's error score, lower is better: predictive plus-minus in 2016 and 2020, POLLSCORE in 2024.
+  The scales differ (SD 0.56 and 0.68 against 0.41), so each version is standardized across the firms it rates
+  (mean 0, SD 1), giving z.
+- **Matching:** 2020 and 2024 polls carry 538's pollster rating id. 2016 polls come from 538's forecast file and
+  are matched by exact name. Coverage, counted before any margin was read: 81% of 2016 polls, 91% of 2020, 82% of
+  2024. Most unmatched 2016 polls are firms 538 had not rated yet (USC Dornsife/LA Times, Lucid, Morning Consult). A
+  looser search of the 2016 file for the 15 most common unmatched names found no variant spellings.
+  Firms 538 had banned keep their score.
+
+**Polls.** Those of stage 1's loader: one question per poll, two-party margins, the same adjustments. 2024 uses
+Harris against Trump only, from polls that ended on or after 21 July 2024, the day Biden withdrew. Maine's and
+Nebraska's districts are left out, since the repo has no results for them.
+
+**The candidate.** Each poll's baseline weight is multiplied by exp(−γ × z) for its firm. An unrated firm gets z_u
+in place of z. Everything else is the fixed nowcast.
+
+- Grid: γ 0, 0.1, 0.2, 0.35, 0.5, 0.75, 1; z_u 0 (an average firm), 0.5 or 1 (half or one SD worse). At γ = 0
+  every factor is 1, so all three γ = 0 cells are the baseline and count as one. The unrated weight is tied to γ:
+  it cannot down-weight unrated firms on its own.
+- Fitted on 2016 and 2020 together: the lowest loss at 7 days, cycles weighted equally.
+
+**The score.** At 7 days before the election (30 and 60 days reported), each place's average from polls that ended
+before that date, against its result (two-party margin). Places are the 50 states, DC and the nation, wherever at
+least one poll ended before the date. Loss is the mean squared error over places; the nation is also reported
+alone.
+
+Polls in 2016 and 2020 missed in the same direction across most states, so a fit against results on those two
+years can learn which firms leaned the right way that year rather than which were better. The raw loss decides.
+Beside it, every loss (fit and 2024) is also reported with each year's mean error removed, as the Senate half-life
+test did.
+
+**2024.**
+
+- 2024 is opened only if the picked setting is not the baseline and its 7-day loss is lower than the baseline's
+  in 2016 and in 2020, each on its own. Otherwise the test ends with the baseline kept, and 2024 stays closed.
+  (Without that second condition the gate would nearly always open: one of 18 alternatives will beat the baseline
+  in-sample by chance.)
+- If it opens, the picked setting is run on 2024 once. It passes if, at 7 days, its loss is lower than the
+  baseline's and a paired sign-flip test over places (2,000 flips) gives p < 0.05. 30 and 60 days are reported.
+- Places in one year share most of their error, so a sign-flip over places overstates the evidence. A pass would
+  rest on one election.
+- If it passes, the user decides whether it joins the nowcast. If it fails, the baseline stands. Nothing is refitted
+  after 2024 is seen.
+
+**Checks before any loss is read:** the leak test (moving polls that end on or after the date leaves the average
+unchanged), and γ = 0 reproducing the baseline average exactly. The fit on 2016 and 2020 is written here and
+committed before any code reads a 2024 margin or result. The 2024 loader checks the Harris-Trump matchup and the
+21 July cutoff, and stage 1's refusal of 2024 stays in place.
+
+**Where this differs from what the user approved on 2026-11-21:** the gate (when 2024 is opened) is added, and the
+unrated weight is tied to γ. The fit and the pass are at 7 days, with 30 and 60 days reported, as approved.
+
+### Pollster quality: the fit on 2016 and 2020 (run 2026-11-21, before 2024 was opened)
+
+`src/model/pres_quality.py fit`, `data/processed/pres_quality_fit.json`. Checks passed first: the leak test, and
+γ = 0 reproducing the baseline average exactly. Rated share of polls: 81% (2016), 91% (2020). Places: 50 in 2016
+and 52 in 2020 at 7 days.
+
+**Picked: γ = 0.35, z_u = 1** (an unrated firm is treated as one SD worse than the average rated firm). Neither is
+at a grid edge for γ; z_u is at its edge (1). A firm one SD better than average gets exp(0.35), about 1.4 times the
+weight of an average firm, and one SD worse about 0.7 times.
+
+| 7 days out | 2016 | 2020 | Fit score |
+|---|---|---|---|
+| Baseline | 66.60 | 51.75 | 59.17 |
+| γ 0.35, z_u 1 | 65.76 | 50.73 | 58.24 |
+| With the year's mean error removed: baseline | 35.17 | 22.23 | |
+| With the year's mean error removed: γ 0.35, z_u 1 | 33.97 | 22.14 | |
+
+- It is lower than the baseline in 2016 and in 2020, so **the gate opens** and 2024 is run once at this setting.
+- The gain survives removing each year's mean error (1.20 in 2016, 0.09 in 2020), so it is not only a matter of
+  leaning the right way. In 2020 it is almost all lean.
+- **Warnings, reported and not part of the gate:**
+  - At 30 and 60 days it is worse in 2020, by a lot (28.44 to 35.24, and 28.68 to 33.08), and worse in 2016 at
+    60 days (70.98 to 72.92). It is better in 2016 at 30 days (63.41 to 61.97).
+  - The nation is worse at 7 days in both years: its squared error goes from 7.11 to 9.66 (2016) and from 22.74 to
+    23.77 (2020).
+  - The grid is smooth: every γ from 0.1 to 0.5 beats the baseline at 7 days in both years. γ = 0.75 or more is
+    worse.
+
+### Pollster quality: 2024 (run once, 2026-11-21). It passes.
+
+`src/model/pres_quality.py test2024`, `data/processed/pres_quality_2024.json`. The fit was committed first; the run
+refuses otherwise. 2024 polls: Harris against Trump, ending on or after 21 July; 82% of them rated.
+
+| 2024 | Places | Baseline | γ 0.35, z_u 1 | Gain | p (sign-flip) | Mean error removed: baseline | candidate |
+|---|---|---|---|---|---|---|---|
+| **7 days** | 45 | 39.88 | 38.00 | **+1.88** | **0.0085** | 16.19 | 15.61 |
+| 30 days | 42 | 46.71 | 46.02 | +0.69 | 0.12 | 22.78 | 22.51 |
+| 60 days | 32 | 44.32 | 45.21 | −0.89 | 0.93 | 33.51 | 33.85 |
+
+- **At 7 days it passes both clauses:** lower loss, and p 0.0085.
+- **Most of the gain is a shared shift, not better accuracy state by state.** Each loss is the within-year part
+  plus the square of the mean error. The 7-day gain splits as follows:
+
+  | Year | Gain | Within-year part | Shift of the mean error | Mean error, baseline to candidate |
+  |---|---|---|---|---|
+  | 2016 (fit) | 0.84 | 1.20 | −0.36 | 5.61 to 5.64 |
+  | 2020 (fit) | 1.02 | 0.10 | 0.92 | 5.43 to 5.35 |
+  | 2024 (test) | 1.88 | 0.57 | 1.31 | 4.87 to 4.73 |
+
+  In 2024 about 70% of the gain is the average moving 0.14 point toward the Republican in a year the polls missed
+  toward the Democrat. The rest (0.57) is real accuracy across states. p was computed on the raw loss, so it
+  mostly reflects that shared shift. No test of the within-year part alone was written beforehand, and none is
+  added now.
+- **The nation improves** at every date: its squared error goes from 17.07 to 15.83 at 7 days.
+- **The average still missed toward the Democrat by about 4.8 points across places.** Quality weighting moves that
+  by 0.1; it is not a fix for a shared miss.
+- **The caveats:**
+  - One election.
+  - Places share most of their error, so p overstates the evidence.
+  - It is worse at 60 days in 2024, and at 30 and 60 days in 2020.
+  - The unrated weight is tied to γ.
+
+**Whether it joins the nowcast is the user's decision.** Two things bear on that:
+
+- **Where the gain is.** At 7 days it was chosen on 2016 and 2020, so only 2024 is out of sample there. It is mixed
+  at 30 days and worse at 60 in all three years. So it may belong only close to the election, or be tied to how
+  far out the date is. That would be a new candidate, not this one.
+- **What adoption would touch.** Ratings as they stood exist only for 2016, 2020 and 2024, while stage 4 and EC-7
+  also score 2008 and 2012, so a quality weight could not be applied the same way there. And stage 1 fixed the
+  nowcast; adopting this would amend that.
+- **2028 needs a source of ratings.** 538 stopped publishing in 2025, and its last ratings are those of September
+  2024. Using them in 2028 means ratings four years old, with every firm new since then unrated, or another rater
+  if one is available, with its own scale. Either needs a check before it is relied on.
+
+### Pollster quality: how stable are the ratings? (run 2026-11-21)
+
+Asked by the user: in 2027 and 2028 the model would work from the September 2024 ratings unless newer ones turn up,
+so how much do ratings change in four years? `pres_quality.py stability`, `data/processed/pres_quality_stability.json`.
+No 2024 margin or result is read; 2024 polls are used only for which firm fielded them.
+
+| | 2016 to 2020 | 2020 to 2024 |
+|---|---|---|
+| Firms rated in both versions | 318 | 419 |
+| Correlation of z across firms, Pearson (Spearman) | 0.73 (0.69) | 0.55 (0.48) |
+| Correlation across polls (each firm counted by its polls in the later year) | 0.93 | 0.57 |
+| Later year's polls rated in the later version | 91% | 82% |
+| ... and in the version four years older | 59% | 67% |
+| Median change in a poll's weight, older version against current, at the fitted setting | 25% | 27% |
+| Polls whose weight is off by 25% or more | 51% | 53% |
+
+- **2020 to 2024 changed a lot.** 538 also changed its method in between (predictive plus-minus to POLLSCORE), so
+  this is the same kind of break a new rater would bring in 2028.
+  - Among the firms with the most 2024 polls, AtlasIntel went from below average (z +0.46) to near the top (−1.99),
+    Morning Consult from +0.61 to −0.77, and RMG Research from +0.91 to −1.01.
+  - Trafalgar (+1.05 to +1.42) and NYT/Siena (−2.49 to −3.69) kept their places.
+- **2016 to 2020 was steadier,** and the poll-weighted correlation (0.93) is carried by the heaviest pollster,
+  SurveyMonkey, rated poorly both times.
+- **A diagnostic on a fit year, not a test:** the 2016 ratings applied to 2020's polls at the fitted setting.
+
+  | 2020 | Baseline | Current (2020) ratings | Four-year-old (2016) ratings |
+  |---|---|---|---|
+  | 7 days | 51.75 | 50.73 | 50.89 |
+  | 30 days | 28.44 | 35.24 | 30.85 |
+  | 60 days | 28.68 | 33.08 | 29.99 |
+
+  - At 7 days the stale ratings kept most of the gain (and more of the within-year part: 21.91 against 22.23 for
+    the baseline).
+  - But that was over the steadier interval, and 2020 helped choose the setting.
+- **For 2028:**
+  - The September 2024 ratings would be four years old across a period that has already shown one break.
+  - Every firm new since 2024 would be unrated, as a third of 2020's polls and a sixth of 2024's were against the
+    version four years older.
+  - Some firms' ratings swing with their last election's luck.
+
+**Decided 2026-11-21: deferred.** The quality weight passed its 2024 test but does not join the nowcast now, which
+stays as stage 1 fixed it. Ratings moved too much from 2020 to 2024 to trust a four-year-old version in 2028, and
+the ratings that will exist then are not known. It comes back when they are, or once the repo has its own
+pollster tiers built from 2026 polls and results (plan card DA-10). Either goes through this test's rule again,
+written down first. The 2024 holdout is not spent a second time.

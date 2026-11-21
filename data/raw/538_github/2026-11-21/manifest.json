@@ -1,0 +1,12 @@
+{
+  "pollster-ratings-2016.csv": {
+    "url": "https://raw.githubusercontent.com/fivethirtyeight/data/f2c6f781a6/pollster-ratings/pollster-ratings.csv",
+    "retrieved": "2026-11-21T09:04:49",
+    "bytes": 33395
+  },
+  "pollster-ratings-2020.csv": {
+    "url": "https://raw.githubusercontent.com/fivethirtyeight/data/7b6455abc3/pollster-ratings/pollster-ratings.csv",
+    "retrieved": "2026-11-21T09:04:49",
+    "bytes": 54553
+  }
+}

@@ -72,6 +72,18 @@ def github_538():
         print("gh", path, p.stat().st_size)
 
 
+def github_538_ratings_history():
+    """538's pollster ratings as they stood before the 2016 and 2020 elections: the last versions committed before
+    each (as of 30 July 2016; May 2020), pinned to those commits. They are byte-identical to the copies 538 later
+    archived in pollster-ratings/2016 and /2020. The combined file fetched by github_538 is the version of
+    13 September 2024, before the 2024 election."""
+    pins = {2016: "f2c6f781a6", 2020: "7b6455abc3"}
+    for y, sha in pins.items():
+        url = f"https://raw.githubusercontent.com/fivethirtyeight/data/{sha}/pollster-ratings/pollster-ratings.csv"
+        p = fetch("538_github", f"pollster-ratings-{y}.csv", url)
+        print("gh ratings", y, sha, p.stat().st_size)
+
+
 if __name__ == "__main__":
     which = sys.argv[1:] or ["votehub", "wayback_538", "github_538"]
     for w in which:

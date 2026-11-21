@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-21c",
+  version: "2026-11-21f",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -412,6 +412,18 @@ window.PLAN = {
             { id: "a", text: "Sources and coverage found" },
             { id: "b", text: "Collected" },
             { id: "c", text: "Tested against the durability of leads" }
+          ] },
+        { id: "DA-10", title: "Pollster quality tiers from 2026", kind: "story", phase: "p2", needs: ["SC-1"],
+          why: "538 stopped rating pollsters in 2025, and its ratings moved a lot from 2020 to 2024, so the 2028 model may need ratings of its own.",
+          details: [
+            "Added 2026-11-21 from EC-2's pollster-quality test, which passed in 2024 and was deferred (`ELECTORAL_COLLEGE.md`, section 11).",
+            "Build quality tiers for the firms that polled 2026's Senate, governor and House races, from their accuracy against the final results, and check them against 538's last ratings where both exist.",
+            "Then, if a 2028 rater is found, compare the two. Whichever is used goes through the pollster-quality test's rule again, written down first; 2024 is not used a second time."
+          ],
+          checklist: [
+            { id: "a", text: "Method for the tiers written down before the results are read" },
+            { id: "b", text: "Tiers built from 2026" },
+            { id: "c", text: "Checked against 538's September 2024 ratings" }
           ] }
       ]
     },
@@ -545,11 +557,12 @@ window.PLAN = {
             "Recency, sample size, pollster effects and voter-population adjustments, as for the Senate.",
             "Check that pollster effects estimated on Senate and generic-ballot polls hold for presidential polls.",
             "Scope widened 2026-11-20: the average says how people would vote today, and the forecast needs election day. The evaluation plan is section 11 of `ELECTORAL_COLLEGE.md`: the nowcast itself, convention windows, reversion and trend, states with few polls, and how state and national numbers add up. Every adjustment is scored as forecast against nowcast.",
-            "Decided the same day: only the forecast is published; it starts when both nominees are presumptive, so a test date near 150 days is added; third-party support is dropped and undecided voters are modelled; registered-voter polls are corrected to likely voters; 2024 stays out of every test.",
+            "Decided the same day: only the forecast is published; it starts when both nominees are presumptive, so a test date near 150 days is added; third-party support is dropped and undecided voters are modelled; registered-voter polls are corrected to likely voters; 2024 stays out of every test (one exception since, the pollster-quality test below).",
             "Settled 2026-11-20. Adoption rule for these candidates: judged on the average over 150, 100 and 60 days, with 30 and 7 days not allowed to get worse; on the national series a candidate has to beat 19 in 20 versions with its feature shuffled between elections and be better in two thirds of them. The popular vote and the states come from one draw; letting national polls set the popular vote, with the difference spread over states by uncertainty and size, is a candidate against states-first.",
             "To collect first: convention dates, the date each nominee became presumptive (taken late when in doubt), and a 2020 national series. Candidate favourability is DA-9.",
             "Collected 2026-11-20: convention dates (1948 to 2028), the date each nominee became presumptive (1980 to 2020), and a 2020 national series built from the repo's polls. The rule for presumptive, confirmed the same day: the day news delegate counts gave a majority, the latest where sources differ; the forecast waits for a rival who is still contesting. Next is stage 1, the nowcast.",
-            "Stage 1, closed 2026-11-21 (`src/model/pres_nowcast.py`; section 11 of the note): the score is how well the average predicts the next week's likely-voter polls, without the target's own firm. Eleven candidates in three rounds; none passes, so the nowcast is the Senate average's weighting, now fixed. Three candidates leaked the target's own firm; two were corrected (same-week house effects, the national trend) and neither passes corrected. The baseline clearly beats the latest poll and a plain mean of every poll, but not a mean of the latest five firms. The best memory depends on how fast the race moves (2008 disagrees with the other cycles), and thinly polled states are left to stage 4. Still open: the registered-voter lean, which the 2020 paired questions contradict. Next is stage 2, convention windows."
+            "Stage 1, closed 2026-11-21 (`src/model/pres_nowcast.py`; section 11 of the note): the score is how well the average predicts the next week's likely-voter polls, without the target's own firm. Eleven candidates in three rounds; none passes, so the nowcast is the Senate average's weighting, now fixed. Three candidates leaked the target's own firm; two were corrected (same-week house effects, the national trend) and neither passes corrected. The baseline clearly beats the latest poll and a plain mean of every poll, but not a mean of the latest five firms. The best memory depends on how fast the race moves (2008 disagrees with the other cycles), and thinly polled states are left to stage 4. Still open: the registered-voter lean, which the 2020 paired questions contradict. Next is stage 2, convention windows.",
+            "Pollster quality, a separate test (2026-11-21): 538's ratings as they stood before each election, as a weight on each poll, fitted on 2016 and 2020 and run once on 2024 (the one use of 2024 in section 11). It passes at 7 days out in 2024 (gain 1.88, p 0.0085), though most of that is a small shared shift toward the Republican; it is worse at 60 days, and 538's last ratings are from September 2024. Ratings changed a lot from 2020 to 2024 (correlation 0.55), so it was deferred the same day: it returns when the 2028 ratings are known, or with the repo's own tiers (DA-10)."
           ],
           refs: ["src/model/pollavg.py", "src/model/pollster_effects.py"] },
         { id: "EC-3", title: "Presidential fundamentals", kind: "story", phase: "p4", needs: ["EC-1"],
