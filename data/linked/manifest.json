@@ -66,5 +66,15 @@
       "bytes": 123393,
       "sha256": "3857a98508ebf066b8680726a91ea1a9f09073bd595bd12ef449b4e56bf3e6c8"
     }
+  },
+  "shiller": {
+    "2026-11-21/ie_data.xls": {
+      "url": "http://www.econ.yale.edu/~shiller/data/ie_data.xls",
+      "page": "http://www.econ.yale.edu/~shiller/data.htm",
+      "title": "Shiller, Irrational Exuberance data (S&P Composite, monthly)",
+      "retrieved": "2026-11-21T14:15:26",
+      "bytes": 1628672,
+      "sha256": "0df9392b7dacf91f756e92c8db508ad903c4588b43f3253680eec3dd8b40db68"
+    }
   }
 }
