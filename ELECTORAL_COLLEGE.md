@@ -411,3 +411,52 @@ carries the significance and the cycle count guards against one cycle driving th
 
 If no candidate beats the baseline, a second round is run with different candidates (decided the same day). They
 are written here before they run, under the same score and rule, and every round is reported.
+
+### Stage 1, round 1: results (run 2026-11-20). None of the three is adopted.
+
+**A correction to the harness, made after the first run.** The first run keyed pollsters by their full published
+name. One firm then appeared under several names: SurveyUSA under each TV station that sponsored it, Rasmussen
+alone and as "Fox News/Rasmussen", Gallup's tracking models. That weakens the rule that a target is predicted
+without its own pollster, and it splits house effects. Pollsters are now keyed by the firm that fielded the poll
+(the last part of the name). That gives 136 to 230 firms a cycle, where there had been 144 to 270 names. This
+corrects the harness and is not a candidate. Both runs are reported below; the verdicts are the same.
+
+| | Baseline loss | Half-life | House effects | Registered-voter correction |
+|---|---|---|---|---|
+| First run (published names) | 27.08 | gain 0.08, 3 of 5 cycles, p 0.13 | gain 0.03, 4 of 5, p 0.44 | gain −0.08, 3 of 5, p 0.92 |
+| Corrected (firms), of record | 27.29 | gain 0.08, 3 of 5, p 0.13 | gain 0.10, 4 of 5, p 0.35 | gain −0.07, 3 of 5, p 0.89 |
+
+The corrected baseline has 7,547 targets. Its loss is 23.3, 27.8 and 35.9 in the three bands, 19.3 for the nation
+and 28.6 for the states.
+
+**1. Half-life.** Fails: better in only 3 cycles, p 0.13. Gain in the 91 to 161 day band: 0.10.
+
+| Half-life (days) | 7 | 10 | 14 | 21 | 30 | 45 | 60 | 90 |
+|---|---|---|---|---|---|---|---|---|
+| Loss, cycles equal | 29.07 | 28.66 | 28.35 | 28.00 | 27.70 | 27.42 | 27.29 | 27.21 |
+
+Ninety days was picked for every held-out cycle, and 90 is the edge of the grid. The loss falls steadily from 7
+days to 60 and barely moves after that (27.29 to 27.21). Short half-lives are clearly worse.
+
+**2. Pollster house effects.** Fails: p 0.35, though better in 4 cycles, with a gain of 0.79 in the 91 to 161 day
+band.
+
+- Every λ in the grid has a lower loss than the baseline over the five cycles: 26.71 at λ = 2 or 5, up to 26.85
+  at 50, against 27.29. The held-out test fails because the cycles disagree on how strong the effects should be:
+  the picks were 2, 2, 5, 2 and 50, the wrong end for both 2008 and 2020.
+- Strong house effects (λ = 2) cut 2020's loss from 20.7 to 17.9 and 2012's from 18.5 to 17.5, but raised 2008's
+  from 39.2 to 40.5.
+- A plausible reason, not tested: in a fast-moving year like 2008, a poll's gap against the polls before it
+  includes the movement since those polls, which a frequent pollster seems to carry as a house effect.
+- A fixed λ chosen now would be chosen on these results, so none is.
+
+**3. Registered-to-likely correction.** Fails: worse overall (−0.07) and worse in the 91 to 161 day band (−0.91).
+
+- The cross-poll gap (registered-voter polls minus other pollsters' likely-voter polls) changes sign by cycle:
+  −2.0 in 2004, +1.5 in 2008, +2.2 in 2012, −0.8 in 2016 and +2.0 in 2020. A constant learned from the other
+  cycles cannot follow that.
+- The 2020 paired questions (1,600 polls) put likely voters 1.46 points more Republican than registered voters
+  (standard error 0.07). The borrowed correction moves registered-voter polls 0.45 toward the Democrat, which is
+  the opposite direction in 2020. It stays in the baseline only because nothing passed.
+
+Three candidates have been run for stage 1 so far.
