@@ -2407,3 +2407,64 @@ One round per test.
   - the term-limited effect unshrunk, beside the shrunk value and its penalty;
   - each as-of fit's count of term-limited elections (one in 1980's fit, 1960 alone);
   - the age of the approval reading by election and date.
+
+### EC-3: results (run 2026-11-21). Test 2 fails on one clause, so the fundamentals are not adopted.
+
+`src/model/pres_fundamentals.py test1` (`data/processed/pres_fundamentals_test1.json`) and `test2`
+(`pres_fundamentals_test2.json`).
+
+**Test 1, the fundamentals alone** (leave-one-out error, in points of margin, 1952 to 2020; reported):
+
+| Days out | 150 | 100 | 60 | 30 | 7 |
+|---|---|---|---|---|---|
+| Constant | 11.06 | 11.06 | 11.06 | 11.06 | 11.06 |
+| Approval alone | 7.01 | 5.99 | 7.03 | 6.73 | 6.80 |
+| Primary (approval, index, term-limited) | 7.30 | 5.96 | 6.79 | 7.53 | 7.90 |
+| Primary with "no sitting president" | 7.40 | 6.06 | 6.73 | 7.29 | 7.54 |
+
+- **Approval carries the fundamentals.** It cuts the error from 11 to 6 or 7 points. The economic index and the
+  term-limited flag add little on their own terms, and at 30 and 7 days the primary model does worse than approval
+  alone.
+- **The term-limited effect:** −0.6 to −3.4 points shrunk (penalties 10 to 100), −3.0 to −4.6 unshrunk. Leaving one
+  election out moves it between about 0 and −6. So a term-limited incumbent's party does worse by a few points, but
+  the estimate rests on five elections.
+- **The full table (1964 to 2020, 175 models).**
+  - The primary ranks 7th of 175 at 150 and 100 days, and 18th to 32nd later.
+  - The best single models are approval alone (150 days) and approval + term-limited + the S&P (100 days and
+    later, 5.3 to 6.1 points). That is chosen after seeing the table, so it is a pointer, not a result.
+  - The index alone scores 7.7 to 9.3, the PCA version 9.4 to 9.5. Equal weights did no worse than PCA, and with
+    approval the PCA does slightly better late (6.2 against 6.8 at 7 days).
+- **Revisions.** Today's real income and GDP growth differ from the as-published figures by 1.3 points on average
+  (up to 5.9 for income, 2.5 for GDP), over 95 cases from 1980 to 2020.
+- **Approval** was at most 20 days old at 150 days, but up to 134 days old at 7 days (sparse Gallup years).
+
+**Test 2, blended with the polls** (squared error, 1980 to 2020, each fitted on earlier elections):
+
+| | 150 | 100 | 60 | 30 | 7 | Score (150/100/60) | Better | Shuffles beaten |
+|---|---|---|---|---|---|---|---|---|
+| Stage 3's poll forecast | 82.7 | 47.6 | 26.1 | 16.1 | 13.1 | 52.1 | | |
+| **Blended with the primary model** | 45.7 | 20.4 | 19.7 | **17.4** | 10.5 | 28.6 | **8 of 11** | **100% (95th: 7.3)** |
+| Blended with a constant (control) | 73.0 | 48.5 | 28.7 | 19.3 | 13.5 | 50.1 | 6 | |
+| Primary + approval × term-limited (reported) | 52.1 | 24.0 | 15.9 | 12.5 | 10.0 | 30.7 | 7 | |
+
+- **It fails the rule on "30 and 7 days not worse".** At 30 days its error is 17.37 against the polls' 16.14.
+  Every other clause passes, by a wide margin:
+  - the gain is 23.5;
+  - it is better in 8 of 11 (1980, 1988, 1992, 1996, 2004, 2008, 2016, and 2000 by a hair);
+  - it beats every one of the 200 shuffles.
+  It is worse in 1984 (78.8 against 32.9), 2012 and 2020.
+- **The fundamentals carry real information.** The constant prior gains only 2.0, in 6 of 11, so the gain is not
+  just shrinkage toward a centre.
+- **The weight on polls** is about 0.2 to 0.3 at 150 and 100 days, 0.4 to 0.5 at 60 and 30 days, and 0.65 to 0.77 at
+  7 days. At 30 days the fundamentals still get about half the weight; that is where the blend loses.
+- **The open-seat interaction** (reported, no shuffle run) keeps 30 and 7 days better (12.5 and 10.0) but is
+  better in only 7 of 11. It is not a candidate that passed.
+
+**EC-3 closed for this round.** One round, as agreed.
+
+- The primary model fails test 2 on one clause, so **section 4's national estimate stays stage 3's poll forecast**.
+- The fundamentals stay a reported number: approval-led, with a term-limited penalty of a few points and a
+  leave-one-out error of about 6 to 8 points.
+- Nothing is refitted after seeing these results. A second round would need new candidates written down first.
+  The obvious one, a weight on the fundamentals that falls faster as the election nears, was suggested by these
+  results, and that has to be said if it is tried.
