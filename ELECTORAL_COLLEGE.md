@@ -1479,3 +1479,44 @@ one passes by noise alone.
    deviation of the state shifts, against the national shift) held over the next 30 days, against a concentrated
    one.
 3. **One round,** as in stage 2.
+
+**Stage 3: decisions of 2026-11-21, and amendments before any run.**
+
+The user decided:
+
+- **The survival curve** is a discrete-time hazard: the chance an episode ends in a given week, as a logistic
+  function of its age.
+  - The age term is shrunk toward zero by a ridge penalty, chosen by leaving one earlier election out at a time.
+    With no clear age effect it becomes a constant weekly chance of ending (a geometric model).
+  - Kaplan-Meier, the unshrunk Firth fit and the bootstrap over elections are reported beside it as checks.
+  - A random survival forest was considered and set aside: about 50 episodes in 11 elections are too few, they are
+    not independent, and a forest has no shrinkage toward "no effect".
+  - **Exception to the two-number limit:** candidate 2 has three fitted numbers (the base rate, the age term and the
+    drift). The extra one is shrunk toward zero, so at worst it adds nothing.
+- **Early fits for candidate 2** also use the 1952 to 1976 episodes. 1980 to 1988 are reported apart.
+- **Candidate 6 is a diagnostic,** deciding nothing on its own.
+
+**What diagnostics may do** (proposed; question 1 below).
+
+- No diagnostic can turn a failing candidate into a pass.
+- A diagnostic can only **flag** a pass. A flagged pass goes to the user to decide; an unflagged pass is adopted
+  under the rule. The flags, fixed now:
+  - **Candidate 2:**
+    - The 14-day average with no trend term scores at least as well as candidate 2 on the rule's score. The gain is
+      then shorter memory, not the trend.
+    - Or the real survival curve lies inside the range of the shuffled-changes null. The episodes then last no longer
+      than noise makes them.
+  - **Candidate 3:** candidate 1 alone scores at least as well as 3(a). Steadiness then adds nothing.
+  - **Candidates 1, 2 and 5 against candidate 6.** These forecast that recent movement reverts (1, 5) or continues
+    (2). The flag is raised if candidate 6 finds that evenly spread shifts held more often than concentrated ones
+    by 15 percentage points or more over the next 30 days, in either direction. A forecast that treats all shifts
+    alike would then be missing something. The flag also says the evidence is three elections.
+  - **Candidate 1:** the pull fitted after the conventions is less than half the pull fitted before them, on the
+    elections where both can be fitted. Stage 2's lasting post-convention shift would then be at odds with a single
+    pull.
+- Otherwise a diagnostic is reported for what it shows, and it points to later work, not to a change now.
+
+**Questions still open:**
+
+1. The diagnostic rule above.
+2. One round, as in stage 2.
