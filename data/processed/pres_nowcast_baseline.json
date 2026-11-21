@@ -1,0 +1,60 @@
+{
+ "loss": 27.288863569748308,
+ "by_cycle": {
+  "2004": {
+   "targets": 1098,
+   "mse": 24.25,
+   "sampling": 14.992,
+   "beyond_sampling": 9.258
+  },
+  "2008": {
+   "targets": 1179,
+   "mse": 39.173,
+   "sampling": 14.309,
+   "beyond_sampling": 24.864
+  },
+  "2012": {
+   "targets": 939,
+   "mse": 18.465,
+   "sampling": 13.249,
+   "beyond_sampling": 5.216
+  },
+  "2016": {
+   "targets": 1562,
+   "mse": 33.839,
+   "sampling": 11.617,
+   "beyond_sampling": 22.222
+  },
+  "2020": {
+   "targets": 2769,
+   "mse": 20.718,
+   "sampling": 8.184,
+   "beyond_sampling": 12.534
+  }
+ },
+ "by_band": {
+  "1-30": 23.293,
+  "31-90": 27.766,
+  "91-161": 35.9
+ },
+ "national": 19.264,
+ "states": 28.636,
+ "targets": 7547,
+ "settings": {
+  "half_life": 60.0,
+  "pop_w": {
+   "lv": 1.0,
+   "v": 1.0,
+   "rv": 0.69,
+   "a": 0.5
+  },
+  "pop_lean": {
+   "lv": 0.0,
+   "v": 0.0,
+   "rv": -0.45,
+   "a": -0.45
+  },
+  "sponsor_shift": 4.3,
+  "house": null
+ }
+}

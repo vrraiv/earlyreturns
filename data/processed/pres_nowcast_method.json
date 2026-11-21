@@ -1,0 +1,170 @@
+{
+ "gain": 0.02,
+ "cycles_better": 2,
+ "p_signflip": 0.2884,
+ "gain_91_161": -0.017,
+ "adopted": false,
+ "by_cycle": {
+  "2004": {
+   "baseline": 24.25,
+   "candidate": 24.301
+  },
+  "2008": {
+   "baseline": 39.173,
+   "candidate": 39.106
+  },
+  "2012": {
+   "baseline": 18.465,
+   "candidate": 18.47
+  },
+  "2016": {
+   "baseline": 33.839,
+   "candidate": 33.898
+  },
+  "2020": {
+   "baseline": 20.718,
+   "candidate": 20.571
+  }
+ },
+ "score": {
+  "loss": 27.26916304297986,
+  "by_cycle": {
+   "2004": {
+    "targets": 1098,
+    "mse": 24.301,
+    "sampling": 14.992,
+    "beyond_sampling": 9.309
+   },
+   "2008": {
+    "targets": 1179,
+    "mse": 39.106,
+    "sampling": 14.309,
+    "beyond_sampling": 24.797
+   },
+   "2012": {
+    "targets": 939,
+    "mse": 18.47,
+    "sampling": 13.249,
+    "beyond_sampling": 5.222
+   },
+   "2016": {
+    "targets": 1562,
+    "mse": 33.898,
+    "sampling": 11.617,
+    "beyond_sampling": 22.281
+   },
+   "2020": {
+    "targets": 2769,
+    "mse": 20.571,
+    "sampling": 8.184,
+    "beyond_sampling": 12.387
+   }
+  },
+  "by_band": {
+   "1-30": 23.28,
+   "31-90": 27.738,
+   "91-161": 35.917
+  },
+  "national": 19.287,
+  "states": 28.591,
+  "targets": 7547
+ },
+ "info": {
+  "weights": {
+   "2004": {
+    "ivr": 0.99,
+    "live phone": 0.895,
+    "mixed": 1.433,
+    "online": 1.098,
+    "other": 1.306,
+    "probability panel": 2.256
+   },
+   "2008": {
+    "ivr": 1.019,
+    "live phone": 1.055,
+    "mixed": 1.286,
+    "online": 1.014,
+    "other": 2.33,
+    "probability panel": 2.148
+   },
+   "2012": {
+    "ivr": 0.984,
+    "live phone": 0.938,
+    "mixed": 1.441,
+    "online": 1.081,
+    "other": 1.872,
+    "probability panel": 2.278
+   },
+   "2016": {
+    "ivr": 1.074,
+    "live phone": 0.906,
+    "mixed": 1.244,
+    "online": 1.071,
+    "other": 1.514,
+    "probability panel": 2.124
+   },
+   "2020": {
+    "ivr": 1.112,
+    "live phone": 0.995,
+    "mixed": 1.578,
+    "online": 1.023,
+    "other": 1.887,
+    "probability panel": 1.132
+   }
+  },
+  "coverage": {
+   "2004": 0.504,
+   "2008": 0.508,
+   "2012": 0.621,
+   "2016": 0.619,
+   "2020": 0.737
+  },
+  "polls_by_method": {
+   "2004": {
+    "ivr": 201,
+    "live phone": 499,
+    "mixed": 0,
+    "online": 9,
+    "other": 4,
+    "probability panel": 0,
+    "unknown": 703
+   },
+   "2008": {
+    "ivr": 384,
+    "live phone": 604,
+    "mixed": 0,
+    "online": 86,
+    "other": 3,
+    "probability panel": 6,
+    "unknown": 1049
+   },
+   "2012": {
+    "ivr": 361,
+    "live phone": 347,
+    "mixed": 75,
+    "online": 111,
+    "other": 3,
+    "probability panel": 0,
+    "unknown": 548
+   },
+   "2016": {
+    "ivr": 128,
+    "live phone": 334,
+    "mixed": 267,
+    "online": 668,
+    "other": 1,
+    "probability panel": 3,
+    "unknown": 863
+   },
+   "2020": {
+    "ivr": 67,
+    "live phone": 160,
+    "mixed": 204,
+    "online": 2549,
+    "other": 0,
+    "probability panel": 94,
+    "unknown": 1096
+   }
+  }
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "leak_trend_corrected": true,
+ "regression_max_diff": 7.105427357601002e-15,
+ "own_firm_fails_of_20": {
+  "trend_corrected (7/180)": 0,
+  "trend first version (7/180)": 8,
+  "house (round 1)": 18,
+  "house_week_corrected": 0,
+  "baseline": 0,
+  "half_life": 0,
+  "rv_lean": 0,
+  "count_decay": 0,
+  "total_error": 0,
+  "no_rv": 0,
+  "method": 0
+ }
+}

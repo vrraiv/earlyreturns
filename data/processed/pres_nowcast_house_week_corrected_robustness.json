@@ -1,0 +1,18 @@
+{
+ "1-9 polls": {
+  "targets": 1182,
+  "gain": 0.656
+ },
+ "10-49": {
+  "targets": 1551,
+  "gain": -0.091
+ },
+ "50+": {
+  "targets": 4814,
+  "gain": 0.545
+ },
+ "signflip_firm_cycle": {
+  "units": 672,
+  "p": 0.0245
+ }
+}

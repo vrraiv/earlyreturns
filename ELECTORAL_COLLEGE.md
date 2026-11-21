@@ -253,7 +253,18 @@ weighting applied to presidential polls.
      2004 can test this, so it is the weakest of the six.
 4. *States with few polls.* Scored on states with no poll in the previous 30 days; at 100 days that was 15 to 29
    of 51 states in 2004 to 2016. Three ways to fill the gap: the prior (national estimate plus lean); the average
-   swing in the polled states; the state's last poll carried forward by the national movement since.
+   swing in the polled states; the state's last poll carried forward by the national movement since. (The third
+   was tried at stage 1, round 2, and not adopted. Stage 1's targets barely reach thinly polled places: in 60% of
+   place-weeks there is no eligible new poll to score, and three in four where a place had 0 to 3 polls in the past
+   month. So stage 1 says little about it there, and it stays a stage 4 candidate, scored against results. Its
+   settings are written when stage 4 is pre-registered; stage 1's grid picks are not carried over.)
+   *Selection, raised by the user on 2026-11-21 and placed here:* polls are fielded where races are close, so an
+   unpolled state is usually lopsided, and being unpolled is itself evidence. And a lone poll in a thin state may
+   be there because someone expected, or wanted to show, a surprise. Stage 4's pre-registration answers, against
+   results in 2004 to 2020: how far thinly polled states landed from their no-poll forecast (national result plus
+   lean), by how many polls they had; whether the few polls there moved toward the result or away from it, against
+   that forecast alone; and sponsored against independent polls there, if there are enough. Thin-state results are
+   not looked at before that pre-registration.
 5. *The add-up.* One candidate against section 4's states-first rule: national polls set the popular vote, and the
    difference from the states' sum is spread over the states by their uncertainty and size, so large, thinly
    polled states absorb most of it. Either way the two come from one draw.
@@ -315,3 +326,635 @@ with the two under them:
 - A state where a third candidate polls in double digits still needs a rule (section 10).
 - Until the fundamentals model exists (EC-3), the anchor is the president's approval plus the previous result.
 - The three convention treatments are the ones listed in stage 2.
+
+### Stage 1: pre-registration (written 2026-11-20, before any candidate run)
+
+The harness is `src/model/pres_nowcast.py`. Only its baseline has been run.
+
+**Test bed.** The repo's presidential polls, 2004 to 2020: states, the Maine and Nebraska districts, and the nation
+(11,427 polls). Each poll contributes one question: the head-to-head question if the poll asked one, then the
+likely-voter version, then voters, registered voters and adults. Its limits:
+
+- 2000 is out: only the last 60 days are held, and there is no population field.
+- 2004 has only late national polls, with no population field. A missing population is read as likely voters.
+- 2012's national polls carry no head-to-head flag.
+- 2016's 1,944 state subsamples of national online panels are left out, as the collector flags them.
+- The partisan-sponsor flag exists only in 2020. The sponsor shift does nothing in the other cycles.
+- Pollster names come from different sources by cycle, so pollster effects are estimated within a cycle only.
+- 2024 is refused at load.
+
+**Score (no candidate can move it).**
+
+- The test runs each week from 161 days before the election. The polls that end in the next 7 days are that
+  week's targets, so each poll is a target at most once.
+- A target is a likely-voter (or "voters") poll with no sponsor flag, taken as published. Its prediction is the
+  average at the start of its week, built only from polls that ended before then and without its own pollster's
+  polls. Otherwise a pollster with overlapping field periods would predict itself, and short half-lives would win
+  for that reason.
+- A target counts if a different pollster polled the same place in the 60 days before. The target set is fixed
+  before any candidate runs: 7,549 polls.
+- Loss is the squared error in the two-party margin. It is averaged within each cycle and the cycles are weighted
+  equally, because 2020 alone has more than twice the targets of any cycle before 2016. It is also reported for the
+  nation and the states, and for three bands: 1 to 30, 31 to 90 and 91 to 161 days out.
+- Each cycle's sampling variance of the targets is reported beside its loss. No average can remove it.
+
+**Baseline: the Senate average's weighting, borrowed as it is.** Checks passed: it matches `pollavg.weighted_avg`
+exactly on 25 random places and dates; moving every poll that ends on or after the date by 50 points leaves the
+average unchanged in 40 random cases; and 2024 is refused at load.
+
+- **60-day half-life.** Chosen on the 2018 and 2022 Senate backtest against results, over about the last 140 days.
+  No decay at all was best there, by 0.12 points; 60 days was kept so the average still reacts to late shifts.
+- **Population weights.** Registered voters 0.69, adults 0.5. From Senate and House polls of 2018 to 2024, against
+  results.
+- **Population lean.** Registered-voter and adult polls are moved 0.45 points toward the Democrat. This is paired
+  likely-against-registered questions in generic-ballot, Senate and House polls of 2018 to 2024, updated with 2026's.
+  It is a figure for midterms under a Republican president, which presidential years may not share.
+- **Sponsor shift.** A flat 4.3 points.
+- **Pollster weight.** Each pollster's weight is divided by the square root of its number of polls in the place.
+
+None of these figures used presidential polls or results. Some of the inputs are 2024 Senate and House polls.
+
+| | 2004 | 2008 | 2012 | 2016 | 2020 | Cycles equal |
+|---|---|---|---|---|---|---|
+| Targets | 1,098 | 1,181 | 939 | 1,562 | 2,769 | 7,549 |
+| Loss (points squared) | 24.1 | 38.4 | 18.2 | 33.8 | 20.7 | **27.1** |
+| Sampling part | 15.0 | 14.3 | 13.2 | 11.6 | 8.2 | |
+
+By band the loss is 23.2 (1 to 30 days), 27.4 (31 to 90) and 35.5 (91 to 161). It is 19.2 for the nation and 28.4
+for the states.
+
+**Candidates.** Three, one per item the plan names. Each is run alone against the baseline. If more than one is
+adopted, the combination is run and reported, but it is not a fourth candidate.
+
+1. **Half-life.** Grid: 7, 10, 14, 21, 30, 45, 60 and 90 days. For each cycle, the value is the one with the lowest
+   loss on the other four cycles, and it is scored on the held-out cycle. A value picked and scored on the same
+   cycles is not a test.
+2. **Pollster house effects, as of each date.**
+   - Every poll's gap is its margin minus the baseline average of the other pollsters in the same place, as of
+     the poll's end date.
+   - A pollster's effect at date t is the mean of its gaps from polls that ended before t, in the same cycle,
+     shrunk toward zero as gaps × k / (k + λ), where k is its number of polls.
+   - The effect is subtracted from each of its polls in the average.
+   - λ is chosen from 2, 5, 10, 20 and 50 on the other four cycles. No results are used.
+   - The existing `pollster_effects.json` is not used: it was fitted on 2010 to 2022 polls, including the
+     presidential polls scored here.
+3. **Registered-to-likely correction re-estimated for presidential polls.**
+   - Each registered-voter poll's gap is its margin minus the average of other pollsters' likely-voter polls in the
+     same place, as of its end date.
+   - The correction for a cycle is the mean of those gaps in the other four cycles, each cycle's mean weighted
+     equally. It replaces the borrowed 0.45 for registered-voter and adult polls.
+   - Paired questions (the same poll asked of both groups) exist only in 2020, in 1,653 polls. Their mean is
+     reported as a check and not used.
+   - The targets are likely-voter polls, so this candidate is judged on the quantity the forecast needs.
+
+Anything that moves a state's polls using the national series belonged to stage 4 when this was written. After
+round 1 it moved to stage 1 (round 2, candidate 5).
+
+**Adoption rule for stage 1 (confirmed 2026-11-20, with the score).** A candidate is adopted if all four hold:
+
+- its loss, with cycles weighted equally, is lower than the baseline's;
+- it is lower in at least 4 of the 5 cycles;
+- it passes a paired sign-flip test at 1 in 20, over place-and-cycle units with 2,000 flips. Each unit is the mean
+  loss difference over that place's targets in that cycle, weighted as in the loss;
+- it is not worse in the 91 to 161 day band, where the forecast's first test dates fall.
+
+A sign test over five cycles alone cannot reach 1 in 20 unless all five agree. That is why the place-and-cycle test
+carries the significance and the cycle count guards against one cycle driving the result.
+
+If no candidate beats the baseline, a second round is run with different candidates (decided the same day). They
+are written here before they run, under the same score and rule, and every round is reported.
+
+### Stage 1, round 1: results (run 2026-11-20). None of the three is adopted.
+
+**A correction to the harness, made after the first run.** The first run keyed pollsters by their full published
+name. One firm then appeared under several names: SurveyUSA under each TV station that sponsored it, Rasmussen
+alone and as "Fox News/Rasmussen", Gallup's tracking models. That weakens the rule that a target is predicted
+without its own pollster, and it splits house effects. Pollsters are now keyed by the firm that fielded the poll
+(the last part of the name). That gives 136 to 230 firms a cycle, where there had been 144 to 270 names. This
+corrects the harness and is not a candidate. Both runs are reported below; the verdicts are the same.
+
+| | Baseline loss | Half-life | House effects | Registered-voter correction |
+|---|---|---|---|---|
+| First run (published names) | 27.08 | gain 0.08, 3 of 5 cycles, p 0.13 | gain 0.03, 4 of 5, p 0.44 | gain −0.08, 3 of 5, p 0.92 |
+| Corrected (firms), of record | 27.29 | gain 0.08, 3 of 5, p 0.13 | gain 0.10, 4 of 5, p 0.35 | gain −0.07, 3 of 5, p 0.89 |
+
+The corrected baseline has 7,547 targets. Its loss is 23.3, 27.8 and 35.9 in the three bands, 19.3 for the nation
+and 28.6 for the states.
+
+**1. Half-life.** Fails: better in only 3 cycles, p 0.13. Gain in the 91 to 161 day band: 0.10.
+
+| Half-life (days) | 7 | 10 | 14 | 21 | 30 | 45 | 60 | 90 |
+|---|---|---|---|---|---|---|---|---|
+| Loss, cycles equal | 29.07 | 28.66 | 28.35 | 28.00 | 27.70 | 27.42 | 27.29 | 27.21 |
+
+Ninety days was picked for every held-out cycle, and 90 is the edge of the grid. The loss falls steadily from 7
+days to 60 and barely moves after that (27.29 to 27.21). Short half-lives are clearly worse.
+
+**2. Pollster house effects.** Fails: p 0.35, though better in 4 cycles, with a gain of 0.79 in the 91 to 161 day
+band. (Found 2026-11-21: these figures leak. The own-firm test fails in 18 of 20; see "Who the score sees: results".
+They are not rerun.)
+
+- Every λ in the grid has a lower loss than the baseline over the five cycles: 26.71 at λ = 2 or 5, up to 26.85
+  at 50, against 27.29. The held-out test fails because the cycles disagree on how strong the effects should be:
+  the picks were 2, 2, 5, 2 and 50, the wrong end for both 2008 and 2020.
+- Strong house effects (λ = 2) cut 2020's loss from 20.7 to 17.9 and 2012's from 18.5 to 17.5, but raised 2008's
+  from 39.2 to 40.5.
+- A plausible reason, not tested: in a fast-moving year like 2008, a poll's gap against the polls before it
+  includes the movement since those polls, which a frequent pollster seems to carry as a house effect.
+- A fixed λ chosen now would be chosen on these results, so none is.
+
+**3. Registered-to-likely correction.** Fails: worse overall (−0.07) and worse in the 91 to 161 day band (−0.91).
+
+- The cross-poll gap (registered-voter polls minus other pollsters' likely-voter polls) changes sign by cycle:
+  −2.0 in 2004, +1.5 in 2008, +2.2 in 2012, −0.8 in 2016 and +2.0 in 2020. A constant learned from the other
+  cycles cannot follow that.
+- The 2020 paired questions (1,600 polls) put likely voters 1.46 points more Republican than registered voters
+  (standard error 0.07). The borrowed correction moves registered-voter polls 0.45 toward the Democrat, which is
+  the opposite direction in 2020. It stays in the baseline only because nothing passed.
+
+Three candidates have been run for stage 1 so far.
+
+**Diagnostic after round 1: the half-life depends on how densely a place is polled** (run 2026-11-21; not a
+candidate; `pres_nowcast.py density`). The grid's loss, split by the nation and by the number of polls the place had
+in the 30 days before the target's week:
+
+| | Targets | 7 days | 14 | 30 | 60 | 90 | 180 | No decay |
+|---|---|---|---|---|---|---|---|---|
+| Nation | 1,866 | **19.07** | 19.31 | 19.32 | 19.26 | 19.29 | 19.39 | 19.81 |
+| States, 10 or more polls | 2,730 | **19.11** | 19.18 | 19.37 | 19.55 | 19.74 | 20.10 | 20.95 |
+| States, 4 to 9 polls | 1,579 | 30.13 | 29.05 | 28.42 | 28.03 | 27.88 | **27.78** | 28.16 |
+| States, 1 to 3 polls | 1,372 | 50.45 | 48.05 | 45.59 | 43.97 | 43.43 | **43.07** | 43.47 |
+
+Where polls are dense, a short half-life is best, as the published models find. Where they are sparse, a short
+half-life leaves little more than the last poll, and its errors are large enough to decide the pooled score. So
+the score is not at fault: one half-life for every place was the wrong shape of candidate. Published models also
+carry old state polls forward by the national movement since they were taken, which this baseline does not do.
+
+### Stage 1, round 2: pre-registration (written 2026-11-21, before any round 2 run)
+
+Agreed with the user on 2026-11-21. Four candidates come from round 1's results and the diagnostic above, and two
+are the user's (sample size and survey method). That makes nine candidates for stage 1 in all. The score, the
+targets (the same 7,547) and the four clauses of the rule are unchanged. Grids are picked on the other four cycles
+and scored on the held-out one, as in round 1. Each candidate is run alone against the baseline.
+
+4. **Memory by poll count.** A poll's weight halves with every H firms that have published a newer poll of the same
+   place before the date. A firm's own newer poll counts as one, and a daily tracker counts once however many polls
+   it publishes. There is no decay by days. When a target is predicted without its own firm, the counts are taken
+   again without that firm. Grid for H: 1, 2, 4, 8 and 16 firms.
+5. **National trend adjustment.**
+   - Each state or district poll is moved by the change in the national average between the poll's end date and the
+     date of the forecast.
+   - The national average is the baseline's, built from national polls that ended before each date. Where it
+     cannot be built at either date, the poll is not moved.
+   - National polls are not moved, and the nation's own average is the baseline's.
+   - Grid, picked jointly: the national half-life for this trend line (7, 14, 30 days) and the state half-life
+     (60, 90, 180 days).
+   - 2004 is nearly inert: its national polls begin 61 days out. It counts in the 4-of-5 clause as it falls.
+6. **House effects against polls of the same week.**
+   - A poll's gap is its margin minus the mean of other firms' polls of the same place that ended within 7 days of
+     it, either side. Only polls that ended before the date are used, so a poll's gap firms up as later polls
+     arrive. That mean uses the baseline's weights without decay.
+   - A firm's effect is the mean of its gaps in that cycle before the date, shrunk by gaps × k / (k + λ), where
+     λ = σ² / τ²: σ² is the spread of gaps within firms and τ² the spread of firm means beyond it.
+   - λ is estimated from the same cycle's gaps before the date, so nothing is picked from other cycles. Where fewer
+     than 5 firms have two or more gaps, or τ² comes out at zero or below, every effect is zero.
+7. **Weight by a poll's total expected error.** The baseline's square-root sample weight is replaced by
+   1 / (s × τ² + 10,000 / n). Here 10,000 / n is the sampling variance of a two-party margin, in points squared, and
+   τ² is the error that does not shrink with sample size. τ² is the intercept of a regression of squared gaps
+   (round 1's gap against the other firms' average) on 10,000 / n, fitted on the other four cycles. There is no cap
+   on n. Grid for s: 0, 0.5, 1, 2. At s = 0 the weight is in proportion to the sample, giving large polls more weight
+   than the baseline does. At s = 1 or 2 a 1,500-person poll may get less extra weight over a 600-person one than
+   the baseline's 1.58 times. So the grid tests both directions.
+8. **Weight by survey method.**
+   - **Source.** Each firm's main method in a cycle is taken from FiveThirtyEight's late-poll file (`raw_polls.csv`,
+     read for the pollster, cycle and method only; it also carries results, which are not read).
+   - **Classes.** Live phone, IVR (automated phone, alone or with text), online (opt-in and matched panels, online
+     ads, text-to-web), probability panel, mixed (more than one of these), and unknown.
+   - **Coverage.** The file records a method for about two thirds of its polls in 2004 to 2012 and for all of them
+     in 2016 and 2020. Coverage of our polls is reported.
+   - **Weights.** A method's weight is the spread of all gaps divided by the spread of that method's gaps, both
+     measured on the other four cycles. Both are measured within the same density class, since gaps are larger
+     wherever a place is thinly polled: 10 or more, 4 to 9, or 1 to 3 polls in the 30 days before the poll. The
+     classes are then combined in proportion to the method's polls.
+   - **Unknown.** A poll of unknown method, or a method with no polls in the other cycles, keeps a weight of 1.
+9. **No registered-voter correction.** Registered-voter and adult polls are not moved; their 0.69 and 0.5 weights
+   stay. Nothing is fitted.
+
+**Mechanical checks before any result is read.**
+
+- Each candidate passes its own leak test: moving every poll that ends on or after the date by 50 points, in every
+  place of that cycle, leaves its predictions unchanged.
+- The target set is still the 7,547.
+- The baseline file is unchanged byte for byte.
+
+**If more than one passes.**
+
+- The passing candidates are combined. Candidate 5's adjustment works with either memory: with candidate 4's
+  weights if candidate 4 passed, otherwise with its own half-lives. Candidates 6, 7 and 8 combine by multiplying
+  their adjustments and weights. Each component keeps the grid value it was picked at alone.
+- The combination must pass the same four clauses against the baseline.
+- If it fails, the single passing candidate with the largest gain is adopted.
+- If none passes, stage 1 keeps the baseline and says so.
+
+### Stage 1, round 2: results (run 2026-11-21). None is adopted.
+
+The checks passed before any result was read: each candidate's own leak test, the 7,547 targets, and a
+byte-identical baseline file.
+
+| Candidate | Gain | Cycles better | p (sign-flip) | Gain, 91 to 161 days | Verdict |
+|---|---|---|---|---|---|
+| 4. Memory by poll count | −0.09 | 2 | 0.61 | −1.07 | fails |
+| 5. National trend adjustment (leaked; superseded by the corrected run below) | −0.01 | 2 | 0.51 | −0.06 | fails |
+| 6. House effects, same week: first version (leaked; withdrawn) | +1.34 | 5 | 0.0005 | +2.22 | void |
+| **6. House effects, same week: corrected, of record** | **+0.40** | **3** | **0.006** | **+1.22** | **fails** |
+| 7. Weight by total expected error | −0.19 | 0 | 0.99 | −0.15 | fails |
+| 8. Weight by survey method | +0.02 | 2 | 0.29 | −0.02 | fails |
+| 9. No registered-voter correction | −0.02 | 3 | 0.68 | −0.26 | fails |
+
+Gain is the baseline's loss minus the candidate's, cycles weighted equally (baseline 27.29).
+
+**6. House effects against polls of the same week.**
+
+*The first version leaked, and was withdrawn the same day.* It was first reported here as adopted. A review then
+found that a target's own firm could reach its prediction. The target's polls are left out of the average, but
+every other firm's house effect was still measured against all firms' polls, the target firm's included. So the
+other firms' polls were pulled toward the target firm's. The leak test could not see this, because it moves only
+polls after the date. A new test moves every poll by the target's firm in the cycle and checks the prediction does
+not change: the first version fails it in 18 of 20 cases, the baseline and the corrected version pass. The
+corrected version also divides a firm's weight in each same-week mean by the square root of its polls there, as
+the baseline's weights do (the pre-registration said "the baseline's weights"; the first version left this out).
+Most of the first version's gain was the leak.
+
+*Corrected, of record.* Loss 26.89. It fails the rule on the cycle count alone:
+
+| | 2004 | 2008 | 2012 | 2016 | 2020 |
+|---|---|---|---|---|---|
+| Baseline | 24.25 | 39.17 | 18.47 | 33.84 | 20.72 |
+| Corrected | 24.26 | 37.77 | 18.13 | 34.00 | 20.32 |
+| First version (void) | 23.51 | 37.67 | 17.58 | 32.45 | 18.52 |
+
+- 2004 is worse by 0.01 and 2016 by 0.16, so it is better in 3 cycles, not 4. The sign-flip test (p 0.006) and
+  the early band (+1.22) pass.
+- It helps the nation (19.26 to 19.13) and the states (28.64 to 28.28). By band: 23.3 to 23.1, 27.8 to 27.6, and
+  35.9 to 34.7.
+- Robustness figures, not part of the rule:
+  - The gain does not come only from the big trackers. By the size of the target's firm: 0.66 for firms with 1 to
+    9 polls in the cycle, −0.09 for 10 to 49, and 0.55 for 50 or more.
+  - A sign-flip over firm-and-cycle units (672) gives p 0.025.
+- Effects could be estimated on all 115 target dates.
+- The estimates (first version, which differ little firm by firm) look like the known ones. A week before the 2016 election the USC Dornsife/LA Times tracker sat 6.9
+  points more Republican than other firms' polls of the same week, and Ipsos 4.3 more Democratic. In 2020
+  Rasmussen was 3.4 more Republican and Quinnipiac 4.2 more Democratic.
+- Round 1's house effects compared each poll with the polls before it. Comparing it with polls of the same week
+  turns 2008's loss into a gain (39.17 to 37.77). That fits round 1's reading: movement was being taken for house
+  effects.
+
+**The others.**
+
+- **Memory by poll count.** The cycles disagree on H (2008 wants 2 firms, 2020 wants 16). The picks were mostly 4,
+  and that loses in 2016 and in the early band.
+- **National trend adjustment.** It has a leak of the same kind: the national trend line includes the target
+  firm's national polls, and the own-firm test fails in 8 of 20 cases. This run also gave the nation the state
+  half-life, where the pre-registration kept the nation's average at the baseline's. Both are corrected below
+  ("Who the score sees: results"); the corrected run also fails. 2008 gains a lot: 39.17 to 33.07 with a 7-day national trend line. That is the
+  autumn the financial crisis moved every state at once. But it loses in 2004, 2012 and 2016, where moving state
+  polls by a noisy national line adds more error than it removes. It is not adopted here. Its natural test is
+  stage 4, in states with no recent poll, which stage 1's targets rarely reach (see "Who the score sees", below).
+  It also bears on the durability questions of stage 3.
+- **Weight by total expected error.** The error that does not shrink with sample size is large: 15 to 20 points
+  squared, against 17 for the sampling variance of a 600-person poll. So larger samples deserve little extra weight.
+  Weighting in proportion to sample size (s = 0) is worse in 2012 and 2020. The baseline's square root is a fair
+  middle.
+- **Weight by survey method.** Method was known for 50 to 74 per cent of polls. In the other cycles, IVR polls sat
+  about as far from other firms' polls as live-phone polls did: weights of 0.98 to 1.11 for IVR and 0.90 to 1.06 for
+  live phone. Mixed-mode polls and probability panels got more weight (1.2 to 1.6, and 1.1 to 2.3), but they are few. The
+  weights hardly moved the average. This measures distance from other polls, not accuracy against results.
+- **No registered-voter correction.** It is neither better nor worse to within noise. The borrowed 0.45 stays, as
+  the baseline's.
+
+**Stage 1 result after round 2.** No candidate passes, so the nowcast is still the baseline: the Senate average's
+weighting. Under the user's decision of 2026-11-20 a further round with different candidates follows, written here
+before it runs. Corrected same-week house effects came closest (p 0.006, but 3 cycles of 5).
+
+### Who the score sees, and the national trend's leak (written 2026-11-21, before either is run)
+
+**What prompted this.** The user pointed out on 2026-11-21 that a national trend adjustment should matter most in
+thinly polled states, and those rarely produce a target. A count, made with no candidate's predictions:
+
+| Polls in the place in the prior 30 days | Place-weeks with an average | Has a target | New polls, none eligible | No new poll |
+|---|---|---|---|---|
+| 0 | 1,133 | 77 | 147 | 909 |
+| 1 to 3 | 2,788 | 865 | 187 | 1,736 |
+| 4 to 9 | 1,155 | 772 | 62 | 321 |
+| 10 or more | 550 | 536 | 6 | 8 |
+| All | 5,626 | 2,250 | 402 | 2,974 |
+
+Places with 10 or more polls in the past month give 61% of the 7,547 targets; places with 0 to 3 give 18%. 30 of
+the 264 place-cycles with polls have no target at all. The user decided the same day: report every candidate's
+loss by density (below), and leave thin states to stage 4 (amended above). The stage 1 score is not changed.
+
+**A diagnostic, not a candidate: loss by density.**
+
+- Every target is put in one class: the nation; or a state or district by the number of polls of that place in the
+  30 days before its week starts, not counting the target's own firm (the prediction does not use that firm
+  either): 10 or more, 4 to 9, 1 to 3, or 0.
+- For each candidate run so far, the loss in each class: cycles weighted equally, with the number of targets in
+  every cycle and class shown, and the gain against the baseline.
+- Candidates are rebuilt at the grid values already picked for each held-out cycle. Before any split is read, the
+  rebuilt per-cycle losses must match the stored ones to three decimals.
+- The first version of same-week house effects (void) is left out. Every candidate in the table gets the own-firm
+  test; round 1's house effects have never had it, and a failure is marked in the table, not rerun.
+- No cell passes or fails a candidate, and no verdict changes. With about ten candidates and five classes, some
+  cells will look good by chance. The 0 class is small (about 90 targets over five cycles).
+- It sees only thin-place targets that exist, that is, weeks when a thin place did get a new eligible poll. The
+  2,974 weeks with no new poll stay unseen. The split is a hint; stage 4 is the test.
+
+**The national trend adjustment, corrected (candidate 5).** As with same-week house effects, this corrects a
+leak and is not a new candidate.
+
+- The national trend line used for a target leaves out the target's own firm's national polls. Where that firm
+  has no national polls in the cycle, the prediction is the same as before, which is checked.
+- Before results are read: the own-firm test passes in 20 of 20, and the leak test passes.
+- The full grid (national half-life 7, 14, 30; state half-life 60, 90, 180) is run again and picked again on the
+  other four cycles. The old picks were chosen on leaking losses.
+- The corrected run is of record under the same four clauses. The round 2 verdict stands until it is in.
+- **The trend's part, apart from the longer memory.** The trend's picks pair it with a 90- or 180-day state
+  half-life, and the density diagnostic already showed thin places prefer 180 days without any trend. So beside
+  the corrected run, the table shows a run with each cycle's picked state half-life and the trend turned off. The
+  trend's own contribution is the difference between those two, class by class. This row is a diagnostic and
+  passes or fails nothing.
+
+### Who the score sees: results (run 2026-11-21)
+
+**Checks, before any figure below was read.**
+
+- Corrected trend: the leak test passes, and the own-firm test passes in 20 of 20 (the first version fails in 8 of
+  20). Where the target's firm has no national polls, the corrected and first versions agree (largest difference
+  7e-15 over 300 targets).
+- Every candidate in the table, rebuilt at its stored picks, matches its stored per-cycle losses to three decimals.
+- Own-firm test, 20 targets each: every candidate passes except **round 1's house effects, which fail in 18 of
+  20**. Candidates 3, 7 and 8 pass by construction: they are fitted on the other four cycles, and the test moves
+  only the target's cycle, so their settings were not refitted for it. They compare each poll with other firms' earlier polls, and those other firms' effects were measured
+  against the target firm's polls too: the same leak as the first version of same-week house effects. They failed
+  the rule even with that help, so they are not rerun. Their row below leaks.
+
+**The national trend adjustment, corrected, of record. Fails.**
+
+| | Gain | Cycles better | p (sign-flip) | Gain, 91 to 161 days |
+|---|---|---|---|---|
+| Round 2 run (leaked; nation given the state half-life) | −0.01 | 2 | 0.51 | −0.06 |
+| Own firm left out, nation still given the state half-life | −0.02 | 2 | 0.53 | −0.19 |
+| **Corrected, of record: own firm left out, nation at the baseline** | **+0.03** | **2** | **0.43** | **−0.27** |
+
+- A second fault was found after the first corrected run, by the density table: the nation's targets lost 0.19.
+  The code gave national polls the state half-life (90 or 180 days), where the pre-registration says the nation's
+  own average is the baseline's. The run of record follows the pre-registration. The run before it is kept
+  (`pres_nowcast_trend_corrected_nation_moved.json`), and the verdict is the same either way.
+- Picks, unchanged: national 7 days with state 180 (2004, 2016) or 90 (2012, 2020); national 30 with state 180
+  (2008).
+- By cycle against the baseline: 25.10 against 24.25, 36.98 against 39.17, 19.30 against 18.47, 34.23 against
+  33.84, and 20.67 against 20.72. 2008 gains 2.2; 2004, 2012 and 2016 lose.
+
+**Loss by density.** Classes count the polls of the target's place in the 30 days before its week, without the
+target's own firm. Cycles weighted equally within each class.
+
+Targets per class and cycle (the 0 class is 215 here, not the "about 90" written beforehand, because the
+target's own firm is now left out of the count):
+
+| | 2004 | 2008 | 2012 | 2016 | 2020 |
+|---|---|---|---|---|---|
+| Nation | 141 | 203 | 151 | 726 | 645 |
+| State, 10+ polls | 196 | 314 | 353 | 289 | 928 |
+| State, 4 to 9 | 409 | 283 | 231 | 256 | 470 |
+| State, 1 to 3 | 314 | 346 | 178 | 262 | 637 |
+| State, 0 | 38 | 33 | 26 | 29 | 89 |
+
+Baseline loss: 19.26 (nation), 17.39 (10+), 25.80 (4 to 9), 40.96 (1 to 3), 53.62 (0). Gain against the baseline
+(positive is better):
+
+| Candidate | Nation | 10+ | 4 to 9 | 1 to 3 | 0 |
+|---|---|---|---|---|---|
+| 1. Half-life (90 days) | −0.02 | −0.23 | +0.04 | +0.48 | +1.08 |
+| 2. House effects, round 1 (leaks) | −0.07 | −1.15 | +0.08 | +0.53 | +2.80 |
+| 3. Registered-voter correction | −0.05 | −0.13 | −0.09 | +0.02 | −0.48 |
+| 4. Memory by poll count | −0.69 | −0.33 | −0.01 | +1.18 | +1.90 |
+| 5. National trend, corrected | 0.00 | −0.60 | +0.15 | +0.31 | +2.41 |
+| 5, control: same state half-life, no trend | 0.00 | −0.63 | −0.09 | +0.48 | +1.50 |
+| 5, the trend's own part (5 minus control) | 0.00 | +0.04 | +0.24 | −0.17 | +0.91 |
+| 6. House effects, same week, corrected | +0.14 | −0.29 | +0.42 | +0.72 | +2.49 |
+| 7. Weight by total expected error | −0.22 | −0.17 | −0.51 | +0.03 | +0.18 |
+| 8. Weight by survey method | −0.02 | +0.03 | +0.05 | +0.08 | +0.04 |
+| 9. No registered-voter correction | −0.02 | −0.08 | −0.04 | +0.07 | −0.03 |
+
+What it shows, as a hint and not a verdict:
+
+- **What helps thin places hurts dense ones.** Slower forgetting (1, 4 and the trend's half-lives) gains 0.5 to 1.9 in
+  places with 0 to 3 recent polls and loses 0.2 to 0.6 where there are 10 or more. In this table's classes, states
+  with 10 or more polls give 2,080 targets (28%) and the nation 1,866 (25%), against 1,952 (26%) for states with 0
+  to 3. The thin gains are larger per target, but they are cancelled in the overall score. This is the density diagnostic's
+  finding again, now for every candidate.
+- **The trend adds little beyond the longer memory it brings.** Against the control with the same half-life, the
+  trend itself gains 0.91 in the 0 class, 0.24 at 4 to 9, and loses 0.17 at 1 to 3. By cycle, its part in the 0
+  class is −0.86, +2.30, +3.24, −1.86 and +1.71 (2004 to 2020), on 26 to 89 targets a cycle; at 1 to 3 it is
+  −0.23, +3.26, −2.20, −1.96 and +0.29. 2008 gains in every class (+3.0 to +3.3); the other cycles split.
+- **Corrected same-week house effects are the only candidate with a real gain in the nation (+0.14).** They also
+  gain in every state class except the dense one (−0.29).
+- The weight changes (7, 8) and the registered-voter changes (3, 9) barely move any class.
+- Over fifty cells were read. Some will look good by chance, and no cell passes or fails anything. The 2,974 weeks
+  with no new poll remain unseen; stage 4 is the test for thin states.
+
+**Stage 1 after this.** Unchanged: no candidate passes, and the nowcast is the baseline. A third round follows,
+written here before it runs.
+
+### How good is the baseline: naive benchmarks (written 2026-11-21, before any run)
+
+Asked by the user on 2026-11-21: nothing beats the baseline, but how good is it? The Senate average's settings
+were tested across half-lives against results (2018 and 2022); no comparison with a naive average was found. So
+the presidential baseline is compared with three naive averages, each with no free parameter and no grid.
+
+**The floor first** (from the stored baseline file, no new run). Of the baseline's 27.29, 12.47 is the sampling
+variance of the target polls themselves, which no average can remove; 14.82 is beyond it. By cycle the part
+beyond sampling is 9.3, 24.9, 5.2, 22.2 and 12.5. This is a lower bound on what is irreducible: it assumes simple
+random samples, and a missing sample size is taken as 600. So a gain of 0.40 is about 3% of the reducible part.
+
+**The benchmarks.** Same 7,547 targets, same score, polls that ended before the week, the target's own firm left
+out. Margins are taken raw: the poll's chosen question as it is, any population, no registered-voter lean, no
+sponsor shift, no weights.
+
+- **N1. Latest poll.** The most recent poll of the place by another firm. If several end on that day, their plain
+  mean.
+- **N2. Latest five firms.** Each other firm's latest poll of the place (several on its latest day are averaged
+  into one reading). The five firms whose latest readings are most recent, with every firm tied at the fifth
+  date included, or all of them if fewer than five. The plain mean of those readings. This is the familiar
+  "latest poll from each firm" average, with a fixed count and no time window.
+- **N3. Every poll so far.** The plain mean of every poll of the place in the cycle by other firms, each poll
+  counted once (so a daily tracker counts every day).
+
+**Checks before any result is read.** Each passes the leak test and the own-firm test (20 each), and the baseline
+file is unchanged byte for byte.
+
+**What is reported.** For each benchmark: the loss overall, by cycle, by band, for the nation and the states, and
+by density class; and the baseline against it under the four clauses of the stage 1 rule (gain, cycles better,
+sign-flip p, the 91 to 161 day band).
+
+**If a benchmark beats the baseline.** It is reported as such under the same four clauses. Whether it replaces the
+baseline is the user's decision; it would enter round 3 as a candidate. Benchmarks are not candidates and do not
+count among the nine. A benchmark that wins in one density class is a hint for round 3, not a verdict. A previous
+election's result would make a fourth benchmark but would bring results into stage 1, so it is left out unless the
+user asks.
+
+### Naive benchmarks: results (run 2026-11-21)
+
+The checks passed before any loss was read: each benchmark passes the leak test (15) and the own-firm test (20),
+and the baseline file is unchanged byte for byte.
+
+| | Loss | 2004 | 2008 | 2012 | 2016 | 2020 | Nation | States | 91 to 161 days |
+|---|---|---|---|---|---|---|---|---|---|
+| **Baseline** | **27.29** | 24.25 | 39.17 | 18.47 | 33.84 | 20.72 | 19.26 | 28.64 | 35.9 |
+| N1. Latest poll | 36.58 | 35.02 | 50.14 | 26.58 | 43.11 | 28.05 | 22.28 | 40.04 | 49.9 |
+| N2. Latest five firms | 27.54 | 25.64 | 34.70 | 20.05 | 35.72 | 21.60 | 20.38 | 28.82 | 37.4 |
+| N3. Every poll so far | 29.60 | 26.90 | 47.03 | 17.77 | 36.36 | 19.94 | 20.91 | 30.66 | 40.8 |
+
+The baseline against each, under the four clauses (gain is the benchmark's loss minus the baseline's):
+
+| | Gain to the baseline | Cycles the baseline is better | p (sign-flip) | Gain, 91 to 161 days |
+|---|---|---|---|---|
+| N1. Latest poll | 9.29 | 5 | 0.0005 | 14.05 |
+| N2. Latest five firms | 0.25 | 4 | 0.29 | 1.46 |
+| N3. Every poll so far | 2.31 | 3 | 0.0005 | 4.85 |
+
+No benchmark passes the rule against the baseline. Loss by density:
+
+| | Nation | 10+ | 4 to 9 | 1 to 3 | 0 |
+|---|---|---|---|---|---|
+| Baseline | 19.26 | 17.39 | 25.80 | 40.96 | 53.62 |
+| N1. Latest poll | 22.28 | 26.18 | 37.92 | 53.46 | 75.48 |
+| N2. Latest five firms | 20.38 | 17.01 | 26.61 | 41.09 | 53.79 |
+| N3. Every poll so far | 20.91 | 20.67 | 27.80 | 41.70 | 52.78 |
+
+What it shows:
+
+- **The baseline is clearly better than the latest poll** (by 9.3, every cycle) **and than a plain mean of every
+  poll** (by 2.3, p 0.0005, though that mean is better in 2012 and 2020).
+- **It is not clearly better than the latest poll from each of the last five firms.** The gap is 0.25 and not
+  significant (p 0.29), though the baseline is better in 4 cycles and early in the year (1.46). For scale, the
+  reducible part of the loss is about 14.8 (see the floor above).
+- **2008 is where it falls short.** The five-firm mean beats the baseline by 4.5 in 2008 (34.70 against 39.17):
+  by 8.1 in densely polled states, 5.0 in thin ones, and 1.3 in the nation. In every other cycle the baseline is
+  better in most classes. The baseline's 60-day memory is slow for a year when the race moved, which round 1's
+  half-life grid and round 2's trend run both pointed at.
+- The five-firm mean is close to a memory that adapts to density without being told to: where polls are dense,
+  the latest five firms are all recent; where they are thin, it reaches back as far as it must. It is better than
+  the baseline only in the dense class (17.01 against 17.39), and that is 2008 alone.
+- For the nation the baseline is better than all three (19.26 against 20.38 at best).
+
+This is a benchmark, not a candidate, and nothing changes. Whether a five-firm style average, or an adaptive
+memory like it, enters round 3 is the user's decision.
+
+### Stage 1, round 3: pre-registration (written 2026-11-21, before any round 3 run)
+
+Agreed with the user on 2026-11-21: round 3 tests a memory that adapts to how densely a place is polled, in the
+two forms below, and then the work moves to stage 2. **Round 3 is the last round of stage 1, whatever it shows.**
+If nothing passes, the nowcast is the baseline and is fixed; if one passes, it is fixed as the nowcast. That makes
+eleven candidates for stage 1 in all. The score, the 7,547 targets and the four clauses are unchanged. Grids are
+picked on the other four cycles and scored on the held-out one. A pick at the edge of a grid is reported.
+
+**Where the idea came from.** The density diagnostic, the loss-by-density table and benchmark N2 all used all five
+cycles. Leaving one cycle out protects the grid values only, not the idea, the 30-day window or the form of each
+candidate. That limits what a pass can claim.
+
+10. **Latest k firms.**
+    - Each other firm's reading is its poll (or the weighted mean of its polls) of the place on its latest end date
+      before the forecast date, after the baseline's population lean and sponsor shift.
+    - The k firms whose readings are most recent are used. Every firm tied at the k-th date is included, or all
+      firms if there are fewer than k.
+    - The average is the mean of those readings, weighted by the baseline's sample-size and population weights
+      (a reading with several polls takes their mean weight). There is no decay by age, and no division by a firm's
+      poll count, since each firm gives one reading.
+    - The nation follows the same rule as every other place.
+    - Grid for k: 2, 3, 5, 8, 12, 20. Unlike N2, this keeps the baseline's adjustments and weights.
+11. **Half-life by density.**
+    - The baseline, except that each place's half-life depends on how many polls of that place ended in the 30 days
+      before the forecast date, not counting the target's firm (the prediction does not use that firm either).
+    - At D polls or more, the half-life is h_dense; below D, h_sparse.
+    - The nation is counted the same way; in practice it is almost always dense.
+    - Grid, picked jointly: h_dense 7, 14, 30; h_sparse 60, 90, 180, 365; D 4 or 10.
+
+**Checks before any loss is read.** Each candidate, and the baseline:
+
+- passes the leak test and the own-firm test as before (moving margins by 50 points);
+- passes two deletion tests, since both candidates depend on which polls exist and when, which moving margins
+  cannot reveal: deleting every poll that ends on or after the date (all places, same cycle), and deleting every
+  poll by the target's firm in the cycle, each leaves the prediction unchanged.
+
+The baseline file must stay unchanged byte for byte.
+
+**If both pass.** Both replace the memory, so they cannot be combined: the one with the larger gain is adopted.
+Corrected same-week house effects failed and are not combined with either.
+
+**Reported.** The four clauses, the picks by cycle, the loss by density, and each candidate beside N2.
+
+### Stage 1, round 3: results (run 2026-11-21). Neither is adopted.
+
+The checks passed before any loss was read. Both candidates and the baseline pass the leak test, the own-firm test
+and both deletion tests. Each candidate's grid path matches its per-target path exactly. The baseline file is
+unchanged byte for byte.
+
+| Candidate | Loss | Gain | Cycles better | p (sign-flip) | Gain, 91 to 161 days | Verdict |
+|---|---|---|---|---|---|---|
+| 10. Latest k firms | 26.90 | +0.39 | 2 | 0.16 | +0.21 | fails |
+| 11. Half-life by density | 27.35 | −0.06 | 2 | 0.62 | −1.46 | fails |
+
+| | 2004 | 2008 | 2012 | 2016 | 2020 | Nation |
+|---|---|---|---|---|---|---|
+| Baseline | 24.25 | 39.17 | 18.47 | 33.84 | 20.72 | 19.26 |
+| 10. Latest k firms | 24.68 | 35.77 | 19.31 | 34.21 | 20.53 | 18.67 |
+| 11. Half-life by density | 24.64 | 38.59 | 18.33 | 34.26 | 20.95 | 19.60 |
+| N2. Latest five firms (benchmark) | 25.64 | 34.70 | 20.05 | 35.72 | 21.60 | 20.38 |
+
+**10. Latest k firms.** Fails on cycles (2 of 5) and p (0.16).
+
+- k = 20 was picked for every held-out cycle, the top of the grid. The loss was still falling at 20 in 2004, 2012
+  and 2016, so a larger k might do better there; the grid is not widened after the run.
+- 2008 wants fewer firms (8 is best there, 34.79), the other cycles more. That is the same disagreement as every
+  memory candidate.
+- It beats the baseline for the nation (18.67 against 19.26) and slightly in every state class (17.27, 25.66,
+  40.69 and 53.38, against 17.39, 25.80, 40.96 and 53.62). It loses in 2004, 2012 and 2016.
+- Keeping the baseline's adjustments and weights helps: it beats N2 (the raw five-firm mean) in every cycle but
+  2008.
+
+**11. Half-life by density.** Fails on every clause but none by much.
+
+- Picks: D = 10 every time (never 4), with 7 days for dense places (30 in 2008) and 180 or 365 for sparse ones. Every cycle has a pick at a grid edge (7 or 365).
+- It gains where places are thin (1 to 3 polls: 40.26 against 40.96; 0: 51.84 against 53.62) but loses in dense
+  states and the nation, where the 7-day half-life picked on the other cycles is too short for 2008 and the 30-day
+  one too long for the rest. Early in the year it is worse (−1.46).
+- Checked by hand, because the nation's 19.60 is worse than the 19.07 the density diagnostic found at 7 days: the
+  difference is 2008, held out with 30 days (18.82 against 16.14 at 7). Not a fault.
+
+### Stage 1 closed (2026-11-21)
+
+Eleven candidates in three rounds. None passes the rule. **The nowcast is the baseline**, the Senate average's
+weighting applied to presidential polls, and it is fixed for the later stages:
+
+- 60-day half-life; sample-size weight sqrt(min(n, 3000) / 600); population weights 1 (likely voters, "voters"),
+  0.69 (registered), 0.5 (adults); each firm's weight divided by the square root of its polls in the place;
+- registered-voter and adult polls moved 0.45 toward the Democrat; the flat 4.3-point sponsor shift;
+- pollsters keyed by fielding firm.
+
+What stage 1 found, for later stages and for 2028:
+
+- The baseline is clearly better than the latest poll and than a plain mean of every poll, but not clearly better
+  than a latest-five-firms mean. About 12.5 of its 27.3 is sampling noise in the target polls.
+- The right memory depends on how fast the race is moving, and 2008 disagrees with the other four cycles about it
+  every time. A fixed rule cannot know in advance. This bears on stage 3 (reversion and trend).
+- Thinly polled places gain from longer memory; stage 1's score barely sees them, and stage 4 tests them against
+  results.
+- Corrected same-week house effects came closest (p 0.006, 3 cycles of 5).
+
+Open, carried forward:
+
+- The registered-voter lean (0.45 toward the Democrat) stays in the nowcast, though the 2020 paired questions put
+  likely voters 1.46 more Republican than registered voters, the opposite sign.
+- Pollster quality gets its own test (decided 2026-11-21): grades as they stood, fit on 2016 and 2020 and tested
+  on 2024. How that spends the 2024 holdout is still to be settled.
