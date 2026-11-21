@@ -2093,3 +2093,7 @@ and pull the states' sum toward the national estimate. So a verdict here holds u
   - With u = 0 throughout, B equals the baseline.
   - The leak and deletion tests pass, as does changing the scored election's results.
   - 2024 is absent from the polls, the results and the national series.
+
+**Stage 5: the flag, decided by the user on 2026-11-21 before any run.** A candidate that passes on the excess score
+but is worse than the baseline on the plain squared error (mean over elections at 30 and 7 days) is flagged, and the
+pass goes to the user. An unflagged pass is adopted under the rule. The same holds when stage 5 is rerun after EC-4.

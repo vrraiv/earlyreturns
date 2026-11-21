@@ -239,6 +239,9 @@ def run():
     m["share_of_shuffles_beaten"] = float(np.mean(np.array(null) < m["gain"]))
     m["passes"] = bool(m["gain"] > 0 and m["better"] >= 4 and m["gain"] > m["shuffle_95th"])
     m["p_signflip_reported"] = float(signflip_exact(units(F, "A").values))
+    for col in ("A", "B", "C"):
+        m = out["candidates"][col]
+        m["flag_worse_on_plain_sq"] = bool(m["plain_sq_clauses"]["gain"] < 0)
     out["reported"] = {"A_with_two_party_national": summarize(F, "A_2p")}
     passes = {k for k, v in out["candidates"].items() if v["passes"]}
     if "B" in passes and passes & {"A", "C"}:
