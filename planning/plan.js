@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-20q",
+  version: "2026-11-20u",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -400,7 +400,19 @@ window.PLAN = {
             "Each new source goes into DATA.md with its licence before its data is committed.",
             "Sources whose terms ask that whole tables not be reproduced follow the store-and-link rule (OP-8): raw copies gitignored, derived tables committed, the site linking to the source."
           ],
-          refs: ["DATA.md", "LICENSE-DATA.md"] }
+          refs: ["DATA.md", "LICENSE-DATA.md"] },
+        { id: "DA-9", title: "Candidate favourability in past presidential elections", kind: "story", phase: "p4", needs: ["DA-5"],
+          why: "A lead that comes with a shift in how a candidate is seen may last longer than one that does not.",
+          details: [
+            "Added 2026-11-20 from the EC-2 plan. Collect favourable and unfavourable ratings of both nominees over each campaign, for as many past elections as have them.",
+            "Then test, beside the sitting president's approval, whether a polling lead or deficit that moves with these ratings is more durable (`ELECTORAL_COLLEGE.md`, section 11, stage 3).",
+            "Sources and how far back they go are not yet known. Each one goes through DA-8 before its data is committed."
+          ],
+          checklist: [
+            { id: "a", text: "Sources and coverage found" },
+            { id: "b", text: "Collected" },
+            { id: "c", text: "Tested against the durability of leads" }
+          ] }
       ]
     },
 
@@ -531,7 +543,12 @@ window.PLAN = {
           why: "The Senate poll average needs to handle national and state presidential polls.",
           details: [
             "Recency, sample size, pollster effects and voter-population adjustments, as for the Senate.",
-            "Check that pollster effects estimated on Senate and generic-ballot polls hold for presidential polls."
+            "Check that pollster effects estimated on Senate and generic-ballot polls hold for presidential polls.",
+            "Scope widened 2026-11-20: the average says how people would vote today, and the forecast needs election day. The evaluation plan is section 11 of `ELECTORAL_COLLEGE.md`: the nowcast itself, convention windows, reversion and trend, states with few polls, and how state and national numbers add up. Every adjustment is scored as forecast against nowcast.",
+            "Decided the same day: only the forecast is published; it starts when both nominees are presumptive, so a test date near 150 days is added; third-party support is dropped and undecided voters are modelled; registered-voter polls are corrected to likely voters; 2024 stays out of every test.",
+            "Settled 2026-11-20. Adoption rule for these candidates: judged on the average over 150, 100 and 60 days, with 30 and 7 days not allowed to get worse; on the national series a candidate has to beat 19 in 20 versions with its feature shuffled between elections and be better in two thirds of them. The popular vote and the states come from one draw; letting national polls set the popular vote, with the difference spread over states by uncertainty and size, is a candidate against states-first.",
+            "To collect first: convention dates, the date each nominee became presumptive (taken late when in doubt), and a 2020 national series. Candidate favourability is DA-9.",
+            "Collected 2026-11-20: convention dates (1948 to 2028), the date each nominee became presumptive (1980 to 2020), and a 2020 national series built from the repo's polls. The rule for presumptive, confirmed the same day: the day news delegate counts gave a majority, the latest where sources differ; the forecast waits for a rival who is still contesting. Next is stage 1, the nowcast."
           ],
           refs: ["src/model/pollavg.py", "src/model/pollster_effects.py"] },
         { id: "EC-3", title: "Presidential fundamentals", kind: "story", phase: "p4", needs: ["EC-1"],
@@ -574,7 +591,8 @@ window.PLAN = {
         { id: "EC-8", title: "What to show before the nominees are known", kind: "decision", phase: "p4",
           why: "Nominees are unknown until mid-2028.",
           details: [
-            "Options: nothing until there are nominees, a generic party matchup, or the leading candidates' matchups."
+            "Options: nothing until there are nominees, a generic party matchup, or the leading candidates' matchups.",
+            "Mostly answered at EC-2 on 2026-11-20: there is no forecast until both nominees are presumptive. Still open: what the page shows in the meantime."
           ] },
         { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8", "SC-4"],
           why: "After this the model only takes in new polls.",

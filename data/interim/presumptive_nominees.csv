@@ -1,0 +1,23 @@
+cycle,party,nominee,clinched,clinched_days_to_election,basis,other_dates,contested_until,contested_by,contested_days_to_election,election_date,wiki_revision
+1980,D,Jimmy Carter,1980-06-03,154,"majority in news counts after the last primaries (Wikipedia's campaign page, found by search)",1980-08-11 (Wikipedia table: secured at the convention),1980-08-11,"Ted Kennedy, withdrew at the convention after losing the rules vote (Wikipedia table)",85,1980-11-04,1385536192
+1980,R,Ronald Reagan,1980-05-24,164,Wikipedia table,"1980-05-20 (after the Michigan and Oregon primaries, found by search)",,,,1980-11-04,1386009125
+1984,D,Walter Mondale,1984-06-06,153,"claimed a majority, counting superdelegates, the day after the last primaries (UPI of 7 June 1984 and the Michigan Daily, found by search)",,1984-07-18,"Gary Hart, lost the roll call (Wikipedia table)",111,1984-11-06,1385086113
+1984,R,Ronald Reagan,1984-02-20,260,"sitting president, no rival with delegates; no clinch day found, so the first contest is entered",1984-08-23 (Wikipedia table: the roll call),,,,1984-11-06,1379396600
+1988,D,Michael Dukakis,1988-06-07,154,Wikipedia table; Reuters chronology of 5 February 2008,,1988-07-21,"Jesse Jackson, to the convention (the roll call's date is not collected: the convention's last day is used)",110,1988-11-08,1382452519
+1988,R,George H. W. Bush,1988-04-26,196,Wikipedia table; Reuters chronology of 5 February 2008,,,,,1988-11-08,1375540017
+1992,D,Bill Clinton,1992-06-02,154,Wikipedia table; Reuters chronology of 5 February 2008,,1992-07-15,"Jerry Brown, lost the roll call (Wikipedia table)",111,1992-11-03,1386194946
+1992,R,George H. W. Bush,1992-05-05,182,Wikipedia table,1992-04-28 (Reuters chronology of 5 February 2008),,,,1992-11-03,1381811601
+1996,D,Bill Clinton,1996-03-26,224,Wikipedia table,,,,,1996-11-05,1369052814
+1996,R,Bob Dole,1996-03-26,224,"held back from claiming the nomination until California voted (Irish Times, found by search)",1996-03-19 (Wikipedia table; Reuters chronology of 5 February 2008),,,,1996-11-05,1379384283
+2000,D,Al Gore,2000-03-14,238,Wikipedia table; Reuters chronology of 5 February 2008,,,,,2000-11-07,1384248113
+2000,R,George W. Bush,2000-03-14,238,Wikipedia table; Reuters chronology of 5 February 2008,,,,,2000-11-07,1386824263
+2004,D,John Kerry,2004-03-16,231,"passed 2,162 delegates with the Illinois primary (Washington Times and PBS of 17 March 2004, found by search)","2004-03-02 (Wikipedia table; Reuters chronology of 5 February 2008); 2004-03-11 (the page's text, counting superdelegates)",,,,2004-11-02,1386704803
+2004,R,George W. Bush,2004-03-10,237,Wikipedia table,,,,,2004-11-02,1379449467
+2008,D,Barack Obama,2008-06-03,154,Wikipedia table,,2008-06-07,"Hillary Clinton, conceded and endorsed (the page's text)",150,2008-11-04,1384443023
+2008,R,John McCain,2008-03-04,245,Wikipedia table,,,,,2008-11-04,1381785936
+2012,D,Barack Obama,2012-04-03,217,Wikipedia table,,,,,2012-11-06,1385393019
+2012,R,Mitt Romney,2012-05-29,161,Wikipedia table,2012-04-25 (declared presumptive by the party's national committee),,,,2012-11-06,1386168214
+2016,D,Hillary Clinton,2016-06-06,155,"Wikipedia table (the Associated Press count, with superdelegates)",,2016-07-12,"Bernie Sanders, endorsed (the page's text)",119,2016-11-08,1386824791
+2016,R,Donald Trump,2016-05-26,166,Wikipedia table,2016-05-03 (declared presumptive by the party's chairman),,,,2016-11-08,1375633886
+2020,D,Joe Biden,2020-06-05,151,Wikipedia table,2020-04-08 (the last rival withdrew),,,,2020-11-03,1381856294
+2020,R,Donald Trump,2020-03-17,231,Wikipedia table,,,,,2020-11-03,1386793513
