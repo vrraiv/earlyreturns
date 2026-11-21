@@ -759,5 +759,89 @@ def run():
     print(json.dumps(diag, indent=1, default=float)[:4000])
 
 
+def report():
+    """Reports promised in the pre-registration that decide nothing: the unshrunk Firth hazard and Kaplan-Meier beside
+    each fit, a bootstrap over elections, leave-one-election-out ranges for 2020's fits, candidate 2 at thresholds 1.0
+    and 2.0, what pooling the approval series would add, grid-edge picks and reading density."""
+    E = load()
+    P = prep(E)
+    rng = np.random.default_rng(21)
+    out = {"by_election": {}}
+    for y in SCORED:
+        earlier = [x for x in CYCLES if x < y]
+        pw = [x for e in earlier for x in P[e]["pw"]]
+        a = np.array(pw)
+        firth = logit_fit(a[:, 0], a[:, 1], 0.0, firth=True)
+        shr, pen = fit_hazard({e: P[e]["pw"] for e in earlier}, earlier)
+        boot_s4, boot_rate = [], []
+        for _ in range(500):
+            pick = rng.choice(earlier, size=len(earlier), replace=True)
+            bpw = [x for e in pick for x in P[e]["pw"]]
+            if not bpw:
+                continue
+            boot_s4.append(km(bpw)[3])
+            bb = np.array(bpw)
+            boot_rate.append(float(bb[:, 1].sum() / len(bb)))
+        out["by_election"][y] = {
+            "episodes": int(sum(len(P[e]["eps"]) for e in earlier)),
+            "firth": {"alpha": float(firth[0]), "delta": float(firth[1])},
+            "shrunk": {"alpha": float(shr[0]), "delta": float(shr[1]), "pen": pen},
+            "km_weeks_1_8": km(pw),
+            "bootstrap_km_week4_5_95": np.quantile(boot_s4, [0.05, 0.95]).tolist(),
+            "bootstrap_weekly_end_rate_5_95": np.quantile(boot_rate, [0.05, 0.95]).tolist()}
+    # leave one election out: 2020's fits
+    y = 2020
+    earlier = [x for x in CYCLES if x < y]
+    lo = {"drift": [], "hazard_delta": [], "alpha_c4": [], "rho_c5": [], "k_c1": []}
+    for g in earlier:
+        keep = [x for x in earlier if x != g]
+        th, _ = fit_hazard({e: P[e]["pw"] for e in keep}, keep)
+        dr, _ = fit_drift({e: P[e]["dr"] for e in keep}, keep)
+        lo["drift"].append(dr); lo["hazard_delta"].append(float(th[1]))
+        Esub = {e: E[e] for e in keep + [y]}
+        Psub = {e: P[e] for e in keep + [y]}
+        bt = backtest_one(Esub, Psub, y, keep)
+        lo["alpha_c4"].append(bt["c4"]["alpha"]); lo["rho_c5"].append(bt["c5"]["rho"]); lo["k_c1"].append(bt["c1"]["k"])
+    out["loeo_2020_ranges"] = {k: [float(min(v)), float(max(v))] for k, v in lo.items()}
+    # candidate 2 at other thresholds (reported only)
+    base_S = scores(backtest(E, P, which=()))
+    out["c2_thresholds"] = {}
+    for thr in (1.0, 2.0):
+        P2 = {}
+        for yy in CYCLES:
+            sd_, ss_, eps = zigzag(E[yy]["L"], thr)
+            P2[yy] = dict(P[yy], dir=sd_, start=ss_, eps=eps, pw=person_weeks(eps), dr=drift_rows(E[yy]["L"], eps))
+        S2 = scores(backtest(E, P2, which=("c2",)))
+        out["c2_thresholds"][thr] = summary(S2, ["c2"])["c2"]
+    # pooling: episodes the Gallup approval series would add (same filter on a 14-day average of approval)
+    g = pd.read_csv(INTERIM / "gallup_approval.csv", parse_dates=["end"])
+    d = pd.read_csv(INTERIM / "president_national_poll_days.csv", parse_dates=["election_date"])
+    pool = {}
+    for yy, el in d.groupby("cycle").election_date.first().items():
+        x = g[(g.end <= el) & (g.end >= el - pd.Timedelta(days=DMAX + 60))]
+        tt = (el - x.end).dt.days.values.astype(float)
+        La = np.array([wavg(tt, x.Approving.values.astype(float), k, HL_LIGHT) for k in range(DMAX + 1)])
+        pool[int(yy)] = len(zigzag(La)[2])
+    out["approval_series_episodes"] = pool
+    out["readings_within_260_days"] = {yy: int((E[yy]["t"] <= DMAX).sum()) for yy in CYCLES}
+    (OUT / "pres_reversion_report.json").write_text(json.dumps(out, indent=1, default=float))
+    print(json.dumps({k: v for k, v in out.items() if k != "by_election"}, indent=1, default=float))
+    for yy, v in out["by_election"].items():
+        print(yy, v["episodes"], "firth", np.round([v["firth"]["alpha"], v["firth"]["delta"]], 3), "shrunk",
+              np.round([v["shrunk"]["alpha"], v["shrunk"]["delta"]], 3), "km", np.round(v["km_weeks_1_8"], 2),
+              "boot S4", np.round(v["bootstrap_km_week4_5_95"], 2))
+
+
+def backtest_one(E, P, y, earlier):
+    """Fits for one election on a given earlier set (for leave-one-out ranges)."""
+    saved = globals()["CYCLES"], globals()["SCORED"]
+    try:
+        globals()["CYCLES"] = tuple(sorted(earlier + [y]))
+        globals()["SCORED"] = (y,)
+        return backtest(E, P)[y]["fit"]
+    finally:
+        globals()["CYCLES"], globals()["SCORED"] = saved
+
+
 if __name__ == "__main__":
-    {"checks": checks, "run": run}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
+    {"checks": checks, "run": run, "report": report}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
