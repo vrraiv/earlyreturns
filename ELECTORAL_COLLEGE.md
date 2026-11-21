@@ -2026,3 +2026,15 @@ and pull the states' sum toward the national estimate. So a verdict here holds u
 5. **One round.**
 6. **Retest after EC-4.** Proposed: stage 5's verdict is provisional and is rerun once EC-4's blended state
    estimates exist, with the same pre-registration.
+
+**Stage 5: demographics considered and moved to EC-5 (2026-11-21, before any run).**
+
+- **What was asked.** The user asked whether candidate A should spread the gap by more than uncertainty: by
+  demographics, fitted on how past national-state disagreements lined up with age, race and education.
+- **Why it moved.** On reflection the user judged that demographics may matter, but not through this mechanism.
+  2016's state polling errors were correlated across states, yet they did not come from the national polls
+  missing.
+- **Where it went.** So the question belongs with how state errors move together. It is recorded on EC-5, which now
+  waits for DA-4 (demographics by year), so it is tested on demographics as they stood in each election rather than
+  one late-2010s snapshot.
+- **What stays here.** Candidate A stays as written, spreading the gap by vote share and uncertainty.
