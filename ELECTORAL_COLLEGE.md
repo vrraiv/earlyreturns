@@ -1026,3 +1026,31 @@ committed before any code reads a 2024 margin or result. The 2024 loader checks 
 
 **Where this differs from what the user approved on 2026-11-21:** the gate (when 2024 is opened) is added, and the
 unrated weight is tied to γ. The fit and the pass are at 7 days, with 30 and 60 days reported, as approved.
+
+### Pollster quality: the fit on 2016 and 2020 (run 2026-11-21, before 2024 was opened)
+
+`src/model/pres_quality.py fit`, `data/processed/pres_quality_fit.json`. Checks passed first: the leak test, and
+γ = 0 reproducing the baseline average exactly. Rated share of polls: 81% (2016), 91% (2020). Places: 50 in 2016
+and 52 in 2020 at 7 days.
+
+**Picked: γ = 0.35, z_u = 1** (an unrated firm is treated as one SD worse than the average rated firm). Neither is
+at a grid edge for γ; z_u is at its edge (1). A firm one SD better than average gets exp(0.35), about 1.4 times the
+weight of an average firm, and one SD worse about 0.7 times.
+
+| 7 days out | 2016 | 2020 | Fit score |
+|---|---|---|---|
+| Baseline | 66.60 | 51.75 | 59.17 |
+| γ 0.35, z_u 1 | 65.76 | 50.73 | 58.24 |
+| With the year's mean error removed: baseline | 35.17 | 22.23 | |
+| With the year's mean error removed: γ 0.35, z_u 1 | 33.97 | 22.14 | |
+
+- It is lower than the baseline in 2016 and in 2020, so **the gate opens** and 2024 is run once at this setting.
+- The gain survives removing each year's mean error (1.20 in 2016, 0.09 in 2020), so it is not only a matter of
+  leaning the right way. In 2020 it is almost all lean.
+- **Warnings, reported and not part of the gate:**
+  - At 30 and 60 days it is worse in 2020, by a lot (28.44 to 35.24, and 28.68 to 33.08), and worse in 2016 at
+    60 days (70.98 to 72.92). It is better in 2016 at 30 days (63.41 to 61.97).
+  - The nation is worse at 7 days in both years: its squared error goes from 7.11 to 9.66 (2016) and from 22.74 to
+    23.77 (2020).
+  - The grid is smooth: every γ from 0.1 to 0.5 beats the baseline at 7 days in both years. γ = 0.75 or more is
+    worse.
