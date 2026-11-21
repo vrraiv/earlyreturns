@@ -1667,7 +1667,7 @@ the 95% needed). It is better at every date and in 8 of 11 elections.
     refitted when the model is assembled.
   - **States.** How the raw-margin scaling applies to state margins is stage 5's question.
 
-### Stage 4: states with few polls, pre-registration (written 2026-11-21, before any run; five questions await the user)
+### Stage 4: states with few polls, pre-registration (written 2026-11-21, before any run; confirmed by the user the same day)
 
 Stage 4 runs on the state test bed: state polls 2004 to 2020 through stage 1's loader. 2024 is refused there.
 Results are `state_presidential.csv`. Maine's and Nebraska's districts are left out, having no results in the repo.
@@ -1776,7 +1776,7 @@ pooled and by election, since states in one year share the national miss.
   - with every state polled at a uniform swing, method 2 recovers it;
   - method 1 equals national plus lean.
 
-**Questions for the user:**
+**Confirmed by the user on 2026-11-21, all five as proposed:**
 
 1. **Elections and the count.** Score 2004 to 2020 at every date, since nothing is fitted, and ask for at least
    4 of 5 better. The alternative is section 7's table: 2008 only at 30 and 7 days, 2004 not at all.
