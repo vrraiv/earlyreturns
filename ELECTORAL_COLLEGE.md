@@ -886,3 +886,68 @@ The baseline file must stay unchanged byte for byte.
 Corrected same-week house effects failed and are not combined with either.
 
 **Reported.** The four clauses, the picks by cycle, the loss by density, and each candidate beside N2.
+
+### Stage 1, round 3: results (run 2026-11-21). Neither is adopted.
+
+The checks passed before any loss was read. Both candidates and the baseline pass the leak test, the own-firm test
+and both deletion tests. Each candidate's grid path matches its per-target path exactly. The baseline file is
+unchanged byte for byte.
+
+| Candidate | Loss | Gain | Cycles better | p (sign-flip) | Gain, 91 to 161 days | Verdict |
+|---|---|---|---|---|---|---|
+| 10. Latest k firms | 26.90 | +0.39 | 2 | 0.16 | +0.21 | fails |
+| 11. Half-life by density | 27.35 | −0.06 | 2 | 0.62 | −1.46 | fails |
+
+| | 2004 | 2008 | 2012 | 2016 | 2020 | Nation |
+|---|---|---|---|---|---|---|
+| Baseline | 24.25 | 39.17 | 18.47 | 33.84 | 20.72 | 19.26 |
+| 10. Latest k firms | 24.68 | 35.77 | 19.31 | 34.21 | 20.53 | 18.67 |
+| 11. Half-life by density | 24.64 | 38.59 | 18.33 | 34.26 | 20.95 | 19.60 |
+| N2. Latest five firms (benchmark) | 25.64 | 34.70 | 20.05 | 35.72 | 21.60 | 20.38 |
+
+**10. Latest k firms.** Fails on cycles (2 of 5) and p (0.16).
+
+- k = 20 was picked for every held-out cycle, the top of the grid. The loss was still falling at 20 in 2004, 2012
+  and 2016, so a larger k might do better there; the grid is not widened after the run.
+- 2008 wants fewer firms (8 is best there, 34.79), the other cycles more. That is the same disagreement as every
+  memory candidate.
+- It beats the baseline for the nation (18.67 against 19.26) and slightly in every state class (17.27, 25.66,
+  40.69 and 53.38, against 17.39, 25.80, 40.96 and 53.62). It loses in 2004, 2012 and 2016.
+- Keeping the baseline's adjustments and weights helps: it beats N2 (the raw five-firm mean) in every cycle but
+  2008.
+
+**11. Half-life by density.** Fails on every clause but none by much.
+
+- Picks: D = 10 every time (never 4), with 7 days for dense places (30 in 2008) and 180 or 365 for sparse ones. Every cycle has a pick at a grid edge (7 or 365).
+- It gains where places are thin (1 to 3 polls: 40.26 against 40.96; 0: 51.84 against 53.62) but loses in dense
+  states and the nation, where the 7-day half-life picked on the other cycles is too short for 2008 and the 30-day
+  one too long for the rest. Early in the year it is worse (−1.46).
+- Checked by hand, because the nation's 19.60 is worse than the 19.07 the density diagnostic found at 7 days: the
+  difference is 2008, held out with 30 days (18.82 against 16.14 at 7). Not a fault.
+
+### Stage 1 closed (2026-11-21)
+
+Eleven candidates in three rounds. None passes the rule. **The nowcast is the baseline**, the Senate average's
+weighting applied to presidential polls, and it is fixed for the later stages:
+
+- 60-day half-life; sample-size weight sqrt(min(n, 3000) / 600); population weights 1 (likely voters, "voters"),
+  0.69 (registered), 0.5 (adults); each firm's weight divided by the square root of its polls in the place;
+- registered-voter and adult polls moved 0.45 toward the Democrat; the flat 4.3-point sponsor shift;
+- pollsters keyed by fielding firm.
+
+What stage 1 found, for later stages and for 2028:
+
+- The baseline is clearly better than the latest poll and than a plain mean of every poll, but not clearly better
+  than a latest-five-firms mean. About 12.5 of its 27.3 is sampling noise in the target polls.
+- The right memory depends on how fast the race is moving, and 2008 disagrees with the other four cycles about it
+  every time. A fixed rule cannot know in advance. This bears on stage 3 (reversion and trend).
+- Thinly polled places gain from longer memory; stage 1's score barely sees them, and stage 4 tests them against
+  results.
+- Corrected same-week house effects came closest (p 0.006, 3 cycles of 5).
+
+Open, carried forward:
+
+- The registered-voter lean (0.45 toward the Democrat) stays in the nowcast, though the 2020 paired questions put
+  likely voters 1.46 more Republican than registered voters, the opposite sign.
+- Pollster quality gets its own test (decided 2026-11-21): grades as they stood, fit on 2016 and 2020 and tested
+  on 2024. How that spends the 2024 holdout is still to be settled.
