@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-21h",
+  version: "2026-11-21j",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -564,7 +564,8 @@ window.PLAN = {
             "Stage 1, closed 2026-11-21 (`src/model/pres_nowcast.py`; section 11 of the note): the score is how well the average predicts the next week's likely-voter polls, without the target's own firm. Eleven candidates in three rounds; none passes, so the nowcast is the Senate average's weighting, now fixed. Three candidates leaked the target's own firm; two were corrected (same-week house effects, the national trend) and neither passes corrected. The baseline clearly beats the latest poll and a plain mean of every poll, but not a mean of the latest five firms. The best memory depends on how fast the race moves (2008 disagrees with the other cycles), and thinly polled states are left to stage 4. Still open: the registered-voter lean, which the 2020 paired questions contradict. Next is stage 2, convention windows.",
             "Pollster quality, a separate test (2026-11-21): 538's ratings as they stood before each election, as a weight on each poll, fitted on 2016 and 2020 and run once on 2024 (the one use of 2024 in section 11). It passes at 7 days out in 2024 (gain 1.88, p 0.0085), though most of that is a small shared shift toward the Republican; it is worse at 60 days, and 538's last ratings are from September 2024. Ratings changed a lot from 2020 to 2024 (correlation 0.55), so it was deferred the same day: it returns when the 2028 ratings are known, or with the repo's own tiers (DA-10).",
             "Stage 2, closed 2026-11-21 (`src/model/pres_conventions.py`): convention windows on the national series, 1980 to 2020, scored against results. None of the three treatments passes (a fitted rise and fade, down-weighting the window, a wider range), so the forecast through the conventions is the nowcast. The fitted \"bump\" behaved like a lasting shift after the conventions rather than a bounce, which goes to stage 3. Next is stage 3, reversion and trend.",
-            "Stage 3, closed 2026-11-21 (`src/model/pres_reversion.py`): six candidates under small-sample rules, scored against results on the national series. One passes, narrowly: the undecided break, which makes the forecast the raw margin (Democrat minus Republican, in points of all respondents) averaged like the nowcast. The anchor pull, the trend-survival model, durability and approval-linked reversion fail; trend episodes last no longer than shuffled noise. Still open: whether 2028 uses head-to-head or full-field questions for the undecided share. Next is stage 4, states with few polls."
+            "Stage 3, closed 2026-11-21 (`src/model/pres_reversion.py`): six candidates under small-sample rules, scored against results on the national series. One passes, narrowly: the undecided break, which makes the forecast the raw margin (Democrat minus Republican, in points of all respondents) averaged like the nowcast. The anchor pull, the trend-survival model, durability and approval-linked reversion fail; trend episodes last no longer than shuffled noise. Still open: whether 2028 uses head-to-head or full-field questions for the undecided share. Next is stage 4, states with few polls.",
+            "Stage 4, closed 2026-11-21 (`src/model/pres_thin_states.py`): states with no poll in the last 30 days, 2004 to 2020, scored against results. None of the three methods passes (the prior, the average swing, carrying the last poll forward), so thin states keep their own polls however old. On the selection question: unpolled states land further from their lean-based forecast, not closer, because lopsided states are where lean shifts most; and a thin state's 1 to 3 polls beat the prior only 43% of the time. Both point to blending polls with a prior that lets lean move, in the full model. Next is stage 5, the add-up."
           ],
           refs: ["src/model/pollavg.py", "src/model/pollster_effects.py"] },
         { id: "EC-3", title: "Presidential fundamentals", kind: "story", phase: "p4", needs: ["EC-1"],
@@ -578,7 +579,9 @@ window.PLAN = {
           why: "Thinly polled states lean on the prior.",
           details: [
             "Lean from past presidential results.",
-            "The weight on polls is estimated from history, as it was for the Senate."
+            "The weight on polls is estimated from history, as it was for the Senate.",
+            "From EC-2's stage 4 (2026-11-21, in-sample, deciding nothing): the prior should never get zero weight. A state's own polls with only 1 to 3 recent polls beat the prior just 43% of the time, and a roughly even mix of polls and prior cut the error by about a third where polling was thin or light. The best weight moved between elections (0.2 in 2008 to 0.85 in 2020) and faded with 4 or more recent polls. So the weight should come from each side's uncertainty and grow with the number of recent polls, learned on earlier elections only (`ELECTORAL_COLLEGE.md`, section 11, stage 4).",
+            "Also from stage 4: unpolled states land further from a lean-based prior, not closer, because lopsided states are where lean shifts most (toward the Democrat in 2008, the Republican in 2016). A prior that lets the lean move (a two-election trend, or demographics from DA-4) is a candidate, with a wider range for lopsided states."
           ],
           refs: ["src/model/prior_weight.py"] },
         { id: "EC-5", title: "How state errors move together", kind: "story", phase: "p4", needs: ["EC-1", "DA-5"],
