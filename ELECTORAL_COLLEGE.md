@@ -1818,3 +1818,67 @@ pooled and by election, since states in one year share the national miss.
 - **Method 2 with no recently polled state** falls back to the prior.
 - **Also reported:** diagnostic (a)'s mean signed error by election, and each method's error on the states it
   actually changes.
+
+### Stage 4: results (run 2026-11-21). None of the three passes.
+
+`src/model/pres_thin_states.py run`, `data/processed/pres_thin_states.json` (and the per-state table
+`pres_thin_states_table.csv`).
+
+| | Score (150/100/60) | 2004 | 2008 | 2012 | 2016 | 2020 | 30 days | 7 days | Test | Verdict |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Baseline (own polls, however old) | 61.7 | 43.7 | 69.2 | 52.3 | 116.2 | 27.1 | 52.8 | 69.5 | | |
+| 1. Prior (national + lean) | 64.3 | 34.1 | 143.7 | 30.5 | 102.3 | 11.0 | 55.5 | 95.8 | p 0.68 | fails |
+| 2. Average swing | 68.3 | 36.0 | 145.2 | 30.9 | 109.4 | 19.7 | 61.5 | 97.8 | p 0.78 | fails |
+| 3. Carry-forward (14-day) | 59.2 | 44.0 | 71.4 | 52.9 | 97.4 | 30.6 | 51.3 | 58.5 | 97% of shuffles | fails |
+
+The score is the mean of the five elections' columns.
+
+- **1. The prior** is better in 4 of 5 elections, often by a lot (2012: 30.5 against 52.3; 2020: 11.0 against 27.1).
+  But it is far worse in 2008 (143.7 against 69.2) and at 30 and 7 days. Overall −2.63, sign-flip p 0.68 (0.53
+  with elections as units). 2008's thin states moved toward Obama well beyond their 2004 lean: mean signed error −6.1
+  in states with no recent poll.
+- **2. The average swing** fails in the same way, worse (−6.56).
+- **3. Carry-forward** gains 2.43, beats 97% of its shuffles, and is better at 30 and 7 days. But it is better in only
+  1 of 5 elections (2016, 97.4 against 116.2); the other four are slightly worse. So it fails.
+  - Its flag would also have applied: in the states it is scored on, the old polls beat the prior in only 46% of
+    cases.
+  - The 60-day version (reported only) gains 1.18 and is better in 4 of 5.
+- **States each method changes:** methods 1 and 3 change the 171 scored state-dates that have old polls, method 2
+  all 250. On those, the error is 68.4 for the baseline against 66.4 for the prior and 62.1 for carry-forward.
+
+**The user's selection question.**
+
+- **(a) Thinly polled states do not land closer to their no-poll forecast; they land further.**
+
+  | Polls in the previous 30 days | 0 | 1 to 3 | 4 to 9 | 10 or more |
+  |---|---|---|---|---|
+  | Prior's squared error | 66.3 | 34.7 | 26.1 | 17.4 |
+  | State-dates | 250 | 388 | 110 | 17 |
+
+  - The 0 group is furthest in every election but 2020, where all groups are close.
+  - The signed errors show why: states that pollsters skipped moved off their old lean by more. They moved toward
+    the Democrat in 2008 (−6.1) and toward the Republican in 2016 (+7.1).
+  - So pollsters do skip lopsided states, but lopsided states are where the lean shifts most between elections.
+  - Being unpolled is not evidence that the prior is right.
+- **(b) The few polls in thin states do worse than the prior.**
+  - Where a state had 1 to 3 recent polls, its own nowcast was closer to the result than the prior in 43% of 388
+    cases. Its squared error was 42.7 against the prior's 34.7.
+  - By election, the share closer was 49% (2004), 59% (2008), 43% (2012), 46% (2016) and 22% (2020). Only 2008, the
+    year the leans moved most, favoured the polls.
+  - That fits the user's suspicion that lone polls in thin states are noisy or selected. It also says a thin
+    state's estimate should lean on the prior more than the baseline does.
+- **(c) Sponsored against independent:** only 3 sponsored polls appear among the old polls of thin states (all
+  2020). Not possible, as expected.
+
+**Stage 4 closed.** One round, as agreed. **Thinly polled states keep the baseline**: their own polls however old,
+or the prior if they have none.
+
+**Pointers for later, deciding nothing now:**
+
+- **Blend polls with the prior by how much polling there is.** The diagnostics argue for a weighted blend of a
+  state's polls and its prior, with the poll weight growing with the number of recent polls. That needs a fitted
+  weight, so it belongs where section 4's model combines prior and polls.
+- **Watch the lean.** The prior's failures are years when leans moved: 2008, and 2016 in lopsided states. A prior
+  that allows the lean to move (from demographics, DA-4, or a trend in lean over two elections) would address what
+  the thin states got wrong.
+- **Carry-forward** came close (97% of shuffles, better at 30 and 7 days) but won only 1 election of 5.
