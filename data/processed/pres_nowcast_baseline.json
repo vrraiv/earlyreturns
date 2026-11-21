@@ -1,23 +1,23 @@
 {
- "loss": 27.0760388341466,
+ "loss": 27.288863569748308,
  "by_cycle": {
   "2004": {
    "targets": 1098,
-   "mse": 24.149,
+   "mse": 24.25,
    "sampling": 14.992,
-   "beyond_sampling": 9.157
+   "beyond_sampling": 9.258
   },
   "2008": {
-   "targets": 1181,
-   "mse": 38.445,
-   "sampling": 14.324,
-   "beyond_sampling": 24.121
+   "targets": 1179,
+   "mse": 39.173,
+   "sampling": 14.309,
+   "beyond_sampling": 24.864
   },
   "2012": {
    "targets": 939,
-   "mse": 18.24,
+   "mse": 18.465,
    "sampling": 13.249,
-   "beyond_sampling": 4.992
+   "beyond_sampling": 5.216
   },
   "2016": {
    "targets": 1562,
@@ -27,19 +27,19 @@
   },
   "2020": {
    "targets": 2769,
-   "mse": 20.707,
+   "mse": 20.718,
    "sampling": 8.184,
-   "beyond_sampling": 12.523
+   "beyond_sampling": 12.534
   }
  },
  "by_band": {
-  "1-30": 23.24,
-  "31-90": 27.42,
-  "91-161": 35.502
+  "1-30": 23.293,
+  "31-90": 27.766,
+  "91-161": 35.9
  },
- "national": 19.22,
- "states": 28.389,
- "targets": 7549,
+ "national": 19.264,
+ "states": 28.636,
+ "targets": 7547,
  "settings": {
   "half_life": 60.0,
   "pop_w": {

@@ -5,7 +5,8 @@ Test bed: president_general_polls.csv, 2004 to 2020, states, Maine and Nebraska 
 out (late polls only, no population field). 2024 is refused at load (held out of everything in section 11).
 
 Per poll, one question: head-to-head if the poll has one, then likely voters, voters, registered voters, adults.
-A poll's date is its last field day (the middle where the last is missing: 2004 national).
+A poll's date is its last field day (the middle where the last is missing: 2004 national). A pollster is the firm
+that fielded the poll (firm_key), so a firm polling for several sponsors counts once.
 
 The average at date t uses polls that ended before t. Weights, borrowed from the Senate average (pollavg.py):
   0.5 ** (age / half_life) * sqrt(min(n, 3000) / 600) * population weight / sqrt(polls by that pollster in the pool)
@@ -23,6 +24,7 @@ Run:  python src/model/pres_nowcast.py checks         (2024 refusal, leak test, 
 Writes data/processed/pres_nowcast_<name>.json
 """
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -48,9 +50,19 @@ HALF_LIVES = (7, 10, 14, 21, 30, 45, 60, 90)
 BANDS = [(1, 30), (31, 90), (91, 161)]
 
 
-def norm(name):
-    import pollster_effects as PE
-    return PE.norm(name) or str(name).lower()
+STOP = {"the", "inc", "llc", "corporation", "corp", "co", "and", "of"}
+
+
+def firm_key(name, poll_id):
+    """The firm that fielded the poll: the last part of a sponsor/firm name ("KATU-TV Portland/SurveyUSA",
+    "Fox News/Rasmussen Reports/Pulse Opinion Research"), lower case, without notes in brackets, punctuation or
+    filler words, its words sorted ("Mason-Dixon Polling & Research" = "Mason-Dixon Research & Polling"). A poll with
+    no pollster name gets a key of its own."""
+    if not isinstance(name, str) or not name.strip():
+        return f"unknown-{poll_id}"
+    s = re.sub(r"\(.*?\)", " ", name.split("/")[-1].lower())
+    words = sorted(set(re.sub(r"[^a-z0-9 ]", " ", s.replace("&", " ")).split()) - STOP)
+    return " ".join(words) or name.lower()
 
 
 def load(cycles=CYCLES):
@@ -71,7 +83,7 @@ def load(cycles=CYCLES):
     q["end"] = pd.to_datetime(q.end.fillna(q.mid))
     q["election"] = pd.to_datetime(q.election)
     q["dte"] = (q.election - q.end).dt.days
-    q["pkey"] = q.pollster.map(norm)
+    q["pkey"] = [firm_key(n, i) for n, i in zip(q.pollster, q.poll_id)]
     q["n"] = q.n.fillna(600)
     q["sg"] = np.where(q.partisan == "DEM", 1, np.where(q.partisan == "REP", -1, 0))
     return q.dropna(subset=["m"]).sort_values(["cycle", "geo", "end"]).reset_index(drop=True)

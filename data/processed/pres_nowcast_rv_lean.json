@@ -1,0 +1,108 @@
+{
+ "gain": -0.07,
+ "cycles_better": 3,
+ "p_signflip": 0.8906,
+ "gain_91_161": -0.914,
+ "adopted": false,
+ "by_cycle": {
+  "2004": {
+   "baseline": 24.25,
+   "candidate": 24.44
+  },
+  "2008": {
+   "baseline": 39.173,
+   "candidate": 39.676
+  },
+  "2012": {
+   "baseline": 18.465,
+   "candidate": 18.314
+  },
+  "2016": {
+   "baseline": 33.839,
+   "candidate": 33.697
+  },
+  "2020": {
+   "baseline": 20.718,
+   "candidate": 20.665
+  }
+ },
+ "score": {
+  "loss": 27.358474421925195,
+  "by_cycle": {
+   "2004": {
+    "targets": 1098,
+    "mse": 24.44,
+    "sampling": 14.992,
+    "beyond_sampling": 9.448
+   },
+   "2008": {
+    "targets": 1179,
+    "mse": 39.676,
+    "sampling": 14.309,
+    "beyond_sampling": 25.367
+   },
+   "2012": {
+    "targets": 939,
+    "mse": 18.314,
+    "sampling": 13.249,
+    "beyond_sampling": 5.065
+   },
+   "2016": {
+    "targets": 1562,
+    "mse": 33.697,
+    "sampling": 11.617,
+    "beyond_sampling": 22.081
+   },
+   "2020": {
+    "targets": 2769,
+    "mse": 20.665,
+    "sampling": 8.184,
+    "beyond_sampling": 12.481
+   }
+  },
+  "by_band": {
+   "1-30": 23.402,
+   "31-90": 27.308,
+   "91-161": 36.813
+  },
+  "national": 19.311,
+  "states": 28.727,
+  "targets": 7547
+ },
+ "info": {
+  "rv_minus_lv_by_cycle": {
+   "2004": {
+    "mean": -2.038,
+    "polls": 108
+   },
+   "2008": {
+    "mean": 1.492,
+    "polls": 535
+   },
+   "2012": {
+    "mean": 2.162,
+    "polls": 140
+   },
+   "2016": {
+    "mean": -0.811,
+    "polls": 333
+   },
+   "2020": {
+    "mean": 2.012,
+    "polls": 618
+   }
+  },
+  "correction_used": {
+   "2004": 1.214,
+   "2008": 0.331,
+   "2012": 0.164,
+   "2016": 0.907,
+   "2020": 0.201
+  },
+  "paired_2020": {
+   "polls": 1600,
+   "mean_lv_minus_rv": -1.462,
+   "se": 0.066
+  }
+ }
+}
