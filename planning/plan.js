@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-21j",
+  version: "2026-11-21k",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -584,12 +584,13 @@ window.PLAN = {
             "Also from stage 4: unpolled states land further from a lean-based prior, not closer, because lopsided states are where lean shifts most (toward the Democrat in 2008, the Republican in 2016). A prior that lets the lean move (a two-election trend, or demographics from DA-4) is a candidate, with a wider range for lopsided states."
           ],
           refs: ["src/model/prior_weight.py"] },
-        { id: "EC-5", title: "How state errors move together", kind: "story", phase: "p4", needs: ["EC-1", "DA-5"],
+        { id: "EC-5", title: "How state errors move together", kind: "story", phase: "p4", needs: ["EC-1", "DA-5", "DA-4"],
           why: "The electoral college is decided by correlated misses in a handful of states.",
           details: [
             "Estimate national, regional and state-level components from past presidential polling misses.",
             "Test demographic similarity between states against plain regions.",
-            "At most three candidates, judged by the rule in `ELECTORAL_COLLEGE.md`, section 8. The baseline they have to beat already has regions and a tilt by lean."
+            "At most three candidates, judged by the rule in `ELECTORAL_COLLEGE.md`, section 8. The baseline they have to beat already has regions and a tilt by lean.",
+            "Moved here from EC-2's stage 5 on 2026-11-21: do demographics (age, race, education) explain state polling errors that move together, as in 2016, apart from any national miss? 2016's state errors were correlated across states without the national polls missing, so this is about how state errors co-move, not about reconciling state and national polls. Needs DA-4, so each election is tested on its own demographics rather than one late-2010s snapshot."
           ],
           refs: ["src/model/error_structure.py"] },
         { id: "EC-6", title: "Simulation and outputs", kind: "story", phase: "p4", needs: ["EC-4", "EC-5"],
