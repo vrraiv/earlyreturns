@@ -2558,3 +2558,239 @@ One round. If it fails, EC-3 closes with the fundamentals reported and unused.
   the last month. **That is the case for revisiting them at the design freeze (EC-9).** A blend with a weight
   falling in proportion to days (γ = 1) can be written down as a candidate there and tested on 2024, the one
   election that has not shaped it, together with the rest of the model. It could not be adopted here.
+
+## 13. State prior and weight on polls: evaluation plan (EC-4)
+
+EC-2 left each state on its own polls, however old, with the prior used only where a state has no poll at all.
+Stage 4's diagnostics said that gives the prior too little weight. EC-4 tests how a state's polls and its prior
+should be mixed, and whether the prior's lean should be allowed to move.
+
+### EC-4: pre-registration (written 2026-11-21, before any run; draft awaiting the owner's off-tracker review and the questions at the end)
+
+Nothing below has been run. The only numbers in it are counts of polls, taken without results.
+
+**How blind this test is.** Not very, and that is said first.
+
+- **Stage 4's pointer** already scored fixed mixes of polls and prior on 2004 to 2020 at 150, 100 and 60 days,
+  in-sample. It found a roughly even mix best where polling was thin and the benefit fading at 4 or more recent
+  polls.
+- **The overfitting challenge** (the owner's name for it) is an off-tracker search by another agent, kept outside
+  this repo. It looked with hindsight for a model that calls 2012, 2016 and 2020. Its log was read on 2026-11-21,
+  before this draft, at the owner's direction. The card's gate had placed that reading after the draft.
+  - The EC-4 card's entries from stage 4 were on `main` before the reading (commit `49e5a1a`, merged with PR #47):
+    a weight from each side's uncertainty that grows with the number of recent polls, a lean that can move, and a
+    wider range for lopsided states.
+  - **What the log showed that bears on this card.** One state-level correction, which it calls the poll swing:
+    every polled state pulled part of the way back toward last election's lean, with one fitted weight. Fitted on
+    earlier elections only, it cut the state error in 2012, 2016 and 2020, at 7, 30, 60 and 100 days and in each
+    of the three elections. The fitted pull was 12% to 46% depending on the fit.
+  - **What comes from it here.** Rung 1 below, a fixed weight for every polled state, is declared as **suggested
+    by the overfitting challenge**. So is the report of the gain by poll count: the challenge found a gain across
+    all polled states where stage 4 saw it fade.
+  - **What does not.** Its demographic term (polls overstate the Democrat where white adults without a degree are
+    many) is not a candidate here. Its data is one 2015-19 snapshot, and it belongs with EC-5 once demographics
+    by year exist (DA-4). Its election-level shifts and its pull toward fundamentals give this card nothing.
+  - **Also seen, shaping nothing.** The log has a table of Senate polling misses by cycle that includes 2024
+    Senate slopes on the poll swing and on the demographic term. No 2024 presidential poll or result appears in
+    the log or its code.
+  - Its search list included a two-election lean trend. The log reports no result for it.
+- **So what is new in this test:** 2004 and 2008 as scored elections for the fixed weight; the score below; the
+  weight that varies with poll count, with its own scramble; and the moving lean.
+- **The only untouched test is 2024**, once, at the design freeze (EC-9).
+
+**Test bed.**
+
+- State polls 2004 to 2020 through stage 1's loader. 2024 is refused.
+- 2000's polls are loaded for fitting only and never scored (question 1). The repo holds 530 state polls from the
+  last 60 days of 2000, in all 51 contests, with no population field, so the loader reads them all as
+  likely-voter polls.
+- Results are `state_presidential.csv`, years to 2020 only. Lean history for rung 3 is
+  `state_presidential_history.csv`; its 2024 rows are refused at load, and a fit for an election reads only the
+  elections before it.
+- 50 states and DC. Maine's and Nebraska's districts are left out, having no results in the repo.
+
+**Pieces, as the earlier stages left them.**
+
+- **p**, a state's poll average: stage 1's nowcast from every poll of the state that ended before the date, however
+  old.
+- **N**, the national input to the prior: the two-party national nowcast on the national series, from readings
+  dated at least 3 days before the date (stage 4's). Stage 3's scaling is not applied inside the prior; it enters
+  through the even shift.
+- **The prior:** N plus the state's lean. In the baseline and rungs 1 and 2 the lean is the state's lean at the
+  previous election.
+- **The even shift** (stage 5's C, provisional): every state moves by the same amount so the vote-weighted sum
+  meets stage 3's national forecast.
+
+**A state's effective number of polls, n.** Each of its polls counts 0.5^(age / 60), with age in days from the
+poll's end to the date. A poll that ended yesterday counts about 1 and one from 60 days back counts 0.5. The 60
+days is the nowcast's own half-life, so this adds no number. A state with only old polls has a small n: as low as
+0.001 in 2012, where a state's last poll can be over a year old.
+
+Counted without results, at the scored dates (30 and 7 days), 2004 to 2020, of 510 state-dates:
+
+| Polls in the previous 30 days | None that cycle | 0, old polls only | 1 to 3 | 4 to 9 | 10 or more |
+|---|---|---|---|---|---|
+| State-dates at 30 and 7 days | 13 | 44 | 183 | 127 | 143 |
+| State-dates at 150, 100 and 60 days | 79 | 171 | 388 | 110 | 17 |
+
+- The median n is about 3 to 9 at 30 and 7 days (19 in 2020 at 7 days) and 1.4 to 5 at the earlier dates.
+- One firm's sweep still decides a lot: in 2020 at 7 days all 51 contests have 10 or more recent polls.
+- 2000 has all 51 polled at 30 days (195 polls) and at 7 days (403 polls), and 3 states at 60 days.
+
+**Baseline.** EC-2's outcome: p where the state has any poll, the prior where it has none.
+
+**The ladder.** Every rung is: estimate = prior + w × (p − prior), for states with a poll. A state with no poll that
+cycle takes the prior on every rung.
+
+1. **F, one fixed weight** (suggested by the overfitting challenge). w is one number for every polled state.
+   - The challenge's poll swing is this with a pull of 1 − w.
+2. **V, a weight that grows with the number of polls.** w = 1 / (1 + α + β / (1 + n)), with α and β not below zero.
+   - This is the card's "weight from each side's uncertainty": with the poll average's squared spread
+     a + b / (1 + n) and the prior's τ², the weight on polls is τ² / (τ² + a + b / (1 + n)), so α = a / τ² and
+     β = b / τ².
+   - The 1 beside n is stage 5's shape, 1 / (1 + n). Without it a state with only old polls would be sent almost
+     wholly to the prior, and stage 4's pointer found such states did best on a mix. With it their weight has a
+     floor, 1 / (1 + α + β), that the fit sets.
+   - With β = 0 it is F. With α above zero the prior never gets zero weight, however many polls.
+3. **M, a lean that can move.** The prior's lean becomes a + b1 × (lean at the previous election) + b2 × (lean at the
+   one before), section 4's form. The weight on polls is refitted with this prior.
+   - **Reported only:** the same with b2 left out, so the slope on the last lean is separated from the trend.
+
+**Fits, on earlier elections only.**
+
+- **F and V** are fitted separately for each date, on the polled states of the earlier elections at that date,
+  every state counting equally. Least squares of (result − prior) on w × (p − prior), with one constant for each
+  election, so the year's shared miss does not enter the weight.
+  - F: w kept between 0 and 1.
+  - V: bounded least squares from three fixed starting points, keeping the lowest loss.
+- **Which elections each fit has:**
+
+  | Scored election | At 30 and 7 days | At 150, 100 and 60 days (reported) |
+  |---|---|---|
+  | 2004 | 2000 | none: not reported |
+  | 2008 | 2000, 2004 | 2004 |
+  | 2012 | 2000 to 2008 | 2004, 2008 |
+  | 2016 | 2000 to 2012 | 2004 to 2012 |
+  | 2020 | 2000 to 2016 | 2004 to 2016 |
+
+- **M** is fitted on results alone: each election's state leans on the two before, over every election from 1980 to
+  the one before the scored election (6 elections for 2004, 10 for 2020). No polls enter. 1980 is chosen by hand:
+  it is the first election whose two earlier leans both come after the three-way race of 1968 (question 4).
+
+**The score.** The lean error, at 30 and 7 days.
+
+- For each election and date: each state's error (estimate minus result), less the vote-weighted mean error of the
+  51 (weights from the previous election's two-party vote). Squared, averaged over the 51, then over the two dates,
+  with elections weighted equally.
+- **Why this score.** It asks how well the estimate places each state against the nation. It does not change when
+  every state moves by the same amount, so the verdict here does not rest on stage 5's even shift, which is itself
+  provisional on this card. The shared level stays stage 5's question.
+- **Why 30 and 7 days.** They are stage 5's scored dates and section 8's, and they are the only dates at which
+  2000 gives 2004 something to be fitted on.
+- **Reported beside it:**
+  - the plain squared error after the even shift, which is the forecast as it stands;
+  - the plain squared error states-first, with no shift;
+  - close states (baseline prior within 10 points) and the rest, apart;
+  - the lean error weighted by votes;
+  - 150, 100 and 60 days for 2008 to 2020.
+
+**The rule** (section 8 on the state test bed, as stages 4 and 5 applied it).
+
+- **Every rung:** a positive gain against the rung below it that stands, and better in at least 4 of the 5
+  elections.
+- **F, against the baseline:** a paired sign-flip test over the 10 election-date units, at p < 0.05. F has nothing
+  to shuffle that binds: stage 4 found that shuffling lean across states is close to automatic. The 10 units are
+  five pairs from the same election and behave more like 5; the election-level version is reported.
+- **V, against F if F passed, otherwise against the baseline:** n is shuffled across the polled states within each
+  election and date, in the fitted elections and the scored one alike, 200 times. V's gain must beat 19 in 20 of
+  the shuffled versions' gains. This tests the dependence on poll count itself, and is the test of "fades at 4 or
+  more" against "a gain everywhere".
+- **M, against whichever of V or F stands:** the change in lean between the two previous elections is shuffled
+  across states within each election, in the fit and the scored election alike, 200 times. M's gain must beat 19
+  in 20. The shuffle keeps the slope on the last lean, so it tests the trend only.
+  - If neither F nor V stands, M would change only the states with no poll that cycle (13 of 510 state-dates). It
+    is then reported and not tested.
+- **What is adopted:** the highest rungs that pass. V replaces F. M joins whichever stands. There is no other
+  combination.
+- **Collapse, written now.** If V's fitted β is zero in every fit, V is F and is reported as F with no verdict of
+  its own. If F's fitted w is 1 in every fit, F is the baseline.
+- **If nothing passes,** the baseline stands: a state's own polls, however old.
+
+**Flags.** A flagged pass goes to the user and is not adopted under the rule. No diagnostic turns a fail into a
+pass.
+
+1. A rung that passes on the lean error but is worse than the rung below it on the plain squared error after the
+   even shift.
+2. A rung that passes but is worse than the rung below it in close states.
+3. M passing here while it is worse than the previous lean on the long history of results (report c).
+
+**Reports, fixed now.**
+
+- **(a) The gain by poll count.** Each rung's gain over the baseline, split by the state's polls in the previous 30
+  days (none that cycle; 0 with old polls; 1 to 3; 4 to 9; 10 or more), at 30 and 7 days and at 150, 100 and 60,
+  with the number of state-dates and the number of elections in which each group gains.
+- **(b) The fitted numbers** (w; α and β; b1 and b2), by scored election and date.
+- **(c) The prior alone, on results only.** The previous lean against M's lean, and against the slope alone, for
+  each election from 1988 to 2020, each fitted on the elections before it. No polls enter.
+- **(d) Lopsided states.** The lean error by the size of the baseline prior (under 10 points, 10 to 20, over 20),
+  for the baseline and for whatever is adopted.
+- **(e) 2004 apart.** Its weights come from 2000 alone. Every clause is also shown on 2008 to 2020 only, asking for
+  3 of 4.
+- **(f) Each rung by election and by date,** and how many state-dates it changes.
+
+**The wider range for lopsided states.** This is a question about spread, and nothing on this card estimates a
+spread. Proposed: it is left to the assembly, where stage 3 already put the range refit, with report (d) as its
+evidence (question 6).
+
+**What EC-4 hands to stage 5's rerun.**
+
+- The estimate of whatever is adopted here, before any shift, for all 51 contests, 2004 to 2020, at all five dates.
+  Stage 5's pre-registration is unchanged.
+- 2004 at 150, 100 and 60 days has no earlier election to fit on, so it keeps the baseline there. Those dates are
+  reported in stage 5, not scored.
+- **If nothing is adopted here,** the rerun's input is the first run's, and it would reproduce it. That is recorded,
+  and whether the even shift stops being provisional is the user's decision.
+- **If the rerun withdraws the even shift,** the verdict here does not move, since the lean error ignores the
+  shift. The states-first table goes to the user, who decides whether the adoption stands.
+
+**How this version differs from the challenge's poll swing.**
+
+- The national input is stage 4's (the national series, lagged 3 days). The challenge used the average of the
+  national polls in the poll file up to the date.
+- 50 states and DC only. The challenge also fitted Maine's and Nebraska's districts on results entered by hand.
+- 2004 and 2008 are scored, with 2000 in the fits. The challenge scored 2012 to 2020 and fitted from 2004.
+- The score is the lean error. The challenge reported the state error after the even shift.
+
+**Checks before any loss is read.**
+
+- 2024 is absent from the polls, the results, the national series and the lean history.
+- The leak and deletion tests, as in stages 4 and 5: polls ending on or after the date, and national readings
+  within 3 days of it, change no estimate and no fit.
+- Changing the scored election's results changes no estimate and no fitted number for that election.
+- Behaviour on made-up inputs:
+  - w = 1 gives the baseline, and w = 0 gives the prior;
+  - V with β = 0 equals F;
+  - a planted weight is recovered by F's fit, and a planted α and β by V's;
+  - M with b1 = 1 and b2 = 0 equals the previous lean;
+  - a shuffle keeps the same set of values within each election and date.
+- The lean error of any estimate is unchanged by adding a constant to every state.
+
+**Questions for the user.**
+
+1. **2000 for fitting, and five scored elections.** Proposed: load 2000's late polls for fitting only, score 2004
+   to 2020 and ask for 4 of 5, with 2004 shown apart. The alternative is section 7's burn-in: 2004 unscored, 3 of
+   4, and 2004 left on the baseline in stage 5's rerun.
+2. **The score.** Proposed: the lean error at 30 and 7 days, with the plain squared error reported and used in
+   flag 1. The alternative is the plain squared error after the even shift as the score.
+3. **The ladder and the weight's form.** F, then V with w = 1 / (1 + α + β / (1 + n)) on the effective count,
+   fitted separately at each date.
+4. **How lean is defined for M.** The two previous elections' leans with fitted slopes, fitted on results from 1980.
+5. **What a pass by F buys.** The challenge already scored F's idea on 2012 to 2020, so only 2004 and 2008 are new
+   to it. Proposed: a pass by F is flagged to the user rather than adopted under the rule. The alternative is to
+   adopt it provisionally until 2024 is scored at the design freeze.
+6. **The range for lopsided states** left to the assembly, with report (d).
+7. **The three flags.**
+8. **One round.**
+
+**The human gate.** The card asks for the owner's off-tracker review once this draft exists and before the first
+run. Nothing on this card is run, and no module for it is written, until the owner says that review is done.
