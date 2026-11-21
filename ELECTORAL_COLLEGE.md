@@ -254,7 +254,10 @@ weighting applied to presidential polls.
 4. *States with few polls.* Scored on states with no poll in the previous 30 days; at 100 days that was 15 to 29
    of 51 states in 2004 to 2016. Three ways to fill the gap: the prior (national estimate plus lean); the average
    swing in the polled states; the state's last poll carried forward by the national movement since. (The third
-   is tested for every state at stage 1, round 2. If it is adopted there, it is stage 4's starting point.)
+   was tried at stage 1, round 2, and not adopted. Stage 1's targets barely reach thinly polled places: in 60% of
+   place-weeks there is no eligible new poll to score, and three in four where a place had 0 to 3 polls in the past
+   month. So stage 1 says little about it there, and it stays a stage 4 candidate, scored against results. Its
+   settings are written when stage 4 is pre-registered; stage 1's grid picks are not carried over.)
 5. *The add-up.* One candidate against section 4's states-first rule: national polls set the popular vote, and the
    difference from the states' sum is spread over the states by their uncertainty and size, so large, thinly
    polled states absorb most of it. Either way the two come from one draw.
@@ -606,8 +609,9 @@ Most of the first version's gain was the leak.
   firm's national polls, and the own-firm test fails in 8 of 20 cases. It fails the rule even with that help, so it
   was not rerun. 2008 gains a lot: 39.17 to 33.07 with a 7-day national trend line. That is the
   autumn the financial crisis moved every state at once. But it loses in 2004, 2012 and 2016, where moving state
-  polls by a noisy national line adds more error than it removes. This bears on stage 4 and on the durability
-  questions of stage 3, and it is not adopted here.
+  polls by a noisy national line adds more error than it removes. It is not adopted here. Its natural test is
+  stage 4, in states with no recent poll, which stage 1's targets rarely reach (see "Who the score sees", below).
+  It also bears on the durability questions of stage 3.
 - **Weight by total expected error.** The error that does not shrink with sample size is large: 15 to 20 points
   squared, against 17 for the sampling variance of a 600-person poll. So larger samples deserve little extra weight.
   Weighting in proportion to sample size (s = 0) is worse in 2012 and 2020. The baseline's square root is a fair
@@ -622,3 +626,51 @@ Most of the first version's gain was the leak.
 **Stage 1 result after round 2.** No candidate passes, so the nowcast is still the baseline: the Senate average's
 weighting. Under the user's decision of 2026-11-20 a further round with different candidates follows, written here
 before it runs. Corrected same-week house effects came closest (p 0.006, but 3 cycles of 5).
+
+### Who the score sees, and the national trend's leak (written 2026-11-21, before either is run)
+
+**What prompted this.** The user pointed out on 2026-11-21 that a national trend adjustment should matter most in
+thinly polled states, and those rarely produce a target. A count, made with no candidate's predictions:
+
+| Polls in the place in the prior 30 days | Place-weeks with an average | Has a target | New polls, none eligible | No new poll |
+|---|---|---|---|---|
+| 0 | 1,133 | 77 | 147 | 909 |
+| 1 to 3 | 2,788 | 865 | 187 | 1,736 |
+| 4 to 9 | 1,155 | 772 | 62 | 321 |
+| 10 or more | 550 | 536 | 6 | 8 |
+| All | 5,626 | 2,250 | 402 | 2,974 |
+
+Places with 10 or more polls in the past month give 61% of the 7,547 targets; places with 0 to 3 give 18%. 30 of
+the 264 place-cycles with polls have no target at all. The user decided the same day: report every candidate's
+loss by density (below), and leave thin states to stage 4 (amended above). The stage 1 score is not changed.
+
+**A diagnostic, not a candidate: loss by density.**
+
+- Every target is put in one class: the nation; or a state or district by the number of polls of that place in the
+  30 days before its week starts, not counting the target's own firm (the prediction does not use that firm
+  either): 10 or more, 4 to 9, 1 to 3, or 0.
+- For each candidate run so far, the loss in each class: cycles weighted equally, with the number of targets in
+  every cycle and class shown, and the gain against the baseline.
+- Candidates are rebuilt at the grid values already picked for each held-out cycle. Before any split is read, the
+  rebuilt per-cycle losses must match the stored ones to three decimals.
+- The first version of same-week house effects (void) is left out. Every candidate in the table gets the own-firm
+  test; round 1's house effects have never had it, and a failure is marked in the table, not rerun.
+- No cell passes or fails a candidate, and no verdict changes. With about ten candidates and five classes, some
+  cells will look good by chance. The 0 class is small (about 90 targets over five cycles).
+- It sees only thin-place targets that exist, that is, weeks when a thin place did get a new eligible poll. The
+  2,974 weeks with no new poll stay unseen. The split is a hint; stage 4 is the test.
+
+**The national trend adjustment, corrected (candidate 5).** As with same-week house effects, this corrects a
+leak and is not a new candidate.
+
+- The national trend line used for a target leaves out the target's own firm's national polls. Where that firm
+  has no national polls in the cycle, the prediction is the same as before, which is checked.
+- Before results are read: the own-firm test passes in 20 of 20, and the leak test passes.
+- The full grid (national half-life 7, 14, 30; state half-life 60, 90, 180) is run again and picked again on the
+  other four cycles. The old picks were chosen on leaking losses.
+- The corrected run is of record under the same four clauses. The round 2 verdict stands until it is in.
+- **The trend's part, apart from the longer memory.** The trend's picks pair it with a 90- or 180-day state
+  half-life, and the density diagnostic already showed thin places prefer 180 days without any trend. So beside
+  the corrected run, the table shows a run with each cycle's picked state half-life and the trend turned off. The
+  trend's own contribution is the difference between those two, class by class. This row is a diagnostic and
+  passes or fails nothing.
