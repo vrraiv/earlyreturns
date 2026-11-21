@@ -2513,3 +2513,23 @@ result.
 - γ's fit uses no scored election (as-of test).
 
 One round. If it fails, EC-3 closes with the fundamentals reported and unused.
+
+**EC-3 round 2: amendments after the code review, before any result was read.**
+
+- **The 30-day clause is applied as written,** however small the difference, and the margin is reported. From
+  γ = 2 up, the fundamentals' weight at 30 days is about 2% or less, so the blend and the polls may differ by
+  hundredths of a point there. A tolerance would change the user's rule, so there is none.
+- **Every piece of γ's fit must be finite.** It is checked: no poll forecast is missing at the five dates in any
+  election from 1952 to 2020.
+- **Limits, written now:**
+  - 150 days carries no information about γ.
+  - 1980's γ rests on 7 earlier elections and four informative dates.
+  - Each earlier election's weight uses variances that include its own error.
+  - These 11 elections suggested the candidate, so the only untouched test is 2024 at the design freeze.
+- **Reported:** γ by election, with any pick at a grid edge (0 or 4) flagged, and the weight on polls at each date.
+- **Checks, passed:**
+  - γ = 0 reproduces round 1;
+  - round 1's stored result reproduces exactly;
+  - a huge γ gives the polls at every date but 150 days;
+  - γ's fit uses no scored election;
+  - on made-up pieces, noisy fundamentals pick the top of the grid and exact ones pick 0.
