@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-21n",
+  version: "2026-11-21o",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -574,7 +574,9 @@ window.PLAN = {
           why: "Polls are thin early, and 2028 is an open seat.",
           details: [
             "Candidates: approval of the outgoing president, the economy, and time in office.",
-            "There are few elections to fit on. Show the leave-one-out error and how far the choice of predictors moves the answer."
+            "There are few elections to fit on. Show the leave-one-out error and how far the choice of predictors moves the answer.",
+            "Round 1, 2026-11-21 (`src/model/pres_fundamentals.py`; section 12 of the note): approval, an equal-weight index of six economic measures (income, GDP, unemployment, inflation, gas prices and the S&P), and a term-limited flag (the user's coding: 2028 counts like 2008 and 2016), shrunk toward approval alone. Alone, approval does most of the work (leave-one-out error about 6 to 7 points against 11 for a constant); a term-limited incumbent's party does a few points worse.",
+            "Blended with the polls, the fundamentals cut the error by almost half early (better in 8 of 11 elections, beating every shuffle), but they are worse at 30 days, so under the rule they are not adopted and the national estimate stays polls-only. A weight on the fundamentals that falls faster near the election is the obvious next candidate, and would have to be declared as suggested by these results."
           ],
           refs: ["src/model/fundamentals.py"] },
         { id: "EC-4", title: "State prior and weight on polls", kind: "story", phase: "p4", needs: ["EC-1", "DA-5"],
