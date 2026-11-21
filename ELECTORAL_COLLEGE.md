@@ -843,3 +843,46 @@ What it shows:
 
 This is a benchmark, not a candidate, and nothing changes. Whether a five-firm style average, or an adaptive
 memory like it, enters round 3 is the user's decision.
+
+### Stage 1, round 3: pre-registration (written 2026-11-21, before any round 3 run)
+
+Agreed with the user on 2026-11-21: round 3 tests a memory that adapts to how densely a place is polled, in the
+two forms below, and then the work moves to stage 2. **Round 3 is the last round of stage 1, whatever it shows.**
+If nothing passes, the nowcast is the baseline and is fixed; if one passes, it is fixed as the nowcast. That makes
+eleven candidates for stage 1 in all. The score, the 7,547 targets and the four clauses are unchanged. Grids are
+picked on the other four cycles and scored on the held-out one. A pick at the edge of a grid is reported.
+
+**Where the idea came from.** The density diagnostic, the loss-by-density table and benchmark N2 all used all five
+cycles. Leaving one cycle out protects the grid values only, not the idea, the 30-day window or the form of each
+candidate. That limits what a pass can claim.
+
+10. **Latest k firms.**
+    - Each other firm's reading is its poll (or the weighted mean of its polls) of the place on its latest end date
+      before the forecast date, after the baseline's population lean and sponsor shift.
+    - The k firms whose readings are most recent are used. Every firm tied at the k-th date is included, or all
+      firms if there are fewer than k.
+    - The average is the mean of those readings, weighted by the baseline's sample-size and population weights
+      (a reading with several polls takes their mean weight). There is no decay by age, and no division by a firm's
+      poll count, since each firm gives one reading.
+    - The nation follows the same rule as every other place.
+    - Grid for k: 2, 3, 5, 8, 12, 20. Unlike N2, this keeps the baseline's adjustments and weights.
+11. **Half-life by density.**
+    - The baseline, except that each place's half-life depends on how many polls of that place ended in the 30 days
+      before the forecast date, not counting the target's firm (the prediction does not use that firm either).
+    - At D polls or more, the half-life is h_dense; below D, h_sparse.
+    - The nation is counted the same way; in practice it is almost always dense.
+    - Grid, picked jointly: h_dense 7, 14, 30; h_sparse 60, 90, 180, 365; D 4 or 10.
+
+**Checks before any loss is read.** Each candidate, and the baseline:
+
+- passes the leak test and the own-firm test as before (moving margins by 50 points);
+- passes two deletion tests, since both candidates depend on which polls exist and when, which moving margins
+  cannot reveal: deleting every poll that ends on or after the date (all places, same cycle), and deleting every
+  poll by the target's firm in the cycle, each leaves the prediction unchanged.
+
+The baseline file must stay unchanged byte for byte.
+
+**If both pass.** Both replace the memory, so they cannot be combined: the one with the larger gain is adopted.
+Corrected same-week house effects failed and are not combined with either.
+
+**Reported.** The four clauses, the picks by cycle, the loss by density, and each candidate beside N2.
