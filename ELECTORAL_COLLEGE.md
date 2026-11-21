@@ -460,3 +460,19 @@ band.
   the opposite direction in 2020. It stays in the baseline only because nothing passed.
 
 Three candidates have been run for stage 1 so far.
+
+**Diagnostic after round 1: the half-life depends on how densely a place is polled** (run 2026-11-21; not a
+candidate; `pres_nowcast.py density`). The grid's loss, split by the nation and by the number of polls the place had
+in the 30 days before the target's week:
+
+| | Targets | 7 days | 14 | 30 | 60 | 90 | 180 | No decay |
+|---|---|---|---|---|---|---|---|---|
+| Nation | 1,866 | **19.07** | 19.31 | 19.32 | 19.26 | 19.29 | 19.39 | 19.81 |
+| States, 10 or more polls | 2,730 | **19.11** | 19.18 | 19.37 | 19.55 | 19.74 | 20.10 | 20.95 |
+| States, 4 to 9 polls | 1,579 | 30.13 | 29.05 | 28.42 | 28.03 | 27.88 | **27.78** | 28.16 |
+| States, 1 to 3 polls | 1,372 | 50.45 | 48.05 | 45.59 | 43.97 | 43.43 | **43.07** | 43.47 |
+
+Where polls are dense, a short half-life is best, as the published models find. Where they are sparse, a short
+half-life leaves little more than the last poll, and its errors are large enough to decide the pooled score. So
+the score is not at fault: one half-life for every place was the wrong shape of candidate. Published models also
+carry old state polls forward by the national movement since they were taken, which this baseline does not do.
