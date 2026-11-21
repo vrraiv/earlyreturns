@@ -544,3 +544,62 @@ and scored on the held-out one, as in round 1. Each candidate is run alone again
 - The combination must pass the same four clauses against the baseline.
 - If it fails, the single passing candidate with the largest gain is adopted.
 - If none passes, stage 1 keeps the baseline and says so.
+
+### Stage 1, round 2: results (run 2026-11-21). One candidate is adopted: house effects against polls of the same week.
+
+The checks passed before any result was read: each candidate's own leak test, the 7,547 targets, and a
+byte-identical baseline file.
+
+| Candidate | Gain | Cycles better | p (sign-flip) | Gain, 91 to 161 days | Verdict |
+|---|---|---|---|---|---|
+| 4. Memory by poll count | −0.09 | 2 | 0.61 | −1.07 | fails |
+| 5. National trend adjustment | −0.01 | 2 | 0.51 | −0.06 | fails |
+| **6. House effects, same week** | **+1.34** | **5** | **0.0005** | **+2.22** | **adopted** |
+| 7. Weight by total expected error | −0.19 | 0 | 0.99 | −0.15 | fails |
+| 8. Weight by survey method | +0.02 | 2 | 0.29 | −0.02 | fails |
+| 9. No registered-voter correction | −0.02 | 3 | 0.68 | −0.26 | fails |
+
+Gain is the baseline's loss minus the candidate's, cycles weighted equally (baseline 27.29). Only one candidate
+passed, so the combination is that candidate alone, and it passes the same four clauses.
+
+**6. House effects against polls of the same week.** Loss 25.95. It is lower in every cycle:
+
+| | 2004 | 2008 | 2012 | 2016 | 2020 |
+|---|---|---|---|---|---|
+| Baseline | 24.25 | 39.17 | 18.47 | 33.84 | 20.72 |
+| Candidate 6 | 23.51 | 37.67 | 17.58 | 32.45 | 18.52 |
+
+- It helps the nation (19.26 to 18.35) and the states (28.64 to 27.46), and every band: 23.3 to 22.1, 27.8 to
+  26.9, and 35.9 to 33.7.
+- Nine candidates were tried. p = 0.0005 would also clear 1 in 20 divided by nine.
+- Effects could be estimated on all 115 target dates.
+- The estimates look like the known ones. A week before the 2016 election the USC Dornsife/LA Times tracker sat 6.9
+  points more Republican than other firms' polls of the same week, and Ipsos 4.3 more Democratic. In 2020
+  Rasmussen was 3.4 more Republican and Quinnipiac 4.2 more Democratic.
+- Round 1's house effects compared each poll with the polls before it and failed. Comparing it with polls of the
+  same week turns the 2008 loss into a gain (39.17 to 37.67). That fits the reading in round 1: movement was being
+  taken for house effects.
+
+**The others.**
+
+- **Memory by poll count.** The cycles disagree on H (2008 wants 2 firms, 2020 wants 16). The picks were mostly 4,
+  and that loses in 2016 and in the early band.
+- **National trend adjustment.** 2008 gains a lot: 39.17 to 33.07 with a 7-day national trend line. That is the
+  autumn the financial crisis moved every state at once. But it loses in 2004, 2012 and 2016, where moving state
+  polls by a noisy national line adds more error than it removes. This bears on stage 4 and on the durability
+  questions of stage 3, and it is not adopted here.
+- **Weight by total expected error.** The error that does not shrink with sample size is large: 15 to 20 points
+  squared, against 17 for the sampling variance of a 600-person poll. So larger samples deserve little extra weight.
+  Weighting in proportion to sample size (s = 0) is worse in 2012 and 2020. The baseline's square root is a fair
+  middle.
+- **Weight by survey method.** Method was known for 50 to 74 per cent of polls. In the other cycles, IVR polls sat
+  about as far from other firms' polls as live-phone polls did: weights of 0.98 to 1.11 for IVR and 0.90 to 1.06 for
+  live phone. Mixed-mode polls and probability panels got more weight (1.2 to 1.6, and 1.1 to 2.3), but they are few. The
+  weights hardly moved the average. This measures distance from other polls, not accuracy against results.
+- **No registered-voter correction.** It is neither better nor worse to within noise. The borrowed 0.45 stays, as
+  the baseline's.
+
+**Stage 1 result.** The nowcast is the Senate average's weighting (60-day half-life, square-root sample weight,
+population weights and lean, sponsor shift, a pollster's weight divided by the square root of its polls in the
+place) plus house effects measured against other firms' polls of the same week. Per the plan, it is fixed here and
+not retuned in later stages.
