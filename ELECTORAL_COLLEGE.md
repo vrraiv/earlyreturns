@@ -2380,3 +2380,30 @@ reported number.
   - the index is the mean of the signed standardized values.
 
 One round per test.
+
+**EC-3: amendments after the code review, before any result was read** (`src/model/pres_fundamentals.py`).
+
+- **When a measure counts.** It needs at least two years of published history by the date. Income's yearly change
+  begins in 1960, so 1952, 1956 and 1960 have no income figure (not only 1952 and 1956 as written above). Their
+  index averages the other five.
+- **1948 is left out.** Its unemployment change would need 1947, which FRED does not hold, and it has no income
+  figure.
+- **The common sample for the full table** of models of up to three predictors is 1964 to 2020, where all six
+  measures and the PCA index exist. The table reports every model, not the top ten, and where the primary model
+  ranks. The constant, approval alone and the primary model are shown on that same sample.
+- **The fundamentals' variance is nested.** Each earlier election's error comes from a fit that left it out, with the
+  penalty chosen again inside that fit. Without this the variance is optimistic: on a check that reads no scored
+  result, the weight on polls rose from 0.405 to 0.551 in 1980 at 60 days. This applies in the real run and in
+  every shuffle.
+- **Real-time vintages, coverage checked.** ALFRED holds as-published real disposable income (total, not per head)
+  from about 1980 and real GDP from about 1991, but not the per-head income or the GDP growth series the index uses.
+  Test 1 reports how far today's figures differ from the as-published ones for 1980 to 2020, at every date. That is
+  a check on the size of revisions and decides nothing.
+- **Further checks, passed:**
+  - the two result sources (the Downballot history and the national series) agree exactly for 1952 to 2020;
+  - in a Republican-held year the fundamentals enter as minus the incumbent prediction;
+  - a huge fundamentals variance gives stage 3's forecast, and a huge poll variance the fundamentals.
+- **Also reported:**
+  - the term-limited effect unshrunk, beside the shrunk value and its penalty;
+  - each as-of fit's count of term-limited elections (one in 1980's fit, 1960 alone);
+  - the age of the approval reading by election and date.
