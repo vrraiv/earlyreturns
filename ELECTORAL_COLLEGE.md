@@ -1666,3 +1666,126 @@ the 95% needed). It is better at every date and in 8 of 11 elections.
   - **The range.** The baseline's range was fitted to the nowcast's errors; the adopted centre's are smaller. It is
     refitted when the model is assembled.
   - **States.** How the raw-margin scaling applies to state margins is stage 5's question.
+
+### Stage 4: states with few polls, pre-registration (written 2026-11-21, before any run; five questions await the user)
+
+Stage 4 runs on the state test bed: state polls 2004 to 2020 through stage 1's loader. 2024 is refused there.
+Results are `state_presidential.csv`. Maine's and Nebraska's districts are left out, having no results in the repo.
+
+**Which states are scored.** On each date, the states (and DC) with no poll that ended in the previous 30 days.
+Counted without results:
+
+| Days out | 150 | 100 | 60 | 30 | 7 |
+|---|---|---|---|---|---|
+| 2004 | 14 | 15 | 16 | 0 | 8 |
+| 2008 | 13 | 10 | 15 | 0 | 4 |
+| 2012 | 22 | 29 | 26 | 14 | 12 |
+| 2016 | 28 | 25 | 15 | 10 | 9 |
+| 2020 | 22 | 0 | 0 | 0 | 0 |
+
+- **States with no poll yet that cycle, by that date:** 6 to 9 in 2004 at 150 to 60 days, 1 in 2008, 3 to 6 in 2012,
+  2 to 12 in 2016, and 12 in 2020 at 150 days.
+- **One firm's sweep decides a lot.** American Research Group polled 49 to 51 states between 30 and 60 days out in
+  2004 and 2008, and SurveyMonkey all 51 in 2020. That is why no state is thin at 30 days in 2004 and 2008, or
+  after 150 days in 2020.
+- **Against the plan's "15 to 29 states at 100 days":** the counts here are 15, 10, 29 and 25 for 2004 to 2016. 2008
+  differs because this count uses stage 1's poll set and firm keys.
+
+**The national input.** The national nowcast on the national series, two-party, as in stages 2 and 3, from
+readings dated at least 3 days before the date. Stage 3's raw-margin scaling is not applied here: how it applies to
+states is stage 5's question.
+
+**Baseline.** The state's own nowcast (stage 1's weighting, every poll of it that ended before the date, however
+old). A state with no poll at all that cycle gets the prior below.
+
+**The three ways to fill the gap,** none with a fitted number:
+
+1. **The prior:** the national nowcast plus the state's lean at the previous election (its margin minus the
+   national margin).
+2. **The average swing in the polled states:** the state's previous result plus the mean, over the states polled in
+   the last 30 days, of their nowcast minus their previous result.
+3. **The last poll carried forward:** the state's nowcast as of the day after its last poll, plus the national
+   movement since that day.
+   - With exponential weights, the state's nowcast on the day after its last poll is its nowcast on the date
+     (checked: 173 of 173 cases). So method 3 is the baseline plus one term, the national movement.
+   - **The national movement** is measured on the 14-day national average, not the 60-day nowcast. Stage 1 found
+     short memory best at tracking the national polls, and this term tracks movement; it does not forecast. There
+     is no grid.
+     - Checked without results: the 60-day nowcast moves only 0.86 points on average over these gaps, which would
+       make the term almost inert. The 14-day average moves 1.49 (90th percentile 3.79).
+     - The 60-day version is reported beside it.
+   - In the scored states the last poll is typically 70 days old (middle half 41 to 122, up to 563).
+   - Where there is no national reading as far back as the last poll (42 cases), the movement is measured from the
+     earliest day with one.
+   - A state with no poll yet that cycle gets the prior.
+
+Having nothing to fit means no fit leans on earlier elections. So every election from 2004 to 2020 can be scored
+at every date, including the two that section 7's table had held back for burn-in (question 1).
+
+**The rule: section 8, as the plan says for the state test bed, at stage 4's dates.**
+
+- **Score.** Squared error against the result, averaged over the scored states on each date, then over 150, 100 and
+  60 days, with elections weighted equally. An election with no scored state on a date skips that date.
+- **30 and 7 days** are reported and must not be worse on average, over the elections with scored states there:
+  2012 and 2016 at 30 days; 2004, 2008, 2012 and 2016 at 7.
+- **Scrambled versions.** Each method's information is handed from one state to another within the election, and
+  rerun 200 times. The gain must beat 19 in 20 of them.
+  - **1:** the previous lean is shuffled across states.
+  - **2:** the previous results are shuffled across states.
+  - **3:** the national-movement term is shuffled across the scored states that have old polls; their levels stay.
+  - **For methods 1 and 2 this clause is close to automatic.** Leans and previous results differ by tens of points
+    across states, so any shuffled version is far worse. For them the clauses that bind are a positive gain and 4 of
+    5 elections, which a coin flip meets about one time in five (question 2).
+- **Simulation noise:** section 8's second condition does not apply; nothing here is simulated.
+- **Elections better:** section 8 asks for three of four. With five elections, at least 4 of 5 (question 1).
+- **Gain above zero.**
+
+**If more than one passes,** the one with the largest gain is adopted; the three are alternatives for the same
+states. If none passes, thinly polled states keep the baseline.
+
+**Limits, written now.**
+
+- **Where methods coincide.** For a state with no poll yet, the baseline, method 1 and method 3 give the same
+  number. How many scored states each method changes, by election and date, is reported.
+- **Method 2 against method 1:** they differ by one constant per election and date, so comparing them rests on about
+  15 effective observations.
+- States in one election share most of their error, so states are not independent.
+
+**The user's selection question, answered against results** (diagnostics; how they may be used is question 3).
+Every state is used on every date from 150 to 60 days, not only the thin ones. Both (a) and (b) are reported
+pooled and by election, since states in one year share the national miss.
+
+- **(a) How far states land from their no-poll forecast.** The prior's error against the result, by the state's
+  polls in the previous 30 days (0, 1 to 3, 4 to 9, 10 or more): mean squared error and mean signed error.
+  If pollsters skip lopsided states, the 0 group should land closer to its prior.
+- **(b) Whether the few polls in thin places help.** For states with 1 to 3 polls in the previous 30 days: the
+  state's nowcast error against the prior's, and the share of cases where the nowcast is the closer of the two.
+- **(c) Sponsored against independent polls there.** Sponsor flags exist only in 2020 (312 state polls), and 2020
+  has no thin states after 150 days. So this is counted and, very likely, reported as not possible.
+
+**Checks before any loss is read.**
+
+- 2024 is absent from the polls, and no 2024 row of the results file is read.
+- The leak test: moving polls ending on or after the date, and national readings within 3 days of it or after,
+  leaves every forecast unchanged.
+- The deletion test: deleting the polls that end on or after the date leaves the scored set, method 2's polled set
+  and every forecast unchanged.
+- Changing the scored election's results leaves every forecast unchanged.
+- Behaviour on made-up inputs:
+  - with no movement since a state's last poll, method 3 equals the baseline;
+  - with every state polled at a uniform swing, method 2 recovers it;
+  - method 1 equals national plus lean.
+
+**Questions for the user:**
+
+1. **Elections and the count.** Score 2004 to 2020 at every date, since nothing is fitted, and ask for at least
+   4 of 5 better. The alternative is section 7's table: 2008 only at 30 and 7 days, 2004 not at all.
+2. **A stricter clause for methods 1 and 2.** Their scramble is close to automatic. Proposed: in its place, a paired
+   sign-flip test over election-date units (each unit's mean gain across its scored states; about 15 units), at
+   p < 0.05. Method 3 keeps its scramble of the movement term.
+3. **The national input.** Use the two-party national nowcast, leaving stage 3's scaling to stage 5.
+4. **What the diagnostics may do.** As in stage 3, none can turn a fail into a pass. One flag, fixed now and measured
+   on the states method 3 is scored on (thin states with old polls): if their old polls (the baseline) are closer to
+   the result than the prior in fewer than half the cases, a pass by method 3, which leans on those polls, goes to
+   the user. Otherwise the diagnostics are reported and point to later work.
+5. **One round.**
