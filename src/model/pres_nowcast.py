@@ -19,7 +19,7 @@ squared error; mean by cycle; cycles weighted equally. The targets are the same 
 
 Run:  python src/model/pres_nowcast.py checks         (2024 refusal, leak test, parity with pollavg.weighted_avg)
       python src/model/pres_nowcast.py baseline
-      python src/model/pres_nowcast.py run <candidate> (half_life | house | rv_lean | combined)
+      python src/model/pres_nowcast.py <candidate>     (half_life | house | rv_lean)
 Writes data/processed/pres_nowcast_<name>.json
 """
 import json
@@ -208,6 +208,125 @@ def report(name, res, base=None):
     print(bc.to_string())
 
 
+LAMBDAS = (2, 5, 10, 20, 50)
+FLIPS = 2000
+
+
+def run_per_cycle(q, tg, settings_by_cycle):
+    """Predictions with settings that differ by held-out cycle."""
+    pred = np.empty(len(tg))
+    for c, s in settings_by_cycle.items():
+        sub = tg[tg.cycle == c]
+        pred[tg.index.get_indexer(sub.index)] = predict(q, sub, s)
+    return pred
+
+
+def cycle_losses(tg, pred):
+    return tg.assign(se=(pred - tg.y) ** 2).groupby("cycle").se.mean()
+
+
+def loo_pick(table):
+    """table: rows = grid values, columns = cycles (loss). For each cycle, the value best on the other cycles."""
+    return {c: table.drop(columns=c).mean(axis=1).idxmin() for c in table.columns}
+
+
+def gaps(q, s=BASE, lv_only=False):
+    """Each poll's margin minus the average of the other pollsters in the same place as of its end date (polls that
+    ended before it). Default: baseline adjustments on both sides. lv_only: the poll's raw margin against an average
+    of likely-voter polls only."""
+    out = pd.Series(np.nan, index=q.index)
+    for _, d in q.groupby(["cycle", "geo"]):
+        ref = d[d["pop"].isin(["lv", "v"])] if lv_only else d
+        own = d.m.values if lv_only else adjusted(d, s)
+        for j, (i, r) in enumerate(d.iterrows()):
+            out[i] = own[j] - average(ref, r.end, s, exclude=r.pkey)
+    return out
+
+
+def house_fn(q, gap, lam):
+    """House effect at date t for the polls of d (one cycle): the shrunk mean of each pollster's earlier gaps."""
+    cache = {}
+    dq = q.assign(gap=gap).dropna(subset=["gap"])
+
+    def f(c, t, d):
+        if (c, t) not in cache:
+            e = dq[(dq.cycle == c) & (dq.end < t)].groupby("pkey").gap.agg(["mean", "size"])
+            cache[(c, t)] = e["mean"] * e["size"] / (e["size"] + lam)
+        return d.pkey.map(cache[(c, t)]).fillna(0.0).values
+    return f
+
+
+def adoption(tg, base_pred, cand_pred, seed=0):
+    """The stage 1 rule (ELECTORAL_COLLEGE.md, section 11)."""
+    t = tg.assign(sb=(base_pred - tg.y) ** 2, sc=(cand_pred - tg.y) ** 2)
+    lb, lc = t.groupby("cycle").sb.mean(), t.groupby("cycle").sc.mean()
+    gain = float(lb.mean() - lc.mean())
+    better = int((lc < lb).sum())
+    late = t[t.dte.between(91, 161)]
+    late_gain = float(late.groupby("cycle").sb.mean().mean() - late.groupby("cycle").sc.mean().mean())
+    u = t.assign(d=t.sb - t.sc).groupby(["cycle", "geo"]).agg(d=("d", "mean"), n=("d", "size")).reset_index()
+    u["w"] = u.n / u.groupby("cycle").n.transform("sum") / u.cycle.nunique()
+    stat = float((u.w * u.d).sum())
+    flips = np.random.default_rng(seed).choice([-1.0, 1.0], size=(FLIPS, len(u)))
+    null = flips @ (u.w * u.d).values
+    pval = float((np.sum(null >= stat) + 1) / (FLIPS + 1))
+    ok = gain > 0 and better >= 4 and pval < 0.05 and late_gain >= 0
+    return {"gain": round(gain, 3), "cycles_better": better, "p_signflip": round(pval, 4),
+            "gain_91_161": round(late_gain, 3), "adopted": bool(ok),
+            "by_cycle": {int(c): {"baseline": round(float(lb[c]), 3), "candidate": round(float(lc[c]), 3)}
+                         for c in lb.index}}
+
+
+def paired_2020():
+    """2020 polls that asked both likely and registered voters (head-to-head): mean LV minus RV margin."""
+    p = pd.read_csv(INTERIM / "president_general_polls.csv", low_memory=False)
+    p = p[(p.cycle == 2020) & ~p.presumptive]
+    p["m"] = 100 * (p.d_pct - p.r_pct) / (p.d_pct + p.r_pct)
+    p = p[p.head_to_head.fillna(False).astype(bool)]
+    x = p.groupby(["poll_id", "population"]).m.mean().unstack().dropna(subset=["lv", "rv"])
+    d = x.lv - x.rv
+    return {"polls": int(len(d)), "mean_lv_minus_rv": round(float(d.mean()), 3),
+            "se": round(float(d.std() / np.sqrt(len(d))), 3)}
+
+
+def candidate(name, q, tg):
+    if name == "half_life":
+        table = {}
+        for h in HALF_LIVES:
+            table[h] = cycle_losses(tg, predict(q, tg, dict(BASE, half_life=float(h))))
+            print(f"  half-life {h}: " + ", ".join(f"{c} {v:.2f}" for c, v in table[h].items()), flush=True)
+        table = pd.DataFrame(table).T
+        pick = loo_pick(table)
+        info = {"grid": {int(h): {int(c): round(float(v), 3) for c, v in r.items()} for h, r in table.iterrows()},
+                "picked": {int(c): int(h) for c, h in pick.items()}}
+        return run_per_cycle(q, tg, {c: dict(BASE, half_life=float(h)) for c, h in pick.items()}), info
+    if name == "house":
+        gp = gaps(q)
+        table = {}
+        for lam in LAMBDAS:
+            table[lam] = cycle_losses(tg, predict(q, tg, dict(BASE, house=house_fn(q, gp, lam))))
+            print(f"  lambda {lam}: " + ", ".join(f"{c} {v:.2f}" for c, v in table[lam].items()), flush=True)
+        table = pd.DataFrame(table).T
+        pick = loo_pick(table)
+        g = q.assign(gap=gp).dropna(subset=["gap"])
+        info = {"grid": {int(k): {int(c): round(float(v), 3) for c, v in r.items()} for k, r in table.iterrows()},
+                "picked": {int(c): int(k) for c, k in pick.items()},
+                "gap_sd_by_cycle": {int(c): round(float(v), 2) for c, v in g.groupby("cycle").gap.std().items()}}
+        return run_per_cycle(q, tg, {c: dict(BASE, house=house_fn(q, gp, lam)) for c, lam in pick.items()}), info
+    if name == "rv_lean":
+        gp = gaps(q, lv_only=True)
+        g = q.assign(gap=gp)[q["pop"].isin(["rv", "a"])].dropna(subset=["gap"])
+        per = g.groupby("cycle").gap.agg(["mean", "size"])
+        corr = {c: float(per.drop(index=c)["mean"].mean()) for c in CYCLES}
+        info = {"rv_minus_lv_by_cycle": {int(c): {"mean": round(float(r["mean"]), 3), "polls": int(r["size"])}
+                                         for c, r in per.iterrows()},
+                "correction_used": {int(c): round(v, 3) for c, v in corr.items()},
+                "paired_2020": paired_2020()}
+        return run_per_cycle(q, tg, {c: dict(BASE, pop_lean=dict(BASE["pop_lean"], rv=v, a=v))
+                                     for c, v in corr.items()}), info
+    raise SystemExit(f"unknown candidate {name}")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "baseline"
     if cmd == "checks":
@@ -220,4 +339,13 @@ if __name__ == "__main__":
         _, res = run("baseline", BASE, tg, q)
         report("baseline", res)
     else:
-        raise SystemExit(f"candidate {cmd!r}: not yet built (its pre-registration is committed first)")
+        q = load()
+        tg = targets(q)
+        base_pred = predict(q, tg, BASE)
+        pred, info = candidate(cmd, q, tg)
+        _, sc = score(tg, pred)
+        res = adoption(tg, base_pred, pred) | {"score": sc, "info": info}
+        (OUT / f"pres_nowcast_{cmd}.json").write_text(json.dumps(res, indent=1, default=float))
+        print(f"\n== {cmd}: " + json.dumps({k: v for k, v in res.items() if k not in ("info", "score")}))
+        print("score: " + json.dumps({k: sc[k] for k in ("loss", "national", "states", "by_band")}))
+        print("info: " + json.dumps(info, default=float))
