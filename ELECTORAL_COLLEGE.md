@@ -545,7 +545,7 @@ and scored on the held-out one, as in round 1. Each candidate is run alone again
 - If it fails, the single passing candidate with the largest gain is adopted.
 - If none passes, stage 1 keeps the baseline and says so.
 
-### Stage 1, round 2: results (run 2026-11-21). One candidate is adopted: house effects against polls of the same week.
+### Stage 1, round 2: results (run 2026-11-21). None is adopted.
 
 The checks passed before any result was read: each candidate's own leak test, the 7,547 targets, and a
 byte-identical baseline file.
@@ -554,37 +554,57 @@ byte-identical baseline file.
 |---|---|---|---|---|---|
 | 4. Memory by poll count | −0.09 | 2 | 0.61 | −1.07 | fails |
 | 5. National trend adjustment | −0.01 | 2 | 0.51 | −0.06 | fails |
-| **6. House effects, same week** | **+1.34** | **5** | **0.0005** | **+2.22** | **adopted** |
+| 6. House effects, same week: first version (leaked; withdrawn) | +1.34 | 5 | 0.0005 | +2.22 | void |
+| **6. House effects, same week: corrected, of record** | **+0.40** | **3** | **0.006** | **+1.22** | **fails** |
 | 7. Weight by total expected error | −0.19 | 0 | 0.99 | −0.15 | fails |
 | 8. Weight by survey method | +0.02 | 2 | 0.29 | −0.02 | fails |
 | 9. No registered-voter correction | −0.02 | 3 | 0.68 | −0.26 | fails |
 
-Gain is the baseline's loss minus the candidate's, cycles weighted equally (baseline 27.29). Only one candidate
-passed, so the combination is that candidate alone, and it passes the same four clauses.
+Gain is the baseline's loss minus the candidate's, cycles weighted equally (baseline 27.29).
 
-**6. House effects against polls of the same week.** Loss 25.95. It is lower in every cycle:
+**6. House effects against polls of the same week.**
+
+*The first version leaked, and was withdrawn the same day.* It was first reported here as adopted. A review then
+found that a target's own firm could reach its prediction. The target's polls are left out of the average, but
+every other firm's house effect was still measured against all firms' polls, the target firm's included. So the
+other firms' polls were pulled toward the target firm's. The leak test could not see this, because it moves only
+polls after the date. A new test moves every poll by the target's firm in the cycle and checks the prediction does
+not change: the first version fails it in 18 of 20 cases, the baseline and the corrected version pass. The
+corrected version also divides a firm's weight in each same-week mean by the square root of its polls there, as
+the baseline's weights do (the pre-registration said "the baseline's weights"; the first version left this out).
+Most of the first version's gain was the leak.
+
+*Corrected, of record.* Loss 26.89. It fails the rule on the cycle count alone:
 
 | | 2004 | 2008 | 2012 | 2016 | 2020 |
 |---|---|---|---|---|---|
 | Baseline | 24.25 | 39.17 | 18.47 | 33.84 | 20.72 |
-| Candidate 6 | 23.51 | 37.67 | 17.58 | 32.45 | 18.52 |
+| Corrected | 24.26 | 37.77 | 18.13 | 34.00 | 20.32 |
+| First version (void) | 23.51 | 37.67 | 17.58 | 32.45 | 18.52 |
 
-- It helps the nation (19.26 to 18.35) and the states (28.64 to 27.46), and every band: 23.3 to 22.1, 27.8 to
-  26.9, and 35.9 to 33.7.
-- Nine candidates were tried. p = 0.0005 would also clear 1 in 20 divided by nine.
+- 2004 is worse by 0.01 and 2016 by 0.16, so it is better in 3 cycles, not 4. The sign-flip test (p 0.006) and
+  the early band (+1.22) pass.
+- It helps the nation (19.26 to 19.13) and the states (28.64 to 28.28). By band: 23.3 to 23.1, 27.8 to 27.6, and
+  35.9 to 34.7.
+- Robustness figures, not part of the rule:
+  - The gain does not come only from the big trackers. By the size of the target's firm: 0.66 for firms with 1 to
+    9 polls in the cycle, −0.09 for 10 to 49, and 0.55 for 50 or more.
+  - A sign-flip over firm-and-cycle units (672) gives p 0.025.
 - Effects could be estimated on all 115 target dates.
-- The estimates look like the known ones. A week before the 2016 election the USC Dornsife/LA Times tracker sat 6.9
+- The estimates (first version, which differ little firm by firm) look like the known ones. A week before the 2016 election the USC Dornsife/LA Times tracker sat 6.9
   points more Republican than other firms' polls of the same week, and Ipsos 4.3 more Democratic. In 2020
   Rasmussen was 3.4 more Republican and Quinnipiac 4.2 more Democratic.
-- Round 1's house effects compared each poll with the polls before it and failed. Comparing it with polls of the
-  same week turns the 2008 loss into a gain (39.17 to 37.67). That fits the reading in round 1: movement was being
-  taken for house effects.
+- Round 1's house effects compared each poll with the polls before it. Comparing it with polls of the same week
+  turns 2008's loss into a gain (39.17 to 37.77). That fits round 1's reading: movement was being taken for house
+  effects.
 
 **The others.**
 
 - **Memory by poll count.** The cycles disagree on H (2008 wants 2 firms, 2020 wants 16). The picks were mostly 4,
   and that loses in 2016 and in the early band.
-- **National trend adjustment.** 2008 gains a lot: 39.17 to 33.07 with a 7-day national trend line. That is the
+- **National trend adjustment.** It has a leak of the same kind: the national trend line includes the target
+  firm's national polls, and the own-firm test fails in 8 of 20 cases. It fails the rule even with that help, so it
+  was not rerun. 2008 gains a lot: 39.17 to 33.07 with a 7-day national trend line. That is the
   autumn the financial crisis moved every state at once. But it loses in 2004, 2012 and 2016, where moving state
   polls by a noisy national line adds more error than it removes. This bears on stage 4 and on the durability
   questions of stage 3, and it is not adopted here.
@@ -599,7 +619,6 @@ passed, so the combination is that candidate alone, and it passes the same four 
 - **No registered-voter correction.** It is neither better nor worse to within noise. The borrowed 0.45 stays, as
   the baseline's.
 
-**Stage 1 result.** The nowcast is the Senate average's weighting (60-day half-life, square-root sample weight,
-population weights and lean, sponsor shift, a pollster's weight divided by the square root of its polls in the
-place) plus house effects measured against other firms' polls of the same week. Per the plan, it is fixed here and
-not retuned in later stages.
+**Stage 1 result after round 2.** No candidate passes, so the nowcast is still the baseline: the Senate average's
+weighting. Under the user's decision of 2026-11-20 a further round with different candidates follows, written here
+before it runs. Corrected same-week house effects came closest (p 0.006, but 3 cycles of 5).
