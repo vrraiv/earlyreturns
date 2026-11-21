@@ -606,8 +606,9 @@ Most of the first version's gain was the leak.
 - **Memory by poll count.** The cycles disagree on H (2008 wants 2 firms, 2020 wants 16). The picks were mostly 4,
   and that loses in 2016 and in the early band.
 - **National trend adjustment.** It has a leak of the same kind: the national trend line includes the target
-  firm's national polls, and the own-firm test fails in 8 of 20 cases. It fails the rule even with that help, so it
-  was not rerun. 2008 gains a lot: 39.17 to 33.07 with a 7-day national trend line. That is the
+  firm's national polls, and the own-firm test fails in 8 of 20 cases. This run also gave the nation the state
+  half-life, where the pre-registration kept the nation's average at the baseline's. Both are corrected below
+  ("Who the score sees: results"); the corrected run also fails. 2008 gains a lot: 39.17 to 33.07 with a 7-day national trend line. That is the
   autumn the financial crisis moved every state at once. But it loses in 2004, 2012 and 2016, where moving state
   polls by a noisy national line adds more error than it removes. It is not adopted here. Its natural test is
   stage 4, in states with no recent poll, which stage 1's targets rarely reach (see "Who the score sees", below).
@@ -674,3 +675,81 @@ leak and is not a new candidate.
   the corrected run, the table shows a run with each cycle's picked state half-life and the trend turned off. The
   trend's own contribution is the difference between those two, class by class. This row is a diagnostic and
   passes or fails nothing.
+
+### Who the score sees: results (run 2026-11-21)
+
+**Checks, before any figure below was read.**
+
+- Corrected trend: the leak test passes, and the own-firm test passes in 20 of 20 (the first version fails in 8 of
+  20). Where the target's firm has no national polls, the corrected and first versions agree (largest difference
+  7e-15 over 300 targets).
+- Every candidate in the table, rebuilt at its stored picks, matches its stored per-cycle losses to three decimals.
+- Own-firm test, 20 targets each: every candidate passes except **round 1's house effects, which fail in 18 of
+  20**. They compare each poll with other firms' earlier polls, and those other firms' effects were measured
+  against the target firm's polls too: the same leak as the first version of same-week house effects. They failed
+  the rule even with that help, so they are not rerun. Their row below leaks.
+
+**The national trend adjustment, corrected, of record. Fails.**
+
+| | Gain | Cycles better | p (sign-flip) | Gain, 91 to 161 days |
+|---|---|---|---|---|
+| Round 2 run (leaked; nation given the state half-life) | −0.01 | 2 | 0.51 | −0.06 |
+| Own firm left out, nation still given the state half-life | −0.02 | 2 | 0.53 | −0.19 |
+| **Corrected, of record: own firm left out, nation at the baseline** | **+0.03** | **2** | **0.43** | **−0.27** |
+
+- A second fault was found after the first corrected run, by the density table: the nation's targets lost 0.19.
+  The code gave national polls the state half-life (90 or 180 days), where the pre-registration says the nation's
+  own average is the baseline's. The run of record follows the pre-registration. The run before it is kept
+  (`pres_nowcast_trend_corrected_nation_moved.json`), and the verdict is the same either way.
+- Picks, unchanged: national 7 days with state 180 (2004, 2016) or 90 (2012, 2020); national 30 with state 180
+  (2008).
+- By cycle against the baseline: 25.10 against 24.25, 36.98 against 39.17, 19.30 against 18.47, 34.23 against
+  33.84, and 20.67 against 20.72. 2008 gains 2.2; 2004, 2012 and 2016 lose.
+
+**Loss by density.** Classes count the polls of the target's place in the 30 days before its week, without the
+target's own firm. Cycles weighted equally within each class.
+
+Targets per class and cycle:
+
+| | 2004 | 2008 | 2012 | 2016 | 2020 |
+|---|---|---|---|---|---|
+| Nation | 141 | 203 | 151 | 726 | 645 |
+| State, 10+ polls | 196 | 314 | 353 | 289 | 928 |
+| State, 4 to 9 | 409 | 283 | 231 | 256 | 470 |
+| State, 1 to 3 | 314 | 346 | 178 | 262 | 637 |
+| State, 0 | 38 | 33 | 26 | 29 | 89 |
+
+Baseline loss: 19.26 (nation), 17.39 (10+), 25.80 (4 to 9), 40.96 (1 to 3), 53.62 (0). Gain against the baseline
+(positive is better):
+
+| Candidate | Nation | 10+ | 4 to 9 | 1 to 3 | 0 |
+|---|---|---|---|---|---|
+| 1. Half-life (90 days) | −0.02 | −0.23 | +0.04 | +0.48 | +1.08 |
+| 2. House effects, round 1 (leaks) | −0.07 | −1.15 | +0.08 | +0.53 | +2.80 |
+| 3. Registered-voter correction | −0.05 | −0.13 | −0.09 | +0.02 | −0.48 |
+| 4. Memory by poll count | −0.69 | −0.33 | −0.01 | +1.18 | +1.90 |
+| 5. National trend, corrected | 0.00 | −0.60 | +0.15 | +0.31 | +2.41 |
+| 5, control: same state half-life, no trend | 0.00 | −0.63 | −0.09 | +0.48 | +1.50 |
+| 5, the trend's own part (5 minus control) | 0.00 | +0.04 | +0.24 | −0.17 | +0.91 |
+| 6. House effects, same week, corrected | +0.14 | −0.29 | +0.42 | +0.72 | +2.49 |
+| 7. Weight by total expected error | −0.22 | −0.17 | −0.51 | +0.03 | +0.18 |
+| 8. Weight by survey method | −0.02 | +0.03 | +0.05 | +0.08 | +0.04 |
+| 9. No registered-voter correction | −0.02 | −0.08 | −0.04 | +0.07 | −0.03 |
+
+What it shows, as a hint and not a verdict:
+
+- **What helps thin places hurts dense ones.** Slower forgetting (1, 4 and the trend's half-lives) gains 0.5 to 1.9 in
+  places with 0 to 3 recent polls and loses 0.2 to 0.6 where there are 10 or more. Dense places give 61% of the
+  targets, so the dense losses cancel the thin gains in the overall score. This is the density diagnostic's
+  finding again, now for every candidate.
+- **The trend adds little beyond the longer memory it brings.** Against the control with the same half-life, the
+  trend itself gains 0.91 in the 0 class, 0.24 at 4 to 9, and loses 0.17 at 1 to 3. The 0 class has 215 targets
+  (26 to 89 a cycle), so 0.91 is within noise.
+- **Corrected same-week house effects are the only candidate with a real gain in the nation (+0.14).** They also
+  gain in every state class except the dense one (−0.29).
+- The weight changes (7, 8) and the registered-voter changes (3, 9) barely move any class.
+- Over fifty cells were read. Some will look good by chance, and no cell passes or fails anything. The 2,974 weeks
+  with no new poll remain unseen; stage 4 is the test for thin states.
+
+**Stage 1 after this.** Unchanged: no candidate passes, and the nowcast is the baseline. A third round follows,
+written here before it runs.
