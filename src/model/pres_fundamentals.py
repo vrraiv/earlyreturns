@@ -352,7 +352,7 @@ def fund_fit_and_var(Xm, y, flags):
         m = np.arange(n) != i
         pi = _choose_pen_np(Xm[m], y[m], flags)
         errs.append(_pred_np(_ridge_np(Xm[m], y[m], pi, flags), Xm[i]) - y[i])
-    return fit, pen, float(np.mean(np.square(errs)))
+    return fit, pen, float(np.mean(np.square(errs))), np.array(errs)
 
 
 def blend(P, F, Vp, Vf):
@@ -361,7 +361,30 @@ def blend(P, F, Vp, Vf):
     return w * P + (1 - w) * F, w
 
 
-def blend_backtest(X, NF, RES, prior="fund", cols=PRIMARY, flags=PEN_FLAGS):
+GAMMAS = (0.0, 0.25, 0.5, 1.0, 2.0, 4.0)
+
+
+def fall(w, dd, g):
+    """Round 2: the fundamentals' weight (1 - w) times (days / 150) ** g."""
+    return 1 - (1 - w) * (dd / 150.0) ** g
+
+
+def fit_gamma(pieces):
+    assert all(np.isfinite(v) for rows in pieces.values() for row in rows for v in row), "a non-finite piece"
+    best = None
+    for g in GAMMAS:
+        sse = 0.0
+        for dd, rows in pieces.items():
+            for P, F, R, Vp, Vf in rows:
+                _, w = blend(P, F, Vp, Vf)
+                w2 = fall(w, dd, g)
+                sse += (w2 * P + (1 - w2) * F - R) ** 2
+        if best is None or sse < best[0] - 1e-9:
+            best = (sse, g)
+    return best[1]
+
+
+def blend_backtest(X, NF, RES, prior="fund", cols=PRIMARY, flags=PEN_FLAGS, gamma=None):
     """Every scored election fitted on the elections before it. Returns per election the blended forecast's error at
     each date, with the fitted weight and pieces."""
     out = {}
@@ -371,11 +394,12 @@ def blend_backtest(X, NF, RES, prior="fund", cols=PRIMARY, flags=PEN_FLAGS):
         pts = [(k, (NF[e][k] - RES[e]) ** 2) for e in earlier for k in range(7, 151) if np.isfinite(NF[e][k])]
         b, a = np.polyfit([p[0] for p in pts], [p[1] for p in pts], 1)
         row = {}
+        pieces = {}
         for dd in DAYS:
             D = X[(X.d == dd) & X.year.isin(earlier)].reset_index(drop=True)
             T = X[(X.d == dd) & (X.year == y)].iloc[0]
             if prior == "fund":
-                f, pen, Vf = fund_fit_and_var(D[cols].values.astype(float), D.y.values.astype(float), flags)
+                f, pen, Vf, errs = fund_fit_and_var(D[cols].values.astype(float), D.y.values.astype(float), flags)
                 F = T.sign * _pred_np(f, T[cols].values.astype(float))
             else:
                 F = T.sign * float(D.y.mean())
@@ -385,8 +409,22 @@ def blend_backtest(X, NF, RES, prior="fund", cols=PRIMARY, flags=PEN_FLAGS):
             Vp = max(a + b * dd, 1.0)
             P = float(NF[y][dd])
             fc, w = blend(P, F, Vp, Vf)
+            if gamma is not None:
+                # earlier elections' out-of-sample pieces at this date, for fitting gamma (round 2)
+                inc = D.y.values + np.asarray(errs)                    # leave-one-out predictions, incumbent terms
+                sg = D.sign.values
+                pieces.setdefault(dd, []).extend(
+                    (float(NF[e][dd]), float(s * p_), float(RES[e]), Vp, Vf) for e, s, p_ in zip(D.year.values, sg, inc))
             row[dd] = {"err": fc - RES[y], "err_polls": P - RES[y], "w_polls": w, "fund": F, "pen": pen, "Vf": Vf, "Vp": Vp,
                        "term_limited_in_fit": int(D.term.sum())}
+        if gamma is not None:
+            g = fit_gamma(pieces) if gamma == "fit" else float(gamma)
+            for dd in DAYS:
+                rr = row[dd]
+                w2 = fall(rr["w_polls"], dd, g)
+                P = rr["err_polls"] + RES[y]
+                rr["err"] = w2 * P + (1 - w2) * rr["fund"] - RES[y]
+                rr["w_polls"], rr["gamma"] = w2, g
         out[y] = row
     return out
 
@@ -416,6 +454,67 @@ def shuffled_inputs(X, rng):
             for c in ("approval", "index", "term"):
                 X2.loc[m2, c] = X.loc[ms, c].values
     return X2
+
+
+def test2b():
+    """Round 2: the fundamentals' weight falls faster near the election (gamma fitted on earlier elections)."""
+    X = load()
+    NF, RES = national_forecasts()
+    bt = blend_backtest(X, NF, RES, gamma="fit")
+    g = summary(bt)
+    g["gamma_by_election"] = {int(y): r[7]["gamma"] for y, r in bt.items()}
+    (OUT / "pres_fundamentals_round2_real.json").write_text(json.dumps({"summary": g}, indent=1, default=float))
+    print(json.dumps(g, indent=1, default=float), flush=True)
+    rng = np.random.default_rng(0)
+    null = []
+    for i in range(200):
+        null.append(summary(blend_backtest(shuffled_inputs(X, rng), NF, RES, gamma="fit"))["gain"])
+        if (i + 1) % 50 == 0:
+            print("  shuffles", i + 1, flush=True)
+    g["shuffle_95th"] = float(np.quantile(null, 0.95))
+    g["share_of_shuffles_beaten"] = float(np.mean(np.array(null) < g["gain"]))
+    g["passes"] = bool(g["gain"] > 0 and g["better"] >= 8 and g["not_worse_30_7"] and g["gain"] > g["shuffle_95th"])
+    out = {"candidate": g, "fixed_gamma_1": summary(blend_backtest(X, NF, RES, gamma=1.0)),
+           "control_constant_prior_falling": summary(blend_backtest(X, NF, RES, prior="const", gamma="fit")),
+           "weights_on_polls": {int(y): {dd: round(r[dd]["w_polls"], 3) for dd in DAYS} for y, r in bt.items()},
+           "shuffle_gains": null}
+    (OUT / "pres_fundamentals_round2.json").write_text(json.dumps(out, indent=1, default=float))
+    print(json.dumps({k: v for k, v in out.items() if k != "shuffle_gains"}, indent=1, default=float)[:4000])
+
+
+def checks2():
+    X = load()
+    NF, RES = national_forecasts()
+    b0 = blend_backtest(X, NF, RES)
+    b1 = blend_backtest(X, NF, RES, gamma=0.0)
+    ok0 = all(abs(b0[y][dd]["err"] - b1[y][dd]["err"]) < 1e-9 for y in b0 for dd in DAYS)
+    bh = blend_backtest(X, NF, RES, gamma=1e6)
+    okh = all(abs(bh[y][dd]["err"] - bh[y][dd]["err_polls"]) < 1e-6 for y in bh for dd in DAYS if dd < 150) and         all(abs(bh[y][150]["err"] - b0[y][150]["err"]) < 1e-9 for y in bh)
+    bad = 0
+    base = blend_backtest(X, NF, RES, gamma="fit")
+    for y in (1984, 2000, 2012):
+        X2 = X.copy(); RES2 = dict(RES)
+        X2.loc[X2.year == y, "y"] += 15; RES2[y] += 15
+        for later in YEARS:
+            if later > y:
+                X2.loc[X2.year == later, ["approval", "index"]] += 7
+                X2.loc[X2.year == later, "y"] -= 9
+                RES2[later] -= 9
+        b2 = blend_backtest(X2, NF, RES2, gamma="fit")
+        bad += int(b2[y][7]["gamma"] != base[y][7]["gamma"] or
+                   not all(abs((b2[y][dd]["err"] + 15) - base[y][dd]["err"]) < 1e-9 for dd in DAYS))
+    p_noise = {d: [(0.0, 10.0 * (1 if i % 2 else -1), 0.0, 10.0, 10.0) for i in range(20)] for d in DAYS}
+    p_exact = {d: [(5.0, 0.0, 0.0, 10.0, 10.0) for _ in range(20)] for d in DAYS}
+    okg = fit_gamma(p_noise) == max(GAMMAS) and fit_gamma(p_exact) == 0.0
+    old = json.loads((OUT / "pres_fundamentals_test2.json").read_text())["primary"]["by_election"]
+    okr = all(summary(b0)["by_election"][int(k)] == v for k, v in old.items())
+    print(f"planted: noisy fundamentals pick the top of the grid, exact ones 0 {'PASS' if okg else 'FAIL'}; "
+          f"round 1 reproduces its stored result {'PASS' if okr else 'FAIL'}")
+    ok0 = ok0 and okg and okr
+    print(f"gamma 0 = round 1 {'PASS' if ok0 else 'FAIL'}; huge gamma = polls except at 150 days {'PASS' if okh else 'FAIL'}; "
+          f"as-of (gamma uses no scored election) {'PASS' if not bad else f'FAIL {bad}'}")
+    if not (ok0 and okh and not bad):
+        raise SystemExit("a check failed")
 
 
 def test2():
@@ -503,7 +602,7 @@ def checks():
     earlier = [e for e in YEARS if e < y]
     D = X[(X.d == 60) & X.year.isin(earlier)].reset_index(drop=True)
     T = X[(X.d == 60) & (X.year == y)].iloc[0]
-    f, _, _ = fund_fit_and_var(D[PRIMARY].values.astype(float), D.y.values.astype(float), PEN_FLAGS)
+    f, _, _, _ = fund_fit_and_var(D[PRIMARY].values.astype(float), D.y.values.astype(float), PEN_FLAGS)
     inc = _pred_np(f, T[PRIMARY].values.astype(float))
     ok_w &= T.sign == -1 and abs(base[y][60]["fund"] + inc) < 1e-9
     print(f"party sign: a Republican year's fundamentals enter as minus the incumbent prediction {'PASS' if ok_w else 'FAIL'}")
@@ -515,4 +614,4 @@ def checks():
 
 
 if __name__ == "__main__":
-    {"checks": checks, "test1": test1, "test2": test2}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()
+    {"checks": checks, "test1": test1, "test2": test2, "checks2": checks2, "test2b": test2b}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()
