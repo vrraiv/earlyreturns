@@ -795,3 +795,51 @@ baseline is the user's decision; it would enter round 3 as a candidate. Benchmar
 count among the nine. A benchmark that wins in one density class is a hint for round 3, not a verdict. A previous
 election's result would make a fourth benchmark but would bring results into stage 1, so it is left out unless the
 user asks.
+
+### Naive benchmarks: results (run 2026-11-21)
+
+The checks passed before any loss was read: each benchmark passes the leak test (15) and the own-firm test (20),
+and the baseline file is unchanged byte for byte.
+
+| | Loss | 2004 | 2008 | 2012 | 2016 | 2020 | Nation | States | 91 to 161 days |
+|---|---|---|---|---|---|---|---|---|---|
+| **Baseline** | **27.29** | 24.25 | 39.17 | 18.47 | 33.84 | 20.72 | 19.26 | 28.64 | 35.9 |
+| N1. Latest poll | 36.58 | 35.02 | 50.14 | 26.58 | 43.11 | 28.05 | 22.28 | 40.04 | 49.9 |
+| N2. Latest five firms | 27.54 | 25.64 | 34.70 | 20.05 | 35.72 | 21.60 | 20.38 | 28.82 | 37.4 |
+| N3. Every poll so far | 29.60 | 26.90 | 47.03 | 17.77 | 36.36 | 19.94 | 20.91 | 30.66 | 40.8 |
+
+The baseline against each, under the four clauses (gain is the benchmark's loss minus the baseline's):
+
+| | Gain to the baseline | Cycles the baseline is better | p (sign-flip) | Gain, 91 to 161 days |
+|---|---|---|---|---|
+| N1. Latest poll | 9.29 | 5 | 0.0005 | 14.05 |
+| N2. Latest five firms | 0.25 | 4 | 0.29 | 1.46 |
+| N3. Every poll so far | 2.31 | 3 | 0.0005 | 4.85 |
+
+No benchmark passes the rule against the baseline. Loss by density:
+
+| | Nation | 10+ | 4 to 9 | 1 to 3 | 0 |
+|---|---|---|---|---|---|
+| Baseline | 19.26 | 17.39 | 25.80 | 40.96 | 53.62 |
+| N1. Latest poll | 22.28 | 26.18 | 37.92 | 53.46 | 75.48 |
+| N2. Latest five firms | 20.38 | 17.01 | 26.61 | 41.09 | 53.79 |
+| N3. Every poll so far | 20.91 | 20.67 | 27.80 | 41.70 | 52.78 |
+
+What it shows:
+
+- **The baseline is clearly better than the latest poll** (by 9.3, every cycle) **and than a plain mean of every
+  poll** (by 2.3, p 0.0005, though that mean is better in 2012 and 2020).
+- **It is not clearly better than the latest poll from each of the last five firms.** The gap is 0.25 and not
+  significant (p 0.29), though the baseline is better in 4 cycles and early in the year (1.46). For scale, the
+  reducible part of the loss is about 14.8 (see the floor above).
+- **2008 is where it falls short.** The five-firm mean beats the baseline by 4.5 in 2008 (34.70 against 39.17):
+  by 8.1 in densely polled states, 5.0 in thin ones, and 1.3 in the nation. In every other cycle the baseline is
+  better in most classes. The baseline's 60-day memory is slow for a year when the race moved, which round 1's
+  half-life grid and round 2's trend run both pointed at.
+- The five-firm mean is close to a memory that adapts to density without being told to: where polls are dense,
+  the latest five firms are all recent; where they are thin, it reaches back as far as it must. It is better than
+  the baseline only in the dense class (17.01 against 17.39), and that is 2008 alone.
+- For the nation the baseline is better than all three (19.26 against 20.38 at best).
+
+This is a benchmark, not a candidate, and nothing changes. Whether a five-firm style average, or an adaptive
+memory like it, enters round 3 is the user's decision.
