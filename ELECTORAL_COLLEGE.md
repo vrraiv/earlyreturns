@@ -398,7 +398,7 @@ adopted, the combination is run and reported, but it is not a fourth candidate.
 
 Anything that moves a state's polls using the national series belongs to stage 4, not here.
 
-**Adoption rule for stage 1 (a default, awaiting a ruling).** A candidate is adopted if all four hold:
+**Adoption rule for stage 1 (confirmed 2026-11-20, with the score).** A candidate is adopted if all four hold:
 
 - its loss, with cycles weighted equally, is lower than the baseline's;
 - it is lower in at least 4 of the 5 cycles;
@@ -408,3 +408,6 @@ Anything that moves a state's polls using the national series belongs to stage 4
 
 A sign test over five cycles alone cannot reach 1 in 20 unless all five agree. That is why the place-and-cycle test
 carries the significance and the cycle count guards against one cycle driving the result.
+
+If no candidate beats the baseline, a second round is run with different candidates (decided the same day). They
+are written here before they run, under the same score and rule, and every round is reported.
