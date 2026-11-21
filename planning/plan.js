@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-21i",
+  version: "2026-11-21j",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -579,7 +579,9 @@ window.PLAN = {
           why: "Thinly polled states lean on the prior.",
           details: [
             "Lean from past presidential results.",
-            "The weight on polls is estimated from history, as it was for the Senate."
+            "The weight on polls is estimated from history, as it was for the Senate.",
+            "From EC-2's stage 4 (2026-11-21, in-sample, deciding nothing): the prior should never get zero weight. A state's own polls with only 1 to 3 recent polls beat the prior just 43% of the time, and a roughly even mix of polls and prior cut the error by about a third where polling was thin or light. The best weight moved between elections (0.2 in 2008 to 0.85 in 2020) and faded with 4 or more recent polls. So the weight should come from each side's uncertainty and grow with the number of recent polls, learned on earlier elections only (`ELECTORAL_COLLEGE.md`, section 11, stage 4).",
+            "Also from stage 4: unpolled states land further from a lean-based prior, not closer, because lopsided states are where lean shifts most (toward the Democrat in 2008, the Republican in 2016). A prior that lets the lean move (a two-election trend, or demographics from DA-4) is a candidate, with a wider range for lopsided states."
           ],
           refs: ["src/model/prior_weight.py"] },
         { id: "EC-5", title: "How state errors move together", kind: "story", phase: "p4", needs: ["EC-1", "DA-5"],
