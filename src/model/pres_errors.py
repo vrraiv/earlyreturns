@@ -551,5 +551,40 @@ def checks():
     print("ALL CHECKS PASS" if ok else "SOME CHECKS FAILED")
 
 
+# ------------------------------------------------------------------------------------------------ after the run
+def spread():
+    """Diagnostic computed after the round (2026-11-21), reading the saved fits and the features and no miss: each
+    contest's centred spread, the square root of the diagonal of P Sigma P, under each structure's fitted 2020 sizes.
+    It asks whether a structure widens some contests against others, which the shuffle cannot separate from
+    co-movement. It flags a pass for the user and decides nothing. Writes pres_errors_spread.json."""
+    o = json.loads((OUT / "pres_errors.json").read_text())
+    demo = Demo()
+    R = pd.read_csv(INTERIM / "state_presidential.csv"); R = R[R.year <= 2020]
+    states = sorted(R.state.unique())
+    n = len(states); P = np.eye(n) - np.ones((n, n)) / n
+    Rm = region_matrix(states)
+    out = {}
+    for y in SCORED:
+        lean = R[R.year == y - 4].set_index("state").lean_2p.loc[states].values
+        feat = demo.features(y, "year_before", states)
+        out[y] = {}
+        for kind, fits in (("base", o["main"]["base"]["fits"][str(y)]), ("c1", o["main"]["c1"]["fits"][str(y)]),
+                           ("c2", o["main"]["c2"]["fits"][str(y)]), ("c3", o["main"]["c3"]["fits"][str(y)])):
+            A = np.eye(n)
+            for k, Cm in comps_for(kind, Rm, lean, feat).items():
+                A = A + fits["rho"][k] * Cm
+            sd = pd.Series(np.sqrt(np.diag(P @ (fits["sigma_T"] ** 2 * corr_from(A)) @ P)), index=states)
+            out[y][kind] = {"min": float(sd.min()), "median": float(sd.median()), "max": float(sd.max()),
+                            "ratio_max_min": float(sd.max() / sd.min()),
+                            "widest": {k: round(float(v), 2) for k, v in sd.sort_values(ascending=False).head(6).items()},
+                            "narrowest": {k: round(float(v), 2) for k, v in sd.sort_values().head(4).items()},
+                            "by_state": {k: round(float(v), 3) for k, v in sd.items()}}
+    (OUT / "pres_errors_spread.json").write_text(json.dumps(out, indent=1))
+    for y in SCORED:
+        for kind in ("base", "c1", "c2", "c3"):
+            s = out[y][kind]
+            print(f"{y} {kind:4s} centred sd min {s['min']:.2f} median {s['median']:.2f} max {s['max']:.2f} ratio {s['ratio_max_min']:.2f}  widest {list(s['widest'])[:4]}")
+
+
 if __name__ == "__main__":
-    {"checks": checks, "run": run}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
+    {"checks": checks, "run": run, "spread": spread}[sys.argv[1] if len(sys.argv) > 1 else "run"]()

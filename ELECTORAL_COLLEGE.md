@@ -3431,7 +3431,7 @@ choices the draft did not state. They are fixed here; no loss and no fitted numb
   planted fixed-sign term is recovered with its sign by report (f)); the five flags trip on their conditions; and the
   whole decision path runs on planted misses, with the planted candidate passing, flagged and sent to the user.
 
-### EC-5: results (run 2026-11-21, one round). Candidate 3 passes with no flag and is adopted provisionally. Candidate 2 passes with flag 1 and goes to the user. Candidate 1 fails.
+### EC-5: results (run 2026-11-21, one round). Candidate 3 passes with no pre-registered flag, but a diagnostic computed after the run flags it, so it goes to the user. Candidate 2 passes with flag 1 and goes to the user. Candidate 1 fails.
 
 Everything below is from `data/processed/pres_errors.json`, written by `pres_errors.py run`; the misses are in
 `pres_errors_frame.csv`. The score is the log density of an election's 50 centred 7-day misses, in log-density
@@ -3444,7 +3444,8 @@ points. So in 2008's fit (on 2000 and 2004) the baseline is the tilt alone. The 
 within a region 0.005 to 0.09, and the tilt carries 6% to 8% of a typical state's variance.
 
 - **Report (h), the baseline's own parts.** The tilt alone scores −146.36 and independent errors −148.42: regions
-  and the tilt together are worth 2.8 per election over independence, most of it in 2008 and 2020.
+  and the tilt together are worth 2.8 per election over independence (by election +4.0, −0.5, +3.3, +4.4; in 2012
+  the baseline is worse than independent errors).
 
 **Candidate 1 (a degree draw) fails.** Gain 0.68 (2008 +1.51, 2012 −0.09, 2016 +1.83, 2020 −0.50): better in 2 of
 4, so it fails clause 3. It beats its shuffles (95th percentile 0.035; the 200 shuffled gains run from −2.15 to
@@ -3462,16 +3463,33 @@ fitting to zero there); at 30 days 2.26 and 4 of 4; its 2020 size is not zero.
 −0.78, 1 in 100 positive: a shuffled kernel loses the regions and gives back nothing); positive. Fitted sizes 4.3,
 2.6, 2.0, 2.2; the tilt beside it 0.05 to 0.017; σ_T 5.6 to 6.0. The variants pass too: own-year demographics 3.16
 (3 of 4), without DC 3.43 (3 of 4), at 30 days 3.54 (3 of 4, 2008 −0.72). Its 2020 size is not zero. **So
-candidate 3 is adopted under the rule, provisionally until 2024 at the design freeze.** Its one weak point is
-written down: 2008, the thinnest fit (two elections, size 4.3), is worse by 5.1, and the gain is in 2016 and 2020.
+candidate 3 passes under the rule as written** (the code's output names it adopted). It does not stand as a clean
+pass: the diagnostic below, computed after the run, flags it, and a flagged pass goes to the user. Its weak point
+on the score is also written down: 2008, the thinnest fit (two elections, size 4.3), is worse by 5.1, and the gain
+is in 2016 and 2020.
 
 - **What the fitted kernel implies (report a), read with care.** In the full space of 51 states the similarity
   component carries 64% to 78% of a typical state's variance, with mean correlation 0.42 to 0.51 within a region
-  and 0.36 to 0.44 between regions. That is largely the kernel's floor: exp(−d²/2m²) with m the median distance
-  gives every pair a shared level, which the centring removes before scoring. What this test credits is the part
-  of K above that level, which is why σ_T under candidate 3 (5.6 to 6.0) is larger than the baseline's (3.8 to
-  4.5): the shared level sits inside its correlation matrix. This decides nothing here and is handed to EC-6
-  (below).
+  and 0.36 to 0.44 between regions. Much of that is the kernel's floor: exp(−d²/2m²) with m the median distance
+  gives most pairs a shared level (in 2020 the off-diagonal entries of K have median 0.61, and a state's mean
+  similarity to the rest runs from 0.11 to 0.73), and the centring removes a common level before scoring. σ_T under
+  candidate 3 (5.6 to 6.0) is larger than the baseline's (3.8 to 4.5) because that level sits inside its
+  correlation matrix.
+- **The diagnostic computed after the run (2026-11-21; `pres_errors.py spread`, `pres_errors_spread.json`), which
+  flags candidate 3 and decides nothing.** Question 3 told the user that one spread for every state and structure
+  means a candidate can win only on co-movement. That holds for the 51 raw misses; the score is on the centred
+  misses, and a state's centred spread depends on how much it shares with the rest. From each year's fitted sizes
+  and features, with no miss read: under the baseline and candidates 1 and 2 the centred spread is the same for
+  every contest to within 3% in every year. Under candidate 3 it is not: in the 2020 fit it runs from 3.7 points
+  (Pennsylvania; then Kansas, Wisconsin, Michigan) to 6.7 (DC; then New Mexico 6.0, Mississippi 5.8, California
+  5.7, Hawaii 5.6, West Virginia 5.4), a ratio of 1.8, and the ratio is 2.1, 1.9, 1.75 and 1.8 across the four
+  fits. The demographically unusual states, often the lopsided and thinly polled ones, get 1.2 to 1.5 times the
+  baseline's spread and the typical close states less. So part of candidate 3's gain can be on spread rather than
+  on co-movement, which is not what this card tests, and the shuffle cannot separate the two (a shuffled kernel
+  moves the wide spreads to other states). The sentence that this test credits only the part of K above its floor
+  was written before this check and is withdrawn. Whether a spread-matched control (the baseline given candidate
+  3's per-state spreads and no similarity) would beat candidate 3 has not been run: it would be a second round on
+  these misses, and the card has one.
 
 **Report (e), 2008 apart.** On 2012 to 2020, asking 2 of 3: candidate 3's gain is 6.08 (3 of 3, 95th percentile
 −0.76), candidate 2's 2.30 (3 of 3, 0.26), candidate 1's 0.41 (1 of 3). The verdicts do not change.
@@ -3481,7 +3499,10 @@ gain 4.58 (2008 +4.45, 2012 +4.39, 2016 +7.02, 2020 +2.44), 4 of 4, 95th percent
 from −0.93 to 1.01). β fitted on earlier elections: −1.25, −1.46, −1.62, −1.93 points of miss per standard deviation
 of the white share without a degree; the sign is the challenge's (the result fell short of the forecast on the
 Democratic side where that share is high) in every fit, and the size grows with each election. As pre-registered it
-is not adoptable here: it is a shift of the centre, EC-4's territory, and goes to the design freeze (EC-9).
+is not adoptable here: it is a shift of the centre, EC-4's territory, and goes to the design freeze (EC-9). It has
+the largest gain of anything run, and it overlaps the candidates: a zero-mean draw or a kernel on the same measures
+can absorb an unmodelled signed shift, and nothing run here shows whether candidate 3 gains beside (f). That
+question is carried to EC-9's pre-registration, not run now.
 
 **Report (g), candidate 3 with The Downballot's urban share as a fixed seventh measure.** Gain 3.25 (3 of 4, 95th
 percentile −0.64), passing its clauses and 0.03 below the six-measure version. The six measures stand.
@@ -3492,7 +3513,21 @@ absorbs what candidate 2 carries.
 
 **What stands, under the rule.**
 
-- **Adopted provisionally:** candidate 3, similarity on six by-year measures in place of regions, beside the tilt.
-- **To the user:** candidate 2's flagged pass, with the combination showing it adds nothing beside candidate 3.
-- **Closed here:** candidate 1 (degree share), and regions as the structure.
-- **Untouched:** 2024. Nothing beyond the fixed reports was computed.
+- **Adopted:** nothing yet. Both passes are flagged and go to the user.
+- **To the user:** candidate 3's pass, flagged by the spread diagnostic; candidate 2's pass, flagged by the
+  challenge (flag 1), with the combination showing it adds nothing beside candidate 3 and the spread diagnostic
+  showing it keeps one spread.
+- **Closed here:** candidate 1 (degree share). Regions as the structure are closed only if the user adopts
+  candidate 3.
+- **Untouched:** 2024. Beyond the fixed reports, the one computation after the run is the spread diagnostic above,
+  which reads no miss.
+
+**Hand-offs, whatever the user decides.**
+
+- **To EC-6:** the adopted structure as correlations, sized against section 4's totals at the assembly. If candidate
+  3 is adopted, its kernel carries a shared level across all states (above); the assembly must not count that
+  level twice beside the national draw, either by centring K or by sizing the national draw net of it. The
+  Student-t tails are the assembly's.
+- **To the design freeze (EC-9):** the adopted structure's one untouched test on 2024; whatever is declined or held;
+  report (f) and whether candidate 3 (or 2) gains beside it; and, if the user wants it, the spread-matched control
+  for candidate 3, pre-registered there.
