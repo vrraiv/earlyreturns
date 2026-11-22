@@ -17,7 +17,8 @@ years); better in 3 of 4 elections; simulation noise is nil (closed form). Five 
 Run:  python src/model/pres_errors.py checks     (prints pass or fail only; no loss and no fitted number)
       python src/model/pres_errors.py run
       python src/model/pres_errors.py spread    (after the round: each contest's centred spread under each fitted structure)
-      python src/model/pres_errors.py checks2   (round 2: the spread-matched control for candidate 3)
+      python src/model/pres_errors.py checks2      (round 2: the spread-matched control for candidate 3)
+      python src/model/pres_errors.py calibrate2   (round 2's noise threshold from 200 spread-only plants; before run2)
       python src/model/pres_errors.py run2
 """
 import json
@@ -664,14 +665,74 @@ def decide_round2(M, demo, shuffles=SHUFFLES):
     return out
 
 
+def spread_only_plants(cells, Q, base_fits, reps, seed=31):
+    """Round 2's noise threshold: misses drawn from the control's own covariance (candidate 3's spreads as fitted in
+    round 1, the baseline's correlation sizes as fitted in round 1), scored as candidate 3 minus its control. No
+    shuffles. Returns the increments by plant and scored election."""
+    n = Q.shape[1]
+    ctrl = run_kind("ctrl", cells, Q)
+    rng = np.random.default_rng(seed)
+    V = {}
+    for y, c in cells.items():
+        yy = y if y in SCORED else SCORED[0]
+        c3 = comps_for("c3", c["Rm"], c["lean"], c["feat"]); c0 = comps_for("base", c["Rm"], c["lean"], c["feat"])
+        r3 = ctrl[yy]["from_candidate3"]
+        D = centred_var(r3["sigma_T"] ** 2 * full_corr(c3, [r3["rho"][k] for k in c3], n), n)
+        V[y] = np.linalg.cholesky(control_builder(c0, D)([base_fits[yy]["rho"][k] for k in c0]) + 1e-9 * np.eye(n))
+    G = np.zeros((reps, len(SCORED)))
+    for r in range(reps):
+        pl = {}
+        for y, c in cells.items():
+            m = V[y] @ rng.standard_normal(n)
+            pl[y] = dict(c, ym=Q @ (m - m.mean()), miss=m)
+        a = run_kind("c3", pl, Q); b = run_kind("ctrl", pl, Q)
+        G[r] = [a[y]["ld"] - b[y]["ld"] for y in SCORED]
+    return G
+
+
+def calibrate2(reps=200):
+    """Writes pres_errors_round2_calibration.json: the increment's distribution on spread-only plants."""
+    M = load_misses(); demo = Demo()
+    cells, Q, states = build_cells(M, demo)
+    base = run_kind("base", cells, Q)
+    G = spread_only_plants(cells, Q, base, reps)
+    pooled_g = G.mean(1)
+    meets = np.mean([(g.mean() > TOL) and (np.sum(g > TOL) >= NEED) for g in G])
+    out = {"plants": int(reps), "pooled_increment": {"p50": float(np.percentile(pooled_g, 50)), "p95": float(np.percentile(pooled_g, 95)),
+                                                     "max": float(pooled_g.max()), "min": float(pooled_g.min())},
+           "by_election_p95": {int(y): float(np.percentile(G[:, i], 95)) for i, y in enumerate(SCORED)},
+           "share_meeting_positive_and_3_of_4": float(meets), "increments": [[round(float(x), 4) for x in g] for g in G]}
+    (OUT / "pres_errors_round2_calibration.json").write_text(json.dumps(out, indent=1))
+    print(json.dumps({k: v for k, v in out.items() if k != "increments"}, indent=1))
+
+
 def run2():
     M = load_misses(); demo = Demo()
     out = decide_round2(M, demo)
+    cal = json.loads((OUT / "pres_errors_round2_calibration.json").read_text())
+    thr = cal["pooled_increment"]["p95"]
+    v = out["main"]
+    v["planted_threshold_p95"] = thr
+    v["clause_planted"] = bool(v["gain"] > thr + TOL)
+    v["passes"] = bool(v["passes"] and v["clause_planted"])
+    out["passes"] = v["passes"]
+    fl = []
+    if v["passes"]:
+        nd, d30 = out["variants"]["no_dc"], out["variants"]["day30"]
+        if not (nd["gain"] > 0 and nd["clause_elections"]):
+            fl.append(2)
+        if not d30["gain"] > 0:
+            fl.append(3)
+    out["flags"] = fl
+    out["standing"] = ("candidate 3 passes round 2 with no flag: to the user to confirm" if v["passes"] and not fl
+                       else "candidate 3 passes round 2 but is flagged: to the user" if v["passes"]
+                       else "candidate 3 closed; the baseline with candidate 2 stands")
     (OUT / "pres_errors_round2.json").write_text(json.dumps(out, indent=1, default=float))
     v = out["main"]
     print(json.dumps({k: v[k] for k in ("gain", "by_election", "better", "shuffle_p95", "shuffle_share_beaten",
                                         "clause_shuffle", "clause_positive_gain", "clause_elections", "passes")}, indent=1))
     print("control vs baseline:", v["report_i_control_vs_baseline"])
+    print("planted threshold p95:", v["planted_threshold_p95"], "clause_planted:", v["clause_planted"])
     print("flags", out["flags"], "standing:", out["standing"])
 
 
@@ -715,6 +776,18 @@ def checks2():
         pl2[y] = dict(c, ym=Q @ (m - m.mean()), miss=m)
     v2 = judge_round2(pl2, Q, shuffles=30)
     report("planted spread only (no similarity): candidate 3 does not pass against its control", not v2["passes"])
+    # decide_round2 end to end on planted misses at both dates, 2 shuffles
+    M2 = {k: dict(v) for k, v in M.items()}
+    for d in DAYS:
+        cd, Qd, _ = build_cells(M, demo, d=d)
+        for y, c in plant(cd, Qd, "c3", np.array([3.0, 0.3]), 5.0, rng).items():
+            M2[(y, d)]["miss"] = c["miss"]
+    full = decide_round2(M2, demo, shuffles=2)
+    txt = json.dumps(full, default=float)
+    report("decide_round2() runs end to end on planted misses: variants, reports and flags present, JSON written",
+           len(full["variants"]) == 3 and "report_iii_flat_control" in full and "flags" in full and len(txt) > 1000)
+    G = spread_only_plants(cells, Q, run_kind("base", cells, Q), reps=3, seed=1)
+    report("the spread-only plants run and give one increment per plant and election", G.shape == (3, len(SCORED)) and np.isfinite(G).all())
     print("ALL ROUND-2 CHECKS PASS" if ok else "SOME ROUND-2 CHECKS FAILED")
 
 
@@ -754,4 +827,4 @@ def spread():
 
 
 if __name__ == "__main__":
-    {"checks": checks, "run": run, "spread": spread, "checks2": checks2, "run2": run2}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
+    {"checks": checks, "run": run, "spread": spread, "checks2": checks2, "calibrate2": calibrate2, "run2": run2}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
