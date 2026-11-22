@@ -1,0 +1,20 @@
+{
+ "B19013_001E": {
+  "label": "Estimate!!Median household income in the past 12 months (in 2025 inflation-adjusted dollars)"
+ },
+ "B19013_001EA": {
+  "label": "Annotation of Estimate!!Median household income in the past 12 months (in 2025 inflation-adjusted dollars)"
+ },
+ "B19013_001M": {
+  "label": "Margin of Error!!Median household income in the past 12 months (in 2025 inflation-adjusted dollars)"
+ },
+ "B19013_001MA": {
+  "label": "Annotation of Margin of Error!!Median household income in the past 12 months (in 2025 inflation-adjusted dollars)"
+ },
+ "GEO_ID": {
+  "label": "Geography"
+ },
+ "NAME": {
+  "label": "Geographic Area Name"
+ }
+}

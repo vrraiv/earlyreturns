@@ -1,0 +1,596 @@
+{
+ "B01001_001E": {
+  "label": "Estimate!!Total"
+ },
+ "B01001_001EA": {
+  "label": "Annotation of Estimate!!Total"
+ },
+ "B01001_001M": {
+  "label": "Margin of Error!!Total"
+ },
+ "B01001_001MA": {
+  "label": "Annotation of Margin of Error!!Total"
+ },
+ "B01001_002E": {
+  "label": "Estimate!!Total!!Male"
+ },
+ "B01001_002EA": {
+  "label": "Annotation of Estimate!!Total!!Male"
+ },
+ "B01001_002M": {
+  "label": "Margin of Error!!Total!!Male"
+ },
+ "B01001_002MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male"
+ },
+ "B01001_003E": {
+  "label": "Estimate!!Total!!Male!!Under 5 years"
+ },
+ "B01001_003EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!Under 5 years"
+ },
+ "B01001_003M": {
+  "label": "Margin of Error!!Total!!Male!!Under 5 years"
+ },
+ "B01001_003MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!Under 5 years"
+ },
+ "B01001_004E": {
+  "label": "Estimate!!Total!!Male!!5 to 9 years"
+ },
+ "B01001_004EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!5 to 9 years"
+ },
+ "B01001_004M": {
+  "label": "Margin of Error!!Total!!Male!!5 to 9 years"
+ },
+ "B01001_004MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!5 to 9 years"
+ },
+ "B01001_005E": {
+  "label": "Estimate!!Total!!Male!!10 to 14 years"
+ },
+ "B01001_005EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!10 to 14 years"
+ },
+ "B01001_005M": {
+  "label": "Margin of Error!!Total!!Male!!10 to 14 years"
+ },
+ "B01001_005MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!10 to 14 years"
+ },
+ "B01001_006E": {
+  "label": "Estimate!!Total!!Male!!15 to 17 years"
+ },
+ "B01001_006EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!15 to 17 years"
+ },
+ "B01001_006M": {
+  "label": "Margin of Error!!Total!!Male!!15 to 17 years"
+ },
+ "B01001_006MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!15 to 17 years"
+ },
+ "B01001_007E": {
+  "label": "Estimate!!Total!!Male!!18 and 19 years"
+ },
+ "B01001_007EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!18 and 19 years"
+ },
+ "B01001_007M": {
+  "label": "Margin of Error!!Total!!Male!!18 and 19 years"
+ },
+ "B01001_007MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!18 and 19 years"
+ },
+ "B01001_008E": {
+  "label": "Estimate!!Total!!Male!!20 years"
+ },
+ "B01001_008EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!20 years"
+ },
+ "B01001_008M": {
+  "label": "Margin of Error!!Total!!Male!!20 years"
+ },
+ "B01001_008MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!20 years"
+ },
+ "B01001_009E": {
+  "label": "Estimate!!Total!!Male!!21 years"
+ },
+ "B01001_009EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!21 years"
+ },
+ "B01001_009M": {
+  "label": "Margin of Error!!Total!!Male!!21 years"
+ },
+ "B01001_009MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!21 years"
+ },
+ "B01001_010E": {
+  "label": "Estimate!!Total!!Male!!22 to 24 years"
+ },
+ "B01001_010EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!22 to 24 years"
+ },
+ "B01001_010M": {
+  "label": "Margin of Error!!Total!!Male!!22 to 24 years"
+ },
+ "B01001_010MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!22 to 24 years"
+ },
+ "B01001_011E": {
+  "label": "Estimate!!Total!!Male!!25 to 29 years"
+ },
+ "B01001_011EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!25 to 29 years"
+ },
+ "B01001_011M": {
+  "label": "Margin of Error!!Total!!Male!!25 to 29 years"
+ },
+ "B01001_011MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!25 to 29 years"
+ },
+ "B01001_012E": {
+  "label": "Estimate!!Total!!Male!!30 to 34 years"
+ },
+ "B01001_012EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!30 to 34 years"
+ },
+ "B01001_012M": {
+  "label": "Margin of Error!!Total!!Male!!30 to 34 years"
+ },
+ "B01001_012MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!30 to 34 years"
+ },
+ "B01001_013E": {
+  "label": "Estimate!!Total!!Male!!35 to 39 years"
+ },
+ "B01001_013EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!35 to 39 years"
+ },
+ "B01001_013M": {
+  "label": "Margin of Error!!Total!!Male!!35 to 39 years"
+ },
+ "B01001_013MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!35 to 39 years"
+ },
+ "B01001_014E": {
+  "label": "Estimate!!Total!!Male!!40 to 44 years"
+ },
+ "B01001_014EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!40 to 44 years"
+ },
+ "B01001_014M": {
+  "label": "Margin of Error!!Total!!Male!!40 to 44 years"
+ },
+ "B01001_014MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!40 to 44 years"
+ },
+ "B01001_015E": {
+  "label": "Estimate!!Total!!Male!!45 to 49 years"
+ },
+ "B01001_015EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!45 to 49 years"
+ },
+ "B01001_015M": {
+  "label": "Margin of Error!!Total!!Male!!45 to 49 years"
+ },
+ "B01001_015MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!45 to 49 years"
+ },
+ "B01001_016E": {
+  "label": "Estimate!!Total!!Male!!50 to 54 years"
+ },
+ "B01001_016EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!50 to 54 years"
+ },
+ "B01001_016M": {
+  "label": "Margin of Error!!Total!!Male!!50 to 54 years"
+ },
+ "B01001_016MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!50 to 54 years"
+ },
+ "B01001_017E": {
+  "label": "Estimate!!Total!!Male!!55 to 59 years"
+ },
+ "B01001_017EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!55 to 59 years"
+ },
+ "B01001_017M": {
+  "label": "Margin of Error!!Total!!Male!!55 to 59 years"
+ },
+ "B01001_017MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!55 to 59 years"
+ },
+ "B01001_018E": {
+  "label": "Estimate!!Total!!Male!!60 and 61 years"
+ },
+ "B01001_018EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!60 and 61 years"
+ },
+ "B01001_018M": {
+  "label": "Margin of Error!!Total!!Male!!60 and 61 years"
+ },
+ "B01001_018MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!60 and 61 years"
+ },
+ "B01001_019E": {
+  "label": "Estimate!!Total!!Male!!62 to 64 years"
+ },
+ "B01001_019EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!62 to 64 years"
+ },
+ "B01001_019M": {
+  "label": "Margin of Error!!Total!!Male!!62 to 64 years"
+ },
+ "B01001_019MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!62 to 64 years"
+ },
+ "B01001_020E": {
+  "label": "Estimate!!Total!!Male!!65 and 66 years"
+ },
+ "B01001_020EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!65 and 66 years"
+ },
+ "B01001_020M": {
+  "label": "Margin of Error!!Total!!Male!!65 and 66 years"
+ },
+ "B01001_020MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!65 and 66 years"
+ },
+ "B01001_021E": {
+  "label": "Estimate!!Total!!Male!!67 to 69 years"
+ },
+ "B01001_021EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!67 to 69 years"
+ },
+ "B01001_021M": {
+  "label": "Margin of Error!!Total!!Male!!67 to 69 years"
+ },
+ "B01001_021MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!67 to 69 years"
+ },
+ "B01001_022E": {
+  "label": "Estimate!!Total!!Male!!70 to 74 years"
+ },
+ "B01001_022EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!70 to 74 years"
+ },
+ "B01001_022M": {
+  "label": "Margin of Error!!Total!!Male!!70 to 74 years"
+ },
+ "B01001_022MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!70 to 74 years"
+ },
+ "B01001_023E": {
+  "label": "Estimate!!Total!!Male!!75 to 79 years"
+ },
+ "B01001_023EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!75 to 79 years"
+ },
+ "B01001_023M": {
+  "label": "Margin of Error!!Total!!Male!!75 to 79 years"
+ },
+ "B01001_023MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!75 to 79 years"
+ },
+ "B01001_024E": {
+  "label": "Estimate!!Total!!Male!!80 to 84 years"
+ },
+ "B01001_024EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!80 to 84 years"
+ },
+ "B01001_024M": {
+  "label": "Margin of Error!!Total!!Male!!80 to 84 years"
+ },
+ "B01001_024MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!80 to 84 years"
+ },
+ "B01001_025E": {
+  "label": "Estimate!!Total!!Male!!85 years and over"
+ },
+ "B01001_025EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!85 years and over"
+ },
+ "B01001_025M": {
+  "label": "Margin of Error!!Total!!Male!!85 years and over"
+ },
+ "B01001_025MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!85 years and over"
+ },
+ "B01001_026E": {
+  "label": "Estimate!!Total!!Female"
+ },
+ "B01001_026EA": {
+  "label": "Annotation of Estimate!!Total!!Female"
+ },
+ "B01001_026M": {
+  "label": "Margin of Error!!Total!!Female"
+ },
+ "B01001_026MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female"
+ },
+ "B01001_027E": {
+  "label": "Estimate!!Total!!Female!!Under 5 years"
+ },
+ "B01001_027EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!Under 5 years"
+ },
+ "B01001_027M": {
+  "label": "Margin of Error!!Total!!Female!!Under 5 years"
+ },
+ "B01001_027MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!Under 5 years"
+ },
+ "B01001_028E": {
+  "label": "Estimate!!Total!!Female!!5 to 9 years"
+ },
+ "B01001_028EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!5 to 9 years"
+ },
+ "B01001_028M": {
+  "label": "Margin of Error!!Total!!Female!!5 to 9 years"
+ },
+ "B01001_028MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!5 to 9 years"
+ },
+ "B01001_029E": {
+  "label": "Estimate!!Total!!Female!!10 to 14 years"
+ },
+ "B01001_029EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!10 to 14 years"
+ },
+ "B01001_029M": {
+  "label": "Margin of Error!!Total!!Female!!10 to 14 years"
+ },
+ "B01001_029MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!10 to 14 years"
+ },
+ "B01001_030E": {
+  "label": "Estimate!!Total!!Female!!15 to 17 years"
+ },
+ "B01001_030EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!15 to 17 years"
+ },
+ "B01001_030M": {
+  "label": "Margin of Error!!Total!!Female!!15 to 17 years"
+ },
+ "B01001_030MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!15 to 17 years"
+ },
+ "B01001_031E": {
+  "label": "Estimate!!Total!!Female!!18 and 19 years"
+ },
+ "B01001_031EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!18 and 19 years"
+ },
+ "B01001_031M": {
+  "label": "Margin of Error!!Total!!Female!!18 and 19 years"
+ },
+ "B01001_031MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!18 and 19 years"
+ },
+ "B01001_032E": {
+  "label": "Estimate!!Total!!Female!!20 years"
+ },
+ "B01001_032EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!20 years"
+ },
+ "B01001_032M": {
+  "label": "Margin of Error!!Total!!Female!!20 years"
+ },
+ "B01001_032MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!20 years"
+ },
+ "B01001_033E": {
+  "label": "Estimate!!Total!!Female!!21 years"
+ },
+ "B01001_033EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!21 years"
+ },
+ "B01001_033M": {
+  "label": "Margin of Error!!Total!!Female!!21 years"
+ },
+ "B01001_033MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!21 years"
+ },
+ "B01001_034E": {
+  "label": "Estimate!!Total!!Female!!22 to 24 years"
+ },
+ "B01001_034EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!22 to 24 years"
+ },
+ "B01001_034M": {
+  "label": "Margin of Error!!Total!!Female!!22 to 24 years"
+ },
+ "B01001_034MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!22 to 24 years"
+ },
+ "B01001_035E": {
+  "label": "Estimate!!Total!!Female!!25 to 29 years"
+ },
+ "B01001_035EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!25 to 29 years"
+ },
+ "B01001_035M": {
+  "label": "Margin of Error!!Total!!Female!!25 to 29 years"
+ },
+ "B01001_035MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!25 to 29 years"
+ },
+ "B01001_036E": {
+  "label": "Estimate!!Total!!Female!!30 to 34 years"
+ },
+ "B01001_036EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!30 to 34 years"
+ },
+ "B01001_036M": {
+  "label": "Margin of Error!!Total!!Female!!30 to 34 years"
+ },
+ "B01001_036MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!30 to 34 years"
+ },
+ "B01001_037E": {
+  "label": "Estimate!!Total!!Female!!35 to 39 years"
+ },
+ "B01001_037EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!35 to 39 years"
+ },
+ "B01001_037M": {
+  "label": "Margin of Error!!Total!!Female!!35 to 39 years"
+ },
+ "B01001_037MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!35 to 39 years"
+ },
+ "B01001_038E": {
+  "label": "Estimate!!Total!!Female!!40 to 44 years"
+ },
+ "B01001_038EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!40 to 44 years"
+ },
+ "B01001_038M": {
+  "label": "Margin of Error!!Total!!Female!!40 to 44 years"
+ },
+ "B01001_038MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!40 to 44 years"
+ },
+ "B01001_039E": {
+  "label": "Estimate!!Total!!Female!!45 to 49 years"
+ },
+ "B01001_039EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!45 to 49 years"
+ },
+ "B01001_039M": {
+  "label": "Margin of Error!!Total!!Female!!45 to 49 years"
+ },
+ "B01001_039MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!45 to 49 years"
+ },
+ "B01001_040E": {
+  "label": "Estimate!!Total!!Female!!50 to 54 years"
+ },
+ "B01001_040EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!50 to 54 years"
+ },
+ "B01001_040M": {
+  "label": "Margin of Error!!Total!!Female!!50 to 54 years"
+ },
+ "B01001_040MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!50 to 54 years"
+ },
+ "B01001_041E": {
+  "label": "Estimate!!Total!!Female!!55 to 59 years"
+ },
+ "B01001_041EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!55 to 59 years"
+ },
+ "B01001_041M": {
+  "label": "Margin of Error!!Total!!Female!!55 to 59 years"
+ },
+ "B01001_041MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!55 to 59 years"
+ },
+ "B01001_042E": {
+  "label": "Estimate!!Total!!Female!!60 and 61 years"
+ },
+ "B01001_042EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!60 and 61 years"
+ },
+ "B01001_042M": {
+  "label": "Margin of Error!!Total!!Female!!60 and 61 years"
+ },
+ "B01001_042MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!60 and 61 years"
+ },
+ "B01001_043E": {
+  "label": "Estimate!!Total!!Female!!62 to 64 years"
+ },
+ "B01001_043EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!62 to 64 years"
+ },
+ "B01001_043M": {
+  "label": "Margin of Error!!Total!!Female!!62 to 64 years"
+ },
+ "B01001_043MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!62 to 64 years"
+ },
+ "B01001_044E": {
+  "label": "Estimate!!Total!!Female!!65 and 66 years"
+ },
+ "B01001_044EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!65 and 66 years"
+ },
+ "B01001_044M": {
+  "label": "Margin of Error!!Total!!Female!!65 and 66 years"
+ },
+ "B01001_044MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!65 and 66 years"
+ },
+ "B01001_045E": {
+  "label": "Estimate!!Total!!Female!!67 to 69 years"
+ },
+ "B01001_045EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!67 to 69 years"
+ },
+ "B01001_045M": {
+  "label": "Margin of Error!!Total!!Female!!67 to 69 years"
+ },
+ "B01001_045MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!67 to 69 years"
+ },
+ "B01001_046E": {
+  "label": "Estimate!!Total!!Female!!70 to 74 years"
+ },
+ "B01001_046EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!70 to 74 years"
+ },
+ "B01001_046M": {
+  "label": "Margin of Error!!Total!!Female!!70 to 74 years"
+ },
+ "B01001_046MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!70 to 74 years"
+ },
+ "B01001_047E": {
+  "label": "Estimate!!Total!!Female!!75 to 79 years"
+ },
+ "B01001_047EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!75 to 79 years"
+ },
+ "B01001_047M": {
+  "label": "Margin of Error!!Total!!Female!!75 to 79 years"
+ },
+ "B01001_047MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!75 to 79 years"
+ },
+ "B01001_048E": {
+  "label": "Estimate!!Total!!Female!!80 to 84 years"
+ },
+ "B01001_048EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!80 to 84 years"
+ },
+ "B01001_048M": {
+  "label": "Margin of Error!!Total!!Female!!80 to 84 years"
+ },
+ "B01001_048MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!80 to 84 years"
+ },
+ "B01001_049E": {
+  "label": "Estimate!!Total!!Female!!85 years and over"
+ },
+ "B01001_049EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!85 years and over"
+ },
+ "B01001_049M": {
+  "label": "Margin of Error!!Total!!Female!!85 years and over"
+ },
+ "B01001_049MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!85 years and over"
+ },
+ "GEO_ID": {
+  "label": "Geography"
+ },
+ "NAME": {
+  "label": "Geographic Area Name"
+ }
+}

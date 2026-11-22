@@ -1,0 +1,14 @@
+{
+ "GEO_ID": {
+  "label": "Geography"
+ },
+ "NAME": {
+  "label": "Label for GEO_ID"
+ },
+ "P053001": {
+  "label": "Median household income in 1999"
+ },
+ "P053001A": {
+  "label": "Annotation of Median household income in 1999"
+ }
+}

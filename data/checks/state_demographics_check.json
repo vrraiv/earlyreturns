@@ -1,0 +1,649 @@
+{
+ "note": "Differences across the 51 states. Income as a percentage, everything else in points.",
+ "microdata_2005_minus_published_2005": {
+  "degree_share": {
+   "mean": -0.05,
+   "mean_abs": 0.2,
+   "max_abs": 1.16,
+   "worst": "NE",
+   "corr": 0.9984
+  },
+  "white_degree_share": {
+   "mean": -0.08,
+   "mean_abs": 0.24,
+   "max_abs": 1.12,
+   "worst": "NE",
+   "corr": 0.9994
+  },
+  "white_no_degree_share": {
+   "mean": 0.07,
+   "mean_abs": 0.23,
+   "max_abs": 1.01,
+   "worst": "ID",
+   "corr": 0.9998
+  },
+  "white_share": {
+   "mean": -0.05,
+   "mean_abs": 0.23,
+   "max_abs": 1.05,
+   "worst": "ND",
+   "corr": 0.9998
+  },
+  "black_share": {
+   "mean": 0.04,
+   "mean_abs": 0.12,
+   "max_abs": 0.66,
+   "worst": "DC",
+   "corr": 0.9999
+  },
+  "latino_share": {
+   "mean": 0.03,
+   "mean_abs": 0.15,
+   "max_abs": 0.68,
+   "worst": "WY",
+   "corr": 0.9998
+  },
+  "asian_share": {
+   "mean": -0.0,
+   "mean_abs": 0.08,
+   "max_abs": 0.54,
+   "worst": "DE",
+   "corr": 0.9998
+  },
+  "age_18_29_share": {
+   "mean": -0.05,
+   "mean_abs": 0.21,
+   "max_abs": 1.18,
+   "worst": "ND",
+   "corr": 0.9885
+  },
+  "age_65_plus_share": {
+   "mean": -0.02,
+   "mean_abs": 0.11,
+   "max_abs": 0.62,
+   "worst": "ND",
+   "corr": 0.997
+  },
+  "median_household_income": {
+   "mean": -0.35,
+   "mean_abs": 0.73,
+   "max_abs": 3.95,
+   "worst": "DC",
+   "corr": 0.9982
+  }
+ },
+ "microdata_2004_minus_line_2000_to_2005": {
+  "degree_share": {
+   "mean": 0.43,
+   "mean_abs": 0.78,
+   "max_abs": 3.71,
+   "worst": "DC",
+   "corr": 0.987
+  },
+  "white_degree_share": {
+   "mean": 0.3,
+   "mean_abs": 0.81,
+   "max_abs": 2.9,
+   "worst": "NM",
+   "corr": 0.9949
+  },
+  "white_no_degree_share": {
+   "mean": -0.09,
+   "mean_abs": 0.65,
+   "max_abs": 4.74,
+   "worst": "SD",
+   "corr": 0.9977
+  },
+  "white_share": {
+   "mean": 0.2,
+   "mean_abs": 0.27,
+   "max_abs": 6.13,
+   "worst": "SD",
+   "corr": 0.9985
+  },
+  "black_share": {
+   "mean": 0.02,
+   "mean_abs": 0.15,
+   "max_abs": 0.7,
+   "worst": "MS",
+   "corr": 0.9999
+  },
+  "latino_share": {
+   "mean": -0.0,
+   "mean_abs": 0.12,
+   "max_abs": 2.06,
+   "worst": "KS",
+   "corr": 0.9995
+  },
+  "asian_share": {
+   "mean": 0.03,
+   "mean_abs": 0.1,
+   "max_abs": 0.73,
+   "worst": "HI",
+   "corr": 0.9998
+  },
+  "age_18_29_share": {
+   "mean": -0.21,
+   "mean_abs": 0.27,
+   "max_abs": 1.17,
+   "worst": "VT",
+   "corr": 0.9957
+  },
+  "age_65_plus_share": {
+   "mean": -0.19,
+   "mean_abs": 0.21,
+   "max_abs": 0.52,
+   "worst": "NH",
+   "corr": 0.9967
+  },
+  "median_household_income": {
+   "mean": -1.75,
+   "mean_abs": 2.47,
+   "max_abs": 8.95,
+   "worst": "MT",
+   "corr": 0.9882
+  }
+ },
+ "microdata_2004_minus_published_2005": {
+  "degree_share": {
+   "mean": -0.11,
+   "mean_abs": 0.72,
+   "max_abs": 2.47,
+   "worst": "DC",
+   "corr": 0.9864
+  },
+  "white_degree_share": {
+   "mean": -0.29,
+   "mean_abs": 0.84,
+   "max_abs": 3.52,
+   "worst": "NM",
+   "corr": 0.9943
+  },
+  "white_no_degree_share": {
+   "mean": 0.6,
+   "mean_abs": 0.87,
+   "max_abs": 5.44,
+   "worst": "SD",
+   "corr": 0.9973
+  },
+  "white_share": {
+   "mean": 0.51,
+   "mean_abs": 0.55,
+   "max_abs": 6.34,
+   "worst": "SD",
+   "corr": 0.9984
+  },
+  "black_share": {
+   "mean": 0.01,
+   "mean_abs": 0.17,
+   "max_abs": 0.92,
+   "worst": "DC",
+   "corr": 0.9998
+  },
+  "latino_share": {
+   "mean": -0.26,
+   "mean_abs": 0.27,
+   "max_abs": 2.36,
+   "worst": "KS",
+   "corr": 0.9994
+  },
+  "asian_share": {
+   "mean": -0.06,
+   "mean_abs": 0.11,
+   "max_abs": 0.65,
+   "worst": "HI",
+   "corr": 0.9998
+  },
+  "age_18_29_share": {
+   "mean": -0.03,
+   "mean_abs": 0.21,
+   "max_abs": 0.92,
+   "worst": "VT",
+   "corr": 0.9951
+  },
+  "age_65_plus_share": {
+   "mean": -0.08,
+   "mean_abs": 0.14,
+   "max_abs": 0.51,
+   "worst": "AK",
+   "corr": 0.9969
+  },
+  "median_household_income": {
+   "mean": -3.64,
+   "mean_abs": 3.87,
+   "max_abs": 11.86,
+   "worst": "MT",
+   "corr": 0.9867
+  }
+ },
+ "five_year_2015_19_minus_downballot": {
+  "states": 50,
+  "degree_share": {
+   "mean": 0.0,
+   "mean_abs": 0.03,
+   "max_abs": 0.05,
+   "worst": "IL",
+   "corr": 1.0
+  },
+  "white_degree_share": {
+   "mean": -0.0,
+   "mean_abs": 0.02,
+   "max_abs": 0.05,
+   "worst": "RI",
+   "corr": 1.0
+  },
+  "median_household_income": {
+   "mean": 0.0,
+   "mean_abs": 0.0,
+   "max_abs": 0.0,
+   "worst": "AK",
+   "corr": 1.0
+  },
+  "white_share": {
+   "mean": -0.16,
+   "mean_abs": 0.16,
+   "max_abs": 0.67,
+   "worst": "MA",
+   "corr": 1.0
+  },
+  "black_share": {
+   "mean": -0.06,
+   "mean_abs": 0.06,
+   "max_abs": 0.27,
+   "worst": "RI",
+   "corr": 1.0
+  },
+  "latino_share": {
+   "mean": 0.0,
+   "mean_abs": 0.0,
+   "max_abs": 0.0,
+   "worst": "ME",
+   "corr": 1.0
+  }
+ },
+ "one_year_2019_minus_downballot": {
+  "degree_share": {
+   "mean": 0.93,
+   "mean_abs": 0.93,
+   "max_abs": 1.76,
+   "worst": "CO",
+   "corr": 0.9979
+  },
+  "white_degree_share": {
+   "mean": 0.96,
+   "mean_abs": 0.96,
+   "max_abs": 1.81,
+   "worst": "WY",
+   "corr": 0.9982
+  },
+  "median_household_income": {
+   "mean": 3.78,
+   "mean_abs": 3.91,
+   "max_abs": 9.35,
+   "worst": "ID",
+   "corr": 0.9909
+  },
+  "white_share": {
+   "mean": -0.82,
+   "mean_abs": 0.82,
+   "max_abs": 1.94,
+   "worst": "MA",
+   "corr": 0.9997
+  },
+  "black_share": {
+   "mean": 0.03,
+   "mean_abs": 0.13,
+   "max_abs": 0.45,
+   "worst": "NV",
+   "corr": 0.9998
+  },
+  "latino_share": {
+   "mean": 0.31,
+   "mean_abs": 0.32,
+   "max_abs": 0.86,
+   "worst": "RI",
+   "corr": 0.9999
+  }
+ },
+ "own_year_minus_year_before": {
+  "2008": {
+   "degree_share": {
+    "mean": 0.21,
+    "mean_abs": 0.46,
+    "max_abs": 1.52,
+    "worst": "VT",
+    "corr": 0.9949
+   },
+   "white_degree_share": {
+    "mean": 0.15,
+    "mean_abs": 0.53,
+    "max_abs": 1.72,
+    "worst": "DC",
+    "corr": 0.9979
+   },
+   "white_no_degree_share": {
+    "mean": -0.28,
+    "mean_abs": 0.52,
+    "max_abs": 1.7,
+    "worst": "ME",
+    "corr": 0.9992
+   },
+   "white_share": {
+    "mean": -0.33,
+    "mean_abs": 0.38,
+    "max_abs": 0.87,
+    "worst": "NV",
+    "corr": 0.9999
+   },
+   "black_share": {
+    "mean": -0.08,
+    "mean_abs": 0.16,
+    "max_abs": 1.39,
+    "worst": "DC",
+    "corr": 0.9998
+   },
+   "latino_share": {
+    "mean": 0.32,
+    "mean_abs": 0.33,
+    "max_abs": 0.68,
+    "worst": "WY",
+    "corr": 0.9999
+   },
+   "asian_share": {
+    "mean": 0.01,
+    "mean_abs": 0.08,
+    "max_abs": 0.27,
+    "worst": "HI",
+    "corr": 0.9998
+   },
+   "age_18_29_share": {
+    "mean": 0.01,
+    "mean_abs": 0.17,
+    "max_abs": 0.8,
+    "worst": "UT",
+    "corr": 0.9938
+   },
+   "age_65_plus_share": {
+    "mean": 0.26,
+    "mean_abs": 0.27,
+    "max_abs": 0.52,
+    "worst": "WY",
+    "corr": 0.9978
+   },
+   "median_household_income": {
+    "mean": 3.65,
+    "mean_abs": 3.66,
+    "max_abs": 6.86,
+    "worst": "LA",
+    "corr": 0.9958
+   }
+  },
+  "2012": {
+   "degree_share": {
+    "mean": 0.58,
+    "mean_abs": 0.62,
+    "max_abs": 1.64,
+    "worst": "AK",
+    "corr": 0.9973
+   },
+   "white_degree_share": {
+    "mean": 0.61,
+    "mean_abs": 0.71,
+    "max_abs": 2.65,
+    "worst": "HI",
+    "corr": 0.9983
+   },
+   "white_no_degree_share": {
+    "mean": -0.71,
+    "mean_abs": 0.74,
+    "max_abs": 1.91,
+    "worst": "AK",
+    "corr": 0.9995
+   },
+   "white_share": {
+    "mean": -0.36,
+    "mean_abs": 0.36,
+    "max_abs": 0.95,
+    "worst": "WY",
+    "corr": 0.9999
+   },
+   "black_share": {
+    "mean": 0.02,
+    "mean_abs": 0.13,
+    "max_abs": 0.73,
+    "worst": "DC",
+    "corr": 0.9999
+   },
+   "latino_share": {
+    "mean": 0.18,
+    "mean_abs": 0.18,
+    "max_abs": 0.42,
+    "worst": "CT",
+    "corr": 0.9999
+   },
+   "asian_share": {
+    "mean": 0.1,
+    "mean_abs": 0.13,
+    "max_abs": 0.54,
+    "worst": "AK",
+    "corr": 0.9998
+   },
+   "age_18_29_share": {
+    "mean": -0.05,
+    "mean_abs": 0.13,
+    "max_abs": 0.55,
+    "worst": "UT",
+    "corr": 0.9969
+   },
+   "age_65_plus_share": {
+    "mean": 0.55,
+    "mean_abs": 0.55,
+    "max_abs": 0.9,
+    "worst": "VT",
+    "corr": 0.9959
+   },
+   "median_household_income": {
+    "mean": 2.12,
+    "mean_abs": 2.26,
+    "max_abs": 7.18,
+    "worst": "HI",
+    "corr": 0.9943
+   }
+  },
+  "2016": {
+   "degree_share": {
+    "mean": 0.67,
+    "mean_abs": 0.7,
+    "max_abs": 1.65,
+    "worst": "ID",
+    "corr": 0.9972
+   },
+   "white_degree_share": {
+    "mean": 0.71,
+    "mean_abs": 0.78,
+    "max_abs": 2.04,
+    "worst": "RI",
+    "corr": 0.9984
+   },
+   "white_no_degree_share": {
+    "mean": -0.73,
+    "mean_abs": 0.76,
+    "max_abs": 1.95,
+    "worst": "RI",
+    "corr": 0.9994
+   },
+   "white_share": {
+    "mean": -0.3,
+    "mean_abs": 0.33,
+    "max_abs": 0.85,
+    "worst": "ND",
+    "corr": 0.9999
+   },
+   "black_share": {
+    "mean": -0.01,
+    "mean_abs": 0.14,
+    "max_abs": 0.45,
+    "worst": "ND",
+    "corr": 0.9999
+   },
+   "latino_share": {
+    "mean": 0.15,
+    "mean_abs": 0.16,
+    "max_abs": 0.51,
+    "worst": "NM",
+    "corr": 0.9999
+   },
+   "asian_share": {
+    "mean": 0.06,
+    "mean_abs": 0.11,
+    "max_abs": 0.81,
+    "worst": "HI",
+    "corr": 0.9998
+   },
+   "age_18_29_share": {
+    "mean": -0.15,
+    "mean_abs": 0.21,
+    "max_abs": 1.14,
+    "worst": "AK",
+    "corr": 0.9903
+   },
+   "age_65_plus_share": {
+    "mean": 0.5,
+    "mean_abs": 0.5,
+    "max_abs": 1.22,
+    "worst": "WY",
+    "corr": 0.9975
+   },
+   "median_household_income": {
+    "mean": 3.1,
+    "mean_abs": 3.17,
+    "max_abs": 7.32,
+    "worst": "ID",
+    "corr": 0.9942
+   }
+  },
+  "2024": {
+   "degree_share": {
+    "mean": 0.61,
+    "mean_abs": 0.67,
+    "max_abs": 1.85,
+    "worst": "WY",
+    "corr": 0.9974
+   },
+   "white_degree_share": {
+    "mean": 0.69,
+    "mean_abs": 0.81,
+    "max_abs": 4.24,
+    "worst": "HI",
+    "corr": 0.997
+   },
+   "white_no_degree_share": {
+    "mean": -0.9,
+    "mean_abs": 0.92,
+    "max_abs": 1.48,
+    "worst": "AZ",
+    "corr": 0.9996
+   },
+   "white_share": {
+    "mean": -0.77,
+    "mean_abs": 0.77,
+    "max_abs": 1.55,
+    "worst": "RI",
+    "corr": 0.9997
+   },
+   "black_share": {
+    "mean": -0.05,
+    "mean_abs": 0.2,
+    "max_abs": 0.86,
+    "worst": "SC",
+    "corr": 0.9997
+   },
+   "latino_share": {
+    "mean": 0.45,
+    "mean_abs": 0.46,
+    "max_abs": 1.28,
+    "worst": "FL",
+    "corr": 0.9998
+   },
+   "asian_share": {
+    "mean": 0.24,
+    "mean_abs": 0.27,
+    "max_abs": 0.81,
+    "worst": "DC",
+    "corr": 0.9993
+   },
+   "age_18_29_share": {
+    "mean": 0.07,
+    "mean_abs": 0.12,
+    "max_abs": 0.5,
+    "worst": "ND",
+    "corr": 0.9965
+   },
+   "age_65_plus_share": {
+    "mean": 0.37,
+    "mean_abs": 0.38,
+    "max_abs": 0.94,
+    "worst": "NH",
+    "corr": 0.9968
+   },
+   "median_household_income": {
+    "mean": 5.16,
+    "mean_abs": 5.23,
+    "max_abs": 10.43,
+    "worst": "AK",
+    "corr": 0.9925
+   }
+  }
+ },
+ "2021_minus_2019": {
+  "white_share": {
+   "mean": -1.94,
+   "mean_abs": 1.94,
+   "max_abs": 3.75,
+   "worst": "AR",
+   "corr": 0.9994
+  },
+  "black_share": {
+   "mean": -0.54,
+   "mean_abs": 0.56,
+   "max_abs": 1.77,
+   "worst": "MS",
+   "corr": 0.9996
+  },
+  "latino_share": {
+   "mean": 0.42,
+   "mean_abs": 0.42,
+   "max_abs": 0.84,
+   "worst": "RI",
+   "corr": 0.9999
+  },
+  "asian_share": {
+   "mean": 0.02,
+   "mean_abs": 0.16,
+   "max_abs": 1.65,
+   "worst": "HI",
+   "corr": 0.999
+  }
+ },
+ "rural_share": {
+  "mean_of_states": {
+   "2000": 27.75,
+   "2010": 25.9,
+   "2020": 27.02
+  },
+  "2010_minus_2000": {
+   "mean": -1.85,
+   "corr": 0.995,
+   "standardized_gap_rms": 0.099
+  },
+  "2020_minus_2010": {
+   "mean": 1.12,
+   "corr": 0.9961,
+   "standardized_gap_rms": 0.088
+  },
+  "census_2020_against_downballot": {
+   "states": 50,
+   "corr": 0.9803
+  }
+ }
+}

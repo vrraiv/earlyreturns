@@ -1,0 +1,113 @@
+{
+ "GEO_ID": {
+  "label": "Geography"
+ },
+ "NAME": {
+  "label": "Label for GEO_ID"
+ },
+ "P037001": {
+  "label": "Total"
+ },
+ "P037002": {
+  "label": "Total!!Male"
+ },
+ "P037003": {
+  "label": "Total!!Male!!No schooling completed"
+ },
+ "P037004": {
+  "label": "Total!!Male!!Nursery to 4th grade"
+ },
+ "P037005": {
+  "label": "Total!!Male!!5th and 6th grade"
+ },
+ "P037006": {
+  "label": "Total!!Male!!7th and 8th grade"
+ },
+ "P037007": {
+  "label": "Total!!Male!!9th grade"
+ },
+ "P037008": {
+  "label": "Total!!Male!!10th grade"
+ },
+ "P037009": {
+  "label": "Total!!Male!!11th grade"
+ },
+ "P037010": {
+  "label": "Total!!Male!!12th grade, no diploma"
+ },
+ "P037011": {
+  "label": "Total!!Male!!High school graduate (includes equivalency)"
+ },
+ "P037012": {
+  "label": "Total!!Male!!Some college, less than 1 year"
+ },
+ "P037013": {
+  "label": "Total!!Male!!Some college, 1 or more years, no degree"
+ },
+ "P037014": {
+  "label": "Total!!Male!!Associate degree"
+ },
+ "P037015": {
+  "label": "Total!!Male!!Bachelor's degree"
+ },
+ "P037016": {
+  "label": "Total!!Male!!Master's degree"
+ },
+ "P037017": {
+  "label": "Total!!Male!!Professional school degree"
+ },
+ "P037018": {
+  "label": "Total!!Male!!Doctorate degree"
+ },
+ "P037019": {
+  "label": "Total!!Female"
+ },
+ "P037020": {
+  "label": "Total!!Female!!No schooling completed"
+ },
+ "P037021": {
+  "label": "Total!!Female!!Nursery to 4th grade"
+ },
+ "P037022": {
+  "label": "Total!!Female!!5th and 6th grade"
+ },
+ "P037023": {
+  "label": "Total!!Female!!7th and 8th grade"
+ },
+ "P037024": {
+  "label": "Total!!Female!!9th grade"
+ },
+ "P037025": {
+  "label": "Total!!Female!!10th grade"
+ },
+ "P037026": {
+  "label": "Total!!Female!!11th grade"
+ },
+ "P037027": {
+  "label": "Total!!Female!!12th grade, no diploma"
+ },
+ "P037028": {
+  "label": "Total!!Female!!High school graduate (includes equivalency)"
+ },
+ "P037029": {
+  "label": "Total!!Female!!Some college, less than 1 year"
+ },
+ "P037030": {
+  "label": "Total!!Female!!Some college, 1 or more years, no degree"
+ },
+ "P037031": {
+  "label": "Total!!Female!!Associate degree"
+ },
+ "P037032": {
+  "label": "Total!!Female!!Bachelor's degree"
+ },
+ "P037033": {
+  "label": "Total!!Female!!Master's degree"
+ },
+ "P037034": {
+  "label": "Total!!Female!!Professional school degree"
+ },
+ "P037035": {
+  "label": "Total!!Female!!Doctorate degree"
+ }
+}

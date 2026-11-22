@@ -1,0 +1,59 @@
+{
+ "GEO_ID": {
+  "label": "Geography"
+ },
+ "NAME": {
+  "label": "Label for GEO_ID"
+ },
+ "P148I001": {
+  "label": "Total"
+ },
+ "P148I002": {
+  "label": "Total!!Male"
+ },
+ "P148I003": {
+  "label": "Total!!Male!!Less than 9th grade"
+ },
+ "P148I004": {
+  "label": "Total!!Male!!9th to 12th grade, no diploma"
+ },
+ "P148I005": {
+  "label": "Total!!Male!!High school graduate (includes equivalency)"
+ },
+ "P148I006": {
+  "label": "Total!!Male!!Some college, no degree"
+ },
+ "P148I007": {
+  "label": "Total!!Male!!Associate degree"
+ },
+ "P148I008": {
+  "label": "Total!!Male!!Bachelor's degree"
+ },
+ "P148I009": {
+  "label": "Total!!Male!!Graduate or professional degree"
+ },
+ "P148I010": {
+  "label": "Total!!Female"
+ },
+ "P148I011": {
+  "label": "Total!!Female!!Less than 9th grade"
+ },
+ "P148I012": {
+  "label": "Total!!Female!!9th to 12th grade, no diploma"
+ },
+ "P148I013": {
+  "label": "Total!!Female!!High school graduate (includes equivalency)"
+ },
+ "P148I014": {
+  "label": "Total!!Female!!Some college, no degree"
+ },
+ "P148I015": {
+  "label": "Total!!Female!!Associate degree"
+ },
+ "P148I016": {
+  "label": "Total!!Female!!Bachelor's degree"
+ },
+ "P148I017": {
+  "label": "Total!!Female!!Graduate or professional degree"
+ }
+}
