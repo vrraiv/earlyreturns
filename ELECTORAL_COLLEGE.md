@@ -3368,3 +3368,11 @@ the baseline stands: regions and the tilt.
 
 **The human gate.** The card has no checklist. The draft is shown to the user before any run, as with every
 pre-registration; the code review's amendments are written here before any loss is read, as in section 13.
+
+**EC-5: the user's answers (2026-11-21, before any run).** The user confirmed all eleven questions as proposed, in
+one reply: 2000 and 2004 fit-only with 2000's estimate on its own polls, 2008 to 2020 scored and 3 of 4; the national
+layer out through centred misses on 50 contrasts; one spread for every state and structure; Gaussian density and 51
+contests; candidate 2 as a zero-mean draw with the fixed-sign form as report (f); six by-year measures for candidate
+3 with the urban-share version as report (g); DC in, with report (c) and flag 2; the five flags; the largest gain
+adopted when more than one passes, the combination reported; presidential misses only in the fits; one round. The
+run is to follow once the code's checks pass and its amendments are written here.
