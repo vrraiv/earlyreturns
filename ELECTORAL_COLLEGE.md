@@ -3269,8 +3269,10 @@ one, each election with its own year's R, ℓ, z and K. For given sizes ρ, σ_T
 over the two or three sizes, bounded at zero with no upper bound, from three fixed starting points, keeping the
 lowest loss. Each scored election is fitted on its own; the scored election's misses enter no fit.
 
-- **Collapse, written now.** A candidate whose fitted size is zero in every fit is the baseline and gets no verdict.
-  A zero fitted ρ_r in the baseline is reported; the baseline is then the tilt alone.
+- **Collapse, written now.** Candidate 1 or 2 with a fitted size of zero in every fit is the baseline and gets no
+  verdict. Candidate 3 at zero size is the tilt alone, not the baseline, so it is judged like any other value
+  (corrected in the amendments below, before any run). A zero fitted ρ_r in the baseline is reported; the baseline
+  is then the tilt alone.
 - **Senate and governor misses** are not used (question 10): section 5 says the components are re-estimated on
   presidential elections, and the card says the same.
 
@@ -3407,11 +3409,24 @@ choices the draft did not state. They are fixed here; no loss and no fitted numb
   optimizer, not a leak of the constant. The "planted DC-only effect" check became a check of flag 2's code path:
   under a correlation structure a contest's own extra variance does not make a candidate pass (that is what the
   one-spread rule is for), so a planted DC-only effect cannot trip the flag through the test itself.
-- **Checks, run and passed (13):** 2024 absent from the demographics, the rural shares, the vintages, the results
+- **The rule, tightened before any run (the advisor's review of the code).** Two holes in the code's reading of the
+  rule, closed here. (1) Section 8's noise clause at zero noise means a positive gain, which the draft called met
+  by construction; the code now requires gain > 0 as its own clause. It binds: candidate 3 is not nested in the
+  baseline (its shuffles lose the regions), so all its shuffled gains can be negative and a negative gain could
+  have passed the percentile clause; report (f) has the same shape. (2) The margins for "better in an election",
+  the positive gain and the shuffle percentile are 0.00001, the iterative fit's tolerance, not 1e-9: a candidate
+  whose size fits to zero equals the baseline up to that tolerance and must not count as better by chance.
+- **Also from that review.** The 200 shuffled pooled gains are stored in the JSON for each candidate and report, as
+  section 8 asks. The collapse clause applies to candidates 1 and 2 only (above). And `decide()` runs end to end in
+  the checks on planted misses at both dates with 3 shuffles, so the variants, reports (e) to (h), the urban loader,
+  the flags, the adoption step and the outputs all execute before the round. On its first run that check found
+  report (g)'s urban loader dropping DC (the repo's state-name table has the 50 states only); fixed before any run.
+- **Checks, run and passed (14):** 2024 absent from the demographics, the rural shares, the vintages, the results
   and the national series; the rebuilt 7- and 30-day estimates and results equal `pres_addup_rerun_frame.csv`'s for
   2004 to 2020; 2000's estimate exists at both dates for all 51 contests, all polled; the constant check; at sizes
   zero the log density equals the independent-errors formula; planted region, tilt and feature sizes and the spread
   are recovered from 60 synthetic elections from each starting point; an identity shuffle reproduces candidate 3 and
   a real one changes it; the decision path on planted misses with 30 shuffles (a planted degree draw makes candidate
   1 pass, planted regions and tilt alone make every candidate fail, planted similarity makes candidate 3 pass, a
-  planted fixed-sign term is recovered with its sign by report (f)); and the five flags trip on their conditions.
+  planted fixed-sign term is recovered with its sign by report (f)); the five flags trip on their conditions; and the
+  whole decision path runs on planted misses, with the planted candidate passing, flagged and sent to the user.

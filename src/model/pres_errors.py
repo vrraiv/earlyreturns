@@ -48,6 +48,8 @@ ZERO = 1e-6                           # a fitted size below this is zero (the bo
 LEAN_SCALE = 10.0                     # lean enters the fit in tens of points, for conditioning only
 MEASURES6 = ["degree_share", "log_inc", "white_share", "black_share", "latino_share", "rural_share"]
 FEAT_KEY = {"c1": "feat", "c2": "feat", "c3": "sim", "g": "sim", "f": None}
+COLLAPSE = ("c1", "c2")              # at zero size these are the baseline; candidate 3 at zero size is the tilt alone
+TOL = 1e-5                            # the iterative fit's tolerance: margins for "better", "positive" and the shuffle
 NEED = 3
 
 
@@ -95,8 +97,9 @@ class Demo:
         if self._urban is None:
             d = sorted((ROOT / "data/linked/downballot").glob("*/urban_rural_cd118.xlsx"))[-1]
             u = pd.read_excel(d).drop_duplicates("CD")
-            u = u[u.CD.isin(STATE_ABBR)]
-            s = pd.Series(100.0 * u["Urban %"].astype(float).values, index=u.CD.map(STATE_ABBR).values)
+            abbr = dict(STATE_ABBR, **{"District of Columbia": "DC"})     # wiki's table has the 50 states only
+            u = u[u.CD.isin(abbr)]
+            s = pd.Series(100.0 * u["Urban %"].astype(float).values, index=u.CD.map(abbr).values)
             assert "DC" in s.index and len(s) == 51
             self._urban = s
         return self._urban
@@ -283,20 +286,23 @@ def shuffle_gains(kind, cells, Q, base, seed, shuffles, years=SCORED):
     return G
 
 
-def verdict(base, cand, G, years=SCORED, need=NEED, key=None):
-    """The three clauses on the pooled score, plus the collapse clause."""
+def verdict(base, cand, G, years=SCORED, need=NEED, key=None, collapse=False):
+    """The three clauses on the pooled score (the noise clause at zero noise is a positive gain), plus the collapse
+    clause for candidates 1 and 2. The shuffled pooled gains are kept for the report."""
     by = {int(y): float(cand[y]["ld"] - base[y]["ld"]) for y in years}
     gain = float(np.mean(list(by.values())))
-    better = int(sum(g > 1e-9 for g in by.values()))
+    better = int(sum(g > TOL for g in by.values()))
     sg = G.mean(1)
     p95 = float(np.percentile(sg, 95))
     sizes = {int(y): float(cand[y]["rho"][key]) for y in years} if key else {}
-    collapsed = bool(key and all(v < ZERO for v in sizes.values()))
-    passes = bool(gain > p95 + 1e-9 and better >= need) and not collapsed
+    collapsed = bool(collapse and key and all(v < ZERO for v in sizes.values()))
+    c_shuf, c_pos, c_el = bool(gain > p95 + TOL), bool(gain > TOL), bool(better >= need)
+    passes = c_shuf and c_pos and c_el and not collapsed
     return {"gain": gain, "by_election": by, "better": better, "need": need, "shuffle_p95": p95,
-            "shuffle_share_beaten": float(np.mean(sg < gain - 1e-9)), "shuffles": int(len(sg)),
-            "clause_shuffle": bool(gain > p95 + 1e-9), "clause_simulation_noise": "nil: closed form",
-            "clause_elections": bool(better >= need), "fitted_size": sizes, "collapsed": collapsed, "passes": passes}
+            "shuffle_share_beaten": float(np.mean(sg < gain - TOL)), "shuffles": int(len(sg)),
+            "shuffled_gains": [round(float(x), 6) for x in sg],
+            "clause_shuffle": c_shuf, "clause_positive_gain": c_pos, "clause_simulation_noise": "nil: closed form",
+            "clause_elections": c_el, "fitted_size": sizes, "collapsed": collapsed, "passes": passes}
 
 
 def implied(kind, cells, res, Q):
@@ -331,7 +337,7 @@ def judge(cells, Q, kinds=("c1", "c2", "c3"), shuffles=SHUFFLES, years=SCORED, n
     for kind in kinds:
         cand = run_kind(kind, cells, Q, years=years)
         G[kind] = shuffle_gains(kind, cells, Q, base, seeds[kind], shuffles, years)
-        v = verdict(base, cand, G[kind], years, need, FEAT_KEY[kind])
+        v = verdict(base, cand, G[kind], years, need, FEAT_KEY[kind], collapse=kind in COLLAPSE)
         v["fits"] = {int(y): cand[y] for y in years}
         v["pooled"] = pooled(cand, years)
         out[kind] = v
@@ -369,7 +375,7 @@ def decide(M, demo, shuffles=SHUFFLES):
         out["variants"][name] = res
     # report (e): 2008 apart, and the clauses on 2012 to 2020 asking 2 of 3
     late = SCORED[1:]
-    out["report_e"] = {k: verdict(base, {y: main[k]["fits"][y] for y in late}, G[k][:, 1:], late, 2, FEAT_KEY[k])
+    out["report_e"] = {k: verdict(base, {y: main[k]["fits"][y] for y in late}, G[k][:, 1:], late, 2, FEAT_KEY[k], k in COLLAPSE)
                        for k in ("c1", "c2", "c3")}
     # report (f): the fixed-sign form, suggested by the overfitting challenge
     f = run_kind("f", cells, Q)
@@ -527,6 +533,21 @@ def checks():
     report("flags 1, 3, 4 and 5 trip on their conditions",
            flags_for("c2", {"fitted_size": {2020: 0.0}}, {"gain": 0.1, "clause_elections": True}, {"gain": -0.1}) == [1, 3, 4]
            and flags_for("c1", v_pass, {"gain": 0.1, "clause_elections": True}, {"gain": 0.1}) == [5])
+    # the whole decision path, on planted misses at both dates, 3 shuffles: every report, flag and output executes
+    rng = np.random.default_rng(8)
+    M2 = {k: dict(v) for k, v in M.items()}
+    for d in DAYS:
+        cd, Qd, _ = build_cells(M, demo, d=d)
+        for y, c in plant(cd, Qd, "c1", np.array([0.3, 0.3, 3.0]), 5.0, rng).items():
+            M2[(y, d)]["miss"] = c["miss"]
+    full = decide(M2, demo, shuffles=3)
+    txt = json.dumps(full, default=float)
+    fr = frame_csv(M2, demo)
+    report("decide() runs end to end on planted misses: candidate 1 passes, is flagged and goes to the user; every report is "
+           "present; the frame has 51 x 6 x 2 rows",
+           "c1" in full["passing"] and 5 in full["flags"]["c1"] and "c1" in full["to_user"] and full["adopted"] != "c1"
+           and all(k in full for k in ("variants", "report_e", "report_f", "report_g", "report_h", "implied"))
+           and len(full["variants"]) == 3 and len(fr) == 51 * len(ELECTIONS) * len(DAYS) and len(txt) > 1000)
     print("ALL CHECKS PASS" if ok else "SOME CHECKS FAILED")
 
 
