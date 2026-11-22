@@ -325,38 +325,58 @@ def clauses(Eb, Ec, A, NF):
 
 
 # ------------------------------------------------------------------------------------------------ shuffles
-def shuffle_n(A, rng):
-    """n handed from one polled state to another within each election and date."""
+def shuffle_n(A, permute):
+    """n handed from one polled state to another within each election and date. permute: values -> the same values
+    in another order."""
     B = {}
     for c, a in A.items():
         n = a["n"].copy(); m = a["has"]
-        n[m] = rng.permutation(n[m])
+        n[m] = permute(n[m])
         B[c] = dict(a, n_sh=n)
     return B
 
 
-def shuffled_gains_V(A, E_below, rng, prior="prior0"):
+def lean_perms(permute_index):
+    """One reordering of the states for each election from LEAN_FROM. permute_index: count -> an order."""
+    return {t: permute_index(len(STATES)) for t in range(LEAN_FROM, 2021, 4)}
+
+
+def shuffled_gains_V(A, E_below, rng, shuffles, prior="prior0"):
+    """Per shuffle and election: the gain of V with n shuffled, against the rung below."""
+    b = scores(E_below, A)
     out = []
-    for _ in range(SHUFFLES):
-        B = shuffle_n(A, rng)
+    for _ in range(shuffles):
+        B = shuffle_n(A, rng.permutation)
         Es, _f = rung(B, "V", prior=prior, nkey="n_sh", days=SCORE_DAYS)
-        out.append(float((scores(E_below, A) - scores(Es, A)).mean()))
+        out.append((b - scores(Es, A)).values)
     return np.array(out)
 
 
-def shuffled_gains_M(A, L, E_below, kind, rng):
+def shuffled_gains_M(A0, L, E_below, kind, rng, shuffles):
+    """Per shuffle and election: the gain of the standing rung with M's prior, the change in lean shuffled."""
+    b = scores(E_below, A0)
     out = []
-    for _ in range(SHUFFLES):
-        perm = {t: rng.permutation(len(STATES)) for t in range(LEAN_FROM, 2021, 4)}
-        B, _c = add_lean_priors(A, lean_xy(L, perm))
+    for _ in range(shuffles):
+        B, _c = add_lean_priors(A0, lean_xy(L, lean_perms(rng.permutation)))
         Es, _f = rung(B, kind, prior="priorM", days=SCORE_DAYS)
-        out.append(float((scores(E_below, A) - scores(Es, A)).mean()))
+        out.append((b - scores(Es, A0)).values)
     return np.array(out)
 
 
 def shuffle_verdict(gain, null):
-    return {"gain": float(gain), "shuffle_95th": float(np.quantile(null, 0.95)),
-            "share_of_shuffles_beaten": float(np.mean(null < gain)), "beats_19_in_20": bool(gain > np.quantile(null, 0.95))}
+    """null: one gain per shuffle. The gain has to exceed the 95th percentile by more than rounding."""
+    q = float(np.quantile(null, 0.95))
+    return {"gain": float(gain), "shuffle_95th": q, "share_of_shuffles_beaten": float(np.mean(null < gain - 1e-9)),
+            "beats_19_in_20": bool(gain > q + 1e-9)}
+
+
+def with_shuffles(c, null, need_late=3):
+    """Adds the shuffle clause to a rung's clauses, on all five elections and (report e) on 2008 to 2020."""
+    c["shuffle"] = shuffle_verdict(c["gain"], null.mean(axis=1))
+    e = c["without_2004"]
+    e["shuffle"] = shuffle_verdict(e["gain"], null[:, 1:].mean(axis=1))
+    e["passes_reported"] = bool(e["gain"] > 0 and e["better"] >= need_late and e["shuffle"]["beats_19_in_20"])
+    return c
 
 
 # ------------------------------------------------------------------------------------------------ reports
@@ -430,10 +450,9 @@ def frame_csv(A, ests):
 
 
 # ------------------------------------------------------------------------------------------------ run
-def run():
-    q, R, Nd, L, votes = load_all()
-    NF = national_forecast()
-    A0 = assemble(poll_cells(q), Nd, R, L, votes)
+def decide(A0, L, NF, shuffles=SHUFFLES):
+    """The whole ladder on one table: every rung, the rule, the flags and the reports. Returns the output, the
+    estimates of every rung and the table with M's priors."""
     A, lean_coefs = add_lean_priors(A0, lean_xy(L))
     out = {"rungs": {}, "fits": {}, "reports": {}}
     Eb, _ = rung(A, "base")
@@ -449,6 +468,8 @@ def run():
     cF["collapsed_to_baseline"] = bool(all(abs(v[0] - 1.0) < 1e-9 for v in scored_fits(fF)))
     cF["passes"] = bool(cF["passes_gain_and_elections"] and cF["p_signflip_10_units"] < 0.05 and not cF["collapsed_to_baseline"])
     cF["flags"]["4_any_pass_by_F"] = cF["passes"]
+    cF["without_2004"]["passes_reported"] = bool(cF["without_2004"]["passes_gain_and_elections"]
+                                                 and cF["without_2004"]["p_signflip_8_units"] < 0.05)
     out["rungs"]["F"] = cF
     below_V, E_below_V = ("F", EF) if cF["passes"] else ("baseline", Eb)
 
@@ -456,8 +477,7 @@ def run():
     cV = clauses(E_below_V, EV, A, NF)
     cV["against"] = below_V
     cV["collapsed_to_F"] = bool(all(v[1] < BETA_ZERO for v in scored_fits(fV)))
-    null = shuffled_gains_V(A, E_below_V, np.random.default_rng(0))
-    cV["shuffle"] = shuffle_verdict(cV["gain"], null)
+    with_shuffles(cV, shuffled_gains_V(A, E_below_V, np.random.default_rng(0), shuffles))
     cV["passes"] = bool(cV["passes_gain_and_elections"] and cV["shuffle"]["beats_19_in_20"] and not cV["collapsed_to_F"])
     cV["against_baseline_reported"] = clauses(Eb, EV, A, NF) if below_V != "baseline" else None
     out["rungs"]["V"] = cV
@@ -474,17 +494,18 @@ def run():
     rc = report_c(L)
     out["reports"]["c_prior_alone_1988_2020"] = rc
     if standing is None:
-        out["rungs"]["M"] = {"tested": False, "why": "neither F nor V stands; M would change only states with no poll",
+        out["rungs"]["M"] = {"tested": False, "passes": False,
+                             "why": "neither F nor V stands; M would change only states with no poll",
                              "reported_M_on_baseline": clauses(Eb, ests["M_baseline"], A, NF)}
     else:
         E_st = ests[standing]
         cM = clauses(E_st, ests[f"M_{standing}"], A, NF)
         cM["tested"] = True; cM["against"] = standing
-        nullM = shuffled_gains_M(A0, L, E_st, standing, np.random.default_rng(1))
-        cM["shuffle"] = shuffle_verdict(cM["gain"], nullM)
+        with_shuffles(cM, shuffled_gains_M(A0, L, E_st, standing, np.random.default_rng(1), shuffles))
         cM["passes"] = bool(cM["passes_gain_and_elections"] and cM["shuffle"]["beats_19_in_20"])
         cM["flags"]["5_worse_on_long_history"] = bool(rc["mean"]["M"] > rc["mean"]["previous_lean"])
         cS = clauses(E_st, ests[f"S_{standing}"], A, NF)
+        cS["against"] = standing
         cS["judged_in_Ms_place"] = bool(cM["passes_gain_and_elections"] and not cM["shuffle"]["beats_19_in_20"])
         cS["passes"] = bool(cS["judged_in_Ms_place"] and cS["passes_gain_and_elections"] and cS["p_signflip_10_units"] < 0.05)
         cS["flags"]["4_any_pass_by_slope_alone"] = cS["passes"]
@@ -506,6 +527,14 @@ def run():
                                                for k, E in ests.items()}
     out["reports"]["counts"] = {f"{y}/{d}": {g: int((group_of(A[(y, d)]) == g).sum()) for g in GROUPS}
                                 for y in SCORED for d in ALL_DAYS}
+    return out, ests, A
+
+
+def run():
+    q, R, Nd, L, votes = load_all()
+    NF = national_forecast()
+    A0 = assemble(poll_cells(q), Nd, R, L, votes)
+    out, ests, A = decide(A0, L, NF)
     frame_csv(A, ests).to_csv(OUT / "pres_prior_frame.csv", index=False)
     (OUT / "pres_prior.json").write_text(json.dumps(out, indent=1, default=float))
     print(json.dumps(out, indent=1, default=float))
@@ -591,10 +620,10 @@ def checks():
     def planted(wfun):
         B = {}
         for c, a in A.items():
-            res = a["prior0"] + rng.normal(0, 3)                    # the election's shared miss
+            miss = rng.normal(0, 3)                                 # the election's shared miss
             m = a["has"]
-            res = res.copy() if isinstance(res, np.ndarray) else np.full(len(STATES), res)
-            res[m] = a["prior0"][m] + wfun(a["n"][m]) * (a["p"][m] - a["prior0"][m]) + rng.normal(0, 3)
+            res = a["prior0"] + miss
+            res[m] = a["prior0"][m] + wfun(a["n"][m]) * (a["p"][m] - a["prior0"][m]) + miss
             B[c] = dict(a, result=res)
         return B
     B = planted(lambda n: 0.6)
@@ -613,11 +642,10 @@ def checks():
             Lp[(t, s)] = 1.5 + 0.9 * Lp[(t - 4, s)] - 0.2 * Lp[(t - 8, s)]
     ok["planted lean slopes are recovered"] = np.allclose(lean_coef(lean_xy(Lp), 2012), (1.5, 0.9, -0.2), atol=1e-6)
     # shuffles keep the same set of values within each election and date
-    Bs = shuffle_n(A, np.random.default_rng(3))
+    Bs = shuffle_n(A, np.random.default_rng(3).permutation)
     ok["the n shuffle keeps the values"] = all(np.allclose(np.sort(Bs[c]["n_sh"]), np.sort(A[c]["n"])) and
                                                np.allclose(Bs[c]["n_sh"][~A[c]["has"]], 0) for c in A)
-    perm = {t: np.random.default_rng(4).permutation(len(STATES)) for t in range(LEAN_FROM, 2021, 4)}
-    XYs = lean_xy(L, perm)
+    XYs = lean_xy(L, lean_perms(np.random.default_rng(4).permutation))
     ok["the lean shuffle keeps the changes and the last lean"] = all(
         np.allclose(np.sort(XYs[t][0] - XYs[t][1]), np.sort(XY[t][0] - XY[t][1])) and np.allclose(XYs[t][0], XY[t][0])
         and np.allclose(XYs[t][2], XY[t][2]) for t in XY)
@@ -628,6 +656,59 @@ def checks():
     ok["fit elections are the earlier ones"] = (train_cells(2004, 30) == [(2000, 30)] and train_cells(2004, 100) == []
                                                 and train_cells(2008, 100) == [(2004, 100)]
                                                 and train_cells(2020, 7) == [(e, 7) for e in (2000, 2004, 2008, 2012, 2016)])
+    # an identity "shuffle" reproduces V and M exactly; a real one changes the fit and the scored estimate
+    EV, fV = rung(A, "V", days=SCORE_DAYS)
+    Ei, fi = rung(shuffle_n(A, lambda x: x), "V", nkey="n_sh", days=SCORE_DAYS)
+    Er, fr = rung(Bs, "V", nkey="n_sh", days=SCORE_DAYS)
+    c = (2016, 7)
+    ok["an identity shuffle of n reproduces V; a real one changes it"] = (
+        all(np.allclose(EV[k], Ei[k]) for k in EV) and fV == fi
+        and not np.allclose(EV[c], Er[c]) and not np.allclose(fV[c], fr[c]))
+    Am, _ = add_lean_priors(A0, lean_xy(L))
+    Ai, _ = add_lean_priors(A0, lean_xy(L, lean_perms(np.arange)))
+    Ar, _ = add_lean_priors(A0, XYs)
+    ok["an identity shuffle of the lean change reproduces M; a real one changes it"] = (
+        all(np.allclose(Am[k]["priorM"], Ai[k]["priorM"]) for k in Am) and not np.allclose(Am[c]["priorM"], Ar[c]["priorM"])
+        and np.allclose(Am[c]["priorS"], Ar[c]["priorS"]))
+
+    # the decision path, on planted results (30 shuffles): what stands, the collapse, the fallback and the flags
+    NF = national_forecast()
+    o1, _e, _a = decide(planted(lambda n: w_V((0.3, 2.0), n)), L, NF, shuffles=30)
+    ok["planted alpha and beta: F passes and is flagged, V passes against F, M fails"] = bool(
+        o1["rungs"]["F"]["passes"] and o1["rungs"]["F"]["flags"]["4_any_pass_by_F"] and o1["rungs"]["V"]["passes"]
+        and o1["rungs"]["V"]["against"] == "F" and o1["standing"]["for_M"] == "V" and o1["rungs"]["M"]["tested"]
+        and not o1["rungs"]["M"]["passes"] and not o1["rungs"]["slope_alone"]["passes"]
+        and o1["rungs"]["V"]["without_2004"]["passes_reported"])
+    o2, _e, _a = decide(planted(lambda n: 0.6), L, NF, shuffles=30)
+    ok["a planted fixed weight: F passes, V collapses to F or fails its shuffle"] = bool(
+        o2["rungs"]["F"]["passes"] and not o2["rungs"]["V"]["passes"] and o2["standing"]["for_M"] == "F"
+        and not o2["rungs"]["M"]["passes"])
+
+    def planted_leans(b1, b2):
+        """Leans from 1980 follow the rule exactly; each election's results are those leans plus one number."""
+        Lp = dict(L)
+        for t in range(LEAN_FROM, 2021, 4):
+            for st in STATES:
+                Lp[(t, st)] = b1 * Lp[(t - 4, st)] + b2 * Lp[(t - 8, st)]
+        Rp = {k: ((v[1] + Lp[k], v[1], Lp[k]) if k[0] >= 1992 else v) for k, v in R.items()}
+        return assemble(pc, Nd, Rp, Lp, votes), Lp
+    A3, L3 = planted_leans(0.9, -0.4)
+    o3, _e, _a = decide(A3, L3, NF, shuffles=30)
+    ok["a planted trend in lean: M passes with no flag 5"] = bool(
+        o3["rungs"]["M"].get("tested", False) and o3["rungs"]["M"]["passes"]
+        and not o3["rungs"]["M"]["flags"]["5_worse_on_long_history"] and not o3["rungs"]["slope_alone"]["passes"])
+    A4, L4 = planted_leans(0.8, 0.0)
+    o4, _e, _a = decide(A4, L4, NF, shuffles=30)
+    ok["a planted slope with no trend: M fails its shuffle; the slope alone is judged, passes and is flagged"] = bool(
+        o4["rungs"]["M"].get("tested", False) and not o4["rungs"]["M"]["passes"]
+        and o4["rungs"]["slope_alone"]["judged_in_Ms_place"] and o4["rungs"]["slope_alone"]["passes"]
+        and o4["rungs"]["slope_alone"]["flags"]["4_any_pass_by_slope_alone"])
+    Anone = {k: dict(a, result=np.where(a["has"], a["p"], a["prior0"])) for k, a in A0.items()}
+    o5, _e, _a = decide(Anone, L, NF, shuffles=30)
+    ok["results equal to the baseline: nothing passes and M is not tested"] = bool(
+        not o5["rungs"]["F"]["passes"] and not o5["rungs"]["V"]["passes"] and o5["standing"]["for_M"] is None
+        and not o5["rungs"]["M"]["tested"])
+    json.dumps(o1, default=float)                                    # the output serialises
     for k, v in ok.items():
         print(f"{k}: {'PASS' if v else 'FAIL'}")
     if not all(ok.values()):
