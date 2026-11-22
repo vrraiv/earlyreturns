@@ -560,10 +560,12 @@ def checks():
     # the test has teeth: polls that ended before the date do move the estimates at that date
     y, d = 2016, 30
     t = q[q.cycle == y].election.iloc[0] - pd.Timedelta(days=d)
-    q4 = q.copy(); q4.loc[(q4.cycle == y) & (q4.end < t), "m"] += 50
+    # (half the states only: a move shared by every state is absorbed by the fit's constant for the election)
+    q4 = q.copy(); q4.loc[(q4.cycle == y) & (q4.end < t) & (q4.geo < "M"), "m"] += 50
     pc4 = dict(pc); pc4[(y, d)] = poll_cell(q4, y, d)
     got = _all_estimates(assemble(pc4, Nd, R, L, votes), L)
-    ok["polls before the date do move the estimates"] = not _same(ref, got, [("base", "est", y, d)]) and         not _same(ref, got, [("F", "fit", 2020, d)])
+    ok["polls before the date do move the estimates"] = not _same(ref, got, [("base", "est", y, d)])
+    ok["and the later elections' fits"] = not _same(ref, got, [("F", "fit", 2020, d)]) and         not _same(ref, got, [("V", "fit", 2020, d)])
 
     # the scored election's own results change no estimate and no fitted number for that election
     bad = 0
