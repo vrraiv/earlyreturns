@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-21s",
+  version: "2026-11-21t",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -437,7 +437,8 @@ window.PLAN = {
             "District demographics on the lines in force stay with DA-4. Each source goes through DA-8 before its data is committed.",
             "Added 2026-11-21: median household income is collected with them, because EC-5's third candidate (similarity between states) uses it. The key is needed for every data query.",
             "Decided 2026-11-21. Everything comes from the Census Bureau's API: the 2000 census long form, the yearly survey's published tables from 2005, and for 2004 our own tabulation of that year's survey microdata. Race is a share of the total population and education a share of adults 25 and over. Each election uses the year before it, the latest published before its 7-day forecast; the election's own year is kept for a comparison that decides nothing. There are no standard tables for 2020, so 2020 uses 2019 either way.",
-            "Open: urban and rural share, which EC-5's third candidate also uses. The Census Bureau counts it at each census and changed the definition in 2020; its yearly survey also reports it (the API has 2005 to 2021), on the previous census's urban areas; neither has a suburban class. (Corrected 2026-11-21: this line first said only at each census.)"
+            "Open: urban and rural share, which EC-5's third candidate also uses. The Census Bureau counts it at each census and changed the definition in 2020; its yearly survey also reports it (the API has 2005 to 2021), on the previous census's urban areas; neither has a suburban class. (Corrected 2026-11-21: this line first said only at each census.)",
+            "Decided 2026-11-21: rural share comes from the census in force at each election (2000 for 2000 to 2008, 2010 for 2012 to 2020, 2020 for 2024 and 2028), so each election's states are measured one way and the scored elections never meet the 2020 definition. It has no urban against suburban split; whether The Downballot's urban share stays beside it is for EC-5's pre-registration."
           ],
           checklist: [
             { id: "a", text: "Sources and coverage confirmed for 2000 to 2020" },
