@@ -4087,7 +4087,8 @@ genuinely different models rather than three variants of one, as 2026 did; EC-10
 work feeds the site cards (SI). The pre-registration is confirmed; the build and its checks come next, then one round.
 
 **EC-6: amendments after the build and its checks, before any loss is read** (`src/model/pres_sim.py checks`,
-26 checks passing on 2026-11-22; no miss read, no fitted number read except on planted inputs).
+26 checks passing on 2026-11-22 at this point, 29 after the review below; no miss read, no fitted number read except on
+planted inputs).
 
 - **A4's sizing** was revised a second time (above), after the first revision's fixed point failed on the real
   structure with planted spreads: the shared part is centred before it is sized.
@@ -4131,6 +4132,32 @@ work feeds the site cards (SI). The pre-registration is confirmed; the build and
   and the decision path (a planted lopsided term passes R1, a flat plant passes nothing, 30 shuffles); ν large on
   Gaussian plants; T0's error is 0.1 to 0.2 points in 2008 to 2020; λ = 0 reproduces T0; identity and real shuffles;
   T2's data reach; the swing model recovers a planted slope and a flat plant fails; σ_D from 25 changes.
+
+**EC-6: the advisor's review of the build, before any loss is read (2026-11-22).** Seven points, all taken.
+
+- **A fault in the exact count, found and fixed before any run.** The Student-t win probability divided the margin by
+  the own spread over the scale factor sqrt((ν − 2) / ν) instead of times it, so a close state's probability was
+  pulled toward one half (0.74 where 0.88 was right at ν = 4 with the margin equal to the spread). The ν = 4 check had
+  passed because close states' errors cancel in the count and its tolerance was loose. Two checks were added: the
+  exact per-contest probability against the simulated frequency on the 15 closest states (largest gap 0.003 at ν =
+  4), and one contest at ν = 4 against the closed form and simulation.
+- **A floor on ν.** The Student-t's variance exists only above 2, and the 2008 fit rests on about 200 residuals, so a
+  fitted ν below 2.5 is set to 2.5; the unfloored fit is reported beside it. Written before any real ν was seen.
+- **Jacobson's file can be checked beyond the five districts.** The Downballot's district sheets carry the 2016 and
+  2020 presidential votes by district: 2016 on the 116th Congress's lines (the 2016 lines, except the states redrawn
+  in 2018, which his flag names and which are not compared) and 2020 on the 117th's. Before any fit, every comparable
+  district-election more than 2 points from the sheet is dropped from D1 and listed; the count compared and dropped
+  is reported by year. 2008 has no sheet and is checked through the five districts only. The earlier sentence that
+  nothing else could be checked is withdrawn.
+- **Report (d)** now does what the draft says: u is recomputed over the 50 states (the kernel without DC) and the
+  clauses, the shuffle included (200, seed + 100), are rerun on the 50.
+- **Report (e)** compares correlations in the contrast space (Q Cov(ε) Q' against Q C Q'), as the draft says; the
+  first code compared the centred covariance with the uncentred C, which would have shown the removed level.
+- **Two pre-registered checks that were missing are added:** a planted λ (1.0) recovered by T1's grid fit in every
+  scored election; a district's centre with polls equals prior + w (poll − prior) and without polls equals its prior
+  (Maine's 2nd in 2020 and 2008).
+- **2008 at 100 and 60 days** is assembled with the rest and marked not scored in the as-of file (section 7).
+- **Checks, run and passed: 29.**
 
 **EC-6: the data build, before any loss is read** (`src/collect/electoral_college.py`, run 2026-11-22). Built and
 checked while the pre-registration awaits the user; it reads no poll and no forecast, and 2024 is never opened.

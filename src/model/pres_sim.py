@@ -59,6 +59,7 @@ NODES = 64                             # equal-probability nodes of the Student-
 LAMBDAS = np.round(np.arange(0, 2.0001, 0.05), 2)
 DISTRICTS = ["ME-1", "ME-2", "NE-1", "NE-2", "NE-3"]
 NAT_FLOOR = 1.0                        # stage 3's floor on the national variance
+NU_MIN = 2.5                           # a fitted nu below this is set to it: the variance must exist (nu > 2)
 
 
 # ------------------------------------------------------------------------------------------------ inputs
@@ -197,6 +198,19 @@ def range_score(theta, cell, kind, u):
     return float(np.sum(norm.logpdf(row["r"], 0.0, np.sqrt(s2)))), np.sqrt(s2), row["r"]
 
 
+def subset_cells(cells, mask):
+    """The cells restricted to a subset of states (report d), turnout shares renormalized."""
+    out = {}
+    for k, c in cells.items():
+        c2 = dict(c)
+        for f in ("mu", "result", "miss", "lean", "prior0", "n", "has"):
+            c2[f] = c[f][mask]
+        c2["v"] = c["v"][mask] / c["v"][mask].sum()
+        c2["states"] = [s_ for s_, m_ in zip(c["states"], mask) if m_]
+        out[k] = c2
+    return out
+
+
 def cell_with(cells, y, d):
     c = dict(cells[(y, d)]); c["y"] = y; c["d"] = d
     return c
@@ -279,7 +293,7 @@ def fit_nu(cells, theta, kind, u, before):
         z.append(row["r"] / np.sqrt(s2))
     z = np.concatenate(z)
     df, _, scale = student_t.fit(z, floc=0)
-    return float(df), float(scale), int(len(z))
+    return float(max(df, NU_MIN)), float(scale), int(len(z))
 
 
 # ------------------------------------------------------------------------------------------------ turnout (C)
@@ -446,6 +460,33 @@ def jacobson_districts():
     j["at_large"] = j.groupby(["year", "state"]).cd.transform("size") == 1
     j["margin"] = 2 * j.dpres - 100
     return j
+
+
+def downballot_check(J, tol=2.0):
+    """Jacobson's district presidential margins against The Downballot's district sheets where the lines match: 2020
+    on the 117th Congress's sheet; 2016 on the 116th's, for states not redrawn in 2018 (Jacobson's redist flag in the
+    2018 row). Rows more than `tol` points apart are dropped from D1's fit and listed. 2008 has no sheet."""
+    import glob
+    f = sorted(glob.glob(str(ROOT / "data/linked/downballot/*/education_income_cd.xlsx")))
+    if not f:
+        return J, {"available": False}
+    x = pd.ExcelFile(f[-1])
+    dropped, compared = [], {}
+    for sheet, year, dcol, rcol in (("2018 - 116th House", 2016, "Clinton", "Trump"), ("2019 - 117th House", 2020, "Biden", "Trump")):
+        d = x.parse(sheet)
+        d = d[d.District.astype(str).str.match(r"^[A-Z]{2}-(\d\d|AL)$")]
+        d = d.assign(state=d.District.str[:2], cd=d.District.str[3:].replace("AL", "1").astype(int),
+                     m=100 * (d[dcol] - d[rcol]) / (d[dcol] + d[rcol]))
+        redrawn_after = set(J[(J.year == year + 2) & (J.redist == 1)].state) if year == 2016 else set()
+        jj = J[(J.year == year) & ~J.state.isin(redrawn_after)][["state", "cd", "margin"]]
+        mg = d.merge(jj, on=["state", "cd"], how="inner")
+        bad = mg[(mg.m - mg.margin).abs() > tol]
+        compared[int(year)] = {"compared": int(len(mg)), "dropped": int(len(bad)), "not_comparable_states": sorted(redrawn_after),
+                               "median_abs_gap": float((mg.m - mg.margin).abs().median())}
+        for _, r in bad.iterrows():
+            dropped.append((int(year), f"{r.state}-{int(r.cd)}", round(float(r.margin), 2), round(float(r.m), 2)))
+            J = J[~((J.year == year) & (J.state == r.state) & (J.cd == int(r.cd)))]
+    return J, {"available": True, "by_year": compared, "dropped": dropped}
 
 
 def swing_frame(J, S_marg, X, years):
@@ -629,7 +670,7 @@ class Model:
         for i, st in enumerate(self.states):
             if st in block_states:
                 continue
-            p = cdf(base[:, i] / (self.own_sd[i] / tscale))
+            p = cdf(base[:, i] / (self.own_sd[i] * tscale))
             evs = self.ev[st]
             new = pmf * (1 - p)[:, None]
             new[:, evs:] += pmf[:, :539 - evs] * p[:, None]
@@ -648,7 +689,7 @@ class Model:
                 win = (m > 0).astype(float)
                 new = part * (1 - win)[:, None]; new[:, evs_state:] += part[:, :block_ev + 1 - evs_state] * win[:, None]; part = new
                 for c, spec in dists:
-                    pd_ = cdf((m + (spec["est"] - self.mu[si])) / (spec["sigma"] / tscale))
+                    pd_ = cdf((m + (spec["est"] - self.mu[si])) / (spec["sigma"] * tscale))
                     e1 = self.ev[c]
                     new = part * (1 - pd_)[:, None]; new[:, e1:] += part[:, :block_ev + 1 - e1] * pd_[:, None]; part = new
                 bp += part / NODES
@@ -658,6 +699,7 @@ class Model:
             pmf = new
         assert np.allclose(pmf.sum(1), 1.0, atol=1e-6)
         p_dem = pmf[:, 270:].sum(1); p_tie = pmf[:, 269]
+        self.p_state_exact = {st: float(cdf(base[:, i] / (self.own_sd[i] * tscale)).mean()) for i, st in enumerate(self.states)}
         return pmf.mean(0), p_dem, p_tie
 
     def outputs(self, dr):
@@ -824,6 +866,22 @@ def checks():
     ot, _, _ = mt.outputs(draws(n, mt.L.shape[1], NSIM, 12))
     report("the same with Student-t errors (nu 4)", abs(ot["p_dem_270_exact"] - ot["p_dem_270_sim"]) < 0.012
            and abs(ot["count_median_exact"] - ot["count_median_sim"]) <= 3 and abs(ot["p_tie_exact"] - ot["p_tie_sim"]) < 0.003)
+    # per contest, nu 4: the exact probability against the simulated frequency, on the 15 closest states
+    drt = draws(n, mt.L.shape[1], NSIM, 12)
+    mg_t, _, _, sh_t, eta_t = mt.simulate(drt)
+    mt.exact_count(sh_t, eta_t)
+    close = np.argsort(np.abs(mu))[:15]
+    gaps = [abs(mt.p_state_exact[states[i]] - float((mg_t[:, i] > 0).mean())) for i in close]
+    print(f"        per-contest exact against simulated, nu 4, 15 closest states: largest gap {max(gaps):.4f}")
+    report("per contest, the exact win probability equals the simulated frequency within Monte Carlo error (nu 4)", max(gaps) < 0.01)
+    # one contest at nu 4: the exact probability is the Student-t at margin / (own spread x sqrt((nu - 2) / nu)), and the
+    # simulated frequency agrees (the own spread here is the sizing's, a little above 1 because the lean error is centred)
+    one = Model(np.array([1.0] + [-30.0] * (n - 1)), np.full(n, 1.0), C_sh * 0, c_own * 0 + 1.0, v, 1e-6, 4.0, ev[2020], {}, 0.0, states)
+    one.exact_count(np.zeros((10, n)), np.zeros(10))
+    expect = float(student_t.cdf(1.0 / (one.own_sd[0] * np.sqrt(0.5)), 4))
+    mg1, _, _, _, _ = one.simulate(draws(n, one.L.shape[1], NSIM, 13))          # a shared root with no columns
+    report("one contest at nu 4: the exact probability is the t at margin / (own spread x sqrt(1/2)) and matches simulation",
+           abs(one.p_state_exact[states[0]] - expect) < 1e-9 and abs(float((mg1[:, 0] > 0).mean()) - expect) < 0.006 and 0.85 < expect < 0.9)
     report("a nu of 1e9 reproduces Gaussian draws", np.allclose(t_from_normal(dr["e"][:5], 1e9, dr["rng"], (5, n)), dr["e"][:5]))
     # 7. districts
     me = dm["ME-1"] - margins[:, states.index("ME")]
@@ -888,6 +946,18 @@ def checks():
            and any(run_turnout("T1", sh, marg, nat, pop, vint, perm=np.random.default_rng(3).permutation(len(sh)))[y]["sq"] != r1[y]["sq"] for y in SCORED))
     # planted growth: results built so that the true shares follow a known lambda
     report("T2's growth factors exist for 2004 to 2020 and not for 2000", growth("T2", 2000, sh, pop, vint) is None and all(growth("T2", y, sh, pop, vint) is not None for y in (2004,) + SCORED))
+    # a planted lambda: the national margin made to equal the sum with weights at lambda = 1 exactly
+    nat_pl = pd.Series({y: float(turnout_weights(y, sh, growth("T1", y, sh, pop, vint), 1.0) @ marg[y].values) for y in ELECTIONS})
+    rpl = run_turnout("T1", sh, marg, nat_pl, pop, vint)
+    report("a planted lambda (1.0) is recovered by T1's grid fit in every scored election", all(rpl[y]["lambda"] == 1.0 for y in SCORED))
+    # districts: a centre with polls and one without
+    dc20 = district_centres(cells, q, D, 2020, 7, states); dc08 = district_centres(cells, q, D, 2008, 7, states)
+    c20 = cells[(2020, 7)]
+    me2 = dc20["ME-2"]
+    manual = me2["prior"] + c20["w"] * (me2["poll"] - me2["prior"]) if me2["poll"] is not None else None
+    report("a district with polls is prior + w (poll - prior), and one without is its prior (ME-2 in 2020 and 2008)",
+           manual is not None and abs(me2["est"] - manual) < 1e-9 and dc08["ME-2"]["poll"] is None and dc08["ME-2"]["est"] == dc08["ME-2"]["prior"]
+           and abs(me2["prior"] - (float(c20["mu"][states.index("ME")]) + district_lean(D, 2020, "ME-2"))) < 1e-9)
     # 12. the swing model on planted data
     Fp = pd.DataFrame({"year": np.repeat([2000, 2008, 2016, 2020], 400), "state": "XX", "cd": np.tile(np.arange(400), 4)})
     Fp["x"] = prng.standard_normal(len(Fp)); Fp["swing"] = 1.5 * Fp.x + prng.standard_normal(len(Fp)) * 3
@@ -912,6 +982,8 @@ def run():
     D = district_table()
     nat_err = national_errors(E)
     u = {y: unusual(ecells[y]) for y in ELECTIONS}
+    M7 = {(y, 7): {"states": cells[(y, 7)]["states"], "miss": cells[(y, 7)]["miss"], "lean": cells[(y, 7)]["lean"]} for y in ELECTIONS}
+    ecells50, _, _ = PE.build_cells(M7, demo, d=7, states=[s_ for s_ in states if s_ != "DC"])
     out = {"scored": SCORED, "fit_only": FIT_ONLY, "structure": STRUCTURE, "nsim": NSIM, "shuffles": SHUFFLES}
 
     # ---- B. the range
@@ -927,8 +999,12 @@ def run():
         d30 = run_range(cells, kind, u, day=30); b30 = run_range(cells, "R0", day=30)
         tests[kind]["gain_30"] = pooled(d30) - pooled(b30)
         no_dc = np.array([s != "DC" for s in states])
-        bnd = run_range(cells, "R0", states=no_dc); cnd = run_range(cells, kind, u, states=no_dc)
-        tests[kind]["without_dc"] = {"gain": pooled(cnd) - pooled(bnd), "better": int(sum(cnd[y]["ld"] - bnd[y]["ld"] > TOL for y in SCORED))}
+        cells50 = subset_cells(cells, no_dc)
+        u50 = {y: unusual(ecells50[y]) for y in ELECTIONS} if kind == "R2" else None
+        bnd = run_range(cells50, "R0"); cnd = run_range(cells50, kind, u50)
+        sh50 = shuffled_gains_range(cells50, kind, u50, bnd, SEEDS[kind] + 100, SHUFFLES)
+        tests[kind]["without_dc"] = verdict(bnd, cnd, sh50)
+        tests[kind]["without_dc"].pop("shuffled_gains")
         tests[kind]["flags"] = {"suggested_by_earlier_results": True, "worse_at_30_days": tests[kind]["gain_30"] < -TOL}
         tests[kind]["standing"] = ("passes; flagged (suggested by earlier results" + ("; worse at 30 days" if tests[kind]["gain_30"] < -TOL else "") + "): to the user") if tests[kind]["passes"] else "fails"
     res["R12"] = run_range(cells, "R12", u)
@@ -944,7 +1020,8 @@ def run():
     nus = {}
     for y in SCORED:
         nu, sc, nz = fit_nu(cells, base[y]["theta"], "R0", u, y)
-        nus[int(y)] = {"nu": nu, "scale": sc, "n": nz}
+        raw_df = float(student_t.fit(np.concatenate([row["r"] / np.sqrt(spread2(base[y]["theta"], row, "R0", None)) for row in range_rows(cells, y)]), floc=0)[0])
+        nus[int(y)] = {"nu": nu, "nu_unfloored": raw_df, "scale": sc, "n": nz}
     out["nu"] = nus
     nat = {}
     for y in SCORED:
@@ -1022,6 +1099,8 @@ def run():
         for y, contest, _, _ in bad:
             J = J[~((J.year == y) & (J.state == contest[:2]) & (J.cd == int(contest[-1])))]
         swing["jacobson_vs_pages_dropped"] = bad
+        J, db = downballot_check(J)
+        swing["jacobson_vs_downballot"] = db
         F = swing_frame(J, S_marg, X, [y for y in (2000, 2008, 2016, 2020) if y in X])
         fit_only = tuple(y for y in (2000,) if y in set(F.year))
         scored = tuple(y for y in (2008, 2016, 2020) if y in set(F.year))
@@ -1071,11 +1150,13 @@ def run():
             m, meta = assemble(cells, q, D, ecells, Q, states, nat_err, y, d, "R0")
             dr = draws(len(states), m.L.shape[1], NSIM, SEED)
             o, _, _ = m.outputs(dr)
-            asof[f"{y}/{d}"] = dict(o, meta={k: v for k, v in meta.items() if k not in ("C", "C_sh", "c_own")})
+            asof[f"{y}/{d}"] = dict(o, meta={k: v for k, v in meta.items() if k not in ("C", "C_sh", "c_own")},
+                                    scored_in_EC7=not (y == 2008 and d in (100, 60)))
             ident[f"{y}/{d}"] = {"pv_sd_sim": o["identities"]["pv_sd"], "sigma_N": meta["sigma_N"], "sigma_eta": m.sigma_eta, "eta_flag": bool(m.eta_flag),
                                  "max_abs_centred_sd_gap": float(np.max(np.abs(np.array(o["identities"]["centred_sd_sim"]) - m.s))),
-                                 "max_abs_corr_change_vs_EC5": float(np.max(np.abs(
-                                     (lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(m.cov) - meta["C"])[~np.eye(len(states), dtype=bool)]))}
+                                 "max_abs_contrast_corr_change_vs_EC5": float(np.max(np.abs(
+                                     (lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(Q @ m.cov @ Q.T)
+                                     - (lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(Q @ meta["C"] @ Q.T))[~np.eye(len(states) - 1, dtype=bool)]))}
             if d == 7:
                 mce[f"{y}/{d}"] = mc_error(m)
             print(f"  {y} at {d} days: assembled; sigma_N {meta['sigma_N']:.2f}, sigma_eta {m.sigma_eta:.2f}, nu {meta['nu']:.1f}, sigma_D {meta['sigma_D']:.2f}")
