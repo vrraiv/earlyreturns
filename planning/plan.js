@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-22e",
+  version: "2026-11-22f",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -468,9 +468,45 @@ window.PLAN = {
             "Landing page: what the site is and does; the live item featured (today the scorecard, next the primaries); an optional callout for a special election, with an end date; links to the model, the election data and past elections. The top row on every page: Home, 2028, Model, Election data, and past elections by year.",
             "Footer on every page: a line naming the author and saying the site is a hobby, the author's one-line disclaimer, and links to the author's LinkedIn, GitHub and X profiles.",
             "Old links. The forecast's tab links (`/#senate`, `/#scorecard` and the rest) are forwarded by a short script on the landing page, because a server never sees what follows `#`. `/data/*` moves to `/2026/data/*` behind a redirect rule, to be checked on a preview build. `/history/*` and `/og.png` stay put. Links inside the site are relative, so the rename only swaps the hostname.",
-            "Order of work: (1) shared header and footer, the landing page at `/`, and today's page moved whole to `/2026/forecast/` with its tabs (SI-6, SI-3); (2) the `/2028/` page and a first model page (SI-3, SI-5); (3) once the scorecard is final, 2026 split into its two pages with the post-mortem (SI-2, SI-4); (4) the rename, whenever the name is chosen."
+            "Order of work: (1) shared header and footer, the landing page at `/`, and today's page moved whole to `/2026/forecast/` with its tabs (SI-6, SI-3); (2) the `/2028/` page and a first model page (SI-3, SI-5); (3) once the scorecard is final, 2026 split into its two pages with the post-mortem (SI-2, SI-4); (4) the rename, whenever the name is chosen (SI-9).",
+            "2026-11-22: the name and the rename moved to their own card, SI-9, so this card covers the structure and the addresses only. Within a phase the cards are listed in the order of work, and what each one needs follows that order."
           ] },
-        { id: "SI-2", title: "Archive the 2026 forecast", kind: "story", phase: "p2", needs: ["SC-1", "SI-1"],
+        { id: "SI-6", title: "Split the template and the build", kind: "story", phase: "p2", needs: ["SI-1"],
+          why: "The site is one large template built for one election.",
+          details: [
+            "Split it so the archive, the preview and each model page build separately.",
+            "Build the archive to scale: each election is one unit holding its locked forecast, scorecard and post-mortem.",
+            "Folding in the next election should mean adding its data, not writing a new template. 2026 is the first unit, then 2028, then the 2030 midterms.",
+            "Keep the checks that the archived forecast matches the final.",
+            "Decided at SI-1: every page shares one header and one footer (the forecast page and the data pages each have their own today). The featured item, the callout and the list of elections come from one small settings file. Each election is a folder under its year.",
+            "First step: the landing page at `/` and today's page moved whole to `/2026/forecast/`. The build script changes in the same pull request, because the daily scorecard job rebuilds the committed `site/` folder; a scorecard pull request opened before that merge is closed, not merged."
+          ],
+          refs: ["src/site/template.html", "src/site/build.py", "src/site/history.py"] },
+        { id: "SI-3", title: "2028 preview front page", kind: "story", phase: "p2", needs: ["SI-6"],
+          why: "The landing page should say what is coming, not what is over.",
+          details: [
+            "What is being built and when: the tracks and the two deadlines.",
+            "Key 2028 dates as they become known.",
+            "The latest development results, each labeled as work in progress.",
+            "No forecast numbers until a model is frozen.",
+            "Decided at SI-1: this card is two pages. The landing page at `/` says what the site is, features the live item and carries the optional special-election callout. The dates, the deadlines and what is being built go on `/2028/`, which shows a preview image and a note until there is something to show.",
+            "The scorecard numbers on the landing page come from the same build as the scorecard and carry its provisional label. The landing page gets its own link preview (title, description, image).",
+            "Development results move to the model page (SI-5)."
+          ],
+          checklist: [
+            { id: "a", text: "Layout sketched" },
+            { id: "b", text: "Copy written" },
+            { id: "c", text: "Live on the site" }
+          ] },
+        { id: "SI-5", title: "Development results pages", kind: "story", phase: "p2", needs: ["SI-6"],
+          why: "Each model earns its place by showing its backtest.",
+          details: [
+            "One page per model as its backtest lands: governors, special elections, electoral college, primaries.",
+            "Each shows the backtest table, what was estimated, and how sensitive the result is.",
+            "Decided at SI-1: one model page at `/model/` with a section per model, in place of separate pages: House, Senate, governors, electoral college, primaries and special elections. Each section says what goes in, what is estimated, how it was tested, and where it stands (used in 2026, being reworked, in design).",
+            "A first version comes with the new layout, from the 2026 method text and the backtests already run. No 2026 governor forecast appears before that design is frozen (GV-4), and the electoral college section is a placeholder until its design note (EC-1)."
+          ] },
+        { id: "SI-2", title: "Archive the 2026 forecast", kind: "story", phase: "p2", needs: ["SC-1", "SI-6"],
           why: "The forecast is history now and should read as a record, not a live page.",
           details: [
             "One compact section: the final forecast as locked, the scorecard and the post-mortem.",
@@ -487,23 +523,7 @@ window.PLAN = {
             { id: "d", text: "Old links still load" }
           ],
           refs: ["src/site/build.py", "src/site/template.html", "data/final"] },
-        { id: "SI-3", title: "2028 preview front page", kind: "story", phase: "p2", needs: ["SI-1"],
-          why: "The landing page should say what is coming, not what is over.",
-          details: [
-            "What is being built and when: the tracks and the two deadlines.",
-            "Key 2028 dates as they become known.",
-            "The latest development results, each labeled as work in progress.",
-            "No forecast numbers until a model is frozen.",
-            "Decided at SI-1: this card is two pages. The landing page at `/` says what the site is, features the live item and carries the optional special-election callout. The dates, the deadlines and what is being built go on `/2028/`, which shows a preview image and a note until there is something to show.",
-            "The scorecard numbers on the landing page come from the same build as the scorecard and carry its provisional label. The landing page gets its own link preview (title, description, image).",
-            "Development results move to the model page (SI-5)."
-          ],
-          checklist: [
-            { id: "a", text: "Layout sketched" },
-            { id: "b", text: "Copy written" },
-            { id: "c", text: "Live on the site" }
-          ] },
-        { id: "SI-4", title: "2026 post-mortem page", kind: "story", phase: "p2", needs: ["SC-4"],
+        { id: "SI-4", title: "2026 post-mortem page", kind: "story", phase: "p2", needs: ["SC-4", "SI-2"],
           why: "The lessons should be public and in plain terms.",
           details: [
             "What the forecast got right and wrong, drawn from the lessons list.",
@@ -511,32 +531,21 @@ window.PLAN = {
             "Decided at SI-1: not a page of its own. It is the written part of the scorecard page at `/2026/`."
           ],
           refs: ["src/postmortem/README.md"] },
-        { id: "SI-5", title: "Development results pages", kind: "story", phase: "p4", needs: ["SI-6"],
-          why: "Each model earns its place by showing its backtest.",
+        { id: "SI-9", title: "The site's name and the rename", kind: "decision", phase: "any",
+          why: "The site and the repo are both named for 2026, and the name should outlast one election.",
           details: [
-            "One page per model as its backtest lands: governors, special elections, electoral college, primaries.",
-            "Each shows the backtest table, what was estimated, and how sensitive the result is.",
-            "Decided at SI-1: one model page at `/model/` with a section per model, in place of separate pages: House, Senate, governors, electoral college, primaries and special elections. Each section says what goes in, what is estimated, how it was tested, and where it stands (used in 2026, being reworked, in design).",
-            "A first version comes with the new layout, from the 2026 method text and the backtests already run. No 2026 governor forecast appears before that design is frozen (GV-4), and the electoral college section is a placeholder until its design note (EC-1)."
-          ] },
-        { id: "SI-6", title: "Split the template and the build", kind: "story", phase: "p2", needs: ["SI-1"],
-          why: "The site is one large template built for one election.",
-          details: [
-            "Split it so the archive, the preview and each model page build separately.",
-            "Build the archive to scale: each election is one unit holding its locked forecast, scorecard and post-mortem.",
-            "Folding in the next election should mean adding its data, not writing a new template. 2026 is the first unit, then 2028, then the 2030 midterms.",
-            "Keep the checks that the archived forecast matches the final.",
-            "Decided at SI-1: every page shares one header and one footer (the forecast page and the data pages each have their own today). The featured item, the callout and the list of elections come from one small settings file. Each election is a folder under its year.",
-            "First step: the landing page at `/` and today's page moved whole to `/2026/forecast/`. The build script changes in the same pull request, because the daily scorecard job rebuilds the committed `site/` folder; a scorecard pull request opened before that merge is closed, not merged."
+            "Split out of SI-1 on 2026-11-22. The structure and the addresses were decided there; only the name was left open.",
+            "Choose one name that lasts across cycles, then rename once: the repo and the site's subdomain.",
+            "Nothing in the layout waits for this. GitHub redirects the old repo address, the old subdomain can stay attached beside the new one, and links inside the site are relative, so the rename only swaps the hostname.",
+            "The places that carry the old name are listed in the audit of hardcoded 2026 values (OP-1)."
           ],
-          refs: ["src/site/template.html", "src/site/build.py", "src/site/history.py"] },
-        { id: "SI-7", title: "2028 forecast pages", kind: "story", phase: "p5", needs: ["CM-10", "EC-9"],
-          why: "The season needs pages for each office and for the map.",
-          details: [
-            "President and the electoral college map, Senate, House and governors.",
-            "The what-if explorer extended to the electoral college.",
-            "Under `/2028/` (SI-1)."
-          ] },
+          checklist: [
+            { id: "a", text: "Name chosen" },
+            { id: "b", text: "Repo renamed" },
+            { id: "c", text: "New subdomain attached" },
+            { id: "d", text: "Old name replaced in the code and the site" }
+          ],
+          refs: ["planning/op1-hardcoded-2026-audit.md"] },
         { id: "SI-8", title: "Election data pages", kind: "story", phase: "p1", base: "doing",
           why: "The historical pages are built and need 2026 once it is final.",
           details: [
@@ -546,7 +555,14 @@ window.PLAN = {
             { id: "a", text: "Pages built and live", done: true },
             { id: "b", text: "Final 2026 results added" }
           ],
-          refs: ["src/site/history.py", "DATA.md"] }
+          refs: ["src/site/history.py", "DATA.md"] },
+        { id: "SI-7", title: "2028 forecast pages", kind: "story", phase: "p5", needs: ["CM-10", "EC-9"],
+          why: "The season needs pages for each office and for the map.",
+          details: [
+            "President and the electoral college map, Senate, House and governors.",
+            "The what-if explorer extended to the electoral college.",
+            "Under `/2028/` (SI-1)."
+          ] }
       ]
     },
 
