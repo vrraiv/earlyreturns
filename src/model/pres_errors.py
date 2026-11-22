@@ -16,6 +16,9 @@ years); better in 3 of 4 elections; simulation noise is nil (closed form). Five 
 
 Run:  python src/model/pres_errors.py checks     (prints pass or fail only; no loss and no fitted number)
       python src/model/pres_errors.py run
+      python src/model/pres_errors.py spread    (after the round: each contest's centred spread under each fitted structure)
+      python src/model/pres_errors.py checks2   (round 2: the spread-matched control for candidate 3)
+      python src/model/pres_errors.py run2
 """
 import json
 import sys
@@ -180,7 +183,7 @@ def build_cells(M, demo, d=SCORE_DAY, vintage="year_before", states=None, urban=
     for y in ELECTIONS:
         m = M[(y, d)]["miss"][ix]
         cells[y] = {"ym": Q @ (m - m.mean()), "miss": m, "Rm": Rm, "lean": M[(y, d)]["lean"][ix],
-                    "feat": demo.features(y, vintage, states, urban=urban)}
+                    "feat": demo.features(y, vintage, states, urban=urban), "states": states}
     return cells, Q, states
 
 
@@ -190,11 +193,36 @@ def corr_from(A):
     return A * dinv[:, None] * dinv[None, :]
 
 
-def contrast_cov(comps, rho, Q):
-    A = np.eye(Q.shape[1])
+def full_corr(comps, rho, n):
+    A = np.eye(n)
     for r, Cm in zip(rho, comps.values()):
         A = A + r * Cm
-    return Q @ corr_from(A) @ Q.T
+    return corr_from(A)
+
+
+def contrast_cov(comps, rho, Q):
+    """comps: the structure's components (a dict), or a callable rho -> a 51 x 51 covariance shape (round 2's control)."""
+    V = comps(rho) if callable(comps) else full_corr(comps, rho, Q.shape[1])
+    return Q @ V @ Q.T
+
+
+def centred_var(V, n):
+    P = np.eye(n) - np.ones((n, n)) / n
+    return np.diag(P @ V @ P)
+
+
+def control_builder(comps0, D):
+    """Round 2's spread-matched control: candidate 3's centred variances D with the baseline's centred correlations.
+    rho are the baseline's two sizes; the overall scale is profiled as sigma_T^2."""
+    n = len(D)
+    P = np.eye(n) - np.ones((n, n)) / n
+    sq = np.sqrt(D)
+
+    def build(rho):
+        C0 = P @ full_corr(comps0, rho, n) @ P
+        dinv = 1.0 / np.sqrt(np.diag(C0))
+        return (C0 * dinv[:, None] * dinv[None, :]) * sq[:, None] * sq[None, :]
+    return build
 
 
 def _solve(S, ym, xm):
@@ -253,9 +281,43 @@ def logdens(comps, ym, xm, rho, s2, beta, Q):
 
 
 # ------------------------------------------------------------------------------------------------ one structure
+def run_control(cells, Q, perm=None, years=SCORED, flat=False):
+    """Round 2: for each scored election, fit candidate 3 on the earlier elections, take the centred variances its
+    fitted covariance gives every contest (in each election, from that election's features), and fit the control
+    (those variances, the baseline's correlations) on the same earlier elections. flat=True uses the baseline's own
+    centred variances instead (report iii)."""
+    n = Q.shape[1]
+    feats = {y: permute(c["feat"], perm) for y, c in cells.items()}
+    c3 = {y: comps_for("c3", c["Rm"], c["lean"], feats[y]) for y, c in cells.items()}
+    c0 = {y: comps_for("base", c["Rm"], c["lean"], feats[y]) for y, c in cells.items()}
+    out = {}
+    for y in years:
+        train_y = [e for e in ELECTIONS if e < y]
+        if flat:
+            rho0, s20, _, _ = fit([(c0[e], cells[e]["ym"], None) for e in train_y], Q, 2)
+            D = {e: centred_var(s20 * full_corr(c0[e], rho0, n), n) for e in train_y + [y]}
+            fitted = {"rho": {k: float(v) for k, v in zip(c0[y], rho0)}, "sigma_T": float(np.sqrt(s20))}
+        else:
+            rho3, s23, _, _ = fit([(c3[e], cells[e]["ym"], None) for e in train_y], Q, 2)
+            D = {e: centred_var(s23 * full_corr(c3[e], rho3, n), n) for e in train_y + [y]}
+            fitted = {"rho": {k: float(v) for k, v in zip(c3[y], rho3)}, "sigma_T": float(np.sqrt(s23))}
+        builders = {e: control_builder(c0[e], D[e]) for e in train_y + [y]}
+        rho, s2, beta, _ = fit([(builders[e], cells[e]["ym"], None) for e in train_y], Q, 2)
+        sd = np.sqrt(D[y])
+        names = cells[y].get("states", list(range(n)))
+        out[y] = {"ld": logdens(builders[y], cells[y]["ym"], None, rho, s2, beta, Q),
+                  "rho": {k: float(r) for k, r in zip(c0[y], rho)}, "sigma_T": float(np.sqrt(s2)), "beta": 0.0,
+                  "from_candidate3": fitted, "spread_ratio": float(sd.max() / sd.min()),
+                  "widest": {str(names[i]): round(float(sd[i]), 2) for i in np.argsort(-sd)[:5]}}
+    return out
+
+
 def run_kind(kind, cells, Q, perm=None, years=SCORED):
     """Fit on the elections before each scored one and score it. kind 'f' is the baseline's covariance with a mean
-    beta x z_w (report f). Returns by scored election: the log density, the fitted sizes, sigma_T and beta."""
+    beta x z_w (report f); 'ctrl' is round 2's control. Returns by scored election: the log density, the fitted
+    sizes, sigma_T and beta."""
+    if kind == "ctrl":
+        return run_control(cells, Q, perm, years)
     data = {}
     for y, c in cells.items():
         f = permute(c["feat"], perm)
@@ -551,6 +613,111 @@ def checks():
     print("ALL CHECKS PASS" if ok else "SOME CHECKS FAILED")
 
 
+# ------------------------------------------------------------------------------------------------ round 2
+def judge_round2(cells, Q, shuffles=SHUFFLES, years=SCORED, need=NEED, seed=5):
+    """Candidate 3 against its spread-matched control, with the shuffle of the kernel re-deriving both."""
+    base = run_kind("base", cells, Q, years=years)
+    ctrl = run_kind("ctrl", cells, Q, years=years)
+    c3 = run_kind("c3", cells, Q, years=years)
+    rng = np.random.default_rng(seed)
+    n = Q.shape[1]
+    G = np.zeros((shuffles, len(years)))
+    for s in range(shuffles):
+        perm = rng.permutation(n)
+        a = run_kind("c3", cells, Q, perm=perm, years=years)
+        b = run_kind("ctrl", cells, Q, perm=perm, years=years)
+        G[s] = [a[y]["ld"] - b[y]["ld"] for y in years]
+    v = verdict(ctrl, c3, G, years, need)
+    v["fits_control"] = {int(y): ctrl[y] for y in years}
+    v["fits_candidate3"] = {int(y): c3[y] for y in years}
+    v["report_i_control_vs_baseline"] = {"gain": pooled(ctrl, years) - pooled(base, years),
+                                         "by_election": {int(y): ctrl[y]["ld"] - base[y]["ld"] for y in years}}
+    v["report_ii_spreads"] = {int(y): {"ratio": ctrl[y]["spread_ratio"], "widest": ctrl[y]["widest"]} for y in years}
+    return v
+
+
+def decide_round2(M, demo, shuffles=SHUFFLES):
+    cells, Q, states = build_cells(M, demo)
+    out = {"round": 2, "question": "candidate 3 against its spread-matched control", "shuffles": shuffles}
+    out["main"] = judge_round2(cells, Q, shuffles)
+    flat = run_control(cells, Q, flat=True)
+    base = run_kind("base", cells, Q)
+    out["report_iii_flat_control"] = {int(y): {"flat": flat[y]["ld"], "baseline": base[y]["ld"]} for y in SCORED}
+    out["variants"] = {}
+    for name, kw in (("own_year", dict(vintage="own_year")), ("no_dc", dict(states=[s for s in states if s != "DC"])),
+                     ("day30", dict(d=30))):
+        cv, Qv, _ = build_cells(M, demo, **kw)
+        out["variants"][name] = judge_round2(cv, Qv, shuffles)
+    v = out["main"]
+    fl = []
+    if v["passes"]:
+        nd, d30 = out["variants"]["no_dc"], out["variants"]["day30"]
+        if not (nd["gain"] > 0 and nd["clause_elections"]):
+            fl.append(2)
+        if not d30["gain"] > 0:
+            fl.append(3)
+    out["flags"] = fl
+    out["passes"] = v["passes"]
+    out["standing"] = ("candidate 3 adopted provisionally: the combination (similarity, tilt, candidate 2's draw)" if v["passes"] and not fl
+                       else "candidate 3 passes but is flagged: to the user" if v["passes"]
+                       else "candidate 3 closed; the baseline with candidate 2 stands")
+    return out
+
+
+def run2():
+    M = load_misses(); demo = Demo()
+    out = decide_round2(M, demo)
+    (OUT / "pres_errors_round2.json").write_text(json.dumps(out, indent=1, default=float))
+    v = out["main"]
+    print(json.dumps({k: v[k] for k in ("gain", "by_election", "better", "shuffle_p95", "shuffle_share_beaten",
+                                        "clause_shuffle", "clause_positive_gain", "clause_elections", "passes")}, indent=1))
+    print("control vs baseline:", v["report_i_control_vs_baseline"])
+    print("flags", out["flags"], "standing:", out["standing"])
+
+
+def checks2():
+    ok = True
+
+    def report(name, passed):
+        nonlocal ok
+        ok = ok and bool(passed)
+        print(f"{'pass' if passed else 'FAIL'}  {name}")
+
+    M = load_misses(); demo = Demo()
+    cells, Q, states = build_cells(M, demo)
+    base = run_kind("base", cells, Q); n = len(states)
+    exact = True
+    for y in SCORED:
+        c = cells[y]; c0 = comps_for("base", c["Rm"], c["lean"], c["feat"]); rho0 = [base[y]["rho"][k] for k in c0]
+        D = centred_var(base[y]["sigma_T"] ** 2 * full_corr(c0, rho0, n), n)
+        S1 = Q @ control_builder(c0, D)(rho0) @ Q.T
+        exact &= bool(np.abs(S1 - base[y]["sigma_T"] ** 2 * contrast_cov(c0, rho0, Q)).max() < 1e-9)
+    report("the flat control at the baseline's sizes is the baseline's covariance exactly", exact)
+    ident = run_kind("ctrl", cells, Q, perm=np.arange(len(states))); plain = run_kind("ctrl", cells, Q)
+    real = run_kind("ctrl", cells, Q, perm=np.random.default_rng(5).permutation(len(states)))
+    report("an identity shuffle reproduces the control and a real one changes it",
+           all(abs(ident[y]["ld"] - plain[y]["ld"]) < 1e-9 for y in SCORED) and any(abs(real[y]["ld"] - plain[y]["ld"]) > 1e-6 for y in SCORED))
+    rng = np.random.default_rng(21)
+    pl = plant(cells, Q, "c3", np.array([3.0, 0.3]), 5.0, rng)
+    v = judge_round2(pl, Q, shuffles=30)
+    report("planted similarity: candidate 3 beats its spread-matched control", v["passes"])
+    # a spread-only plant: draws from the control's own covariance built on candidate 3's fitted spreads
+    n = len(states)
+    ctrl = run_kind("ctrl", cells, Q)
+    pl2 = {}
+    for y, c in cells.items():
+        yy = y if y in SCORED else SCORED[0]
+        c3 = comps_for("c3", c["Rm"], c["lean"], c["feat"]); c0 = comps_for("base", c["Rm"], c["lean"], c["feat"])
+        r3 = ctrl[yy]["from_candidate3"]; D = centred_var(r3["sigma_T"] ** 2 * full_corr(c3, [r3["rho"][k] for k in c3], n), n)
+        V = control_builder(c0, D)([0.3, 0.3])
+        L = np.linalg.cholesky(V + 1e-9 * np.eye(n))
+        m = L @ rng.standard_normal(n)
+        pl2[y] = dict(c, ym=Q @ (m - m.mean()), miss=m)
+    v2 = judge_round2(pl2, Q, shuffles=30)
+    report("planted spread only (no similarity): candidate 3 does not pass against its control", not v2["passes"])
+    print("ALL ROUND-2 CHECKS PASS" if ok else "SOME ROUND-2 CHECKS FAILED")
+
+
 # ------------------------------------------------------------------------------------------------ after the run
 def spread():
     """Diagnostic computed after the round (2026-11-21), reading the saved fits and the features and no miss: each
@@ -587,4 +754,4 @@ def spread():
 
 
 if __name__ == "__main__":
-    {"checks": checks, "run": run, "spread": spread}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
+    {"checks": checks, "run": run, "spread": spread, "checks2": checks2, "run2": run2}[sys.argv[1] if len(sys.argv) > 1 else "run"]()

@@ -3531,3 +3531,82 @@ absorbs what candidate 2 carries.
 - **To the design freeze (EC-9):** the adopted structure's one untouched test on 2024; whatever is declined or held;
   report (f) and whether candidate 3 (or 2) gains beside it; and, if the user wants it, the spread-matched control
   for candidate 3, pre-registered there.
+
+**EC-5: the user's decisions after the round (2026-11-22).**
+
+- **Candidate 2 is adopted provisionally until 2024 is scored at the design freeze (EC-9),** as F was under its flag
+  (section 13). Its flag is about blindness, and 2024 is the untouched test that answers it.
+- **Candidate 3 gets a second round now.** The user saw no reason to hold to one round and wait for EC-9 for the spread
+  question, and asked for the spread-matched control to be added and run. It is pre-registered below, before any
+  loss is read, and is declared **suggested by the first round's results**: it exists because of the diagnostic
+  computed after that round.
+
+### EC-5, round 2: the spread-matched control for candidate 3 (pre-registered 2026-11-22, before any run)
+
+**The question.** Does candidate 3 beat a structure that has its pattern of centred spreads and none of its
+co-movement? If not, its gain in round 1 was spread, which is the assembly's question (the wider range for lopsided
+states, section 13), not this card's.
+
+**The control.** For each scored election, candidate 3 is fitted on the elections before it exactly as in round 1
+(the same sizes, the same σ_T). Its fitted covariance gives every contest a centred variance, the diagonal of P Σ₃ P,
+for the scored election and for each earlier election from that election's own features. The control's covariance
+for an election is D^½ C₀ D^½: D those centred variances, and C₀ the correlation matrix of the baseline's centred
+covariance P Σ₀ P (regions and the tilt), with the baseline's two sizes and one overall scale refitted on the
+earlier elections by the same maximum likelihood. So the control has candidate 3's spreads and the baseline's
+correlations, and no similarity term. Everything is fitted on earlier elections only; the scored election's misses
+enter no fit.
+
+**The clauses.** Candidate 3 against its control, pooled over the four scored elections at 7 days:
+
+1. a positive gain;
+2. better in at least 3 of the 4 scored elections;
+3. above the 95th percentile of 200 shuffles (seed 5): each shuffle reorders the states' six-measure vectors as in
+   round 1, candidate 3 and its control are both re-derived under that reordering, and the shuffled increment is
+   recorded. The gain has to exceed the percentile by more than the fit's tolerance.
+
+Simulation noise is nil, as before. The variants of round 1 (own-year demographics, without DC, 30 days) are run
+with the same clauses; flags 2 and 3 apply as in round 1 (a pass that disappears without DC, or that is worse at
+30 days). Flag 4 does not apply.
+
+**What follows.**
+
+- **If candidate 3 passes:** it is adopted provisionally until EC-9, and the structure is the combination of round 1
+  (similarity, the tilt, and candidate 2's draw with its size left free, zero where the fit puts it). No new
+  comparison is made for that: round 1's combination report is the evidence.
+- **If it fails:** the baseline with candidate 2 stands, candidate 3 is closed for this card, and the spread finding
+  goes to the assembly as evidence for a wider range in demographically unusual and lopsided states.
+
+**Reports, fixed now.**
+
+- **(i) The control against the baseline:** what the spread pattern alone is worth, by election.
+- **(ii) The control's spreads:** the ratio of widest to narrowest centred spread by scored election, and the widest
+  contests, so the reader sees what the control was given.
+- **(iii) A flat control:** the control built with the baseline's own centred variances in place of candidate 3's
+  reproduces the baseline's score to within the fit's tolerance. This is a check and is reported.
+
+**Checks before any loss is read.**
+
+- The flat control equals the baseline to the fit's tolerance (report iii).
+- Misses drawn from a planted similarity structure: candidate 3 beats its control.
+- Misses drawn from a planted spread-only structure (the control's own covariance, with candidate 3's spreads and no
+  similarity): candidate 3 does not pass against its control.
+- An identity shuffle reproduces the control; a real one changes it.
+
+**One round.** The 2000 to 2020 misses are not opened again for this card after it.
+
+**Round 2: amendments after the code review, before any loss was read** (`pres_errors.py checks2`, `run2`).
+
+- **The control's scale.** Its spreads are candidate 3's in level as well as pattern; one overall scale is still
+  profiled, as σ_T is for every structure, so the control can set its total level. Its two correlation sizes are
+  refitted from the three starting points as in round 1.
+- **The scored election's spreads** come from candidate 3's sizes fitted on the earlier elections, applied to the
+  scored election's own features. No miss of the scored election enters.
+- **Report (iii) and its check.** At the baseline's own sizes the flat control is the baseline's covariance exactly
+  (checked to 1e-9). Refitted, its sizes move a little (the region size by 0.002 to 0.006) because its spreads stay
+  fixed while its correlations move, and its score differs from the baseline's by up to 0.14 in one election and
+  0.04 pooled. Those figures were read while fixing the check, before any round-2 loss; they are what a structure
+  with nothing new in it scores against the baseline, and round 2's gain is read beside them.
+- **The spread-only plant** draws from the control's covariance built on candidate 3's sizes as fitted in round 1,
+  with the baseline's correlation sizes at 0.3 each.
+- **Checks, run and passed (4):** the exact identity above; an identity shuffle reproduces the control and a real
+  one changes it; planted similarity makes candidate 3 beat its control; planted spread alone does not.
