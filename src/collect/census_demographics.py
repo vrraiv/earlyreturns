@@ -454,8 +454,103 @@ def check(df=None):
             print("   ", c, s)
 
 
+# ---------------------------------------------------------------- congressional districts (EC-6, section 15, A7)
+
+# The years EC-6's district swing model needs: the year before each usable election (2008, 2016, 2020) and the 2000
+# census for the 2000 election. Each survey year is on the lines of the Congress then sitting, which are the lines in
+# force at the next election except in a redistricting year, and those elections (2004, 2012, 2024) are excluded there.
+CD_ACS_YEARS = [2007, 2015, 2019]
+CD_TABLES = {"education": "B15002", "education_white": "B15002H"}
+CD_SF3_TABLES = {"education": "P037", "education_white": "P148I"}
+CD_GEO = "&for=congressional%20district:*&in=state:*"
+
+
+def fetch_table_cd(dataset: str, table: str, tag: str, key: str, refetch=False):
+    """Like fetch_table, for every congressional district in every state. The labels file is the state build's."""
+    lname = f"{tag}_{table}_labels.json"
+    if refetch or not held(lname):
+        js, url = call(f"{dataset}/groups/{table}.json")
+        slim = {k: {"label": v["label"]} for k, v in js["variables"].items() if "label" in v}
+        _save(lname, (json.dumps(slim, indent=1, sort_keys=True) + "\n").encode("utf-8"), url)
+    names = list(cells(json.loads(held(lname).read_text(encoding="utf-8")), table))
+    for i in range(0, len(names), 49):
+        dname = f"{tag}_{table}_cd_p{i // 49 + 1}.json"
+        if refetch or not held(dname):
+            js, url = call(dataset, "get=NAME," + ",".join(names[i:i + 49]) + CD_GEO, key)
+            _save(dname, (json.dumps(js) + "\n").encode("utf-8"), url)
+    print("held", tag, table, "by congressional district")
+
+
+def fetch_cd(refetch=False):
+    key = env_key("census_bureau_api_key")
+    if not key:
+        raise SystemExit("set census_bureau_api_key in .env")
+    try:
+        for t in CD_SF3_TABLES.values():
+            fetch_table_cd("2000/dec/sf3", t, "sf3_2000", key, refetch)
+    except RuntimeError as e:
+        print("2000 census by congressional district not fetched:", str(e)[:120])
+    for y in CD_ACS_YEARS:
+        for t in CD_TABLES.values():
+            fetch_table_cd(f"{y}/acs/acs1", t, f"acs1_{y}", key, refetch)
+
+
+def read_table_cd(tag: str, table: str):
+    seg = cells(json.loads(latest(SOURCE, f"{tag}_{table}_labels.json").read_text(encoding="utf-8")), table)
+    parts = []
+    for p in sorted((RAW / SOURCE).glob(f"*/{tag}_{table}_cd_p*.json")):
+        if p.parent == latest(SOURCE, p.name).parent:
+            js = json.loads(p.read_text(encoding="utf-8"))
+            d = pd.DataFrame(js[1:], columns=js[0])
+            d = d.set_index(["state", "congressional district"]).drop(columns="NAME")
+            parts.append(d)
+    d = pd.concat(parts, axis=1)
+    d = d[d.index.get_level_values(0).isin(FIPS)].astype(float).sort_index()
+    assert set(d.columns) == set(seg), (tag, table)
+    return d, seg
+
+
+def education_cd(tag: str, tables: dict, year: int, source: str) -> pd.DataFrame:
+    e, s = read_table_cd(tag, tables["education"])
+    tot = [k for k, v in s.items() if v == ["Total"]]
+    ba = [k for k, v in s.items() if DEGREE.match(v[-1])]
+    assert len(tot) == 1 and len(ba) == 8, (tag, "education", len(ba))
+    adults25 = e[tot[0]]
+    w, s = read_table_cd(tag, tables["education_white"])
+    wt = [k for k, v in s.items() if v == ["Total"]]
+    wba = [k for k, v in s.items() if DEGREE.match(v[-1])]
+    assert len(wt) == 1 and len(wba) in (2, 4), (tag, "education_white", len(wba))
+    out = pd.DataFrame({"adults_25_plus": adults25, "degree_share": 100 * e[ba].sum(axis=1) / adults25,
+                        "white_degree_share": 100 * w[wba].sum(axis=1) / w[wt[0]],
+                        "white_no_degree_share": 100 * (w[wt[0]] - w[wba].sum(axis=1)) / adults25})
+    out = out.reset_index()
+    out.insert(0, "year", year)
+    out["state"] = out.state.map(FIPS)
+    out = out.rename(columns={"congressional district": "cd"})
+    out["source"] = source
+    # the API codes an at-large seat 00 and a delegate's seat 98; the swing model drops both
+    out = out[~out.cd.isin(["98", "ZZ"])]
+    return out[["year", "state", "cd", "source", "adults_25_plus", "degree_share", "white_degree_share", "white_no_degree_share"]]
+
+
+def build_cd() -> pd.DataFrame:
+    rows = []
+    if held("sf3_2000_P037_cd_p1.json"):
+        rows.append(education_cd("sf3_2000", CD_SF3_TABLES, 2000, "census_2000_long_form"))
+    rows += [education_cd(f"acs1_{y}", CD_TABLES, y, "survey_one_year") for y in CD_ACS_YEARS]
+    df = pd.concat(rows, ignore_index=True)
+    for c in ("degree_share", "white_degree_share", "white_no_degree_share"):
+        df[c] = df[c].round(2)
+    df["adults_25_plus"] = df.adults_25_plus.round().astype(int)
+    df.to_csv(INTERIM / "district_demographics.csv", index=False, lineterminator="\n")
+    print("district_demographics.csv:", len(df), "rows;", df.groupby("year").size().to_dict())
+    return df
+
+
 if __name__ == "__main__":
     what = sys.argv[1] if len(sys.argv) > 1 else "all"
+    if what == "cd":                      # EC-6: the congressional-district education tables, nothing else
+        fetch_cd(); build_cd(); sys.exit(0)
     if what in ("fetch", "refetch", "all"):
         fetch(refetch=what == "refetch")
     if what in ("build", "all"):

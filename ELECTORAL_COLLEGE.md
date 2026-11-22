@@ -28,11 +28,11 @@ little more.
 
 - 56 contests: 50 states, the District of Columbia, Maine's two districts and Nebraska's three.
 - Electoral votes change with each census. The backtest needs them by election (2000; 2004 and 2008; 2012 to 2020;
-  2024 and 2028). **Not in the repo yet.**
+  2024 and 2028). **In the repo since 2026-11-22 (EC-6): `data/interim/electoral_votes.csv`.**
 - Maine and Nebraska: the statewide winner takes two votes, each district one. A district is its own contest:
   prior = the state's forecast plus the district's lean relative to the state; its own polls where there are any
   (in the repo for 2016 to 2024); the state's shared errors plus a district error. **District results and lean are
-  not in the repo yet.**
+  in the repo since 2026-11-22 (EC-6): `data/interim/district_presidential.csv`, 1996 to 2020.**
 - 270 to win. A 269 to 269 tie is its own outcome, not split between the candidates.
 
 ## 3. Features
@@ -175,8 +175,8 @@ Then 2024, once, recorded whichever way it goes.
 
 ## 9. Not in the repo yet
 
-- Electoral votes by election.
-- Maine's and Nebraska's district results and lean, 2000 to 2024.
+- Electoral votes by election: in the repo since 2026-11-22 (EC-6, section 15).
+- Maine's and Nebraska's district results and lean: 1996 to 2020 in the repo since 2026-11-22 (EC-6); 2024 is held out.
 - Whole-campaign state polls for 2000 (only the final 60 days are held).
 - An urban against suburban split by year. The one snapshot is The Downballot's (below).
 - Fundamentals for presidential elections (EC-3).
@@ -3688,3 +3688,627 @@ hand-offs above.
 - **To the design freeze (EC-9):** the structure's one untouched test on 2024; report (f), the challenge's fixed-sign
   term, and whether the structure gains beside it; and how 2024 decides between the structure with and without
   candidate 3 if the user holds that open.
+
+## 15. Simulation and outputs: evaluation plan (EC-6)
+
+EC-2 to EC-5 fixed the centre of every state's forecast and how the states' errors move together. Nothing yet says
+how wide any state's range is, how wide the national one is around the adopted centre, or how the contests add up
+to 270. EC-6 is the assembly: it builds the simulation from the pieces as they stand, estimates the two spreads the
+earlier cards left to it, and fixes the outputs. Most of it is mechanical and is verified by identities and planted
+inputs. Four things are tests under section 8's rule: two candidates for a wider range in some states, a forecast of
+each state's turnout share, and a demographic swing model for Maine's and Nebraska's districts (A7, added at the
+user's request).
+
+### EC-6: pre-registration (written 2026-11-22, before any run)
+
+Nothing below has been run. No miss has been read for it. The only numbers in this draft are counts (polls, rows in
+tables, electoral votes) and what earlier sections already report.
+
+**How blind this test is.**
+
+- **The range candidates are suggested by earlier results.** EC-4's report (d) found lopsided states miss by more
+  than close ones (lean error 15 against 24 and 33 by the size of the prior, under F). EC-5's report (i) found the
+  wider spread of demographically unusual states worth 0.83 in log density on its own, and the spread diagnostic
+  showed which states those are (DC, New Mexico, Mississippi, California, Hawaii). Both candidates below are
+  declared **suggested by those results**, so a pass by either is flagged and goes to the user, not adopted under
+  the rule.
+- **The misses they are fitted on are the ones EC-4 and EC-5 scored.** Nothing else exists to fit a spread on. The
+  question here (how wide) is a different one from theirs (where the centre is; how states move together), and
+  the overfitting challenge (section 13) estimated no spread.
+- **The turnout candidates use no miss and no poll:** they are scored on the weights alone, against actual results.
+- **2024** is held out of everything here: results, polls, district results, the national series and the turnout
+  shares. The electoral votes for 2024 and 2028 come from a House file, not from the 2024 presidential page.
+
+**What is assembled, and where each piece comes from.**
+
+| Piece | Source | Status here |
+|---|---|---|
+| The centre of every state, at each date | section 13: the prior, F's weight on the state's polls, then the even shift to stage 3's national forecast (`C` in `pres_addup_rerun_frame.csv`) | borrowed as it stands |
+| How states move together | section 14: similarity on six by-year measures, the tilt by lean, the white-without-a-degree draw, as correlations | borrowed as it stands |
+| The national draw's size by days out | section 6's form, refitted on the adopted centre's errors (stage 3 left this to the assembly) | estimated here, no candidate |
+| Each state's spread by days out and poll count | section 6's form (the "totals" of section 4, which no card has fitted: V failed and F is one weight) | estimated here; two candidates |
+| Fat tails | Student-t, section 5 | one parameter, estimated here |
+| Districts, electoral votes, the count, the tie, the tipping point | section 2 | built here, from cached pages |
+| Each state's turnout share | section 5 ("vote shares from the previous election"); the card's candidate | one baseline, two candidates |
+
+### A. The assembly (no candidates; verified by checks)
+
+**A1. Contests.** 56: the 50 states, the District of Columbia, Maine's two districts and Nebraska's three. Sections
+13 and 14 worked on 51 because the districts had no results in the repo; this returns to section 2's 56. The
+districts are in the count and in the outputs. They are not in the popular vote, the even shift or the centring
+(they are parts of their states), and they are not in any fit below except their own spread (A5).
+
+**A2. Electoral votes by election.** The repo has none (section 9). The cached Wikipedia pages
+(`data/raw/wikipedia_hist/<date>/<year>_United_States_presidential_election.html`, the same pages
+`state_presidential.csv` is built from) carry them in the results-by-state table: for 2000 to 2008 a column of each
+state's electoral votes and a column of votes cast for each candidate; for 2012 to 2020 the votes cast for each
+candidate, faithless electors in an "Others" column. Checked on 2026-11-22 by reading the tables' headings and the
+Maine, Nebraska, Hawaii, Texas and Washington rows, no vote total read against any forecast.
+
+- A state's electoral votes = its apportionment, not the votes its electors cast: 2000 to 2008 from the state
+  column, 2012 to 2020 the sum over every candidate's column in the row, faithless electors included. Who won a
+  state in a simulation decides where its votes go; faithless electors are not simulated.
+- 2024 and 2028 use the 2020 census apportionment, from Wikipedia's apportionment page (fetched and cached by the
+  collector, revision id kept), cross-checked against the highest district number per state in `house_history.csv`
+  for 2022 and 2024 plus two, DC three. The House file alone is not enough: it is missing a district row in some
+  years (434 rows in 2024). The 2024 presidential page is not read.
+- A new collector, `src/collect/electoral_college.py`, writes `data/interim/electoral_votes.csv` (election, contest,
+  votes; Maine and Nebraska statewide 2, each district 1) and the district results (A5), with the pages' revision
+  ids. Nothing is typed from memory. 1996's page is read too, for the districts' lean at the 2000 election.
+
+**A3. The centre.** The forecast as EC-2 to EC-4 leave it, rebuilt by the same code and checked equal to the saved
+frame: the prior (the national nowcast plus the previous lean), F's weight at that date, the even shift to stage
+3's national forecast. For the backtest each election's weight is fitted on the elections before it; for 2028 on
+2000 to 2020. Dates: 100, 60, 30 and 7 days (section 6); 150 is produced and reported as the earlier cards did.
+
+**A4. The error, as one draw of the election.** For state s and the national draw η:
+
+    margin_s = mu_s + η + ε_s,        popular vote = Σ_s v_s margin_s = natF + η
+
+with v the turnout shares (C below) and Σ_s v_s ε_s = 0 by construction.
+
+- **The states' part ε** is EC-5's structure, centred and sized. *Revised twice on 2026-11-22, before any run. The
+  first draft centred every state's own error on the vote-weighted mean too, which ties every contest to every other
+  through the own errors and would have made the exact counting of A5 impossible (the advisor's review). The first
+  revision centred the sized shared part, P_v D h: the build's checks showed that has no solution when spreads differ
+  much between states, because a state's size then also sets its loading on the level all states share, and the
+  centred variance inherits (D_s − D̄)² times that level as a floor; a state wanting a spread below about 0.6 of the
+  average could not have it. So the shared part is centred first and sized after.* Let A = I + ρ_k K + ρ_b ℓℓ' +
+  ρ_w z_w z_w' with the sizes fitted as in section 14 (on the elections before the scored one for the backtest; on
+  2000 to 2020 for 2028), and C = corr(A) the correlation matrix EC-5 hands on. Split C into its shared part and the
+  states' own part: C = C_sh + C_own, with C_own the diagonal matrix of each state's own share (1 / A_ss) and C_sh
+  the rest (the kernel, the tilt and the education draw, rescaled). Then
+
+      ε = D (h_c + e ⊙ sqrt(diag C_own)),    h_c ~ N(0, P_v C_sh P_v') shared and centred, e the states' own Student-t errors,
+      P_v = I − 1v',    D_s set so that each state's lean error ε_s − v'ε has spread s_s (a closed form, then a short polish)
+
+  so that the shared draws carry no vote-weighted level (v'h_c = 0 exactly), every state's lean-error spread is s_s
+  from the range model (B), and, given h_c, the states are independent. The sized shared part contributes a little to
+  the popular vote through uneven sizes, v'D h_c; it is reported and the national draw is sized net of it.
+  - **Why this is faithful to EC-5.** EC-5 scored the covariance of the 50 contrasts, Q Σ Q' with Q1 = 0. Q P_v = Q,
+    so with one spread for every state Q Cov(ε) Q' = s² Q (C_sh + C_own) Q' = s² Q C Q': exactly what EC-5 tested
+    (a check). What EC-5 never identified is the level all states share: under candidate 3 the fitted kernel implies
+    a correlation of about 0.4 between any two states (report a), and that level is the one thing the contrasts
+    cannot see. Here the centring removes it from the shared part and the national draw carries it. This is the
+    hand-off's "centre K": applied after the correlation is formed, not inside the rescale, because the rescale
+    reads the diagonal and K's diagonal was part of what passed.
+  - **What is not faithful, declared.** EC-5 gave every state one spread. D gives each its own, from B. That is the
+    "sized against section 4's totals" of the hand-off. It moves the contrast correlations a little; the largest
+    change in any pairwise correlation against EC-5's C is reported.
+  - The shared draws are Gaussian and the state's own error is Student-t, section 5's and the Senate model's form.
+- **The national draw η** is Student-t, independent of everything else, sized as the remainder: the popular vote in a
+  draw is natF + η + v'ε, so
+
+      Var(η) = σ_N²(d) − v' Cov(ε) v
+
+  with σ_N(d) from the national range model (B). The popular vote's spread is therefore σ_N(d) exactly, and the
+  kernel's shared level has nowhere to live but η. If the remainder is ever negative (the own errors alone would
+  exceed the national range), η is set to zero and the date is flagged in the report. A state's total spread is
+  sqrt(Var(η) + s_s² + (the own term's share of the popular vote)), reported.
+- **Correlations across dates, an assumption.** EC-5 fitted the structure at 7 days and reported 30. The same
+  correlation matrix is used at 100 and 60 days, with the spreads growing by the range model. Written down as an
+  assumption, not tested here.
+- **Districts (A5).** margin_d = margin_s(final, after the even shift) + lean_d + ε_d, where lean_d is the district's
+  two-party margin less its state's at the previous election, on whatever lines the page reports, and ε_d is the
+  district's own Student-t error with one spread σ_D for all five, independent of everything else. Where the
+  district has polls (2016 on; 1 to 16 a cycle), its centre is prior_d + w (p_d − prior_d) with prior_d the state's
+  centre plus lean_d and w F's weight at that date, fitted on states; σ_D does not shrink with polls. Written down
+  because about 30 district-elections cannot fit a weight or a count term. σ_D² = the mean squared change in lean_d
+  from one election to the next over 2004 to 2020 (25 changes; 2000's uses 1996), by district reported; for the
+  backtest, the changes before the scored election. Redistricting years are in it (the 2028 lines are 2024's).
+- **Fat tails.** One ν for the state's own error, fitted by maximum likelihood (location 0) to the standardized
+  centred misses, miss / s_s(d), pooled over the fitting elections and dates, as `poll_settings.py` did for Senate
+  and governor races (ν = 3.9 there). The same ν is used for η and ε_d. The national errors' own fit of ν (17
+  elections) is reported beside it and decides nothing. Draws are scaled to unit variance, so ν changes the tails,
+  not the spreads.
+- **The count (decided by the user 2026-11-22, question 8): exact given the shared draws.** Given h, η and the
+  Student-t scale of the draw, the 51 states are independent, so each state's win probability is a closed form and
+  the distribution of the Democratic count is an exact convolution over the contests (a running sum over 0 to 538
+  votes). Maine and Nebraska are blocks: their statewide pair and their districts share the state's own error e_s,
+  so each block's distribution over its 4 or 5 votes is computed by integrating e_s out on a Gauss-Hermite grid of
+  the standard normal (the Student-t is drawn as a normal divided by the square root of a chi-square over ν, so
+  given the chi-square it is normal; 21 nodes per block). The exact count is averaged over 40,000 draws of the
+  shared part (h, η and the two mixing variables). The win probabilities, the count's distribution and the tie
+  come from this; their Monte Carlo error is far below plain simulation's and is reported.
+  - **What stays on plain simulation**, on the same 40,000 shared draws with each state's own error added: the
+    tipping point, the gap, the popular vote and its split from the count, and each contest's quantiles. These
+    need the ordering of the contests or the own errors in the sum, which the convolution does not give.
+  - **A check:** on planted inputs the exact count and plain simulation agree on P(D ≥ 270), the median count and
+    P(tie) within plain simulation's Monte Carlo error.
+  - Seed fixed in the code. Simulation noise, the rule's second clause, is live for the simulated outputs: they are
+    rerun with 5 seeds and the largest change between reruns is reported as the Monte Carlo error. Variants (the
+    range candidates, the turnout candidates, the district candidate) share one set of random numbers.
+
+**A6. Outputs, fixed now.** From the 56 simulated margins:
+
+- each contest's win probability and the 10th, 25th, 75th and 90th percentiles of its margin;
+- the Democratic count (538 votes, each contest's winner takes its votes), its mean, median, 10th and 90th
+  percentiles and its full distribution;
+- P(Democrat ≥ 270), P(Republican ≥ 270), P(269 to 269), as three outcomes that sum to one;
+- the popular vote's median and 10th and 90th percentiles, P(the popular vote and the count split), each way;
+- **the tipping point:** in each draw the 56 contests are ordered by margin and the tipping point is the contest
+  whose votes take the draw's winner past 269; in a 269 tie there is none, and the draw is counted under the tie.
+  Reported: how often each contest is the tipping point, and the contest most often there;
+- **the gap:** the tipping point's margin less the popular vote, in each draw; its median and 10th and 90th
+  percentiles are the forecast of section 1's fourth target. The realized gap, for EC-7, is the actual tipping
+  point's margin (the same ordering on the results) less the actual national margin;
+- implied error correlations for named pairs (as the Senate model reports), so the structure can be seen in the
+  output;
+- a per-draw file for the site (the Senate model's compact format) is not written here; that is SI-3 and SI-6.
+
+### A7. Districts: a demographic swing model (one candidate under section 8's rule; added at the user's request, 2026-11-22)
+
+*Added after the first draft and before any run, at the user's direction, in place of the fixed rule of A5 as the
+only option. The user asked whether an MRP on district-level votes could be evaluated. MRP proper (multilevel
+regression and poststratification) needs respondent-level poll data with each respondent's demographics; the repo
+has poll toplines only, so it cannot be run here or in a backtest. What follows is the aggregate analogue: a model of
+how a district's lean against its state moves between elections as a function of the district's demographics,
+fitted on every congressional district and applied to the five that award electoral votes.*
+
+**Baseline, D0:** A5's rule: lean_d at the previous election, on the lines in force.
+
+**Candidate D1:** lean_d = lean_d(previous) + β × x_d, with x_d the district's standardized white share without a
+degree (the measure EC-5 adopted at state level), in the year before the election, standardized across the 435
+districts; β fitted by least squares on the swings of all usable districts in the earlier elections, with one
+constant per election (the national swing drops out). A district-election is usable when its lines did not change
+at that election or the one before (Gary Jacobson's `redist` flag is 0 in both the election's row and the midterm's
+before it), so the swing compares the same district with itself. At-large seats are excluded (their swing is the
+state's). The sign and size of β are not fixed in advance.
+
+- **Data.** The response is the district's two-party presidential vote by election on the lines in force, from Gary
+  Jacobson's House elections file (`dpres`, 1946 to 2024, in the repo's gitignored store; section 9 of `DATA.md`;
+  2024 rows refused at load), with the state's vote from `state_presidential.csv`. Under the rule for privately
+  shared data, the fitted β and the scores are published; no per-district table from the file is committed. The
+  feature needs district demographics by year on the lines in force, which the repo does not have: the Census
+  Bureau's yearly survey publishes the congressional-district geography from 2005 (checked 2026-11-22 against the
+  API's geography lists for 2007 and 2019), with each year on the lines of the Congress then sitting.
+  `census_demographics.py` is extended to that geography (one table per year, the key already in `.env`). The 2024
+  survey year is not fetched.
+- **Which elections.** Redistricting removes 2004, 2012 and 2024 from the swing (lines changed in 2002, 2012 and
+  2022); 2008 is usable only if the 2007 survey has district rows (it does, from 2005), 2016 and 2020 are usable.
+  Fit-only: 2000 (swing from 1996, feature from the 2000 census long form at district level, if the API has it; if
+  not, 2000 is dropped and 2008 is fit-only). Scored: 2008, 2016 and 2020 at 7 days, each fitted on the usable
+  elections before it. Three scored elections, not four: the clause asks for better in 2 of 3, as EC-5's report (e)
+  did.
+- **The decider (proposed; the user chooses).** The score is the mean squared error of the predicted lean against
+  the realized lean over all usable districts, pooled over the scored elections: this tests the mechanism on about
+  400 districts an election. **Reported beside it, and deciding nothing:** the same for the five districts that award
+  electoral votes, which is what enters the forecast but has 15 observations. The alternative is to let the five
+  decide, which can hardly pass.
+- **The rule.** A positive gain over D0; better in 2 of the 3 scored elections; above the 95th percentile of 200
+  shuffles of x across the districts (one reordering held across years, seed 10). No simulation enters. **Flag:** a
+  pass whose five-district report is worse than D0 goes to the user.
+- **If D1 is adopted,** the five districts' centres in A5 become state + lean_d(previous) + β x_d, with σ_D refitted
+  on the residual swings; provisional until 2024 at EC-9.
+- **Reports:** β by scored election; the gain by the district's state-lean bin; the five districts' predicted and
+  realized leans by election.
+
+### B. The range (two candidates under section 8's rule)
+
+**Test bed.** The misses of A3's centre: result less `C`, for 2000 (30 and 7 days), 2004 (30 and 7) and 2008 to 2020
+(150, 100, 60, 30 and 7), 51 contests, each centred on the vote-weighted mean of its election and date. That is
+EC-4's lean error and the frame EC-5 used. 2000 and 2004 are fit-only; 2008 to 2020 are scored, each on a fit to the
+elections before it (section 7's burn-in). The misses are not reopened for any other purpose: the correlations are
+EC-5's.
+
+**The score.** For a scored election and date, the sum over the 51 contests of the Gaussian log density of the
+contest's centred miss under its spread: Σ_s log N(miss_s; 0, s_s²). The rule's target is 7 days, pooled as the
+mean over 2008 to 2020; 100, 60 and 30 days are reported. **A declared simplification:** the score reads each
+contest's own density, not the joint one. The spread is the question here and the correlations are settled, and
+the shuffle threshold is computed the same way, so the comparison is fair; but 51 correlated misses are fewer than
+51 independent ones, and the gains below are read with that in mind.
+
+**Baseline, R0 (section 6's form).** s_s² = a + b / (1 + n_s) + c × days, with n_s the state's effective number of
+polls (section 13: each poll counts 0.5^(age / 60)), days the days out, and a, b, c ≥ 0 by maximum likelihood on
+the fitting elections' misses at every one of their dates, from three starting points. A state with no poll has
+n = 0. This is the model's range; it has nothing to shuffle and gets no verdict.
+
+**The candidates.** Each multiplies R0's spread, so the days and poll-count shape is kept, with its own size ≥ 0
+fitted beside a, b and c:
+
+1. **R1, lopsided states (suggested by EC-4's report d).** s_s² = R0_s² × exp(e × |prior_s| / 10), with prior_s the
+   state's baseline prior (the national nowcast plus the previous lean) at the date, the quantity report (d)
+   binned on, in tens of points.
+2. **R2, unusual states (suggested by EC-5's report i).** s_s² = R0_s² × exp(f × u_s), with u_s = 1 − the mean of
+   K_st over t ≠ s: the state's distance from the rest on EC-5's six measures in the year the election uses, so DC
+   is far and a typical state is near the middle. Computed from the features only, no miss.
+3. **R1 with R2** is reported with no clauses, and goes to the user if both pass.
+
+**The rule** (section 8). A positive gain over R0 at 7 days; better in at least 3 of the 4 scored elections; above
+the 95th percentile of 200 shuffles of the feature across the 51 contests (one reordering held across years and
+dates, seeds 6 and 7), by more than the fit's tolerance. Simulation noise is nil: the score is closed-form.
+**Flags:** both candidates are flagged as suggested by earlier results, so a pass goes to the user. A pass that is
+worse than R0 at 30 days, pooled, is flagged as well. If the user adopts one, it is provisional until 2024 at the
+design freeze (EC-9), as every other adopted piece.
+
+**The national range.** σ_N²(d) = a_N + b_N × days by least squares on the squared errors (natF − result) at every
+day from 7 to 150, as stage 3's baseline range was fitted, on the nowcast × (1 − u/100) centre instead of the raw
+nowcast. For the backtest, fitted on the elections before the scored one from 1952; for 2028, on 1952 to 2020. No
+candidate; its coverage is reported.
+
+**Reports, fixed now.**
+
+- **(a) The fitted sizes** a, b, c, e, f by scored election, and what they imply: a typical state's centred spread
+  at 7 and 100 days with 0, 3 and 10 effective polls; the national spread at each date; ν.
+- **(b) Coverage.** The share of 51 centred misses inside the 50% and 80% ranges, by date, under R0 and each
+  candidate, and the share of national misses inside the national range's 50% and 80%, 1980 to 2020.
+- **(c) The candidates by the groups that motivated them:** R1's gain by |prior| bin (under 10, 10 to 20, over 20)
+  and R2's by thirds of u.
+- **(d) Without DC**, every clause on the 50 states, with u recomputed over the 50.
+- **(e) The structure's contrast correlations** after sizing against EC-5's C: the largest absolute change.
+
+### C. The turnout share (two candidates under section 8's rule; no miss)
+
+Every add-up weights states by their share of the previous election's two-party vote, which put the popular vote
+0.1 to 0.2 points off the actual weights' figure in 2004 to 2020 (section 11, stage 5). The test asks whether a
+forecast of each state's share does better, using results alone.
+
+**The score.** For an election, the national two-party margin computed from the actual state results with the
+candidate's weights, less the actual national two-party margin (the same results with the actual weights),
+squared. Pooled: the mean over 2008 to 2020. 2000 and 2004 are fit-only.
+
+**Baseline, T0:** v_s = the state's share of the two-party vote at the previous election.
+
+**The candidates**, each v_s ∝ share_{t−1,s} × g_s^λ, renormalized to sum to one, with λ fitted on the fit-only and
+earlier scored elections on a grid from 0 to 2 by 0.05:
+
+1. **T1, each state's own trend:** g_s = share_{t−1,s} / share_{t−2,s}.
+2. **T2, population growth:** g_s = (population_s at the election's demographic year / population_s at the previous
+   election's) ^ (4 / the years between them), from DA-11's table (`state_demographics.csv`, `population`, the year
+   `state_demographics_vintages.csv` gives each election: 2000, 2004, 2007, 2011, 2015, 2019). Annualized because the
+   years between vintages are 3 or 4.
+
+**The rule.** A positive gain; better in 3 of the 4 scored elections; above the 95th percentile of 200 shuffles
+of g across the 51 (one reordering held across years, seeds 8 and 9). No simulation enters. λ = 0 in every fit is
+the baseline and gets no verdict. If both pass, the larger gain is adopted; the combination is not run.
+
+**What adoption changes.** The weights enter the even shift, the popular vote in a draw and the centring. An
+adopted candidate is applied from the 2028 forecast and the backtest's as-of runs on; **the range in B is fitted on
+the frame as it stands** (previous-election weights), since a shift of a tenth of a point in the level moves no
+spread. This is said so the two parts do not couple.
+
+### D. What is run on real inputs, and what is read
+
+The assembly is run as of each scored election (2008 to 2020) at 100, 60, 30 and 7 days, everything fitted on the
+elections before it, and the outputs of A6 are written to `data/processed/pres_sim_asof.json`. **Proposed: EC-6
+reads from those runs only** the range test (B), the turnout test (C), the coverage reports, the identities in the
+checks and the Monte Carlo error. The win probabilities, the counts, the tipping points and the gaps are EC-7's
+targets and are not read here, so that EC-7 is a backtest and not a formality (question 9). The 2028 forecast is
+not run here: its inputs do not exist, and its parameters are frozen at EC-9.
+
+**Checks before any loss is read** (`src/model/pres_sim.py checks`, printing pass or fail only):
+
+- 2024 is absent from the polls, the results, the district results, the electoral votes' presidential pages, the
+  national series and the turnout shares; the 2024 and 2028 apportionment comes from the apportionment page and the
+  House file, not from the 2024 presidential page.
+- Electoral votes sum to 538 in every election 2000 to 2020; Maine is 4 and Nebraska 5 as 2 plus the districts; for
+  2000 to 2008 the state column equals the sum of the candidates' columns; for 2008 to 2020 the House file's highest
+  district number per state plus two equals the pages' figure in every state; the apportionment page's 2020 census
+  column sums to 538 and matches the House file for 2022 and 2024.
+- District rows: five districts with both candidates' votes in every election 1996 to 2020, and the sum of a
+  state's districts equals the state's votes for each candidate.
+- The rebuilt centre equals `pres_addup_rerun_frame.csv`'s `C` column at every state, election and date it has.
+- Identities on simulated draws: Σ_s v_s ε_s = 0 to 1e-9 in every draw; the popular vote's spread equals σ_N(d) and
+  each state's centred spread equals s_s(d), to Monte Carlo error; a state's total spread is sqrt(σ_N² + s_s²).
+- With D set to one constant, Q Cov(ε) Q' equals EC-5's Q C Q' up to one scale, to 1e-9.
+- Planted misses from a known (a, b, c, e, f) recover the sizes within sampling error from each starting point; the
+  decision path runs end to end on planted misses (30 shuffles): a planted lopsided term passes R1 and is flagged, a
+  flat plant passes nothing.
+- Planted turnout: λ = 0 reproduces T0; a planted λ is recovered; an identity shuffle reproduces each candidate and
+  a real one changes it.
+- Districts: with no polls, margin_d − margin_s has mean lean_d and spread σ_D over draws; with polls, the centre is
+  prior_d + w (p_d − prior_d); the tipping point and the tie are computed on made-up margins with known answers,
+  including a 269 draw.
+- A ν of 1e6 reproduces Gaussian draws; the same seed reproduces the same outputs.
+- Monte Carlo error on planted inputs: 5 seeds, the largest change in P(D ≥ 270), the median count and P(tie).
+
+**Questions for the user.**
+
+1. **The decomposition (A4, revised):** the shared part of EC-5's structure centred on the vote-weighted mean, the
+   states' own errors left as they are so the contests are independent given the shared draws, and the national
+   draw sized as the remainder so the popular vote's spread is the national range exactly. The alternative is to
+   centre K before the correlation is formed, which changes the diagonal EC-5 tested.
+2. **The range's baseline and candidates (B):** section 6's form as the baseline with no verdict; R1 and R2 as
+   multiplicative terms, flagged as suggested by earlier results; the score on each contest's own density at
+   7 days.
+3. **Fat tails:** one ν fitted on the states' standardized misses, used for the national and district draws too;
+   shared components Gaussian, as the Senate model.
+4. **Correlations held across dates** while the spreads grow: assumed, not tested.
+5. **Districts (A5, A7):** answered 2026-11-22. The state's draws plus one district spread from the 2004 to 2020
+   lean changes, F's state weight on district polls, out of the popular vote, the even shift and the centring; and
+   the demographic swing model D1 evaluated inside this card. Still open: D1's decider (all usable districts, or the
+   five).
+6. **Electoral votes (A2):** apportionment from the results tables for 2000 to 2020 and from Wikipedia's
+   apportionment page for 2024 and 2028, cross-checked against the House file where they overlap.
+7. **Turnout (C):** T1 and T2 on the weights alone; an adopted candidate changes the add-up from here on and the
+   range is fitted on the frame as it stands.
+8. **Simulation:** answered 2026-11-22. Exact counting given the shared draws for the win odds, the count and the
+   tie; plain simulation on the same 40,000 shared draws for the tipping point, the gap, the popular vote's split
+   and the quantiles; a fixed seed, Monte Carlo error from 5 seeds, common random numbers across variants.
+9. **What is read (D):** the tests, the coverage, the identities and the Monte Carlo error; the counts, win odds,
+   tipping points and gaps of the as-of runs wait for EC-7.
+10. **Outputs (A6):** the tipping point by ordering the 56 contests; a 269 tie has no tipping point; the gap's
+    forecast is the median over draws.
+11. **One round** for B and for C. The 2000 to 2020 misses are then closed for this card.
+12. **2000** as fit-only with w = 1, as in EC-5; 2004 fit-only, 2008 to 2020 scored, 3 of 4.
+
+**EC-6: the user's answers so far (2026-11-22).** Questions 5 and 8 are answered; the other ten are open, and
+question 1's proposal has changed (A4, revised above).
+
+- **Question 8.** The user asked about "posterior meta-modelling methods for the electoral college", with the
+  reference Han, Gelman and Vehtari, *Efficient scenario analysis in real-time Bayesian election forecasting via
+  sequential meta-posterior sampling* (arXiv 2510.19133v2). Read on 2026-11-22 through a summariser, not in full: the
+  paper takes an already fitted Bayesian poll model (The Economist's, in Stan) and reweights its posterior draws
+  along a perturbation path (power-scaled priors and likelihood, inserted or deleted polls) with sequential Monte
+  Carlo, so scenario and sensitivity analyses run without refitting. Its 2016 backtest is of perturbations, not of
+  accuracy. It is a tool on top of a joint Bayesian model, not a counting or forecasting method. Offered three
+  readings, the user chose two: **exact counting given the shared draws is adopted for EC-6** (A5, above), and **a
+  joint Bayesian model of the 56 margins as a rival to the assembled pieces**, with the meta-posterior as its
+  scenario tool, is to be pursued. The rival is not EC-6's: it is a different model with its own design choices to
+  pre-register, it needs a probabilistic-programming toolchain this machine does not have (no Stan, PyMC, JAX or C++
+  compiler as of 2026-11-22), and a 2020-era design has seen the elections it would be scored on, which has to be
+  declared. Proposed to the user: a new card after EC-6, with the same as-of 2008 to 2020 runs as the assembly and
+  2024 once; no plan commit until the user agrees.
+- **Question 5.** MRP proper is not possible with toplines. The user chose to evaluate the aggregate analogue inside
+  EC-6: candidate D1 of A7, above, with its data need (district demographics by year from the Census API) and its
+  decider left to the user.
+
+**EC-6: the user's decisions on the rest (2026-11-22, before any run).** The user agreed with the advisor's and my
+recommendations on every open point: question 1 as revised (the shared part centred, own errors independent, the
+national draw the remainder); 2 (section 6's form as the baseline, R1 and R2 flagged, the score on each contest's
+own density at 7 days); 3 (one ν from the states, used for the national and district draws; shared components
+Gaussian); 4 (correlations held across dates); 6 (apportionment from the pages and the apportionment page); 7 (T1
+and T2 on the weights alone, the range fitted on the frame as it stands); 9 (EC-6 reads the tests, the coverage, the
+identities and the Monte Carlo error; the as-of counts, win odds, tipping points and gaps wait for EC-7); 10 (the
+outputs as written); 11 (one round for B, C and A7); 12 (2000 and 2004 fit-only, 2008 to 2020 scored). **D1's
+decider** is all usable districts, with the five that award electoral votes reported and flagging a pass if they are
+worse. **EC-10** is opened for the joint Bayesian rival. The user added that the site may end up showing two
+genuinely different models rather than three variants of one, as 2026 did; EC-10 is to settle that, and part of its
+work feeds the site cards (SI). The pre-registration is confirmed; the build and its checks come next, then one round.
+
+**EC-6: amendments after the build and its checks, before any loss is read** (`src/model/pres_sim.py checks`,
+26 checks passing on 2026-11-22 at this point, 29 after the review below; no miss read, no fitted number read except on
+planted inputs).
+
+- **A4's sizing** was revised a second time (above), after the first revision's fixed point failed on the real
+  structure with planted spreads: the shared part is centred before it is sized.
+- **The count's blocks (A5).** Maine's and Nebraska's own error is integrated on 64 equal-probability nodes of the
+  Student-t itself (its quantiles at the midpoints of 64 equal intervals), not on a Gauss-Hermite grid of the normal
+  part: simpler, and exact to the node count whatever ν is. Each block's distribution over its 4 or 5 votes is then
+  convolved into the count like any contest.
+- **Student-t draws** are scaled to unit variance, so ν changes the tails and not the spreads; ν is fitted on R0's
+  standardized residuals (the baseline's), and refitted under a candidate only if the user adopts one.
+- **The national range** keeps stage 3's floor of 1.0 on the variance. If the remainder for η is negative at some
+  date, η is zero there and the date is flagged in the report.
+- **The range fit's identification.** On planted misses the days term c comes back low (0.016 for 0.030) while a
+  and b trade off against it: days out and the effective poll count move together across the cells, so the three
+  terms are only jointly well determined. The spreads they imply are what the simulation uses, and those are
+  recovered; the sizes alone are read with that in mind.
+- **D1's shuffle.** The districts differ from one election to the next (lines change, seats move), so "one reordering
+  of the states held across years" has no exact analogue; each shuffle draws one permutation per election from one
+  seed and re-derives the fit and the score. Declared here before the run.
+- **D1's elections.** The 2000 census long form has no congressional-district geography in the API (the call fails),
+  so 2000 is dropped, 2008 is fit-only, and 2016 and 2020 are scored, asking for 2 of 2, as the draft provided.
+  `district_demographics.csv` holds the two education tables by district for 2007, 2015 and 2019 (435 rows each;
+  `census_demographics.py cd`); at-large seats are coded 00 by the API and dropped from the swing.
+- **Jacobson's file against the pages.** For the five districts that award electoral votes, his two-party presidential
+  margin was compared with the pages' before any fit. 2008, 2012 and 2020 agree within a point (his vote base
+  differs slightly from the pages'). **Nebraska's three 2016 rows do not**: each is more than 2 points from the
+  pages. The rule, fixed now: a district-election whose
+  margin is more than 2 points from the pages is dropped from D1's fit and listed in the output; the five districts'
+  own report uses the pages. Nothing else in his file can be checked this way.
+- **The usable swing sample** before any feature is matched: 410 district-elections in 2008, 386 in 2016, 397 in
+  2020 (lines unchanged at the election and the midterm before, both votes present, not at-large).
+- **T2 for 2000** has no population before 2000 in DA-11's table, so T2's fit-only year is 2004 alone; T1 has 2000
+  and 2004.
+- **Coverage (report b)** is given under Gaussian quantiles and under the Student-t's at the fitted ν.
+- **Checks, run and passed (26):** the holdout; the rebuilt centre equals the saved frame's `C` in all 22 cells;
+  electoral votes; the centred shared draws carry no level and the sized shared part's share of the popular vote is
+  small; each state's lean-error spread equals s_s and the popular vote's spread equals σ_N to Monte Carlo error; the
+  total spread; with D one constant Q Cov(ε) Q' equals EC-5's Q C Q' up to one scale (1e-9); the sizing reproduces
+  every spread (1e-8); the exact count and plain simulation agree (Gaussian and ν = 4); ν = 1e9 reproduces Gaussian
+  draws; a district's margin less its state's has the lean and σ_D; the tipping point on fixed margins; a 269 draw is
+  a tie with no tipping point in both methods; the same seed reproduces the outputs; planted range sizes recovered
+  and the decision path (a planted lopsided term passes R1, a flat plant passes nothing, 30 shuffles); ν large on
+  Gaussian plants; T0's error is 0.1 to 0.2 points in 2008 to 2020; λ = 0 reproduces T0; identity and real shuffles;
+  T2's data reach; the swing model recovers a planted slope and a flat plant fails; σ_D from 25 changes.
+
+**EC-6: the advisor's review of the build, before any loss is read (2026-11-22).** Seven points, all taken.
+
+- **A fault in the exact count, found and fixed before any run.** The Student-t win probability divided the margin by
+  the own spread over the scale factor sqrt((ν − 2) / ν) instead of times it, so a close state's probability was
+  pulled toward one half (0.74 where 0.88 was right at ν = 4 with the margin equal to the spread). The ν = 4 check had
+  passed because close states' errors cancel in the count and its tolerance was loose. Two checks were added: the
+  exact per-contest probability against the simulated frequency on the 15 closest states (largest gap 0.003 at ν =
+  4), and one contest at ν = 4 against the closed form and simulation.
+- **A floor on ν.** The Student-t's variance exists only above 2, and the 2008 fit rests on about 200 residuals, so a
+  fitted ν below 2.5 is set to 2.5; the unfloored fit is reported beside it. Written before any real ν was seen.
+- **Jacobson's file can be checked beyond the five districts.** The Downballot's district sheets carry the 2016 and
+  2020 presidential votes by district: 2016 on the 116th Congress's lines (the 2016 lines, except the states redrawn
+  in 2018, which his flag names and which are not compared) and 2020 on the 117th's. Before any fit, every comparable
+  district-election more than 2 points from the sheet is dropped from D1 and listed; the count compared and dropped
+  is reported by year. 2008 has no sheet and is checked through the five districts only. The earlier sentence that
+  nothing else could be checked is withdrawn.
+- **Report (d)** now does what the draft says: u is recomputed over the 50 states (the kernel without DC) and the
+  clauses, the shuffle included (200, seed + 100), are rerun on the 50.
+- **Report (e)** compares correlations in the contrast space (Q Cov(ε) Q' against Q C Q'), as the draft says; the
+  first code compared the centred covariance with the uncentred C, which would have shown the removed level.
+- **Two pre-registered checks that were missing are added:** a planted λ (1.0) recovered by T1's grid fit in every
+  scored election; a district's centre with polls equals prior + w (poll − prior) and without polls equals its prior
+  (Maine's 2nd in 2020 and 2008).
+- **2008 at 100 and 60 days** is assembled with the rest and marked not scored in the as-of file (section 7).
+- **Checks, run and passed: 29.**
+
+**EC-6: the data build, before any loss is read** (`src/collect/electoral_college.py`, run 2026-11-22). Built and
+checked while the pre-registration awaits the user; it reads no poll and no forecast, and 2024 is never opened.
+
+- `electoral_votes.csv`: 56 contests in each of 2000 to 2028, summing to 538 every time. 2000 to 2020 from the yearly
+  pages; 2024 and 2028 from the apportionment page's 2020 census column. The pages' figures equal the apportionment
+  page's census column plus two in every state and year, and the House file's highest district number per state plus
+  two (an at-large seat is district 0 there) agrees for 2008 to 2024. One faithless vote in no column: Minnesota's
+  2004 state column reads 10 and its candidates' columns sum to 9 (an elector voted for Edwards); the state column is
+  used, as written.
+- `district_presidential.csv`: the five districts in each of 1996 to 2020 with both nominees' votes. Each state's
+  districts sum to its votes exactly except Maine in 2012 and 2016, where they fall short by 0.01% to 0.07% (ballots
+  not assigned to a district); the check allows 0.1%.
+- The pages' state votes equal `state_presidential.csv` in all 357 state-years 1996 to 2020.
+
+### EC-6: results (run 2026-11-22, one round). The baseline range stands; T1 passes and is adopted; R1, R2, T2 and D1 fail.
+
+`src/model/pres_sim.py run` (then `asof` with the adopted turnout weights), `data/processed/pres_sim.json`; the as-of
+outputs in `pres_sim_asof.json`, written and not read (question 9). Units for the range: the sum over the 51 contests
+of the log density of each contest's centred 7-day miss, pooled as the mean over 2008 to 2020; for turnout, squared
+points of popular-vote error; for D1, the mean squared error of the predicted district lean.
+
+**B. The range.** R0's fitted sizes, by scored election (a, b, c): 2008 (0.60, 72.5, 0), 2012 (1.80, 92.7, 0),
+2016 (1.97, 71.8, 0), 2020 (5.93, 66.0, 0.003). R0's log density by election: −158.1, −137.8, −172.7, −132.8.
+
+| Candidate | Gain at 7 days | 2008 | 2012 | 2016 | 2020 | Better | Shuffle 95th | 30 days | Without DC | Verdict |
+|---|---|---|---|---|---|---|---|---|---|---|
+| R1, lopsided | −0.07 | −0.27 | 0.00 | 0.00 | 0.00 | 3 | 0.52 (27% beaten) | −0.18 | −0.00, 1 of 4 | fails |
+| R2, unusual | +0.27 | +2.93 | −0.35 | −2.54 | +1.04 | 2 | 0.36 (94% beaten) | −0.28 | −0.25, 2 of 4 | fails |
+| R1 with R2 (reported) | +0.27 | +2.93 | −0.35 | −2.54 | +1.04 | | | | | |
+
+- **R1 fails** on the positive-gain and shuffle clauses: its size e fits to zero in 2012, 2016 and 2020 and to 0.044 in
+  2008, so it is the baseline with one extra parameter. Report (c): no gain in any bin of the prior's size (−0.13,
+  +0.06, +0.01). A reading, not established: lopsided states are thinly polled, so the larger lean error EC-4's
+  report (d) found there may already be carried by the poll-count term.
+- **R2 fails** on the elections clause (2 of 4) and the shuffle (94% beaten, needs 95%), with a positive pooled gain
+  that is 2008's and 2020's and reversed in 2012 and 2016. Its size f is large (1.46, 1.93, 1.48, 0.66), and report
+  (c) shows where it works: the far third of states gains +1.19, the near third loses −0.67. Without DC the gain is
+  negative. It is worse at 30 days. The spread finding of EC-5's report (i) does not survive as a range term.
+- **Both were flagged by construction**, as suggested by earlier results; neither reaches the user.
+- **The days term c is zero** in three of four fits and 0.003 in 2020. The lean error does not widen with days out
+  once the poll-count term is in: the effective count already falls as the date recedes (older polls count less), and
+  with c bounded at zero the fit cannot say what the coverage below suggests, that the count term widens the early
+  dates too much. **Report (a), R0's implied centred spread** (points), the same at 7 and 100 days: a state with no
+  poll 8.5 to 9.7, with 3 effective polls 4.3 to 5.0, with 10 effective polls 2.7 to 3.5.
+- **Report (b), coverage** of the centred misses in 2008 to 2020 (204 state-dates a date), fitted as of each election,
+  R0 with Gaussian quantiles (under each election's Student-t at its fitted ν, scaled to unit variance, the
+  figures are 100 days 55% and 85%, 60 days 59% and 82%, 30 days 51% and 79%, 7 days 40% and 72%; a first version of this line averaged ν across
+  elections, 2008's infinite fit included, and reproduced the Gaussian figures by construction; corrected 2026-11-22):
+
+  | Days out | 50% range covers | 80% range covers |
+  |---|---|---|
+  | 100 | 57% | 86% |
+  | 60 | 61% | 82% |
+  | 30 | 53% | 80% |
+  | 7 | 42% | 73% |
+
+  **So the range is too wide early and too narrow at 7 days.** R1 and R2 do not change this (42% and 73% to 74% at 7
+  days under both). This is the first thing the design freeze should look at in the range. Why it happens is not
+  established here; a days term allowed to be negative, or a count term that saturates, are candidate forms
+  **suggested by these results**, written down for EC-9 and not run (one round).
+- **Report (e), the structure after sizing.** The sizing changes no pairwise correlation between states: Cov(ε) is a
+  diagonal rescale of one matrix, and corr(D M D) = corr(M) for any diagonal D (the largest change over the 16 cells is
+  2.2e-16, rounding). So the hand-off's worry does not arise. What does change the correlations against EC-5's C
+  is the centring of the shared part, which removes the level all states share: the mean pairwise correlation falls
+  from 0.37 to 0.46 under C to 0.02 to 0.03 after centring, with a median change of
+  0.36 to 0.42 and a largest change of 0.63 to 0.85 by cell. That level now
+  lives in the national draw, as designed. (A first version of this report compared correlations in the contrast
+  basis, which is arbitrary, and read a large change into it; corrected 2026-11-22.)
+- **ν.** On R0's standardized residuals: 2008 (204 residuals) runs to infinity, so 2008 is Gaussian; 2012 10.4, 2016
+  9.5, 2020 10.0. The fitted scale of 0.89 to 0.90 is the Student-t's scale parameter; times sqrt(ν / (ν − 2)) it is
+  1.00 to 1.00, so the standardized residuals have unit spread, as they should (a first version read the scale
+  as the residuals sitting inside the spreads; corrected 2026-11-22).
+  No fit reached the floor of 2.5. The national errors' own fit at 7 days gives ν 2.9 on 18 elections, reported only.
+- **The national range**, a_N + b_N × days on 1952 on: as of 2008 (12.7, 1.18), as of 2020 (11.4, 0.98), on everything
+  to 2020 (11.4, 0.92). The spread at 7 days is 4.2 to 4.6 points and at 100 days 10.5 to 11.4. **Its coverage as of
+  each election 1980 to 2020 at the four dates (44 cells): the 50% range covers 77% and the 80% range covers 100%.**
+  The range refitted on the adopted centre from 1952 is too wide for the modern era, as the 1952 to 1976 misses sit
+  in it. Reported; a fit from 1980 is a candidate **suggested by these results** for EC-9.
+
+**C. Turnout.** T0's popular-vote error from the previous election's weights: +0.09, +0.12, −0.17 and −0.17 points in
+2008 to 2020 (section 11's figures).
+
+| Candidate | Gain (squared points) | 2008 | 2012 | 2016 | 2020 | Better | Shuffle 95th | λ by election | Verdict |
+|---|---|---|---|---|---|---|---|---|---|
+| T1, own trend | +0.0042 | +0.0079 | +0.0054 | −0.0093 | +0.0127 | 3 | 0.0033 | 0.35, 0.40, 0.40, 0.35 | **passes** |
+| T2, population | −0.0158 | −0.0489 | +0.0135 | +0.0026 | −0.0303 | 2 | 0.0027 | 1.45, 0.65, 0.65, 0.65 | fails |
+
+- **T1 passes every clause with no flag and is adopted under the rule, provisionally until 2024 at EC-9.** Each
+  state's share of the vote is the previous election's share times its own last change to the power 0.35 to 0.4:
+  about a third of the way along its trend. The root mean squared popular-vote error falls from 0.14 to 0.13 points;
+  the gain is real by the rule and small in size.
+- **T2 fails:** population growth over-shoots (λ 0.65 to 1.45), worse in 2008 and 2020.
+- **What adoption changes.** T1's weights enter the even shift, the popular vote in a draw and the centring, from the
+  as-of runs below on. The range in B was fitted on the frame as it stands, as written.
+
+**A7. The district swing model.** Data before the fit: the 2000 census has no district geography, so 2008 is
+fit-only and 2016 and 2020 are scored (2 of 2). Jacobson's five districts against the pages dropped Nebraska's three
+2016 rows; against The Downballot's sheets (414 compared for 2016 with Pennsylvania not comparable, 435 for 2020,
+median gap 0.00) four more 2016 rows were dropped, all four of Utah's (not investigated; Utah's large 2016
+third-party vote is a possible cause). No value from his file is written anywhere. Usable district-elections
+after matching the feature: 410 (2008), 379 (2016), 390 (2020).
+
+| | Gain (MSE) | 2016 | 2020 | Better | Shuffle 95th | β (2016, 2020) | Five districts | Verdict |
+|---|---|---|---|---|---|---|---|---|
+| D1 | −3.82 | +4.93 | −12.58 | 1 of 2 | 0.065 | −0.87, −2.00 | +3.94 (not worse) | fails |
+
+- **D1 fails** on every clause. β is negative in both fits (districts with more white adults without a degree move
+  toward the Republican relative to their state): fitted on 2004 to 2008 it helped in 2016 (+4.9), and fitted on
+  2008 and 2016 it doubled and was badly wrong in 2020 (−12.6), when that swing partly reversed. The five
+  electoral-vote districts, reported, happen to gain (+3.9), so the flag would not have applied. D1 is closed;
+  the districts keep A5's rule.
+- **σ_D** (the one district spread, A5): 4.05 points over the 25 lean changes of 2004 to 2020 (by district 3.3, 3.8,
+  0.5, 4.9 and 5.7 for ME-1, ME-2, NE-1, NE-2, NE-3); as of 2008 it was 0.34 (five small changes, 2000 to 2004), as of
+  2012 2.81, as of 2016 2.50, as of 2020 4.37.
+
+**D. The as-of assembly** (2008 to 2020 at 100, 60, 30 and 7 days; 2008 at 100 and 60 marked not scored), everything
+fitted on the elections before each, with T1's weights. The outputs are in `pres_sim_asof.json` for EC-7 and were not
+read. What was read:
+
+- **Identities.** The popular vote's simulated spread equals σ_N within 0.03 points in all 16 cells. η carries almost
+  all of it (σ_η 4.24 to 11.43 against σ_N 4.27 to 11.44): the states' own errors add 0.30 to 0.71 points to the
+  popular vote's spread and the sized shared part 0.06 to 0.30. No cell needed the floor on η. Each state's simulated
+  lean-error spread is within 0.07 points of its fitted s_s.
+- **Inputs by cell**, fitted as of each election: σ_N at 7 days 4.27 to 4.58 and at 100 days 10.45 to 11.44; ν
+  Gaussian for 2008 and 9.5 to 10.4 after; σ_D 0.34 (2008), 2.81, 2.50, 4.37; T1's λ 0.35 to 0.40; EC-5's three
+  sizes refitted on the elections before each.
+- **Monte Carlo error at 7 days** (the largest change over 5 seeds of 40,000 draws): P(D ≥ 270) 0.003 to 0.006 by the
+  exact count against 0.003 to 0.007 by plain simulation; P(tie) 0.0000 to 0.0004 against 0.0004 to 0.0009; the
+  median count 0 to 5 votes; the gap's median 0.006 to 0.019 points; the tipping point's modal share 0.004 to 0.007;
+  the split probability 0.002 to 0.007. The exact count gains little on P(D ≥ 270) because the shared national draw
+  dominates that probability and both methods integrate it by Monte Carlo; it halves or better the tie's error.
+  Section 8's second clause, for any future candidate judged on these outputs, is therefore about 0.006 on a win
+  probability and 0.0005 on the tie.
+
+**What stands after the round.**
+
+- **The range** is R0: s² = a + b / (1 + n) + c × days, fitted on the lean errors of the elections before the forecast,
+  with its coverage pattern recorded above. R1 and R2 are closed.
+- **The national range** is a_N + b_N × days on the adopted centre's errors from 1952, with its over-coverage recorded.
+- **T1 is adopted provisionally** until 2024 at EC-9; T2 is closed.
+- **D1 is closed**; Maine's and Nebraska's districts take the state's draws plus one district error of spread σ_D.
+- **The 2000 to 2020 misses are closed for this card.**
+
+**Hand-offs.**
+
+- **To EC-7:** `pres_sim_asof.json`: for each of 2008 to 2020 at 100, 60, 30 and 7 days, every contest's win
+  probability and quantiles, the count's exact distribution, P(D ≥ 270), P(tie), the popular vote's distribution, the
+  split probabilities, the tipping-point shares and the gap's distribution, with the fitted sizes beside them. EC-7
+  scores them against the results; nothing in them was read here.
+- **To the design freeze (EC-9), suggested by these results:** a days term in the range that may be negative (or a
+  saturating count term), given 42% and 73% coverage at 7 days against 57% and 86% at 100; the national range fitted
+  from 1980; and T1's one untouched test on 2024.
+- **To the site (SI-3, SI-7):** the outputs' shape in A6, and the per-draw file still to be written.
