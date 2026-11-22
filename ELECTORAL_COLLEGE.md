@@ -3430,3 +3430,69 @@ choices the draft did not state. They are fixed here; no loss and no fitted numb
   1 pass, planted regions and tilt alone make every candidate fail, planted similarity makes candidate 3 pass, a
   planted fixed-sign term is recovered with its sign by report (f)); the five flags trip on their conditions; and the
   whole decision path runs on planted misses, with the planted candidate passing, flagged and sent to the user.
+
+### EC-5: results (run 2026-11-21, one round). Candidate 3 passes with no flag and is adopted provisionally. Candidate 2 passes with flag 1 and goes to the user. Candidate 1 fails.
+
+Everything below is from `data/processed/pres_errors.json`, written by `pres_errors.py run`; the misses are in
+`pres_errors_frame.csv`. The score is the log density of an election's 50 centred 7-day misses, in log-density
+units; a gain of 1 means the candidate gives the misses that happened e times the density the baseline gives them.
+Sizes are relative to the state's own error, with lean in tens of points.
+
+**The baseline.** Pooled score −145.61 (2008 −146.76, 2012 −145.47, 2016 −159.06, 2020 −131.16). Fitted on the
+elections before each: the regional size 0 (2008), 0.019, 0.034, 0.102; the tilt 0.014 to 0.017; σ_T 3.8 to 4.5
+points. So in 2008's fit (on 2000 and 2004) the baseline is the tilt alone. The implied correlations are small:
+within a region 0.005 to 0.09, and the tilt carries 6% to 8% of a typical state's variance.
+
+- **Report (h), the baseline's own parts.** The tilt alone scores −146.36 and independent errors −148.42: regions
+  and the tilt together are worth 2.8 per election over independence, most of it in 2008 and 2020.
+
+**Candidate 1 (a degree draw) fails.** Gain 0.68 (2008 +1.51, 2012 −0.09, 2016 +1.83, 2020 −0.50): better in 2 of
+4, so it fails clause 3. It beats its shuffles (95th percentile 0.035; the 200 shuffled gains run from −2.15 to
+0.62, median −0.02) and its gain is positive. Fitted sizes 0.032 to 0.063.
+
+**Candidate 2 (a white-without-a-degree draw) passes its clauses and is flagged.** Gain 1.90 (2008 +0.73, 2012
++2.10, 2016 +4.12, 2020 +0.67): better in 4 of 4; 95th percentile of the shuffles 0.151 (they run from −2.37 to
+0.76, median 0.00); positive. Fitted sizes 0.007, 0.022, 0.037, 0.053, growing with each election added to the
+fit. Flag 1 applies (the challenge scored this feature on 2012 to 2020), so it goes to the user and is not adopted
+under the rule. No other flag: without DC its gain is 1.63 and it is better in 3 of 4 (2008 is exactly 0, its size
+fitting to zero there); at 30 days 2.26 and 4 of 4; its 2020 size is not zero.
+
+**Candidate 3 (similarity in place of regions) passes with no flag.** Gain 3.28 (2008 −5.12, 2012 +1.96, 2016
++10.71, 2020 +5.57): better in 3 of 4; 95th percentile of the shuffles −0.64 (they run from −2.65 to 0.34, median
+−0.78, 1 in 100 positive: a shuffled kernel loses the regions and gives back nothing); positive. Fitted sizes 4.3,
+2.6, 2.0, 2.2; the tilt beside it 0.05 to 0.017; σ_T 5.6 to 6.0. The variants pass too: own-year demographics 3.16
+(3 of 4), without DC 3.43 (3 of 4), at 30 days 3.54 (3 of 4, 2008 −0.72). Its 2020 size is not zero. **So
+candidate 3 is adopted under the rule, provisionally until 2024 at the design freeze.** Its one weak point is
+written down: 2008, the thinnest fit (two elections, size 4.3), is worse by 5.1, and the gain is in 2016 and 2020.
+
+- **What the fitted kernel implies (report a), read with care.** In the full space of 51 states the similarity
+  component carries 64% to 78% of a typical state's variance, with mean correlation 0.42 to 0.51 within a region
+  and 0.36 to 0.44 between regions. That is largely the kernel's floor: exp(−d²/2m²) with m the median distance
+  gives every pair a shared level, which the centring removes before scoring. What this test credits is the part
+  of K above that level, which is why σ_T under candidate 3 (5.6 to 6.0) is larger than the baseline's (3.8 to
+  4.5): the shared level sits inside its correlation matrix. This decides nothing here and is handed to EC-6
+  (below).
+
+**Report (e), 2008 apart.** On 2012 to 2020, asking 2 of 3: candidate 3's gain is 6.08 (3 of 3, 95th percentile
+−0.76), candidate 2's 2.30 (3 of 3, 0.26), candidate 1's 0.41 (1 of 3). The verdicts do not change.
+
+**Report (f), the fixed-sign form of candidate 2 (suggested by the overfitting challenge).** It passes its clauses:
+gain 4.58 (2008 +4.45, 2012 +4.39, 2016 +7.02, 2020 +2.44), 4 of 4, 95th percentile of its shuffles 0.48 (they run
+from −0.93 to 1.01). β fitted on earlier elections: −1.25, −1.46, −1.62, −1.93 points of miss per standard deviation
+of the white share without a degree; the sign is the challenge's (the result fell short of the forecast on the
+Democratic side where that share is high) in every fit, and the size grows with each election. As pre-registered it
+is not adoptable here: it is a shift of the centre, EC-4's territory, and goes to the design freeze (EC-9).
+
+**Report (g), candidate 3 with The Downballot's urban share as a fixed seventh measure.** Gain 3.25 (3 of 4, 95th
+percentile −0.64), passing its clauses and 0.03 below the six-measure version. The six measures stand.
+
+**The combination (candidate 3 with candidate 2), reported with no clauses.** Gain 3.26, below candidate 3 alone.
+Beside the kernel the education draw's size fits to zero in 2008, 2012 and 2020 and to 0.014 in 2016: similarity
+absorbs what candidate 2 carries.
+
+**What stands, under the rule.**
+
+- **Adopted provisionally:** candidate 3, similarity on six by-year measures in place of regions, beside the tilt.
+- **To the user:** candidate 2's flagged pass, with the combination showing it adds nothing beside candidate 3.
+- **Closed here:** candidate 1 (degree share), and regions as the structure.
+- **Untouched:** 2024. Nothing beyond the fixed reports was computed.
