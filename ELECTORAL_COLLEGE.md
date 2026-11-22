@@ -210,13 +210,38 @@ with the user that day, before any EC-5 candidate is written down, except where 
   from 2000 to 2005. South Dakota is the one: its white share is about 6 points above both years, and its white
   share without a degree about 5. The cause is not established (other states with large reservations are not
   off).
-- **Urban and rural share: open.** The other two of candidate 3's seven measures. The Census Bureau measures urban
-  and rural population only at each census (2000, 2010, 2020), changed the definition in 2020, and has no suburban
-  class. The Downballot's figures are a different measure with three classes. An earlier version of
+- **Urban and rural share: open.** The other two of candidate 3's seven measures. The Census Bureau has no suburban
+  class. It counts urban and rural population at each census (2000, 2010, 2020) and changed the definition in 2020.
+  Its yearly survey also reports the urban and rural parts of each state: the API returns them for 2005 to 2021
+  and not from 2022. The 2012 survey was the first on the 2010 census's urban areas, by the Bureau's account. The Downballot's figures are a different measure with
+  three classes. An earlier version of
   it was described by its authors as built on a federal housing department model of how people describe their own
   neighbourhood; how the current file is built has not been confirmed. Across states its rural share tracks the
   2020 census's closely (correlation 0.98), and states' census urban shares barely change order over time (0.987
   between 2000 and 2020).
+- **Urban and rural: what each route showed (2026-11-21, 49 states; the user's decision is pending).** An earlier
+  version of this section said the Bureau measures urban and rural only at each census; the survey figures were
+  found afterwards.
+  - *How much the 2020 definition moves states against each other.* With rural share standardized across states
+    within each year, the typical state moves 0.10 standard deviations between the 2000 and 2010 censuses and 0.09
+    between 2010 and 2020. So states moved against each other no more across the 2020 change than in the decade
+    before. This is all movement, not the definition's effect alone (which the Bureau puts at about a point
+    nationally), and it matters only if EC-5 standardizes each year's states separately.
+  - *One set of urban boundaries held over time* (overlaying older boundaries on newer blocks, or a series
+    standardized to one census's urban areas). The yearly survey appears to do this already, and it shows the
+    cost: rural share climbs every year and drops back in 2012 to the 2010 census's figure. Nationally 24.5% in 2011
+    and 19.2% in 2012; Nevada 14.0% in 2005, 24.5% in 2011, 5.9% in 2012 (5.8% in the 2010 census). The climb is
+    steepest in the fastest-growing states and nearly flat in Ohio and Pennsylvania, which fits building spreading
+    past a fixed boundary; the Bureau's documentation of the earlier years was not read.
+  - *Counties classed as metropolitan or not by one vintage of the USDA's rural-urban continuum codes*, with county
+    populations by year. Stable over time (0.993 between 2000 and 2020) and free of both breaks, but a different
+    measure: 0.86 with the census's rural share and 0.83 with The Downballot's. Wyoming is 69% non-metropolitan and
+    38% rural; New Jersey is 0% and 6%. A trial only: the 2023 codes, census-year populations, the two-way split
+    and the largest metropolitan class, with about 1% of the population in counties that did not match.
+  - *The census in force at each election* (2000 for 2000 to 2008, 2010 for 2012 to 2020, 2020 for 2024 and 2028).
+    Each year's states are then measured one way, and the scored elections never meet the 2020 definition. The 2010
+    classification was published in March 2012 and the 2020 one in December 2022, so nothing is taken from after an
+    election except in 2000, a fit-only year. It gives rural share only, with no urban against suburban split.
 
 ## 10. Open questions
 
