@@ -3670,6 +3670,14 @@ was calibrated on the main test bed only, and each variant's gain is also above 
   evidence for a wider range in demographically unusual states.
 - **Either way the 2000 to 2020 misses are closed for this card.**
 
+**EC-5: the user's decision on candidate 3 (2026-11-22).** Confirmed, provisionally until 2024 is scored at the design
+freeze (EC-9). The structure EC-5 hands on is therefore: similarity between states on six by-year measures (degree
+share, log of median household income, white, Black and Latino shares, rural share from the census in force) in
+place of Census regions; the tilt by the previous election's lean; and candidate 2's draw on the white share without
+a degree with its size left free (nominal beside the kernel: zero in three of four fits). Candidate 1 and regions as
+the structure are closed. The 2000 to 2020 misses are closed for this card. What goes to EC-9 is listed in the
+hand-offs above.
+
 **Hand-offs, revised after round 2.**
 
 - **To EC-6:** the confirmed structure as correlations, sized against section 4's totals at the assembly. If
