@@ -624,5 +624,26 @@
    "worst": "HI",
    "corr": 0.999
   }
+ },
+ "rural_share": {
+  "mean_of_states": {
+   "2000": 27.75,
+   "2010": 25.9,
+   "2020": 27.02
+  },
+  "2010_minus_2000": {
+   "mean": -1.85,
+   "corr": 0.995,
+   "standardized_gap_rms": 0.099
+  },
+  "2020_minus_2010": {
+   "mean": 1.12,
+   "corr": 0.9961,
+   "standardized_gap_rms": 0.088
+  },
+  "census_2020_against_downballot": {
+   "states": 50,
+   "corr": 0.9803
+  }
  }
 }

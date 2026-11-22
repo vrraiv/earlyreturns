@@ -50,7 +50,8 @@ little more.
 | State's vote share of the nation | popular vote | previous election's two-party votes | new |
 | Electoral votes by election | the count | to collect | new |
 | Education, race, age, income | shared state errors | `state_demographics.csv`, by year from the Census Bureau (DA-11, section 9) | candidate |
-| Urban and rural share | shared state errors | The Downballot's state tables (one snapshot); no by-year source yet (section 9) | candidate |
+| Rural share | shared state errors | `state_rural_share.csv`, from the census in force at each election (DA-11, section 9) | candidate |
+| Urban against suburban | shared state errors | The Downballot's state tables (one snapshot); no by-year source (section 9) | candidate; EC-5's pre-registration decides whether it stays |
 | Candidate's home state | state prior | candidate lists | candidate |
 | Third-party share in the polls | wider spread in that state | polls | candidate |
 | Expert ratings | none | | left out: every state that matters is polled |
@@ -177,7 +178,7 @@ Then 2024, once, recorded whichever way it goes.
 - Electoral votes by election.
 - Maine's and Nebraska's district results and lean, 2000 to 2024.
 - Whole-campaign state polls for 2000 (only the final 60 days are held).
-- Urban and rural share by year. The one snapshot is The Downballot's (below).
+- An urban against suburban split by year. The one snapshot is The Downballot's (below).
 - Fundamentals for presidential elections (EC-3).
 
 **Demographics by year: in the repo since 2026-11-21 (DA-11).** `data/interim/state_demographics.csv`, built by
@@ -186,7 +187,8 @@ with the user that day, before any EC-5 candidate is written down, except where 
 
 - **Fields.** Education, race and ethnicity, age, white adults without a degree, and median household income.
   Income was added to the card because candidate 3 in section 5 uses it.
-- **How the fields are measured (the build's choices, for the user to confirm).** Degree share of adults 25 and
+- **How the fields are measured (the build's choices, put to the user 2026-11-21; they asked why education is
+  measured on adults 25 and over, not 18 and over, and raised nothing on the rest).** Degree share of adults 25 and
   over; the same among white non-Hispanic adults; white non-Hispanic adults without a degree as a share of all
   adults 25 and over, not of white adults; white, Black and Asian (each non-Hispanic, one race) and Latino shares;
   age as two shares of adults, 18 to 29 and 65 and over.
@@ -210,7 +212,12 @@ with the user that day, before any EC-5 candidate is written down, except where 
   from 2000 to 2005. South Dakota is the one: its white share is about 6 points above both years, and its white
   share without a degree about 5. The cause is not established (other states with large reservations are not
   off).
-- **Urban and rural share: open.** The other two of candidate 3's seven measures. The Census Bureau has no suburban
+- **Rural share: decided 2026-11-21, on my recommendation.** From the census in force at each election: the 2000
+  census for 2000 to 2008, the 2010 census for 2012 to 2020, the 2020 census for 2024 and 2028
+  (`data/interim/state_rural_share.csv`; `state_demographics_vintages.csv` names the census for each election). It
+  gives rural share only. Whether The Downballot's urban share stays beside it as a fixed measure is for EC-5's
+  pre-registration of candidate 3. Background: urban and rural share are the other two of candidate 3's seven
+  measures. The Census Bureau has no suburban
   class. It counts urban and rural population at each census (2000, 2010, 2020) and changed the definition in 2020.
   Its yearly survey also reports the urban and rural parts of each state: the API returns them for 2005 to 2021
   and not from 2022. The 2012 survey was the first on the 2010 census's urban areas, by the Bureau's account. The Downballot's figures are a different measure with
@@ -219,7 +226,7 @@ with the user that day, before any EC-5 candidate is written down, except where 
   neighbourhood; how the current file is built has not been confirmed. Across states its rural share tracks the
   2020 census's closely (correlation 0.98), and states' census urban shares barely change order over time (0.987
   between 2000 and 2020).
-- **Urban and rural: what each route showed (2026-11-21, 49 states; the user's decision is pending).** An earlier
+- **Urban and rural: what each route showed (2026-11-21, 49 states), before the user chose the last one.** An earlier
   version of this section said the Bureau measures urban and rural only at each census; the survey figures were
   found afterwards.
   - *How much the 2020 definition moves states against each other.* With rural share standardized across states

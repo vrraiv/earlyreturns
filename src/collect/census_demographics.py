@@ -30,10 +30,17 @@ What a reader should know:
   ethnicity, and by degree for white non-Hispanic and all other adults 25 and over.
 - The key (census_bureau_api_key in .env) is sent only to api.census.gov and is never written to a file or printed.
 
+Rural share (decided 2026-11-21) is kept apart, in data/interim/state_rural_share.csv: the rural share of each
+state's population at the 2000, 2010 and 2020 censuses. An election uses the census in force when it was held (2000
+for 2000 to 2008, 2010 for 2012 to 2020, 2020 for 2024 and 2028). The 2020 census changed the definition of urban,
+so 2020 is not like for like with 2000 and 2010; within one census every state is measured the same way. The yearly
+survey also reports rural population, but its rural share climbs between censuses and drops back in 2012, the first
+year on the 2010 census's urban areas; it is not used.
+
 Which year an election uses (decided 2026-11-21): the year before the election, the latest published before its
 7-day forecast. The election's own year is kept beside it for a comparison that decides nothing. 2000, 2004 and 2020
 take the same year in both, because the API has no survey for 1999, 2003 or 2020. See VINTAGES below, written to
-data/interim/state_demographics_vintages.csv.
+data/interim/state_demographics_vintages.csv, which also names the census each election's rural share comes from.
 
 Run:  python src/collect/census_demographics.py [fetch|build|check|all]
       fetch skips any file already held under data/raw/census/, whatever its date; `refetch` pulls everything again.
@@ -66,15 +73,20 @@ SF3_TABLES = {"education": "P037", "education_white": "P148I", "race": "P007", "
 PUMS_YEARS = [2004, 2005]
 PUMS_VARS = "PWGTP,WGTP,AGEP,SCHL,RAC1P,HISP,PINCP,ADJUST,REL,SERIALNO"
 
-# election -> (the year before, the election's own year). Same year twice where the API has nothing else.
+# census -> (dataset, table, total cell, rural cell)
+RURAL = {2000: ("2000/dec/sf1", "P002", "P002001", "P002005"), 2010: ("2010/dec/sf1", "P2", "P002001", "P002005"),
+         2020: ("2020/dec/dhc", "P2", "P2_001N", "P2_003N")}
+
+# election -> (the year before, the election's own year, the census its rural share comes from).
+# Same year twice where the API has nothing else.
 VINTAGES = [
-    (2000, 2000, 2000, "2000 census in both: no survey for 1999"),
-    (2004, 2004, 2004, "2004 microdata in both: no survey for 2003"),
-    (2008, 2007, 2008, ""),
-    (2012, 2011, 2012, ""),
-    (2016, 2015, 2016, ""),
-    (2020, 2019, 2019, "2019 in both: no standard one-year tables for 2020"),
-    (2024, 2023, 2024, "enters no electoral college test before the design freeze (EC-9)"),
+    (2000, 2000, 2000, 2000, "2000 census in both: no survey for 1999"),
+    (2004, 2004, 2004, 2000, "2004 microdata in both: no survey for 2003"),
+    (2008, 2007, 2008, 2000, ""),
+    (2012, 2011, 2012, 2010, "the 2010 census's urban areas were published in March 2012"),
+    (2016, 2015, 2016, 2010, ""),
+    (2020, 2019, 2019, 2010, "2019 in both: no standard one-year tables for 2020"),
+    (2024, 2023, 2024, 2020, "enters no electoral college test before the design freeze (EC-9)"),
 ]
 
 FIPS = {"01": "AL", "02": "AK", "04": "AZ", "05": "AR", "06": "CA", "08": "CO", "09": "CT", "10": "DE", "11": "DC",
@@ -161,6 +173,19 @@ def fetch_table(dataset: str, table: str, tag: str, key: str, refetch=False):
     print("held", tag, table, len(names), "cells")
 
 
+def fetch_rural(key: str, refetch=False):
+    for census, (dataset, table, tot, rur) in RURAL.items():
+        lname, dname = f"rural_{census}_labels.json", f"rural_{census}.json"
+        if refetch or not held(lname):
+            js, url = call(f"{dataset}/groups/{table}.json")
+            slim = {k: {"label": v["label"]} for k, v in js["variables"].items() if k in (tot, rur)}
+            _save(lname, (json.dumps(slim, indent=1, sort_keys=True) + "\n").encode("utf-8"), url)
+        if refetch or not held(dname):
+            js, url = call(dataset, f"get=NAME,{tot},{rur}&for=state:*", key)
+            _save(dname, (json.dumps(js) + "\n").encode("utf-8"), url)
+        print("held rural", census)
+
+
 def weighted_median(v, w):
     o = np.argsort(np.asarray(v, dtype=float), kind="stable")
     v, c = np.asarray(v, dtype=float)[o], np.cumsum(np.asarray(w, dtype=float)[o])
@@ -216,6 +241,7 @@ def fetch(refetch=False):
             fetch_table(f"{y}/acs/acs1", t, f"acs1_{y}", key, refetch)
     for t in ACS5_TABLES.values():
         fetch_table("2019/acs/acs5", t, "acs5_2019", key, refetch)
+    fetch_rural(key, refetch)
     for y in PUMS_YEARS:
         fetch_pums(y, key, refetch)
 
@@ -313,6 +339,24 @@ def tidy(d: pd.DataFrame, year: int, source: str) -> pd.DataFrame:
     return d[["year", "state", "source", "population", "adults_25_plus"] + MEASURES].sort_values("state")
 
 
+def build_rural() -> pd.DataFrame:
+    rows = []
+    for census, (_, _, tot, rur) in RURAL.items():
+        lab = json.loads(latest(SOURCE, f"rural_{census}_labels.json").read_text(encoding="utf-8"))
+        last = lambda k: [x.strip().rstrip(":") for x in lab[k]["label"].split("!!") if x.strip()][-1]  # noqa: E731
+        assert last(tot) == "Total" and last(rur) == "Rural", (census, lab)
+        js = json.loads(latest(SOURCE, f"rural_{census}.json").read_text(encoding="utf-8"))
+        d = pd.DataFrame(js[1:], columns=js[0])
+        d = d[d.state.isin(FIPS)]
+        assert len(d) == 51, census
+        rows.append(pd.DataFrame({"census": census, "state": d.state.map(FIPS), "population": d[tot].astype(int),
+                                  "rural_share": (100 * d[rur].astype(float) / d[tot].astype(float)).round(2)}))
+    r = pd.concat(rows).sort_values(["census", "state"])
+    r.to_csv(INTERIM / "state_rural_share.csv", index=False, lineterminator="\n")
+    print(f"state_rural_share.csv: {len(r)} rows")
+    return r
+
+
 def build() -> pd.DataFrame:
     rows = [tidy(from_tables("sf3_2000", SF3_TABLES), 2000, "census_2000_long_form"),
             tidy(from_pums(2004), 2004, "survey_microdata_own_tabulation")]
@@ -320,8 +364,9 @@ def build() -> pd.DataFrame:
     df = pd.concat(rows, ignore_index=True)
     assert (df.groupby("year").state.nunique() == 51).all() and not df[MEASURES].isna().any().any()
     df.to_csv(INTERIM / "state_demographics.csv", index=False, lineterminator="\n")
-    v = pd.DataFrame(VINTAGES, columns=["election", "year_before", "own_year", "note"])
-    assert set(v.year_before).union(v.own_year) <= set(df.year)
+    r = build_rural()
+    v = pd.DataFrame(VINTAGES, columns=["election", "year_before", "own_year", "rural_census", "note"])
+    assert set(v.year_before).union(v.own_year) <= set(df.year) and set(v.rural_census) <= set(r.census)
     v.to_csv(INTERIM / "state_demographics_vintages.csv", index=False, lineterminator="\n")
     print(f"state_demographics.csv: {len(df)} rows, {df.year.nunique()} years ({df.year.min()}-{df.year.max()})")
     return df
@@ -375,9 +420,27 @@ def check(df=None):
         rep["five_year_2015_19_minus_downballot"] = f"skipped: {e}"
     # 4. how much the choice of year can matter: an election's own year against the year before
     rep["own_year_minus_year_before"] = {str(el): gaps(by[own], by[lag], MEASURES)
-                                         for el, lag, own, _ in VINTAGES if own != lag}
+                                         for el, lag, own, _, _ in VINTAGES if own != lag}
     # 5. the race question's change: 2021 against 2019
     rep["2021_minus_2019"] = gaps(by[2021], by[2019], ["white_share", "black_share", "latino_share", "asian_share"])
+    # 6. rural share: one census against the next, and the 2020 census against The Downballot's rural share
+    r = pd.read_csv(INTERIM / "state_rural_share.csv").pivot(index="state", columns="census", values="rural_share")
+    z = (r - r.mean()) / r.std()
+    rep["rural_share"] = {"mean_of_states": {str(c): round(float(r[c].mean()), 2) for c in r},
+                          **{f"{b}_minus_{a}": {"mean": round(float((r[b] - r[a]).mean()), 2),
+                                                "corr": round(float(r[a].corr(r[b])), 4),
+                                                "standardized_gap_rms": round(float(((z[b] - z[a]) ** 2).mean() ** 0.5), 3)}
+                             for a, b in ((2000, 2010), (2010, 2020))}}
+    try:
+        from downballot import STATE_ABBR
+        u = pd.read_excel(latest_linked("downballot", "urban_rural_cd118.xlsx")).drop_duplicates("CD").set_index("CD")
+        u = u[u.index.isin(STATE_ABBR)]
+        db = (100 * u["Rural %"].astype(float)).rename(index=STATE_ABBR)
+        j = pd.concat([r[2020], db], axis=1, keys=["census", "downballot"]).dropna()
+        rep["rural_share"]["census_2020_against_downballot"] = {"states": len(j),
+                                                                 "corr": round(float(j.census.corr(j.downballot)), 4)}
+    except FileNotFoundError as e:
+        rep["rural_share"]["census_2020_against_downballot"] = f"skipped: {e}"
     CHECKS.mkdir(exist_ok=True)
     (CHECKS / "state_demographics_check.json").write_text(json.dumps(rep, indent=1) + "\n", encoding="utf-8")
     for k, v in rep.items():

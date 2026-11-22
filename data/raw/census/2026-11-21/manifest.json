@@ -1352,5 +1352,41 @@
     "bytes": 1114,
     "sha256": "6db1874eeab89bc4a1ad0cb51fa681cb8ad032cdc18da5e9695fc509699cda36",
     "note": "our own tabulation of the microdata returned by this query for each state; the microdata is not kept. Not a Census Bureau estimate"
+  },
+  "rural_2000_labels.json": {
+    "url": "https://api.census.gov/data/2000/dec/sf1/groups/P002.json",
+    "retrieved": "2026-11-21T21:59:57",
+    "bytes": 84,
+    "sha256": "49406ebeb4233584a7b7e8507477d8fbc19f9ef8fd24e98914dc0d8be8574b5d"
+  },
+  "rural_2000.json": {
+    "url": "https://api.census.gov/data/2000/dec/sf1?get=NAME,P002001,P002005&for=state:*",
+    "retrieved": "2026-11-21T21:59:57",
+    "bytes": 2229,
+    "sha256": "c0fe05a6ffdbf6b93fe5797cbec82fc341316beaa70d99a59b428cc4389341ae"
+  },
+  "rural_2010_labels.json": {
+    "url": "https://api.census.gov/data/2010/dec/sf1/groups/P2.json",
+    "retrieved": "2026-11-21T21:59:57",
+    "bytes": 84,
+    "sha256": "49406ebeb4233584a7b7e8507477d8fbc19f9ef8fd24e98914dc0d8be8574b5d"
+  },
+  "rural_2010.json": {
+    "url": "https://api.census.gov/data/2010/dec/sf1?get=NAME,P002001,P002005&for=state:*",
+    "retrieved": "2026-11-21T21:59:58",
+    "bytes": 2229,
+    "sha256": "e24e3f475b4dcde3a0efb1b1c20b0d050a8650dffdee7686d12b615b8e8ce5e0"
+  },
+  "rural_2020_labels.json": {
+    "url": "https://api.census.gov/data/2020/dec/dhc/groups/P2.json",
+    "retrieved": "2026-11-21T21:59:58",
+    "bytes": 92,
+    "sha256": "62bd17c60b0b8ff065bff8ca86310dca111723d2c76e22dc67d86cda7c3c5ac9"
+  },
+  "rural_2020.json": {
+    "url": "https://api.census.gov/data/2020/dec/dhc?get=NAME,P2_001N,P2_003N&for=state:*",
+    "retrieved": "2026-11-21T21:59:58",
+    "bytes": 2233,
+    "sha256": "48b54da436103cedb620a07bd5939e7d72c4cc94fc8d58a82a66ff00a4435aa3"
   }
 }
