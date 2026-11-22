@@ -3376,3 +3376,42 @@ contests; candidate 2 as a zero-mean draw with the fixed-sign form as report (f)
 3 with the urban-share version as report (g); DC in, with report (c) and flag 2; the five flags; the largest gain
 adopted when more than one passes, the combination reported; presidential misses only in the fits; one round. The
 run is to follow once the code's checks pass and its amendments are written here.
+
+**EC-5: amendments after the code review, before any loss was read** (`src/model/pres_errors.py`). The code makes
+choices the draft did not state. They are fixed here; no loss and no fitted number had been read.
+
+- **Lean's scale.** ℓ enters the fit in tens of points, for conditioning only; the tilt's fitted size is reported on
+  that scale.
+- **The fit.** L-BFGS-B on the sizes, bounded at zero with no upper bound, from three fixed starting points with every
+  size at 0.1, 1.0 and 0.01, keeping the lowest loss. σ_T² is profiled in closed form. A fitted size below 0.000001
+  counts as zero for the collapse clause and flag 4.
+- **The shuffle clause.** The 95th percentile is numpy's default (linear interpolation) over the 200 shuffled pooled
+  gains, and the gain has to exceed it by more than 1e-9. Seeds: 0, 1 and 2 for the three candidates, 3 for report
+  (f) and 4 for report (g). Each shuffle draws one reordering of the contests and applies it to the feature in every
+  election, fit and scored alike.
+- **Flag 4** reads the 2020 fit's size of the candidate's own component: the feature draw for candidates 1 and 2, the
+  similarity term for candidate 3.
+- **The variants** (reports b, c and d) refit the baseline too and run the full clauses with the same seeds. Without
+  DC, z and K are recomputed over the 50 states and the misses are centred on the 50.
+- **Report (e)** applies the clauses to 2012 to 2020 with the same 200 shuffled draws, restricted to those elections.
+- **Report (f).** One β common to the fitted elections, estimated by generalized least squares under the baseline's
+  fitted covariance and profiled with the sizes; the scored election takes that β. Its shuffle moves z_w.
+- **Report (g).** The urban share is 100 times The Downballot's state "Urban %", standardized with the other six.
+- **The combination** (a passing candidate 3 with a passing 1 or 2) is fitted and reported with no clauses, only
+  if both pass.
+- **Written out.** `data/processed/pres_errors.json` (every verdict, fit, report and flag) and
+  `pres_errors_frame.csv` (each contest's estimate, result, miss, previous lean and standardized education measures
+  by election and date; results are public, so the misses are too).
+- **Two checks changed in the writing.** The constant check asks for equality to the iterative fit's tolerance
+  (1e-5): on its first run the two fits differed by 6e-7 on a log density and 1e-7 on a size, which is the
+  optimizer, not a leak of the constant. The "planted DC-only effect" check became a check of flag 2's code path:
+  under a correlation structure a contest's own extra variance does not make a candidate pass (that is what the
+  one-spread rule is for), so a planted DC-only effect cannot trip the flag through the test itself.
+- **Checks, run and passed (13):** 2024 absent from the demographics, the rural shares, the vintages, the results
+  and the national series; the rebuilt 7- and 30-day estimates and results equal `pres_addup_rerun_frame.csv`'s for
+  2004 to 2020; 2000's estimate exists at both dates for all 51 contests, all polled; the constant check; at sizes
+  zero the log density equals the independent-errors formula; planted region, tilt and feature sizes and the spread
+  are recovered from 60 synthetic elections from each starting point; an identity shuffle reproduces candidate 3 and
+  a real one changes it; the decision path on planted misses with 30 shuffles (a planted degree draw makes candidate
+  1 pass, planted regions and tilt alone make every candidate fail, planted similarity makes candidate 3 pass, a
+  planted fixed-sign term is recovered with its sign by report (f)); and the five flags trip on their conditions.
