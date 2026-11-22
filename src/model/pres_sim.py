@@ -20,6 +20,7 @@ trend, T2 population growth) and a demographic swing model for Maine's and Nebra
 
 Run:  python src/model/pres_sim.py checks     (planted inputs and identities; prints pass or fail only)
       python src/model/pres_sim.py run        (the one round: the tests, the reports; the as-of outputs are written, not printed)
+      python src/model/pres_sim.py asof       (part D alone, with the adopted turnout weights read from pres_sim.json)
 """
 import json
 import sys
@@ -82,7 +83,7 @@ def load():
                 mu, w = PP.estimate(a, "prior0", 1.0), 1.0
             natF = float(E[y]["N"][d]) * (1 - float(E[y]["u"][d]) / 100)
             C = mu + (natF - float(a["v"] @ mu))
-            cells[(y, d)] = {"states": list(PP.STATES), "mu": C, "result": a["result"].copy(), "miss": a["result"] - C,
+            cells[(y, d)] = {"states": list(PP.STATES), "mu": C, "mu0": np.asarray(mu, float).copy(), "result": a["result"].copy(), "miss": a["result"] - C,
                              "lean": a["lean1"].copy(), "prior0": a["prior0"].copy(), "n": a["n"].copy(),
                              "has": a["has"].copy(), "v": a["v"].copy(), "w": w, "natF": natF}
     return cells, E, q
@@ -273,14 +274,17 @@ def shuffled_gains_range(cells, kind, u, base, seed, shuffles, years=SCORED):
 
 
 def coverage(res, nu=None):
-    """Share of centred misses inside the 50% and 80% ranges, Gaussian and (if nu) Student-t quantiles."""
+    """Share of centred misses inside the 50% and 80% ranges: Gaussian quantiles, and (if nu, a dict by election)
+    each election's Student-t quantiles scaled to unit variance, so the spread is the same and only the shape differs."""
     out = {}
-    for lab, qf in (("normal", lambda p: norm.ppf(p)), ("t", (lambda p: student_t.ppf(p, nu)) if nu else None)):
-        if qf is None:
-            continue
-        z50, z80 = qf(0.75), qf(0.90)
-        r = np.concatenate([v["r"] for v in res.values()]); s = np.concatenate([v["sd"] for v in res.values()])
-        out[lab] = {"p50": float(np.mean(np.abs(r) <= z50 * s)), "p80": float(np.mean(np.abs(r) <= z80 * s))}
+    r = np.concatenate([v["r"] for v in res.values()]); s = np.concatenate([v["sd"] for v in res.values()])
+    out["normal"] = {"p50": float(np.mean(np.abs(r) <= norm.ppf(0.75) * s)), "p80": float(np.mean(np.abs(r) <= norm.ppf(0.90) * s))}
+    if nu:
+        def tq(p, df):
+            return norm.ppf(p) if df > 1e5 else student_t.ppf(p, df) * np.sqrt((df - 2) / df)
+        z50 = np.concatenate([np.full(len(v["r"]), tq(0.75, nu[y])) for y, v in res.items()])
+        z80 = np.concatenate([np.full(len(v["r"]), tq(0.90, nu[y])) for y, v in res.items()])
+        out["t"] = {"p50": float(np.mean(np.abs(r) <= z50 * s)), "p80": float(np.mean(np.abs(r) <= z80 * s))}
     return out
 
 
@@ -484,7 +488,7 @@ def downballot_check(J, tol=2.0):
         compared[int(year)] = {"compared": int(len(mg)), "dropped": int(len(bad)), "not_comparable_states": sorted(redrawn_after),
                                "median_abs_gap": float((mg.m - mg.margin).abs().median())}
         for _, r in bad.iterrows():
-            dropped.append((int(year), f"{r.state}-{int(r.cd)}", round(float(r.margin), 2), round(float(r.m), 2)))
+            dropped.append((int(year), f"{r.state}-{int(r.cd)}"))              # no value from the private file is written
             J = J[~((J.year == year) & (J.state == r.state) & (J.cd == int(r.cd)))]
     return J, {"available": True, "by_year": compared, "dropped": dropped}
 
@@ -754,8 +758,12 @@ def electoral_votes(y):
 
 
 # ------------------------------------------------------------------------------------------------ the as-of assembly
-def assemble(cells, q, D, ecells, Q, states, nat_err, y, d, range_kind="R0", u=None, nu_fixed=None, beta_x=None, theta=None):
+def assemble(cells, q, D, ecells, Q, states, nat_err, y, d, range_kind="R0", u=None, nu_fixed=None, beta_x=None, theta=None, v_override=None):
     c = cells[(y, d)]
+    if v_override is not None:
+        v1 = np.asarray(v_override, float)
+        c = dict(c, v=v1, mu=c["mu0"] + (c["natF"] - float(v1 @ c["mu0"])))
+        cells = dict(cells); cells[(y, d)] = c
     rho = fit_structure(ecells, Q, y)
     C, C_sh, c_own = correlation_parts(ecells[y], rho)
     if theta is None:
@@ -973,6 +981,74 @@ def checks():
     return ok
 
 
+# ------------------------------------------------------------------------------------------------ the as-of assembly
+def asof_weights(kind, y, sh, pop, vint):
+    """The adopted turnout candidate's weights for election y, lambda fitted on the elections before it."""
+    sh_, marg, nat_m = shares()
+    r = run_turnout(kind, sh_, marg, nat_m, pop, vint, years=(y,))
+    lam = r[y]["lambda"]
+    return turnout_weights(y, sh_, growth(kind, y, sh_, pop, vint), lam), lam
+
+
+def asof_assembly(cells, q, D, ecells, Q, states, nat_err, turnout, sh, pop, vint):
+    """Part D: every scored election at the simulated dates, everything fitted on the elections before it; the outputs
+    are written for EC-7 and only the identities and the Monte Carlo error are read here."""
+    print(f"D. the as-of assembly with turnout weights {turnout or 'T0'} (outputs written to pres_sim_asof.json, not printed)")
+    asof, ident, mce = {}, {}, {}
+    for y in SCORED:
+        v_over, lam = (None, None)
+        if turnout:
+            v_over, lam = asof_weights(turnout, y, sh, pop, vint)
+        for d in SIM_DAYS:
+            m, meta = assemble(cells, q, D, ecells, Q, states, nat_err, y, d, "R0", v_override=v_over)
+            dr = draws(len(states), m.L.shape[1], NSIM, SEED)
+            o, _, _ = m.outputs(dr)
+            asof[f"{y}/{d}"] = dict(o, meta={k: v for k, v in meta.items() if k not in ("C", "C_sh", "c_own")},
+                                    turnout={"weights": turnout or "T0", "lambda": lam}, scored_in_EC7=not (y == 2008 and d in (100, 60)))
+            ident[f"{y}/{d}"] = {"pv_sd_sim": o["identities"]["pv_sd"], "sigma_N": meta["sigma_N"], "sigma_eta": m.sigma_eta, "eta_flag": bool(m.eta_flag),
+                                 "pv_sd_from_shared": o["identities"]["pv_sd_from_shared"], "pv_sd_from_own": o["identities"]["pv_sd_from_own"],
+                                 "max_abs_centred_sd_gap": float(np.max(np.abs(np.array(o["identities"]["centred_sd_sim"]) - m.s))),
+                                 # report (e): corr(D M D) = corr(M) for diagonal D, so the sizing changes no pairwise state
+                                 # correlation; what changes them against EC-5's C is the centring of the shared part
+                                 "max_abs_state_corr_change_from_sizing": float(np.max(np.abs(
+                                     (lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(m.cov)
+                                     - (lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(m.C_c + np.diag(m.c_own)))[~np.eye(len(states), dtype=bool)])),
+                                 "state_corr_change_from_centring": {"median": float(np.median(np.abs(
+                                     (lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(m.C_c + np.diag(m.c_own)) - meta["C"])[~np.eye(len(states), dtype=bool)])),
+                                     "max": float(np.max(np.abs(
+                                     (lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(m.C_c + np.diag(m.c_own)) - meta["C"])[~np.eye(len(states), dtype=bool)])),
+                                     "mean_corr_EC5": float(np.mean(meta["C"][~np.eye(len(states), dtype=bool)])),
+                                     "mean_corr_centred": float(np.mean((lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(m.C_c + np.diag(m.c_own))[~np.eye(len(states), dtype=bool)]))}}
+            if d == 7:
+                mce[f"{y}/{d}"] = mc_error(m)
+            print(f"  {y} at {d} days: assembled; sigma_N {meta['sigma_N']:.2f}, sigma_eta {m.sigma_eta:.2f}, nu {meta['nu']:.1f}, sigma_D {meta['sigma_D']:.2f}")
+    return asof, ident, mce
+
+
+def asof():
+    """Part D alone, with the turnout decision read from pres_sim.json (after a run)."""
+    out = json.loads((OUT / "pres_sim.json").read_text())
+    tt = out["turnout"]
+    adopted = tt.get("adopted")
+    if adopted is None:
+        adopted = "T1" if tt["T1"]["passes"] and not tt["T2"]["passes"] else ("T2" if tt["T2"]["passes"] and not tt["T1"]["passes"] else None)
+        out["turnout"]["adopted"] = adopted
+    cells, E, q = load()
+    demo = PE.Demo()
+    ecells, Q, states = structure_cells(cells, demo)
+    D = district_table()
+    nat_err = national_errors(E)
+    sh, _, _ = shares(); pop, vint = populations()
+    asof_, ident, mce = asof_assembly(cells, q, D, ecells, Q, states, nat_err, adopted, sh, pop, vint)
+    out["identities"] = ident
+    out["monte_carlo_error_7d"] = mce
+    (OUT / "pres_sim_asof.json").write_text(json.dumps(asof_, indent=0, default=float))
+    (OUT / "pres_sim.json").write_text(json.dumps(out, indent=1, default=float))
+    print("identities:", json.dumps(ident, indent=1, default=float))
+    print("Monte Carlo error at 7 days:", json.dumps(mce, indent=1, default=float))
+    print("written: pres_sim.json, pres_sim_asof.json")
+
+
 # ------------------------------------------------------------------------------------------------ the one round
 def run():
     print("loading")
@@ -1021,7 +1097,7 @@ def run():
     for y in SCORED:
         nu, sc, nz = fit_nu(cells, base[y]["theta"], "R0", u, y)
         raw_df = float(student_t.fit(np.concatenate([row["r"] / np.sqrt(spread2(base[y]["theta"], row, "R0", None)) for row in range_rows(cells, y)]), floc=0)[0])
-        nus[int(y)] = {"nu": nu, "nu_unfloored": raw_df, "scale": sc, "n": nz}
+        nus[int(y)] = {"nu": nu, "nu_unfloored": raw_df, "scale": sc, "implied_sd": sc * float(np.sqrt(nu / (nu - 2))) if nu < 1e5 else sc, "n": nz}
     out["nu"] = nus
     nat = {}
     for y in SCORED:
@@ -1048,8 +1124,7 @@ def run():
         cov[kind] = {}
         for d in SIM_DAYS:
             rr = run_range(cells, kind, u if kind != "R0" else None, day=d)
-            nu_use = float(np.mean([nus[int(y)]["nu"] for y in SCORED]))
-            cov[kind][d] = coverage(rr, nu=nu_use)
+            cov[kind][d] = coverage(rr, nu={y: nus[int(y)]["nu"] for y in SCORED})
     out["range"]["report_b_coverage"] = cov
     # report (c): gains by group
     def by_group(kind, groups):
@@ -1095,8 +1170,8 @@ def run():
         for _, r in D[D.year.isin(ELECTIONS)].iterrows():
             jj = J[(J.year == r.year) & (J.state == r.state) & (J.cd == int(r.contest[-1]))]
             if len(jj) and abs(float(jj.margin.iloc[0]) - r.margin_2p) > 2:
-                bad.append((int(r.year), r.contest, round(float(jj.margin.iloc[0]), 2), round(float(r.margin_2p), 2)))
-        for y, contest, _, _ in bad:
+                bad.append((int(r.year), r.contest))                               # no value from the private file is written
+        for y, contest in bad:
             J = J[~((J.year == y) & (J.state == contest[:2]) & (J.cd == int(contest[-1])))]
         swing["jacobson_vs_pages_dropped"] = bad
         J, db = downballot_check(J)
@@ -1141,25 +1216,10 @@ def run():
     out["districts"]["sigma_D_all_to_2020"] = {"sigma": sigD, "changes": nch, "by_district": byd}
 
     # ---- D. the as-of assembly: outputs written, identities and Monte Carlo error read
-    print("D. the as-of assembly (outputs written to pres_sim_asof.json, not printed)")
-    asof = {}
-    ident = {}
-    mce = {}
-    for y in SCORED:
-        for d in SIM_DAYS:
-            m, meta = assemble(cells, q, D, ecells, Q, states, nat_err, y, d, "R0")
-            dr = draws(len(states), m.L.shape[1], NSIM, SEED)
-            o, _, _ = m.outputs(dr)
-            asof[f"{y}/{d}"] = dict(o, meta={k: v for k, v in meta.items() if k not in ("C", "C_sh", "c_own")},
-                                    scored_in_EC7=not (y == 2008 and d in (100, 60)))
-            ident[f"{y}/{d}"] = {"pv_sd_sim": o["identities"]["pv_sd"], "sigma_N": meta["sigma_N"], "sigma_eta": m.sigma_eta, "eta_flag": bool(m.eta_flag),
-                                 "max_abs_centred_sd_gap": float(np.max(np.abs(np.array(o["identities"]["centred_sd_sim"]) - m.s))),
-                                 "max_abs_contrast_corr_change_vs_EC5": float(np.max(np.abs(
-                                     (lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(Q @ m.cov @ Q.T)
-                                     - (lambda Cv: Cv / np.sqrt(np.outer(np.diag(Cv), np.diag(Cv))))(Q @ meta["C"] @ Q.T))[~np.eye(len(states) - 1, dtype=bool)]))}
-            if d == 7:
-                mce[f"{y}/{d}"] = mc_error(m)
-            print(f"  {y} at {d} days: assembled; sigma_N {meta['sigma_N']:.2f}, sigma_eta {m.sigma_eta:.2f}, nu {meta['nu']:.1f}, sigma_D {meta['sigma_D']:.2f}")
+    adopted_turnout = "T1" if tt["T1"]["passes"] and not tt["T2"]["passes"] else ("T2" if tt["T2"]["passes"] and not tt["T1"]["passes"]
+                      else ("T1" if tt["T1"]["passes"] and tt["T1"]["gain_sq_points"] >= tt["T2"]["gain_sq_points"] else ("T2" if tt["T2"]["passes"] else None)))
+    out["turnout"]["adopted"] = adopted_turnout
+    asof, ident, mce = asof_assembly(cells, q, D, ecells, Q, states, nat_err, adopted_turnout, sh, pop, vint)
     out["identities"] = ident
     out["monte_carlo_error_7d"] = mce
     (OUT / "pres_sim_asof.json").write_text(json.dumps(asof, indent=0, default=float))
@@ -1170,4 +1230,4 @@ def run():
 
 
 if __name__ == "__main__":
-    {"checks": checks, "run": run}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()
+    {"checks": checks, "run": run, "asof": asof}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()
