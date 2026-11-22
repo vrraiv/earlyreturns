@@ -4068,6 +4068,19 @@ question 1's proposal has changed (A4, revised above).
   EC-6: candidate D1 of A7, above, with its data need (district demographics by year from the Census API) and its
   decider left to the user.
 
+**EC-6: the user's decisions on the rest (2026-11-22, before any run).** The user agreed with the advisor's and my
+recommendations on every open point: question 1 as revised (the shared part centred, own errors independent, the
+national draw the remainder); 2 (section 6's form as the baseline, R1 and R2 flagged, the score on each contest's
+own density at 7 days); 3 (one ν from the states, used for the national and district draws; shared components
+Gaussian); 4 (correlations held across dates); 6 (apportionment from the pages and the apportionment page); 7 (T1
+and T2 on the weights alone, the range fitted on the frame as it stands); 9 (EC-6 reads the tests, the coverage, the
+identities and the Monte Carlo error; the as-of counts, win odds, tipping points and gaps wait for EC-7); 10 (the
+outputs as written); 11 (one round for B, C and A7); 12 (2000 and 2004 fit-only, 2008 to 2020 scored). **D1's
+decider** is all usable districts, with the five that award electoral votes reported and flagging a pass if they are
+worse. **EC-10** is opened for the joint Bayesian rival. The user added that the site may end up showing two
+genuinely different models rather than three variants of one, as 2026 did; EC-10 is to settle that, and part of its
+work feeds the site cards (SI). The pre-registration is confirmed; the build and its checks come next, then one round.
+
 **EC-6: the data build, before any loss is read** (`src/collect/electoral_college.py`, run 2026-11-22). Built and
 checked while the pre-registration awaits the user; it reads no poll and no forecast, and 2024 is never opened.
 
