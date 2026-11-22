@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-21p",
+  version: "2026-11-21q",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -349,7 +349,8 @@ window.PLAN = {
             "By congressional district on the lines in force each cycle, and by state.",
             "Needs a free Census API key, which you create.",
             "Decide how far back to go. District tables from the yearly survey start in the mid-2000s.",
-            "A start without the Census: The Downballot publishes education and income, race by age and citizenship, and urban-rural classifications by district for 2016 to 2022 (store-and-link, OP-8)."
+            "A start without the Census: The Downballot publishes education and income, race by age and citizenship, and urban-rural classifications by district for 2016 to 2022 (store-and-link, OP-8).",
+            "The state half, by election year, was split out as DA-11 on 2026-11-21 for the electoral college track. This card keeps the districts and whatever the House rework needs by state."
           ],
           checklist: [
             { id: "a", text: "API key in `.env`" },
@@ -424,6 +425,22 @@ window.PLAN = {
             { id: "a", text: "Method for the tiers written down before the results are read" },
             { id: "b", text: "Tiers built from 2026" },
             { id: "c", text: "Checked against 538's September 2024 ratings" }
+          ] },
+        { id: "DA-11", title: "State demographics by election year", kind: "story", phase: "p4",
+          why: "EC-5 asks whether demographics explain state polling errors that move together, and each election has to be tested on its own demographics.",
+          details: [
+            "Split out of DA-4 on 2026-11-21, as DA-5 was split out of DA-1. The electoral college track needs only the state half, and the question it answers is already settled on EC-5, so it does not wait for DA-1 or the brainstorm.",
+            "For the 50 states and DC in each presidential year from 2000 to 2020: education, race and ethnicity, age, and the share of white adults without a degree. 2024 can be collected with them, but it enters no test before the design freeze (EC-9).",
+            "To confirm first: the sources and their coverage. The likely ones are the Census Bureau's yearly survey from 2005 and the 2000 census, and 2004 may have to be filled in between the two.",
+            "Also to check first: whether a pull this small needs the Census API key. If it does, the key is free and you create it.",
+            "The Downballot's state tables are one 2015-19 snapshot. They stay as a cross-check, not the source.",
+            "District demographics on the lines in force stay with DA-4. Each source goes through DA-8 before its data is committed."
+          ],
+          checklist: [
+            { id: "a", text: "Sources and coverage confirmed for 2000 to 2020" },
+            { id: "b", text: "Collector written" },
+            { id: "c", text: "State table by election year built, and checked against the 2015-19 snapshot" },
+            { id: "d", text: "DATA.md updated" }
           ] }
       ]
     },
@@ -599,13 +616,14 @@ window.PLAN = {
             { id: "a", text: "Off-tracker review: owner prompted after the pre-registration is drafted, before the first run" }
           ],
           refs: ["src/model/pres_prior.py"] },
-        { id: "EC-5", title: "How state errors move together", kind: "story", phase: "p4", needs: ["EC-1", "DA-5", "DA-4"],
+        { id: "EC-5", title: "How state errors move together", kind: "story", phase: "p4", needs: ["EC-1", "DA-5", "DA-11"],
           why: "The electoral college is decided by correlated misses in a handful of states.",
           details: [
             "Estimate national, regional and state-level components from past presidential polling misses.",
             "Test demographic similarity between states against plain regions.",
             "At most three candidates, judged by the rule in `ELECTORAL_COLLEGE.md`, section 8. The baseline they have to beat already has regions and a tilt by lean.",
-            "Moved here from EC-2's stage 5 on 2026-11-21: do demographics (age, race, education) explain state polling errors that move together, as in 2016, apart from any national miss? 2016's state errors were correlated across states without the national polls missing, so this is about how state errors co-move, not about reconciling state and national polls. Needs DA-4, so each election is tested on its own demographics rather than one late-2010s snapshot."
+            "Moved here from EC-2's stage 5 on 2026-11-21: do demographics (age, race, education) explain state polling errors that move together, as in 2016, apart from any national miss? 2016's state errors were correlated across states without the national polls missing, so this is about how state errors co-move, not about reconciling state and national polls. Needs DA-4, so each election is tested on its own demographics rather than one late-2010s snapshot.",
+            "Changed 2026-11-21: this card now needs DA-11, the state demographics by election year split out of DA-4, in place of DA-4. The demographic term from the overfitting challenge (EC-4) is tested here, with its size allowed to differ by election."
           ],
           refs: ["src/model/error_structure.py"] },
         { id: "EC-6", title: "Simulation and outputs", kind: "story", phase: "p4", needs: ["EC-4", "EC-5"],
