@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-22d",
+  version: "2026-11-22e",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -640,7 +640,9 @@ window.PLAN = {
             "Maine's and Nebraska's districts are simulated as their own races.",
             "A 269 to 269 tie is reported as its own outcome.",
             "Turnout by state (raised at EC-2's stage 5, 2026-11-21): the popular vote adds states up by their share of the previous election's vote, so differential turnout is invisible. In 2004 to 2020 that put the popular vote 0.1 to 0.2 points off. A forecast of each state's turnout share (population growth, registration, early vote) is a candidate here.",
-            "Changed 2026-11-22: the pre-registration is section 15 of the note. It assembles EC-2 to EC-5 as they stand, estimates the two spreads the earlier cards left to the assembly (each state's range by days out and poll count; the national range around the adopted centre), and tests two flagged range candidates (wider for lopsided states, wider for demographically unusual states) and two turnout-share candidates under the rule. Electoral votes and Maine's and Nebraska's district results come from the cached Wikipedia pages through a new collector. The code is the new `src/model/pres_sim.py`; `forecast.py` and `error_structure.py` are not touched."
+            "Changed 2026-11-22: the pre-registration is section 15 of the note. It assembles EC-2 to EC-5 as they stand, estimates the two spreads the earlier cards left to the assembly (each state's range by days out and poll count; the national range around the adopted centre), and tests two flagged range candidates (wider for lopsided states, wider for demographically unusual states) and two turnout-share candidates under the rule. Electoral votes and Maine's and Nebraska's district results come from the cached Wikipedia pages through a new collector. The code is the new `src/model/pres_sim.py`; `forecast.py` and `error_structure.py` are not touched.",
+            "Decided with the user 2026-11-22, before the run: the electoral count is computed exactly given the shared draws (a convolution over the contests, Maine and Nebraska as blocks), with plain simulation on the same draws for the tipping point, the gap and the popular-vote split; a demographic swing model for the five districts (the aggregate analogue of an MRP, which the repo's toplines cannot support) is tested inside the card; the states' structure is centred on the turnout shares and the national draw sized as the remainder, so the popular vote's spread is the national range exactly. The joint Bayesian rival the user raised is EC-10.",
+            "Run 2026-11-22, one round (section 15 of the note): both range candidates fail, so the range is section 6's form fitted on the lean errors; its coverage is too wide at 100 days and too narrow at 7 (42% in the 50% range), and the national range refitted from 1952 is too wide for the modern era: both go to the design freeze as suggested by results. T1, each state's turnout share moved a third of the way along its own trend, passes with no flag and is adopted provisionally until 2024; T2 (population growth) and the district swing model fail. The as-of outputs for 2008 to 2020 are written for EC-7 and were not read here."
           ],
           refs: ["src/model/pres_sim.py", "src/collect/electoral_college.py"] },
         { id: "EC-7", title: "Backtest, 2008 to 2020, and the 2024 holdout", kind: "story", phase: "p4", needs: ["EC-2", "EC-3", "EC-6"],
