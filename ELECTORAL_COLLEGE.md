@@ -183,26 +183,32 @@ Then 2024, once, recorded whichever way it goes.
 
 **Demographics by year: in the repo since 2026-11-21 (DA-11).** `data/interim/state_demographics.csv`, built by
 `src/collect/census_demographics.py` from the Census Bureau's API; sources and caveats are in `DATA.md`. Decided
-with the user that day, before any EC-5 candidate is written down, except where a choice is marked as the build's:
+with the user that day, before any EC-5 candidate is written down. Choices first made in the build are marked; the
+user confirmed each of them the same day:
 
 - **Fields.** Education, race and ethnicity, age, white adults without a degree, and median household income.
   Income was added to the card because candidate 3 in section 5 uses it.
-- **How the fields are measured (the build's choices, put to the user 2026-11-21; they asked why education is
-  measured on adults 25 and over, not 18 and over, and raised nothing on the rest).** Degree share of adults 25 and
+- **How the fields are measured (the build's choices, confirmed by the user 2026-11-21).** Degree share of adults 25 and
   over; the same among white non-Hispanic adults; white non-Hispanic adults without a degree as a share of all
   adults 25 and over, not of white adults; white, Black and Asian (each non-Hispanic, one race) and Latino shares;
   age as two shares of adults, 18 to 29 and 65 and over.
 - **The seven measures** of candidate 3 are those in `state_similarity()` (`src/model/backtest_asof.py`): degree
   share, the log of median income, white, Black and Latino shares, and urban and rural share. Age, Asian share and
   the two white education measures are collected but are not among the seven.
+- **Why adults 25 and over for education, not 18 and over (the user's question, 2026-11-21).** The Bureau publishes
+  education for white non-Hispanic adults only at 25 and over; its one table for 18 and over has no breakdown by
+  race, so the white share without a degree at 18 and over would need the microdata in every year. Adults 18 to 24
+  are about 12% of adults and 9% to 12% of them hold a degree, so including them lowers the level by about 2.5
+  points and barely reorders states (the two degree shares correlate 0.997 in 2007 and 0.998 in 2019). The
+  Downballot's tables use 25 and over too. The user kept 25 and over, with no 18-and-over share added.
 - **Population base.** Total population for race and adults 25 and over for education, as in The Downballot's
   snapshot, so the two can be compared.
 - **Which year an election uses.** The year before it: the latest survey published before the 7-day forecast, and
   what 2028 will have. A year's survey comes out the following September (confirmed for the 2021, 2023 and 2024
   survey years; earlier years not checked). The election's own year is run beside it as a comparison that decides
   nothing. `state_demographics_vintages.csv` holds both. 2000, 2004 and 2020 take the same year in both, because
-  the API has no survey for 1999, 2003 or 2020; for 2000 and 2004 that is the build's choice, for the user to
-  confirm.
+  the API has no survey for 1999, 2003 or 2020; for 2000 and 2004 that was the build's choice, confirmed by the
+  user.
 - **2020.** The Bureau published no standard one-year tables for 2020, so 2020 uses 2019. From the 2020 survey year
   the race question and its coding changed, so 2019 is like for like with 2008 to 2016 and 2021 is not. The inputs
   for 2024 and 2028 are after that change.
