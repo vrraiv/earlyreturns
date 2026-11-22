@@ -3767,19 +3767,24 @@ frame: the prior (the national nowcast plus the previous lean), F's weight at th
 
 with v the turnout shares (C below) and Σ_s v_s ε_s = 0 by construction.
 
-- **The states' part ε** is EC-5's structure, centred and sized. *Revised 2026-11-22, before any run, after the
-  advisor's review of the first draft: that draft centred every state's own error on the vote-weighted mean too, which
-  ties every contest to every other through the own errors and would have made the exact counting of A5 impossible.*
-  Let A = I + ρ_k K + ρ_b ℓℓ' + ρ_w z_w z_w' with the sizes fitted as in section 14 (on the elections before the
-  scored one for the backtest; on 2000 to 2020 for 2028), and C = corr(A) the correlation matrix EC-5 hands on.
-  Split C into its shared part and the states' own part: C = C_sh + C_own, with C_own the diagonal matrix of each
-  state's own share (1 / A_ss) and C_sh the rest (the kernel, the tilt and the education draw, rescaled). Then
+- **The states' part ε** is EC-5's structure, centred and sized. *Revised twice on 2026-11-22, before any run. The
+  first draft centred every state's own error on the vote-weighted mean too, which ties every contest to every other
+  through the own errors and would have made the exact counting of A5 impossible (the advisor's review). The first
+  revision centred the sized shared part, P_v D h: the build's checks showed that has no solution when spreads differ
+  much between states, because a state's size then also sets its loading on the level all states share, and the
+  centred variance inherits (D_s − D̄)² times that level as a floor; a state wanting a spread below about 0.6 of the
+  average could not have it. So the shared part is centred first and sized after.* Let A = I + ρ_k K + ρ_b ℓℓ' +
+  ρ_w z_w z_w' with the sizes fitted as in section 14 (on the elections before the scored one for the backtest; on
+  2000 to 2020 for 2028), and C = corr(A) the correlation matrix EC-5 hands on. Split C into its shared part and the
+  states' own part: C = C_sh + C_own, with C_own the diagonal matrix of each state's own share (1 / A_ss) and C_sh
+  the rest (the kernel, the tilt and the education draw, rescaled). Then
 
-      ε = D (P_v h + e ⊙ sqrt(diag C_own)),    h ~ N(0, C_sh) shared, e the states' own Student-t errors,
-      P_v = I − 1v',    D_s = s_s / sqrt((P_v C_sh P_v')_ss + C_own,ss)
+      ε = D (h_c + e ⊙ sqrt(diag C_own)),    h_c ~ N(0, P_v C_sh P_v') shared and centred, e the states' own Student-t errors,
+      P_v = I − 1v',    D_s set so that each state's lean error ε_s − v'ε has spread s_s (a closed form, then a short polish)
 
-  so that every state's centred spread is s_s from the range model (B), the shared part carries no level across
-  states, and, given h, the states are independent.
+  so that the shared draws carry no vote-weighted level (v'h_c = 0 exactly), every state's lean-error spread is s_s
+  from the range model (B), and, given h_c, the states are independent. The sized shared part contributes a little to
+  the popular vote through uneven sizes, v'D h_c; it is reported and the national draw is sized net of it.
   - **Why this is faithful to EC-5.** EC-5 scored the covariance of the 50 contrasts, Q Σ Q' with Q1 = 0. Q P_v = Q,
     so with one spread for every state Q Cov(ε) Q' = s² Q (C_sh + C_own) Q' = s² Q C Q': exactly what EC-5 tested
     (a check). What EC-5 never identified is the level all states share: under candidate 3 the fitted kernel implies
@@ -3792,9 +3797,9 @@ with v the turnout shares (C below) and Σ_s v_s ε_s = 0 by construction.
     change in any pairwise correlation against EC-5's C is reported.
   - The shared draws are Gaussian and the state's own error is Student-t, section 5's and the Senate model's form.
 - **The national draw η** is Student-t, independent of everything else, sized as the remainder: the popular vote in a
-  draw is natF + η + Σ_s v_s D_s sqrt(C_own,ss) e_s (the shared part drops out, since v'P_v = 0), so
+  draw is natF + η + v'ε, so
 
-      Var(η) = σ_N²(d) − Σ_s v_s² D_s² C_own,ss
+      Var(η) = σ_N²(d) − v' Cov(ε) v
 
   with σ_N(d) from the national range model (B). The popular vote's spread is therefore σ_N(d) exactly, and the
   kernel's shared level has nowhere to live but η. If the remainder is ever negative (the own errors alone would
@@ -4080,6 +4085,52 @@ decider** is all usable districts, with the five that award electoral votes repo
 worse. **EC-10** is opened for the joint Bayesian rival. The user added that the site may end up showing two
 genuinely different models rather than three variants of one, as 2026 did; EC-10 is to settle that, and part of its
 work feeds the site cards (SI). The pre-registration is confirmed; the build and its checks come next, then one round.
+
+**EC-6: amendments after the build and its checks, before any loss is read** (`src/model/pres_sim.py checks`,
+26 checks passing on 2026-11-22; no miss read, no fitted number read except on planted inputs).
+
+- **A4's sizing** was revised a second time (above), after the first revision's fixed point failed on the real
+  structure with planted spreads: the shared part is centred before it is sized.
+- **The count's blocks (A5).** Maine's and Nebraska's own error is integrated on 64 equal-probability nodes of the
+  Student-t itself (its quantiles at the midpoints of 64 equal intervals), not on a Gauss-Hermite grid of the normal
+  part: simpler, and exact to the node count whatever ν is. Each block's distribution over its 4 or 5 votes is then
+  convolved into the count like any contest.
+- **Student-t draws** are scaled to unit variance, so ν changes the tails and not the spreads; ν is fitted on R0's
+  standardized residuals (the baseline's), and refitted under a candidate only if the user adopts one.
+- **The national range** keeps stage 3's floor of 1.0 on the variance. If the remainder for η is negative at some
+  date, η is zero there and the date is flagged in the report.
+- **The range fit's identification.** On planted misses the days term c comes back low (0.016 for 0.030) while a
+  and b trade off against it: days out and the effective poll count move together across the cells, so the three
+  terms are only jointly well determined. The spreads they imply are what the simulation uses, and those are
+  recovered; the sizes alone are read with that in mind.
+- **D1's shuffle.** The districts differ from one election to the next (lines change, seats move), so "one reordering
+  of the states held across years" has no exact analogue; each shuffle draws one permutation per election from one
+  seed and re-derives the fit and the score. Declared here before the run.
+- **D1's elections.** The 2000 census long form has no congressional-district geography in the API (the call fails),
+  so 2000 is dropped, 2008 is fit-only, and 2016 and 2020 are scored, asking for 2 of 2, as the draft provided.
+  `district_demographics.csv` holds the two education tables by district for 2007, 2015 and 2019 (435 rows each;
+  `census_demographics.py cd`); at-large seats are coded 00 by the API and dropped from the swing.
+- **Jacobson's file against the pages.** For the five districts that award electoral votes, his two-party presidential
+  margin was compared with the pages' before any fit. 2008, 2012 and 2020 agree within a point (his vote base
+  differs slightly from the pages'). **Nebraska's three 2016 rows do not**: each is more than 2 points from the
+  pages. The rule, fixed now: a district-election whose
+  margin is more than 2 points from the pages is dropped from D1's fit and listed in the output; the five districts'
+  own report uses the pages. Nothing else in his file can be checked this way.
+- **The usable swing sample** before any feature is matched: 410 district-elections in 2008, 386 in 2016, 397 in
+  2020 (lines unchanged at the election and the midterm before, both votes present, not at-large).
+- **T2 for 2000** has no population before 2000 in DA-11's table, so T2's fit-only year is 2004 alone; T1 has 2000
+  and 2004.
+- **Coverage (report b)** is given under Gaussian quantiles and under the Student-t's at the fitted ν.
+- **Checks, run and passed (26):** the holdout; the rebuilt centre equals the saved frame's `C` in all 22 cells;
+  electoral votes; the centred shared draws carry no level and the sized shared part's share of the popular vote is
+  small; each state's lean-error spread equals s_s and the popular vote's spread equals σ_N to Monte Carlo error; the
+  total spread; with D one constant Q Cov(ε) Q' equals EC-5's Q C Q' up to one scale (1e-9); the sizing reproduces
+  every spread (1e-8); the exact count and plain simulation agree (Gaussian and ν = 4); ν = 1e9 reproduces Gaussian
+  draws; a district's margin less its state's has the lean and σ_D; the tipping point on fixed margins; a 269 draw is
+  a tie with no tipping point in both methods; the same seed reproduces the outputs; planted range sizes recovered
+  and the decision path (a planted lopsided term passes R1, a flat plant passes nothing, 30 shuffles); ν large on
+  Gaussian plants; T0's error is 0.1 to 0.2 points in 2008 to 2020; λ = 0 reproduces T0; identity and real shuffles;
+  T2's data reach; the swing model recovers a planted slope and a flat plant fails; σ_D from 25 changes.
 
 **EC-6: the data build, before any loss is read** (`src/collect/electoral_college.py`, run 2026-11-22). Built and
 checked while the pre-registration awaits the user; it reads no poll and no forecast, and 2024 is never opened.
