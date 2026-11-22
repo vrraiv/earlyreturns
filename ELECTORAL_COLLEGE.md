@@ -3530,7 +3530,7 @@ absorbs what candidate 2 carries.
   Student-t tails are the assembly's.
 - **To the design freeze (EC-9):** the adopted structure's one untouched test on 2024; whatever is declined or held;
   report (f) and whether candidate 3 (or 2) gains beside it; and, if the user wants it, the spread-matched control
-  for candidate 3, pre-registered there.
+  for candidate 3, pre-registered there (superseded: the user chose to run that control as round 2, below).
 
 **EC-5: the user's decisions after the round (2026-11-22).**
 
@@ -3635,19 +3635,28 @@ From `data/processed/pres_errors_round2.json`. Units as in round 1: the log dens
 Above the 95th percentile of its 200 kernel shuffles (−0.61; the shuffled increments run from −2.38 to 0.10, median
 −0.81, 1 in 100 positive: as expected, a shuffled kernel and its control both go flat) and above the planted
 threshold of 0.39 by six times. The variants pass on the same clauses: own-year demographics 2.40 (3 of 4), without
-DC 2.70 (3 of 4), at 30 days 2.46 (3 of 4, 2008 −3.44). No flag applies.
+DC 2.70 (3 of 4), at 30 days 2.46 (3 of 4, 2008 −3.44), each on the three computed clauses; the planted threshold
+was calibrated on the main test bed only, and each variant's gain is also above 0.39. No flag applies.
 
 - **Where the gain sits.** It is concentrated in 2016: without that election the pooled increment over the other
   three is −0.89. 2016 is the election the card was written for (state errors correlated across states without the
   national polls missing), and the clauses were set before the run, so this changes no verdict; it is said so the
-  reader knows what four elections support. 2008, the thinnest fit, is worse than its control by 7.8.
+  reader knows what four elections support. 2008, the thinnest fit, is worse than its control by 7.8. 2016 is also
+  where report (f), the challenge's signed term, gains most (+7.02 in round 1): this round separates co-movement from
+  spread, not from a signed shift, and that question stays with EC-9.
+- **How far the planted yardstick reaches.** The 200 spread-only plants' increments by election run from −8.14 to
+  5.17 (2008), −6.34 to 3.79, −5.06 to 5.95 and −4.57 to 2.96; pooled, −3.27 to 1.12. So 2008's −7.77 is within what
+  plants with no similarity in them produce, while 2016's +12.44 and the pooled 2.45 lie beyond anything the plants
+  reached. The plants are Gaussian, as the test is; a heavier-tailed truth would spread them further, so "six times
+  the threshold" is read with that in mind. This decides nothing.
 - **Report (i), the control against the baseline: 0.83** (2008 +2.65, 2012 +0.11, 2016 −1.73, 2020 +2.31). So candidate
   3's spread pattern alone is worth about a quarter of its round-1 gain over the baseline (3.28), and the rest, 2.45,
   is co-movement the control does not have. Spread helps in 2008 and 2020 and hurts in 2016.
 - **Report (ii), what the control was given:** centred spreads with a widest-to-narrowest ratio of 2.12, 1.87, 1.75
   and 1.80 (DC, New Mexico, Mississippi, California or Hawaii widest), as in the diagnostic. Its fitted overall
-  scale is 0.85 to 0.95, so the control sat a little narrower than candidate 3 at every contest; its correlation
-  sizes (regions 0 to 0.108, tilt 0.019 to 0.026) are the baseline's.
+  scale is 0.85 to 0.95, so the control sat a little narrower than candidate 3 at every contest. Its correlation
+  sizes are refitted, not copied: regions 0 to 0.108 against the baseline's 0 to 0.102, and the tilt 0.019 to 0.026
+  against the baseline's 0.014 to 0.017.
 - **Report (iii), the flat control** differs from the baseline by −0.03, +0.04, +0.14 and +0.01 by election, as
   recorded before the run.
 
