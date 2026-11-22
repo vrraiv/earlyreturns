@@ -2998,6 +2998,9 @@ and those with 10 or more from 7.65 to 7.36 (94). The one left over is Vermont i
 only (118.0 to 121.9). The loss is in 2008 and 2016, the two years stage 4 found leans moving most. No further
 split is made after the results; anything these suggest is a declared candidate for the design freeze.
 
+**The rest of the fixed reports** are in `pres_prior.json`: the fitted numbers by election and date (b), the prior
+alone by election (c), the clauses on 2008 to 2020 for V and M (e), and every rung by date (f).
+
 **What stands, under the rule.**
 
 - **V and M are closed.** One round, as agreed.
@@ -3037,6 +3040,8 @@ polls. That changes 497 of the 510 scored state-dates. 2004 at 150, 100 and 60 d
 
 - The module's first run still reproduces its saved output exactly, and stage 5's checks pass.
 - EC-4's baseline equals stage 4's state estimate in every state and date (asserted in the code).
+- The two runs agree where they overlap: on the plain squared error, the rerun's baseline (31.07) and C (26.55) are
+  EC-4's states-first and after-shift figures for F.
 
 | | Excess score (30 and 7 days) | 2004 | 2008 | 2012 | 2016 | 2020 | Elections better | Test | Plain squared error | Verdict |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -3053,8 +3058,9 @@ For comparison, the first run's row for C was 16.82 against a baseline of 20.46 
 - **The gain is smaller than in the first run** (2.86 against 3.64), as stage 5 expected: the blend already pulls
   the states' sum toward the national estimate. The gap between that sum and the national forecast shrinks in most
   cells (for example −1.75 to −1.52 in 2016 at 7 days, and 2.21 to 0.85 in 2008 at 150 days).
-- **A** now beats 96.5% of its shuffles, where it beat 90.5% before, and gains slightly more than C (3.10). It is
-  still better in only 3 of 5 elections, so it fails the same clause as in the first run.
+- **A** failed two clauses in the first run: its shuffle (90.5%) and the elections (3 of 5). Now it beats 96.5% of
+  its shuffles and gains slightly more than C (3.10 against 2.86), but it is still better in only 3 of 5 elections,
+  so it fails on that clause alone. This decides nothing.
 - **B** is worse in every election, as before, and is flagged as before.
 - **Reported:** the popular vote's squared error falls from 8.84 to 5.41 under C. With each year's mean error
   removed, C equals its baseline (19.37 both): its gain is still all in the level the states share. It is better
@@ -3062,6 +3068,8 @@ For comparison, the first run's row for C was 16.82 against a baseline of 20.46 
 
 **So the even shift stands on EC-4's estimates.** Stage 5 made its adoption provisional until this rerun; the rerun
 passes, so that condition is met. What remains provisional is F itself, until 2024 is scored at the design freeze.
+The even shift does not hang on F: it passed on the states' own polls and on the blend, so it stands whichever way
+F goes.
 
 **The state estimate, as EC-2 to EC-4 leave it:**
 
@@ -3073,6 +3081,7 @@ passes, so that condition is met. What remains provisional is F itself, until 20
 **Carried forward from EC-4:**
 
 - **To the design freeze (EC-9):** F's one untouched test on 2024, and the version with no pull in close states.
+  The two share one holdout, so how 2024 decides between them is also written down before 2024 is opened.
 - **To the assembly:** the wider range for lopsided states, with report (d) as its evidence.
 - **To EC-5, after DA-4:** the challenge's demographic term.
 - **Closed here:** a weight that depends on the number of polls, and a fitted slope or second lean in the prior.
