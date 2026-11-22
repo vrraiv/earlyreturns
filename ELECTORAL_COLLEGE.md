@@ -3162,3 +3162,196 @@ F goes.
 - **To the assembly:** the wider range for lopsided states, with report (d) as its evidence.
 - **To EC-5, after DA-4:** the challenge's demographic term.
 - **Closed here:** a weight that depends on the number of polls, and a fitted slope or second lean in the prior.
+
+## 14. How state errors move together: evaluation plan (EC-5)
+
+Section 5 fixes the baseline (a national draw, a draw per Census region, a tilt by lean, and each state's own
+error) and names at most three candidates. EC-5 fits that structure on past presidential misses and asks whether
+demographics explain state errors that move together, beyond what regions and the tilt already carry. The
+demographics are DA-11's, by election year (section 9).
+
+### EC-5: pre-registration (written 2026-11-21, before any run)
+
+Nothing below has been run. No miss has been read: the only numbers in this draft are counts, correlations between
+demographic measures and leans (results that are already the baseline prior's inputs), and standardized demographic
+values. They use no poll and no forecast.
+
+**How blind this test is.**
+
+- **Section 5's three candidates** were written on 2026-11-20 (commit `aaee2b5`, EC-1), before the overfitting
+  challenge's log was read.
+- **The overfitting challenge** (section 13) scored a signed demographic term on 2012, 2016 and 2020 at 7, 30, 60 and
+  100 days: polls overstate the Democrat where white adults without a degree are many, as one fixed coefficient on a
+  2015-19 snapshot, and it beat 200 shuffles. Its log was read on 2026-11-21, before this draft. So candidate 2 below
+  uses a feature whose sign on three of the four scored elections has been seen, though in a different form (a
+  fitted shift of the centre, not a draw). Its pass is flagged (flag 1). The fixed-sign form is run and reported here
+  and is declared **suggested by the overfitting challenge** (question 5).
+- **Candidates 1 and 2 are different measures.** Across the 51 contests the degree share and the white share without
+  a degree correlate at about −0.55 in every election year used (−0.4 without DC): each tracks lean more closely
+  than it tracks the other. Candidate 1's feature was not in the challenge, so its pass is judged on the rule alone
+  (question 8).
+- **The log's Senate table** reports the demographic term's slope by Senate cycle, 2024 included, and finds its sign
+  inconstant (negative in 8 of 12 cycles, positive in 2022 and 2024). That is disclosed and shapes one choice: the
+  card already says the term's size may differ by election, which is what a zero-mean draw does.
+- **Both education measures track lean.** The year-before degree share correlates with the election's lean at 0.57
+  (2000), 0.67, 0.72, 0.72, 0.79 and 0.82 (2020); the white share without a degree at −0.53, −0.52, −0.56, −0.62,
+  −0.73 and −0.71. Against the previous election's lean, the prior's input, the figures are within 0.05 of these.
+  This is section 5's warning: a demographic draw can look useful only because it restates the tilt. The baseline
+  keeps the tilt, so the comparison answers whether education adds to it.
+
+**Test bed.**
+
+- **The misses.** For each election and date, a state's miss is its result less the forecast as EC-2 to EC-4 leave it
+  (section 13, "The state estimate"): the prior plus F's weight times the gap to its polls, then the even shift to
+  stage 3's national forecast. For 2004 to 2020 these are the `C` and `result` columns of `pres_addup_rerun_frame.csv`,
+  rebuilt by the same code and checked equal. The scored date is 7 days (section 7); 30 days is reported.
+- **2000 (question 1).** 2000 has 403 state polls at 7 days, in all 51 contests, and the national series, the undecided
+  share and 1996's leans exist, so its 7-day forecast can be built. No earlier election exists to fit F's weight on,
+  so 2000's estimate takes w = 1 (its own polls, EC-2's outcome), then the even shift. 2000's misses are used for
+  fitting only.
+- **Which elections.** Section 7's burn-in of two elections: 2000 and 2004 are fit-only; 2008, 2012, 2016 and 2020 are
+  scored. Each scored election's structure is fitted on the elections before it: 2008 on two, 2020 on five. 2008's
+  fit is the thinnest and its score is shown apart.
+- **51 contests**, 50 states and DC, as section 13: Maine's and Nebraska's districts have no results in the repo.
+  Section 7 says 56; this is a departure, recorded.
+- **Demographics.** `state_demographics.csv` and `state_rural_share.csv` through `state_demographics_vintages.csv`: each
+  election uses the year before it (2000, 2004 and 2020 as the vintages file says), and rural share from the census in
+  force. The election's own year is run as a comparison that decides nothing (report b), as the user decided for
+  DA-11. 2024 is refused at load from the demographics, the rural shares, the results and the frame.
+
+**The national layer stays out (question 2).** Each election's 51 misses are centred on their plain mean, and the
+score is the density of the 50 contrasts that remain. The card's question is how states move against each other
+apart from any national miss (2016's errors were correlated across states without the national polls missing);
+the national draw's size is section 6's and the assembly's. In the contrast space the national component vanishes,
+so no structure here fits it. For a model covariance Σ the contrasts have covariance QΣQ', with Q one fixed
+orthonormal basis of the space orthogonal to a constant; the log density is the Gaussian one in 50 dimensions.
+
+**Every structure gets the same spread (question 3).** This test is about co-movement, so each state's total spread
+is the same under every structure: one fitted σ_T for all 51 contests, and the components set the correlations
+only. A structure is Σ = σ_T² × corr(A), where corr rescales a matrix A to unit diagonal, and A is the sum of the
+components below with the state's own error fixed at 1. Without this a draw on a standardized feature would widen
+the states where the feature is extreme (DC is 3 to 4 standard deviations out on both education measures) and could
+win on spread rather than on co-movement, which the shuffle would not catch. This is how section 5 and
+`error_structure.py` already treat the components: carved out of a fixed total.
+
+**Baseline.** A_0 = ρ_r R + ρ_b ℓℓ' + I.
+
+- R_st = 1 if s and t are in the same Census region (the four regions of `error_structure.py`, DC in the South),
+  else 0.
+- ℓ_s = the state's lean at the previous election, in points: the lean the forecast's prior used.
+- ρ_r, ρ_b ≥ 0 are the regional and tilt sizes relative to the state's own error.
+
+**The candidates** (section 5), each against the baseline.
+
+1. **A degree draw.** A_1 = A_0 + ρ_e z_e z_e', z_e the share of adults 25 and over with a degree, standardized
+   across the 51 within the year used.
+2. **A white-without-a-degree draw.** A_2 = A_0 + ρ_w z_w z_w', z_w the white non-Hispanic share of adults 25 and
+   over without a degree, standardized likewise.
+3. **Similarity in place of regions.** A_3 = ρ_k K + ρ_b ℓℓ' + I, with K_st = exp(−d²_st / 2m²): d the distance between
+   s and t on the standardized measures, m the median distance over all pairs that year, K_ss = 1. The measures
+   (question 6): degree share, the log of median household income, white, Black and Latino shares, and rural share
+   from the census in force. Six, all by year. The Downballot's urban share, the seventh in `state_similarity()`, is
+   one 2018-22 snapshot and is proposed dropped; a version with it as a fixed seventh measure is reported (report g).
+
+Every draw has mean zero: a candidate says which states miss together and by how much relative to each other, not
+in which direction. Candidate 2's fixed-sign form is question 5.
+
+**Fits, on earlier elections only.** Maximum likelihood on the centred misses of the elections before the scored
+one, each election with its own year's R, ℓ, z and K. For given sizes ρ, σ_T² has a closed form, so the search is
+over the two or three sizes, bounded at zero with no upper bound, from three fixed starting points, keeping the
+lowest loss. Each scored election is fitted on its own; the scored election's misses enter no fit.
+
+- **Collapse, written now.** A candidate whose fitted size is zero in every fit is the baseline and gets no verdict.
+  A zero fitted ρ_r in the baseline is reported; the baseline is then the tilt alone.
+- **Senate and governor misses** are not used (question 10): section 5 says the components are re-estimated on
+  presidential elections, and the card says the same.
+
+**The score.** For each scored election, the log density of its 50 centred 7-day misses under the structure fitted
+on the elections before it. Pooled: the mean over the four scored elections. A candidate's gain is its pooled score
+less the baseline's, in log-density units. Reported beside it: each election; 2008 apart; 30 days; the own-year
+vintage; without DC.
+
+**The rule** (section 8).
+
+1. **Shuffle.** The candidate's feature is shuffled across the 51 contests: one reordering of the states, drawn once
+   per shuffle and applied in every year, fit and scored alike. For candidates 1 and 2 the reordering moves z; for
+   candidate 3 it moves the states' six-measure vectors, so K's rows and columns are permuted together. R and ℓ are
+   never shuffled. 200 shuffles, seeds 0, 1 and 2 for the three candidates; each refits and rescores. The
+   candidate's gain has to exceed the 95th percentile of the 200 shuffled gains by more than rounding.
+2. **Simulation noise.** The density is closed-form Gaussian, so no simulation enters and this condition is met by
+   construction. That is a departure from section 5's Student-t components, taken for the test only (question 4).
+3. **Better than the baseline in at least three of the four scored elections**, on each election's log density.
+
+**What is adopted (question 9).** A candidate that passes all three with no flag is adopted provisionally, until 2024
+at the design freeze. If more than one passes, the one with the largest gain is adopted; the combination of a
+passing candidate 3 with a passing candidate 1 or 2 (similarity in place of regions, plus the draw) is reported and
+goes to the user, not adopted under the rule. Candidates 1 and 2 are never adopted together. If nothing passes,
+the baseline stands: regions and the tilt.
+
+**Flags.** A flagged pass goes to the user and is not adopted under the rule. No diagnostic turns a fail into a pass.
+
+1. Any pass by candidate 2: the challenge scored its feature on three of the four scored elections.
+2. A pass that disappears without DC (report c): the gain on the 50 states is not positive, or clause 3 fails there.
+3. A pass that is worse than the baseline at 30 days, pooled.
+4. A pass whose fitted size is zero in the 2020 fit, the one with the most elections behind it.
+
+**Reports, fixed now.**
+
+- **(a) The fitted sizes** by scored election, for the baseline and each candidate, and what they imply: the
+  correlation between two states in the same region, between two states one standard deviation apart on the
+  feature, and the share of a typical state's variance each component carries.
+- **(b) The own-year vintage.** Every clause rerun with each election's own-year demographics. Decides nothing.
+- **(c) Without DC.** Every clause rerun on the 50 states, with z and K recomputed over the 50. Flag 2 reads it.
+- **(d) 30 days.** The score against the 30-day forecast, with the structure fitted on 30-day misses. Flag 3 reads it.
+- **(e) 2008 apart, and the clauses on 2012 to 2020 only**, asking for 2 of 3.
+- **(f) The fixed-sign form of candidate 2** (question 5): E[miss_s] = β z_w,s with β fitted on earlier elections,
+  on top of the baseline's covariance, with its three clauses and seed 3. Declared suggested by the challenge.
+- **(g) Candidate 3 with The Downballot's urban share** as a fixed seventh measure, with its clauses and seed 4.
+- **(h) The baseline's own parts.** The baseline against the tilt alone and against the state's own error alone, so
+  the reader sees what regions and the tilt carry on presidential misses before any candidate is added.
+
+**What EC-5 hands on.**
+
+- **To EC-6:** the adopted structure as correlations, to be sized against section 4's totals at the assembly. The
+  Student-t tails and the national draw are the assembly's.
+- **To the design freeze (EC-9):** the adopted candidate's one untouched test on 2024; whatever is flagged and
+  declined; report (f) if it passes its clauses.
+
+**Checks before any loss is read.**
+
+- 2024 is absent from the demographics, the rural shares, the results, the frame and the national series.
+- The rebuilt 7-day and 30-day estimates for 2004 to 2020 equal `pres_addup_rerun_frame.csv`'s `C` column.
+- Adding a constant to every miss of an election changes no score and no fit.
+- At ρ = 0 everywhere the log density equals the known formula for independent errors with one spread.
+- Planted structures are recovered: misses drawn from a known regional size, tilt size and feature size are fitted
+  back to within sampling error, from each of the three starting points.
+- An identity shuffle reproduces each candidate exactly; a real one changes the fit and the score.
+- The decision path runs on planted misses before the one round: a planted feature draw makes its candidate pass; a
+  planted region-only structure makes every candidate fail; a planted DC-only effect trips flag 2.
+
+**Questions for the user.**
+
+1. **2000 for fitting, with w = 1.** Proposed: build 2000's misses with the state's own polls as the estimate and use
+   them for fitting only, so 2008 is fitted on two elections. The alternative is to leave 2000 out and fit 2008 on
+   2004 alone, where one election cannot size a draw.
+2. **The national layer out.** Proposed: centred misses, density on 50 contrasts. The alternative is to fit a national
+   size as a fourth parameter from the same few elections; it would be the same under every candidate and add noise
+   to every fit.
+3. **One spread for every state and structure.** Proposed as above. The alternative is a per-state total, which
+   mixes the question of spread into the one about co-movement, and which EC-4 already left to the assembly.
+4. **Gaussian for the test, 51 contests.** Proposed, as departures from sections 5 and 7, recorded.
+5. **Candidate 2's mean.** Proposed: candidate 2 is a zero-mean draw (the card's "size allowed to differ by
+   election"), and the challenge's fixed-sign form is run as report (f) with its own clauses, adoptable only at the
+   design freeze if it passes them. The alternative is the fixed-sign form as candidate 2 itself. A non-zero mean
+   moves point forecasts, so it touches F and stage 5's rerun, which this card does not reopen.
+6. **Candidate 3's measures.** Proposed: six measures by year, urban share dropped; the seven-measure version
+   reported (g).
+7. **DC.** Proposed: in the test bed, with the 50-state rerun as report (c) and flag 2.
+8. **The four flags.** Proposed as above. Candidate 1 is judged on the rule alone: its feature was outside the
+   challenge.
+9. **What is adopted** when more than one candidate passes: the largest gain; the combination reported.
+10. **Presidential misses only** in the fits, no Senate or governor cycles.
+11. **One round.**
+
+**The human gate.** The card has no checklist. The draft is shown to the user before any run, as with every
+pre-registration; the code review's amendments are written here before any loss is read, as in section 13.
