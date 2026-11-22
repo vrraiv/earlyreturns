@@ -9,8 +9,8 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|AR|S|regular,Republican,R,Tom Cotton,54.21,481495.0,481495.0
 2026|AR|S|regular,Democratic,D,Hallie Shoffner,42.46,377108.0,377108.0
 2026|AR|S|regular,Libertarian,O,Jeff Wadlin,3.33,29539.0,29539.0
-2026|CO|S|regular,Democratic,D,John Hickenlooper,60.5,1629507.0,1629507.0
-2026|CO|S|regular,Republican,R,Mark Baisley,34.98,942089.0,942089.0
+2026|CO|S|regular,Democratic,D,John Hickenlooper,60.5,1629521.0,1629521.0
+2026|CO|S|regular,Republican,R,Mark Baisley,34.98,942095.0,942095.0
 2026|CO|S|regular,Forward,O,Bob Chew,2.63,70794.0,70794.0
 2026|CO|S|regular,Libertarian,O,Blake Huber,1.23,33136.0,33136.0
 2026|CO|S|regular,Unity,O,Adam Withrow,0.51,13717.0,13717.0
@@ -26,9 +26,9 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|ID|S|regular,Independent,I,Todd Achilles,33.56,239422.0,239422.0
 2026|ID|S|regular,Independent,I,Natalie Fleming,7.03,50134.0,50134.0
 2026|ID|S|regular,Libertarian,O,Matt Loesby,2.91,20742.0,20742.0
-2026|IL|S|regular,Democratic,D,Juliana Stratton,62.07,2619505.0,2619505.0
-2026|IL|S|regular,Republican,R,Don Tracy,36.34,1533624.0,1533624.0
-2026|IL|S|regular,American Center,O,Whitfield Harrington Jr.,1.59,67323.0,67323.0
+2026|IL|S|regular,Democratic,D,Juliana Stratton,62.07,2620386.0,2620386.0
+2026|IL|S|regular,Republican,R,Don Tracy,36.34,1534193.0,1534193.0
+2026|IL|S|regular,American Center,O,Whitfield Harrington Jr.,1.6,67369.0,67369.0
 2026|IA|S|regular,Democratic,D,Josh Turek,50.55,688741.0,688741.0
 2026|IA|S|regular,Republican,R,Ashley Hinson,46.36,631481.0,631481.0
 2026|IA|S|regular,Libertarian,O,Thomas Laehn,3.09,42109.0,42109.0
@@ -64,10 +64,10 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|MS|S|regular,Democratic,D,Scott Colom,49.36,480153.0,480153.0
 2026|MS|S|regular,Republican,R,Cindy Hyde-Smith,48.54,472122.0,472122.0
 2026|MS|S|regular,Independent,I,Ty Pinkins,2.1,20469.0,20469.0
-2026|MT|S|regular,Republican,R,Kurt Alme,48.16,235549.0,235549.0
-2026|MT|S|regular,Independent,I,Seth Bodnar,37.74,184551.0,184551.0
-2026|MT|S|regular,Democratic,D,Alani Bankhead,12.26,59950.0,59950.0
-2026|MT|S|regular,Libertarian,O,Kyle Austin,1.84,9013.0,9013.0
+2026|MT|S|regular,Republican,R,Kurt Alme,48.17,235693.0,235693.0
+2026|MT|S|regular,Independent,I,Seth Bodnar,37.72,184574.0,184574.0
+2026|MT|S|regular,Democratic,D,Alani Bankhead,12.26,59984.0,59984.0
+2026|MT|S|regular,Libertarian,O,Kyle Austin,1.84,9018.0,9018.0
 2026|NE|S|regular,Republican,R,Pete Ricketts,49.85,382171.0,382171.0
 2026|NE|S|regular,Independent,I,Dan Osborn,44.15,338509.0,338509.0
 2026|NE|S|regular,Working People,O,Robin Richards,2.61,20027.0,20027.0
