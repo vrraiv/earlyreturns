@@ -2839,3 +2839,40 @@ run. Nothing on this card is run, and no module for it is written, until the own
   against the same states' leans at the previous election (b1) and at the one before (b2), a lean being the
   state's margin less the national margin. No loss is read until the user confirms or changes question 4.
 - **The 2026 Senate races** in the challenge's table are now disclosed above, at the user's direction.
+
+**EC-4: amendments after the code review, before any loss was read** (`src/model/pres_prior.py`). The code makes
+choices the draft did not state. They are fixed here; no loss and no fitted number had been read.
+
+- **Where lean comes from.** `state_presidential.csv` from 1992, the same numbers the baseline prior reads, and the
+  history file for 1972 to 1988 only. The two files differ by up to 0.2 points where they overlap.
+- **M inside the weight's fit.** Each earlier election in a fit takes the prior M would have given it then, fitted on
+  the elections before that election. The scored election's coefficients are not used for it.
+- **2004 at 150, 100 and 60 days** keeps the baseline with the previous lean under M too.
+- **V's fit.** α and β have no upper bound. A fitted β below 0.0001 counts as zero for the collapse clause, because a
+  bounded fit stops just inside the bound.
+- **The shuffle clause.** The gain has to exceed the 95th percentile of the 200 shuffled gains by more than rounding.
+  The seeds are 0 for V and 1 for M. M's shuffle draws one reordering of the states for each election from 1980,
+  used wherever that election's two earlier leans appear.
+- **Flags 1 to 3.** "Worse" means a negative gain on the score's own averaging: dates, then elections equally.
+  Close states are those whose baseline prior is under 10 points in size.
+- **Report (c) and flag 5.** The squared error of the predicted lean, intercept included, averaged over the 51 and
+  then over the elections from 1988 to 2020.
+- **Report (e).** The clauses on 2008 to 2020 include the shuffle clause, from the same 200 draws.
+- **M and the slope alone** are the standing rung's form (F or V) refitted with their prior.
+- **Checks, run and passed (23):**
+  - 2024 is absent from the polls, the results, the national series and the lean history;
+  - the leak and deletion tests at 30, 7 and 100 days, with 2000 included. Polls that ended before the date do
+    move that date's estimates and the later elections' fits, so the test can fail;
+  - changing a scored election's results changes no estimate and no fitted number for it;
+  - the behaviour checks listed above, and planted lean slopes recovered;
+  - an identity shuffle reproduces V and M exactly, and a real one changes the fit and the estimate.
+- **The decision path, run on planted results** (30 shuffles each), so that what stands, the collapse, the fallback
+  and the flags were executed before the one round:
+  - a planted α and β: F passes and is flagged, V passes against F, M fails;
+  - a planted fixed weight: F passes, V does not;
+  - a planted trend in lean: M passes;
+  - a planted slope with no trend: M fails its shuffle, and the slope alone is judged, passes and is flagged;
+  - results equal to the baseline: nothing passes and M is not tested.
+- **A failed check, recorded.** Commit `0f4c30a` says the checks pass. One check added just before it had failed:
+  it moved every 2016 poll by the same amount, which the fit's constant for the election absorbs by design. The
+  fault was in the check; it now moves half the states (commit `5caa87a`).
