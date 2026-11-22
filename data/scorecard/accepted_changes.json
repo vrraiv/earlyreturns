@@ -15,6 +15,8 @@
     {"race_key": "2026|CO|H|3", "until_two_party_votes": 325009, "added": "2026-11-15",
      "reason": "box 163,817 + 157,660 trails AP 159,512 + 165,497 (99% reporting, checked Nov 15)"},
     {"race_key": "2026|UT|H|3", "until_two_party_votes": 237641, "added": "2026-11-15",
-     "reason": "box 89,087 + 144,009 trails AP 91,761 + 145,880 (98% reporting, checked Nov 15)"}
+     "reason": "box 89,087 + 144,009 trails AP 91,761 + 145,880 (98% reporting, checked Nov 15)"},
+    {"race_key": "2026|NJ|H|2", "until_two_party_votes": 273171, "added": "2026-11-22",
+     "reason": "results table 137,999 + 130,631 trails AP 141,141 + 132,030 (99% expected vote in; AP count as shown by NBC, updated Nov 20, checked Nov 22)"}
   ]
 }
