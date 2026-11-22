@@ -27,6 +27,5 @@ Share-alike is required because many tables are adapted from Wikipedia (CC BY-SA
 ## Sources to credit
 
 Wikipedia contributors (CC BY-SA 4.0); FiveThirtyEight / ABC News; VoteHub; Gallup via the American Presidency
-Project; BLS, BEA and EIA via FRED (public domain); the Federal Election Commission (public
-domain); state election offices and the California Secretary of State (public records); AtlasIntel (poll toplines); Will Jennings and Christopher Wlezien (national presidential polls 1952-2016, CC0); The Economist (presidential polls, MIT); the MIT Election Data and Science Lab (House and Senate returns, CC0); David Broockman (district presidential vote 1952-2004, CC0); The
+Project; BLS, BEA and EIA via FRED (public domain); the Federal Election Commission (public domain); the U.S. Census Bureau (public domain; its Data API is used, without its endorsement or certification); state election offices and the California Secretary of State (public records); AtlasIntel (poll toplines); Will Jennings and Christopher Wlezien (national presidential polls 1952-2016, CC0); The Economist (presidential polls, MIT); the MIT Election Data and Science Lab (House and Senate returns, CC0); David Broockman (district presidential vote 1952-2004, CC0); The
 Downballot (presidential results by state, with a link to its data page).

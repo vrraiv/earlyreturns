@@ -1,0 +1,260 @@
+{
+ "B03002_001E": {
+  "label": "Estimate!!Total:"
+ },
+ "B03002_001EA": {
+  "label": "Annotation of Estimate!!Total:"
+ },
+ "B03002_001M": {
+  "label": "Margin of Error!!Total:"
+ },
+ "B03002_001MA": {
+  "label": "Annotation of Margin of Error!!Total:"
+ },
+ "B03002_002E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:"
+ },
+ "B03002_002EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:"
+ },
+ "B03002_002M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:"
+ },
+ "B03002_002MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:"
+ },
+ "B03002_003E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:!!White alone"
+ },
+ "B03002_003EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:!!White alone"
+ },
+ "B03002_003M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:!!White alone"
+ },
+ "B03002_003MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:!!White alone"
+ },
+ "B03002_004E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:!!Black or African American alone"
+ },
+ "B03002_004EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:!!Black or African American alone"
+ },
+ "B03002_004M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:!!Black or African American alone"
+ },
+ "B03002_004MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:!!Black or African American alone"
+ },
+ "B03002_005E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:!!American Indian and Alaska Native alone"
+ },
+ "B03002_005EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:!!American Indian and Alaska Native alone"
+ },
+ "B03002_005M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:!!American Indian and Alaska Native alone"
+ },
+ "B03002_005MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:!!American Indian and Alaska Native alone"
+ },
+ "B03002_006E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:!!Asian alone"
+ },
+ "B03002_006EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:!!Asian alone"
+ },
+ "B03002_006M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:!!Asian alone"
+ },
+ "B03002_006MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:!!Asian alone"
+ },
+ "B03002_007E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "B03002_007EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "B03002_007M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "B03002_007MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "B03002_008E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:!!Some other race alone"
+ },
+ "B03002_008EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:!!Some other race alone"
+ },
+ "B03002_008M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:!!Some other race alone"
+ },
+ "B03002_008MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:!!Some other race alone"
+ },
+ "B03002_009E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:!!Two or more races:"
+ },
+ "B03002_009EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:!!Two or more races:"
+ },
+ "B03002_009M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:!!Two or more races:"
+ },
+ "B03002_009MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:!!Two or more races:"
+ },
+ "B03002_010E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:!!Two or more races:!!Two races including Some other race"
+ },
+ "B03002_010EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:!!Two or more races:!!Two races including Some other race"
+ },
+ "B03002_010M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:!!Two or more races:!!Two races including Some other race"
+ },
+ "B03002_010MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:!!Two or more races:!!Two races including Some other race"
+ },
+ "B03002_011E": {
+  "label": "Estimate!!Total:!!Not Hispanic or Latino:!!Two or more races:!!Two races excluding Some other race, and three or more races"
+ },
+ "B03002_011EA": {
+  "label": "Annotation of Estimate!!Total:!!Not Hispanic or Latino:!!Two or more races:!!Two races excluding Some other race, and three or more races"
+ },
+ "B03002_011M": {
+  "label": "Margin of Error!!Total:!!Not Hispanic or Latino:!!Two or more races:!!Two races excluding Some other race, and three or more races"
+ },
+ "B03002_011MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Not Hispanic or Latino:!!Two or more races:!!Two races excluding Some other race, and three or more races"
+ },
+ "B03002_012E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:"
+ },
+ "B03002_012EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:"
+ },
+ "B03002_012M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:"
+ },
+ "B03002_012MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:"
+ },
+ "B03002_013E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:!!White alone"
+ },
+ "B03002_013EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:!!White alone"
+ },
+ "B03002_013M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:!!White alone"
+ },
+ "B03002_013MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:!!White alone"
+ },
+ "B03002_014E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:!!Black or African American alone"
+ },
+ "B03002_014EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:!!Black or African American alone"
+ },
+ "B03002_014M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:!!Black or African American alone"
+ },
+ "B03002_014MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:!!Black or African American alone"
+ },
+ "B03002_015E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:!!American Indian and Alaska Native alone"
+ },
+ "B03002_015EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:!!American Indian and Alaska Native alone"
+ },
+ "B03002_015M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:!!American Indian and Alaska Native alone"
+ },
+ "B03002_015MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:!!American Indian and Alaska Native alone"
+ },
+ "B03002_016E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:!!Asian alone"
+ },
+ "B03002_016EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:!!Asian alone"
+ },
+ "B03002_016M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:!!Asian alone"
+ },
+ "B03002_016MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:!!Asian alone"
+ },
+ "B03002_017E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "B03002_017EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "B03002_017M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "B03002_017MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "B03002_018E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:!!Some other race alone"
+ },
+ "B03002_018EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:!!Some other race alone"
+ },
+ "B03002_018M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:!!Some other race alone"
+ },
+ "B03002_018MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:!!Some other race alone"
+ },
+ "B03002_019E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:!!Two or more races:"
+ },
+ "B03002_019EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:!!Two or more races:"
+ },
+ "B03002_019M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:!!Two or more races:"
+ },
+ "B03002_019MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:!!Two or more races:"
+ },
+ "B03002_020E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:!!Two or more races:!!Two races including Some other race"
+ },
+ "B03002_020EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:!!Two or more races:!!Two races including Some other race"
+ },
+ "B03002_020M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:!!Two or more races:!!Two races including Some other race"
+ },
+ "B03002_020MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:!!Two or more races:!!Two races including Some other race"
+ },
+ "B03002_021E": {
+  "label": "Estimate!!Total:!!Hispanic or Latino:!!Two or more races:!!Two races excluding Some other race, and three or more races"
+ },
+ "B03002_021EA": {
+  "label": "Annotation of Estimate!!Total:!!Hispanic or Latino:!!Two or more races:!!Two races excluding Some other race, and three or more races"
+ },
+ "B03002_021M": {
+  "label": "Margin of Error!!Total:!!Hispanic or Latino:!!Two or more races:!!Two races excluding Some other race, and three or more races"
+ },
+ "B03002_021MA": {
+  "label": "Annotation of Margin of Error!!Total:!!Hispanic or Latino:!!Two or more races:!!Two races excluding Some other race, and three or more races"
+ },
+ "GEO_ID": {
+  "label": "Geography"
+ },
+ "NAME": {
+  "label": "Geographic Area Name"
+ }
+}

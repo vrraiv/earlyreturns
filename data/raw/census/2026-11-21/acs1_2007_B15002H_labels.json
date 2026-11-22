@@ -1,0 +1,212 @@
+{
+ "B15002H_001E": {
+  "label": "Estimate!!Total"
+ },
+ "B15002H_001EA": {
+  "label": "Annotation of Estimate!!Total"
+ },
+ "B15002H_001M": {
+  "label": "Margin of Error!!Total"
+ },
+ "B15002H_001MA": {
+  "label": "Annotation of Margin of Error!!Total"
+ },
+ "B15002H_002E": {
+  "label": "Estimate!!Total!!Male"
+ },
+ "B15002H_002EA": {
+  "label": "Annotation of Estimate!!Total!!Male"
+ },
+ "B15002H_002M": {
+  "label": "Margin of Error!!Total!!Male"
+ },
+ "B15002H_002MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male"
+ },
+ "B15002H_003E": {
+  "label": "Estimate!!Total!!Male!!Less than 9th grade"
+ },
+ "B15002H_003EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!Less than 9th grade"
+ },
+ "B15002H_003M": {
+  "label": "Margin of Error!!Total!!Male!!Less than 9th grade"
+ },
+ "B15002H_003MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!Less than 9th grade"
+ },
+ "B15002H_004E": {
+  "label": "Estimate!!Total!!Male!!9th to 12th grade, no diploma"
+ },
+ "B15002H_004EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!9th to 12th grade, no diploma"
+ },
+ "B15002H_004M": {
+  "label": "Margin of Error!!Total!!Male!!9th to 12th grade, no diploma"
+ },
+ "B15002H_004MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!9th to 12th grade, no diploma"
+ },
+ "B15002H_005E": {
+  "label": "Estimate!!Total!!Male!!High school graduate (includes equivalency)"
+ },
+ "B15002H_005EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!High school graduate (includes equivalency)"
+ },
+ "B15002H_005M": {
+  "label": "Margin of Error!!Total!!Male!!High school graduate (includes equivalency)"
+ },
+ "B15002H_005MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!High school graduate (includes equivalency)"
+ },
+ "B15002H_006E": {
+  "label": "Estimate!!Total!!Male!!Some college, no degree"
+ },
+ "B15002H_006EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!Some college, no degree"
+ },
+ "B15002H_006M": {
+  "label": "Margin of Error!!Total!!Male!!Some college, no degree"
+ },
+ "B15002H_006MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!Some college, no degree"
+ },
+ "B15002H_007E": {
+  "label": "Estimate!!Total!!Male!!Associate's degree"
+ },
+ "B15002H_007EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!Associate's degree"
+ },
+ "B15002H_007M": {
+  "label": "Margin of Error!!Total!!Male!!Associate's degree"
+ },
+ "B15002H_007MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!Associate's degree"
+ },
+ "B15002H_008E": {
+  "label": "Estimate!!Total!!Male!!Bachelor's degree"
+ },
+ "B15002H_008EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!Bachelor's degree"
+ },
+ "B15002H_008M": {
+  "label": "Margin of Error!!Total!!Male!!Bachelor's degree"
+ },
+ "B15002H_008MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!Bachelor's degree"
+ },
+ "B15002H_009E": {
+  "label": "Estimate!!Total!!Male!!Graduate degree"
+ },
+ "B15002H_009EA": {
+  "label": "Annotation of Estimate!!Total!!Male!!Graduate degree"
+ },
+ "B15002H_009M": {
+  "label": "Margin of Error!!Total!!Male!!Graduate degree"
+ },
+ "B15002H_009MA": {
+  "label": "Annotation of Margin of Error!!Total!!Male!!Graduate degree"
+ },
+ "B15002H_010E": {
+  "label": "Estimate!!Total!!Female"
+ },
+ "B15002H_010EA": {
+  "label": "Annotation of Estimate!!Total!!Female"
+ },
+ "B15002H_010M": {
+  "label": "Margin of Error!!Total!!Female"
+ },
+ "B15002H_010MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female"
+ },
+ "B15002H_011E": {
+  "label": "Estimate!!Total!!Female!!Less than 9th grade"
+ },
+ "B15002H_011EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!Less than 9th grade"
+ },
+ "B15002H_011M": {
+  "label": "Margin of Error!!Total!!Female!!Less than 9th grade"
+ },
+ "B15002H_011MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!Less than 9th grade"
+ },
+ "B15002H_012E": {
+  "label": "Estimate!!Total!!Female!!9th to 12th grade, no diploma"
+ },
+ "B15002H_012EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!9th to 12th grade, no diploma"
+ },
+ "B15002H_012M": {
+  "label": "Margin of Error!!Total!!Female!!9th to 12th grade, no diploma"
+ },
+ "B15002H_012MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!9th to 12th grade, no diploma"
+ },
+ "B15002H_013E": {
+  "label": "Estimate!!Total!!Female!!High school graduate (includes equivalency)"
+ },
+ "B15002H_013EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!High school graduate (includes equivalency)"
+ },
+ "B15002H_013M": {
+  "label": "Margin of Error!!Total!!Female!!High school graduate (includes equivalency)"
+ },
+ "B15002H_013MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!High school graduate (includes equivalency)"
+ },
+ "B15002H_014E": {
+  "label": "Estimate!!Total!!Female!!Some college, no degree"
+ },
+ "B15002H_014EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!Some college, no degree"
+ },
+ "B15002H_014M": {
+  "label": "Margin of Error!!Total!!Female!!Some college, no degree"
+ },
+ "B15002H_014MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!Some college, no degree"
+ },
+ "B15002H_015E": {
+  "label": "Estimate!!Total!!Female!!Associate's degree"
+ },
+ "B15002H_015EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!Associate's degree"
+ },
+ "B15002H_015M": {
+  "label": "Margin of Error!!Total!!Female!!Associate's degree"
+ },
+ "B15002H_015MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!Associate's degree"
+ },
+ "B15002H_016E": {
+  "label": "Estimate!!Total!!Female!!Bachelor's degree"
+ },
+ "B15002H_016EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!Bachelor's degree"
+ },
+ "B15002H_016M": {
+  "label": "Margin of Error!!Total!!Female!!Bachelor's degree"
+ },
+ "B15002H_016MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!Bachelor's degree"
+ },
+ "B15002H_017E": {
+  "label": "Estimate!!Total!!Female!!Graduate degree"
+ },
+ "B15002H_017EA": {
+  "label": "Annotation of Estimate!!Total!!Female!!Graduate degree"
+ },
+ "B15002H_017M": {
+  "label": "Margin of Error!!Total!!Female!!Graduate degree"
+ },
+ "B15002H_017MA": {
+  "label": "Annotation of Margin of Error!!Total!!Female!!Graduate degree"
+ },
+ "GEO_ID": {
+  "label": "Geography"
+ },
+ "NAME": {
+  "label": "Geographic Area Name"
+ }
+}

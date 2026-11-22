@@ -1,0 +1,59 @@
+{
+ "GEO_ID": {
+  "label": "Geography"
+ },
+ "NAME": {
+  "label": "Label for GEO_ID"
+ },
+ "P007001": {
+  "label": "Total"
+ },
+ "P007002": {
+  "label": "Total!!Not Hispanic or Latino"
+ },
+ "P007003": {
+  "label": "Total!!Not Hispanic or Latino!!White alone"
+ },
+ "P007004": {
+  "label": "Total!!Not Hispanic or Latino!!Black or African American alone"
+ },
+ "P007005": {
+  "label": "Total!!Not Hispanic or Latino!!American Indian and Alaska Native alone"
+ },
+ "P007006": {
+  "label": "Total!!Not Hispanic or Latino!!Asian alone"
+ },
+ "P007007": {
+  "label": "Total!!Not Hispanic or Latino!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "P007008": {
+  "label": "Total!!Not Hispanic or Latino!!Some other race alone"
+ },
+ "P007009": {
+  "label": "Total!!Not Hispanic or Latino!!Two or more races"
+ },
+ "P007010": {
+  "label": "Total!!Hispanic or Latino"
+ },
+ "P007011": {
+  "label": "Total!!Hispanic or Latino!!White alone"
+ },
+ "P007012": {
+  "label": "Total!!Hispanic or Latino!!Black or African American alone"
+ },
+ "P007013": {
+  "label": "Total!!Hispanic or Latino!!American Indian and Alaska Native alone"
+ },
+ "P007014": {
+  "label": "Total!!Hispanic or Latino!!Asian alone"
+ },
+ "P007015": {
+  "label": "Total!!Hispanic or Latino!!Native Hawaiian and Other Pacific Islander alone"
+ },
+ "P007016": {
+  "label": "Total!!Hispanic or Latino!!Some other race alone"
+ },
+ "P007017": {
+  "label": "Total!!Hispanic or Latino!!Two or more races"
+ }
+}

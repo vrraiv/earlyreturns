@@ -1,0 +1,245 @@
+{
+ "GEO_ID": {
+  "label": "Geography"
+ },
+ "NAME": {
+  "label": "Label for GEO_ID"
+ },
+ "P008001": {
+  "label": "Total"
+ },
+ "P008002": {
+  "label": "Total!!Male"
+ },
+ "P008003": {
+  "label": "Total!!Male!!Under 1 year"
+ },
+ "P008004": {
+  "label": "Total!!Male!!1 year"
+ },
+ "P008005": {
+  "label": "Total!!Male!!2 years"
+ },
+ "P008006": {
+  "label": "Total!!Male!!3 years"
+ },
+ "P008007": {
+  "label": "Total!!Male!!4 years"
+ },
+ "P008008": {
+  "label": "Total!!Male!!5 years"
+ },
+ "P008009": {
+  "label": "Total!!Male!!6 years"
+ },
+ "P008010": {
+  "label": "Total!!Male!!7 years"
+ },
+ "P008011": {
+  "label": "Total!!Male!!8 years"
+ },
+ "P008012": {
+  "label": "Total!!Male!!9 years"
+ },
+ "P008013": {
+  "label": "Total!!Male!!10 years"
+ },
+ "P008014": {
+  "label": "Total!!Male!!11 years"
+ },
+ "P008015": {
+  "label": "Total!!Male!!12 years"
+ },
+ "P008016": {
+  "label": "Total!!Male!!13 years"
+ },
+ "P008017": {
+  "label": "Total!!Male!!14 years"
+ },
+ "P008018": {
+  "label": "Total!!Male!!15 years"
+ },
+ "P008019": {
+  "label": "Total!!Male!!16 years"
+ },
+ "P008020": {
+  "label": "Total!!Male!!17 years"
+ },
+ "P008021": {
+  "label": "Total!!Male!!18 years"
+ },
+ "P008022": {
+  "label": "Total!!Male!!19 years"
+ },
+ "P008023": {
+  "label": "Total!!Male!!20 years"
+ },
+ "P008024": {
+  "label": "Total!!Male!!21 years"
+ },
+ "P008025": {
+  "label": "Total!!Male!!22 to 24 years"
+ },
+ "P008026": {
+  "label": "Total!!Male!!25 to 29 years"
+ },
+ "P008027": {
+  "label": "Total!!Male!!30 to 34 years"
+ },
+ "P008028": {
+  "label": "Total!!Male!!35 to 39 years"
+ },
+ "P008029": {
+  "label": "Total!!Male!!40 to 44 years"
+ },
+ "P008030": {
+  "label": "Total!!Male!!45 to 49 years"
+ },
+ "P008031": {
+  "label": "Total!!Male!!50 to 54 years"
+ },
+ "P008032": {
+  "label": "Total!!Male!!55 to 59 years"
+ },
+ "P008033": {
+  "label": "Total!!Male!!60 and 61 years"
+ },
+ "P008034": {
+  "label": "Total!!Male!!62 to 64 years"
+ },
+ "P008035": {
+  "label": "Total!!Male!!65 and 66 years"
+ },
+ "P008036": {
+  "label": "Total!!Male!!67 to 69 years"
+ },
+ "P008037": {
+  "label": "Total!!Male!!70 to 74 years"
+ },
+ "P008038": {
+  "label": "Total!!Male!!75 to 79 years"
+ },
+ "P008039": {
+  "label": "Total!!Male!!80 to 84 years"
+ },
+ "P008040": {
+  "label": "Total!!Male!!85 years and over"
+ },
+ "P008041": {
+  "label": "Total!!Female"
+ },
+ "P008042": {
+  "label": "Total!!Female!!Under 1 year"
+ },
+ "P008043": {
+  "label": "Total!!Female!!1 year"
+ },
+ "P008044": {
+  "label": "Total!!Female!!2 years"
+ },
+ "P008045": {
+  "label": "Total!!Female!!3 years"
+ },
+ "P008046": {
+  "label": "Total!!Female!!4 years"
+ },
+ "P008047": {
+  "label": "Total!!Female!!5 years"
+ },
+ "P008048": {
+  "label": "Total!!Female!!6 years"
+ },
+ "P008049": {
+  "label": "Total!!Female!!7 years"
+ },
+ "P008050": {
+  "label": "Total!!Female!!8 years"
+ },
+ "P008051": {
+  "label": "Total!!Female!!9 years"
+ },
+ "P008052": {
+  "label": "Total!!Female!!10 years"
+ },
+ "P008053": {
+  "label": "Total!!Female!!11 years"
+ },
+ "P008054": {
+  "label": "Total!!Female!!12 years"
+ },
+ "P008055": {
+  "label": "Total!!Female!!13 years"
+ },
+ "P008056": {
+  "label": "Total!!Female!!14 years"
+ },
+ "P008057": {
+  "label": "Total!!Female!!15 years"
+ },
+ "P008058": {
+  "label": "Total!!Female!!16 years"
+ },
+ "P008059": {
+  "label": "Total!!Female!!17 years"
+ },
+ "P008060": {
+  "label": "Total!!Female!!18 years"
+ },
+ "P008061": {
+  "label": "Total!!Female!!19 years"
+ },
+ "P008062": {
+  "label": "Total!!Female!!20 years"
+ },
+ "P008063": {
+  "label": "Total!!Female!!21 years"
+ },
+ "P008064": {
+  "label": "Total!!Female!!22 to 24 years"
+ },
+ "P008065": {
+  "label": "Total!!Female!!25 to 29 years"
+ },
+ "P008066": {
+  "label": "Total!!Female!!30 to 34 years"
+ },
+ "P008067": {
+  "label": "Total!!Female!!35 to 39 years"
+ },
+ "P008068": {
+  "label": "Total!!Female!!40 to 44 years"
+ },
+ "P008069": {
+  "label": "Total!!Female!!45 to 49 years"
+ },
+ "P008070": {
+  "label": "Total!!Female!!50 to 54 years"
+ },
+ "P008071": {
+  "label": "Total!!Female!!55 to 59 years"
+ },
+ "P008072": {
+  "label": "Total!!Female!!60 and 61 years"
+ },
+ "P008073": {
+  "label": "Total!!Female!!62 to 64 years"
+ },
+ "P008074": {
+  "label": "Total!!Female!!65 and 66 years"
+ },
+ "P008075": {
+  "label": "Total!!Female!!67 to 69 years"
+ },
+ "P008076": {
+  "label": "Total!!Female!!70 to 74 years"
+ },
+ "P008077": {
+  "label": "Total!!Female!!75 to 79 years"
+ },
+ "P008078": {
+  "label": "Total!!Female!!80 to 84 years"
+ },
+ "P008079": {
+  "label": "Total!!Female!!85 years and over"
+ }
+}

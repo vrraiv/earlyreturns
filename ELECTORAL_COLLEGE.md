@@ -49,7 +49,8 @@ little more.
 | Census region | shared state errors | `error_structure.py` | re-estimated |
 | State's vote share of the nation | popular vote | previous election's two-party votes | new |
 | Electoral votes by election | the count | to collect | new |
-| Education, race, income, urban share | shared state errors | The Downballot's state tables (one snapshot, 2015-19) | candidate |
+| Education, race, age, income | shared state errors | `state_demographics.csv`, by year from the Census Bureau (DA-11, section 9) | candidate |
+| Urban and rural share | shared state errors | The Downballot's state tables (one snapshot); no by-year source yet (section 9) | candidate |
 | Candidate's home state | state prior | candidate lists | candidate |
 | Third-party share in the polls | wider spread in that state | polls | candidate |
 | Expert ratings | none | | left out: every state that matters is polled |
@@ -176,8 +177,46 @@ Then 2024, once, recorded whichever way it goes.
 - Electoral votes by election.
 - Maine's and Nebraska's district results and lean, 2000 to 2024.
 - Whole-campaign state polls for 2000 (only the final 60 days are held).
-- Demographics by year (DA-4). The one snapshot is from 2015-19.
+- Urban and rural share by year. The one snapshot is The Downballot's (below).
 - Fundamentals for presidential elections (EC-3).
+
+**Demographics by year: in the repo since 2026-11-21 (DA-11).** `data/interim/state_demographics.csv`, built by
+`src/collect/census_demographics.py` from the Census Bureau's API; sources and caveats are in `DATA.md`. Decided
+with the user that day, before any EC-5 candidate is written down, except where a choice is marked as the build's:
+
+- **Fields.** Education, race and ethnicity, age, white adults without a degree, and median household income.
+  Income was added to the card because candidate 3 in section 5 uses it.
+- **How the fields are measured (the build's choices, for the user to confirm).** Degree share of adults 25 and
+  over; the same among white non-Hispanic adults; white non-Hispanic adults without a degree as a share of all
+  adults 25 and over, not of white adults; white, Black and Asian (each non-Hispanic, one race) and Latino shares;
+  age as two shares of adults, 18 to 29 and 65 and over.
+- **The seven measures** of candidate 3 are those in `state_similarity()` (`src/model/backtest_asof.py`): degree
+  share, the log of median income, white, Black and Latino shares, and urban and rural share. Age, Asian share and
+  the two white education measures are collected but are not among the seven.
+- **Population base.** Total population for race and adults 25 and over for education, as in The Downballot's
+  snapshot, so the two can be compared.
+- **Which year an election uses.** The year before it: the latest survey published before the 7-day forecast, and
+  what 2028 will have. A year's survey comes out the following September (confirmed for the 2021, 2023 and 2024
+  survey years; earlier years not checked). The election's own year is run beside it as a comparison that decides
+  nothing. `state_demographics_vintages.csv` holds both. 2000, 2004 and 2020 take the same year in both, because
+  the API has no survey for 1999, 2003 or 2020; for 2000 and 2004 that is the build's choice, for the user to
+  confirm.
+- **2020.** The Bureau published no standard one-year tables for 2020, so 2020 uses 2019. From the 2020 survey year
+  the race question and its coding changed, so 2019 is like for like with 2008 to 2016 and 2021 is not. The inputs
+  for 2024 and 2028 are after that change.
+- **2004.** Tabulated here from that year's survey microdata. It is our own tabulation, not a Census estimate, and
+  2004 is used for fitting only (2008 is the first scored election). The 2004 survey was a smaller, trial-stage
+  sample. On white share and on white adults without a degree, every state but one is within 2 points of a line
+  from 2000 to 2005. South Dakota is the one: its white share is about 6 points above both years, and its white
+  share without a degree about 5. The cause is not established (other states with large reservations are not
+  off).
+- **Urban and rural share: open.** The other two of candidate 3's seven measures. The Census Bureau measures urban
+  and rural population only at each census (2000, 2010, 2020), changed the definition in 2020, and has no suburban
+  class. The Downballot's figures are a different measure with three classes. An earlier version of
+  it was described by its authors as built on a federal housing department model of how people describe their own
+  neighbourhood; how the current file is built has not been confirmed. Across states its rural share tracks the
+  2020 census's closely (correlation 0.98), and states' census urban shares barely change order over time (0.987
+  between 2000 and 2020).
 
 ## 10. Open questions
 
