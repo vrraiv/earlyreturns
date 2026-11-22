@@ -3615,7 +3615,10 @@ with the same clauses; flags 2 and 3 apply as in round 1 (a pass that disappears
   control's covariance with candidate 3's spreads as fitted in round 1 and the baseline's correlation sizes as
   fitted in round 1, no shuffles) are scored as candidate 3 minus its control, and the real gain has to exceed the
   95th percentile of their pooled increments. How often the plants meet "positive and 3 of 4" is reported beside
-  it. The plants' figures are written below before round 2's loss is read.
+  it. The plants' figures, written here before round 2's loss is read (`pres_errors_round2_calibration.json`):
+  the pooled increment has median −0.14, 95th percentile **0.39**, and runs from −3.27 to 1.12; by election the
+  95th percentiles are 1.04, 0.97, 1.34 and 0.74; and 11.5% of the plants meet "positive and 3 of 4" with no
+  similarity in them. So round 2's gain has to exceed 0.39.
 - **The spread-only plant in the checks** uses the baseline's correlation sizes at 0.3 each; the calibration uses
   round 1's fitted sizes.
 - **Checks, run and passed (6):** the exact identity above; an identity shuffle reproduces the control and a real
