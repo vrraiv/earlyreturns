@@ -2565,7 +2565,7 @@ EC-2 left each state on its own polls, however old, with the prior used only whe
 Stage 4's diagnostics said that gives the prior too little weight. EC-4 tests how a state's polls and its prior
 should be mixed, and whether the prior's lean should be allowed to move.
 
-### EC-4: pre-registration (written 2026-11-21, before any run; draft awaiting the owner's off-tracker review and the questions at the end)
+### EC-4: pre-registration (written 2026-11-21, before any run; the owner's review done and seven of eight questions confirmed the same day, question 4 open)
 
 Nothing below has been run. The only numbers in it are counts of polls, taken without results.
 
@@ -2592,7 +2592,8 @@ Nothing below has been run. The only numbers in it are counts of polls, taken wi
     by year exist (DA-4). Its election-level shifts and its pull toward fundamentals give this card nothing.
   - **Also seen, shaping nothing.** The log has a table of Senate polling misses by cycle that includes 2024
     Senate slopes on the poll swing and on the demographic term. No 2024 presidential poll or result appears in
-    the log or its code.
+    the log or its code. The table also covers the 2026 Senate races, on the scorecard's provisional margins; no
+    number from it is given here (added at the user's direction, 2026-11-21).
   - **Bearing on rung 3.** Its search list included a two-election lean trend; the log reports no result for it.
     The log does report a fitted slope on the previous lean beside the poll swing: the state error at 7 days fell
     from 5.57 to 5.37. That bears on the slope b1 below, so the slope is declared as touched by the challenge.
@@ -2821,3 +2822,20 @@ evidence (question 6).
 
 **The human gate.** The card asks for the owner's off-tracker review once this draft exists and before the first
 run. Nothing on this card is run, and no module for it is written, until the owner says that review is done.
+
+**EC-4: the review and the user's answers (2026-11-21, before any run).**
+
+- **The gate.** The owner was prompted when the draft was committed and said the same day that the off-tracker
+  review is done. No change to the draft came from it.
+- **Confirmed as proposed:**
+  - 1: 2000's late polls for fitting only; 2004 to 2020 scored; 4 of 5, with 2004 shown apart;
+  - 2: the lean error at 30 and 7 days;
+  - 3: the ladder, and V's form on the effective count, fitted separately at each date;
+  - 5: a pass by F is flagged to the user, not adopted under the rule;
+  - 6: the range for lopsided states is left to the assembly, with report (d);
+  - 7: the five flags;
+  - 8: one round.
+- **Question 4 is open.** The user asked what the slope is. It is fitted across states: an election's state leans
+  against the same states' leans at the previous election (b1) and at the one before (b2), a lean being the
+  state's margin less the national margin. No loss is read until the user confirms or changes question 4.
+- **The 2026 Senate races** in the challenge's table are now disclosed above, at the user's direction.
