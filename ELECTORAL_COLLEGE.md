@@ -2918,7 +2918,7 @@ The score is the mean of the five elections' columns. V and M are scored against
 - **Beside the score:** weighted by votes, the lean error falls from 14.65 to 12.92 (5 of 5). After the even shift,
   the squared error falls from 31.08 to 26.55 (5 of 5).
 - **Without 2004** (report e): gain 4.92, 4 of 4, p 0.004.
-- **2020 carries the most:** 18.83 to 9.26. The other four gain 0.82, 1.03, 3.11 and 6.00.
+- **2020 carries the most:** 18.83 to 9.26. The other four gain 0.81, 1.02, 3.11 and 5.99.
 
 **V fails.** Against F its gain is −0.04, it is better in 3 of 5 elections, and it beats 88.5% of its shuffles.
 
