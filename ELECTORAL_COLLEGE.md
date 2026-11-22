@@ -3011,3 +3011,17 @@ split is made after the results; anything these suggest is a declared candidate 
     these results. This card had one round, so it could only be written down for the design freeze.
 - **Stage 5's rerun** waits for that decision. If F is adopted, its estimates before any shift are the rerun's
   input. If it is declined, the input is the first run's.
+
+**EC-4: the user's decision on F (2026-11-21).**
+
+- **F is adopted, provisionally, until 2024 is scored at the design freeze (EC-9).** The user was shown the clauses,
+  both flags, the close-states table and report (a), and decided to adopt.
+- **What that means for the forecast.** A state with a poll is estimated as its prior plus w times (its poll average
+  less its prior), with w the fixed weight fitted at each date on earlier elections. The prior is the national
+  estimate plus the state's lean at the previous election. A state with no poll that cycle takes the prior.
+- **A modified version goes to the design freeze, at the user's direction.** F with no pull in close states: a state
+  whose prior is within 10 points keeps its own polls, and every other polled state is pulled by the fixed weight.
+  - It is declared as **suggested by EC-4's results** (flag 2), on top of F's own debt to the overfitting challenge.
+  - The 10 points is flag 2's threshold, fixed before the results. Nothing else about it has been run or fitted.
+  - Its exact fit is written down at EC-9 before 2024 is opened, and 2024 is its only test.
+- **Stage 5's rerun** now runs on F's estimates before any shift, with stage 5's pre-registration unchanged.
