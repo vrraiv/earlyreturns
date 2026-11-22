@@ -3975,3 +3975,17 @@ not run here: its inputs do not exist, and its parameters are frozen at EC-9.
     forecast is the median over draws.
 11. **One round** for B and for C. The 2000 to 2020 misses are then closed for this card.
 12. **2000** as fit-only with w = 1, as in EC-5; 2004 fit-only, 2008 to 2020 scored, 3 of 4.
+
+**EC-6: the data build, before any loss is read** (`src/collect/electoral_college.py`, run 2026-11-22). Built and
+checked while the pre-registration awaits the user; it reads no poll and no forecast, and 2024 is never opened.
+
+- `electoral_votes.csv`: 56 contests in each of 2000 to 2028, summing to 538 every time. 2000 to 2020 from the yearly
+  pages; 2024 and 2028 from the apportionment page's 2020 census column. The pages' figures equal the apportionment
+  page's census column plus two in every state and year, and the House file's highest district number per state plus
+  two (an at-large seat is district 0 there) agrees for 2008 to 2024. One faithless vote in no column: Minnesota's
+  2004 state column reads 10 and its candidates' columns sum to 9 (an elector voted for Edwards); the state column is
+  used, as written.
+- `district_presidential.csv`: the five districts in each of 1996 to 2020 with both nominees' votes. Each state's
+  districts sum to its votes exactly except Maine in 2012 and 2016, where they fall short by 0.01% to 0.07% (ballots
+  not assigned to a district); the check allows 0.1%.
+- The pages' state votes equal `state_presidential.csv` in all 357 state-years 1996 to 2020.
