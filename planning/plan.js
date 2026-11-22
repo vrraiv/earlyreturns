@@ -593,7 +593,7 @@ window.PLAN = {
           checklist: [
             { id: "a", text: "Off-tracker review: owner prompted after the pre-registration is drafted, before the first run" }
           ],
-          refs: ["src/model/prior_weight.py"] },
+          refs: ["src/model/pres_prior.py"] },
         { id: "EC-5", title: "How state errors move together", kind: "story", phase: "p4", needs: ["EC-1", "DA-5", "DA-4"],
           why: "The electoral college is decided by correlated misses in a handful of states.",
           details: [
