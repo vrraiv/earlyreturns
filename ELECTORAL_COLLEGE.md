@@ -3625,3 +3625,49 @@ with the same clauses; flags 2 and 3 apply as in round 1 (a pass that disappears
   one changes it; planted similarity makes candidate 3 beat its control; planted spread alone does not;
   `decide_round2()` runs end to end on planted misses at both dates with the variants, reports and flags present;
   and the spread-only plants run.
+
+### EC-5, round 2: results (run 2026-11-22). Candidate 3 beats its spread-matched control on every clause, with no flag, and goes to the user to confirm.
+
+From `data/processed/pres_errors_round2.json`. Units as in round 1: the log density of an election's 50 centred
+7-day misses.
+
+**Candidate 3 against its control: gain 2.45** (2008 −7.77, 2012 +1.85, 2016 +12.44, 2020 +3.26), better in 3 of 4.
+Above the 95th percentile of its 200 kernel shuffles (−0.61; the shuffled increments run from −2.38 to 0.10, median
+−0.81, 1 in 100 positive: as expected, a shuffled kernel and its control both go flat) and above the planted
+threshold of 0.39 by six times. The variants pass on the same clauses: own-year demographics 2.40 (3 of 4), without
+DC 2.70 (3 of 4), at 30 days 2.46 (3 of 4, 2008 −3.44). No flag applies.
+
+- **Where the gain sits.** It is concentrated in 2016: without that election the pooled increment over the other
+  three is −0.89. 2016 is the election the card was written for (state errors correlated across states without the
+  national polls missing), and the clauses were set before the run, so this changes no verdict; it is said so the
+  reader knows what four elections support. 2008, the thinnest fit, is worse than its control by 7.8.
+- **Report (i), the control against the baseline: 0.83** (2008 +2.65, 2012 +0.11, 2016 −1.73, 2020 +2.31). So candidate
+  3's spread pattern alone is worth about a quarter of its round-1 gain over the baseline (3.28), and the rest, 2.45,
+  is co-movement the control does not have. Spread helps in 2008 and 2020 and hurts in 2016.
+- **Report (ii), what the control was given:** centred spreads with a widest-to-narrowest ratio of 2.12, 1.87, 1.75
+  and 1.80 (DC, New Mexico, Mississippi, California or Hawaii widest), as in the diagnostic. Its fitted overall
+  scale is 0.85 to 0.95, so the control sat a little narrower than candidate 3 at every contest; its correlation
+  sizes (regions 0 to 0.108, tilt 0.019 to 0.026) are the baseline's.
+- **Report (iii), the flat control** differs from the baseline by −0.03, +0.04, +0.14 and +0.01 by election, as
+  recorded before the run.
+
+**What stands after round 2.**
+
+- **Candidate 3 passes round 2 and comes to the user to confirm**, not as adopted under the rule: this round was
+  suggested by round 1's results and answers a diagnostic flag. If confirmed, the structure is the combination of
+  round 1 (similarity on six by-year measures in place of regions, the tilt, and candidate 2's draw with its size
+  free, which the round-1 combination fitted to zero in three of four years), provisional until 2024 at EC-9.
+- **If declined**, the baseline with candidate 2 stands, and the spread finding (report i) goes to the assembly as
+  evidence for a wider range in demographically unusual states.
+- **Either way the 2000 to 2020 misses are closed for this card.**
+
+**Hand-offs, revised after round 2.**
+
+- **To EC-6:** the confirmed structure as correlations, sized against section 4's totals at the assembly. If
+  candidate 3 is in it, its kernel carries a shared level across all states (round 1, report a) which the assembly
+  must not count twice beside the national draw: centre K, or size the national draw net of it. Report (i) says the
+  unusual states' wider spread is worth something on its own; the assembly's range refit should see it. The
+  Student-t tails are the assembly's.
+- **To the design freeze (EC-9):** the structure's one untouched test on 2024; report (f), the challenge's fixed-sign
+  term, and whether the structure gains beside it; and how 2024 decides between the structure with and without
+  candidate 3 if the user holds that open.
