@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-22c",
+  version: "2026-11-22d",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -667,6 +667,15 @@ window.PLAN = {
           ],
           checklist: [
             { id: "a", text: "Design checked against the lessons list" }
+          ] },
+        { id: "EC-10", title: "A joint Bayesian model as a rival", kind: "story", phase: "p4", needs: ["EC-6", "EC-7"],
+          why: "The assembled model tests one piece at a time. A model that fits all 56 margins jointly is a genuinely different design, and the site may be better served by two different models than by three variants of one.",
+          details: [
+            "Opened 2026-11-22 at EC-6, on the user's reference: Han, Gelman and Vehtari, *Efficient scenario analysis in real-time Bayesian election forecasting via sequential meta-posterior sampling* (arXiv 2510.19133). Their method reweights the posterior draws of an already fitted Bayesian poll model (The Economist's, in Stan) along a perturbation path, so what-if and sensitivity analyses run without a refit. It is a tool on top of a joint model, so the joint model comes first.",
+            "The rival: a Bayesian model of the 56 margins fitted jointly (state trends, polling errors, house effects, a fundamentals prior, a demographic correlation structure), run as of 2008 to 2020 at the same four dates as the assembled model and scored on EC-7's targets, then once on 2024 at the design freeze. A design of this family has seen those elections, which is declared with any result.",
+            "Then the meta-posterior as the live season's scenario tool: polling-bias what-ifs, inserted polls, sensitivity to the priors.",
+            "Needs a probabilistic-programming toolchain that the machine does not have (none of Stan, PyMC or JAX, and no C++ compiler, as of 2026-11-22): the install is a go-ahead item.",
+            "Decided at EC-6 (2026-11-22): whether the site shows two different models or variants of one is settled here, on how the rival does; part of this work feeds the site cards (SI-5, SI-7)."
           ] }
       ]
     },
