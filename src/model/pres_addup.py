@@ -14,6 +14,8 @@ shuffles of sigma2 across states; B and C a paired sign-flip over the 10 electio
 
 Run:  python src/model/pres_addup.py checks
       python src/model/pres_addup.py run
+      python src/model/pres_addup.py rerun     (after EC-4: the same test with EC-4's adopted blend as the state
+                                                estimate; section 13 of the note. Writes pres_addup_rerun.json)
 """
 import itertools
 import json
@@ -47,9 +49,11 @@ def vote_shares():
     return tot
 
 
-def frame(q, Nd, R, E, votes):
-    """Per election, date and state: baseline, candidates, result, weights, the national forecast and its error."""
-    T = TS.table(q, Nd, R, days=ALL_DAYS)
+def frame(q, Nd, R, E, votes, T=None):
+    """Per election, date and state: baseline, candidates, result, weights, the national forecast and its error.
+    T: stage 4's table, or (the rerun) the same table with another state estimate in its baseline column."""
+    if T is None:
+        T = TS.table(q, Nd, R, days=ALL_DAYS)
     rows = []
     for (y, d), g in T.groupby(["cycle", "d"]):
         g = g.copy()
@@ -216,11 +220,8 @@ def checks():
         raise SystemExit("a check failed")
 
 
-def run():
-    q = P.load()
-    R = TS.load_results(); Nd = TS.load_national(); E = RV.load(); votes = vote_shares()
-    F = frame(q, Nd, R, E, votes)
-    F.to_csv(OUT / "pres_addup_frame.csv", index=False)
+def evaluate(F):
+    """The candidates, the rule, the flag and the reports on one frame. The same for the first run and the rerun."""
     out = {"candidates": {}}
     for col in ("A", "B", "C"):
         out["candidates"][col] = summarize(F, col)
@@ -258,9 +259,56 @@ def run():
                     s["passes"] = bool(s["gain"] > 0 and s["better"] >= 4 and s["p_signflip"] < 0.05)
                 out.setdefault("combinations", {})[col] = s
     out["reports"] = reports(F)
+    return out
+
+
+def run():
+    q = P.load()
+    R = TS.load_results(); Nd = TS.load_national(); E = RV.load(); votes = vote_shares()
+    F = frame(q, Nd, R, E, votes)
+    F.to_csv(OUT / "pres_addup_frame.csv", index=False)
+    out = evaluate(F)
     (OUT / "pres_addup.json").write_text(json.dumps(out, indent=1, default=float))
     print(json.dumps(out, indent=1, default=float))
 
 
+def blended_table(q, Nd, R):
+    """Stage 4's table with each state's estimate replaced by EC-4's adopted blend (F: prior + w x (polls - prior), w
+    fitted per date on earlier elections) before any shift. 2004 at 150, 100 and 60 days has no earlier election to
+    fit on and keeps stage 4's estimate. Poll counts, results and everything else are stage 4's."""
+    import pres_prior as PP
+    T = TS.table(q, Nd, R, days=ALL_DAYS)
+    q0, R0, Nd0, L, votes0 = PP.load_all()
+    A0 = PP.assemble(PP.poll_cells(q0), Nd0, R0, L, votes0)
+    Eb, _ = PP.rung(A0, "base")
+    EF, fits = PP.rung(A0, "F")
+    ix = {st: i for i, st in enumerate(PP.STATES)}
+    key = list(zip(T.cycle, T.d, T.state))
+    base = np.array([Eb[(y, d)][ix[st]] for y, d, st in key])
+    assert np.allclose(base, T.baseline.values), "EC-4's baseline is not stage 4's state estimate"
+    T = T.copy()
+    T["stage4"] = T.baseline
+    T["baseline"] = np.array([EF[(y, d)][ix[st]] for y, d, st in key])
+    return T, {f"{y}/{d}": v for (y, d), v in fits.items() if v}
+
+
+def rerun():
+    q = P.load()
+    R = TS.load_results(); Nd = TS.load_national(); E = RV.load(); votes = vote_shares()
+    T, fits = blended_table(q, Nd, R)
+    F = frame(q, Nd, R, E, votes, T=T)
+    for (y, d), g in F.groupby(["cycle", "d"]):                     # A and C still sum to the national forecast
+        assert abs(float(g.v @ g.A) - g.natF.iloc[0]) < 1e-9 and abs(float(g.v @ g.C) - g.natF.iloc[0]) < 1e-9
+        assert np.allclose((g.C - g.baseline).values, g.gap.iloc[0])
+    F.to_csv(OUT / "pres_addup_rerun_frame.csv", index=False)
+    out = evaluate(F)
+    out["state_estimate"] = "EC-4's F before any shift"
+    out["weights_on_polls"] = fits
+    x = F[F.d.isin(SCORE_DAYS)]
+    out["state_dates_changed_from_stage4"] = int(((x.baseline - x.stage4).abs() > 1e-9).sum())
+    (OUT / "pres_addup_rerun.json").write_text(json.dumps(out, indent=1, default=float))
+    print(json.dumps(out, indent=1, default=float))
+
+
 if __name__ == "__main__":
-    {"checks": checks, "run": run}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
+    {"checks": checks, "run": run, "rerun": rerun}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
