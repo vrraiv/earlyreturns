@@ -2171,6 +2171,7 @@ Open items, carried forward:
 - **Demographics in how state errors move together** (EC-5, after DA-4).
 - **Each state's turnout share** in the popular vote (EC-6).
 - **Stage 5's rerun** once EC-4 exists.
+  - Done 2026-11-21: the even shift passes again on EC-4's estimates (section 13, "Stage 5's rerun after EC-4").
 
 ## 12. Presidential fundamentals: evaluation plan (EC-3)
 
@@ -3025,3 +3026,53 @@ split is made after the results; anything these suggest is a declared candidate 
   - The 10 points is flag 2's threshold, fixed before the results. Nothing else about it has been run or fitted.
   - Its exact fit is written down at EC-9 before 2024 is opened, and 2024 is its only test.
 - **Stage 5's rerun** now runs on F's estimates before any shift, with stage 5's pre-registration unchanged.
+
+### Stage 5's rerun after EC-4 (run 2026-11-21). The even shift passes again.
+
+`src/model/pres_addup.py rerun`, `data/processed/pres_addup_rerun.json` (and `pres_addup_rerun_frame.csv`).
+
+Stage 5's pre-registration is unchanged: the same candidates, score, rule and flag. The one thing that differs is
+the state estimate each candidate starts from. It is now EC-4's F before any shift, in place of each state's own
+polls. That changes 497 of the 510 scored state-dates. 2004 at 150, 100 and 60 days keeps stage 4's estimate.
+
+- The module's first run still reproduces its saved output exactly, and stage 5's checks pass.
+- EC-4's baseline equals stage 4's state estimate in every state and date (asserted in the code).
+
+| | Excess score (30 and 7 days) | 2004 | 2008 | 2012 | 2016 | 2020 | Elections better | Test | Plain squared error | Verdict |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Baseline (F, states first) | 16.66 | 9.06 | 12.89 | 12.08 | 42.43 | 6.86 | | | 31.07 | |
+| A. Spread by uncertainty | 13.57 | 9.56 | 10.68 | 14.14 | 29.19 | 4.26 | 3 | 96.5% of shuffles | 26.04 | fails |
+| B. Scale every state | 25.50 | 14.21 | 21.21 | 16.32 | 65.31 | 10.47 | 0 | p 1.0 | 42.31 | fails |
+| **C. Even shift** | **13.81** | 8.43 | 11.10 | 12.58 | 32.44 | 4.49 | **4** | **p 0.014** | **26.55** | **passes** |
+
+For comparison, the first run's row for C was 16.82 against a baseline of 20.46 (gain 3.64, 4 of 5, p 0.012).
+
+- **C passes, with no flag.** Its gain is 2.86, better in 4 of 5 elections (2012 slightly worse, as before), with
+  sign-flip p 0.014 over the 10 election-date units. The election-level version, reported only, is 0.062. It is
+  better on the plain squared error too (26.55 against 31.07, in the same 4 elections).
+- **The gain is smaller than in the first run** (2.86 against 3.64), as stage 5 expected: the blend already pulls
+  the states' sum toward the national estimate. The gap between that sum and the national forecast shrinks in most
+  cells (for example −1.75 to −1.52 in 2016 at 7 days, and 2.21 to 0.85 in 2008 at 150 days).
+- **A** now beats 96.5% of its shuffles, where it beat 90.5% before, and gains slightly more than C (3.10). It is
+  still better in only 3 of 5 elections, so it fails the same clause as in the first run.
+- **B** is worse in every election, as before, and is flagged as before.
+- **Reported:** the popular vote's squared error falls from 8.84 to 5.41 under C. With each year's mean error
+  removed, C equals its baseline (19.37 both): its gain is still all in the level the states share. It is better
+  at every date, the reported ones included.
+
+**So the even shift stands on EC-4's estimates.** Stage 5 made its adoption provisional until this rerun; the rerun
+passes, so that condition is met. What remains provisional is F itself, until 2024 is scored at the design freeze.
+
+**The state estimate, as EC-2 to EC-4 leave it:**
+
+1. The prior is the national two-party nowcast plus the state's lean at the previous election.
+2. A state with a poll is its prior plus w times (its poll average less its prior), w fitted at each date on
+   earlier elections (F, provisional). A state with no poll takes the prior.
+3. Every state then moves by the same amount so the vote-weighted sum meets the national forecast (C).
+
+**Carried forward from EC-4:**
+
+- **To the design freeze (EC-9):** F's one untouched test on 2024, and the version with no pull in close states.
+- **To the assembly:** the wider range for lopsided states, with report (d) as its evidence.
+- **To EC-5, after DA-4:** the challenge's demographic term.
+- **Closed here:** a weight that depends on the number of polls, and a fitted slope or second lean in the prior.
