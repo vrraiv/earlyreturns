@@ -3606,7 +3606,19 @@ with the same clauses; flags 2 and 3 apply as in round 1 (a pass that disappears
   fixed while its correlations move, and its score differs from the baseline's by up to 0.14 in one election and
   0.04 pooled. Those figures were read while fixing the check, before any round-2 loss; they are what a structure
   with nothing new in it scores against the baseline, and round 2's gain is read beside them.
-- **The spread-only plant** draws from the control's covariance built on candidate 3's sizes as fitted in round 1,
-  with the baseline's correlation sizes at 0.3 each.
-- **Checks, run and passed (4):** the exact identity above; an identity shuffle reproduces the control and a real
-  one changes it; planted similarity makes candidate 3 beat its control; planted spread alone does not.
+- **The control's spreads are candidate 3's.** The control sets the raw diagonal to candidate 3's centred variances,
+  and the score sees the centred covariance; from the saved 2020 sizes the control's centred spreads are within 1.1%
+  of candidate 3's for every contest (ratio 0.99 to 1.01).
+- **The noise threshold (the advisor's review of round 2's rule, before any run).** With the kernel shuffled, the
+  control goes flat too, so the shuffle clause was expected to be slack; and the flat control alone moved the score
+  by up to 0.14 in one election. So a fourth clause is added: 200 spread-only plants (misses drawn from the
+  control's covariance with candidate 3's spreads as fitted in round 1 and the baseline's correlation sizes as
+  fitted in round 1, no shuffles) are scored as candidate 3 minus its control, and the real gain has to exceed the
+  95th percentile of their pooled increments. How often the plants meet "positive and 3 of 4" is reported beside
+  it. The plants' figures are written below before round 2's loss is read.
+- **The spread-only plant in the checks** uses the baseline's correlation sizes at 0.3 each; the calibration uses
+  round 1's fitted sizes.
+- **Checks, run and passed (6):** the exact identity above; an identity shuffle reproduces the control and a real
+  one changes it; planted similarity makes candidate 3 beat its control; planted spread alone does not;
+  `decide_round2()` runs end to end on planted misses at both dates with the variants, reports and flags present;
+  and the spread-only plants run.
