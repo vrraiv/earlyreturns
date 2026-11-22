@@ -2565,7 +2565,7 @@ EC-2 left each state on its own polls, however old, with the prior used only whe
 Stage 4's diagnostics said that gives the prior too little weight. EC-4 tests how a state's polls and its prior
 should be mixed, and whether the prior's lean should be allowed to move.
 
-### EC-4: pre-registration (written 2026-11-21, before any run; the owner's review done and seven of eight questions confirmed the same day, question 4 open)
+### EC-4: pre-registration (written 2026-11-21, before any run; the owner's review done and all eight questions confirmed by the user the same day)
 
 Nothing below has been run. The only numbers in it are counts of polls, taken without results.
 
@@ -2835,9 +2835,11 @@ run. Nothing on this card is run, and no module for it is written, until the own
   - 6: the range for lopsided states is left to the assembly, with report (d);
   - 7: the five flags;
   - 8: one round.
-- **Question 4 is open.** The user asked what the slope is. It is fitted across states: an election's state leans
-  against the same states' leans at the previous election (b1) and at the one before (b2), a lean being the
-  state's margin less the national margin. No loss is read until the user confirms or changes question 4.
+- **Question 4**, confirmed as proposed after one exchange. The user asked what the slope is. It is fitted across
+  states: an election's state leans against the same states' leans at the previous election (b1) and at the one
+  before (b2), a lean being the state's margin less the national margin. With that settled the user agreed: the
+  two leans fitted from 1980, and the slope alone adoptable only through the fallback, flagged. No loss had been
+  read.
 - **The 2026 Senate races** in the challenge's table are now disclosed above, at the user's direction.
 
 **EC-4: amendments after the code review, before any loss was read** (`src/model/pres_prior.py`). The code makes
