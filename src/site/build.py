@@ -1,6 +1,7 @@
 """Build the static forecast site into site/ (served by a Cloudflare Worker with static assets, no container).
 
-  python src/site/build.py
+  python src/site/build.py          the forecast unit and the pages around it (what the daily scorecard job runs)
+  python src/site/build.py --all    ...and the election data pages (history.py), so one command rebuilds every page
 
 Reads data/processed/* and data/interim/* (the frozen copy in data/final once it exists), writes:
   site/2026/forecast/index.html   the page (data inlined as JSON, charts drawn client-side in SVG; styles and
@@ -10,8 +11,8 @@ Reads data/processed/* and data/interim/* (the frozen copy in data/final once it
 and then runs landing.py for the pages around the elections (the landing page, /2026/, 404.html, _redirects).
 
 Each election is one unit in a folder under its year; 2026 is the first. The header and footer come from shell.py
-and the settings in site.json, which the election data pages (history.py) share. history.py is run by hand: its pages
-carry a build date, so the daily scorecard job leaves them alone.
+and the settings in site.json, which the election data pages (history.py) share. Those pages carry a build date, so the
+daily scorecard job leaves them alone; `--all` builds them too.
 """
 import datetime as dt
 import json
@@ -210,6 +211,9 @@ def main():
             shutil.copy(og, SITE / "og.png")
     print("built", PAGE, f"{PAGE.stat().st_size / 1024:.0f} KB")
     landing.main()
+    if "--all" in sys.argv[1:]:   # after a change to the header, the footer or site.json: every page, in one command
+        import history
+        history.main()
 
 
 if __name__ == "__main__":
