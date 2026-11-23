@@ -10,7 +10,7 @@
 <meta property="og:image" content="https://polling2026.vikramrai.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#1d1e22">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/svg+xml" href="../../favicon.svg">
 <style>
 :root {
   color-scheme: dark;
@@ -184,16 +184,18 @@ td .none { color: var(--text-3); font-size: .8rem; }
   .show-sm { display: block; }
   .pval { width: 2.8em; }
 }
+/*__SITE_CSS__*/
 </style>
 </head>
 <body>
+<!--__SITE_HEADER__-->
 <header class="top">
   <div class="wrap">
     <div class="topbar"><h1>2026 Midterm Forecast</h1><span class="stamp" id="gen"></span></div>
     <nav class="tabs" aria-label="Pages">
       <a href="#overview" data-p="overview">Overview</a><a href="#scorecard" data-p="scorecard" id="scTab" hidden>Scorecard</a><a href="#senate" data-p="senate">Senate</a><a href="#house" data-p="house">House</a>
       <a href="#method" data-p="method">How it works</a><a href="#bias" data-p="bias">Polling bias</a><a href="#backtest" data-p="backtest">Backtest</a>
-      <a href="#appendix" data-p="appendix">Technical appendix</a><a href="#data" data-p="data">Data</a><a href="history/">Election data ↗</a>
+      <a href="#appendix" data-p="appendix">Technical appendix</a><a href="#data" data-p="data">Data</a>
     </nav>
   </div>
 </header>
@@ -485,6 +487,7 @@ td .none { color: var(--text-3); font-size: .8rem; }
   Data: <a href="https://votehub.com">VoteHub</a> polls; <a href="https://en.wikipedia.org/wiki/2026_United_States_elections">Wikipedia</a> (CC BY-SA 4.0) for race tables, district PVI, aggregator averages and expert ratings;
   538 archives via the <a href="https://web.archive.org">Internet Archive</a> and <a href="https://github.com/fivethirtyeight/data">GitHub</a> (CC BY 4.0); <a href="https://fred.stlouisfed.org">FRED</a>;
   <a href="https://www.presidency.ucsb.edu">American Presidency Project</a> (Gallup approval); <a href="https://www.fec.gov">FEC</a>.
+<!--__SITE_FOOTER__-->
 </div></footer>
 <div class="tip" id="tip" role="status"></div>
 
@@ -681,7 +684,7 @@ async function loadSims(k) {
   const meta = DATA.models[k].sims;
   if (!meta) throw new Error("no simulation file");
   // versioned by build time: the race-to-bit map lives in this page, so a cached .bin from an older build must not be used
-  const buf = await fetch("data/" + meta.file + "?v=" + encodeURIComponent(DATA.generated)).then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.arrayBuffer(); });
+  const buf = await fetch("../data/" + meta.file + "?v=" + encodeURIComponent(DATA.generated)).then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.arrayBuffer(); });
   const n = meta.n;
   if (buf.byteLength < 9 * n) throw new Error("truncated simulation file");
   const S = { meta, n, bits: new Uint32Array(buf, 0, n), nat: new Int16Array(buf, 4 * n, n), house: new Uint16Array(buf, 6 * n, n), sen: new Uint8Array(buf, 8 * n, n) };
@@ -1249,7 +1252,7 @@ function renderHouse() {
   const M = DATA.models[model], c = M.house_counts;
   if (openHouse && !M.house_comp.find(r => r.race_key === openHouse)) openHouse = null;
   const nPolled = M.house_comp.filter(r => r.n_polls > 0).length;
-  $("#houseIntro").innerHTML = `${c.competitive} seats have a 5–95% Democratic win probability (${MODELS[model]} model). ${c.safe_d + c.fixed_d} more are safe or certain for Democrats and ${c.safe_r + c.fixed_r} for Republicans. All 435: <a href="data/house_${model}.csv">CSV</a>. ` +
+  $("#houseIntro").innerHTML = `${c.competitive} seats have a 5–95% Democratic win probability (${MODELS[model]} model). ${c.safe_d + c.fixed_d} more are safe or certain for Democrats and ${c.safe_r + c.fixed_r} for Republicans. All 435: <a href="../data/house_${model}.csv">CSV</a>. ` +
     `Click any district to see how its forecast is built. ${nPolled} of these ${c.competitive} have district polls; the others rely on the district model alone (marked “none”).`;
   const cols = [
     { key: "label", label: "District", sort: r => r.label, render: r => `${r.label}<span class="show-sm">${esc(r.inc)} (${esc(r.inc_party)})${r.inc_running ? "" : " · open"}</span>` },
@@ -1387,7 +1390,7 @@ function renderData() {
     ["senate_polls_fundamentals.csv", "Senate race forecasts"], ["house_polls_fundamentals.csv", "House district forecasts (all 435)"], ["national_inputs.json", "National inputs"], ["house_2026_races.csv", "House race structure (Wikipedia)"], ["senate_2026_races.csv", "Senate race structure and ratings (Wikipedia)"],
     ["fundamentals.json", "Fundamentals model"], ["fundamentals_dataset.csv", "Fundamentals dataset 1946–2026"], ["bias_decay.json", "Polling-bias re-estimate"], ["bias_analysis.json", "Polling-bias analysis"], ["state_econ.json", "State unemployment test"],
     ["error_structure.json", "Error components"], ["error_sensitivity.json", "Error-structure sensitivity"], ["backtest_senate_2018_2022.csv", "Backtest races"], ["calibration.json", "Polling-error calibration"]];
-  $("#dlList").innerHTML = files.map(([f, d]) => `<li><a href="data/${f}">${f}</a> — ${d}</li>`).join("");
+  $("#dlList").innerHTML = files.map(([f, d]) => `<li><a href="../data/${f}">${f}</a> — ${d}</li>`).join("");
 }
 
 // ---------- bias ----------

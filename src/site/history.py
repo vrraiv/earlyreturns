@@ -23,6 +23,9 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src" / "collect"))
 from wiki import STATE_ABBR  # noqa: E402
 
+sys.path.insert(0, str(Path(__file__).parent))
+import shell  # noqa: E402
+
 I, F, P, SC, PM = (ROOT / "data" / d for d in ("interim", "final", "processed", "scorecard", "postmortem"))
 OUT = ROOT / "site" / "history"
 DL = OUT / "data"
@@ -179,10 +182,14 @@ class Page:
 <meta name="theme-color" content="#1d1e22">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="stylesheet" href="../assets/history.css">
+<style>
+{shell.css()}
+</style>
 </head>
 <body>
+{shell.header("../", "history")}
 <header class="top"><div class="wrap">
-  <div class="topbar"><h1><a href="./">Election data</a></h1><span class="stamp">Built {built} · <a href="../">Main site</a></span></div>
+  <div class="topbar"><h1><a href="./">Election data</a></h1><span class="stamp">Built {built}</span></div>
   <nav class="tabs" aria-label="Sections">{nav}</nav>
 </div></header>
 <main class="wrap">
@@ -192,6 +199,7 @@ class Page:
 <footer><div class="wrap">
   Data: {LICENCE}, with credit to the original sources (<a href="sources.html">sources, licence and downloads</a>).
   Code: MIT (<a href="https://github.com/vrraiv/polling2026">GitHub</a>).
+{shell.footer()}
 </div></footer>
 <script>window.CHARTS = {charts};</script>
 <script src="../assets/charts.js"></script>

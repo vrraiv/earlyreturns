@@ -8,10 +8,21 @@
 <meta name="theme-color" content="#1d1e22">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 <link rel="stylesheet" href="../assets/history.css">
+<style>
+.sitebar { border-bottom: 1px solid var(--border); background: var(--surface); font-size: .84rem; }
+.sitebar .wrap { display: flex; align-items: center; gap: 4px 16px; flex-wrap: wrap; padding-top: 7px; padding-bottom: 7px; }
+.sitebar .sitename { color: var(--text); font-weight: 600; text-decoration: none; margin-right: auto; }
+.sitebar nav { display: flex; gap: 2px 14px; flex-wrap: wrap; align-items: center; }
+.sitebar nav a { color: var(--text-2); text-decoration: none; white-space: nowrap; }
+.sitebar nav a:hover, .sitebar nav a.on { color: var(--text); }
+.sitebar nav .past { color: var(--text-3); border-left: 1px solid var(--border); padding-left: 14px; }
+.sitefoot { margin: 8px 0 0; max-width: none; }
+</style>
 </head>
 <body>
+<div class="sitebar"><div class="wrap"><a class="sitename" href="../">polling2026</a><nav aria-label="Site"><a href="../">Home</a><a href="../history/" class=on>Election data</a><span class="past">Past elections</span><a href="../2026/">2026</a></nav></div></div>
 <header class="top"><div class="wrap">
-  <div class="topbar"><h1><a href="./">Election data</a></h1><span class="stamp">Built 2026-11-09 · <a href="../">Main site</a></span></div>
+  <div class="topbar"><h1><a href="./">Election data</a></h1><span class="stamp">Built 2026-11-22</span></div>
   <nav class="tabs" aria-label="Sections"><a href="./" class=on>Overview</a><a href="votes.html">Vote shares</a><a href="approval.html">Approval and incumbency</a><a href="states.html">States and regions</a><a href="polling.html">Polling accuracy</a><a href="offcycle.html">Off-cycle elections</a><a href="sources.html">Sources and downloads</a></nav>
 </div></header>
 <main class="wrap">
@@ -23,6 +34,7 @@
 <footer><div class="wrap">
   Data: CC BY-SA 4.0, with credit to the original sources (<a href="sources.html">sources, licence and downloads</a>).
   Code: MIT (<a href="https://github.com/vrraiv/polling2026">GitHub</a>).
+<p class="sitefoot">This page is run by Vikram Rai as a hobby. Any views expressed on this page are his alone, as are any errors within. He is on <a href="https://github.com/vrraiv">GitHub</a>, <a href="https://x.com/raiv11">X</a>, and <a href="https://www.linkedin.com/in/vikram-rai-00132083">LinkedIn</a>.</p>
 </div></footer>
 <script>window.CHARTS = {};</script>
 <script src="../assets/charts.js"></script>

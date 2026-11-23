@@ -34,6 +34,9 @@ BIG_MISS = 15.0           # a newly scored race whose count is this far from the
 ACCEPTED = ROOT / "data/scorecard/accepted_changes.json"
 STALE_OFFICIAL_DAYS = 3   # an official state file this many days older than the run: the fetch keeps failing, so the
                           # state's count (certification, recounts) isn't reaching the scorecard; refresh it by hand
+# The forecast page. Before SI-6 (November 2026) it was site/index.html, which is now the landing page, so a
+# reference commit is read at the new path first and the old one only if the new one is missing.
+PAGE, PAGE_BEFORE_SI6 = "site/2026/forecast/index.html", "site/index.html"
 THIN_PAGE = 0.5           # a newly settled House race on a state page where under half the districts have counts
 
 
@@ -58,15 +61,15 @@ def main(ref):
     # 1. the frozen forecast is untouched
     if subprocess.run(["git", "diff", "--quiet", ref, "--", "data/final"], cwd=ROOT).returncode:
         hold.append("data/final/ differs from the reference: the frozen forecast must never change")
-    old_page = git_show(ref, "site/index.html")
-    new_page = (ROOT / "site/index.html").read_text(encoding="utf-8")
+    old_page = git_show(ref, PAGE) or git_show(ref, PAGE_BEFORE_SI6)
+    new_page = (ROOT / PAGE).read_text(encoding="utf-8")
     if old_page:
         a, b = page_data(old_page.decode("utf-8")), page_data(new_page)
         changed = sorted(k for k in set(a) | set(b) if k != "scorecard" and a.get(k) != b.get(k))
         if changed:
             hold.append(f"forecast data on the page changed (only the scorecard may): {changed}")
     if '"final": true' not in new_page:
-        hold.append("site/index.html is not the frozen-forecast build")
+        hold.append(f"{PAGE} is not the frozen-forecast build")
 
     # 2. counts and calls
     sc_old = json.loads(git_show(ref, "data/scorecard/scorecard.json"))
