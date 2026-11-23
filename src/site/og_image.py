@@ -63,8 +63,19 @@ def make(models, out_path, updated, final=False):
     im.save(out_path, optimize=True)
 
 
-# The landing page's and the coming cycles' cards (landing.py). They are drawn from site.json alone, carry no numbers and
-# no date, so a rebuild writes the same bytes.
+# The landing page's and the coming cycles' cards (landing.py). They are drawn from site.json alone and carry no numbers
+# and no date. A card is rewritten only when its pixels change, so a machine whose PNG compressor writes different bytes
+# (the scorecard job runs on Linux) leaves the committed files alone.
+
+def save(im, path):
+    try:
+        with Image.open(path) as old:
+            if old.convert("RGB").tobytes() == im.tobytes():
+                return
+    except (OSError, ValueError):
+        pass
+    im.save(path, optimize=True)
+
 
 def wrap(d, text, f, width):
     lines, line = [], ""
@@ -94,13 +105,13 @@ def make_home(S, out_path):
     im, d, y = _base(S["name"], S["intro"])
     y = max(y + 30, 300)
     for i, (k, t) in enumerate([(S["featured"]["label"], S["featured"]["title"]),
-                                ("Coming", "2027 governors, then 2028: the president and the races beside them")]):
+                                ("Coming", S["og_home_coming"])]):
         d.rounded_rectangle([60, y, 1140, y + 96], radius=10, fill=SURF, outline=BORDER, width=2)
         d.text((88, y + 16), k.upper(), font=font(SEMIBOLD, 18), fill=ACCENT)
         d.text((88, y + 44), t, font=font(MEDIUM, 28), fill=HEAD)
         y += 116
     d.text((1140, 584), S["base_url"].split("//")[-1], font=font(REGULAR, 20), fill=HEAD, anchor="ra")
-    im.save(out_path, optimize=True)
+    save(im, out_path)
 
 
 def make_preview(S, key, out_path):
@@ -116,4 +127,4 @@ def make_preview(S, key, out_path):
             y += 36
         y += 8
     d.text((1140, 584), S["base_url"].split("//")[-1], font=font(REGULAR, 20), fill=HEAD, anchor="ra")
-    im.save(out_path, optimize=True)
+    save(im, out_path)
