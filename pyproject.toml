@@ -1,5 +1,5 @@
 [project]
-name = "polling2026"
+name = "earlyreturns"
 version = "2026.11.4"
 description = "2026 midterm Senate and House forecast, frozen final forecast, and post-election scorecard"
 readme = "README.md"
