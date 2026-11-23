@@ -210,7 +210,7 @@ def main():
         if og.exists():
             shutil.copy(og, SITE / "og.png")
     print("built", PAGE, f"{PAGE.stat().st_size / 1024:.0f} KB")
-    landing.main(data["scorecard"])   # the landing page's seat figures, from the same read as the scorecard tab
+    landing.main(data["scorecard"], cards="--all" in sys.argv[1:])   # the landing page's seat figures, from the same read as the scorecard tab
     if "--all" in sys.argv[1:]:   # after a change to the header, the footer or site.json: every page, in one command
         import history
         history.main()
