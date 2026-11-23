@@ -187,8 +187,7 @@ def main():
     PAGE.parent.mkdir(parents=True, exist_ok=True)
     DOWNLOADS.mkdir(parents=True, exist_ok=True)
     for f in list(PROC.glob("*.csv")) + list(PROC.glob("*.json")) + list(PROC.glob("sims_*.bin")):
-        if "_sens" not in f.name:
-            shutil.copy(f, DOWNLOADS / f.name)
+        shutil.copy(f, DOWNLOADS / f.name)   # every output is a download; error_sensitivity.json is listed on the Data tab
     shutil.copy(ROOT / "data/interim/house_2026_races.csv", DOWNLOADS / "house_2026_races.csv")
     shutil.copy(ROOT / "data/interim/senate_2026_races.csv", DOWNLOADS / "senate_2026_races.csv")
     shutil.copy(ROOT / "data/interim/fundamentals_dataset.csv", DOWNLOADS / "fundamentals_dataset.csv")
