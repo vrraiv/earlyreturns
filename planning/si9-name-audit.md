@@ -15,8 +15,8 @@ marked **SI-3** below and must be re-checked once it is merged.
 - **Name:** Early Returns. Written "Early Returns" in the site header, page titles and link previews.
 - **Slug:** `earlyreturns`, for the GitHub repo (`vrraiv/earlyreturns`) and the Cloudflare Worker.
 - **Old address:** kept up, redirecting to the new one.
-- **Logo and favicon:** new. A column chart being assembled from bits (compiling) blended with a ballot box receiving
-  a vote (voting), for statistical analysis and voting together. The logo sits beside the name in the site header.
+- **Logo and favicon:** new. A race track with a check mark leaving the loop early (section G). The mark sits beside
+  the name in the site header.
 
 - **New hostname:** `earlyreturns.vikramrai.com` (confirmed 2026-11-23). The `earlyreturns` Worker does not exist yet.
 
@@ -133,3 +133,29 @@ is in `src/site/brand/README.md`:
   `favicon.ico` and `apple-touch-icon.png` beside it.
 - Link previews: `og_image.py` (forecast `og.png`) and SI-3's landing and 2027/2028 cards show the mark and name in
   place of the bare hostname line.
+
+## Done, and the cutover as decided (2026-11-23)
+
+The code pass (branch `si-9-early-returns`) covers sections A to D and G as listed, with these choices:
+
+- `og:site_name` "Early Returns" on every page (from `shell.head()`); page titles are unchanged.
+- The forecast template reads the address from `site.json` (`__BASE_URL__`), so no page hardcodes the hostname.
+- `brand.py` stays in `src/site/brand/` (the `design/logo` scripts point there); `shell.py` imports it from there.
+  `src/site/favicon.svg` is gone; `build.py` copies `favicon.svg`, `favicon.ico` and `apple-touch-icon.png` from
+  `brand/`.
+- The preview cards end with the mark and the name in place of the bare address.
+- The README's local venv path (`$HOME\.venvs\polling2026`) is a folder on the PC and is left as it is.
+
+Section E changes at step 3: the existing Worker is **renamed** in the dashboard (`polling2026` → `earlyreturns`)
+instead of a new one being created. Workers Builds rejects a build whose `wrangler.jsonc` name differs from the
+connected Worker, so the rename and the merge go together:
+
+1. Rename the Worker in the dashboard, then let the pull request's preview build run (it now matches).
+2. Merge. The renamed Worker deploys with both hostnames until step 4.
+3. Add `earlyreturns.vikramrai.com` as a custom domain on the renamed Worker.
+4. Add the redirect rule on `polling2026.vikramrai.com` (301, same path and query string). Redirect rules run before
+   the Worker, so the old domain can stay attached.
+5. Rename the GitHub repo, set the local remote, and re-attach Claude environments and scheduled tasks.
+
+Between the merge and step 3 the pages name the new address in their link-preview tags, so a preview fetched in that
+window shows no image.

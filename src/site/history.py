@@ -39,7 +39,7 @@ PRES_TERMS = [("2001-01-20", "R"), ("2009-01-20", "D"), ("2017-01-20", "R"), ("2
 
 SRC = {
     "wiki": "Wikipedia", "538": "FiveThirtyEight", "gallup": "Gallup via the American Presidency Project",
-    "vh": "VoteHub", "cook": "Cook PVI via Wikipedia", "fred": "BLS, BEA via FRED", "model": "polling2026 analysis",
+    "vh": "VoteHub", "cook": "Cook PVI via Wikipedia", "fred": "BLS, BEA via FRED", "model": "Early Returns analysis",
 }
 LICENCE = "CC BY-SA 4.0"
 PAGES = [("index", "Overview"), ("votes", "Vote shares"), ("approval", "Approval and incumbency"),
@@ -193,7 +193,7 @@ class Page:
 </main>
 <footer><div class="wrap">
   Data: {LICENCE}, with credit to the original sources (<a href="sources.html">sources, licence and downloads</a>).
-  Code: MIT (<a href="https://github.com/vrraiv/polling2026">GitHub</a>).
+  Code: MIT (<a href="https://github.com/vrraiv/earlyreturns">GitHub</a>).
 {shell.footer()}
 </div></footer>
 {shell.script()}
@@ -731,7 +731,7 @@ def page_sources(D):
     pg.h2("Licence and credit", "licence")
     pg.p(f"The derived data on these pages and in the downloads is licensed "
          f"<a href='https://creativecommons.org/licenses/by-sa/4.0/'>{LICENCE}</a>. Share-alike follows from the tables adapted from Wikipedia, "
-         "which is itself CC BY-SA 4.0. Please credit this site (polling2026.vikramrai.com) and the original sources named on each chart.")
+         "which is itself CC BY-SA 4.0. Please credit this site (Early Returns, earlyreturns.vikramrai.com) and the original sources named on each chart.")
     pg.p("Some figures aren't this project's to license: Gallup's approval numbers (via the American Presidency Project) and Cook PVI are "
          "their publishers' figures, shown here with credit. Polls belong to the pollsters that conducted them.")
     pg.h2("Downloads", "downloads")

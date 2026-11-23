@@ -5,7 +5,7 @@
 (CC BY-SA 4.0). That covers the files in `data/interim/`, `data/processed/`, `data/final/`, `data/scorecard/` and
 `data/postmortem/`, and the downloads on the site (`site/2026/data/`, `site/history/data/`).
 
-Credit: "polling2026 (polling2026.vikramrai.com), CC BY-SA 4.0", and credit the original sources below.
+Credit: "Early Returns (earlyreturns.vikramrai.com, formerly polling2026), CC BY-SA 4.0", and credit the original sources below.
 
 Share-alike is required because many tables are adapted from Wikipedia (CC BY-SA 4.0).
 

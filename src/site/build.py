@@ -7,7 +7,7 @@ Reads data/processed/* and data/interim/* (the frozen copy in data/final once it
   site/2026/forecast/index.html   the page (data inlined as JSON, charts drawn client-side in SVG; styles and
                                   fonts are shared with every page: site/assets/site.css, site/assets/fonts/)
   site/2026/data/*.csv|json       downloadable model outputs
-  site/og.png, site/favicon.svg   the link-preview card and the icon, at their old addresses
+  site/og.png, site/favicon.*     the link-preview card and the icons (favicon.svg, favicon.ico, apple-touch-icon.png)
 and then runs landing.py for the pages around the elections (the landing page, /2028/, /2026/, 404.html, _redirects).
 
 Each election is one unit in a folder under its year; 2026 is the first. The header and footer come from shell.py
@@ -192,14 +192,15 @@ def main():
     shutil.copy(ROOT / "data/interim/house_2026_races.csv", DOWNLOADS / "house_2026_races.csv")
     shutil.copy(ROOT / "data/interim/senate_2026_races.csv", DOWNLOADS / "senate_2026_races.csv")
     shutil.copy(ROOT / "data/interim/fundamentals_dataset.csv", DOWNLOADS / "fundamentals_dataset.csv")
-    html = TEMPLATE.read_text(encoding="utf-8").replace("/*__DATA__*/null", json.dumps(data, default=clean).replace("</", "<\\/"))
+    html = TEMPLATE.read_text(encoding="utf-8").replace("__BASE_URL__", shell.SETTINGS["base_url"]).replace("/*__DATA__*/null", json.dumps(data, default=clean).replace("</", "<\\/"))
     prefix = "../" * len(PAGE.parent.relative_to(SITE).parts)
     for mark, part in (("<!--__SITE_HEAD__-->", shell.head(prefix)), ("<!--__SITE_HEADER__-->", shell.header(prefix, UNIT.name)),
                        ("<!--__SITE_FOOTER__-->", shell.footer()), ("<!--__SITE_SCRIPT__-->", shell.script())):
         assert html.count(mark) == 1, mark
         html = html.replace(mark, part)
     PAGE.write_text(html, encoding="utf-8")
-    shutil.copy(Path(__file__).with_name("favicon.svg"), SITE / "favicon.svg")
+    for f in ("favicon.svg", "favicon.ico", "apple-touch-icon.png"):   # the Early Returns icons (SI-9)
+        shutil.copy(Path(__file__).with_name("brand") / f, SITE / f)
     try:  # regenerate the link-preview card from today's numbers
         sys.path.insert(0, str(Path(__file__).parent))
         import og_image

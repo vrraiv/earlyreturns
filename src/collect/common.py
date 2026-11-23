@@ -9,7 +9,7 @@ import requests
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data" / "raw"
 TODAY = dt.date.today().isoformat()
-UA = "polling2026-research/0.1 (personal election forecasting project; https://polling2026.vikramrai.com; https://github.com/vrraiv/polling2026)"
+UA = "earlyreturns-research/0.1 (personal election forecasting project; https://earlyreturns.vikramrai.com; https://github.com/vrraiv/earlyreturns)"
 
 SESSION = requests.Session()
 SESSION.headers["User-Agent"] = UA

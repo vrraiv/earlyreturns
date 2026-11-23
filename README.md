@@ -1,6 +1,9 @@
-# polling2026
+# Early Returns
 
-2026 midterm Senate and House forecast and its post-election scorecard, live at https://polling2026.vikramrai.com.
+Formerly `polling2026`; renamed 2026-11-23 (SI-9).
+
+
+2026 midterm Senate and House forecast and its post-election scorecard, live at https://earlyreturns.vikramrai.com.
 The final forecast was frozen on Nov 3, 2026 (tag `final-forecast-2026`, outputs in `data/final/`) and is never
 rewritten. The method is in `FORECAST.md`; the plan and its history are in `PLAN.md`; the data sources and derived
 datasets are catalogued in `DATA.md`.

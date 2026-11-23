@@ -2,7 +2,7 @@
 
 The sources this project collects, the datasets built from them, and how to credit them. The licence for derived
 data is in `LICENSE-DATA.md`. The public version of this page is the Election data site's
-[Sources and downloads](https://polling2026.vikramrai.com/history/sources.html) page.
+[Sources and downloads](https://earlyreturns.vikramrai.com/history/sources.html) page.
 
 ## Sources
 
