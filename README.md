@@ -86,10 +86,28 @@ The environment that matches the frozen forecast is tagged `env-2026`. To rebuil
 | `python src/run_scorecard.py --parse` | Re-parse the saved snapshots without fetching. After an upgrade, `git diff data/scorecard` should be empty. |
 | `python src/check_scorecard.py` | Check a scorecard refresh against the last commit before publishing: HOLD, REVIEW or CLEAN. |
 | `python src/model/single_race.py house --state TN --district 7 --date 2025-12-02` | Forecast one House special (or `governor --state VA --date 2025-11-04 --votehub ...`) from data before its date; `--poll D,R` adds polls. `backtest` scores every House special since 2008. |
-| `python src/site/history.py` | Rebuild the Election data pages (`site/history/`, linked from the forecast's nav) and their CSV downloads from the committed data. `python src/collect/generic_ballot.py` rebuilds the daily generic-ballot series they use. |
+| `python src/site/history.py` | Rebuild the Election data pages (`site/history/`, linked from the header on every page) and their CSV downloads from the committed data. `python src/collect/generic_ballot.py` rebuilds the daily generic-ballot series they use. |
+| `python src/site/build.py` | Rebuild the site outside the Election data pages: the 2026 forecast page (`site/2026/forecast/`), its downloads (`site/2026/data/`), the landing page, `404.html` and `_redirects`. The header, the footer and the landing page come from `src/site/site.json`; after changing it, run `history.py` too, because the daily scorecard job does not rebuild those pages. |
 | `python src/postmortem/<script>.py` | Post-mortem and historical analyses (what-if environment, where the House missed, history, state-level error). Each writes to `data/postmortem/`; see `src/postmortem/README.md`. |
 | `python src/check_frozen.py` | Rebuild the model from the frozen inputs and compare every file in `data/final/`. |
 | `python src/run_all.py` | The pre-election refresh. It refuses to run after polls closed on Nov 3, 2026. |
+
+## Styles, modes and font
+
+Every page uses one stylesheet, `site/assets/site.css`. It defines each colour once per mode: light is the default,
+and dark applies when the reader's device asks for it or the reader picks it with the switch in the top row (the
+choice is kept in the browser). The comment at the top of the file says what each colour is for. Two rules to keep
+when adding a chart:
+
+- Blue and red are the parties everywhere. Amber never shares a chart with them, because the two are too close for
+  colour-blind readers; a trend line or highlight in a party chart is grey or ink.
+- Charts without parties use the series colours in order (`tint`, `ochre`, `teal`, then `plum`). In dark mode the
+  first is a pale grey, because a navy on a dark card cannot be told from Democratic blue.
+
+The page scripts read colours from the stylesheet when they draw, and redraw when the mode changes.
+
+The font is IBM Plex Sans, IBM's files unmodified, under the SIL Open Font License 1.1: `site/assets/fonts/` for the
+pages and `src/site/fonts/` for the link-preview image (`site/og.png`), each with its `LICENSE.txt`.
 
 ## Upgrading packages or Python
 

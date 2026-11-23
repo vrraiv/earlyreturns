@@ -1,5 +1,5 @@
 /* Charts for the Election data pages (site/history/): hand-drawn SVG from the JSON specs each page carries in
-   window.CHARTS, styled like the forecast page. Types: xy (lines and/or points, fit lines, reference lines),
+   window.CHARTS, styled by site.css like every page. Types: xy (lines and/or points, fit lines, reference lines),
    bars (grouped, vertical or horizontal, optional error bars), heatmap. Built by src/site/history.py. */
 (function () {
   "use strict";
@@ -225,5 +225,7 @@
     clearTimeout(timer);
     timer = setTimeout(() => { const w = document.documentElement.clientWidth; if (w !== lastW) { lastW = w; renderAll(); } }, 150);
   });
+  // colours come from the stylesheet's variables when a chart is drawn, so a change of mode redraws them
+  window.addEventListener("themechange", renderAll);
   renderAll();
 })();

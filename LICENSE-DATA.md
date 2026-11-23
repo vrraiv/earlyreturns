@@ -3,7 +3,7 @@
 **Derived data** produced by this project is licensed under the
 [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/)
 (CC BY-SA 4.0). That covers the files in `data/interim/`, `data/processed/`, `data/final/`, `data/scorecard/` and
-`data/postmortem/`, and the downloads on the site (`site/data/`, `site/history/data/`).
+`data/postmortem/`, and the downloads on the site (`site/2026/data/`, `site/history/data/`).
 
 Credit: "polling2026 (polling2026.vikramrai.com), CC BY-SA 4.0", and credit the original sources below.
 

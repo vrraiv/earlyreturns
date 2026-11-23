@@ -2,9 +2,16 @@
 
   python src/site/build.py
 
-Reads data/processed/* and data/interim/*, writes:
-  site/index.html          self-contained page (data inlined as JSON, charts drawn client-side in SVG)
-  site/data/*.csv|json     downloadable model outputs
+Reads data/processed/* and data/interim/* (the frozen copy in data/final once it exists), writes:
+  site/2026/forecast/index.html   the page (data inlined as JSON, charts drawn client-side in SVG; styles and
+                                  fonts are shared with every page: site/assets/site.css, site/assets/fonts/)
+  site/2026/data/*.csv|json       downloadable model outputs
+  site/og.png, site/favicon.svg   the link-preview card and the icon, at their old addresses
+and then runs landing.py for the pages around the elections (the landing page, /2026/, 404.html, _redirects).
+
+Each election is one unit in a folder under its year; 2026 is the first. The header and footer come from shell.py
+and the settings in site.json, which the election data pages (history.py) share. history.py is run by hand: its pages
+carry a build date, so the daily scorecard job leaves them alone.
 """
 import datetime as dt
 import json
@@ -22,6 +29,12 @@ MADE_AT = ROOT / "data" / "final" / "MADE_AT.txt"
 # (e.g. to link the scorecard) can't change what the final forecast shows.
 PROC = MADE_AT.parent if MADE_AT.exists() else ROOT / "data" / "processed"
 SITE = ROOT / "site"
+UNIT = SITE / "2026"            # this election's folder
+PAGE = UNIT / "forecast" / "index.html"
+DOWNLOADS = UNIT / "data"
+sys.path.insert(0, str(Path(__file__).parent))
+import landing  # noqa: E402
+import shell  # noqa: E402
 TEMPLATE = Path(__file__).with_name("template.html")
 
 
@@ -171,16 +184,21 @@ def main():
                                  for x in P.SUPPLEMENT_USED],
         },
     }
-    SITE.mkdir(exist_ok=True)
-    (SITE / "data").mkdir(exist_ok=True)
+    PAGE.parent.mkdir(parents=True, exist_ok=True)
+    DOWNLOADS.mkdir(parents=True, exist_ok=True)
     for f in list(PROC.glob("*.csv")) + list(PROC.glob("*.json")) + list(PROC.glob("sims_*.bin")):
         if "_sens" not in f.name:
-            shutil.copy(f, SITE / "data" / f.name)
-    shutil.copy(ROOT / "data/interim/house_2026_races.csv", SITE / "data" / "house_2026_races.csv")
-    shutil.copy(ROOT / "data/interim/senate_2026_races.csv", SITE / "data" / "senate_2026_races.csv")
-    shutil.copy(ROOT / "data/interim/fundamentals_dataset.csv", SITE / "data" / "fundamentals_dataset.csv")
+            shutil.copy(f, DOWNLOADS / f.name)
+    shutil.copy(ROOT / "data/interim/house_2026_races.csv", DOWNLOADS / "house_2026_races.csv")
+    shutil.copy(ROOT / "data/interim/senate_2026_races.csv", DOWNLOADS / "senate_2026_races.csv")
+    shutil.copy(ROOT / "data/interim/fundamentals_dataset.csv", DOWNLOADS / "fundamentals_dataset.csv")
     html = TEMPLATE.read_text(encoding="utf-8").replace("/*__DATA__*/null", json.dumps(data, default=clean).replace("</", "<\\/"))
-    (SITE / "index.html").write_text(html, encoding="utf-8")
+    prefix = "../" * len(PAGE.parent.relative_to(SITE).parts)
+    for mark, part in (("<!--__SITE_HEAD__-->", shell.head(prefix)), ("<!--__SITE_HEADER__-->", shell.header(prefix, UNIT.name)),
+                       ("<!--__SITE_FOOTER__-->", shell.footer()), ("<!--__SITE_SCRIPT__-->", shell.script())):
+        assert html.count(mark) == 1, mark
+        html = html.replace(mark, part)
+    PAGE.write_text(html, encoding="utf-8")
     shutil.copy(Path(__file__).with_name("favicon.svg"), SITE / "favicon.svg")
     try:  # regenerate the link-preview card from today's numbers
         sys.path.insert(0, str(Path(__file__).parent))
@@ -191,10 +209,8 @@ def main():
         og = Path(__file__).with_name("og.png")
         if og.exists():
             shutil.copy(og, SITE / "og.png")
-    (SITE / "404.html").write_text('<!doctype html><meta charset="utf-8"><title>Not found</title>'
-                                   '<p style="font-family:system-ui;padding:2rem">Not found. <a href="/">Back to the forecast</a></p>',
-                                   encoding="utf-8")
-    print("built", SITE / "index.html", f"{(SITE / 'index.html').stat().st_size / 1024:.0f} KB")
+    print("built", PAGE, f"{PAGE.stat().st_size / 1024:.0f} KB")
+    landing.main()
 
 
 if __name__ == "__main__":

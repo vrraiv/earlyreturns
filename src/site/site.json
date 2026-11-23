@@ -1,0 +1,34 @@
+{
+  "name": "polling2026",
+  "base_url": "https://polling2026.vikramrai.com",
+  "description": "Election forecasts from public polls and data, each scored against the results.",
+  "intro": "Election forecasts built from public polls and data. Each forecast is locked before the election and scored against the results afterwards.",
+  "nav": [
+    {"key": "home", "label": "Home", "path": ""},
+    {"key": "2028", "label": "2028", "path": "2028/", "live": false},
+    {"key": "model", "label": "Model", "path": "model/", "live": false},
+    {"key": "history", "label": "Election data", "path": "history/"}
+  ],
+  "elections": [
+    {"key": "2026", "label": "2026", "path": "2026/", "opens": "forecast/#scorecard", "current": false}
+  ],
+  "featured": {
+    "label": "Now",
+    "title": "2026 midterms: the scorecard",
+    "text": "How the final House and Senate forecast compares with the results, updated as the count finishes.",
+    "path": "2026/forecast/#scorecard"
+  },
+  "callout": null,
+  "sections": [
+    {"title": "2026 forecast", "text": "The final House and Senate forecast, as locked on Nov 3, 2026.", "path": "2026/forecast/"},
+    {"title": "Election data", "text": "Historical election results and polling accuracy, with downloads.", "path": "history/"}
+  ],
+  "footer": {
+    "text": "This page is run by Vikram Rai as a hobby. Any views expressed on this page are his alone, as are any errors within. He is on [GitHub], [X], and [LinkedIn].",
+    "links": {
+      "GitHub": "https://github.com/vrraiv",
+      "X": "https://x.com/raiv11",
+      "LinkedIn": "https://www.linkedin.com/in/vikram-rai-00132083"
+    }
+  }
+}
