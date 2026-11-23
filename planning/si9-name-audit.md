@@ -18,7 +18,7 @@ marked **SI-3** below and must be re-checked once it is merged.
 - **Logo and favicon:** new. A column chart being assembled from bits (compiling) blended with a ballot box receiving
   a vote (voting), for statistical analysis and voting together. The logo sits beside the name in the site header.
 
-Open: the new hostname. This audit assumes `earlyreturns.vikramrai.com`; confirm before step 3.
+- **New hostname:** `earlyreturns.vikramrai.com` (confirmed 2026-11-23). The `earlyreturns` Worker does not exist yet.
 
 ## Summary
 
@@ -100,8 +100,9 @@ only differences are the name, the hostname and the logo.
 2. **Rename the GitHub repo** `vrraiv/polling2026` → `vrraiv/earlyreturns`. GitHub redirects the old address for
    clones, pushes and web links. Then, on the PC, `git remote set-url origin https://github.com/vrraiv/earlyreturns.git`
    (works without it, but the redirect breaks if a new repo is ever created under the old name).
-3. **Cloudflare Worker.** Deploy `earlyreturns` (from the `wrangler.jsonc` change), reconnect Workers Builds to the
-   renamed repo, and attach the new custom domain. The old Worker `polling2026` keeps the old hostname until step 4.
+3. **Cloudflare Worker.** Create `earlyreturns` (not yet made as of 2026-11-23) by connecting Workers Builds to the
+   renamed repo once the `wrangler.jsonc` change is on `main`; the dashboard name must match `wrangler.jsonc`. Then
+   attach `earlyreturns.vikramrai.com` as its custom domain. The old Worker `polling2026` keeps the old hostname until step 4.
 4. **Redirect the old hostname.** A static-assets Worker matches paths, not hosts, so `_redirects` cannot do this.
    Use a Cloudflare redirect rule on `polling2026.vikramrai.com`: 301 to the new hostname with the same path and query
    string. Then the old Worker can be deleted (its custom domain must stay proxied in DNS for the rule to fire). Old
