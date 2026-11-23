@@ -93,7 +93,7 @@ nav.tabs::-webkit-scrollbar { display: none; }
 nav.tabs a { color: var(--text-2); text-decoration: none; padding: 8px 12px 9px; border-bottom: 2px solid transparent; white-space: nowrap; font-size: .92rem; }
 nav.tabs a:hover { color: var(--text); }
 nav.tabs a.on { color: var(--ink); font-weight: 500; border-bottom-color: var(--accent); }
-main { padding-top: 18px; min-height: 70vh; }
+main, main.wrap { padding-top: 18px; min-height: 70vh; }
 section.page { display: none; } section.page.on { display: block; }
 
 /* ---------- controls ---------- */
@@ -257,6 +257,11 @@ td .none { color: var(--text-3); font-size: .8rem; }
 .home main { padding-top: 30px; }
 .home main > h1 { margin-bottom: 6px; }
 
+/* phones: the mode switch sits beside the site name, so the top row is two lines, not three */
+@media (max-width: 560px) {
+  .sitebar .wrap { position: relative; }
+  .modeswitch { position: absolute; top: 8px; right: 16px; }
+}
 @media (max-width: 760px) {
   .cards, .ovgrid, .grid2, .detail-grid, .exgrid, .detail-top { grid-template-columns: 1fr; }
   .tbl-wrap.scroll { max-height: none; }

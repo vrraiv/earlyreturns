@@ -313,10 +313,10 @@ def page_approval(D):
     csv = mt[["year", "pres_party", "approval", "change"]].rename(columns={"approval": "gallup_approval", "change": "pres_party_margin_change"})
     csv = pd.concat([csv, pd.DataFrame([{"year": 2026, "pres_party": "R", "gallup_approval": a26, "pres_party_margin_change": c26}])]).round(2)
     pg.add(pg.fig("approval_midterm", "Approval and the midterm result",
-                  {"type": "xy", "height": 320, "series": [{"pts": pts}], "fits": [{"a": a, "b": b, "color": "text-2"}],
+                  {"type": "xy", "height": 320, "series": [{"pts": pts}], "fits": [{"a": a, "b": b, "color": "text"}],
                    "x": {"fmt": "int", "label": "Gallup approval before the midterm (%)"}, "y": {"fmt": "signed0", "label": "President's party, change in margin"},
                    "refs": [{"y": 0}], "legend": [{"name": "Democratic president", "color": "dem", "dot": True}, {"name": "Republican president", "color": "rep", "dot": True},
-                                                  {"name": f"Fit: {b:.2f} pts per point of approval", "color": "text-2", "line": True}]},
+                                                  {"name": f"Fit: {b:.2f} pts per point of approval", "color": "text", "line": True}]},
                   csv, [SRC["gallup"], SRC["wiki"]],
                   f"Midterms 1950-2022: each point of approval is worth about {b:.2f} points of House margin to the president's party "
                   f"(correlation {r:.2f}). 2026 (hollow, partial count): approval {a26:.0f}%, the lowest at a midterm since 1946 "
@@ -376,13 +376,13 @@ def page_approval(D):
     cats = [f"{short[r.seat]} ({r.polled} of {r.seats} polled)" for r in bt.itertuples()]
     pg.add(pg.fig("incumbents_2026", "2026: R+2 to R+12 seats, final polls and results",
                   {"type": "bars", "cats": cats,
-                   "series": [{"name": "Democrat led the final polls", "values": bt.d_led_final_polls.tolist(), "color": "text-3",
+                   "series": [{"name": "Democrat led the final polls", "values": bt.d_led_final_polls.tolist(), "color": "neutral",
                                "tips": [f"<b>{r.seat}</b>: the Democrat led the final polls in {r.d_led_final_polls} of {r.polled} polled seats" for r in bt.itertuples()]},
                               {"name": "Democrat won", "values": bt.d_won_polled.tolist(), "color": "dem",
                                "tips": [f"<b>{r.seat}</b>: Democrats won {r.d_won_polled} of {r.polled} polled seats "
                                         f"(and {r.d_won_unpolled} of {r.seats - r.polled} without a final poll)" for r in bt.itertuples()]}],
                    "y": {"fmt": "int", "label": "Polled seats"}, "height": 240, "values": True,
-                   "legend": [{"name": "Democrat led the final polls", "color": "text-3"}, {"name": "Democrat won", "color": "dem"}]},
+                   "legend": [{"name": "Democrat led the final polls", "color": "neutral"}, {"name": "Democrat won", "color": "dem"}]},
                   bt, [SRC["wiki"], SRC["cook"]],
                   f"2026 House seats with a Cook PVI from R+2 to R+12 and both parties on the ballot, counting the seats with district polls "
                   f"in the final three weeks (Wikipedia's polling tables). Of {ri.seats} held by a Republican incumbent, {ri.polled} were polled: "
@@ -658,12 +658,12 @@ def page_offcycle(D):
     by_pres = post.groupby("president").vs_generic.agg(["mean", "size"])
     pg.add(pg.fig("specials", "House special elections against the generic ballot, 2007-2026",
                   {"type": "xy", "height": 320, "series": [{"pts": pts},
-                                                           {"name": "Generic ballot", "line": True, "markers": False, "color": "text-2", "width": 1.6, "pts": gline},
+                                                           {"name": "Generic ballot", "line": True, "markers": False, "color": "text", "width": 1.6, "pts": gline},
                                                            {"name": "Specials, 12-month average", "line": True, "markers": False, "color": "teal", "pts": trail}],
                    "x": {"fmt": "year", "ticks": list(range(2008, 2027, 2))}, "y": {"fmt": "dr0", "label": "Democratic margin vs district lean"},
                    "refs": [{"y": 0}], "vrefs": [{"x": 2017.05, "label": "2017"}],
                    "legend": [{"name": "Democratic president", "color": "dem", "dot": True}, {"name": "Republican president", "color": "rep", "dot": True},
-                              {"name": "Generic-ballot polling average", "color": "text-2", "line": True}, {"name": "Specials, 12-month average", "color": "teal", "line": True}]},
+                              {"name": "Generic-ballot polling average", "color": "text", "line": True}, {"name": "Specials, 12-month average", "color": "teal", "line": True}]},
                   spec.assign(date=spec.date.dt.date.astype(str))[["date", "state", "district", "president", "pvi", "margin_2p", "over", "generic",
                                                                      "vs_generic", "trailing_12m"]].rename(columns={
                       "over": "margin_minus_lean", "generic": "generic_ballot_avg", "vs_generic": "vs_generic_ballot"}).round(2),

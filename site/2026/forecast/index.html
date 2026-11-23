@@ -783,7 +783,7 @@ function renderNatHist(S, C) {
   for (let j = 0; j < nb; j++) {
     const b = S.lo + j, x0 = m.l + j * bw, sel = exBins.has(b);
     if (sel) s += `<rect x="${x0}" y="${m.t - 4}" width="${bw}" height="${H - m.t - m.b + 4}" fill="${och}" opacity=".16" rx="3"/>`;
-    s += `<rect x="${x0 + 1.5}" y="${y(shA[j])}" width="${bw - 3}" height="${Math.max(0.5, y(0) - y(shA[j]))}" fill="${stateOn ? bd : (sel ? och : tint)}" rx="2"/>`;
+    s += `<rect x="${x0 + 1.5}" y="${y(shA[j])}" width="${bw - 3}" height="${Math.max(0.5, y(0) - y(shA[j]))}" fill="${stateOn ? css("--neutral") : (sel ? och : tint)}" rx="2"/>`;
     if (stateOn) s += `<rect x="${x0 + bw * 0.22}" y="${y(shS[j])}" width="${bw * 0.56}" height="${Math.max(0.5, y(0) - y(shS[j]))}" fill="${sel ? och : tint}" rx="2"/>`;
     const lab = j === 0 ? `&lt;${fmtI(b + 1)}` : j === nb - 1 ? `≥${fmtI(b)}` : fmtI(b);
     if (j === 0 || j === nb - 1 || (b % 2 === 0 && j > 1 && j < nb - 2)) s += `<text x="${x0 + bw / 2}" y="${H - 6}" font-size="10" fill="${t3}" text-anchor="middle">${lab}</text>`;
@@ -792,7 +792,7 @@ function renderNatHist(S, C) {
   const gx = m.l + (S.G - S.lo) / nb * (W - m.l - m.r);
   s += `<line x1="${gx}" x2="${gx}" y1="${m.t - 12}" y2="${H - m.b}" stroke="${t3}" stroke-dasharray="3 3"/><text x="${gx + 4}" y="${m.t - 5}" font-size="10.5" fill="${t3}">model's estimate ${fmtM(S.G)}</text>`;
   const el = $("#natHist"); el.innerHTML = s + `</svg>` +
-    `<div class="legend">${stateOn ? `<span><i class="sq" style="background:var(--border)"></i>all simulations</span><span><i class="sq" style="background:var(--tint)"></i>with the states you set</span>` : `<span class="tiny">Share of simulations by national vote, 1-pt bins. The spread is the model's uncertainty about the national environment.</span>`}</div>`;
+    `<div class="legend">${stateOn ? `<span><i class="sq" style="background:var(--neutral)"></i>all simulations</span><span><i class="sq" style="background:var(--tint)"></i>with the states you set</span>` : `<span class="tiny">Share of simulations by national vote, 1-pt bins. The spread is the model's uncertainty about the national environment.</span>`}</div>`;
   el.querySelectorAll("rect.b").forEach(r => {
     const b = +r.dataset.b, j = b - S.lo;
     exTip(r, `#natHist rect.b[data-b="${b}"]`,
