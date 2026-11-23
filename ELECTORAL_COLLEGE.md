@@ -3854,7 +3854,7 @@ with v the turnout shares (C below) and Σ_s v_s ε_s = 0 by construction.
   point's margin (the same ordering on the results) less the actual national margin;
 - implied error correlations for named pairs (as the Senate model reports), so the structure can be seen in the
   output;
-- a per-draw file for the site (the Senate model's compact format) is not written here; that is SI-3 and SI-6.
+- a per-draw file for the site (the Senate model's compact format) is not written here; that is SI-5, the model page (corrected 2026-11-22: this read "SI-3 and SI-6", and SI-6 closed without it).
 
 ### A7. Districts: a demographic swing model (one candidate under section 8's rule; added at the user's request, 2026-11-22)
 
