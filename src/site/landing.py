@@ -5,7 +5,8 @@ opening page, 404.html and _redirects, and the link-preview cards (site/og-home.
 
 Everything here comes from src/site/site.json and, for the landing page's figures, data/scorecard/scorecard.json. No
 page carries a build date, so a rebuild with the same scorecard writes the same bytes; the daily scorecard job changes
-the landing page only when the seat counts change. build.py passes the scorecard it read for the forecast page, so the
+the landing page only when the seat counts change, and leaves the preview cards alone (only `landing.py` run by itself
+or `build.py --all` draws them, after a change to site.json). build.py passes the scorecard it read for the forecast page, so the
 two pages show the same numbers; run alone, this reads the same file.
 
 Each coming cycle's page (previews in site.json: 2027, the governor races; 2028) is the "coming" state SI-1 set out: a
@@ -165,7 +166,9 @@ def not_found():
 """ + foot()
 
 
-def main(scorecard=None):
+def main(scorecard=None, cards=True):
+    """cards=False (the daily build) leaves the preview cards as committed: they depend on site.json only, and a
+    machine with another font renderer (the scorecard job runs on Linux) would redraw them with different pixels."""
     if scorecard is None and SCORECARD.exists():
         scorecard = json.loads(SCORECARD.read_text())
     out = {SITE / "index.html": landing(scorecard), SITE / "404.html": not_found(), SITE / "_redirects": REDIRECTS}
@@ -178,6 +181,8 @@ def main(scorecard=None):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
     try:
+        if not cards:
+            raise RuntimeError("left as committed (run landing.py or build.py --all to redraw)")
         import og_image
         og_image.make_home(S, SITE / "og-home.png")
         out[SITE / "og-home.png"] = None
