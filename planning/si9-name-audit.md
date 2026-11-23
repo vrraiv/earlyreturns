@@ -119,10 +119,17 @@ only differences are the name, the hostname and the logo.
 
 ## G. New: logo and favicon
 
-- `src/site/favicon.svg` today: three bars and a trend line on a dark square. Replace with the new mark, simplified
-  to read at 16 px. Copied to `site/favicon.svg` by `build.py:202`; linked by `shell.py:42`.
-- Header: `shell.py:66` writes the name as a text link. The logo goes inside that link, before the name, as inline SVG
-  so it follows the light and dark colours in `site/assets/site.css` (`.sitebar .sitename`, line 75).
-- Link previews: `og_image.py` (forecast `og.png`) and SI-3's landing and 2027/2028 cards should show the logo and
-  name, replacing the bare hostname line.
-- Consider an `apple-touch-icon.png` (180 px) beside the SVG favicon, for phones' home screens.
+Chosen 2026-11-23 after nine rounds of drafts (`design/logo/`): a race track with a check mark leaving the loop
+early. The mark (F6) has two lanes and a staggered start, for the header and anything large; the favicon (F2s) has a
+dashed infield only, for 16–32 px. One colour: `#1B4978` light, `#C9CFD8` dark.
+
+Built and committed in `src/site/brand/` (new files only): both SVGs, `favicon.ico`, `apple-touch-icon.png`, and
+512 px PNGs for link previews, with `brand.py` as the source. Not yet on the site. Where each piece goes, and the CSS,
+is in `src/site/brand/README.md`:
+
+- Header: `shell.py:66` writes the name as a text link; the mark goes inside it, before the name, as inline SVG
+  coloured by a `--logo` token in `site/assets/site.css`.
+- Favicon: replaces `src/site/favicon.svg` (copied to `site/` by `build.py:202`, linked by `shell.py:42`), with
+  `favicon.ico` and `apple-touch-icon.png` beside it.
+- Link previews: `og_image.py` (forecast `og.png`) and SI-3's landing and 2027/2028 cards show the mark and name in
+  place of the bare hostname line.
