@@ -90,6 +90,9 @@ def not_found():
     return head("Not found", "Page not found", "/") + f"""<body>
 {shell.header("/")}
 <main class="wrap"><p>Not found. <a href="/">Back to the home page</a></p></main>
+<footer><div class="wrap">
+{shell.footer()}
+</div></footer>
 </body>
 </html>
 """
