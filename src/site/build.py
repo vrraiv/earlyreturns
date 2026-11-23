@@ -3,7 +3,8 @@
   python src/site/build.py
 
 Reads data/processed/* and data/interim/* (the frozen copy in data/final once it exists), writes:
-  site/2026/forecast/index.html   self-contained page (data inlined as JSON, charts drawn client-side in SVG)
+  site/2026/forecast/index.html   the page (data inlined as JSON, charts drawn client-side in SVG; styles and
+                                  fonts are shared with every page: site/assets/site.css, site/assets/fonts/)
   site/2026/data/*.csv|json       downloadable model outputs
   site/og.png, site/favicon.svg   the link-preview card and the icon, at their old addresses
 and then runs landing.py for the pages around the elections (the landing page, /2026/, 404.html, _redirects).
@@ -193,8 +194,8 @@ def main():
     shutil.copy(ROOT / "data/interim/fundamentals_dataset.csv", DOWNLOADS / "fundamentals_dataset.csv")
     html = TEMPLATE.read_text(encoding="utf-8").replace("/*__DATA__*/null", json.dumps(data, default=clean).replace("</", "<\\/"))
     prefix = "../" * len(PAGE.parent.relative_to(SITE).parts)
-    for mark, part in (("/*__SITE_CSS__*/", shell.css()), ("<!--__SITE_HEADER__-->", shell.header(prefix, UNIT.name)),
-                       ("<!--__SITE_FOOTER__-->", shell.footer())):
+    for mark, part in (("<!--__SITE_HEAD__-->", shell.head(prefix)), ("<!--__SITE_HEADER__-->", shell.header(prefix, UNIT.name)),
+                       ("<!--__SITE_FOOTER__-->", shell.footer()), ("<!--__SITE_SCRIPT__-->", shell.script())):
         assert html.count(mark) == 1, mark
         html = html.replace(mark, part)
     PAGE.write_text(html, encoding="utf-8")

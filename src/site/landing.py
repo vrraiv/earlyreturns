@@ -35,18 +35,13 @@ def head(title, desc, prefix, extra=""):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
-<meta name="theme-color" content="#1d1e22">
-<link rel="icon" type="image/svg+xml" href="{prefix}favicon.svg">
-<link rel="stylesheet" href="{prefix}assets/history.css">
-<style>
-{shell.css()}
-</style>
+{shell.head(prefix)}
 {extra}</head>
 """
 
 
 def card(c, cls="sec"):
-    label = f'<div class="tiny">{html.escape(c["label"])}</div>' if c.get("label") else ""
+    label = f'<div class="kicker">{html.escape(c["label"])}</div>' if c.get("label") else ""
     return (f'<a class="{cls}" href="{html.escape(c["path"])}">{label}<h3>{html.escape(c["title"])}</h3>'
             f'<p>{html.escape(c["text"])}</p></a>')
 
@@ -57,7 +52,7 @@ def landing():
           f'<meta property="og:image" content="{S["base_url"]}/og.png">\n'
           '<meta name="twitter:card" content="summary_large_image">\n' + FORWARD + "\n")
     callout = f'<p class="note">{S["callout"]["text"]}</p>\n' if S.get("callout") else ""
-    return head(S["name"], S["description"], "", og) + f"""<body>
+    return head(S["name"], S["description"], "", og) + f"""<body class="home">
 {shell.header("", "home")}
 <main class="wrap">
 <h1>{html.escape(S["name"])}</h1>
@@ -68,6 +63,7 @@ def landing():
 <footer><div class="wrap">
 {shell.footer()}
 </div></footer>
+{shell.script()}
 </body>
 </html>
 """
@@ -81,6 +77,7 @@ def election_stub(e):
     return head(e["label"], f'{e["label"]} elections', "../", extra) + f"""<body>
 {shell.header("../", e["key"])}
 <main class="wrap"><p>Continue to <a href="{html.escape(to)}">the {html.escape(e["label"])} pages</a>.</p></main>
+{shell.script()}
 </body>
 </html>
 """
@@ -93,6 +90,7 @@ def not_found():
 <footer><div class="wrap">
 {shell.footer()}
 </div></footer>
+{shell.script()}
 </body>
 </html>
 """

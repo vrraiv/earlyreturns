@@ -92,6 +92,23 @@ The environment that matches the frozen forecast is tagged `env-2026`. To rebuil
 | `python src/check_frozen.py` | Rebuild the model from the frozen inputs and compare every file in `data/final/`. |
 | `python src/run_all.py` | The pre-election refresh. It refuses to run after polls closed on Nov 3, 2026. |
 
+## Styles, modes and font
+
+Every page uses one stylesheet, `site/assets/site.css`. It defines each colour once per mode: light is the default,
+and dark applies when the reader's device asks for it or the reader picks it with the switch in the top row (the
+choice is kept in the browser). The comment at the top of the file says what each colour is for. Two rules to keep
+when adding a chart:
+
+- Blue and red are the parties everywhere. Amber never shares a chart with them, because the two are too close for
+  colour-blind readers; a trend line or highlight in a party chart is grey or ink.
+- Charts without parties use the series colours in order (`tint`, `ochre`, `teal`, then `plum`). In dark mode the
+  first is a pale grey, because a navy on a dark card cannot be told from Democratic blue.
+
+The page scripts read colours from the stylesheet when they draw, and redraw when the mode changes.
+
+The font is IBM Plex Sans, IBM's files unmodified, under the SIL Open Font License 1.1: `site/assets/fonts/` for the
+pages and `src/site/fonts/` for the link-preview image (`site/og.png`), each with its `LICENSE.txt`.
+
 ## Upgrading packages or Python
 
 Upgrades are deliberate. `uv sync` never moves a version; only `uv lock --upgrade` does.

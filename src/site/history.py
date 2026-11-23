@@ -1,7 +1,7 @@
 """Build the Election data pages (site/history/): historical election and polling data, presented. Sources: DATA.md.
 Reads only committed data (data/interim, data/final, data/processed, data/scorecard, data/postmortem);
 writes site/history/*.html and one CSV per chart in site/history/data/. Charts are drawn in the browser by
-site/assets/charts.js from the specs embedded in each page; styles in site/assets/history.css.
+site/assets/charts.js from the specs embedded in each page; styles in site/assets/site.css, shared with every page.
 
     python src/site/history.py
 
@@ -32,7 +32,7 @@ DL = OUT / "data"
 NAME = {v: k for k, v in STATE_ABBR.items()}
 REGION = {st: r for r, sts in json.loads((F / "error_structure.json").read_text())["regions"].items() for st in sts}
 REGIONS = ["Northeast", "Midwest", "South", "West"]
-REGION_COLOR = {"Northeast": "text-2", "Midwest": "tint", "South": "ochre", "West": "teal"}
+REGION_COLOR = {"Northeast": "plum", "Midwest": "tint", "South": "ochre", "West": "teal"}
 ELECTION_2026 = pd.Timestamp("2026-11-03")
 # presidents' parties by inauguration date (for off-cycle races, which can fall either side of January 20)
 PRES_TERMS = [("2001-01-20", "R"), ("2009-01-20", "D"), ("2017-01-20", "R"), ("2021-01-20", "D"), ("2025-01-20", "R")]
@@ -179,14 +179,9 @@ class Page:
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(self.desc)}">
-<meta name="theme-color" content="#1d1e22">
-<link rel="icon" type="image/svg+xml" href="../favicon.svg">
-<link rel="stylesheet" href="../assets/history.css">
-<style>
-{shell.css()}
-</style>
+{shell.head("../")}
 </head>
-<body>
+<body class="data">
 {shell.header("../", "history")}
 <header class="top"><div class="wrap">
   <div class="topbar"><h1><a href="./">Election data</a></h1><span class="stamp">Built {built}</span></div>
@@ -201,6 +196,7 @@ class Page:
   Code: MIT (<a href="https://github.com/vrraiv/polling2026">GitHub</a>).
 {shell.footer()}
 </div></footer>
+{shell.script()}
 <script>window.CHARTS = {charts};</script>
 <script src="../assets/charts.js"></script>
 </body>
@@ -317,10 +313,10 @@ def page_approval(D):
     csv = mt[["year", "pres_party", "approval", "change"]].rename(columns={"approval": "gallup_approval", "change": "pres_party_margin_change"})
     csv = pd.concat([csv, pd.DataFrame([{"year": 2026, "pres_party": "R", "gallup_approval": a26, "pres_party_margin_change": c26}])]).round(2)
     pg.add(pg.fig("approval_midterm", "Approval and the midterm result",
-                  {"type": "xy", "height": 320, "series": [{"pts": pts}], "fits": [{"a": a, "b": b, "color": "ochre"}],
+                  {"type": "xy", "height": 320, "series": [{"pts": pts}], "fits": [{"a": a, "b": b, "color": "text-2"}],
                    "x": {"fmt": "int", "label": "Gallup approval before the midterm (%)"}, "y": {"fmt": "signed0", "label": "President's party, change in margin"},
                    "refs": [{"y": 0}], "legend": [{"name": "Democratic president", "color": "dem", "dot": True}, {"name": "Republican president", "color": "rep", "dot": True},
-                                                  {"name": f"Fit: {b:.2f} pts per point of approval", "color": "ochre", "line": True}]},
+                                                  {"name": f"Fit: {b:.2f} pts per point of approval", "color": "text-2", "line": True}]},
                   csv, [SRC["gallup"], SRC["wiki"]],
                   f"Midterms 1950-2022: each point of approval is worth about {b:.2f} points of House margin to the president's party "
                   f"(correlation {r:.2f}). 2026 (hollow, partial count): approval {a26:.0f}%, the lowest at a midterm since 1946 "
@@ -662,12 +658,12 @@ def page_offcycle(D):
     by_pres = post.groupby("president").vs_generic.agg(["mean", "size"])
     pg.add(pg.fig("specials", "House special elections against the generic ballot, 2007-2026",
                   {"type": "xy", "height": 320, "series": [{"pts": pts},
-                                                           {"name": "Generic ballot", "line": True, "markers": False, "color": "ochre", "width": 1.6, "pts": gline},
+                                                           {"name": "Generic ballot", "line": True, "markers": False, "color": "text-2", "width": 1.6, "pts": gline},
                                                            {"name": "Specials, 12-month average", "line": True, "markers": False, "color": "teal", "pts": trail}],
                    "x": {"fmt": "year", "ticks": list(range(2008, 2027, 2))}, "y": {"fmt": "dr0", "label": "Democratic margin vs district lean"},
                    "refs": [{"y": 0}], "vrefs": [{"x": 2017.05, "label": "2017"}],
                    "legend": [{"name": "Democratic president", "color": "dem", "dot": True}, {"name": "Republican president", "color": "rep", "dot": True},
-                              {"name": "Generic-ballot polling average", "color": "ochre", "line": True}, {"name": "Specials, 12-month average", "color": "teal", "line": True}]},
+                              {"name": "Generic-ballot polling average", "color": "text-2", "line": True}, {"name": "Specials, 12-month average", "color": "teal", "line": True}]},
                   spec.assign(date=spec.date.dt.date.astype(str))[["date", "state", "district", "president", "pvi", "margin_2p", "over", "generic",
                                                                      "vs_generic", "trailing_12m"]].rename(columns={
                       "over": "margin_minus_lean", "generic": "generic_ballot_avg", "vs_generic": "vs_generic_ballot"}).round(2),

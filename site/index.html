@@ -5,35 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>polling2026</title>
 <meta name="description" content="Election forecasts from public polls and data, each scored against the results.">
-<meta name="theme-color" content="#1d1e22">
+<meta name="theme-color" content="#FAF8F4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131519" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="stylesheet" href="assets/history.css">
-<style>
-.sitebar { border-bottom: 1px solid var(--border); background: var(--surface); font-size: .84rem; }
-.sitebar .wrap { display: flex; align-items: center; gap: 4px 16px; flex-wrap: wrap; padding-top: 7px; padding-bottom: 7px; }
-.sitebar .sitename { color: var(--text); font-weight: 600; text-decoration: none; margin-right: auto; }
-.sitebar nav { display: flex; gap: 2px 14px; flex-wrap: wrap; align-items: center; }
-.sitebar nav a { color: var(--text-2); text-decoration: none; white-space: nowrap; }
-.sitebar nav a:hover, .sitebar nav a.on { color: var(--text); }
-.sitebar nav .past { color: var(--text-3); border-left: 1px solid var(--border); padding-left: 14px; }
-.sitefoot { margin: 8px 0 0; max-width: none; }
-</style>
+<link rel="stylesheet" href="assets/site.css">
+<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})();</script>
 <meta property="og:title" content="polling2026">
 <meta property="og:description" content="Election forecasts from public polls and data, each scored against the results.">
 <meta property="og:image" content="https://polling2026.vikramrai.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <script>(function(){function f(){var h=location.hash.slice(1),t=["overview","scorecard","senate","house","method","bias","backtest","appendix","data"];if(t.indexOf(h)>=0||h.indexOf('senate/')===0||h.indexOf('house/')===0)location.replace('2026/forecast/'+location.hash);}f();addEventListener('hashchange',f);})();</script>
 </head>
-<body>
-<div class="sitebar"><div class="wrap"><a class="sitename" href="./">polling2026</a><nav aria-label="Site"><a href="./" class=on>Home</a><a href="history/">Election data</a><span class="past">Past elections</span><a href="2026/">2026</a></nav></div></div>
+<body class="home">
+<div class="sitebar"><div class="wrap"><a class="sitename" href="./">polling2026</a><nav aria-label="Site"><a href="./" class=on>Home</a><a href="history/">Election data</a><span class="past">Past elections</span><a href="2026/">2026</a><button type="button" class="modeswitch" id="modeswitch" aria-label="Switch between light and dark mode"><span class="ml">Light</span><span class="md">Dark</span></button></nav></div></div>
 <main class="wrap">
 <h1>polling2026</h1>
 <p class="lede">Election forecasts built from public polls and data. Each forecast is locked before the election and scored against the results afterwards.</p>
-<div class="sections"><a class="sec" href="2026/forecast/#scorecard"><div class="tiny">Now</div><h3>2026 midterms: the scorecard</h3><p>How the final House and Senate forecast compares with the results, updated as the count finishes.</p></a></div>
+<div class="sections"><a class="sec" href="2026/forecast/#scorecard"><div class="kicker">Now</div><h3>2026 midterms: the scorecard</h3><p>How the final House and Senate forecast compares with the results, updated as the count finishes.</p></a></div>
 <div class="sections"><a class="sec" href="2026/forecast/"><h3>2026 forecast</h3><p>The final House and Senate forecast, as locked on Nov 3, 2026.</p></a><a class="sec" href="history/"><h3>Election data</h3><p>Historical election results and polling accuracy, with downloads.</p></a></div>
 </main>
 <footer><div class="wrap">
 <p class="sitefoot">This page is run by Vikram Rai as a hobby. Any views expressed on this page are his alone, as are any errors within. He is on <a href="https://github.com/vrraiv">GitHub</a>, <a href="https://x.com/raiv11">X</a>, and <a href="https://www.linkedin.com/in/vikram-rai-00132083">LinkedIn</a>.</p>
 </div></footer>
+<script>(function(){var r=document.documentElement,q=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)");function set(t){r.setAttribute("data-theme",t);window.dispatchEvent(new Event("themechange"))}var b=document.getElementById("modeswitch");if(b)b.addEventListener("click",function(){var t=r.getAttribute("data-theme")==="dark"?"light":"dark";try{localStorage.setItem("theme",t)}catch(e){}set(t)});if(q&&q.addEventListener)q.addEventListener("change",function(e){var s;try{s=localStorage.getItem("theme")}catch(x){}if(s!=="light"&&s!=="dark")set(e.matches?"dark":"light")})})();</script>
 </body>
 </html>
