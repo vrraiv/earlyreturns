@@ -21409,8 +21409,8 @@
      "page_modified": "2026-11-21T21:42:05Z"
     },
     {
-     "revision": "1387390674.0",
-     "page_modified": "2026-11-23T19:23:57Z"
+     "revision": "1387436504.0",
+     "page_modified": "2026-11-23T23:05:57Z"
     },
     {
      "revision": "1387243536.0",
@@ -21600,45 +21600,45 @@
    "districts_count_stable": 197,
    "of": 435,
    "ready": false,
-   "dem_votes": 38375022.0,
-   "rep_votes": 30848555.0,
-   "house_vote_margin": 10.87269298435705,
+   "dem_votes": 38375944.0,
+   "rep_votes": 30848632.0,
+   "house_vote_margin": 10.873756742114246,
    "note": "sum of reported district votes; uncontested races not on the ballot add nothing (as in the calibration's national House vote)",
    "versions": {
     "polls_only": {
      "G_polls": 8.989638452842437,
      "G_used": 8.989638452842437,
      "bias_shift_assumed": 0.0,
-     "polling_miss": 1.8830545315146132,
-     "G_error": 1.8830545315146132
+     "polling_miss": 1.8841182892718091,
+     "G_error": 1.8841182892718091
     },
     "polls_fundamentals": {
      "G_polls": 8.989638452842437,
      "G_used": 9.621161475209849,
      "bias_shift_assumed": 0.0,
-     "polling_miss": 1.8830545315146132,
-     "G_error": 1.2515315091472008
+     "polling_miss": 1.8841182892718091,
+     "G_error": 1.2525952669043967
     },
     "polls_fundamentals_biasadj": {
      "G_polls": 8.989638452842437,
      "G_used": 7.446845163533031,
      "bias_shift_assumed": -2.5540952480150283,
-     "polling_miss": 1.8830545315146132,
-     "G_error": 3.4258478208240186
+     "polling_miss": 1.8841182892718091,
+     "G_error": 3.4269115785812145
     },
     "pocket_senate_wide_shift": {
      "G_polls": 8.989638452842437,
      "G_used": 7.446845163533031,
      "bias_shift_assumed": -2.5540952480150283,
-     "polling_miss": 1.8830545315146132,
-     "G_error": 3.4258478208240186
+     "polling_miss": 1.8841182892718091,
+     "G_error": 3.4269115785812145
     },
     "pocket_full_historical_bias": {
      "G_polls": 8.989638452842437,
      "G_used": 7.164330122009899,
      "bias_shift_assumed": -2.932309892200151,
-     "polling_miss": 1.8830545315146132,
-     "G_error": 3.708362862347151
+     "polling_miss": 1.8841182892718091,
+     "G_error": 3.709426620104347
     }
    }
   },

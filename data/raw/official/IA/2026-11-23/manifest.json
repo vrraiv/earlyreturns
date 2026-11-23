@@ -1,17 +1,17 @@
 {
   "current_ver.txt": {
     "url": "https://electionresults.iowa.gov/IA/127077/current_ver.txt",
-    "retrieved": "2026-11-23T22:42:28",
+    "retrieved": "2026-11-23T23:49:53",
     "bytes": 6
   },
   "summary.json": {
     "url": "https://electionresults.iowa.gov/IA/127077/387397/json/en/summary.json",
-    "retrieved": "2026-11-23T22:42:29",
+    "retrieved": "2026-11-23T23:49:54",
     "bytes": 235293
   },
   "electionsettings.json": {
     "url": "https://electionresults.iowa.gov/IA/127077/387397/json/en/electionsettings.json",
-    "retrieved": "2026-11-23T22:42:30",
+    "retrieved": "2026-11-23T23:49:55",
     "bytes": 54074
   }
 }
