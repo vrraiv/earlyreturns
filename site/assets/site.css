@@ -283,6 +283,8 @@ ul.dates li.target .when { color: var(--accent); }
 @media (max-width: 560px) {
   .sitebar .wrap { position: relative; }
   .modeswitch { position: absolute; top: 8px; right: 16px; }
+  .sitebar nav { gap: 2px 10px; }
+  .sitebar nav .past { font-size: 0; padding-left: 0; align-self: stretch; }   /* the label goes; its divider stays (and screen readers still read it) */
 }
 @media (max-width: 760px) {
   .cards, .ovgrid, .grid2, .detail-grid, .exgrid, .detail-top { grid-template-columns: 1fr; }
