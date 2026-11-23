@@ -1059,11 +1059,11 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|WA|H|9,Republican,R,Doug Basler,,,
 2026|WA|H|10,Democratic,D,Marilyn Strickland,,,
 2026|WA|H|10,Republican,R,Chris D. Chung,,,
-2026|WV|H|1,Republican,R,Carol Miller,,,
-2026|WV|H|1,Democratic,D,Vince George,,,
-2026|WV|H|1,Constitution,O,Belinda Fox-Spencer,,,
-2026|WV|H|2,Republican,R,Riley Moore,,,
-2026|WV|H|2,Democratic,D,Ace Parsi,,,
+2026|WV|H|1,Republican,R,Carol Miller,57.0,119087.0,119087.0
+2026|WV|H|1,Democratic,D,Vince George,39.6,82705.0,82705.0
+2026|WV|H|1,Constitution,O,Belinda Fox-Spencer,3.3,6921.0,6921.0
+2026|WV|H|2,Republican,R,Riley Moore,59.3,144109.0,144109.0
+2026|WV|H|2,Democratic,D,Ace Parsi,40.6,98615.0,98615.0
 2026|CA|H|1,Dem,D,Mike McGuire,58.9,170591.0,170591.0
 2026|CA|H|1,Rep,R,James Gallagher,41.1,118812.0,118812.0
 2026|CA|H|2,Dem,D,Jared Huffman,66.7,214120.0,214120.0

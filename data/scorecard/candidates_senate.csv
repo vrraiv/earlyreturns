@@ -43,7 +43,7 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|LA|S|regular,Democratic,D,Jamie Davis,49.12,720516.0,720516.0
 2026|ME|S|regular,Democratic,D,Troy Jackson,53.07,376955.0,376955.0
 2026|ME|S|regular,Republican,R,Susan Collins,46.87,332918.0,332918.0
-2026|ME|S|regular,Write-in,O,Write-in,0.01,488.0,488.0
+2026|ME|S|regular,Write-in,O,Write-in,0.07,488.0,488.0
 2026|MA|S|regular,Democratic,D,Ed Markey,63.68,1718276.0,1718276.0
 2026|MA|S|regular,Republican,R,John Deaton,31.72,855969.0,855969.0
 2026|MA|S|regular,Independent,I,Shiva Ayyadurai,2.27,61085.0,61085.0
@@ -77,17 +77,16 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|NH|S|regular,Republican,R,John E. Sununu,42.19,268712.0,268712.0
 2026|NH|S|regular,Constitution,O,Edmond J. LaPlante Jr.,1.9,12081.0,12081.0
 2026|NH|S|regular,Write-in,O,Write-in,,,
-2026|NJ|S|regular,Democratic,D,Cory Booker,62.58,1862747.0,1862747.0
-2026|NJ|S|regular,Republican,R,Justin Murphy,34.8,1035906.0,1035906.0
-2026|NJ|S|regular,End the Corruption!,O,Veronica Fernandez,1.67,49818.0,49818.0
-2026|NJ|S|regular,Socialist Workers,O,Joanne Kuniansky,0.95,28290.0,28290.0
-2026|NJ|S|regular,Write-in,O,Eduardo Castillo,0.0,89.0,89.0
+2026|NJ|S|regular,Democratic,D,Cory Booker,62.64,1873468.0,1873468.0
+2026|NJ|S|regular,Republican,R,Justin Murphy,34.73,1038585.0,1038585.0
+2026|NJ|S|regular,End the Corruption!,O,Veronica Fernandez,1.68,50185.0,50185.0
+2026|NJ|S|regular,Socialist Workers,O,Joanne Kuniansky,0.95,28484.0,28484.0
 2026|NM|S|regular,Democratic,D,Ben Ray Luján,63.26,458756.0,458756.0
 2026|NM|S|regular,Republican,R,Larry Marker,36.74,266434.0,266434.0
-2026|NC|S|regular,Democratic,D,Roy Cooper,58.75,2480638.0,2480638.0
-2026|NC|S|regular,Republican,R,Michael Whatley,39.05,1648864.0,1648864.0
-2026|NC|S|regular,Libertarian,O,Shannon W. Bray,1.33,56084.0,56084.0
-2026|NC|S|regular,Green,O,Michael Dublin,0.87,36710.0,36710.0
+2026|NC|S|regular,Democratic,D,Roy Cooper,58.75,2480645.0,2480645.0
+2026|NC|S|regular,Republican,R,Michael Whatley,39.05,1648860.0,1648860.0
+2026|NC|S|regular,Libertarian,O,Shannon W. Bray,1.33,56085.0,56085.0
+2026|NC|S|regular,Green,O,Michael Dublin,0.87,36713.0,36713.0
 2026|OK|S|regular,Republican,R,Kevin Hern,57.2,639860.0,639860.0
 2026|OK|S|regular,Democratic,D,N'Kiyla Jasmine Thomas,39.29,439522.0,439522.0
 2026|OK|S|regular,Independent,I,Curtis Stinnett,1.31,14635.0,14635.0
@@ -126,9 +125,9 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|VA|S|regular,Democratic,D,Mark Warner,61.6,2251628.0,2251628.0
 2026|VA|S|regular,Republican,R,Bert Mizusawa,38.13,1393710.0,1393710.0
 2026|VA|S|regular,Write-in,O,Write-in,0.27,9800.0,9800.0
-2026|WV|S|regular,Republican,R,Shelley Moore Capito,58.33,266772.0,266772.0
-2026|WV|S|regular,Democratic,D,Rachel Fetty Anderson,37.91,173656.0,173656.0
-2026|WV|S|regular,Constitution,O,S. Marshall Wilson,3.76,17183.0,17183.0
+2026|WV|S|regular,Republican,R,Shelley Moore Capito,58.3,266772.0,266772.0
+2026|WV|S|regular,Democratic,D,Rachel Fetty Anderson,37.95,173656.0,173656.0
+2026|WV|S|regular,Constitution,O,S. Marshall Wilson,3.75,17183.0,17183.0
 2026|WV|S|regular,Write-in,O,Write-in,,,
 2026|WY|S|regular,Republican,R,Harriet Hageman,64.88,122174.0,122174.0
 2026|WY|S|regular,Democratic,D,James Byrd,34.57,65105.0,65105.0
