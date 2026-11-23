@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-22g",
+  version: "2026-11-23b",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -540,21 +540,29 @@ window.PLAN = {
             "Decided at SI-1: not a page of its own. It is the written part of the scorecard page at `/2026/`."
           ],
           refs: ["src/postmortem/README.md"] },
-        { id: "SI-9", title: "The site's name and the rename", kind: "decision", phase: "any",
+        { id: "SI-9", title: "The site's name and the rename", kind: "decision", phase: "any", base: "doing",
           why: "The site and the repo are both named for 2026, and the name should outlast one election.",
           details: [
             "Split out of SI-1 on 2026-11-22. The structure and the addresses were decided there; only the name was left open.",
             "Choose one name that lasts across cycles, then rename once: the repo and the site's subdomain.",
             "Nothing in the layout waits for this. GitHub redirects the old repo address, the old subdomain can stay attached beside the new one, and links inside the site are relative, so the rename only swaps the hostname.",
-            "The places that carry the old name are listed in the audit of hardcoded 2026 values (OP-1)."
+            "The places that carry the old name are listed in the audit of hardcoded 2026 values (OP-1).",
+            "Decided 2026-11-23: the name is Early Returns, written that way in the header, page titles and link previews. The repo and the Cloudflare Worker are `earlyreturns`, and the site moves to `earlyreturns.vikramrai.com`. The old address stays up and redirects (301, same path) to the new one.",
+            "Decided 2026-11-23: a logo and favicon come with the name. The mark is a race track with a check mark leaving the loop early: an early return out of a loop, a vote cast, and an election as a race. Two cuts of one design: the mark (two lanes and a staggered start) for the header and anything large, the favicon (a dashed infield only) for 16 to 32 px. One colour, the heading blue in light mode and a light grey in dark mode. Drafts in `design/logo/` (nine rounds); the chosen files, ready but not yet on the site, in `src/site/brand/`.",
+            "Every place the old name and address appear is listed in `planning/si9-name-audit.md`, with the steps outside the repo in order: the repo rename, the new Worker and its custom domain, the redirect rule for the old address, and re-attaching the repo to Claude environments and scheduled tasks.",
+            "Order: SI-3 first (its work also edits the landing page, `site.json` and the plan), then the rename, the logo and the favicon in one pass. The `earlyreturns` Worker is created once that pass is on `main` and the repo is renamed."
           ],
           checklist: [
-            { id: "a", text: "Name chosen" },
+            { id: "a", text: "Name chosen", done: true },
             { id: "b", text: "Repo renamed" },
             { id: "c", text: "New subdomain attached" },
-            { id: "d", text: "Old name replaced in the code and the site" }
+            { id: "d", text: "Old name replaced in the code and the site" },
+            { id: "e", text: "Places carrying the old name audited", done: true },
+            { id: "f", text: "Logo and favicon designed", done: true },
+            { id: "g", text: "Logo and favicon on the site" },
+            { id: "h", text: "Old address redirects to the new one" }
           ],
-          refs: ["planning/op1-hardcoded-2026-audit.md"] },
+          refs: ["planning/si9-name-audit.md", "src/site/brand/README.md", "design/logo/", "planning/op1-hardcoded-2026-audit.md"] },
         { id: "SI-8", title: "Election data pages", kind: "story", phase: "p1", base: "doing",
           why: "The historical pages are built and need 2026 once it is final.",
           details: [
