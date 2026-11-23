@@ -12,17 +12,18 @@
 <script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})();</script>
 <meta property="og:title" content="polling2026">
 <meta property="og:description" content="Election forecasts from public polls and data, each scored against the results.">
-<meta property="og:image" content="https://polling2026.vikramrai.com/og.png">
+<meta property="og:image" content="https://polling2026.vikramrai.com/og-home.png">
+<meta property="og:url" content="https://polling2026.vikramrai.com/">
 <meta name="twitter:card" content="summary_large_image">
 <script>(function(){function f(){var h=location.hash.slice(1),t=["overview","scorecard","senate","house","method","bias","backtest","appendix","data"];if(t.indexOf(h)>=0||h.indexOf('senate/')===0||h.indexOf('house/')===0)location.replace('2026/forecast/'+location.hash);}f();addEventListener('hashchange',f);})();</script>
 </head>
 <body class="home">
-<div class="sitebar"><div class="wrap"><a class="sitename" href="./">polling2026</a><nav aria-label="Site"><a href="./" class=on>Home</a><a href="history/">Election data</a><span class="past">Past elections</span><a href="2026/">2026</a><button type="button" class="modeswitch" id="modeswitch" aria-label="Switch between light and dark mode"><span class="ml">Light</span><span class="md">Dark</span></button></nav></div></div>
+<div class="sitebar"><div class="wrap"><a class="sitename" href="./">polling2026</a><nav aria-label="Site"><a href="./" class=on>Home</a><a href="2027/">2027</a><a href="2028/">2028</a><a href="history/">Election data</a><span class="past">Past elections</span><a href="2026/">2026</a><button type="button" class="modeswitch" id="modeswitch" aria-label="Switch between light and dark mode"><span class="ml">Light</span><span class="md">Dark</span></button></nav></div></div>
 <main class="wrap">
 <h1>polling2026</h1>
 <p class="lede">Election forecasts built from public polls and data. Each forecast is locked before the election and scored against the results afterwards.</p>
-<div class="sections"><a class="sec" href="2026/forecast/#scorecard"><div class="kicker">Now</div><h3>2026 midterms: the scorecard</h3><p>How the final House and Senate forecast compares with the results, updated as the count finishes.</p></a></div>
-<div class="sections"><a class="sec" href="2026/forecast/"><h3>2026 forecast</h3><p>The final House and Senate forecast, as locked on Nov 3, 2026.</p></a><a class="sec" href="history/"><h3>Election data</h3><p>Historical election results and polling accuracy, with downloads.</p></a></div>
+<div class="sections featured"><a class="sec" href="2026/forecast/#scorecard"><div class="kicker">Now</div><h3>2026 midterms: the scorecard</h3><p>How the final House and Senate forecast compares with the results, updated as the count finishes.</p><div class="seatlines"><div class="seatline"><span class="ch">Senate</span><span class="res">56 Democratic seats</span><span class="fc">Forecast: 52.3 on average, 80% range 49–55</span></div><div class="seatline"><span class="ch">House</span><span class="res">258–263 Democratic seats so far (5 uncalled)</span><span class="fc">Forecast: 237.3 on average, 80% range 224–252</span></div></div><p class="tiny">Provisional: counting continues, and races still being counted are left out. Forecast version: polls + fundamentals.</p></a></div>
+<div class="sections"><a class="sec" href="2028/"><div class="kicker">Coming</div><h3>2028</h3><p>The presidential election and the races beside it: what is being built, and the dates ahead.</p></a><a class="sec" href="2027/"><div class="kicker">Coming</div><h3>2027</h3><p>Governor races in Kentucky, Louisiana and Mississippi.</p></a><a class="sec" href="2026/forecast/"><h3>2026 forecast</h3><p>The final House and Senate forecast, as locked on Nov 3, 2026.</p></a><a class="sec" href="history/"><h3>Election data</h3><p>Historical election results and polling accuracy, with downloads.</p></a></div>
 </main>
 <footer><div class="wrap">
 <p class="sitefoot">This page is run by Vikram Rai as a hobby. Any views expressed on this page are his alone, as are any errors within. He is on <a href="https://github.com/vrraiv">GitHub</a>, <a href="https://x.com/raiv11">X</a>, and <a href="https://www.linkedin.com/in/vikram-rai-00132083">LinkedIn</a>.</p>

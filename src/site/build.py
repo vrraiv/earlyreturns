@@ -8,7 +8,7 @@ Reads data/processed/* and data/interim/* (the frozen copy in data/final once it
                                   fonts are shared with every page: site/assets/site.css, site/assets/fonts/)
   site/2026/data/*.csv|json       downloadable model outputs
   site/og.png, site/favicon.svg   the link-preview card and the icon, at their old addresses
-and then runs landing.py for the pages around the elections (the landing page, /2026/, 404.html, _redirects).
+and then runs landing.py for the pages around the elections (the landing page, /2028/, /2026/, 404.html, _redirects).
 
 Each election is one unit in a folder under its year; 2026 is the first. The header and footer come from shell.py
 and the settings in site.json, which the election data pages (history.py) share. Those pages carry a build date, so the
@@ -210,7 +210,7 @@ def main():
         if og.exists():
             shutil.copy(og, SITE / "og.png")
     print("built", PAGE, f"{PAGE.stat().st_size / 1024:.0f} KB")
-    landing.main()
+    landing.main(data["scorecard"])   # the landing page's seat figures, from the same read as the scorecard tab
     if "--all" in sys.argv[1:]:   # after a change to the header, the footer or site.json: every page, in one command
         import history
         history.main()

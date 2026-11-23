@@ -5,24 +5,71 @@
   "intro": "Election forecasts built from public polls and data. Each forecast is locked before the election and scored against the results afterwards.",
   "nav": [
     {"key": "home", "label": "Home", "path": ""},
-    {"key": "2028", "label": "2028", "path": "2028/", "live": false},
     {"key": "model", "label": "Model", "path": "model/", "live": false},
     {"key": "history", "label": "Election data", "path": "history/"}
   ],
   "elections": [
+    {"key": "2027", "label": "2027", "path": "2027/", "current": true},
+    {"key": "2028", "label": "2028", "path": "2028/", "current": true},
     {"key": "2026", "label": "2026", "path": "2026/", "opens": "forecast/#scorecard", "current": false}
   ],
   "featured": {
     "label": "Now",
     "title": "2026 midterms: the scorecard",
     "text": "How the final House and Senate forecast compares with the results, updated as the count finishes.",
-    "path": "2026/forecast/#scorecard"
+    "path": "2026/forecast/#scorecard",
+    "scorecard": "polls_fundamentals"
   },
   "callout": null,
   "sections": [
+    {"label": "Coming", "title": "2028", "text": "The presidential election and the races beside it: what is being built, and the dates ahead.", "path": "2028/"},
+    {"label": "Coming", "title": "2027", "text": "Governor races in Kentucky, Louisiana and Mississippi.", "path": "2027/"},
     {"title": "2026 forecast", "text": "The final House and Senate forecast, as locked on Nov 3, 2026.", "path": "2026/forecast/"},
     {"title": "Election data", "text": "Historical election results and polling accuracy, with downloads.", "path": "history/"}
   ],
+  "og_home_coming": "2027 governors, then 2028: the president and the races beside them",
+  "previews": {
+    "2027": {
+      "title": "2027",
+      "description": "The 2027 governor races in Kentucky, Louisiana and Mississippi. No forecast numbers until the governors model is frozen.",
+      "lede": "Kentucky, Louisiana and Mississippi elect governors in fall 2027, the year between the midterms and the presidential election.",
+      "note": "Nothing here is a forecast yet. The governors model is being designed and tested on past races; its numbers appear only after its design is frozen. These races are its first live run.",
+      "image_line": "Governor races in Kentucky, Louisiana and Mississippi. No numbers until the model is frozen.",
+      "tracks": [
+        {"name": "Governors", "text": "A forecast for each race, tested on past governor elections and on 2026.", "target": "Design frozen before the 2027 races"}
+      ],
+      "dates": [
+        {"when": "Fall 2027", "text": "Governor races in Kentucky, Louisiana and Mississippi."}
+      ],
+      "image_alt": "2027: governor races in Kentucky, Louisiana and Mississippi",
+      "see_also": {"text": "The 2028 elections", "path": "../2028/"}
+    },
+    "2028": {
+      "title": "2028",
+      "description": "The 2028 elections: the forecasts being built, and the dates ahead. No forecast numbers until a model is frozen.",
+      "lede": "The 2028 presidential election, with the House, Senate and governor races on the same ballot, and the primaries before it.",
+      "note": "Nothing here is a forecast yet. Each model is designed first, tested on past elections, and then frozen; its numbers appear only after that.",
+      "image_line": "Forecasts in development. No numbers until a model is frozen.",
+      "tracks": [
+        {"name": "Primaries", "text": "The 2028 nomination contests in both parties.", "target": "First version by May 2027"},
+        {"name": "Electoral college", "text": "A presidential forecast by state, simulated through to electoral votes.", "target": "Frozen by May 2028"},
+        {"name": "House and Senate", "text": "The 2026 models, carried to 2028 with the changes that pass their tests.", "target": "Frozen by May 2028"},
+        {"name": "Governors", "text": "The 2027 and 2028 governor races, tested on 2026.", "target": "Frozen by May 2028"},
+        {"name": "Special elections", "text": "A single House or Senate special election, whenever one is called.", "target": "No fixed date"}
+      ],
+      "dates": [
+        {"when": "Through 2027", "text": "Special elections, as they are called."},
+        {"when": "May 2027", "text": "Target: the first primaries model.", "target": true},
+        {"when": "Fall 2027", "text": "Governor races in Kentucky, Louisiana and Mississippi."},
+        {"when": "Early 2028", "text": "The first primaries and caucuses. The order of states is not set yet."},
+        {"when": "May 2028", "text": "Target: every model frozen, the electoral college included.", "target": true},
+        {"when": "Summer 2028", "text": "The party conventions. The nominees are known."},
+        {"when": "November 7, 2028", "text": "Election Day."}
+      ],
+      "image_alt": "2028: forecasts in development, with the key dates",
+      "see_also": {"text": "The 2027 governor races", "path": "../2027/"}
+    }
+  },
   "footer": {
     "text": "This page is run by Vikram Rai as a hobby. Any views expressed on this page are his alone, as are any errors within. He is on [GitHub], [X], and [LinkedIn].",
     "links": {
