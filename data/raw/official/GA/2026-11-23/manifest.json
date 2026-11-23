@@ -1,12 +1,12 @@
 {
   "jurisdiction.json": {
     "url": "https://results.sos.ga.gov/results/public/api/jurisdictions/Georgia",
-    "retrieved": "2026-11-23T02:40:55",
+    "retrieved": "2026-11-23T22:42:26",
     "bytes": 88224
   },
   "election_data.json": {
     "url": "https://results.sos.ga.gov/results/public/api/elections/Georgia/11032026GeneralAndSpecialElection/data",
-    "retrieved": "2026-11-23T02:40:56",
+    "retrieved": "2026-11-23T22:42:28",
     "bytes": 1302518
   }
 }
