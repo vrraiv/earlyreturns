@@ -256,6 +256,25 @@ td .none { color: var(--text-3); font-size: .8rem; }
 .sec p { font-size: .88rem; color: var(--text-2); margin: 4px 0 0; }
 .home main { padding-top: 30px; }
 .home main > h1 { margin-bottom: 6px; }
+.home main > h2 { margin: 30px 0 4px; }
+.featured { grid-template-columns: 1fr; }
+.seatlines { display: grid; gap: 6px; margin: 12px 0 6px; }
+.seatline { display: grid; grid-template-columns: 4.5em minmax(13em, auto) 1fr; gap: 4px 14px; align-items: baseline; font-size: .92rem; }
+.seatline .ch { font-weight: 600; color: var(--head); }
+.seatline .res { font-weight: 600; }
+.seatline .fc { color: var(--text-2); }
+.sec p.target { font-size: .8rem; color: var(--accent); font-weight: 600; margin-top: 8px; }
+.tracks .sec:hover { border-color: var(--border); }
+img.preview { display: block; width: 100%; max-width: 720px; height: auto; border: 1px solid var(--border); border-radius: 6px; margin: 16px 0 4px; }
+ul.dates { list-style: none; padding: 0; margin: 8px 0; max-width: 80ch; }
+ul.dates li { display: grid; grid-template-columns: 11em 1fr; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--border); }
+ul.dates .when { font-weight: 600; color: var(--head); }
+ul.dates li.target .when { color: var(--accent); }
+@media (max-width: 560px) {
+  .seatline { grid-template-columns: 4.5em 1fr; }
+  .seatline .fc { grid-column: 2; }
+  ul.dates li { grid-template-columns: 1fr; gap: 0; }
+}
 
 /* phones: the mode switch sits beside the site name, so the top row is two lines, not three */
 @media (max-width: 560px) {

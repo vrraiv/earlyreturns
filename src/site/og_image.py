@@ -61,3 +61,59 @@ def make(models, out_path, updated, final=False):
     d.text((60, 584), "Three versions: polls only · polls + fundamentals · bias-adjusted", font=font(REGULAR, 20), fill=TEXT3)
     d.text((1140, 584), "polling2026.vikramrai.com", font=font(REGULAR, 20), fill=HEAD, anchor="ra")
     im.save(out_path, optimize=True)
+
+
+# The landing page's and the coming cycles' cards (landing.py). They are drawn from site.json alone, carry no numbers and
+# no date, so a rebuild writes the same bytes.
+
+def wrap(d, text, f, width):
+    lines, line = [], ""
+    for w in text.split():
+        t = f"{line} {w}".strip()
+        if d.textlength(t, font=f) > width and line:
+            lines.append(line)
+            line = w
+        else:
+            line = t
+    return lines + [line] if line else lines
+
+
+def _base(title, sub):
+    im = Image.new("RGB", (1200, 630), BG)
+    d = ImageDraw.Draw(im)
+    d.rectangle([0, 0, 1200, 8], fill=ACCENT)
+    d.text((60, 52), title, font=font(SEMIBOLD, 64), fill=TITLE)
+    y = 140
+    for ln in wrap(d, sub, font(REGULAR, 28), 1080):
+        d.text((60, y), ln, font=font(REGULAR, 28), fill=TEXT2)
+        y += 40
+    return im, d, y
+
+
+def make_home(S, out_path):
+    im, d, y = _base(S["name"], S["intro"])
+    y = max(y + 30, 300)
+    for i, (k, t) in enumerate([(S["featured"]["label"], S["featured"]["title"]),
+                                ("Coming", "2027 governors, then 2028: the president and the races beside them")]):
+        d.rounded_rectangle([60, y, 1140, y + 96], radius=10, fill=SURF, outline=BORDER, width=2)
+        d.text((88, y + 16), k.upper(), font=font(SEMIBOLD, 18), fill=ACCENT)
+        d.text((88, y + 44), t, font=font(MEDIUM, 28), fill=HEAD)
+        y += 116
+    d.text((1140, 584), S["base_url"].split("//")[-1], font=font(REGULAR, 20), fill=HEAD, anchor="ra")
+    im.save(out_path, optimize=True)
+
+
+def make_preview(S, key, out_path):
+    P = S["previews"][key]
+    im, d, y = _base(P["title"], P["image_line"])
+    dates = [x for x in P["dates"] if x["when"] != "Through 2027"]
+    y = max(y + 24, 250)
+    for x in dates:
+        for i, ln in enumerate(wrap(d, x["text"], font(REGULAR, 24), 840)):
+            if i == 0:
+                d.text((60, y), x["when"], font=font(SEMIBOLD, 24), fill=ACCENT if x.get("target") else HEAD)
+            d.text((300, y), ln, font=font(REGULAR, 24), fill=TEXT)
+            y += 36
+        y += 8
+    d.text((1140, 584), S["base_url"].split("//")[-1], font=font(REGULAR, 20), fill=HEAD, anchor="ra")
+    im.save(out_path, optimize=True)
