@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-23b",
+  version: "2026-11-23c",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -499,7 +499,9 @@ window.PLAN = {
             "No forecast numbers until a model is frozen.",
             "Decided at SI-1: this card is two pages. The landing page at `/` says what the site is, features the live item and carries the optional special-election callout. The dates, the deadlines and what is being built go on `/2028/`, which shows a preview image and a note until there is something to show.",
             "The scorecard numbers on the landing page come from the same build as the scorecard and carry its provisional label. The landing page gets its own link preview (title, description, image).",
-            "Development results move to the model page (SI-5)."
+            "Development results move to the model page (SI-5).",
+            "Decided 2026-11-23: the landing page shows the scorecard's seat counts beside the forecast (polls + fundamentals, the scorecard tab's default), labelled provisional. `/2028/` gets a drawn preview image, which is also its link preview, and shows the May 2027 and May 2028 deadlines as the site's own targets. 2028 joins the top row now.",
+            "Added 2026-11-23: `/2027/` in the same coming state, for the Kentucky, Louisiana and Mississippi governor races, and in the top row beside 2028. GV-6 fills it in once the governors model is frozen. Exact election dates go on only once checked against official sources."
           ],
           checklist: [
             { id: "a", text: "Layout sketched" },
