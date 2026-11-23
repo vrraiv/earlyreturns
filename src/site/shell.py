@@ -1,5 +1,5 @@
-"""What every page shares: the head (stylesheet, icon, light or dark mode), the top row with the mode switch, and the
-footer line. The settings come from src/site/site.json.
+"""What every page shares: the head (stylesheet, icons, the site name for link previews, light or dark mode), the top row (the Early Returns mark
+and name, src/site/brand/, then the links and the mode switch), and the footer line. The settings come from src/site/site.json.
 
 site.json holds the site's name and address, the top row (an entry with "live": false stays hidden until its page
 exists), the list of elections (each one a folder under its year), the landing page's featured item, callout and
@@ -18,7 +18,11 @@ the page scripts that draw charts listen for (they read their colours from the s
 import html
 import json
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).with_name("brand")))
+import brand  # noqa: E402  (the Early Returns mark, SI-9)
 
 SETTINGS = json.loads(Path(__file__).with_name("site.json").read_text(encoding="utf-8"))
 
@@ -39,7 +43,10 @@ def head(prefix):
     """The lines every page's <head> carries after its own title and description."""
     return (f'<meta name="theme-color" content="{THEME_COLOR["light"]}" media="(prefers-color-scheme: light)">\n'
             f'<meta name="theme-color" content="{THEME_COLOR["dark"]}" media="(prefers-color-scheme: dark)">\n'
+            f'<link rel="icon" href="{prefix}favicon.ico" sizes="32x32">\n'
             f'<link rel="icon" type="image/svg+xml" href="{prefix}favicon.svg">\n'
+            f'<link rel="apple-touch-icon" href="{prefix}apple-touch-icon.png">\n'
+            f'<meta property="og:site_name" content="{html.escape(SETTINGS["name"])}">\n'
             f'<link rel="stylesheet" href="{prefix}assets/site.css">\n'
             f'{MODE}')
 
@@ -63,7 +70,7 @@ def header(prefix, active=None):
     row += ('<button type="button" class="modeswitch" id="modeswitch" aria-label="Switch between light and dark mode">'
             '<span class="ml">Light</span><span class="md">Dark</span></button>')
     home = prefix or "./"
-    return (f'<div class="sitebar"><div class="wrap"><a class="sitename" href="{home}">{html.escape(SETTINGS["name"])}</a>'
+    return (f'<div class="sitebar"><div class="wrap"><a class="sitename" href="{home}">{brand.mark_inline(22)}<span>{html.escape(SETTINGS["name"])}</span></a>'
             f'<nav aria-label="Site">{row}</nav></div></div>')
 
 

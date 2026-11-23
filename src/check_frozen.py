@@ -147,7 +147,7 @@ class Worktree:
     """A temporary checkout of ref outside OneDrive, with inputs dated after the lock removed."""
 
     def __init__(self, ref, day, keep=False):
-        self.tmp = Path(tempfile.mkdtemp(prefix="polling2026-check-"))
+        self.tmp = Path(tempfile.mkdtemp(prefix="earlyreturns-check-"))
         self.path, self.keep = self.tmp / "wt", keep
         git("worktree", "add", "--detach", str(self.path), ref)
         self.pruned = []

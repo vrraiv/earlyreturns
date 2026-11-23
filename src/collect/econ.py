@@ -53,7 +53,7 @@ def state_fred():
 
 
 def bls_laus():
-    hdr = {"User-Agent": "polling2026 research (contact: project owner)"}
+    hdr = {"User-Agent": "earlyreturns research (contact: project owner)"}
     for f in ["la.data.3.AllStatesS", "la.series", "la.area"]:
         try:
             fetch("bls", f + ".txt", f"https://download.bls.gov/pub/time.series/la/{f}", headers=hdr)

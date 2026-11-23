@@ -30,6 +30,7 @@
   --bg: #FAF8F4; --surface: #FFFFFF; --surface-2: #F3F0EA; --inset: #F6F4EF;
   --border: #CFDDEE; --border-strong: #A9C8EC; --rule: #CFDDEE;
   --title: #0A1D37; --head: #1B4978; --link: #1B4978; --ink: #0A1D37;
+  --logo: #1B4978;
   --text: #1F2733; --text-2: #505B6A; --text-3: #667080;
   --accent: #A8551A; --accent-bg: #FBF1E6; --accent-line: #E3B98F;
   --pressed-bg: #E6EDF6; --pressed-text: #0A1D37; --pressed-line: #A9C8EC;
@@ -44,6 +45,7 @@
   --bg: #131519; --surface: #1B1E24; --surface-2: #252932; --inset: #171A1F;
   --border: #263B57; --border-strong: #3D4E6B; --rule: #1B4978;
   --title: #A9C8EC; --head: #7FB0E6; --link: #7FB0E6; --ink: #F3F5F8;
+  --logo: #C9CFD8;
   --text: #E9ECF0; --text-2: #B3BBC7; --text-3: #8C96A5;
   --accent: #F2A65A; --accent-bg: #33271B; --accent-line: #6E4E2A;
   --pressed-bg: #2B3649; --pressed-text: #F3F5F8; --pressed-line: #3D4E6B;
@@ -72,7 +74,8 @@ code { font-size: .86em; background: var(--surface-2); padding: 1px 5px; border-
 /* ---------- the site's top row and the mode switch (src/site/shell.py) ---------- */
 .sitebar { border-bottom: 1px solid var(--border); background: var(--surface); font-size: .86rem; }
 .sitebar .wrap { display: flex; align-items: center; gap: 4px 16px; flex-wrap: wrap; padding-top: 8px; padding-bottom: 8px; }
-.sitebar .sitename { color: var(--title); font-weight: 600; text-decoration: none; margin-right: auto; }
+.sitebar .sitename { color: var(--title); font-weight: 600; text-decoration: none; margin-right: auto; display: inline-flex; align-items: center; gap: 8px; }
+.sitebar .sitename .logo { color: var(--logo); flex: none; }
 .sitebar nav { display: flex; gap: 2px 14px; flex-wrap: wrap; align-items: center; }
 .sitebar nav a { color: var(--text-2); text-decoration: none; white-space: nowrap; }
 .sitebar nav a:hover { color: var(--text); }

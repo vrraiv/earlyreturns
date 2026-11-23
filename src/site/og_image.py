@@ -1,4 +1,5 @@
 """Draw the 1200x630 link-preview card (site/og.png) from the current forecast, so it refreshes with every build."""
+import json
 from pathlib import Path
 
 import numpy as np
@@ -10,6 +11,8 @@ FONTS = Path(__file__).with_name("fonts")
 BG, SURF, BORDER = "#FAF8F4", "#FFFFFF", "#CFDDEE"
 TITLE, HEAD, TEXT, TEXT2, TEXT3 = "#0A1D37", "#1B4978", "#1F2733", "#505B6A", "#667080"
 TINT, OCHRE, TEAL, ACCENT, DEM, REP = "#1B4978", "#B8641C", "#0F957D", "#A8551A", "#2F6FC4", "#CF4A40"
+NAME = json.loads(Path(__file__).with_name("site.json").read_text(encoding="utf-8"))["name"]
+MARK = Path(__file__).with_name("brand") / "mark-512.png"   # the Early Returns mark, light-mode colour (SI-9)
 REGULAR, MEDIUM, SEMIBOLD = "IBMPlexSans-Regular.ttf", "IBMPlexSans-Medium.ttf", "IBMPlexSans-SemiBold.ttf"
 
 
@@ -18,6 +21,19 @@ def font(name, size):
         return ImageFont.truetype(str(FONTS / name), size)
     except OSError:
         return ImageFont.load_default()
+
+
+def sign(im, d, right=1140, base=598):
+    """The mark and the site's name, bottom right: every card's signature in place of the bare address."""
+    f = font(SEMIBOLD, 24)
+    w = d.textlength(NAME, font=f)
+    d.text((right, base), NAME, font=f, fill=HEAD, anchor="rs")
+    try:
+        with Image.open(MARK) as m:
+            m = m.convert("RGBA").resize((36, 36), Image.LANCZOS)
+            im.paste(m, (int(right - w - 46), base - 30), m)
+    except OSError:
+        pass
 
 
 def q(hist, p):
@@ -59,7 +75,7 @@ def make(models, out_path, updated, final=False):
     card(620, "Senate", F["senate"]["p_dem_control_without_osborn"], A["senate"]["p_dem_control_without_osborn"],
          F["senate"]["hist"], A["senate"]["hist"], 51, PO["senate"]["p_dem_control_without_osborn"], PO["senate"]["hist"])
     d.text((60, 584), "Three versions: polls only · polls + fundamentals · bias-adjusted", font=font(REGULAR, 20), fill=TEXT3)
-    d.text((1140, 584), "polling2026.vikramrai.com", font=font(REGULAR, 20), fill=HEAD, anchor="ra")
+    sign(im, d)
     im.save(out_path, optimize=True)
 
 
@@ -110,7 +126,7 @@ def make_home(S, out_path):
         d.text((88, y + 16), k.upper(), font=font(SEMIBOLD, 18), fill=ACCENT)
         d.text((88, y + 44), t, font=font(MEDIUM, 28), fill=HEAD)
         y += 116
-    d.text((1140, 584), S["base_url"].split("//")[-1], font=font(REGULAR, 20), fill=HEAD, anchor="ra")
+    sign(im, d)
     save(im, out_path)
 
 
@@ -126,5 +142,5 @@ def make_preview(S, key, out_path):
             d.text((300, y), ln, font=font(REGULAR, 24), fill=TEXT)
             y += 36
         y += 8
-    d.text((1140, 584), S["base_url"].split("//")[-1], font=font(REGULAR, 20), fill=HEAD, anchor="ra")
+    sign(im, d)
     save(im, out_path)

@@ -1,6 +1,6 @@
 {
-  "name": "polling2026",
-  "base_url": "https://polling2026.vikramrai.com",
+  "name": "Early Returns",
+  "base_url": "https://earlyreturns.vikramrai.com",
   "description": "Election forecasts from public polls and data, each scored against the results.",
   "intro": "Election forecasts built from public polls and data. Each forecast is locked before the election and scored against the results afterwards.",
   "nav": [
