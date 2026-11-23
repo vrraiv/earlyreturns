@@ -1,12 +1,12 @@
 {
   "2026_United_States_Senate_elections.html": {
     "url": "https://en.wikipedia.org/api/rest_v1/page/html/2026_United_States_Senate_elections",
-    "retrieved": "2026-11-23T02:36:39",
-    "bytes": 2371458
+    "retrieved": "2026-11-23T22:10:38",
+    "bytes": 2374483
   },
   "2026_United_States_House_of_Representatives_elections.html": {
     "url": "https://en.wikipedia.org/api/rest_v1/page/html/2026_United_States_House_of_Representatives_elections",
-    "retrieved": "2026-11-23T02:36:39",
-    "bytes": 3492302
+    "retrieved": "2026-11-23T22:10:38",
+    "bytes": 3495902
   }
 }
