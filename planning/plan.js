@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-23c",
+  version: "2026-11-23d",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -552,7 +552,8 @@ window.PLAN = {
             "Decided 2026-11-23: the name is Early Returns, written that way in the header, page titles and link previews. The repo and the Cloudflare Worker are `earlyreturns`, and the site moves to `earlyreturns.vikramrai.com`. The old address stays up and redirects (301, same path) to the new one.",
             "Decided 2026-11-23: a logo and favicon come with the name. The mark is a race track with a check mark leaving the loop early: an early return out of a loop, a vote cast, and an election as a race. Two cuts of one design: the mark (two lanes and a staggered start) for the header and anything large, the favicon (a dashed infield only) for 16 to 32 px. One colour, the heading blue in light mode and a light grey in dark mode. Drafts in `design/logo/` (nine rounds); the chosen files, ready but not yet on the site, in `src/site/brand/`.",
             "Every place the old name and address appear is listed in `planning/si9-name-audit.md`, with the steps outside the repo in order: the repo rename, the new Worker and its custom domain, the redirect rule for the old address, and re-attaching the repo to Claude environments and scheduled tasks.",
-            "Order: SI-3 first (its work also edits the landing page, `site.json` and the plan), then the rename, the logo and the favicon in one pass. The `earlyreturns` Worker is created once that pass is on `main` and the repo is renamed."
+            "Order: SI-3 first (its work also edits the landing page, `site.json` and the plan), then the rename, the logo and the favicon in one pass. The `earlyreturns` Worker is created once that pass is on `main` and the repo is renamed.",
+            "Decided 2026-11-23 (SI-9 session): the existing Worker is renamed `earlyreturns` in the dashboard rather than replaced by a new one, because Workers Builds fails a build whose `wrangler.jsonc` name differs from the connected Worker's; the rename and the merge go together, and the old domain stays attached behind the redirect rule. Every page carries `og:site_name` \"Early Returns\"; page titles are unchanged."
           ],
           checklist: [
             { id: "a", text: "Name chosen", done: true },
