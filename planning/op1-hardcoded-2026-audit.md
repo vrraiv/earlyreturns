@@ -130,7 +130,7 @@ their 2026 behaviour is the record and is not to be made generic.
 - `postmortem/*.py` (history_context, house_2026_breakdown, state_error, whatif_environment): the 2026 post-mortem by name. OP-1 keeps a template of these for 2028, not a generic version.
 - `model/scorecard.py`, `model/scorecard_margins.py`: score the frozen 2026 forecast. Reusable once the config names the frozen folder and results files.
 - `site/history.py`: the historical pages treat 2026 as the latest, provisional data point (`nat2026`, `label="2026*"`, `provisional = year == 2026`). Reusable once "latest cycle" comes from config.
-- `collect/common.py:12`, `collect/econ.py:56`, `site/history.py:194, 730`, `site/og_image.py:61`, `wrangler.jsonc`: the project and site name, `polling2026`. A naming decision for SI-1, not a config value.
+- `collect/common.py:12`, `collect/econ.py:56`, `site/history.py:194, 730`, `site/og_image.py:61`, `wrangler.jsonc`: the project and site name, `polling2026`. A naming decision for SI-1, not a config value. Decided and replaced in SI-9 (Early Returns); see `si9-name-audit.md`.
 
 ## Proposed config
 
