@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-22f",
+  version: "2026-11-22g",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -479,9 +479,17 @@ window.PLAN = {
             "Folding in the next election should mean adding its data, not writing a new template. 2026 is the first unit, then 2028, then the 2030 midterms.",
             "Keep the checks that the archived forecast matches the final.",
             "Decided at SI-1: every page shares one header and one footer (the forecast page and the data pages each have their own today). The featured item, the callout and the list of elections come from one small settings file. Each election is a folder under its year.",
-            "First step: the landing page at `/` and today's page moved whole to `/2026/forecast/`. The build script changes in the same pull request, because the daily scorecard job rebuilds the committed `site/` folder; a scorecard pull request opened before that merge is closed, not merged."
+            "First step: the landing page at `/` and today's page moved whole to `/2026/forecast/`. The build script changes in the same pull request, because the daily scorecard job rebuilds the committed `site/` folder; a scorecard pull request opened before that merge is closed, not merged.",
+            "Decided 2026-11-22, what closes this card: the four items in the checklist. \"Adding the next election is data, not a new template\" cannot be shown with one election, so it carries to SI-2 as a constraint. Links to `/2028/` and `/model/` stay hidden in the top row until those pages exist, and `/2026/` opens on the scorecard tab until SI-2.",
+            "Added 2026-11-22: a restyle in the same pull request. One stylesheet for every page; light mode by default, dark by the device's setting or a switch that is remembered; IBM Plex Sans, IBM's files unmodified; and a review of the chart colours for colour-blind readers and contrast, in both modes. Blue and red stay the parties, and amber never shares a chart with them."
           ],
-          refs: ["src/site/template.html", "src/site/build.py", "src/site/history.py"] },
+          checklist: [
+            { id: "a", text: "One entry point builds the landing page, the 2026 unit and the election data pages from one header, one footer and one settings file" },
+            { id: "b", text: "Old links pass on a Cloudflare preview" },
+            { id: "c", text: "The scorecard job runs clean on the new layout" },
+            { id: "d", text: "One stylesheet with light and dark modes, the new font, and the colour review done" }
+          ],
+          refs: ["src/site/site.json", "src/site/shell.py", "src/site/landing.py", "src/site/template.html", "src/site/build.py", "src/site/history.py", "site/assets/site.css"] },
         { id: "SI-3", title: "2028 preview front page", kind: "story", phase: "p2", needs: ["SI-6"],
           why: "The landing page should say what is coming, not what is over.",
           details: [
@@ -514,7 +522,8 @@ window.PLAN = {
             "Keep the lock label and timestamp.",
             "Trim the parts that only mattered before the election.",
             "Decided at SI-1: two pages. `/2026/` is the scorecard, with the post-mortem as its written part; `/2026/forecast/` is the locked forecast, condensed. The method tabs (how it works, polling bias, backtest, technical appendix, data) stay with the archived forecast: they are the record of the 2026 model as locked, and the model page will keep changing.",
-            "Until the scorecard is final, today's page sits whole at `/2026/forecast/` and `/2026/` points at its scorecard tab."
+            "Until the scorecard is final, today's page sits whole at `/2026/forecast/` and `/2026/` points at its scorecard tab.",
+            "Carried from SI-6 (2026-11-22): folding in the next election should mean adding its data, not writing a new template. One election could not show that, so it is a constraint on this card's layout."
           ],
           checklist: [
             { id: "a", text: "Archive layout sketched" },
