@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-24i",
+  version: "2026-11-24j",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -590,7 +590,8 @@ window.PLAN = {
           details: [
             "President and the electoral college map, Senate, House and governors.",
             "The what-if explorer extended to the electoral college.",
-            "Under `/2028/` (SI-1)."
+            "Under `/2028/` (SI-1).",
+            "From EC-8 (2026-11-24): until both nominees are presumptive, `/2028/` shows the board before the nominees (section 17 of `ELECTORAL_COLLEGE.md`). The forecast replaces it then; the board's code is `board` and `board_data` in `src/site/landing.py`."
           ] }
       ]
     },
@@ -728,7 +729,8 @@ window.PLAN = {
             "Changes after that are limited, to avoid fitting the design to the holdout. A round of changes opens only if one of EC-7's six signs fires on 2024 or a provisional adoption fails. At most two rounds and three changes in all, each written down before it is run. Removing a piece or widening a range needs less than adding one; an addition needs the project owner's sign-off. If the budget is spent and nothing passes, the design that earned the first score is frozen. Refitting the frozen design's numbers on every election including 2024 is not a round.",
             "Each change is declared general or recent. A general change must not be worse on 2008 to 2020. A recent change names the election its effect began at and must not be worse on the elections from then up to 2020; earlier elections are reported and decide nothing. This lets a change capture new behaviour of voters, polls or candidates. A change that helps 2024 and is worse on the elections just before it is fitting 2024, under either label.",
             "From EC-7's results, each suggested by them and so declared with anything built on it: the forecast's centre is no closer a week out than 100 days out on 2012 to 2020; the ranges are too wide early, and most of the excess looks like the national part; a week out the states' part looks too narrow and the national part too wide, so correcting one alone could unbalance the other (decided 2026-11-24: this may be evaluated after the 2024 holdout is scored, not before); the gap between the tipping-point state and the popular vote is forecast too close to zero.",
-            "From EC-7's diagnostic (2026-11-24): in the last weeks of 2020, one firm's repeated releases were the only recent polls in many thinly polled states, and both the recent-polls benchmark and the model got worse there. How the average treats one firm polling alone and often is a question for the freeze."
+            "From EC-7's diagnostic (2026-11-24): in the last weeks of 2020, one firm's repeated releases were the only recent polls in many thinly polled states, and both the recent-polls benchmark and the model got worse there. How the average treats one firm polling alone and often is a question for the freeze.",
+            "From EC-8 (2026-11-24): the 2028 page's board shows the five Maine and Nebraska districts' 2024 winners from a display-only table in `src/site/landing.py` (`DISTRICTS_2024`), because the collector never opens 2024. When this card collects the 2024 district results, the board's build stops on purpose; delete the table then."
           ],
           checklist: [
             { id: "a", text: "Design checked against the lessons list" }
@@ -809,7 +811,8 @@ window.PLAN = {
           why: "The track is only useful once it is published.",
           details: [
             "Averages first, then state odds and delegates as each level is built.",
-            "At `/2028/primaries/` (SI-1). Poll averages can go up as soon as polls are collected; odds wait for the frozen model."
+            "At `/2028/primaries/` (SI-1). Poll averages can go up as soon as polls are collected; odds wait for the frozen model.",
+            "From EC-8 (2026-11-24): once the primaries pages are live, the board before the nominees on `/2028/` links to them (its words are `previews.2028.board` in `src/site/site.json`)."
           ] },
         { id: "PP-9", title: "First version", kind: "milestone", phase: "p3", due: "May 2027", needs: ["PP-3", "PP-6"],
           why: "The fixed date for this track.",
