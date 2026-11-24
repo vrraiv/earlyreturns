@@ -222,7 +222,9 @@ def ratings():
     from governors import DSIDE_OVERRIDES
     rows = []
     for y in range(1998, 2027, 2):
-        hits = sorted((ROOT / "data/raw/wikipedia_hist").glob(f"*/{y}_United_States_gubernatorial_elections.html"))
+        # 2026: the page as it stood before polls closed (governors.races_2026() refuses a revision with vote shares)
+        pat = f"*/{y}_United_States_gubernatorial_elections" + ("__asof_*.html" if y == 2026 else ".html")
+        hits = sorted((ROOT / "data/raw/wikipedia_hist").glob(pat))
         if not hits:
             continue
         for t in pd.read_html(StringIO(hits[-1].read_text(encoding="utf-8"))):

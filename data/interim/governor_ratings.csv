@@ -780,3 +780,111 @@ year,state,rater,rating,as_of,value
 2024,WV,Cook,Solid R,"October 15, 2024",-3.0
 2024,WV,Sabato,Safe R,"November 4, 2024",-3.0
 2024,WV,IE,Solid R,"September 26, 2024",-3.0
+2026,AL,Cook,Solid R,"Oct. 29, 2026",-3.0
+2026,AL,Sabato,Likely R,"Nov. 2, 2026",-2.0
+2026,AL,IE,Solid R,"Oct. 29, 2026",-3.0
+2026,AK,Cook,Lean D (flip),"Oct. 29, 2026",1.0
+2026,AK,Sabato,Likely D (flip),"Nov. 2, 2026",2.0
+2026,AK,IE,Tilt D (flip),"Oct. 29, 2026",0.5
+2026,AZ,Cook,Likely D,"Oct. 29, 2026",2.0
+2026,AZ,Sabato,Likely D,"Nov. 2, 2026",2.0
+2026,AZ,IE,Tilt D,"Oct. 29, 2026",0.5
+2026,AR,Cook,Solid R,"Oct. 29, 2026",-3.0
+2026,AR,Sabato,Safe R,"Nov. 2, 2026",-3.0
+2026,AR,IE,Solid R,"Oct. 29, 2026",-3.0
+2026,CA,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,CA,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,CA,IE,Solid D,"Oct. 29, 2026",3.0
+2026,CO,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,CO,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,CO,IE,Solid D,"Oct. 29, 2026",3.0
+2026,CT,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,CT,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,CT,IE,Solid D,"Oct. 29, 2026",3.0
+2026,FL,Cook,Lean R,"Oct. 29, 2026",-1.0
+2026,FL,Sabato,Lean R,"Nov. 2, 2026",-1.0
+2026,FL,IE,Lean R,"Oct. 29, 2026",-1.0
+2026,GA,Cook,Tossup,"Oct. 29, 2026",0.0
+2026,GA,Sabato,Lean D (flip),"Nov. 2, 2026",1.0
+2026,GA,IE,Tilt D (flip),"Oct. 29, 2026",0.5
+2026,HI,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,HI,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,HI,IE,Solid D,"Oct. 29, 2026",3.0
+2026,ID,Cook,Solid R,"Oct. 29, 2026",-3.0
+2026,ID,Sabato,Safe R,"Nov. 2, 2026",-3.0
+2026,ID,IE,Solid R,"Oct. 29, 2026",-3.0
+2026,IL,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,IL,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,IL,IE,Solid D,"Oct. 29, 2026",3.0
+2026,IA,Cook,Lean D (flip),"Oct. 29, 2026",1.0
+2026,IA,Sabato,Lean D (flip),"Nov. 2, 2026",1.0
+2026,IA,IE,Lean D (flip),"Oct. 29, 2026",1.0
+2026,KS,Cook,Tossup,"Oct. 29, 2026",0.0
+2026,KS,Sabato,Lean R (flip),"Nov. 2, 2026",-1.0
+2026,KS,IE,Tilt R (flip),"Oct. 29, 2026",-0.5
+2026,ME,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,ME,Sabato,Likely D,"Nov. 2, 2026",2.0
+2026,ME,IE,Solid D,"Oct. 29, 2026",3.0
+2026,MD,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,MD,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,MD,IE,Solid D,"Oct. 29, 2026",3.0
+2026,MA,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,MA,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,MA,IE,Solid D,"Oct. 29, 2026",3.0
+2026,MI,Cook,Lean D,"Oct. 29, 2026",1.0
+2026,MI,Sabato,Likely D,"Nov. 2, 2026",2.0
+2026,MI,IE,Lean D,"Oct. 29, 2026",1.0
+2026,MN,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,MN,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,MN,IE,Likely D,"Oct. 29, 2026",2.0
+2026,NE,Cook,Lean R,"Oct. 29, 2026",-1.0
+2026,NE,Sabato,Likely R,"Nov. 2, 2026",-2.0
+2026,NE,IE,Likely R,"Oct. 29, 2026",-2.0
+2026,NV,Cook,Tossup,"Oct. 29, 2026",0.0
+2026,NV,Sabato,Lean D (flip),"Nov. 2, 2026",1.0
+2026,NV,IE,Tossup,"Oct. 29, 2026",0.0
+2026,NH,Cook,Likely R,"Oct. 29, 2026",-2.0
+2026,NH,Sabato,Lean R,"Nov. 2, 2026",-1.0
+2026,NH,IE,Solid R,"Oct. 29, 2026",-3.0
+2026,NM,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,NM,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,NM,IE,Likely D,"Oct. 29, 2026",2.0
+2026,NY,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,NY,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,NY,IE,Likely D,"Oct. 29, 2026",2.0
+2026,OH,Cook,Lean D (flip),"Oct. 29, 2026",1.0
+2026,OH,Sabato,Lean D (flip),"Nov. 2, 2026",1.0
+2026,OH,IE,Tilt D (flip),"Oct. 29, 2026",0.5
+2026,OK,Cook,Likely R,"Oct. 29, 2026",-2.0
+2026,OK,Sabato,Likely R,"Nov. 2, 2026",-2.0
+2026,OK,IE,Likely R,"Oct. 29, 2026",-2.0
+2026,OR,Cook,Lean D,"Oct. 29, 2026",1.0
+2026,OR,Sabato,Lean D,"Nov. 2, 2026",1.0
+2026,OR,IE,Tilt D,"Oct. 29, 2026",0.5
+2026,PA,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,PA,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,PA,IE,Solid D,"Oct. 29, 2026",3.0
+2026,RI,Cook,Solid D,"Oct. 29, 2026",3.0
+2026,RI,Sabato,Safe D,"Nov. 2, 2026",3.0
+2026,RI,IE,Solid D,"Oct. 29, 2026",3.0
+2026,SC,Cook,Solid R,"Oct. 29, 2026",-3.0
+2026,SC,Sabato,Safe R,"Nov. 2, 2026",-3.0
+2026,SC,IE,Solid R,"Oct. 29, 2026",-3.0
+2026,SD,Cook,Solid R,"Oct. 29, 2026",-3.0
+2026,SD,Sabato,Safe R,"Nov. 2, 2026",-3.0
+2026,SD,IE,Solid R,"Oct. 29, 2026",-3.0
+2026,TN,Cook,Solid R,"Oct. 29, 2026",-3.0
+2026,TN,Sabato,Safe R,"Nov. 2, 2026",-3.0
+2026,TN,IE,Likely R,"Oct. 29, 2026",-2.0
+2026,TX,Cook,Lean R,"Oct. 29, 2026",-1.0
+2026,TX,Sabato,Lean R,"Nov. 2, 2026",-1.0
+2026,TX,IE,Tilt R,"Oct. 29, 2026",-0.5
+2026,VT,Cook,Likely R,"Oct. 29, 2026",-2.0
+2026,VT,Sabato,Lean R,"Nov. 2, 2026",-1.0
+2026,VT,IE,Likely R,"Oct. 29, 2026",-2.0
+2026,WI,Cook,Lean D,"Oct. 29, 2026",1.0
+2026,WI,Sabato,Lean D,"Nov. 2, 2026",1.0
+2026,WI,IE,Tilt D,"Oct. 29, 2026",0.5
+2026,WY,Cook,Solid R,"Oct. 29, 2026",-3.0
+2026,WY,Sabato,Safe R,"Nov. 2, 2026",-3.0
+2026,WY,IE,Solid R,"Oct. 29, 2026",-3.0
