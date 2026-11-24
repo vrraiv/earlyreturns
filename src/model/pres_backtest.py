@@ -5,6 +5,7 @@ No candidates and no fits: the scoring was written down before any output was re
 
     python src/model/pres_backtest.py checks            planted inputs and identities; prints pass or fail only
     python src/model/pres_backtest.py run [outputs.json] the one scoring run; writes data/processed/pres_backtest.json
+    python src/model/pres_backtest.py rungs             a declared diagnostic: errors by B2's rung (decides nothing)
 """
 import hashlib
 import json
@@ -434,5 +435,52 @@ def run():
     print("written:", dest.name, dest.stem + "_contests.csv")
 
 
+# ------------------------------------------------------------------------------------------------ B2 by rung (diagnostic)
+def rungs():
+    """Section 16's declared diagnostic: B2's, B1's and the model's error by B2's rung, and the firms behind rung 2."""
+    outputs = json.loads(DEFAULT.read_text())
+    T, states = load_truth()
+    q = P.load(cycles=SCORED)
+    res = {}
+    for y in SCORED:
+        for d in DAYS:
+            if (y, d) in NOT_SCORED:
+                continue
+            B, _ = benchmarks(q, T, states, y, d)
+            qy = q[q.cycle == y]
+            t = qy.election.iloc[0] - pd.Timedelta(days=d)
+            qy = qy[qy.end < t]
+            rows = []
+            for c in states + DISTRICTS:
+                pool = qy[qy.geo == c]
+                _, r = ladder(pool, t)
+                firms = None
+                if r == 2:
+                    ends = pool.end.sort_values(ascending=False).values
+                    firms = sorted(set(pool[pool.end.values >= ends[NEED - 1]].pkey))
+                o = outputs[f"{y}/{d}"]["contests"][c]
+                rows.append({"contest": c, "rung": r, "firms": firms, "result": T[y]["margin"][c], "B1": B["B1"][c], "B2": B["B2"][c],
+                             "model": 0.5 * (o["q25"] + o["q75"])})
+            df = pd.DataFrame(rows)
+            cell = {}
+            for r, g in df.groupby("rung"):
+                e = {k: float(np.sqrt(np.mean((g.result - g[k]) ** 2))) for k in ("B2", "B1", "model")}
+                e["signed_B2"] = float(np.mean(g.result - g.B2))
+                e["n"] = int(len(g))
+                if r == 2:
+                    e["one_firm"] = int(sum(len(f) == 1 for f in g.firms))
+                    allf = pd.Series([f for fs in g.firms for f in fs]).value_counts()
+                    e["distinct_firms"] = int(len(allf))
+                    e["most_common_firm_contests"] = int(allf.iloc[0])
+                    one = g[[len(f) == 1 for f in g.firms]]
+                    e["rmse_B2_one_firm"] = float(np.sqrt(np.mean((one.result - one.B2) ** 2))) if len(one) else None
+                    e["rmse_B2_other"] = float(np.sqrt(np.mean((g.result - g.B2)[[len(f) > 1 for f in g.firms]] ** 2))) if (len(g) - len(one)) else None
+                cell[str(int(r))] = e
+            res[f"{y}/{d}"] = cell
+            print(f"{y}/{d}", json.dumps({k: {a: (round(b, 2) if isinstance(b, float) else b) for a, b in v.items()} for k, v in cell.items()}))
+    (OUT / "pres_backtest_rungs.json").write_text(json.dumps(res, indent=1, default=float))
+    print("written: pres_backtest_rungs.json")
+
+
 if __name__ == "__main__":
-    {"checks": checks, "run": run}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()
+    {"checks": checks, "run": run, "rungs": rungs}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()

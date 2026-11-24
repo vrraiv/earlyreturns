@@ -4623,3 +4623,35 @@ mean square error on those contests of B2, of B1 and of the model's point margin
 many of its contests draw all their polls from one firm, and the number of distinct firms across the rung. The
 7-day and 30-day cells of 2020 are read first; the others are reported beside them.
 (`python src/model/pres_backtest.py rungs`, written to `pres_backtest_rungs.json`.)
+
+### EC-7: B2 by rung, results (run 2026-11-24). The second rung carries most of 2020's late worsening, through one firm.
+
+Root mean square error in points, on the contests of each rung (`pres_backtest_rungs.json` has every cell).
+
+| 2020 | Rung | Contests | B2 | B1 | Model |
+|---|---|---|---|---|---|
+| 30 days | 1: three firms in 30 days | 28 | 5.4 | 4.6 | 3.6 |
+| 30 days | 2: the three latest polls | 26 | 6.2 | 4.7 | 3.8 |
+| 30 days | 3: national figure plus lean | 2 | 2.3 | 5.7 | 7.6 |
+| 7 days | 1 | 35 | 6.2 | 4.3 | 4.3 |
+| 7 days | 2 | 19 | 10.1 | 5.3 | 6.3 |
+| 7 days | 3 | 2 | 3.1 | 5.7 | 10.3 |
+
+- **At 7 days in 2020, 16 of the 19 second-rung contests take all three of their polls from one firm,** and one firm
+  appears in 18 of the 19. Only 6 firms supply the whole rung. Those 16 miss by 10.9 points; the other 3 by 3.2.
+  B2's mean signed miss on the rung is −7.2 (the polls too Democratic).
+- At 30 days the same rung has 26 contests, 9 of them from one firm, and the one-firm contests are no worse than
+  the rest (6.1 against 6.2). So the damage arrives in the last weeks, as that firm's repeated releases come to
+  be the three latest polls in thinly polled states.
+- The first rung worsens too (5.4 to 6.2), so the second rung is most of B2's late worsening, not all of it.
+- **The model worsens on the same contests** (3.8 to 6.3 on the second rung, against 3.6 to 4.3 on the first). It
+  reads the same polls, with its own corrections. Whether that firm's releases are what moves the model's centre
+  late in 2020 was not tested here.
+- In no other election is the second rung dominated by one firm at 7 days (0, 2 and 1 one-firm contests in 2008,
+  2012 and 2016).
+
+**What it means for the benchmark.** The user's choice of polls over firms on the second rung is what lets one
+firm fill it, as the cost written beside that choice said. B2 stands as registered and its scores are not rerun.
+
+**To the design freeze (EC-9), suggested by this diagnostic:** how the model's average treats one firm releasing
+repeatedly in states nobody else polls, late in the campaign, with 2020 as the case that suggested it.
