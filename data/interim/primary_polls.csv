@@ -1231,8 +1231,6 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2020,D,AL,primary,57768,93813,Change Research,48.0,,,False,lv,1200.0,,2019-03-20,2019-03-23,2020-03-03,346,,True,john-delaney,John Delaney,D,Delaney,0.0,running,23,14,2,6,0,1,0,538
 2020,D,AL,primary,57768,93813,Change Research,48.0,,,False,lv,1200.0,,2019-03-20,2019-03-23,2020-03-03,346,,True,michael-bennet,Michael Bennet,D,Bennet,0.0,not_yet,23,14,2,6,0,1,0,538
 2020,D,AL,primary,57768,93813,Change Research,48.0,,,False,lv,1200.0,,2019-03-20,2019-03-23,2020-03-03,346,,True,marianne-williamson,Marianne Williamson,D,Williamson,0.0,running,23,14,2,6,0,1,0,538
-2020,D,IA,caucus,57742,93747,Emerson,88.0,,,,lv,207.0,,2019-03-21,2019-03-24,2020-02-03,316,,True,donald-trump,Donald Trump,R,Trump,92.5,not_running,2,0,0,1,0,1,0,538
-2020,D,IA,caucus,57742,93747,Emerson,88.0,,,,lv,207.0,,2019-03-21,2019-03-24,2020-02-03,316,,True,michael-bloomberg,Michael Bloomberg,D,Bloomberg,7.5,not_yet,2,0,0,1,0,1,0,538
 2020,D,IA,caucus,57742,93748,Emerson,88.0,,,,lv,249.0,,2019-03-21,2019-03-24,2020-02-03,316,,True,joe-biden,Joe Biden,D,Biden,25.3,not_yet,14,12,1,1,0,0,0,538
 2020,D,IA,caucus,57742,93748,Emerson,88.0,,,,lv,249.0,,2019-03-21,2019-03-24,2020-02-03,316,,True,bernie-sanders,Bernie Sanders,D,Sanders,24.1,running,14,12,1,1,0,0,0,538
 2020,D,IA,caucus,57742,93748,Emerson,88.0,,,,lv,249.0,,2019-03-21,2019-03-24,2020-02-03,316,,True,pete-buttigieg,Pete Buttigieg,D,Buttigieg,11.4,exploratory,14,12,1,1,0,0,0,538
@@ -18315,6 +18313,8 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2020,R,US,primary,57712,93664,Emerson,88.0,,,,lv,483.0,,2019-03-17,2019-03-18,,,,False,bill-weld,William F. Weld,R,Weld,10.0,not_yet,2,0,0,2,0,0,0,538
 2020,R,IA,caucus,57742,93746,Emerson,88.0,,,,lv,207.0,,2019-03-21,2019-03-24,2020-02-03,316,,False,donald-trump,Donald Trump,R,Trump,90.2,not_yet,2,0,0,2,0,0,0,538
 2020,R,IA,caucus,57742,93746,Emerson,88.0,,,,lv,207.0,,2019-03-21,2019-03-24,2020-02-03,316,,False,bill-weld,William F. Weld,R,Weld,9.8,not_yet,2,0,0,2,0,0,0,538
+2020,R,IA,caucus,57742,93747,Emerson,88.0,,,,lv,207.0,,2019-03-21,2019-03-24,2020-02-03,316,,True,donald-trump,Donald Trump,R,Trump,92.5,not_yet,2,0,0,1,0,1,0,538
+2020,R,IA,caucus,57742,93747,Emerson,88.0,,,,lv,207.0,,2019-03-21,2019-03-24,2020-02-03,316,,True,michael-bloomberg,Michael Bloomberg,D,Bloomberg,7.5,not_running,2,0,0,1,0,1,0,538
 2020,R,US,primary,57748,93774,McLaughlin,203.0,,,,lv,418.0,,2019-03-20,2019-03-24,,,,True,donald-trump,Donald Trump,R,Trump,80.1,not_yet,3,0,0,2,0,1,0,538
 2020,R,US,primary,57748,93774,McLaughlin,203.0,,,,lv,418.0,,2019-03-20,2019-03-24,,,,True,john-richard-kasich,John Richard Kasich,R,Kasich,4.9,not_running,3,0,0,2,0,1,0,538
 2020,R,US,primary,57748,93774,McLaughlin,203.0,,,,lv,418.0,,2019-03-20,2019-03-24,,,,True,bill-weld,William F. Weld,R,Weld,0.7,not_yet,3,0,0,2,0,1,0,538

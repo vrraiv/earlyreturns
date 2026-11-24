@@ -130,7 +130,7 @@ def parse_row(cells, headers, cycle):
             continue
         for m in DATE.finditer(text):
             d = to_date(m, cycle)
-            if d is None:
+            if d is None or "erroneous" in text[m.end():m.end() + 20].lower():   # Gingrich 2012: "May 1 (erroneously)"
                 continue
             before = text[max(0, m.start() - 40):m.start()].lower()
             kind = next((k for w, k in LABELS if w in before.split(")")[-1]), None)
@@ -138,6 +138,8 @@ def parse_row(cells, headers, cycle):
                 kind = header_kind(headers[i])
             if kind is None:
                 kind = "announced" if "announced" not in out else "suspended"
+            if kind not in out and not m.group(2):
+                out.setdefault("month_only", []).append(kind)
             out.setdefault(kind, d)
     return out
 
@@ -188,9 +190,11 @@ def candidates():
                     d = parse_row(cells, headers, cycle)
                     rows.append({"cycle": cycle, "party": p, "candidate": name, "candidate_key": slug(name),
                                  "section": section, "exploratory": d.get("exploratory"), "announced": d.get("announced"),
-                                 "suspended": d.get("suspended"), "secured": d.get("secured"), "wiki_revision": rev})
+                                 "suspended": d.get("suspended"), "secured": d.get("secured"), "wiki_revision": rev,
+                                 "note": ("month only on the page (entered as the 1st): " + ", ".join(d["month_only"]))
+                                 if d.get("month_only") else ""})
     df = pd.DataFrame(rows)
-    df["note"] = ""
+    df["note"] = df.note.fillna("")
     for (cy, p, key), o in OVERRIDES.items():
         i = df.index[(df.cycle == cy) & (df.party == p) & (df.candidate_key == key)]
         assert len(i) == 1, (cy, p, key)
@@ -263,7 +267,9 @@ def polls_538(cands):
     a = a[a.candidate_party.notna()].copy()
     # a few questions list a candidate of the other party (Trump in a Democratic question): the question's party is
     # the party of most of its candidates, and the outsider counts as not running in that primary
-    a["party"] = a.groupby("question_id").candidate_party.transform(lambda s: s.mode().iloc[0])
+    share = a.groupby(["question_id", "candidate_party"]).pct.agg(["size", "sum"]).reset_index()
+    share = share.sort_values(["question_id", "size", "sum"]).drop_duplicates("question_id", keep="last")
+    a["party"] = a.question_id.map(share.set_index("question_id").candidate_party)   # ties (one each): larger share
     geo = a.state.map(lambda s: "US" if pd.isna(s) else ABBR.get(s))
     bad = a.state[geo.isna() & a.state.notna()].unique()
     assert len(bad) == 0, f"unmapped states: {bad}"
@@ -373,7 +379,7 @@ def hp_snapshot():
         fetch(HP_SOURCE, fname, f"https://web.archive.org/web/{pick['timestamp']}id_/http://{HP_HOST}{pick['path']}")
         time.sleep(1)
         chosen["|".join(map(str, con))] = {"file": fname, "path": pick["path"], "timestamp": pick["timestamp"],
-                                           "rule": rank, "stage": "caucus" if stages == ["caucus"] else "primary"}
+                                           "rule": rank, "chart_names_say": "/".join(stages)}
     # the licence, as the API page stated it (January 2017 capture)
     fetch(HP_SOURCE, "licence_api_page.html",
           "https://web.archive.org/web/20170126155740id_/http://elections.huffingtonpost.com/pollster/api")
@@ -417,7 +423,9 @@ def polls_huffpost(cands):
     for key, s_ in src.items():
         cycle, geo, party = key.split("|")
         long = hp_read(d / s_["file"], s_["rule"])
-        long["cycle"], long["geo"], long["party"], long["stage"] = int(cycle), geo, party, s_["stage"]
+        # stage is left blank: Pollster's chart names do not settle it (Iowa's files say "primary"); the results
+        # calendar will
+        long["cycle"], long["geo"], long["party"], long["stage"] = int(cycle), geo, party, None
         long["file"], long["capture"], long["file_rule"] = s_["path"], s_["timestamp"][:8], s_["rule"]
         long["question_id"] = "hp-" + cycle[2:] + "-" + geo + "-" + party + "-" + long.row.astype(str)
         frames.append(long)
@@ -457,8 +465,27 @@ def hp_checks(hp):
         spans.setdefault((x.cycle, x.party, x.geo), []).append((x.start_date, x.end_date))
     one = pd.Timedelta(days=1)
     r["result"] = ["no Pollster file" if (c, p, g) not in spans else
-                   "found" if any(s0 - one <= day <= e0 + one for s0, e0 in spans[(c, p, g)]) else "not found"
+                   "in field" if any(s0 - one <= day <= e0 + one for s0, e0 in spans[(c, p, g)]) else "not found"
                    for c, p, g, day in zip(r.cycle, r.party, r.location, r.day)]
+    # stricter: a Pollster question of that contest in the field that day with both candidates' shares within a point
+    shares = {}
+    for x in hp.itertuples():
+        shares.setdefault(x.question_id, {})[name_parts(x.candidate_name)[1]] = x.pct
+    byc = {}
+    for x in qq.itertuples():
+        byc.setdefault((x.cycle, x.party, x.geo), []).append((x.start_date, x.end_date, x.question_id, x.file_rule))
+
+    def strict(row):
+        for s0, e0, qid, rule in byc.get((row.cycle, row.party, row.location), []):
+            if not (s0 - one <= row.day <= e0 + one):
+                continue
+            sh = shares[qid]
+            a1, a2 = sh.get(name_parts(row.cand1_name)[1]), sh.get(name_parts(row.cand2_name)[1])
+            if a1 is not None and a2 is not None and abs(a1 - row.cand1_pct) <= 1 and abs(a2 - row.cand2_pct) <= 1:
+                return f"shares match (file rule {rule})"
+        return None
+    r["strict"] = r.apply(strict, axis=1)
+    r.loc[r.strict.notna(), "result"] = r.strict
     print(pd.crosstab([r.cycle, r.party], r.result).to_string())
     print("  contests with no Pollster file:", sorted(set(r.loc[r.result == "no Pollster file", "location"])))
 

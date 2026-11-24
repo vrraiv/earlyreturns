@@ -12,7 +12,7 @@ cycle,party,candidate,candidate_key,section,exploratory,announced,suspended,secu
 2008,R,Duncan Hunter,duncan-hunter,Withdrew during primaries,,,2008-01-19,,1387282510,
 2008,R,Fred Thompson,fred-thompson,Withdrew during primaries,,,2008-01-22,,1387282510,
 2008,R,Jim Gilmore,jim-gilmore,Withdrew before primaries,,,2007-07-14,,1387282510,
-2008,R,John H. Cox,john-h-cox,Withdrew before primaries,,,2007-12-01,,1387282510,
+2008,R,John H. Cox,john-h-cox,Withdrew before primaries,,,2007-12-01,,1387282510,month only on the page (entered as the 1st): suspended
 2008,R,John McCain,john-mccain,Nominee,,,,2008-03-04,1387282510,
 2008,R,Mike Huckabee,mike-huckabee,Withdrew during primaries,,,2008-03-04,,1387282510,
 2008,R,Mitt Romney,mitt-romney,Withdrew during primaries,,,2008-02-07,,1387282510,
@@ -24,7 +24,7 @@ cycle,party,candidate,candidate_key,section,exploratory,announced,suspended,secu
 2012,D,Barack Obama,barack-obama,Nominee,,,,2012-04-03,1385393019,
 2012,R,Fred Karger,fred-karger,Withdrew after the primaries,,2011-03-23,2012-06-29,,1387283190,
 2012,R,Gary Johnson,gary-johnson,Withdrew before the primaries,,2011-04-21,2011-12-28,,1387283190,
-2012,R,Newt Gingrich,newt-gingrich,Withdrew during the primaries,,2011-05-01,2012-05-02,,1387283190,
+2012,R,Newt Gingrich,newt-gingrich,Withdrew during the primaries,,2011-05-11,2012-05-02,,1387283190,
 2012,R,Ron Paul,ron-paul,Did not withdraw,,2011-05-13,2012-08-30,,1387283190,
 2012,R,Herman Cain,herman-cain,Withdrew before the primaries,,2011-05-21,2011-12-03,,1387283190,
 2012,R,Tim Pawlenty,tim-pawlenty,Withdrew before the primaries,,2011-05-23,2011-08-13,,1387283190,
