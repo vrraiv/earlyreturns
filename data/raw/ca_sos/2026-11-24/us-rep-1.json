@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 1 - Districtwide Results",
+  "Reporting": "100% (788 of 788) precincts reporting",
+  "ReportingTime": "November 23, 2026, 1:20 p.m.",
+  "candidates": [
+    {
+      "Name": "Mike McGuire",
+      "Party": "Dem",
+      "Votes": "170,937",
+      "Percent": "59.0",
+      "incumbent": false
+    },
+    {
+      "Name": "James Gallagher",
+      "Party": "Rep",
+      "Votes": "118,879",
+      "Percent": "41.0",
+      "incumbent": false
+    }
+  ]
+}
