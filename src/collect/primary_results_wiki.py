@@ -155,8 +155,8 @@ def wiki_results():
 
 
 # Democratic caucuses with no per-state table on the cycle's results page: read from the contest's own page.
-# measure: from the table's header, except where the header says "Votes" or "Count" but the totals are delegate
-# counts (a few thousand where tens of thousands took part), which are named as delegates with the reason.
+# measure: from the table's header where the page bears it out; where the page says what the count is and the header
+# doesn't, the page's (with its wording in the note); where neither settles it, "unclear".
 CONTEST_PAGES = {
     (2008, "IA"): ("caucus", "state delegate equivalents", None),
     (2008, "NV"): ("caucus", "county delegates", None),
@@ -165,20 +165,20 @@ CONTEST_PAGES = {
     (2008, "ID"): ("caucus", "votes", None),
     (2008, "KS"): ("caucus", "votes", None),
     (2008, "MN"): ("caucus", "votes", None),
-    (2008, "ND"): ("caucus", "precinct delegates", None),
+    (2008, "ND"): ("caucus", "unclear", "the table says precinct delegates; the page describes secret ballots and gives no turnout"),
     (2008, "NE"): ("caucus", "votes", None),
     (2008, "WA"): ("caucus", "precinct delegates", None),
-    (2008, "ME"): ("caucus", "state delegates", "the table says votes; its 3,500 total is the state convention delegates"),
+    (2008, "ME"): ("caucus", "unclear", "the table says votes; the page does not say what its 3,500 total counts"),
     (2008, "HI"): ("caucus", "votes", None),
-    (2008, "WY"): ("caucus", "votes", None),
+    (2008, "WY"): ("caucus", "votes", "the page: most sites used secret ballots, which were counted"),
     (2008, "NM"): ("caucus", "votes", "a party-run primary, kept under the FEC's label (caucus) so it joins the calendar and polls"),
     (2016, "IA"): ("caucus", "state delegate equivalents", None),
     (2016, "NV"): ("caucus", "county delegates", None),
     (2016, "KS"): ("caucus", "votes", None),
-    (2016, "ME"): ("caucus", "state delegates", "the table says count; its 3,500 total is the state convention delegates"),
+    (2016, "ME"): ("caucus", "unclear", "the table says count; the page does not say what its 3,500 total counts"),
     (2016, "ID"): ("caucus", "votes", None),
-    (2016, "WA"): ("caucus", "legislative district delegates", "the table says count; its 26,000 total is the district delegates"),
-    (2016, "WY"): ("caucus", "county delegates", "the table says count; its 280 total is the county delegates"),
+    (2016, "WA"): ("caucus", "legislative district delegates", "the table says count; the page gives about 230,000 participants and the shares as legislative district delegates"),
+    (2016, "WY"): ("caucus", "county delegates", "the table says count; the page gives the shares as county delegates"),
 }
 
 
