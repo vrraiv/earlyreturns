@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-23f",
+  version: "2026-11-23g",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -16,6 +16,7 @@ window.PLAN = {
     { when: "December 2026", phase: "p1", text: "Certification ends. California certifies last." },
     { when: "Through 2027", phase: "any", text: "Special elections, as they are called." },
     { when: "May 2027", phase: "p3", text: "Deadline: first primaries model.", deadline: true },
+    { when: "September 2027", phase: "p4", text: "Primaries delegate model and nomination odds ready (PP-7), before the early states are heavily polled." },
     { when: "Fall 2027", phase: "p4", text: "Governor races in Kentucky, Louisiana and Mississippi." },
     { when: "Early 2028", phase: "p4", text: "First primaries and caucuses. The order of states is not set yet." },
     { when: "May 2028", phase: "p4", text: "Deadline: electoral college model and every other model frozen.", deadline: true },
@@ -380,7 +381,9 @@ window.PLAN = {
             "Past cycles: national and state primary polls, results by state and date, and delegate rules.",
             "2028: a source for primary polls, checked for coverage.",
             "The 2028 calendar is not set. Collect it when each party publishes it.",
-            "The Downballot's primary and filing-deadline calendars cover 2018 to 2026 and will carry 2028 once it is set. It has no presidential primary polls or state results."
+            "The Downballot's primary and filing-deadline calendars cover 2018 to 2026 and will carry 2028 once it is set. It has no presidential primary polls or state results.",
+            "Sources found at PP-2 (2026-11-23), not yet collected. Polls: archived HuffPost Pollster files for 2012 and 2016 (CC BY-NC-SA); pollster.com pages for 2008, only partly captured in the archive, licence not confirmed; 538's pollster-ratings polls for 2000 to 2016 (CC BY, top two candidates only); Wikipedia's polling pages (CC BY-SA). Results: the FEC's *Federal Elections* spreadsheets for 2004 to 2020 (dates included, caucuses left out); earlier years as PDFs (1984 to 1992 scanned, 2000 a PDF) and a 1996 spreadsheet not yet opened; Wikipedia for the rest. Caucus figures need a field saying what they measure. Delegate rules and counts by contest: the Green Papers, listed for 2008 to 2024 and opened for 2016 and 2024 only; it does not give each state's Republican thresholds. No licence is stated, so its files stay out of the repo and the maintainer is asked before derived tables are published. Withdrawal dates: no dataset; Wikipedia's candidate lists.",
+            "2028 polls: VoteHub's API has national primary polls (reportedly CC BY; to be confirmed), weeks behind and with no state polls; Wikipedia's 2028 pages fill the gaps under CC BY-SA, kept in a separately licensed file."
           ],
           checklist: [
             { id: "a", text: "Past primary polls collected" },
@@ -738,7 +741,12 @@ window.PLAN = {
             "Level 1: national and early-state polling averages.",
             "Level 2: state win probabilities, once the calendar is known.",
             "Level 3: delegate projection and nomination odds.",
-            "Both parties, decided with PP-1 on 2026-11-20."
+            "Both parties, decided with PP-1 on 2026-11-20.",
+            "Decided 2026-11-23: Level 2. The first version (May 2027) gives the chance of winning each state, built and backtested on past calendars; withdrawals are part of it (PP-5). Poll averages (Level 1) go live on the site in 2027.",
+            "Level 3 is built too, because an extended contest is settled on delegates. Its nomination odds are published only once the field is down to three candidates, with that definition fixed before any backtest runs; before then a delegate projection is never realized, because candidates drop out. Due between May 2027 and the first contest, ideally by September 2027, before the early states are heavily polled (PP-7).",
+            "No holdout: there are too few open contests to keep one back. Every run is reported.",
+            "Availability checked 2026-11-23 (sources and terms only; nothing collected). Polls: good for 2012 and 2016 (archived Pollster files, every candidate, state and national), probably for 2008 (pages partly archived; Wikipedia as a second source), thin for 2000 and 2004 (state polls with the top two only), and close to nothing free before 2000 (sparse national tables, no early-state polls). Primary results with dates: the FEC's yearly reports for 2004 to 2020; caucuses are not in them, and other sources mix votes, delegate equivalents and delegates. Delegate rules and counts: the Green Papers, listed for 2008 to 2024 (2008 not yet opened), with no stated licence. 2028 polls: VoteHub's API (national only, behind by weeks), with Wikipedia's pages for state polls. Detail on DA-6.",
+            "So Level 2's backtest rests on seven open contests, 2008 to 2024 (2008 D and R, 2012 R, 2016 D and R, 2020 D, 2024 R), with 2000 and 2004 possible on weaker polls. Level 3 is checked on the extended contests in that range (2008 D, 2016 D and R) and reported, with no pass threshold."
           ] },
         { id: "PP-3", title: "Polling averages", kind: "story", phase: "p3", needs: ["PP-2", "DA-6"],
           why: "The first useful output, and the base for everything else.",
@@ -764,12 +772,15 @@ window.PLAN = {
           why: "The order differed in every past cycle, which is the property to test.",
           details: [
             "Past open contests in both parties, forecast in order with what was known before each state voted.",
-            "Check that the model handles a calendar it was not fitted on."
+            "Check that the model handles a calendar it was not fitted on.",
+            "Scope decided at PP-2 (2026-11-23): state win probabilities in every open contest from 2008 to 2024. No holdout. The delegate model's check on the extended contests belongs to PP-7, after the first version, so it does not hold this card up."
           ] },
-        { id: "PP-7", title: "Delegate simulation", kind: "story", phase: "p3", needs: ["PP-5"],
+        { id: "PP-7", title: "Delegate simulation", kind: "milestone", phase: "p4", due: "September 2027", needs: ["PP-5"],
           why: "Nominations are won on delegates, not states.",
           details: [
-            "Allocation rules by state and party, including viability thresholds, through to the nomination."
+            "Allocation rules by state and party, including viability thresholds, through to the nomination.",
+            "Decided at PP-2 (2026-11-23): built, after the first version and ideally by September 2027. Nomination odds are published only once the field is down to three candidates; what counts as a candidate still in the race is fixed before any backtest runs.",
+            "Checked on the extended contests from 2008 to 2024 and reported, with no pass threshold: there are too few to test against one."
           ] },
         { id: "PP-8", title: "Primaries pages on the site", kind: "story", phase: "p3", needs: ["PP-3", "SI-6"],
           why: "The track is only useful once it is published.",
@@ -780,7 +791,7 @@ window.PLAN = {
         { id: "PP-9", title: "First version", kind: "milestone", phase: "p3", due: "May 2027", needs: ["PP-3", "PP-6"],
           why: "The fixed date for this track.",
           details: [
-            "At the least: polling averages and a backtest."
+            "At the least: polling averages and the chance of winning each state, backtested on past calendars (raised from averages and a backtest at PP-2, 2026-11-23). The delegate model and nomination odds follow by September 2027 (PP-7)."
           ] }
       ]
     },
