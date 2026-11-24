@@ -41,19 +41,19 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|KY|S|regular,Write-in,O,Write-in,0.01,158.0,158.0
 2026|LA|S|regular,Republican,R,Julia Letlow,50.88,746466.0,746466.0
 2026|LA|S|regular,Democratic,D,Jamie Davis,49.12,720516.0,720516.0
-2026|ME|S|regular,Democratic,D,Troy Jackson,53.07,376955.0,376955.0
-2026|ME|S|regular,Republican,R,Susan Collins,46.87,332918.0,332918.0
-2026|ME|S|regular,Write-in,O,Write-in,0.07,488.0,488.0
+2026|ME|S|regular,Democratic,D,Troy Jackson,52.82,379629.0,379629.0
+2026|ME|S|regular,Republican,R,Susan Collins,47.11,338596.0,338596.0
+2026|ME|S|regular,Write-in,O,Write-in,0.07,527.0,527.0
 2026|MA|S|regular,Democratic,D,Ed Markey,63.68,1718276.0,1718276.0
 2026|MA|S|regular,Republican,R,John Deaton,31.72,855969.0,855969.0
 2026|MA|S|regular,Independent,I,Shiva Ayyadurai,2.27,61085.0,61085.0
 2026|MA|S|regular,Socialism and Liberation,O,Joe Tache,2.19,59097.0,59097.0
 2026|MA|S|regular,Write-in,O,Write-in,0.14,3811.0,3811.0
-2026|MI|S|regular,Democratic,D,Abdul El-Sayed,52.56,2521693.0,2521693.0
-2026|MI|S|regular,Republican,R,Mike Rogers,45.44,2180388.0,2180388.0
-2026|MI|S|regular,Libertarian,O,Lydia Christensen,1.04,49692.0,49692.0
-2026|MI|S|regular,U.S. Taxpayers,O,Tim Long,0.55,26534.0,26534.0
-2026|MI|S|regular,Green,O,Douglas P. Marsh,0.26,12553.0,12553.0
+2026|MI|S|regular,Democratic,D,Abdul El-Sayed,52.56,2521908.0,2521908.0
+2026|MI|S|regular,Republican,R,Mike Rogers,45.44,2180444.0,2180444.0
+2026|MI|S|regular,Libertarian,O,Lydia Christensen,1.04,49699.0,49699.0
+2026|MI|S|regular,U.S. Taxpayers,O,Tim Long,0.55,26535.0,26535.0
+2026|MI|S|regular,Green,O,Douglas P. Marsh,0.26,12554.0,12554.0
 2026|MI|S|regular,Natural Law,O,Walter P. Kristy,0.15,7253.0,7253.0
 2026|MI|S|regular,Write-in,O,Write-in,0.0,10.0,10.0
 2026|MN|S|regular,Democratic (DFL),D,Peggy Flanagan,53.7,1520871.0,1520871.0
@@ -97,9 +97,9 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|OR|S|regular,Libertarian,O,Gary Dye,,,
 2026|OR|S|regular,Progressive,O,Chris Henry,,,
 2026|OR|S|regular,Write-in,O,Write-in,,,
-2026|RI|S|regular,Democratic,D,Jack Reed,66.79,240686.0,240686.0
-2026|RI|S|regular,Republican,R,Raymond McKay,29.26,105453.0,105453.0
-2026|RI|S|regular,Independent,I,Michael Bahry,3.76,13562.0,13562.0
+2026|RI|S|regular,Democratic,D,Jack Reed,66.78,240707.0,240707.0
+2026|RI|S|regular,Republican,R,Raymond McKay,29.26,105459.0,105459.0
+2026|RI|S|regular,Independent,I,Michael Bahry,3.76,13563.0,13563.0
 2026|RI|S|regular,Write-in,O,Write-in,0.19,695.0,695.0
 2026|SC|S|regular,Democratic,D,Annie Andrews,51.14,1044001.0,1044001.0
 2026|SC|S|regular,Republican,R,Darline Graham,46.64,952191.0,952191.0
@@ -108,14 +108,14 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|SC|S|regular,Write-in,O,Write-in,0.24,4899.0,4899.0
 2026|SD|S|regular,Republican,R,Mike Rounds,60.5,184590.0,184590.0
 2026|SD|S|regular,Independent,I,Brian Bengs,39.5,120513.0,120513.0
-2026|TN|S|regular,Republican,R,Bill Hagerty,55.08,1138436.0,1138436.0
+2026|TN|S|regular,Republican,R,Bill Hagerty,55.08,1138457.0,1138457.0
 2026|TN|S|regular,Democratic,D,Marquita Bradshaw,42.91,886974.0,886974.0
-2026|TN|S|regular,Independent,I,Robert Jones,0.46,9398.0,9398.0
+2026|TN|S|regular,Independent,I,Robert Jones,0.45,9398.0,9398.0
 2026|TN|S|regular,Independent,I,Tharon Chandler,0.37,7689.0,7689.0
 2026|TN|S|regular,Independent,I,Andrew Gerena,0.27,5633.0,5633.0
 2026|TN|S|regular,Independent,I,"Catherine Barcel ""Barcy"" Whitson",0.25,5113.0,5113.0
 2026|TN|S|regular,Independent,I,Jeremy Dean Hearn,0.24,4937.0,4937.0
-2026|TN|S|regular,Independent,I,"David Sutman, Jr.",0.15,3087.0,3087.0
+2026|TN|S|regular,Independent,I,David Sutman Jr.,0.15,3087.0,3087.0
 2026|TN|S|regular,Independent,I,Yoshi D. Matthews,0.15,3026.0,3026.0
 2026|TN|S|regular,Independent,I,James William Macon III,0.12,2576.0,2576.0
 2026|TX|S|regular,Democratic,D,James Talarico,55.06,5447080.0,5447080.0
