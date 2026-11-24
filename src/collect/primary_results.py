@@ -265,6 +265,13 @@ def wiki_rows(cands, cal, have):
     w["contest"] = [c if isinstance(c, str) else
                     "caucus" if (y, p, s, "primary") in have and "caucus" in kinds.get((y, p, s), []) else "unknown"
                     for c, y, p, s in zip(w.contest, w.cycle, w.party, w.state)]
+    # Democratic caucuses the results pages have no table for (2008, and six of 2016): the contest's own page, which
+    # also replaces the results page's unlabelled 2016 Idaho table
+    from primary_results_wiki import contest_page_results
+    cp = contest_page_results()
+    covered = set(zip(cp.cycle, cp.party, cp.state))
+    w = w[[k not in covered for k in zip(w.cycle, w.party, w.state)]]
+    w = pd.concat([w, cp], ignore_index=True)
     w = w[[(y, p, s, c) not in have for y, p, s, c in zip(w.cycle, w.party, w.state, w.contest)]].copy()
     # one table per contest: where a page has two for one contest (2016 Colorado and Wyoming conventions), the first
     w = w[w.groupby(["cycle", "party", "state", "contest"]).table_no.transform("min") == w.table_no]
@@ -281,8 +288,9 @@ def wiki_rows(cands, cal, have):
         if k in one.index and one.at[k, "n"] == 1:
             w.at[i, "date"] = one.at[k, "date"]
             w.at[i, "date_source"] = f"calendar (listed as a {one.at[k, 'kind']})"
-    w["party_run"] = [bool(cd.party_run.get(k, False)) if "party_run" in cd else False
-                      for k in zip(w.cycle, w.party, w.state, w.contest)]
+    w["party_run"] = [bool(pr) if pd.notna(pr) else bool(cd.party_run.get(k, False)) if "party_run" in cd else False
+                      for pr, k in zip(w.get("party_run", pd.Series(None, index=w.index)),
+                                       zip(w.cycle, w.party, w.state, w.contest))]
     w["votes"] = w.value
     w = shares(w, ["cycle", "party", "state", "contest"])
     w.loc[w.measure != "votes", ["share", "share_listed"]] = w.loc[w.measure != "votes"].groupby(
@@ -293,7 +301,8 @@ def wiki_rows(cands, cal, have):
     w["source_kind"] = "wikipedia"
     w["source"] = w.page + " (revision " + w.revision.astype(str) + ")"
     w["source_url"] = "https://en.wikipedia.org/w/index.php?oldid=" + w.revision.astype(str)
-    w["source_note"] = "section: " + w.heading
+    w["source_note"] = ("section: " + w.heading).where(w.page != w.heading, "contest page") + \
+        w.get("measure_note", pd.Series(None, index=w.index)).fillna("").map(lambda x: f"; {x}" if x else "")
     return w.reindex(columns=COLS)
 
 
@@ -336,6 +345,11 @@ def main():
     c = calendar(paths)
     c["party_run"] = False
     c = pd.concat([c, calendar_2024()], ignore_index=True)
+    # the FEC dates Wyoming Democrats' 2016 caucuses May 28 (the state convention); the county caucuses were April 9
+    # (the contest's Wikipedia page)
+    i = c.index[(c.cycle == 2016) & (c.party == "D") & (c.state == "WY") & (c.contest == "caucus")]
+    c.loc[i, "date"] = dt.date(2016, 4, 9)
+    c.loc[i, "source"] = c.loc[i, "source"] + "; date corrected to the county caucuses (2016 Wyoming Democratic caucuses, Wikipedia)"
     fec = results(paths, cands, c)
     fec["contest"], fec["party_run"], fec["measure"], fec["source_kind"] = "primary", False, "votes", "fec"
     fec = fec.reindex(columns=COLS)

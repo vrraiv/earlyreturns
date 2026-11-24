@@ -5,7 +5,8 @@ neither the FEC nor the states report.
 Each page has, under a heading per state (and a "Primary" / "Caucus" subheading where a party held both), a table of
 candidate, votes, percentage, delegates. Only those per-state tables are read; the pages' overview tables are not. The
 Republican pages (2008, 2012, 2016, 2024) have them for nearly every state; the Democratic pages mostly don't (2016 has
-13, the others none), so Democratic contests here are few.
+13, the others none); the Democratic caucuses missing there (2008, and six of 2016) are read from each contest's
+own page (CONTEST_PAGES).
 
 The measure is taken from the table's header: "votes" (a popular or straw-poll vote), "state delegates" (caucuses that
 report delegates elected, e.g. Colorado 2008), or "popular vote" (2016 Democratic tables). Nothing is converted.
@@ -151,6 +152,72 @@ def wiki_results():
     worst = gap.groupby([w.cycle, w.party, w.table_no]).transform("max")
     w.loc[worst > 5, "measure"] = "unclear"
     return w
+
+
+# Democratic caucuses with no per-state table on the cycle's results page: read from the contest's own page.
+# measure: from the table's header where the page bears it out; where the page says what the count is and the header
+# doesn't, the page's (with its wording in the note); where neither settles it, "unclear".
+CONTEST_PAGES = {
+    (2008, "IA"): ("caucus", "state delegate equivalents", None),
+    (2008, "NV"): ("caucus", "county delegates", None),
+    (2008, "AK"): ("caucus", "votes", None),
+    (2008, "CO"): ("caucus", "votes", None),
+    (2008, "ID"): ("caucus", "votes", None),
+    (2008, "KS"): ("caucus", "votes", None),
+    (2008, "MN"): ("caucus", "votes", None),
+    (2008, "ND"): ("caucus", "unclear", "the table says precinct delegates; the page describes secret ballots and gives no turnout"),
+    (2008, "NE"): ("caucus", "votes", None),
+    (2008, "WA"): ("caucus", "precinct delegates", None),
+    (2008, "ME"): ("caucus", "unclear", "the table says votes; the page does not say what its 3,500 total counts"),
+    (2008, "HI"): ("caucus", "votes", None),
+    (2008, "WY"): ("caucus", "votes", "the page: most sites used secret ballots, which were counted"),
+    (2008, "NM"): ("caucus", "votes", "a party-run primary, kept under the FEC's label (caucus) so it joins the calendar and polls"),
+    (2016, "IA"): ("caucus", "state delegate equivalents", None),
+    (2016, "NV"): ("caucus", "county delegates", None),
+    (2016, "KS"): ("caucus", "votes", None),
+    (2016, "ME"): ("caucus", "unclear", "the table says count; the page does not say what its 3,500 total counts"),
+    (2016, "ID"): ("caucus", "votes", None),
+    (2016, "WA"): ("caucus", "legislative district delegates", "the table says count; the page gives about 230,000 participants and the shares as legislative district delegates"),
+    (2016, "WY"): ("caucus", "county delegates", "the table says count; the page gives the shares as county delegates"),
+}
+
+
+PARTY_RUN_PAGES = {(2008, "NM")}   # pages titled "... presidential primary"
+
+
+def contest_page_title(cycle, st):
+    from primary_polls import ABBR
+    name = {v: k for k, v in ABBR.items()}[st]
+    kind = "primary" if (cycle, st) in PARTY_RUN_PAGES else "caucuses"
+    return f"{cycle} {name} Democratic presidential {kind}"
+
+
+def contest_page_results():
+    """The first results table (a Candidate column, then the count, then the percentage) on each CONTEST_PAGES page."""
+    out = []
+    for (cycle, st), (kind, measure, why) in CONTEST_PAGES.items():
+        t = contest_page_title(cycle, st)
+        html, rev = get_page(t)
+        soup = BeautifulSoup(html, "html.parser")
+        tab = next(x for x in soup.find_all("table") if x.find_parent("table") is None
+                   and "infobox" not in " ".join(x.get("class", []))
+                   and any(th.get_text(" ", strip=True) == "Candidate" for th in x.find_all("th")[:12])
+                   and not re.search(r"Money|Sept\.", x.get_text(" ")[:400]))
+        for tr in tab.find_all("tr"):
+            cells = [c.get_text(" ", strip=True) for c in tr.find_all(["td", "th"])]
+            cells = [c for c in cells if c not in ("", "Democratic", "Democratic (DFL)")]   # party columns
+            if len(cells) < 3 or cells[0] in ("Candidate", "Party") or tr.find("th") and not tr.find("td"):
+                continue
+            name = re.sub(r"\[[^\]]*\]", "", cells[0]).strip(" *")
+            value = num(cells[1])
+            if value is None or re.match(r"^total", name, re.I):
+                continue
+            line = "uncommitted" if re.search("uncommit", name, re.I) else "other" if NOT_CAND.search(name) else "candidate"
+            out.append({"cycle": cycle, "party": "D", "state": st, "contest": kind, "heading": t, "page": t,
+                        "revision": rev, "table_no": 0, "candidate_name": name, "value": value,
+                        "pct": num(cells[2]) if "%" in cells[2] else None, "line": line, "measure": measure,
+                        "measure_note": why, "party_run": (cycle, st) in PARTY_RUN_PAGES})
+    return pd.DataFrame(out)
 
 
 def calendar_2024():
