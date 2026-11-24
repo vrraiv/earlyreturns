@@ -10,10 +10,11 @@ datasets are catalogued in `DATA.md`.
 
 ## Environment
 
-Python 3.14.3 (uv-managed) with the exact package versions in `uv.lock`, in a virtual environment kept outside
-OneDrive at `$HOME\.venvs\polling2026` (e.g. `C:\Users\<you>\.venvs\polling2026`). OneDrive would otherwise sync
-its thousands of files. The environment is per device: a fresh clone, or this folder synced to a new machine, has
-none until you create it.
+Python 3.14.3 (uv-managed) with the exact package versions in `uv.lock`, in a virtual environment at `.venv\` in
+the repo folder (gitignored; uv's default). Keep the repo outside OneDrive or any other synced folder, which would
+otherwise sync the environment's thousands of files; if it has to live in one, see "Repo in a synced folder" below.
+The environment is per device: a fresh clone has none until you create it, and a moved or renamed folder needs it
+rebuilt (delete `.venv\` and run the `uv sync` command again), because a virtual environment records its own path.
 
 ### First-time setup on a new device
 
@@ -29,50 +30,52 @@ In PowerShell:
 
    No system Python is needed: uv downloads and manages CPython 3.14.3 itself.
 
-2. From the repo root, point uv at the out-of-OneDrive location and create the environment. uv creates the folder,
-   downloads Python 3.14.3 if this machine doesn't have it, and installs exactly what `uv.lock` lists:
+2. From the repo root, create the environment. uv creates `.venv\`, downloads Python 3.14.3 if this machine doesn't
+   have it, and installs exactly what `uv.lock` lists:
 
    ```powershell
-   $env:UV_PROJECT_ENVIRONMENT = "$HOME\.venvs\polling2026"   # this session only
    uv sync --locked --managed-python --python 3.14.3
    ```
 
 3. Check it:
 
    ```powershell
-   & "$HOME\.venvs\polling2026\Scripts\python.exe" --version   # Python 3.14.3
-   & "$HOME\.venvs\polling2026\Scripts\python.exe" -c "import numpy, pandas, scipy, statsmodels, lxml, PIL; print('ok')"
+   & .venv\Scripts\python.exe --version   # Python 3.14.3
+   & .venv\Scripts\python.exe -c "import numpy, pandas, scipy, statsmodels, lxml, PIL; print('ok')"
    ```
 
    `run_scorecard.py --parse` re-parses saved snapshots, some of which are gitignored (see `.gitignore`), so on a
    bare `git clone` run `python src/run_scorecard.py` (which fetches) before `--parse`.
 
 4. Optional: an FEC API key in `.env` at the repo root (`fec_api_key=...`, gitignored). Without it the FEC
-   collectors use `DEMO_KEY`, which is rate-limited. If the folder is synced by OneDrive, `.env` comes with it.
+   collectors use `DEMO_KEY`, which is rate-limited. It is not in git, so copy it by hand to a new device.
 
 If PowerShell refuses `Activate.ps1` below because scripts are disabled, run
 `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` once, or call `python.exe` by its full path instead.
 
 ### Updating the environment
 
-The same command updates it after `uv.lock` changes (e.g. after pulling an upgrade). In each new PowerShell session:
+The same command updates it after `uv.lock` changes (e.g. after pulling an upgrade):
 
 ```powershell
-$env:UV_PROJECT_ENVIRONMENT = "$HOME\.venvs\polling2026"   # this session only
 uv sync --locked --managed-python --python 3.14.3
 ```
-
-Set `UV_PROJECT_ENVIRONMENT` per session, not as a permanent user variable: it would apply to every uv project on the
-machine. Without it, `uv sync` and `uv run` create `.venv/` inside this folder, in OneDrive (gitignored, but slow).
 
 Run scripts with the environment's interpreter, directly or after activating it:
 
 ```powershell
-& "$HOME\.venvs\polling2026\Scripts\python.exe" src/run_scorecard.py --build
+& .venv\Scripts\python.exe src/run_scorecard.py --build
 # or, once per session:
-& "$HOME\.venvs\polling2026\Scripts\Activate.ps1"
+& .venv\Scripts\Activate.ps1
 python src/run_scorecard.py --build
 ```
+
+### Repo in a synced folder
+
+If the repo has to live in OneDrive or another synced folder, keep the environment outside it: in each PowerShell
+session, set `$env:UV_PROJECT_ENVIRONMENT = "$HOME\.venvs\earlyreturns"` before `uv sync`, and use
+`$HOME\.venvs\earlyreturns\Scripts\python.exe` in place of `.venv\Scripts\python.exe` above. Set it per session, not
+as a permanent user variable: it would apply to every uv project on the machine.
 
 Python is pinned by the environment, not by a `.python-version` file, because Cloudflare's build image reads that
 file when it deploys `site/`. `pyproject.toml` only requires 3.14.3 or later within 3.14.
