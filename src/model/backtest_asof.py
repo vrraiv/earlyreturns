@@ -1106,7 +1106,8 @@ def forecast_2026(r, sen_u, hh, fund, gov_u, train, design, generic, sfx, seed=2
     print({k: v for k, v in out["dem_wins"].items() if k != "distribution"})
 
 
-# keyed by the command-line options; completed once candidates 16 and 17 are judged
+# keyed by the command-line options. Candidates 16 and 17 failed, so the spreads are the decided design's; the
+# three-way rule is applied in the 2026 forecast (polls_2026). With --forecast-2026 only the 2026 forecast is written.
 DESIGNS = {"frozen": {"gov_lean": "ratings_unpolled", "gov_poll_fallback": "forecast"}}
 
 

@@ -824,8 +824,10 @@ fundamentals:
 
 ### The frozen design
 
-- **Code path.** `python src/model/backtest_asof.py --gov-design frozen`, polls-and-fundamentals version. The
-  baseline (no flag) is unchanged.
+- **Code path.** Polls-and-fundamentals version. The baseline (no flag) is unchanged.
+  - The 2026 forecast: `python src/model/backtest_asof.py --gov-design frozen --forecast-2026 final`.
+  - The old design's, for comparison: `python src/model/backtest_asof.py --tag baseline --forecast-2026 final`.
+  - The design over history: `--gov-design frozen --tag NAME`. Without a tag it would overwrite the baseline files.
 - **What it contains.** The design as decided: late polls, then earlier polls (forecast only), then ratings. The
   spreads are left as they are, since candidates 16 and 17 failed, and the three-way rule applies with its factor
   of 1.5.
@@ -865,3 +867,8 @@ competitive ones (forecast margin within 15 points):
 
 The baseline design is scored on the same races, apart from Rhode Island, which it does not cover. The design is
 also reported on those 35. The result is recorded whichever way it goes, and nothing is retuned after it (rule 5).
+
+*Added 2026-11-23, before any result was collected.* The two designs disagree on which races are competitive.
+New Mexico, Oklahoma and Wyoming are within 15 points only in the baseline, and Oregon only in the design. The
+comparison of the two uses the baseline's competitive set, as `--compare` does. The design's own competitive set
+is reported beside it.
