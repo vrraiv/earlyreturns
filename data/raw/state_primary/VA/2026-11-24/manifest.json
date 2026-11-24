@@ -1,0 +1,12 @@
+{
+  "va_contest_160926_table.csv": {
+    "url": "https://va2.elstats.civera.com/api/download_contest/160926_table.csv?split_party=false",
+    "retrieved": "2026-11-24",
+    "bytes": 138700
+  },
+  "va_contest_160927_table.csv": {
+    "url": "https://va2.elstats.civera.com/api/download_contest/160927_table.csv?split_party=false",
+    "retrieved": "2026-11-24",
+    "bytes": 118227
+  }
+}

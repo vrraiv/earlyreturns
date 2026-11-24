@@ -1,0 +1,13 @@
+{
+  "IN_2024Primary_OffCatC_1012_USPresident.json": {
+    "url": "https://enr.indianavoters.in.gov/archive/2024Primary/data/OffCatC_1012_B.json",
+    "retrieved": "2026-11-24",
+    "bytes": 187010
+  },
+  "IN_2024Primary_settings.json": {
+    "url": "https://enr.indianavoters.in.gov/archive/2024Primary/data/settings.json",
+    "retrieved": "2026-11-24",
+    "bytes": 3028,
+    "note": "Certified: T"
+  }
+}

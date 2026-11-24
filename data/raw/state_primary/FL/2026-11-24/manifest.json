@@ -1,0 +1,8 @@
+{
+  "FL_20240319_ResultsExtract_official.txt": {
+    "url": "https://results.elections.myflorida.com/ResultsExtract.Asp?ElectionDate=3/19/2024&OfficialResults=Y&PartyRaces=Y&DataMode=&FormsButton2=Download",
+    "retrieved": "2026-11-24",
+    "bytes": 116116,
+    "note": "official results extract; race PRE (PPC repeats it by congressional district)"
+  }
+}

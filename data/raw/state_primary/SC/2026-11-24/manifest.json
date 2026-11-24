@@ -1,0 +1,14 @@
+{
+  "sc_119816_v330796_summary.json": {
+    "url": "https://www.enr-scvotes.org/SC/119816/330796/json/en/summary.json",
+    "retrieved": "2026-11-24",
+    "bytes": 2745,
+    "note": "Republican primary, final version after certification"
+  },
+  "sc_119283_v327921_summary.json": {
+    "url": "https://www.enr-scvotes.org/SC/119283/327921/json/en/summary.json",
+    "retrieved": "2026-11-24",
+    "bytes": 639,
+    "note": "Democratic primary, final version"
+  }
+}

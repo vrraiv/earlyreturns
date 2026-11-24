@@ -854,9 +854,46 @@ def checks(cands, polls):
     print(f"  {r.question_id.isin(polls.question_id).sum()} of {len(r)}")
 
 
+def dates_538(a):
+    """FiveThirtyEight's contest dates and kinds (2020, 2024 state rows) checked against primary_calendar.csv (the FEC's
+    for 2020, Wikipedia's corrected from the state offices for 2024), which wins where they differ: 538 kept dates set
+    before contests moved (New Jersey and New York 2020, postponed for COVID; Rhode Island, New York and West Virginia
+    2024) and some kinds that changed (Kansas and Minnesota Republicans held primaries in 2024, not caucuses). 538's own
+    values stay in election_date_538 and stage_538. Where the party held two contests in a state, the one of 538's
+    kind. Needs the calendar from src/collect/primary_results.py (the second pass of a clean build)."""
+    a = a.copy()
+    a["election_date_538"], a["stage_538"] = a.election_date, a.stage
+    f = INTERIM / "primary_calendar.csv"
+    if not f.exists():
+        print("538 contest dates not checked: run src/collect/primary_results.py, then this script again")
+        return a
+    cal = pd.read_csv(f, parse_dates=["date"])
+    cal["date"] = cal.date.dt.date
+    by = {k: g.sort_values("date") for k, g in cal.groupby(["cycle", "party", "state"])}
+    changed = []
+    for i in a.index[(a.geo != "US") & a.cycle.isin([2020, 2024])]:
+        g = by.get((a.at[i, "cycle"], a.at[i, "party"], a.at[i, "geo"]))
+        if g is None:
+            continue
+        hit = g[g.contest == a.at[i, "stage"]] if len(g) > 1 else g
+        if len(hit) != 1:
+            continue
+        d, kind = hit.date.iloc[0], hit.contest.iloc[0]
+        if d != a.at[i, "election_date"] or kind != a.at[i, "stage"]:
+            changed.append((a.at[i, "cycle"], a.at[i, "party"], a.at[i, "geo"], a.at[i, "stage"], a.at[i, "election_date"],
+                            kind, d))
+            a.at[i, "election_date"], a.at[i, "stage"] = d, kind
+    a["days_to_contest"] = pd.array([(e - d).days if pd.notna(e) else None for e, d in zip(a.election_date, a.end_date)],
+                                    dtype="Int64")
+    print("538 contest dates or kinds replaced from the calendar (cycle, party, state: 538 -> calendar):")
+    for k in sorted(set(changed), key=str):
+        print(f"  {k[0]} {k[1]} {k[2]}: {k[3]} {k[4]} -> {k[5]} {k[6]}")
+    return a
+
+
 def main():
     cands = candidates()
-    polls = polls_538(cands)
+    polls = dates_538(polls_538(cands))
     p08 = polls_2008(cands)
     polls = pd.concat([p08.reindex(columns=polls.columns), polls], ignore_index=True)
     polls.to_csv(INTERIM / "primary_polls.csv", index=False)

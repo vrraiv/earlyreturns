@@ -1,0 +1,13 @@
+{
+  "MA_REP_electionstats_160659.csv": {
+    "url": "https://electionstats.state.ma.us/elections/download/160659/precincts_include:0/",
+    "retrieved": "2026-11-24",
+    "bytes": 16298,
+    "note": "certified results database"
+  },
+  "MA_DEM_electionstats_160657.csv": {
+    "url": "https://electionstats.state.ma.us/elections/download/160657/precincts_include:0/",
+    "retrieved": "2026-11-24",
+    "bytes": 14109
+  }
+}

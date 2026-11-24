@@ -1,0 +1,14 @@
+{
+  "AL_REP_official_2024_primary_amended.xlsx": {
+    "url": "https://www.sos.alabama.gov/sites/default/files/election-2024/RepublicanPartyOfficial-2024PrimaryResult-Amended.xlsx",
+    "retrieved": "2026-11-24",
+    "bytes": 495626,
+    "note": "certified by the party, amended 2024-04-12 (supersedes the 2024-03-14 file)"
+  },
+  "AL_DEM_official_2024_primary.xlsx": {
+    "url": "https://www.sos.alabama.gov/sites/default/files/election-2024/Democratic_Party-Official_2024_Primary_Election_Results.xlsx",
+    "retrieved": "2026-11-24",
+    "bytes": 385646,
+    "note": "certified by the party 2024-03-14"
+  }
+}

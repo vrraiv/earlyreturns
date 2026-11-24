@@ -1,0 +1,13 @@
+{
+  "MD_PP24_CongressionalBreakDownRepublican.csv": {
+    "url": "https://elections.maryland.gov/elections/archive/2024/election_data/PP24_CongressionalBreakDownRepublican.csv",
+    "retrieved": "2026-11-24",
+    "bytes": 23114,
+    "note": "official results"
+  },
+  "MD_PP24_CongressionalBreakDownDemocratic.csv": {
+    "url": "https://elections.maryland.gov/elections/archive/2024/election_data/PP24_CongressionalBreakDownDemocratic.csv",
+    "retrieved": "2026-11-24",
+    "bytes": 32067
+  }
+}

@@ -1,0 +1,2361 @@
+cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
+2008,D,NH,Hillary Clinton,fec,112404.0,,
+2008,D,NH,Barack Obama,fec,104815.0,,
+2008,D,NH,John Edwards,fec,48699.0,,
+2008,D,NH,Bill Richardson,fec,13269.0,,
+2008,D,NH,Dennis J. Kucinich,fec,3891.0,,
+2008,D,NH,Joe Biden,fec,638.0,,
+2008,D,NH,Mike Gravel,fec,404.0,,
+2008,D,NH,Chris Dodd,fec,205.0,,
+2008,D,NH,D. R. Hunter,fec,95.0,,
+2008,D,NH,Randy Crow,fec,37.0,,
+2008,D,NH,O. Savior,fec,30.0,,
+2008,D,NH,William C. Hughes,fec,16.0,,
+2008,D,NH,Dal LaMagna,fec,8.0,,
+2008,D,MI,Hillary Clinton,fec,328309.0,,
+2008,D,MI,Dennis Kucinich,fec,21715.0,,
+2008,D,MI,Chris Dodd,fec,3845.0,,
+2008,D,MI,Mike Gravel,fec,2361.0,,
+2008,D,SC,Barack Obama,fec,294898.0,,
+2008,D,SC,Hillary Clinton,fec,140990.0,,
+2008,D,SC,John Edwards,fec,93801.0,,
+2008,D,SC,Bill Richardson,fec,726.0,,
+2008,D,SC,Joe Biden,fec,693.0,,
+2008,D,SC,Dennis Kucinich,fec,551.0,,
+2008,D,SC,Chris Dodd,fec,247.0,,
+2008,D,SC,Mike Gravel,fec,245.0,,
+2008,D,FL,Hillary Clinton,fec,870986.0,,
+2008,D,FL,Barack Obama,fec,576214.0,,
+2008,D,FL,John Edwards,fec,251562.0,,
+2008,D,FL,"Joseph R., Jr. Biden",fec,15704.0,,
+2008,D,FL,William Bill Richardson,fec,14999.0,,
+2008,D,FL,Dennis J. Kucinich,fec,9703.0,,
+2008,D,FL,Christopher J. Dodd,fec,5477.0,,
+2008,D,FL,Mike Gravel,fec,5275.0,,
+2008,D,AL,Barack Obama,fec,300319.0,,
+2008,D,AL,Hillary Clinton,fec,223089.0,,
+2008,D,AL,John Edwards,fec,7841.0,,
+2008,D,AL,Joe Biden,fec,1174.0,,
+2008,D,AL,Bill Richardson,fec,1017.0,,
+2008,D,AL,Christopher J. Dodd,fec,523.0,,
+2008,D,AR,Hillary Clinton,fec,220136.0,,
+2008,D,AR,Barack Obama,fec,82476.0,,
+2008,D,AR,John Edwards,fec,5873.0,,
+2008,D,AR,Bill Richardson,fec,810.0,,
+2008,D,AR,Joe Biden,fec,515.0,,
+2008,D,AR,Dennis J. Kucinich,fec,393.0,,
+2008,D,AR,Mike Gravel,fec,325.0,,
+2008,D,AR,Christopher J. Dodd,fec,308.0,,
+2008,D,AZ,Hillary Clinton,fec,229501.0,,
+2008,D,AZ,Barack Obama,fec,193126.0,,
+2008,D,AZ,John Edwards,fec,23621.0,,
+2008,D,AZ,Bill Richardson,fec,2842.0,,
+2008,D,AZ,Dennis J. Kucinich,fec,1973.0,,
+2008,D,AZ,Christopher J. Dodd,fec,484.0,,
+2008,D,AZ,Mike Gravel,fec,340.0,,
+2008,D,AZ,Karl Krueger,fec,291.0,,
+2008,D,AZ,Frank Lynch,fec,248.0,,
+2008,D,AZ,Evelyn L. Vitullo,fec,132.0,,
+2008,D,CA,Hillary Clinton,fec,2608184.0,,
+2008,D,CA,Barack Obama,fec,2186662.0,,
+2008,D,CA,John Edwards,fec,193617.0,,
+2008,D,CA,Dennis Kucinich,fec,24126.0,,
+2008,D,CA,Bill Richardson,fec,19939.0,,
+2008,D,CA,Joe Biden,fec,18261.0,,
+2008,D,CA,Mike Gravel,fec,8184.0,,
+2008,D,CA,Chris Dodd,fec,8005.0,,
+2008,D,CT,Barack Obama,fec,179742.0,,
+2008,D,CT,Hillary Clinton,fec,165426.0,,
+2008,D,CT,John Edwards,fec,3424.0,,
+2008,D,CT,Chris Dodd,fec,912.0,,
+2008,D,CT,Dennis Kucinich,fec,846.0,,
+2008,D,CT,Joe Biden,fec,440.0,,
+2008,D,CT,Bill Richardson,fec,436.0,,
+2008,D,CT,Mike Gravel,fec,275.0,,
+2008,D,DE,Barack Obama,fec,51148.0,,
+2008,D,DE,Hillary Clinton,fec,40760.0,,
+2008,D,DE,"Joseph R., Jr. Biden",fec,2863.0,,
+2008,D,DE,John Edwards,fec,1241.0,,
+2008,D,DE,Dennis J. Kucinich,fec,192.0,,
+2008,D,DE,Christopher J. Dodd,fec,170.0,,
+2008,D,GA,Barack Obama,fec,704247.0,,
+2008,D,GA,Hillary Clinton,fec,330026.0,,
+2008,D,GA,John Edwards,fec,18209.0,,
+2008,D,GA,Joe Biden,fec,2538.0,,
+2008,D,GA,Dennis J. Kucinich,fec,2096.0,,
+2008,D,GA,Bill Richardson,fec,1879.0,,
+2008,D,GA,Mike Gravel,fec,952.0,,
+2008,D,GA,Chris Dodd,fec,904.0,,
+2008,D,IL,Barack Obama,fec,1318234.0,,
+2008,D,IL,Hillary Clinton,fec,667930.0,,
+2008,D,IL,John Edwards,fec,39719.0,,
+2008,D,IL,Dennis J. Kucinich,fec,4234.0,,
+2008,D,IL,Joe Biden,fec,3788.0,,
+2008,D,IL,"William Bill B., III Richardson",fec,3538.0,,
+2008,D,IL,Christopher John Dodd,fec,1171.0,,
+2008,D,MA,Hillary Clinton,fec,705185.0,,
+2008,D,MA,Barack Obama,fec,511680.0,,
+2008,D,MA,John R. Edwards,fec,20101.0,,
+2008,D,MA,"Joseph R., Jr. Biden",fec,3216.0,,
+2008,D,MA,Dennis J. Kucinich,fec,2992.0,,
+2008,D,MA,Bill Richardson,fec,1846.0,,
+2008,D,MA,Mike Gravel,fec,1463.0,,
+2008,D,MA,Christopher J. Dodd,fec,1120.0,,
+2008,D,MO,Barack Obama,fec,406917.0,,
+2008,D,MO,Hillary Clinton,fec,395185.0,,
+2008,D,MO,John Edwards,fec,16763.0,,
+2008,D,MO,Dennis J. Kucinich,fec,820.0,,
+2008,D,MO,Bill Richardson,fec,689.0,,
+2008,D,MO,Joe Biden,fec,626.0,,
+2008,D,MO,Mike Gravel,fec,438.0,,
+2008,D,MO,Christopher J. Dodd,fec,250.0,,
+2008,D,NJ,Hillary Clinton,fec,613500.0,,
+2008,D,NJ,Barack Obama,fec,501372.0,,
+2008,D,NJ,John Edwards,fec,15728.0,,
+2008,D,NJ,Joe Biden,fec,4081.0,,
+2008,D,NJ,Bill Richardson,fec,3366.0,,
+2008,D,NJ,Dennis Kucinich,fec,3152.0,,
+2008,D,NY,Hillary Clinton,fec,1068496.0,,
+2008,D,NY,Barack Obama,fec,751019.0,,
+2008,D,NY,John Edwards,fec,21924.0,,
+2008,D,NY,Dennis J. Kucinich,fec,8458.0,,
+2008,D,NY,Bill Richardson,fec,8227.0,,
+2008,D,NY,Joe Biden,fec,4321.0,,
+2008,D,OK,Hillary Clinton,fec,228480.0,,
+2008,D,OK,Barack Obama,fec,130130.0,,
+2008,D,OK,John Edwards,fec,42725.0,,
+2008,D,OK,Bill Richardson,fec,7078.0,,
+2008,D,OK,Jim Rogers,fec,3905.0,,
+2008,D,OK,Christopher J. Dodd,fec,2511.0,,
+2008,D,OK,Dennis J. Kucinich,fec,2378.0,,
+2008,D,TN,Hillary Clinton,fec,336245.0,,
+2008,D,TN,Barack Obama,fec,252874.0,,
+2008,D,TN,John Edwards,fec,27820.0,,
+2008,D,TN,Joe Biden,fec,1531.0,,
+2008,D,TN,Bill Richardson,fec,1178.0,,
+2008,D,TN,Dennis Kucinich,fec,971.0,,
+2008,D,TN,Chris Dodd,fec,526.0,,
+2008,D,TN,Mike Gravel,fec,461.0,,
+2008,D,UT,Barack Obama,fec,74538.0,,
+2008,D,UT,Hillary Clinton,fec,51333.0,,
+2008,D,UT,John Edwards,fec,3758.0,,
+2008,D,UT,Bill Richardson,fec,549.0,,
+2008,D,UT,Joe Biden,fec,462.0,,
+2008,D,UT,Dennis Kucinich,fec,408.0,,
+2008,D,UT,Mike Gravel,fec,166.0,,
+2008,D,UT,Christopher J. Dodd,fec,117.0,,
+2008,D,UT,Frank Lynch,fec,72.0,,
+2008,D,LA,Barack Obama,fec,220632.0,,
+2008,D,LA,Hillary Clinton,fec,136925.0,,
+2008,D,LA,John Edwards,fec,13026.0,,
+2008,D,LA,Joe Biden,fec,6178.0,,
+2008,D,LA,William Bill Richardson,fec,4257.0,,
+2008,D,LA,Christopher J. Dodd,fec,1924.0,,
+2008,D,LA,Dennis J. Kucinich,fec,1404.0,,
+2008,D,DC,Barack Obama,fec,93386.0,,
+2008,D,DC,Hillary Clinton,fec,29470.0,,
+2008,D,DC,John Edwards,fec,347.0,,
+2008,D,DC,Dennis J. Kucinich,fec,193.0,,
+2008,D,DC,Bill Richardson,fec,145.0,,
+2008,D,MD,Barack Obama,fec,532665.0,,
+2008,D,MD,Hillary Clinton,fec,314211.0,,
+2008,D,MD,John Edwards,fec,10506.0,,
+2008,D,MD,Joe Biden,fec,3776.0,,
+2008,D,MD,Bill Richardson,fec,2098.0,,
+2008,D,MD,Dennis J. Kucinich,fec,1909.0,,
+2008,D,MD,Mike Gravel,fec,804.0,,
+2008,D,MD,Christopher J. Dodd,fec,788.0,,
+2008,D,VA,Barack Obama,fec,627820.0,,
+2008,D,VA,Hillary Clinton,fec,349766.0,,
+2008,D,VA,John Edwards,fec,5206.0,,
+2008,D,VA,Dennis J. Kucinich,fec,1625.0,,
+2008,D,VA,Bill Richardson,fec,991.0,,
+2008,D,VA,Joe Biden,fec,795.0,,
+2008,D,WA,Barack Obama,fec,354112.0,,
+2008,D,WA,Hillary Clinton,fec,315744.0,,
+2008,D,WA,John Edwards,fec,11892.0,,
+2008,D,WA,Dennis J. Kucinich,fec,4021.0,,
+2008,D,WA,Bill Richardson,fec,2040.0,,
+2008,D,WA,Joe Biden,fec,1883.0,,
+2008,D,WA,Mike Gravel,fec,1071.0,,
+2008,D,WA,Christopher J. Dodd,fec,618.0,,
+2008,D,WI,Barack Obama,fec,646851.0,,
+2008,D,WI,Hillary Clinton,fec,453954.0,,
+2008,D,WI,John Edwards,fec,6693.0,,
+2008,D,WI,Dennis Kucinich,fec,2625.0,,
+2008,D,WI,Joe Biden,fec,755.0,,
+2008,D,WI,Bill Richardson,fec,528.0,,
+2008,D,WI,Mike Gravel,fec,517.0,,
+2008,D,WI,Chris Dodd,fec,501.0,,
+2008,D,OH,Hillary Clinton,fec,1259620.0,,
+2008,D,OH,Barack Obama,fec,1055769.0,,
+2008,D,OH,John Edwards,fec,39332.0,,
+2008,D,RI,Hillary Clinton,fec,108949.0,,
+2008,D,RI,Barack Obama,fec,75316.0,,
+2008,D,RI,John Edwards,fec,1133.0,,
+2008,D,TX,Hillary Clinton,fec,1462734.0,,
+2008,D,TX,Barack Obama,fec,1362476.0,,
+2008,D,TX,John Edwards,fec,29936.0,,
+2008,D,TX,Bill Richardson,fec,10773.0,,
+2008,D,TX,Joe Biden,fec,5290.0,,
+2008,D,TX,Christopher J. Dodd,fec,3777.0,,
+2008,D,VT,Barack Obama,fec,91901.0,,
+2008,D,VT,Hillary Clinton,fec,59806.0,,
+2008,D,VT,John Edwards,fec,1936.0,,
+2008,D,VT,Dennis J. Kucinich,fec,1010.0,,
+2008,D,MS,Barack Obama,fec,265370.0,,
+2008,D,MS,Hillary Clinton,fec,159273.0,,
+2008,D,MS,John Edwards,fec,3933.0,,
+2008,D,MS,Joseph Biden,fec,1815.0,,
+2008,D,MS,Bill Richardson,fec,1396.0,,
+2008,D,MS,Dennis Kucinich,fec,912.0,,
+2008,D,MS,Chris Dodd,fec,739.0,,
+2008,D,MS,Mike Gravel,fec,591.0,,
+2008,D,PA,Hillary Clinton,fec,1275039.0,,
+2008,D,PA,Barack Obama,fec,1061441.0,,
+2008,D,IN,Hillary Clinton,fec,646282.0,,
+2008,D,IN,Barack Obama,fec,632073.0,,
+2008,D,NC,Barack Obama,fec,887391.0,,
+2008,D,NC,Hillary Clinton,fec,657669.0,,
+2008,D,NC,Mike Gravel,fec,12452.0,,
+2008,D,NE,Barack Obama,fec,46670.0,,
+2008,D,NE,Hillary Clinton,fec,43979.0,,
+2008,D,NE,Mike Gravel,fec,3886.0,,
+2008,D,WV,Hillary Clinton,fec,240890.0,,
+2008,D,WV,Barack Obama,fec,92736.0,,
+2008,D,WV,John Edwards,fec,26284.0,,
+2008,D,KY,Hillary Clinton,fec,459511.0,,
+2008,D,KY,Barack Obama,fec,209954.0,,
+2008,D,KY,John Edwards,fec,14212.0,,
+2008,D,OR,Barack Obama,fec,375385.0,,
+2008,D,OR,Hillary Clinton,fec,259825.0,,
+2008,D,ID,Barack Obama,fec,23980.0,,
+2008,D,ID,Hillary Clinton,fec,16122.0,,
+2008,D,ID,Keith Russell Judd,fec,734.0,,
+2008,D,PR,Hillary Clinton,fec,263865.0,,
+2008,D,PR,Barack Obama,fec,123085.0,,
+2008,D,MT,Barack Obama,fec,103174.0,,
+2008,D,MT,Hillary Clinton,fec,74889.0,,
+2008,D,SD,Hillary Clinton,fec,54128.0,,
+2008,D,SD,Barack Obama,fec,43669.0,,
+2008,R,NH,John McCain,fec,88713.0,88713.0,0.0
+2008,R,NH,Mitt Romney,fec,75675.0,75675.0,0.0
+2008,R,NH,Mike Huckabee,fec,26916.0,26916.0,0.0
+2008,R,NH,Rudolph W. Giuliani,fec,20344.0,20344.0,0.0
+2008,R,NH,Ron Paul,fec,18346.0,18346.0,0.0
+2008,R,NH,Fred Thompson,fec,2956.0,2956.0,0.0
+2008,R,NH,Duncan Hunter,fec,1192.0,1192.0,0.0
+2008,R,NH,Alan Keyes,fec,205.0,205.0,0.0
+2008,R,NH,Thomas G. Tancredo,fec,63.0,63.0,0.0
+2008,R,NH,Albert Howard,fec,43.0,43.0,0.0
+2008,R,NH,John Cox,fec,39.0,39.0,0.0
+2008,R,NH,Vern Wuensche,fec,36.0,36.0,0.0
+2008,R,NH,Hugh Cort,fec,35.0,35.0,0.0
+2008,R,NH,Daniel Gilbert,fec,35.0,35.0,0.0
+2008,R,NH,Jack Shepard,fec,28.0,28.0,0.0
+2008,R,NH,"James Creighton, Jr. Mitchell",fec,26.0,,
+2008,R,NH,Mark Klein,fec,16.0,16.0,0.0
+2008,R,NH,"H. Neal, Jr. Fendig",fec,13.0,,
+2008,R,MI,Mitt Romney,fec,338316.0,338316.0,0.0
+2008,R,MI,John McCain,fec,257985.0,257985.0,0.0
+2008,R,MI,Mike Huckabee,fec,139764.0,139764.0,0.0
+2008,R,MI,Ron Paul,fec,54475.0,54475.0,0.0
+2008,R,MI,Fred Thompson,fec,32159.0,32159.0,0.0
+2008,R,MI,Rudy Giuliani,fec,24725.0,24725.0,0.0
+2008,R,MI,Duncan Hunter,fec,2819.0,2819.0,0.0
+2008,R,MI,Tom Tancredo,fec,457.0,457.0,0.0
+2008,R,MI,Sam Brownback,fec,351.0,351.0,0.0
+2008,R,SC,John McCain,fec,147686.0,147686.0,0.0
+2008,R,SC,Mike Huckabee,fec,132943.0,132943.0,0.0
+2008,R,SC,Fred Thompson,fec,69651.0,69651.0,0.0
+2008,R,SC,Mitt Romney,fec,68142.0,68142.0,0.0
+2008,R,SC,Ron Paul,fec,16154.0,16154.0,0.0
+2008,R,SC,Rudy Giuliani,fec,9557.0,9557.0,0.0
+2008,R,SC,Duncan Hunter,fec,1051.0,1051.0,0.0
+2008,R,SC,Tom Tancredo,fec,121.0,121.0,0.0
+2008,R,SC,Hugh Cort,fec,88.0,88.0,0.0
+2008,R,SC,John Cox,fec,83.0,83.0,0.0
+2008,R,SC,Cap Fendig,fec,23.0,23.0,0.0
+2008,R,FL,John McCain,fec,701761.0,701761.0,0.0
+2008,R,FL,Mitt Romney,fec,604932.0,604932.0,0.0
+2008,R,FL,Rudy Giuliani,fec,286089.0,286089.0,0.0
+2008,R,FL,Mike Huckabee,fec,262681.0,262681.0,0.0
+2008,R,FL,Ron Paul,fec,62887.0,62887.0,0.0
+2008,R,FL,Fred Thompson,fec,22668.0,22668.0,0.0
+2008,R,FL,Alan Keyes,fec,4060.0,4060.0,0.0
+2008,R,FL,Duncan Hunter,fec,2847.0,2847.0,0.0
+2008,R,FL,Tom Tancredo,fec,1573.0,1573.0,0.0
+2008,R,AL,Mike Huckabee,fec,227766.0,227766.0,0.0
+2008,R,AL,John McCain,fec,204867.0,204867.0,0.0
+2008,R,AL,Mitt Romney,fec,98019.0,98019.0,0.0
+2008,R,AL,Ron Paul,fec,14810.0,14810.0,0.0
+2008,R,AL,Rudy Giuliani,fec,2134.0,2134.0,0.0
+2008,R,AL,Fred Thompson,fec,1835.0,1835.0,0.0
+2008,R,AL,Alan Keyes,fec,778.0,778.0,0.0
+2008,R,AL,Duncan Hunter,fec,391.0,391.0,0.0
+2008,R,AL,Dr. Hugh Cort,fec,228.0,228.0,0.0
+2008,R,AL,Tom Tancredo,fec,93.0,93.0,0.0
+2008,R,AR,Mike Huckabee,fec,138557.0,138557.0,0.0
+2008,R,AR,John McCain,fec,46343.0,46343.0,0.0
+2008,R,AR,Mitt Romney,fec,30997.0,30997.0,0.0
+2008,R,AR,Ron Paul,fec,10983.0,10983.0,0.0
+2008,R,AR,Rudy Giuliani,fec,658.0,658.0,0.0
+2008,R,AR,Fred Thompson,fec,628.0,628.0,0.0
+2008,R,AZ,John McCain,fec,255197.0,255197.0,0.0
+2008,R,AZ,Mitt Romney,fec,186838.0,186838.0,0.0
+2008,R,AZ,Mike Huckabee,fec,48849.0,48849.0,0.0
+2008,R,AZ,Ron Paul,fec,22692.0,22692.0,0.0
+2008,R,AZ,Rudy Giuliani,fec,13658.0,13658.0,0.0
+2008,R,AZ,Fred Thompson,fec,9492.0,9492.0,0.0
+2008,R,AZ,Duncan Hunter,fec,1082.0,1082.0,0.0
+2008,R,AZ,Alan Keyes,fec,970.0,970.0,0.0
+2008,R,AZ,Frank McEnulty,fec,333.0,333.0,0.0
+2008,R,AZ,"James Creighton Mitchell, Jr.",fec,193.0,193.0,0.0
+2008,R,AZ,Jerry Curry,fec,98.0,98.0,0.0
+2008,R,AZ,Jack Shepard,fec,78.0,78.0,0.0
+2008,R,AZ,Bob Forthan,fec,75.0,75.0,0.0
+2008,R,AZ,Michael P. Shaw,fec,62.0,62.0,0.0
+2008,R,AZ,Hugh Cort,fec,58.0,58.0,0.0
+2008,R,AZ,Daniel Gilbert,fec,53.0,53.0,0.0
+2008,R,AZ,Rhett R. Smith,fec,44.0,44.0,0.0
+2008,R,CA,John McCain,fec,1238988.0,1238988.0,0.0
+2008,R,CA,Mitt Romney,fec,1013471.0,1013471.0,0.0
+2008,R,CA,Mike Huckabee,fec,340669.0,340669.0,0.0
+2008,R,CA,Rudy Giuliani,fec,128681.0,128681.0,0.0
+2008,R,CA,Ron Paul,fec,125365.0,125365.0,0.0
+2008,R,CA,Fred Thompson,fec,50275.0,50275.0,0.0
+2008,R,CA,Duncan Hunter,fec,14021.0,14021.0,0.0
+2008,R,CA,Alan Keyes,fec,11742.0,11742.0,0.0
+2008,R,CA,Tom Tancredo,fec,3884.0,3884.0,0.0
+2008,R,CA,John H. Cox,fec,3219.0,3219.0,0.0
+2008,R,CA,Sam Brownback,fec,2486.0,2486.0,0.0
+2008,R,CT,John McCain,fec,78836.0,78836.0,0.0
+2008,R,CT,Mitt Romney,fec,49891.0,49891.0,0.0
+2008,R,CT,Mike Huckabee,fec,10607.0,10607.0,0.0
+2008,R,CT,Ron Paul,fec,6287.0,6287.0,0.0
+2008,R,CT,Rudolph Giuliani,fec,2470.0,2470.0,0.0
+2008,R,CT,Fred Thompson,fec,538.0,538.0,0.0
+2008,R,CT,Alan Keyes,fec,376.0,376.0,0.0
+2008,R,CT,Duncan Hunter,fec,137.0,137.0,0.0
+2008,R,DE,John McCain,fec,22628.0,22226.0,402.0
+2008,R,DE,Mitt Romney,fec,16344.0,16060.0,284.0
+2008,R,DE,Michael D. Huckabee,fec,7706.0,7577.0,129.0
+2008,R,DE,Ron Paul,fec,2131.0,2083.0,48.0
+2008,R,DE,Rudy Giuliani,fec,1255.0,1161.0,94.0
+2008,R,DE,Tom Tancredo,fec,175.0,174.0,1.0
+2008,R,GA,Mike Huckabee,fec,326874.0,326874.0,0.0
+2008,R,GA,John McCain,fec,304751.0,304751.0,0.0
+2008,R,GA,Mitt Romney,fec,290707.0,290707.0,0.0
+2008,R,GA,Ron Paul,fec,28096.0,28096.0,0.0
+2008,R,GA,Rudy Giuliani,fec,7162.0,7162.0,0.0
+2008,R,GA,Fred Thompson,fec,3414.0,3414.0,0.0
+2008,R,GA,Alan Keyes,fec,1458.0,1458.0,0.0
+2008,R,GA,Duncan Hunter,fec,755.0,755.0,0.0
+2008,R,GA,Tom Tancredo,fec,324.0,324.0,0.0
+2008,R,IL,John McCain,fec,426777.0,426777.0,0.0
+2008,R,IL,Mitt Romney,fec,257265.0,257265.0,0.0
+2008,R,IL,Mike Huckabee,fec,148053.0,148053.0,0.0
+2008,R,IL,Ron Paul,fec,45055.0,45055.0,0.0
+2008,R,IL,Rudy Giuliani,fec,11837.0,11837.0,0.0
+2008,R,IL,Fred Thompson,fec,7259.0,7259.0,0.0
+2008,R,IL,Alan Keyes,fec,2318.0,2318.0,0.0
+2008,R,IL,"James Creighton, Jr. Mitchell",fec,483.0,,
+2008,R,IL,Tom Tancredo,fec,375.0,375.0,0.0
+2008,R,MA,Mitt Romney,fec,255892.0,255892.0,0.0
+2008,R,MA,John McCain,fec,204779.0,204779.0,0.0
+2008,R,MA,Mike Huckabee,fec,19103.0,19103.0,0.0
+2008,R,MA,Ron Paul,fec,13251.0,13251.0,0.0
+2008,R,MA,Rudy Giuliani,fec,2707.0,2707.0,0.0
+2008,R,MA,Fred Thompson,fec,916.0,916.0,0.0
+2008,R,MA,Duncan Hunter,fec,258.0,258.0,0.0
+2008,R,MA,Tom Tancredo,fec,153.0,153.0,0.0
+2008,R,MO,John McCain,fec,194053.0,194053.0,0.0
+2008,R,MO,Mike Huckabee,fec,185642.0,185642.0,0.0
+2008,R,MO,Mitt Romney,fec,172329.0,172329.0,0.0
+2008,R,MO,Ron Paul,fec,26464.0,26464.0,0.0
+2008,R,MO,Rudy Giuliani,fec,3593.0,3593.0,0.0
+2008,R,MO,Fred Thompson,fec,3102.0,3102.0,0.0
+2008,R,MO,Alan Keyes,fec,892.0,892.0,0.0
+2008,R,MO,Duncan Hunter,fec,307.0,307.0,0.0
+2008,R,MO,Virgil L.R. Wiles,fec,124.0,124.0,0.0
+2008,R,MO,Thomas Tancredo,fec,107.0,107.0,0.0
+2008,R,MO,Daniel Gilbert,fec,88.0,88.0,0.0
+2008,R,MO,Hugh Cort,fec,46.0,46.0,0.0
+2008,R,NJ,John McCain,fec,313459.0,313459.0,0.0
+2008,R,NJ,Mitt Romney,fec,160388.0,160388.0,0.0
+2008,R,NJ,Mike Huckabee,fec,46284.0,46284.0,0.0
+2008,R,NJ,Ron Paul,fec,27301.0,27301.0,0.0
+2008,R,NJ,Rudy Giuliani,fec,15516.0,15516.0,0.0
+2008,R,NJ,Fred Thompson,fec,3253.0,3253.0,0.0
+2008,R,NY,John McCain,fec,333001.0,333001.0,0.0
+2008,R,NY,Mitt Romney,fec,178043.0,178043.0,0.0
+2008,R,NY,Mike Huckabee,fec,68477.0,68477.0,0.0
+2008,R,NY,Ron Paul,fec,40113.0,40113.0,0.0
+2008,R,NY,Rudy Giuliani,fec,23260.0,23260.0,0.0
+2008,R,OK,John McCain,fec,122772.0,122772.0,0.0
+2008,R,OK,Mike Huckabee,fec,111899.0,111899.0,0.0
+2008,R,OK,Mitt Romney,fec,83030.0,83030.0,0.0
+2008,R,OK,Ron Paul,fec,11183.0,11183.0,0.0
+2008,R,OK,Rudy Giuliani,fec,2412.0,2412.0,0.0
+2008,R,OK,Fred Thompson,fec,1924.0,1924.0,0.0
+2008,R,OK,Alan L. Keyes,fec,817.0,817.0,0.0
+2008,R,OK,Jerry R. Curry,fec,387.0,387.0,0.0
+2008,R,OK,Duncan Hunter,fec,317.0,317.0,0.0
+2008,R,OK,Tom Tancredo,fec,189.0,189.0,0.0
+2008,R,OK,Daniel Gilbert,fec,124.0,124.0,0.0
+2008,R,TN,Mike Huckabee,fec,190904.0,190904.0,0.0
+2008,R,TN,John McCain,fec,176091.0,176091.0,0.0
+2008,R,TN,Mitt Romney,fec,130632.0,130632.0,0.0
+2008,R,TN,Ron Paul,fec,31026.0,31026.0,0.0
+2008,R,TN,Fred Thompson,fec,16263.0,16263.0,0.0
+2008,R,TN,Rudy Giuliani,fec,5159.0,5159.0,0.0
+2008,R,TN,Alan Keyes,fec,978.0,978.0,0.0
+2008,R,TN,Duncan Hunter,fec,738.0,738.0,0.0
+2008,R,TN,Tom Tancredo,fec,194.0,194.0,0.0
+2008,R,UT,Mitt Romney,fec,264956.0,264956.0,0.0
+2008,R,UT,John McCain,fec,15931.0,15931.0,0.0
+2008,R,UT,Ron Paul,fec,8846.0,8846.0,0.0
+2008,R,UT,Mike Huckabee,fec,4252.0,4252.0,0.0
+2008,R,UT,Rudy Giuliani,fec,988.0,988.0,0.0
+2008,R,UT,Fred Thompson,fec,613.0,613.0,0.0
+2008,R,UT,Alan Keyes,fec,261.0,261.0,0.0
+2008,R,UT,Duncan Hunter,fec,211.0,211.0,0.0
+2008,R,UT,Tom Tancredo,fec,3.0,3.0,0.0
+2008,R,LA,Mike Huckabee,fec,69594.0,69594.0,0.0
+2008,R,LA,John McCain,fec,67551.0,67551.0,0.0
+2008,R,LA,Mitt Romney,fec,10222.0,10222.0,0.0
+2008,R,LA,Ron Paul,fec,8590.0,8590.0,0.0
+2008,R,LA,Fred Thompson,fec,1603.0,1603.0,0.0
+2008,R,LA,Rudolph W. Giuliani,fec,1593.0,1593.0,0.0
+2008,R,LA,Alan Keyes,fec,837.0,837.0,0.0
+2008,R,LA,Jerry Curry,fec,521.0,521.0,0.0
+2008,R,LA,Duncan Hunter,fec,368.0,368.0,0.0
+2008,R,LA,Daniel Gilbert,fec,183.0,183.0,0.0
+2008,R,LA,Tom Tancredo,fec,107.0,107.0,0.0
+2008,R,DC,John McCain,fec,4198.0,4198.0,0.0
+2008,R,DC,Mike Huckabee,fec,1020.0,1020.0,0.0
+2008,R,DC,Ron Paul,fec,494.0,494.0,0.0
+2008,R,DC,Mitt Romney,fec,398.0,398.0,0.0
+2008,R,DC,Rudy Giuliani,fec,101.0,101.0,0.0
+2008,R,MD,John McCain,fec,176046.0,176046.0,0.0
+2008,R,MD,Mike Huckabee,fec,91608.0,91608.0,0.0
+2008,R,MD,Mitt Romney,fec,22426.0,22426.0,0.0
+2008,R,MD,Ron Paul,fec,19196.0,19196.0,0.0
+2008,R,MD,Rudy Giuliani,fec,4548.0,4548.0,0.0
+2008,R,MD,Alan Keyes,fec,3386.0,3386.0,0.0
+2008,R,MD,Fred Thompson,fec,2901.0,2901.0,0.0
+2008,R,MD,Duncan Hunter,fec,522.0,522.0,0.0
+2008,R,MD,Tom Tancredo,fec,356.0,356.0,0.0
+2008,R,VA,John McCain,fec,244829.0,244829.0,0.0
+2008,R,VA,Mike Huckabee,fec,199003.0,199003.0,0.0
+2008,R,VA,Ron Paul,fec,21999.0,21999.0,0.0
+2008,R,VA,Mitt Romney,fec,18002.0,18002.0,0.0
+2008,R,VA,Fred D. Thompson,fec,3395.0,3395.0,0.0
+2008,R,VA,Rudy Giuliani,fec,2024.0,2024.0,0.0
+2008,R,WA,John McCain,fec,262304.0,262304.0,0.0
+2008,R,WA,Mike Huckabee,fec,127657.0,127657.0,0.0
+2008,R,WA,Mitt Romney,fec,86140.0,86140.0,0.0
+2008,R,WA,Ron Paul,fec,40539.0,40539.0,0.0
+2008,R,WA,Rudy Giuliani,fec,5145.0,5145.0,0.0
+2008,R,WA,Fred Thompson,fec,4865.0,4865.0,0.0
+2008,R,WA,Alan Keyes,fec,2226.0,2226.0,0.0
+2008,R,WA,Duncan Hunter,fec,1056.0,1056.0,0.0
+2008,R,WI,John McCain,fec,224755.0,224755.0,0.0
+2008,R,WI,Mike Huckabee,fec,151707.0,151707.0,0.0
+2008,R,WI,Ron Paul,fec,19090.0,19090.0,0.0
+2008,R,WI,Mitt Romney,fec,8080.0,8080.0,0.0
+2008,R,WI,Fred Thompson,fec,2709.0,2709.0,0.0
+2008,R,WI,Rudy Giuliani,fec,1935.0,1935.0,0.0
+2008,R,WI,Duncan Hunter,fec,799.0,799.0,0.0
+2008,R,WI,Tom Tancredo,fec,185.0,185.0,0.0
+2008,R,OH,John McCain,fec,570453.0,656687.0,-86234.0
+2008,R,OH,Mike Huckabee,fec,338838.0,335356.0,3482.0
+2008,R,OH,Ron Paul,fec,55690.0,49027.0,6663.0
+2008,R,OH,Mitt Romney,fec,54540.0,36031.0,18509.0
+2008,R,OH,Fred Thompson,fec,26103.0,16879.0,9224.0
+2008,R,RI,John McCain,fec,17480.0,17480.0,0.0
+2008,R,RI,Mike Huckabee,fec,5847.0,5847.0,0.0
+2008,R,RI,Ron Paul,fec,1777.0,1777.0,0.0
+2008,R,RI,Mitt Romney,fec,1181.0,1181.0,0.0
+2008,R,RI,Alan Keyes,fec,117.0,117.0,0.0
+2008,R,RI,Hugh Cort,fec,24.0,24.0,0.0
+2008,R,TX,John McCain,fec,697767.0,697767.0,0.0
+2008,R,TX,Mike Huckabee,fec,518002.0,518002.0,0.0
+2008,R,TX,Ron Paul,fec,66360.0,66360.0,0.0
+2008,R,TX,Mitt Romney,fec,27264.0,27264.0,0.0
+2008,R,TX,Fred Thompson,fec,11503.0,11503.0,0.0
+2008,R,TX,Alan Keyes,fec,8260.0,8260.0,0.0
+2008,R,TX,Duncan Hunter,fec,8222.0,8222.0,0.0
+2008,R,TX,Rudy Giuliani,fec,6038.0,6038.0,0.0
+2008,R,TX,Hugh Cort,fec,728.0,728.0,0.0
+2008,R,VT,John McCain,fec,28417.0,28417.0,0.0
+2008,R,VT,Mike Huckabee,fec,5698.0,5698.0,0.0
+2008,R,VT,Ron Paul,fec,2635.0,2635.0,0.0
+2008,R,VT,Mitt Romney,fec,1809.0,1809.0,0.0
+2008,R,VT,Rudy Giuliani,fec,931.0,931.0,0.0
+2008,R,MS,John McCain,fec,113074.0,113074.0,0.0
+2008,R,MS,Mike Huckabee,fec,17943.0,17943.0,0.0
+2008,R,MS,Ron Paul,fec,5510.0,5510.0,0.0
+2008,R,MS,Mitt Romney,fec,2177.0,2177.0,0.0
+2008,R,MS,Fred Thompson,fec,2160.0,2160.0,0.0
+2008,R,MS,Rudy Giuliani,fec,945.0,945.0,0.0
+2008,R,MS,Alan Keyes,fec,842.0,842.0,0.0
+2008,R,MS,Duncan Hunter,fec,414.0,414.0,0.0
+2008,R,MS,Tom Tancredo,fec,221.0,221.0,0.0
+2008,R,PA,John McCain,fec,595175.0,595175.0,0.0
+2008,R,PA,Ron Paul,fec,129323.0,129323.0,0.0
+2008,R,PA,Mike Huckabee,fec,92430.0,92430.0,0.0
+2008,R,IN,John McCain,fec,320318.0,320318.0,0.0
+2008,R,IN,Mike Huckabee,fec,41173.0,41173.0,0.0
+2008,R,IN,Ron Paul,fec,31612.0,31612.0,0.0
+2008,R,IN,Mitt Romney,fec,19581.0,19581.0,0.0
+2008,R,NC,John McCain,fec,383085.0,383085.0,0.0
+2008,R,NC,Mike Huckabee,fec,63018.0,63018.0,0.0
+2008,R,NC,Ron Paul,fec,37260.0,37260.0,0.0
+2008,R,NC,Alan Keyes,fec,13596.0,13596.0,0.0
+2008,R,NE,John McCain,fec,118876.0,118876.0,0.0
+2008,R,NE,Ron Paul,fec,17772.0,17772.0,0.0
+2008,R,WV,John McCain,fec,90469.0,90469.0,0.0
+2008,R,WV,Mikke Huckabee,fec,12260.0,12310.0,-50.0
+2008,R,WV,Ron Paul,fec,6000.0,5969.0,31.0
+2008,R,WV,Mitt Romney,fec,5242.0,5242.0,0.0
+2008,R,WV,Rudy Giuliani,fec,2875.0,2875.0,0.0
+2008,R,WV,Alan L. Keyes,fec,1441.0,1441.0,0.0
+2008,R,WV,Jerry Curry,fec,728.0,728.0,0.0
+2008,R,KY,John McCain,fec,142918.0,142918.0,0.0
+2008,R,KY,Mike Huckabee,fec,16388.0,16388.0,0.0
+2008,R,KY,Ron Paul,fec,13427.0,13427.0,0.0
+2008,R,KY,Mitt Romney,fec,9206.0,9206.0,0.0
+2008,R,KY,Rudolph W. Giuliani,fec,3055.0,3055.0,0.0
+2008,R,KY,Alan Keyes,fec,2044.0,2044.0,0.0
+2008,R,OR,John McCain,fec,285881.0,285881.0,0.0
+2008,R,OR,Ron Paul,fec,51100.0,51100.0,0.0
+2008,R,ID,John McCain,fec,87460.0,87460.0,0.0
+2008,R,ID,Ron Paul,fec,29785.0,29785.0,0.0
+2008,R,MT,John McCain,fec,72791.0,72791.0,0.0
+2008,R,MT,Ron Paul,fec,20606.0,20606.0,0.0
+2008,R,NM,John McCain,fec,95378.0,95378.0,0.0
+2008,R,NM,Ron Paul,fec,15561.0,15561.0,0.0
+2008,R,SD,John McCain,fec,42788.0,42788.0,0.0
+2008,R,SD,Ron Paul,fec,10072.0,10072.0,0.0
+2008,R,SD,Mike Huckabee,fec,4328.0,4328.0,0.0
+2008,R,SD,Mitt Romney,fec,1990.0,1990.0,0.0
+2012,D,NH,Barack Obama,fec,49080.0,,
+2012,D,NH,Randall Terry,fec,442.0,,
+2012,D,NH,John D. Haywood,fec,423.0,,
+2012,D,NH,Bob Ely,fec,287.0,,
+2012,D,NH,Darcy G. Richardson,fec,264.0,,
+2012,D,NH,"John, Jr. Wolfe",fec,245.0,,
+2012,D,NH,"Edward T., Jr. O'Donnell",fec,222.0,,
+2012,D,NH,Bob Greene,fec,213.0,,
+2012,D,NH,Robert B. Jordan,fec,155.0,,
+2012,D,NH,Aldous C. Tyler,fec,106.0,,
+2012,D,SC,Barack Obama,fec,,,
+2012,D,FL,Barack Obama,fec,,,
+2012,D,MO,Barack Obama,fec,64435.0,,
+2012,D,MO,Randall Terry,fec,1998.0,,
+2012,D,MO,John Wolfe,fec,1000.0,,
+2012,D,MO,Darcy G. Richardson,fec,873.0,,
+2012,D,MI,Barack Obama,fec,174054.0,,
+2012,D,GA,Barack Obama,fec,139273.0,,
+2012,D,MA,Barack Obama,fec,127909.0,,
+2012,D,OH,Barack Obama,fec,542086.0,,
+2012,D,OK,Barack Obama,fec,64389.0,,
+2012,D,OK,Randall Terry,fec,20312.0,,
+2012,D,OK,Jim Rogers,fec,15546.0,,
+2012,D,OK,Darcy G. Richardson,fec,7201.0,,
+2012,D,OK,Bob Ely,fec,5323.0,,
+2012,D,TN,Barack Obama,fec,80705.0,,
+2012,D,VA,Barack Obama,fec,,,
+2012,D,VT,Barack Obama,fec,40247.0,,
+2012,D,AL,Barack Obama,fec,241276.0,,
+2012,D,MS,Barack Obama,fec,97304.0,,
+2012,D,IL,Barack Obama,fec,652583.0,,
+2012,D,LA,Barack Obama,fec,115150.0,,
+2012,D,LA,John Wolfe,fec,17804.0,,
+2012,D,LA,Bob Ely,fec,9897.0,,
+2012,D,LA,Darcy G. Richardson,fec,7750.0,,
+2012,D,DC,Barack Obama,fec,56503.0,,
+2012,D,MD,Barack Obama,fec,288766.0,,
+2012,D,WI,Barack Obama,fec,293914.0,,
+2012,D,CT,Barack Obama,fec,,,
+2012,D,NY,Barack Obama,fec,,,
+2012,D,PA,Barack Obama,fec,616102.0,,
+2012,D,RI,Barack Obama,fec,6759.0,,
+2012,D,IN,Barack Obama,fec,221466.0,,
+2012,D,NC,Barack Obama,fec,766077.0,,
+2012,D,WV,Barack Obama,fec,106770.0,,
+2012,D,WV,Keith Judd,fec,73138.0,,
+2012,D,NE,Barack Obama,fec,63881.0,,
+2012,D,OR,Barack Obama,fec,309358.0,,
+2012,D,AR,Barack Obama,fec,94936.0,,
+2012,D,AR,John Wolfe,fec,67711.0,,
+2012,D,KY,Barack Obama,fec,119293.0,,
+2012,D,TX,Barack Obama,fec,520410.0,,
+2012,D,TX,John Wolfe,fec,29879.0,,
+2012,D,TX,Darcy G. Richardson,fec,25430.0,,
+2012,D,TX,Bob Ely,fec,14445.0,,
+2012,D,CA,Barack Obama,fec,2075905.0,,
+2012,D,MT,Barack Obama,fec,79932.0,,
+2012,D,NJ,Barack Obama,fec,283673.0,,
+2012,D,NM,Barack Obama,fec,122958.0,,
+2012,D,SD,Barack Obama,fec,,,
+2012,R,NH,Mitt Romney,fec,97591.0,97591.0,0.0
+2012,R,NH,Ron Paul,fec,56872.0,56872.0,0.0
+2012,R,NH,Jon Huntsman,fec,41964.0,41964.0,0.0
+2012,R,NH,Rick Santorum,fec,23432.0,23432.0,0.0
+2012,R,NH,Newt Gingrich,fec,23421.0,23421.0,0.0
+2012,R,NH,Rick Perry,fec,1764.0,1764.0,0.0
+2012,R,NH,Buddy Roemer,fec,950.0,950.0,0.0
+2012,R,NH,Michele Bachmann,fec,350.0,350.0,0.0
+2012,R,NH,Fred Karger,fec,345.0,345.0,0.0
+2012,R,NH,Gary Johnson,fec,181.0,181.0,0.0
+2012,R,NH,Herman Cain,fec,161.0,161.0,0.0
+2012,R,NH,Jeff Lawman,fec,119.0,119.0,0.0
+2012,R,NH,Christopher V. Hill,fec,108.0,108.0,0.0
+2012,R,NH,Keith Drummond,fec,42.0,42.0,0.0
+2012,R,NH,Joe Story,fec,42.0,42.0,0.0
+2012,R,NH,Stewart J. Greenleaf,fec,24.0,24.0,0.0
+2012,R,NH,Mark Callahan,fec,20.0,20.0,0.0
+2012,R,NH,Andy Martin,fec,19.0,19.0,0.0
+2012,R,NH,Vern Wuensche,fec,15.0,15.0,0.0
+2012,R,NH,"L. John, Jr. Davis",fec,14.0,,
+2012,R,NH,Randy Crow,fec,12.0,12.0,0.0
+2012,R,NH,Hugh Cort,fec,3.0,3.0,0.0
+2012,R,SC,Newt Gingrich,fec,244065.0,244065.0,0.0
+2012,R,SC,Mitt Romney,fec,168123.0,168123.0,0.0
+2012,R,SC,Rick Santorum,fec,102475.0,102475.0,0.0
+2012,R,SC,Ron Paul,fec,78360.0,78360.0,0.0
+2012,R,SC,Herman Cain,fec,6338.0,6338.0,0.0
+2012,R,SC,Rick Perry,fec,2534.0,2534.0,0.0
+2012,R,SC,Jon Huntsman,fec,1173.0,1173.0,0.0
+2012,R,SC,Michele Bachmann,fec,491.0,491.0,0.0
+2012,R,SC,Gary Johnson,fec,211.0,211.0,0.0
+2012,R,FL,Mitt Romney,fec,776159.0,776159.0,0.0
+2012,R,FL,Newt Gingrich,fec,534121.0,534121.0,0.0
+2012,R,FL,Rick Santorum,fec,223249.0,223249.0,0.0
+2012,R,FL,Ron Paul,fec,117461.0,117461.0,0.0
+2012,R,FL,Rick Perry,fec,6775.0,6775.0,0.0
+2012,R,FL,Jon Huntsman,fec,6204.0,6204.0,0.0
+2012,R,FL,Michele Bachmann,fec,3967.0,3967.0,0.0
+2012,R,FL,Herman Cain,fec,3503.0,3503.0,0.0
+2012,R,FL,Gary Johnson,fec,1195.0,1195.0,0.0
+2012,R,MO,Rick Santorum,fec,139272.0,139272.0,0.0
+2012,R,MO,Mitt Romney,fec,63882.0,63882.0,0.0
+2012,R,MO,Ron Paul,fec,30647.0,30647.0,0.0
+2012,R,MO,Rick Perry,fec,2456.0,2456.0,0.0
+2012,R,MO,Herman Cain,fec,2306.0,2306.0,0.0
+2012,R,MO,Michele Bachmann,fec,1680.0,1680.0,0.0
+2012,R,MO,Jon Huntsman,fec,1044.0,1044.0,0.0
+2012,R,MO,Gary Johnson,fec,536.0,536.0,0.0
+2012,R,MO,Keith Drummond,fec,153.0,153.0,0.0
+2012,R,AZ,Mitt Romney,fec,239167.0,239167.0,0.0
+2012,R,AZ,Rick Santorum,fec,138031.0,138031.0,0.0
+2012,R,AZ,Newt Gingrich,fec,81748.0,81748.0,0.0
+2012,R,AZ,Ron Paul,fec,43952.0,43952.0,0.0
+2012,R,AZ,Rick Perry,fec,2023.0,2023.0,0.0
+2012,R,AZ,Buddy Roemer,fec,692.0,692.0,0.0
+2012,R,AZ,Paul Sims,fec,530.0,530.0,0.0
+2012,R,AZ,Cesar Cisneros,fec,418.0,418.0,0.0
+2012,R,AZ,Mark Callahan,fec,358.0,358.0,0.0
+2012,R,AZ,Al Dick Perry,fec,310.0,2023.0,-1713.0
+2012,R,AZ,Michael Levinson,fec,217.0,217.0,0.0
+2012,R,AZ,Christopher Hill,fec,139.0,139.0,0.0
+2012,R,AZ,Frank Lynch,fec,110.0,110.0,0.0
+2012,R,AZ,Raymond Scott Perkins,fec,90.0,90.0,0.0
+2012,R,MI,Mitt Romney,fec,409522.0,409522.0,0.0
+2012,R,MI,Rick Santorum,fec,377372.0,377372.0,0.0
+2012,R,MI,Ron Paul,fec,115911.0,115911.0,0.0
+2012,R,MI,Newt Gingrich,fec,65027.0,65027.0,0.0
+2012,R,MI,Rick Perry,fec,1816.0,1816.0,0.0
+2012,R,MI,Buddy Roemer,fec,1784.0,1784.0,0.0
+2012,R,MI,Michele Bachmann,fec,1735.0,1735.0,0.0
+2012,R,MI,Jon Huntsman,fec,1674.0,1674.0,0.0
+2012,R,MI,Herman Cain,fec,1211.0,1211.0,0.0
+2012,R,MI,Fred Karger,fec,1180.0,1180.0,0.0
+2012,R,MI,Gary Johnson,fec,458.0,458.0,0.0
+2012,R,GA,Newt Gingrich,fec,425395.0,425395.0,0.0
+2012,R,GA,Mitt Romney,fec,233611.0,233611.0,0.0
+2012,R,GA,Rick Santorum,fec,176259.0,176259.0,0.0
+2012,R,GA,Ron Paul,fec,59100.0,59100.0,0.0
+2012,R,GA,Jon Huntsman,fec,1813.0,1813.0,0.0
+2012,R,GA,Michele Bachmann,fec,1714.0,1714.0,0.0
+2012,R,GA,Rick Perry,fec,1696.0,1696.0,0.0
+2012,R,GA,Buddy Roemer,fec,1142.0,1142.0,0.0
+2012,R,GA,Gary Johnson,fec,740.0,740.0,0.0
+2012,R,MA,Mitt Romney,fec,266313.0,266313.0,0.0
+2012,R,MA,Rick Santorum,fec,44564.0,44564.0,0.0
+2012,R,MA,Ron Paul,fec,35219.0,35219.0,0.0
+2012,R,MA,Newt Gingrich,fec,16991.0,16991.0,0.0
+2012,R,MA,Jon Huntsman,fec,2268.0,2268.0,0.0
+2012,R,MA,Rick Perry,fec,991.0,991.0,0.0
+2012,R,MA,Michele Bachmann,fec,865.0,865.0,0.0
+2012,R,OH,Mitt Romney,fec,460831.0,460831.0,0.0
+2012,R,OH,Rick Santorum,fec,448580.0,448580.0,0.0
+2012,R,OH,Newt Gingrich,fec,177183.0,177183.0,0.0
+2012,R,OH,Ron Paul,fec,113256.0,113256.0,0.0
+2012,R,OH,Rick Perry,fec,7539.0,7539.0,0.0
+2012,R,OH,Jon Huntsman,fec,6490.0,6490.0,0.0
+2012,R,OK,Rick Santorum,fec,96849.0,96849.0,0.0
+2012,R,OK,Mitt Romney,fec,80356.0,80356.0,0.0
+2012,R,OK,Newt Gingrich,fec,78730.0,78730.0,0.0
+2012,R,OK,Ron Paul,fec,27596.0,27596.0,0.0
+2012,R,OK,Rick Perry,fec,1291.0,1291.0,0.0
+2012,R,OK,Michele Bachmann,fec,951.0,951.0,0.0
+2012,R,OK,Jon Huntsman,fec,750.0,750.0,0.0
+2012,R,TN,Rick Santorum,fec,205809.0,205809.0,0.0
+2012,R,TN,Mitt Romney,fec,155630.0,155630.0,0.0
+2012,R,TN,Newt Gingrich,fec,132889.0,132889.0,0.0
+2012,R,TN,Ron Paul,fec,50156.0,50156.0,0.0
+2012,R,TN,Rick Perry,fec,1966.0,1966.0,0.0
+2012,R,TN,Michele Bachmann,fec,1895.0,1895.0,0.0
+2012,R,TN,Jon Huntsman,fec,1239.0,1239.0,0.0
+2012,R,TN,Charles Buddy Roemer,fec,881.0,881.0,0.0
+2012,R,TN,Gary Johnson,fec,572.0,572.0,0.0
+2012,R,VA,Mitt Romney,fec,158119.0,158119.0,0.0
+2012,R,VA,Ron Paul,fec,107451.0,107451.0,0.0
+2012,R,VT,Mitt Romney,fec,24008.0,24008.0,0.0
+2012,R,VT,Ron Paul,fec,15391.0,15391.0,0.0
+2012,R,VT,Rick Santorum,fec,14368.0,14368.0,0.0
+2012,R,VT,Newt Gingrich,fec,4949.0,4949.0,0.0
+2012,R,VT,Jon Huntsman,fec,1198.0,1198.0,0.0
+2012,R,VT,Rick Perry,fec,544.0,544.0,0.0
+2012,R,AL,Rick Santorum,fec,214628.0,215105.0,-477.0
+2012,R,AL,Newt Gingrich,fec,182292.0,182276.0,16.0
+2012,R,AL,Mitt Romney,fec,180336.0,180321.0,15.0
+2012,R,AL,Ron Paul,fec,30950.0,30937.0,13.0
+2012,R,AL,Rick Perry,fec,1869.0,1867.0,2.0
+2012,R,AL,Michele Bachmann,fec,1701.0,1700.0,1.0
+2012,R,AL,Jon Huntsman,fec,1049.0,1049.0,0.0
+2012,R,MS,Rick Santorum,fec,96258.0,96258.0,0.0
+2012,R,MS,Newt Gingrich,fec,91612.0,91612.0,0.0
+2012,R,MS,Mitt Romney,fec,90161.0,90161.0,0.0
+2012,R,MS,Ron Paul,fec,12955.0,12955.0,0.0
+2012,R,MS,Rick Perry,fec,1350.0,1350.0,0.0
+2012,R,MS,Michele Bachmann,fec,971.0,971.0,0.0
+2012,R,MS,Jon Huntsman,fec,413.0,413.0,0.0
+2012,R,MS,Gary Johnson,fec,392.0,392.0,0.0
+2012,R,PR,Mitt Romney,fec,106133.0,106431.0,-298.0
+2012,R,PR,Rick Santorum,fec,10455.0,10574.0,-119.0
+2012,R,PR,Newt Gingrich,fec,2528.0,2702.0,-174.0
+2012,R,PR,Buddy Roemer,fec,2515.0,2880.0,-365.0
+2012,R,PR,Fred Karger,fec,1825.0,1893.0,-68.0
+2012,R,PR,Ron Paul,fec,1568.0,1595.0,-27.0
+2012,R,IL,Mitt Romney,fec,435859.0,435859.0,0.0
+2012,R,IL,Rick Santorum,fec,326778.0,326778.0,0.0
+2012,R,IL,Ron Paul,fec,87044.0,87044.0,0.0
+2012,R,IL,Newt Gingrich,fec,74482.0,74482.0,0.0
+2012,R,IL,Rick Perry,fec,5568.0,5568.0,0.0
+2012,R,IL,Charles Buddy Roemer,fec,3723.0,3723.0,0.0
+2012,R,LA,Rick Santorum,fec,91321.0,91321.0,0.0
+2012,R,LA,Mitt Romney,fec,49758.0,49758.0,0.0
+2012,R,LA,Newt Gingrich,fec,29656.0,29656.0,0.0
+2012,R,LA,Ron Paul,fec,11467.0,11467.0,0.0
+2012,R,LA,Charles Buddy Roemer,fec,2203.0,2203.0,0.0
+2012,R,LA,Rick Perry,fec,955.0,955.0,0.0
+2012,R,LA,Michele Bachmann,fec,622.0,622.0,0.0
+2012,R,LA,Jon Huntsman,fec,242.0,242.0,0.0
+2012,R,LA,Randy Crow,fec,186.0,186.0,0.0
+2012,R,DC,Mitt Romney,fec,3577.0,3577.0,0.0
+2012,R,DC,Ron Paul,fec,621.0,621.0,0.0
+2012,R,DC,Newt Gingrich,fec,558.0,558.0,0.0
+2012,R,DC,Jon Huntsman,fec,348.0,348.0,0.0
+2012,R,MD,Mitt Romney,fec,122400.0,122400.0,0.0
+2012,R,MD,Rick Santorum,fec,71349.0,71349.0,0.0
+2012,R,MD,Newt Gingrich,fec,27240.0,27240.0,0.0
+2012,R,MD,Ron Paul,fec,23609.0,23609.0,0.0
+2012,R,MD,Jon Huntsman,fec,1484.0,1484.0,0.0
+2012,R,MD,Rick Perry,fec,1108.0,1108.0,0.0
+2012,R,MD,Buddy Roemer,fec,901.0,901.0,0.0
+2012,R,MD,Fred Karger,fec,377.0,377.0,0.0
+2012,R,WI,Mitt Romney,fec,346876.0,346876.0,0.0
+2012,R,WI,Rick Santorum,fec,290139.0,290139.0,0.0
+2012,R,WI,Ron Paul,fec,87858.0,87858.0,0.0
+2012,R,WI,Newt Gingrich,fec,45978.0,45978.0,0.0
+2012,R,WI,Michele Bachmann,fec,6045.0,6045.0,0.0
+2012,R,WI,Jon Huntsman,fec,5083.0,5083.0,0.0
+2012,R,CT,Mitt Romney,fec,40171.0,40171.0,0.0
+2012,R,CT,Ron Paul,fec,8032.0,8032.0,0.0
+2012,R,CT,Newt Gingrich,fec,6135.0,6135.0,0.0
+2012,R,CT,Rick Santorum,fec,4072.0,4072.0,0.0
+2012,R,DE,Mitt Romney,fec,16143.0,16143.0,0.0
+2012,R,DE,Newt Gingrich,fec,7742.0,7742.0,0.0
+2012,R,DE,Ronald E. Paul,fec,3017.0,3017.0,0.0
+2012,R,DE,Rick Santorum,fec,1690.0,1690.0,0.0
+2012,R,NY,Mitt Romney,fec,118912.0,118912.0,0.0
+2012,R,NY,Ron Paul,fec,27699.0,27699.0,0.0
+2012,R,NY,Newt Gingrich,fec,23990.0,23990.0,0.0
+2012,R,NY,Rick Santorum,fec,18997.0,18997.0,0.0
+2012,R,PA,Mitt Romney,fec,468374.0,468374.0,0.0
+2012,R,PA,Rick Santorum,fec,149056.0,149056.0,0.0
+2012,R,PA,Ron Paul,fec,106148.0,106148.0,0.0
+2012,R,PA,Newt Gingrich,fec,84537.0,84537.0,0.0
+2012,R,RI,Mitt Romney,fec,9178.0,9178.0,0.0
+2012,R,RI,Ron Paul,fec,3473.0,3473.0,0.0
+2012,R,RI,Newt Gingrich,fec,880.0,880.0,0.0
+2012,R,RI,Rick Santorum,fec,825.0,825.0,0.0
+2012,R,RI,Buddy Roemer,fec,40.0,40.0,0.0
+2012,R,IN,Mitt Romney,fec,410635.0,410635.0,0.0
+2012,R,IN,Ron Paul,fec,98487.0,98487.0,0.0
+2012,R,IN,Rick Santorum,fec,85332.0,85332.0,0.0
+2012,R,IN,Newt Gingrich,fec,41135.0,41135.0,0.0
+2012,R,NC,Mitt Romney,fec,638601.0,638601.0,0.0
+2012,R,NC,Ron Paul,fec,108217.0,108217.0,0.0
+2012,R,NC,Rick Santorum,fec,101093.0,101093.0,0.0
+2012,R,NC,Newt Gingrich,fec,74367.0,74367.0,0.0
+2012,R,WV,Mitt Romney,fec,78197.0,78197.0,0.0
+2012,R,WV,Rick Santorum,fec,13590.0,13590.0,0.0
+2012,R,WV,Ron Paul,fec,12412.0,12412.0,0.0
+2012,R,WV,Newt Gingrich,fec,7076.0,7076.0,0.0
+2012,R,WV,Charles Buddy Roemer,fec,1141.0,1141.0,0.0
+2012,R,NE,Mitt Romney,fec,131436.0,131436.0,0.0
+2012,R,NE,Rick Santorum,fec,25830.0,25830.0,0.0
+2012,R,NE,Ron Paul,fec,18508.0,18508.0,0.0
+2012,R,NE,Newt Gingrich,fec,9628.0,9628.0,0.0
+2012,R,OR,Mitt Romney,fec,204176.0,204176.0,0.0
+2012,R,OR,Ron Paul,fec,36810.0,36810.0,0.0
+2012,R,OR,Rick Santorum,fec,27042.0,27042.0,0.0
+2012,R,OR,Newt Gingrich,fec,15451.0,15451.0,0.0
+2012,R,AR,Mitt Romney,fec,104200.0,104200.0,0.0
+2012,R,AR,Ron Paul,fec,20399.0,20399.0,0.0
+2012,R,AR,Rick Santorum,fec,20308.0,20308.0,0.0
+2012,R,AR,Newt Gingrich,fec,7453.0,7453.0,0.0
+2012,R,KY,Mitt Romney,fec,117621.0,117621.0,0.0
+2012,R,KY,Ron Paul,fec,22074.0,22074.0,0.0
+2012,R,KY,Rick Santorum,fec,15629.0,15629.0,0.0
+2012,R,KY,Newt Gingrich,fec,10479.0,10479.0,0.0
+2012,R,TX,Mitt Romney,fec,1001387.0,1001387.0,0.0
+2012,R,TX,Ron Paul,fec,174207.0,174207.0,0.0
+2012,R,TX,Rick Santorum,fec,115584.0,115584.0,0.0
+2012,R,TX,Newt Gingrich,fec,68247.0,68247.0,0.0
+2012,R,TX,Michele Bachmann,fec,12097.0,12097.0,0.0
+2012,R,TX,Jon Huntsman,fec,8695.0,8695.0,0.0
+2012,R,TX,Charles Buddy Roemer,fec,4714.0,4714.0,0.0
+2012,R,TX,John Davis,fec,3887.0,3887.0,0.0
+2012,R,CA,Mitt Romney,fec,1530513.0,1530513.0,0.0
+2012,R,CA,Ron Paul,fec,199246.0,199246.0,0.0
+2012,R,CA,Rick Santorum,fec,102258.0,102258.0,0.0
+2012,R,CA,Newt Gingrich,fec,72022.0,72022.0,0.0
+2012,R,CA,"Charles E. Buddy, III Roemer",fec,12520.0,,
+2012,R,CA,Fred Karger,fec,8393.0,8393.0,0.0
+2012,R,MT,Mitt Romney,fec,96121.0,96121.0,0.0
+2012,R,MT,Ron Paul,fec,20227.0,20227.0,0.0
+2012,R,MT,Rick Santorum,fec,12546.0,12546.0,0.0
+2012,R,MT,Newt Gingrich,fec,6107.0,6107.0,0.0
+2012,R,NJ,Mitt Romney,fec,188121.0,188121.0,0.0
+2012,R,NJ,Ron Paul,fec,24017.0,24017.0,0.0
+2012,R,NJ,Rick Santorum,fec,12115.0,12115.0,0.0
+2012,R,NJ,Newt Gingrich,fec,7212.0,7212.0,0.0
+2012,R,NM,Mitt Romney,fec,65935.0,65935.0,0.0
+2012,R,NM,Rick Santorum,fec,9517.0,9517.0,0.0
+2012,R,NM,Ron Paul,fec,9363.0,9363.0,0.0
+2012,R,NM,Newt Gingrich,fec,5298.0,5298.0,0.0
+2012,R,SD,Mitt Romney,fec,33872.0,34033.0,-161.0
+2012,R,SD,Ron Paul,fec,6657.0,6704.0,-47.0
+2012,R,SD,Rick Santorum,fec,5844.0,5916.0,-72.0
+2012,R,SD,Newt Gingrich,fec,2001.0,2074.0,-73.0
+2012,R,UT,Mitt Romney,fec,225428.0,220865.0,4563.0
+2012,R,UT,Ron Paul,fec,11520.0,11209.0,311.0
+2012,R,UT,Rick Santorum,fec,3594.0,3541.0,53.0
+2012,R,UT,Newt Gingrich,fec,1146.0,1124.0,22.0
+2012,R,UT,Fred Karger,fec,584.0,578.0,6.0
+2016,D,NH,Bernie Sanders,fec,152193.0,152193.0,0.0
+2016,D,NH,Hillary Clinton,fec,95355.0,95355.0,0.0
+2016,D,NH,Martin J. O'Malley,fec,667.0,667.0,0.0
+2016,D,NH,Steve Burke,fec,108.0,108.0,0.0
+2016,D,NH,Roque Rocky De La Fuente,fec,96.0,96.0,0.0
+2016,D,NH,John Wolfe,fec,54.0,54.0,0.0
+2016,D,NH,Lloyd Kelso,fec,46.0,46.0,0.0
+2016,D,NH,Keith Judd,fec,44.0,44.0,0.0
+2016,D,NH,Star Locke,fec,33.0,33.0,0.0
+2016,D,NH,Bill French,fec,29.0,29.0,0.0
+2016,D,NH,Mark Stewart Greenstein,fec,29.0,29.0,0.0
+2016,D,NH,"Edward T., Jr. O'Donnell",fec,26.0,,
+2016,D,NH,James Valentine,fec,24.0,24.0,0.0
+2016,D,NH,Michael A. Steinberg,fec,21.0,21.0,0.0
+2016,D,NH,"William H., Jr. McGaughey",fec,19.0,,
+2016,D,NH,Henry Hewes,fec,18.0,18.0,0.0
+2016,D,NH,Sam Sloan,fec,15.0,15.0,0.0
+2016,D,NH,Richard Lyons Weil,fec,8.0,8.0,0.0
+2016,D,SC,Hillary Clinton,fec,272379.0,272379.0,0.0
+2016,D,SC,Berine Sanders,fec,96498.0,96498.0,0.0
+2016,D,SC,Martin O'Malley,fec,713.0,713.0,0.0
+2016,D,AL,Hillary Clinton,fec,309071.0,309928.0,-857.0
+2016,D,AL,Bernie Sanders,fec,76059.0,76399.0,-340.0
+2016,D,AL,Martin J. O'Malley,fec,1479.0,1485.0,-6.0
+2016,D,AL,Roque Rocky De La Fuente,fec,804.0,811.0,-7.0
+2016,D,AR,Hillary Clinton,fec,146057.0,146057.0,0.0
+2016,D,AR,Bernie Sanders,fec,66236.0,66236.0,0.0
+2016,D,AR,Martin J. O'Malley,fec,2785.0,2785.0,0.0
+2016,D,AR,John Wolfe,fec,2556.0,2556.0,0.0
+2016,D,AR,James Valentine,fec,1702.0,1702.0,0.0
+2016,D,AR,Roque Rocky De La Fuente,fec,1684.0,1684.0,0.0
+2016,D,GA,Hillary Clinton,fec,545674.0,545674.0,0.0
+2016,D,GA,Bernie Sanders,fec,215797.0,215797.0,0.0
+2016,D,GA,Martin O'Malley,fec,2129.0,2129.0,0.0
+2016,D,GA,Michael Steinberg,fec,1766.0,1766.0,0.0
+2016,D,MA,Hillary Clinton,fec,606822.0,606822.0,0.0
+2016,D,MA,Bernie Sanders,fec,589803.0,589803.0,0.0
+2016,D,MA,Martin O'Malley,fec,4783.0,4783.0,0.0
+2016,D,MA,Roque Rocky De La Fuente,fec,1545.0,1545.0,0.0
+2016,D,OK,Bernie Sanders,fec,174228.0,174228.0,0.0
+2016,D,OK,Hillary Clinton,fec,139443.0,139443.0,0.0
+2016,D,OK,Martin J. O'Malley,fec,7672.0,7672.0,0.0
+2016,D,OK,Keith Judd,fec,4386.0,4386.0,0.0
+2016,D,OK,Michael A. Steinberg,fec,4171.0,4171.0,0.0
+2016,D,OK,Star Locke,fec,3458.0,3458.0,0.0
+2016,D,OK,Roque Rocky De La Fuente,fec,2485.0,2485.0,0.0
+2016,D,TN,Hillary Clinton,fec,245930.0,245930.0,0.0
+2016,D,TN,Bernie Sanders,fec,120800.0,120800.0,0.0
+2016,D,TN,Martin J. O'Malley,fec,2025.0,2025.0,0.0
+2016,D,TX,Hillary Clinton,fec,936004.0,936004.0,0.0
+2016,D,TX,Bernie Sanders,fec,476547.0,476547.0,0.0
+2016,D,TX,Roque Rocky De La Fuente,fec,8429.0,8429.0,0.0
+2016,D,TX,Martin J. O'Malley,fec,5364.0,5364.0,0.0
+2016,D,TX,Keith Judd,fec,2569.0,2569.0,0.0
+2016,D,TX,Calvis L. Hawes,fec,2017.0,2017.0,0.0
+2016,D,TX,Star Locke,fec,1711.0,1711.0,0.0
+2016,D,VA,Hillary Clinton,fec,504417.0,504741.0,-324.0
+2016,D,VA,Bernie Sanders,fec,276370.0,276370.0,0.0
+2016,D,VA,Martin J. O'Malley,fec,3930.0,3930.0,0.0
+2016,D,VT,Bernie Sanders,fec,115900.0,115900.0,0.0
+2016,D,VT,Hillary Clinton,fec,18338.0,18338.0,0.0
+2016,D,VT,Martin J. O'Malley,fec,282.0,282.0,0.0
+2016,D,VT,Roque Rocky De La Fuente,fec,80.0,80.0,0.0
+2016,D,LA,Hillary Clinton,fec,221733.0,221733.0,0.0
+2016,D,LA,Bernie Sanders,fec,72276.0,72276.0,0.0
+2016,D,LA,Steve Burke,fec,4785.0,4785.0,0.0
+2016,D,LA,John Wolfe,fec,4512.0,4512.0,0.0
+2016,D,LA,Martin J. O'Malley,fec,2550.0,2550.0,0.0
+2016,D,LA,Keith Judd,fec,1357.0,1357.0,0.0
+2016,D,LA,Roque Rocky De La Fuente,fec,1341.0,1341.0,0.0
+2016,D,LA,Michael A. Steinberg,fec,993.0,993.0,0.0
+2016,D,LA,Henry Hewes,fec,806.0,806.0,0.0
+2016,D,MI,Bernie Sanders,fec,598943.0,598943.0,0.0
+2016,D,MI,Hillary Clinton,fec,581775.0,581775.0,0.0
+2016,D,MI,Martin O'Malley,fec,2363.0,2363.0,0.0
+2016,D,MI,Roque Rocky De La Fuente,fec,870.0,870.0,0.0
+2016,D,MS,Hillary Clinton,fec,187334.0,187334.0,0.0
+2016,D,MS,Bernie Sanders,fec,37748.0,37748.0,0.0
+2016,D,MS,Martin O'Malley,fec,672.0,672.0,0.0
+2016,D,MS,Roque Rocky De La Fuente,fec,481.0,481.0,0.0
+2016,D,FL,Hillary Clinton,fec,1101414.0,1101414.0,0.0
+2016,D,FL,Bernie Sanders,fec,568839.0,568839.0,0.0
+2016,D,FL,Martin J. O'Malley,fec,38930.0,38930.0,0.0
+2016,D,IL,Hillary Clinton,fec,1039555.0,1039555.0,0.0
+2016,D,IL,Bernie Sanders,fec,999494.0,999494.0,0.0
+2016,D,IL,Martin J. O'Malley,fec,6197.0,6197.0,0.0
+2016,D,IL,Larry (Lawrence) Cohen,fec,2407.0,2407.0,0.0
+2016,D,IL,Roque Rocky De La Fuente,fec,1802.0,1802.0,0.0
+2016,D,MO,Hillary Clinton,fec,312285.0,312285.0,0.0
+2016,D,MO,Bernie Sanders,fec,310711.0,310711.0,0.0
+2016,D,MO,Henry Hewes,fec,650.0,650.0,0.0
+2016,D,MO,Martin J. O'Malley,fec,442.0,442.0,0.0
+2016,D,MO,Roque Rocky De La Fuente,fec,345.0,345.0,0.0
+2016,D,MO,Keith Judd,fec,288.0,288.0,0.0
+2016,D,MO,John Wolfe,fec,247.0,247.0,0.0
+2016,D,NC,Hillary Clinton,fec,622915.0,622915.0,0.0
+2016,D,NC,Bernie Sanders,fec,467018.0,467018.0,0.0
+2016,D,NC,Martin O'Malley,fec,12122.0,12122.0,0.0
+2016,D,NC,Roque Rocky De La Fuente,fec,3376.0,3376.0,0.0
+2016,D,OH,Hillary Clinton,fec,696681.0,696681.0,0.0
+2016,D,OH,Bernie Sanders,fec,535395.0,535395.0,0.0
+2016,D,OH,Roque Rocky De La Fuente,fec,9402.0,9402.0,0.0
+2016,D,AZ,Hillary Clinton,fec,262459.0,262459.0,0.0
+2016,D,AZ,Bernie Sanders,fec,192962.0,192962.0,0.0
+2016,D,AZ,Martin O'Malley,fec,3877.0,3877.0,0.0
+2016,D,AZ,Roque Rocky De La Fuente,fec,2797.0,2797.0,0.0
+2016,D,AZ,Michael Steinberg,fec,2295.0,2295.0,0.0
+2016,D,AZ,Henry Hewes,fec,1845.0,1845.0,0.0
+2016,D,WI,Bernie Sanders,fec,570192.0,570192.0,0.0
+2016,D,WI,Hillary Clinton,fec,433739.0,433739.0,0.0
+2016,D,WI,Martin J. O'Malley,fec,1732.0,1732.0,0.0
+2016,D,WI,Roque Rocky De La Fuente,fec,18.0,,
+2016,D,NY,Hillary Clinton,fec,1133980.0,1133980.0,0.0
+2016,D,NY,Bernie Sanders,fec,820256.0,820056.0,200.0
+2016,D,CT,Hillary Clinton,fec,170045.0,170045.0,0.0
+2016,D,CT,Bernie Sanders,fec,152379.0,152379.0,0.0
+2016,D,CT,Roque Rocky De La Fuente,fec,960.0,960.0,0.0
+2016,D,DE,Hillary Clinton,fec,55954.0,55954.0,0.0
+2016,D,DE,Bernie Sanders,fec,36662.0,36662.0,0.0
+2016,D,DE,Roque Rocky De La Fuente,fec,1024.0,1024.0,0.0
+2016,D,MD,Hillary Clinton,fec,573242.0,573242.0,0.0
+2016,D,MD,Bernie Sanders,fec,309990.0,309990.0,0.0
+2016,D,MD,Roque Rocky De La Fuente,fec,3582.0,3582.0,0.0
+2016,D,PA,Hillary Clinton,fec,935107.0,935107.0,0.0
+2016,D,PA,Bernie Sanders,fec,731881.0,731881.0,0.0
+2016,D,PA,Roque Rocky De La Fuente,fec,14439.0,14439.0,0.0
+2016,D,RI,Bernie Sanders,fec,66993.0,66993.0,0.0
+2016,D,RI,Hillary Clinton,fec,52749.0,52749.0,0.0
+2016,D,RI,Mark Stewart,fec,236.0,236.0,0.0
+2016,D,RI,Roque Rocky De La Fuente,fec,145.0,145.0,0.0
+2016,D,IN,Bernie Sanders,fec,335074.0,335074.0,0.0
+2016,D,IN,Hillary Clinton,fec,303705.0,303705.0,0.0
+2016,D,NE,Hillary Clinton,fec,42692.0,,
+2016,D,NE,Bernie Sanders,fec,37744.0,,
+2016,D,WV,Bernie Sanders,fec,124700.0,124700.0,0.0
+2016,D,WV,Hillary Clinton,fec,86914.0,86914.0,0.0
+2016,D,WV,Keith Judd,fec,4460.0,4460.0,0.0
+2016,D,WV,Martin J. O'Malley,fec,3796.0,3796.0,0.0
+2016,D,WV,Roque Rocky De La Fuente,fec,975.0,975.0,0.0
+2016,D,KY,Hillary Clinton,fec,212534.0,212534.0,0.0
+2016,D,KY,Bernard Bernie Sanders,fec,210623.0,210623.0,0.0
+2016,D,KY,Martin J. O'Malley,fec,5713.0,5713.0,0.0
+2016,D,KY,Roque Rocky De La Fuente,fec,1594.0,1594.0,0.0
+2016,D,OR,Bernie Sanders,fec,360829.0,360829.0,0.0
+2016,D,OR,Hillary Clinton,fec,269846.0,269846.0,0.0
+2016,D,WA,Hillary Clinton,fec,420461.0,,
+2016,D,WA,Bernie Sanders,fec,382293.0,,
+2016,D,PR,Hillary Clinton,fec,54839.0,52658.0,2181.0
+2016,D,PR,Bernie Sanders,fec,33958.0,33368.0,590.0
+2016,D,PR,Rocky Roque De La Fuente,fec,391.0,300.0,91.0
+2016,D,CA,Hillary Clinton,fec,2745302.0,2745302.0,0.0
+2016,D,CA,Bernie Sanders,fec,2381722.0,2381722.0,0.0
+2016,D,CA,Michael Steinberg,fec,10880.0,10880.0,0.0
+2016,D,CA,Roque Rocky De La Fuente,fec,8453.0,8453.0,0.0
+2016,D,CA,Henry Hewes,fec,7743.0,7743.0,0.0
+2016,D,CA,Keith Judd,fec,7201.0,7201.0,0.0
+2016,D,MT,Bernie Sanders,fec,65156.0,65156.0,0.0
+2016,D,MT,Hillary Clinton,fec,55805.0,55805.0,0.0
+2016,D,NJ,Hillary Clinton,fec,566247.0,566247.0,0.0
+2016,D,NJ,Bernie Sanders,fec,328058.0,328058.0,0.0
+2016,D,NM,Hillary Rodham Clinton,fec,111334.0,111334.0,0.0
+2016,D,NM,Bernard Sanders,fec,104741.0,104741.0,0.0
+2016,D,SD,Hillary Clinton,fec,27047.0,27047.0,0.0
+2016,D,SD,Bernie Sanders,fec,25959.0,25959.0,0.0
+2016,D,DC,Hillary Clinton,fec,76704.0,76704.0,0.0
+2016,D,DC,Bernie Sanders,fec,20361.0,20361.0,0.0
+2016,D,DC,Roque Rocky De La Fuente,fec,213.0,213.0,0.0
+2016,R,NH,Donald J. Trump,fec,100735.0,100735.0,0.0
+2016,R,NH,John R. Kasich,fec,44932.0,44932.0,0.0
+2016,R,NH,Ted Cruz,fec,33244.0,33244.0,0.0
+2016,R,NH,Jeb Bush,fec,31341.0,31341.0,0.0
+2016,R,NH,Marco Rubio,fec,30071.0,30071.0,0.0
+2016,R,NH,Chris Christie,fec,21089.0,21089.0,0.0
+2016,R,NH,Carly Fiorina,fec,11774.0,11774.0,0.0
+2016,R,NH,Ben Carson,fec,6527.0,6527.0,0.0
+2016,R,NH,Rand Paul,fec,1930.0,1930.0,0.0
+2016,R,NH,Mike Huckabee,fec,216.0,216.0,0.0
+2016,R,NH,Andy Martin,fec,202.0,202.0,0.0
+2016,R,NH,Rick Santorum,fec,160.0,160.0,0.0
+2016,R,NH,Jim Gilmore,fec,134.0,134.0,0.0
+2016,R,NH,George Pataki,fec,79.0,79.0,0.0
+2016,R,NH,Lindsey Graham,fec,73.0,73.0,0.0
+2016,R,NH,Brooks A. Cullison,fec,56.0,56.0,0.0
+2016,R,NH,Tim Cook,fec,55.0,55.0,0.0
+2016,R,NH,Bobby Jindal,fec,53.0,53.0,0.0
+2016,R,NH,Frank Lynch,fec,47.0,47.0,0.0
+2016,R,NH,"Stephen B., Sr. Comley",fec,32.0,,
+2016,R,NH,Chomi Prag,fec,16.0,16.0,0.0
+2016,R,NH,Stephen John McCarthy,fec,12.0,12.0,0.0
+2016,R,NH,Walter N. Iwachiw,fec,9.0,9.0,0.0
+2016,R,NH,Kevin Glenn Huey,fec,8.0,8.0,0.0
+2016,R,NH,Robert L. Mann,fec,5.0,5.0,0.0
+2016,R,NH,Peter Messina,fec,5.0,5.0,0.0
+2016,R,SC,Donald J. Trump,fec,240882.0,240882.0,0.0
+2016,R,SC,Marco Rubio,fec,166565.0,166565.0,0.0
+2016,R,SC,Ted Cruz,fec,165417.0,165417.0,0.0
+2016,R,SC,Jeb Bush,fec,58056.0,58056.0,0.0
+2016,R,SC,John R. Kasich,fec,56410.0,56410.0,0.0
+2016,R,SC,Ben Carson,fec,53551.0,53551.0,0.0
+2016,R,AL,Donald J. Trump,fec,373721.0,373721.0,0.0
+2016,R,AL,Ted Cruz,fec,181479.0,181479.0,0.0
+2016,R,AL,Marco Rubio,fec,160606.0,160606.0,0.0
+2016,R,AL,Ben Carson,fec,88094.0,88094.0,0.0
+2016,R,AL,John R. Kasich,fec,38119.0,38119.0,0.0
+2016,R,AL,Jeb Bush,fec,3974.0,3974.0,0.0
+2016,R,AL,Mike Huckabee,fec,2539.0,2539.0,0.0
+2016,R,AL,Rand Paul,fec,1895.0,1895.0,0.0
+2016,R,AL,Chris Christie,fec,858.0,858.0,0.0
+2016,R,AL,Rick Santorum,fec,617.0,617.0,0.0
+2016,R,AL,Carly Fiorina,fec,544.0,544.0,0.0
+2016,R,AL,Lindsey Graham,fec,253.0,253.0,0.0
+2016,R,AR,Donald J. Trump,fec,134744.0,134744.0,0.0
+2016,R,AR,Ted Cruz,fec,125340.0,125340.0,0.0
+2016,R,AR,Marco Rubio,fec,101910.0,101910.0,0.0
+2016,R,AR,Ben Carson,fec,23521.0,23521.0,0.0
+2016,R,AR,John R. Kasich,fec,15305.0,15305.0,0.0
+2016,R,AR,Mike Huckabee,fec,4792.0,4792.0,0.0
+2016,R,AR,Jeb Bush,fec,2402.0,2402.0,0.0
+2016,R,AR,Rand Paul,fec,1151.0,1151.0,0.0
+2016,R,AR,Chris Christie,fec,631.0,631.0,0.0
+2016,R,AR,Carly Fiorina,fec,411.0,411.0,0.0
+2016,R,AR,Rick Santorum,fec,292.0,292.0,0.0
+2016,R,AR,Lindsey Graham,fec,252.0,252.0,0.0
+2016,R,AR,Bobby Jindal,fec,169.0,169.0,0.0
+2016,R,GA,Donald J. Trump,fec,502994.0,502994.0,0.0
+2016,R,GA,Marco Rubio,fec,316836.0,316836.0,0.0
+2016,R,GA,Ted Cruz,fec,305847.0,305847.0,0.0
+2016,R,GA,Ben Carson,fec,80723.0,80723.0,0.0
+2016,R,GA,John R. Kasich,fec,72508.0,72508.0,0.0
+2016,R,GA,Jeb Bush,fec,7686.0,7686.0,0.0
+2016,R,GA,Rand Paul,fec,2910.0,2910.0,0.0
+2016,R,GA,Mike Huckabee,fec,2625.0,2625.0,0.0
+2016,R,GA,Chris Christie,fec,1486.0,1486.0,0.0
+2016,R,GA,Carly Fiorina,fec,1146.0,1146.0,0.0
+2016,R,GA,Rick Santorum,fec,539.0,539.0,0.0
+2016,R,GA,Lindsey Graham,fec,428.0,428.0,0.0
+2016,R,GA,George Pataki,fec,236.0,236.0,0.0
+2016,R,MA,Donald J. Trump,fec,312425.0,312425.0,0.0
+2016,R,MA,John R. Kasich,fec,114434.0,114434.0,0.0
+2016,R,MA,Marco Rubio,fec,113170.0,113170.0,0.0
+2016,R,MA,Ted Cruz,fec,60592.0,60592.0,0.0
+2016,R,MA,Ben Carson,fec,16360.0,16360.0,0.0
+2016,R,MA,Jeb Bush,fec,6559.0,6559.0,0.0
+2016,R,MA,Chris Christie,fec,1906.0,1906.0,0.0
+2016,R,MA,Rand Paul,fec,1864.0,1864.0,0.0
+2016,R,MA,Carly Fiorina,fec,1153.0,1153.0,0.0
+2016,R,MA,Jim Gilmore,fec,753.0,753.0,0.0
+2016,R,MA,Mike Huckabee,fec,709.0,709.0,0.0
+2016,R,MA,George Pataki,fec,500.0,500.0,0.0
+2016,R,MA,Rick Santorum,fec,293.0,293.0,0.0
+2016,R,OK,Ted Cruz,fec,158078.0,158078.0,0.0
+2016,R,OK,Donald J. Trump,fec,130267.0,130267.0,0.0
+2016,R,OK,Marco Rubio,fec,119633.0,119633.0,0.0
+2016,R,OK,Ben Carson,fec,28601.0,28601.0,0.0
+2016,R,OK,John R. Kasich,fec,16524.0,16524.0,0.0
+2016,R,OK,Jeb Bush,fec,2091.0,2091.0,0.0
+2016,R,OK,Rand Paul,fec,1666.0,1666.0,0.0
+2016,R,OK,Mike Huckabee,fec,1308.0,1308.0,0.0
+2016,R,OK,Carly Fiorina,fec,610.0,610.0,0.0
+2016,R,OK,Chris Christie,fec,545.0,545.0,0.0
+2016,R,OK,Rick Santorum,fec,375.0,375.0,0.0
+2016,R,OK,Lindsey Graham,fec,224.0,224.0,0.0
+2016,R,TN,Donald J. Trump,fec,333180.0,333180.0,0.0
+2016,R,TN,Ted Cruz,fec,211471.0,211471.0,0.0
+2016,R,TN,Marco Rubio,fec,181274.0,181274.0,0.0
+2016,R,TN,Ben Carson,fec,64951.0,64951.0,0.0
+2016,R,TN,John R. Kasich,fec,45301.0,45301.0,0.0
+2016,R,TN,Jeb Bush,fec,9551.0,9551.0,0.0
+2016,R,TN,Mike Huckabee,fec,2415.0,2415.0,0.0
+2016,R,TN,Rand Paul,fec,2350.0,2350.0,0.0
+2016,R,TN,Chris Christie,fec,1256.0,1256.0,0.0
+2016,R,TN,Carly Fiorina,fec,715.0,715.0,0.0
+2016,R,TN,Rick Santorum,fec,710.0,710.0,0.0
+2016,R,TN,Jim Gilmore,fec,267.0,267.0,0.0
+2016,R,TN,Lindsey Graham,fec,253.0,253.0,0.0
+2016,R,TN,George Pataki,fec,186.0,186.0,0.0
+2016,R,TX,Ted Cruz,fec,1241118.0,1241118.0,0.0
+2016,R,TX,Donald J. Trump,fec,758762.0,758762.0,0.0
+2016,R,TX,Marco Rubio,fec,503055.0,503055.0,0.0
+2016,R,TX,John R. Kasich,fec,120473.0,120473.0,0.0
+2016,R,TX,Ben Carson,fec,117969.0,117969.0,0.0
+2016,R,TX,Jeb Bush,fec,35420.0,35420.0,0.0
+2016,R,TX,Rand Paul,fec,8000.0,8000.0,0.0
+2016,R,TX,Mike Huckabee,fec,6226.0,6226.0,0.0
+2016,R,TX,Chris Christie,fec,3448.0,3448.0,0.0
+2016,R,TX,Carly Fiorina,fec,3247.0,3247.0,0.0
+2016,R,TX,Rick Santorum,fec,2006.0,2006.0,0.0
+2016,R,TX,Lindsey Graham,fec,1706.0,1706.0,0.0
+2016,R,VA,Donald J. Trump,fec,356840.0,356840.0,0.0
+2016,R,VA,Marco Rubio,fec,327918.0,327918.0,0.0
+2016,R,VA,Ted Cruz,fec,171150.0,171150.0,0.0
+2016,R,VA,John Kasich,fec,97784.0,97784.0,0.0
+2016,R,VA,Ben Carson,fec,60228.0,60228.0,0.0
+2016,R,VA,Jeb Bush,fec,3645.0,3645.0,0.0
+2016,R,VA,Rand Paul,fec,2917.0,2917.0,0.0
+2016,R,VA,Mike Huckabee,fec,1458.0,1458.0,0.0
+2016,R,VA,Chris Christie,fec,1102.0,1102.0,0.0
+2016,R,VA,Carly Fiorina,fec,914.0,914.0,0.0
+2016,R,VA,Jim Gilmore,fec,653.0,653.0,0.0
+2016,R,VA,Lindsey Graham,fec,444.0,444.0,0.0
+2016,R,VA,Rick Santorum,fec,399.0,399.0,0.0
+2016,R,VT,Donald J. Trump,fec,19974.0,19974.0,0.0
+2016,R,VT,John R. Kasich,fec,18534.0,18534.0,0.0
+2016,R,VT,Marco Rubio,fec,11781.0,11781.0,0.0
+2016,R,VT,Ted Cruz,fec,5932.0,5932.0,0.0
+2016,R,VT,Ben Carson,fec,2551.0,2551.0,0.0
+2016,R,VT,Jeb Bush,fec,1106.0,1106.0,0.0
+2016,R,VT,Rand Paul,fec,423.0,423.0,0.0
+2016,R,VT,Chris Christie,fec,361.0,361.0,0.0
+2016,R,VT,Carly Fiorina,fec,212.0,212.0,0.0
+2016,R,VT,Rick Santorum,fec,164.0,164.0,0.0
+2016,R,LA,Donald J. Trump,fec,124854.0,124854.0,0.0
+2016,R,LA,Ted Cruz,fec,113968.0,113968.0,0.0
+2016,R,LA,Marco Rubio,fec,33813.0,33813.0,0.0
+2016,R,LA,John R. Kasich,fec,19359.0,19359.0,0.0
+2016,R,LA,Ben Carson,fec,4544.0,4544.0,0.0
+2016,R,LA,Jeb Bush,fec,2145.0,2145.0,0.0
+2016,R,LA,Rand Paul,fec,670.0,670.0,0.0
+2016,R,LA,Mike Huckabee,fec,645.0,645.0,0.0
+2016,R,LA,Chris Christie,fec,401.0,401.0,0.0
+2016,R,LA,Carly Fiorina,fec,243.0,243.0,0.0
+2016,R,LA,Timothy Tim Cook,fec,219.0,,
+2016,R,LA,Rick Santorum,fec,180.0,180.0,0.0
+2016,R,LA,Lindsey Graham,fec,152.0,152.0,0.0
+2016,R,LA,Peter Messina,fec,48.0,,
+2016,R,PR,Marco Rubio,fec,28937.0,28937.0,0.0
+2016,R,PR,Donald Trump,fec,5474.0,5474.0,0.0
+2016,R,PR,Ted Cruz,fec,3610.0,3610.0,0.0
+2016,R,PR,John R. Kasich,fec,582.0,582.0,0.0
+2016,R,PR,Carly Fiorina,fec,375.0,375.0,0.0
+2016,R,PR,Jeb Bush,fec,296.0,296.0,0.0
+2016,R,PR,Ben Carson,fec,168.0,168.0,0.0
+2016,R,PR,Mike Huckabee,fec,77.0,77.0,0.0
+2016,R,PR,Rand Paul,fec,48.0,48.0,0.0
+2016,R,PR,Rick Santorum,fec,36.0,36.0,0.0
+2016,R,PR,James Gilmore,fec,30.0,30.0,0.0
+2016,R,PR,Chris Christie,fec,23.0,23.0,0.0
+2016,R,ID,Ted Cruz,fec,100889.0,100889.0,0.0
+2016,R,ID,Donald J. Trump,fec,62413.0,62413.0,0.0
+2016,R,ID,Marco Rubio,fec,35290.0,35290.0,0.0
+2016,R,ID,John R. Kasich,fec,16514.0,16514.0,0.0
+2016,R,ID,Ben Carson,fec,3853.0,3853.0,0.0
+2016,R,ID,Jeb Bush,fec,939.0,939.0,0.0
+2016,R,ID,Rand Paul,fec,834.0,834.0,0.0
+2016,R,ID,Mike Huckabee,fec,358.0,358.0,0.0
+2016,R,ID,Chris Christie,fec,353.0,353.0,0.0
+2016,R,ID,Carly Fiorina,fec,242.0,242.0,0.0
+2016,R,ID,Rick Santorum,fec,211.0,211.0,0.0
+2016,R,ID,Lindsey Graham,fec,80.0,80.0,0.0
+2016,R,ID,Peter Messina,fec,28.0,28.0,0.0
+2016,R,MI,Donald J. Trump,fec,483753.0,483753.0,0.0
+2016,R,MI,Ted Cruz,fec,326617.0,326617.0,0.0
+2016,R,MI,John Kasich,fec,321115.0,321115.0,0.0
+2016,R,MI,Marco Rubio,fec,123587.0,123587.0,0.0
+2016,R,MI,Ben Carson,fec,21349.0,21349.0,0.0
+2016,R,MI,Jeb Bush,fec,10685.0,10685.0,0.0
+2016,R,MI,Rand Paul,fec,3774.0,3774.0,0.0
+2016,R,MI,Chris Christie,fec,3116.0,3116.0,0.0
+2016,R,MI,Mike Huckabee,fec,2603.0,2603.0,0.0
+2016,R,MI,Rick Santorum,fec,1722.0,1722.0,0.0
+2016,R,MI,Carly Fiorina,fec,1415.0,1415.0,0.0
+2016,R,MI,George Pataki,fec,591.0,591.0,0.0
+2016,R,MI,Lindsey Graham,fec,438.0,438.0,0.0
+2016,R,MS,Donald J. Trump,fec,196659.0,196659.0,0.0
+2016,R,MS,Ted Cruz,fec,150364.0,150364.0,0.0
+2016,R,MS,John R. Kasich,fec,36795.0,36795.0,0.0
+2016,R,MS,Marco Rubio,fec,21885.0,21885.0,0.0
+2016,R,MS,Ben Carson,fec,5626.0,5626.0,0.0
+2016,R,MS,Jeb Bush,fec,1697.0,1697.0,0.0
+2016,R,MS,Mike Huckabee,fec,1067.0,1067.0,0.0
+2016,R,MS,Rand Paul,fec,643.0,643.0,0.0
+2016,R,MS,Rick Santorum,fec,510.0,510.0,0.0
+2016,R,MS,Chris Christie,fec,493.0,493.0,0.0
+2016,R,MS,Carly Fiorina,fec,224.0,224.0,0.0
+2016,R,MS,Lindsey Graham,fec,172.0,172.0,0.0
+2016,R,MS,George Pataki,fec,135.0,135.0,0.0
+2016,R,FL,Donald J. Trump,fec,1079870.0,1079870.0,0.0
+2016,R,FL,Marco Rubio,fec,638661.0,638661.0,0.0
+2016,R,FL,Ted Cruz,fec,404891.0,404891.0,0.0
+2016,R,FL,John R. Kasich,fec,159976.0,159976.0,0.0
+2016,R,FL,Jeb Bush,fec,43511.0,43511.0,0.0
+2016,R,FL,Ben Carson,fec,21207.0,21207.0,0.0
+2016,R,FL,Rand Paul,fec,4450.0,4450.0,0.0
+2016,R,FL,Mike Huckabee,fec,2624.0,2624.0,0.0
+2016,R,FL,Chris Christie,fec,2493.0,2493.0,0.0
+2016,R,FL,Carly Fiorina,fec,1899.0,1899.0,0.0
+2016,R,FL,Rick Santorum,fec,1211.0,1211.0,0.0
+2016,R,FL,Lindsey Graham,fec,693.0,693.0,0.0
+2016,R,FL,Jim Gilmore,fec,319.0,319.0,0.0
+2016,R,IL,Donald J. Trump,fec,562464.0,562464.0,0.0
+2016,R,IL,Ted Cruz,fec,438235.0,438235.0,0.0
+2016,R,IL,John R. Kasich,fec,286118.0,286118.0,0.0
+2016,R,IL,Marco Rubio,fec,126681.0,126681.0,0.0
+2016,R,IL,Ben Carson,fec,11469.0,11469.0,0.0
+2016,R,IL,Jeb Bush,fec,11188.0,11188.0,0.0
+2016,R,IL,Rand Paul,fec,4718.0,4718.0,0.0
+2016,R,IL,Chris Christie,fec,3428.0,3428.0,0.0
+2016,R,IL,Mike Huckabee,fec,2737.0,2737.0,0.0
+2016,R,IL,Carly Fiorina,fec,1540.0,1540.0,0.0
+2016,R,IL,Rick Santorum,fec,1154.0,1154.0,0.0
+2016,R,MO,Donald J. Trump,fec,383631.0,383631.0,0.0
+2016,R,MO,Ted Cruz,fec,381666.0,381666.0,0.0
+2016,R,MO,John R. Kasich,fec,94857.0,94857.0,0.0
+2016,R,MO,Marco Rubio,fec,57244.0,57244.0,0.0
+2016,R,MO,Ben Carson,fec,8233.0,8233.0,0.0
+2016,R,MO,Jeb Bush,fec,3361.0,3361.0,0.0
+2016,R,MO,Mike Huckabee,fec,2148.0,2148.0,0.0
+2016,R,MO,Rand Paul,fec,1777.0,1777.0,0.0
+2016,R,MO,Chris Christie,fec,1681.0,1681.0,0.0
+2016,R,MO,Rick Santorum,fec,732.0,732.0,0.0
+2016,R,MO,Carly Fiorina,fec,615.0,615.0,0.0
+2016,R,MO,Jim Lynch,fec,100.0,100.0,0.0
+2016,R,NC,Donald J. Trump,fec,462413.0,462413.0,0.0
+2016,R,NC,Ted Cruz,fec,422621.0,422621.0,0.0
+2016,R,NC,John R. Kasich,fec,145659.0,145659.0,0.0
+2016,R,NC,Marco Rubio,fec,88907.0,88907.0,0.0
+2016,R,NC,Ben Carson,fec,11019.0,11019.0,0.0
+2016,R,NC,Jeb Bush,fec,3893.0,3893.0,0.0
+2016,R,NC,Mike Huckabee,fec,3071.0,3071.0,0.0
+2016,R,NC,Rand Paul,fec,2753.0,2753.0,0.0
+2016,R,NC,Chris Christie,fec,1256.0,1256.0,0.0
+2016,R,NC,Carly Fiorina,fec,929.0,929.0,0.0
+2016,R,NC,Rick Santorum,fec,663.0,663.0,0.0
+2016,R,NC,Jim Gilmore,fec,265.0,265.0,0.0
+2016,R,OH,John R. Kasich,fec,933886.0,933886.0,0.0
+2016,R,OH,Donald J. Trump,fec,713404.0,713404.0,0.0
+2016,R,OH,Ted Cruz,fec,264640.0,264640.0,0.0
+2016,R,OH,Marco Rubio,fec,46478.0,46478.0,0.0
+2016,R,OH,Ben Carson,fec,14351.0,14351.0,0.0
+2016,R,OH,Jeb Bush,fec,5398.0,5398.0,0.0
+2016,R,OH,Mike Huckabee,fec,4941.0,4941.0,0.0
+2016,R,OH,Chris Christie,fec,2430.0,2430.0,0.0
+2016,R,OH,Carly Fiorina,fec,2112.0,2112.0,0.0
+2016,R,OH,Rick Santorum,fec,1320.0,1320.0,0.0
+2016,R,AZ,Donald Trump,fec,286743.0,286743.0,0.0
+2016,R,AZ,Ted Cruz,fec,172294.0,172294.0,0.0
+2016,R,AZ,Marco Rubio,fec,72304.0,72304.0,0.0
+2016,R,AZ,John Kasich,fec,65965.0,65965.0,0.0
+2016,R,AZ,Ben Carson,fec,14940.0,14940.0,0.0
+2016,R,AZ,Jeb Bush,fec,4383.0,4393.0,-10.0
+2016,R,AZ,Rand Paul,fec,2269.0,2269.0,0.0
+2016,R,AZ,Mike Huckabee,fec,1300.0,1300.0,0.0
+2016,R,AZ,Carly Fiorina,fec,1270.0,1270.0,0.0
+2016,R,AZ,Chris Christie,fec,988.0,988.0,0.0
+2016,R,AZ,Rick Santorum,fec,523.0,523.0,0.0
+2016,R,AZ,Lindsey Graham,fec,498.0,498.0,0.0
+2016,R,AZ,George Pataki,fec,309.0,309.0,0.0
+2016,R,AZ,Tim Cook,fec,243.0,243.0,0.0
+2016,R,WI,Ted Cruz,fec,533079.0,533079.0,0.0
+2016,R,WI,Donald J. Trump,fec,387295.0,387295.0,0.0
+2016,R,WI,John R. Kasich,fec,155902.0,155902.0,0.0
+2016,R,WI,Marco Rubio,fec,10591.0,10591.0,0.0
+2016,R,WI,Ben Carson,fec,5660.0,5660.0,0.0
+2016,R,WI,Jeb Bush,fec,3054.0,3054.0,0.0
+2016,R,WI,Rand Paul,fec,2519.0,2519.0,0.0
+2016,R,WI,Mike Huckabee,fec,1424.0,1424.0,0.0
+2016,R,WI,Chris Christie,fec,1191.0,1191.0,0.0
+2016,R,WI,Carly Fiorina,fec,772.0,772.0,0.0
+2016,R,WI,Rick Santorum,fec,511.0,511.0,0.0
+2016,R,WI,Jim Gilmore,fec,245.0,245.0,0.0
+2016,R,NY,Donald J. Trump,fec,554522.0,554522.0,0.0
+2016,R,NY,John R. Kasich,fec,231166.0,231166.0,0.0
+2016,R,NY,Ted Cruz,fec,136083.0,136083.0,0.0
+2016,R,CT,Donald Trump,fec,123523.0,123523.0,0.0
+2016,R,CT,John Kasich,fec,60522.0,60522.0,0.0
+2016,R,CT,Ted Cruz,fec,24987.0,24987.0,0.0
+2016,R,CT,Ben Carson,fec,1733.0,1733.0,0.0
+2016,R,DE,Donald J. Trump,fec,42472.0,42472.0,0.0
+2016,R,DE,John R. Kasich,fec,14225.0,14225.0,0.0
+2016,R,DE,Ted Cruz,fec,11110.0,11110.0,0.0
+2016,R,DE,Ben Carson,fec,885.0,885.0,0.0
+2016,R,DE,Marco Rubio,fec,622.0,622.0,0.0
+2016,R,DE,Jeb Bush,fec,578.0,578.0,0.0
+2016,R,MD,Donald J. Trump,fec,248343.0,248343.0,0.0
+2016,R,MD,John R. Kasich,fec,106614.0,106614.0,0.0
+2016,R,MD,Ted Cruz,fec,87093.0,87093.0,0.0
+2016,R,MD,Ben Carson,fec,5946.0,5946.0,0.0
+2016,R,MD,Marco Rubio,fec,3201.0,3201.0,0.0
+2016,R,MD,Jeb Bush,fec,2770.0,2770.0,0.0
+2016,R,MD,Rand Paul,fec,1533.0,1533.0,0.0
+2016,R,MD,Chris Christie,fec,1239.0,1239.0,0.0
+2016,R,MD,Carly Fiorina,fec,1012.0,1012.0,0.0
+2016,R,MD,Mike Huckabee,fec,837.0,837.0,0.0
+2016,R,MD,Rick Santorum,fec,478.0,478.0,0.0
+2016,R,PA,Donald J. Trump,fec,902593.0,902593.0,0.0
+2016,R,PA,Rafael Edward Cruz,fec,345506.0,345506.0,0.0
+2016,R,PA,John R. Kasich,fec,310003.0,310003.0,0.0
+2016,R,PA,Benjamin Solomon Carson,fec,14842.0,14842.0,0.0
+2016,R,PA,Marco A. Rubio,fec,11954.0,11954.0,0.0
+2016,R,PA,John Ellis Bush,fec,9577.0,9577.0,0.0
+2016,R,RI,Donald J. Trump,fec,39221.0,39221.0,0.0
+2016,R,RI,John R. Kasich,fec,14963.0,14963.0,0.0
+2016,R,RI,Ted Cruz,fec,6416.0,6416.0,0.0
+2016,R,RI,Marco Rubio,fec,382.0,382.0,0.0
+2016,R,IN,Donald J. Trump,fec,591514.0,591514.0,0.0
+2016,R,IN,Ted Cruz,fec,406783.0,406783.0,0.0
+2016,R,IN,John R. Kasich,fec,84111.0,84111.0,0.0
+2016,R,IN,Ben Carson,fec,8914.0,8914.0,0.0
+2016,R,IN,Jeb Bush,fec,6508.0,6508.0,0.0
+2016,R,IN,Marco Rubio,fec,5175.0,5175.0,0.0
+2016,R,IN,Rand Paul,fec,4306.0,4306.0,0.0
+2016,R,IN,Chris Christie,fec,1738.0,1738.0,0.0
+2016,R,IN,Carly Fiorina,fec,1494.0,1494.0,0.0
+2016,R,NE,Donald J. Trump,fec,122327.0,122327.0,0.0
+2016,R,NE,Ted Cruz,fec,36703.0,36703.0,0.0
+2016,R,NE,John R. Kasich,fec,22709.0,22709.0,0.0
+2016,R,NE,Ben Carson,fec,10016.0,10016.0,0.0
+2016,R,NE,Marco Rubio,fec,7233.0,7233.0,0.0
+2016,R,WV,Donald J. Trump,fec,157238.0,157238.0,0.0
+2016,R,WV,Ted Cruz,fec,18301.0,18301.0,0.0
+2016,R,WV,John R. Kasich,fec,13721.0,13721.0,0.0
+2016,R,WV,Ben Carson,fec,4421.0,4421.0,0.0
+2016,R,WV,Marco Rubio,fec,2908.0,2908.0,0.0
+2016,R,WV,Jeb Bush,fec,2305.0,2305.0,0.0
+2016,R,WV,Rand Paul,fec,1798.0,1798.0,0.0
+2016,R,WV,Mike Huckabee,fec,1780.0,1780.0,0.0
+2016,R,WV,Chris Christie,fec,727.0,727.0,0.0
+2016,R,WV,Carly Fiorina,fec,659.0,659.0,0.0
+2016,R,OR,Donald J. Trump,fec,252748.0,252748.0,0.0
+2016,R,OR,Ted Cruz,fec,65513.0,65513.0,0.0
+2016,R,OR,John R. Kasich,fec,62248.0,62248.0,0.0
+2016,R,WA,Donald J. Trump,fec,455023.0,455023.0,0.0
+2016,R,WA,Ted Cruz,fec,65172.0,65172.0,0.0
+2016,R,WA,John R. Kasich,fec,58954.0,58954.0,0.0
+2016,R,WA,Ben Carson,fec,23849.0,23849.0,0.0
+2016,R,CA,Donald Trump,fec,1665135.0,1665135.0,0.0
+2016,R,CA,John R. Kasich,fec,252544.0,252544.0,0.0
+2016,R,CA,Ted Cruz,fec,211576.0,211576.0,0.0
+2016,R,CA,Ben Carson,fec,82259.0,82259.0,0.0
+2016,R,CA,Jim Gilmore,fec,15691.0,15691.0,0.0
+2016,R,MT,Donald J. Trump,fec,115594.0,115594.0,0.0
+2016,R,MT,Ted Cruz,fec,14682.0,14682.0,0.0
+2016,R,MT,John R. Kasich,fec,10777.0,10777.0,0.0
+2016,R,MT,Marco Rubio,fec,5192.0,5192.0,0.0
+2016,R,MT,Jeb Bush,fec,3274.0,3274.0,0.0
+2016,R,NJ,Donald J. Trump,fec,360212.0,360212.0,0.0
+2016,R,NJ,John R. Kasich,fec,59866.0,59866.0,0.0
+2016,R,NJ,Ted Cruz,fec,27874.0,27874.0,0.0
+2016,R,NM,Donald J. Trump,fec,73908.0,73908.0,0.0
+2016,R,NM,Ted Cruz,fec,13925.0,13925.0,0.0
+2016,R,NM,John R. Kasich,fec,7925.0,7925.0,0.0
+2016,R,NM,Benjamin S. Carson,fec,3830.0,3830.0,0.0
+2016,R,NM,Jeb Bush,fec,3531.0,3531.0,0.0
+2016,R,NM,Carly Fiorina,fec,1508.0,1508.0,0.0
+2016,R,SD,Donald J. Trump,fec,44867.0,44867.0,0.0
+2016,R,SD,Ted Cruz,fec,11352.0,11352.0,0.0
+2016,R,SD,John R. Kasich,fec,10660.0,10660.0,0.0
+2020,D,NH,Bernie Sanders,fec,76384.0,76384.0,0.0
+2020,D,NH,Pete Buttigieg,fec,72454.0,72454.0,0.0
+2020,D,NH,Amy Klobuchar,fec,58714.0,58714.0,0.0
+2020,D,NH,Elizabeth Warren,fec,27429.0,27429.0,0.0
+2020,D,NH,Joseph R. Biden,fec,24944.0,24944.0,0.0
+2020,D,NH,Tom Steyer,fec,10732.0,10732.0,0.0
+2020,D,NH,Tulsi Gabbard,fec,9755.0,9755.0,0.0
+2020,D,NH,Andrew Yang,fec,8312.0,8312.0,0.0
+2020,D,NH,Deval Patrick,fec,1271.0,1271.0,0.0
+2020,D,NH,Michael Bennet,fec,952.0,952.0,0.0
+2020,D,NH,Cory Booker,fec,157.0,157.0,0.0
+2020,D,NH,Joe Sestak,fec,152.0,152.0,0.0
+2020,D,NH,Kamala Harris,fec,129.0,129.0,0.0
+2020,D,NH,Marianne Williamson,fec,99.0,99.0,0.0
+2020,D,NH,Julián Castro,fec,83.0,83.0,0.0
+2020,D,NH,John K. Delaney,fec,83.0,83.0,0.0
+2020,D,NH,Tom Koos,fec,72.0,,
+2020,D,NH,Steve Bullock,fec,64.0,64.0,0.0
+2020,D,NH,David John Thistle,fec,53.0,,
+2020,D,NH,Robby Wells,fec,45.0,,
+2020,D,NH,Henry Hewes,fec,43.0,43.0,0.0
+2020,D,NH,Sam Sloan,fec,34.0,,
+2020,D,NH,Mosie Boyd,fec,32.0,,
+2020,D,NH,Ben Gleib Gleiberman,fec,31.0,,
+2020,D,NH,Mark Stewart Greenstein,fec,31.0,,
+2020,D,NH,Rita Krichevsky,fec,23.0,,
+2020,D,NH,Michael A. Ellinger,fec,19.0,,
+2020,D,NH,Jason Evritte Dunlap,fec,12.0,,
+2020,D,NH,Roque De La Fuente,fec,11.0,,
+2020,D,SC,Joseph R. Biden,fec,262336.0,262336.0,0.0
+2020,D,SC,Bernie Sanders,fec,106605.0,106605.0,0.0
+2020,D,SC,Tom Steyer,fec,61140.0,61140.0,0.0
+2020,D,SC,Pete Buttigieg,fec,44217.0,44217.0,0.0
+2020,D,SC,Elizabeth Warren,fec,38120.0,38120.0,0.0
+2020,D,SC,Amy Klobuchar,fec,16900.0,16900.0,0.0
+2020,D,SC,Tulsi Gabbard,fec,6813.0,6813.0,0.0
+2020,D,SC,Andrew Yang,fec,1069.0,1069.0,0.0
+2020,D,SC,Michael Bennet,fec,765.0,765.0,0.0
+2020,D,SC,Cory Booker,fec,658.0,658.0,0.0
+2020,D,SC,John K. Delaney,fec,352.0,352.0,0.0
+2020,D,SC,Deval Patrick,fec,288.0,288.0,0.0
+2020,D,AL,Joseph R. Biden,fec,286065.0,286065.0,0.0
+2020,D,AL,Bernie Sanders,fec,74755.0,74755.0,0.0
+2020,D,AL,Michael R. Bloomberg,fec,52750.0,52750.0,0.0
+2020,D,AL,Elizabeth Warren,fec,25847.0,25847.0,0.0
+2020,D,AL,Michael Bennet,fec,2250.0,2250.0,0.0
+2020,D,AL,Pete Buttigieg,fec,1416.0,1416.0,0.0
+2020,D,AL,Tom Steyer,fec,1048.0,1048.0,0.0
+2020,D,AL,Tulsi Gabbard,fec,1038.0,1038.0,0.0
+2020,D,AL,Amy Klobuchar,fec,907.0,907.0,0.0
+2020,D,AL,Andrew Yang,fec,875.0,875.0,0.0
+2020,D,AL,Cory Booker,fec,740.0,740.0,0.0
+2020,D,AL,John K. Delaney,fec,294.0,294.0,0.0
+2020,D,AL,Marianne Williamson,fec,224.0,224.0,0.0
+2020,D,AL,Julián Castro,fec,184.0,184.0,0.0
+2020,D,AR,Joseph R. Biden,fec,93012.0,93012.0,0.0
+2020,D,AR,Bernie Sanders,fec,51413.0,51413.0,0.0
+2020,D,AR,Michael R. Bloomberg,fec,38312.0,38312.0,0.0
+2020,D,AR,Elizabeth Warren,fec,22971.0,22971.0,0.0
+2020,D,AR,Pete Buttigieg,fec,7649.0,7649.0,0.0
+2020,D,AR,Amy Klobuchar,fec,7009.0,7009.0,0.0
+2020,D,AR,Tom Steyer,fec,2053.0,2053.0,0.0
+2020,D,AR,Tulsi Gabbard,fec,1593.0,1593.0,0.0
+2020,D,AR,Kamala Harris,fec,715.0,715.0,0.0
+2020,D,AR,Andrew Yang,fec,715.0,715.0,0.0
+2020,D,AR,Michael Bennet,fec,574.0,574.0,0.0
+2020,D,AR,Cory Booker,fec,572.0,572.0,0.0
+2020,D,AR,Marianne Williamson,fec,501.0,501.0,0.0
+2020,D,AR,Steve Bullock,fec,485.0,485.0,0.0
+2020,D,AR,John K. Delaney,fec,443.0,443.0,0.0
+2020,D,AR,Joe Sestak,fec,408.0,408.0,0.0
+2020,D,AR,Mosie Boyd,fec,393.0,,
+2020,D,AR,Julian Castro,fec,304.0,304.0,0.0
+2020,D,CA,Bernie Sanders,fec,2080846.0,2080846.0,0.0
+2020,D,CA,Joseph R. Biden,fec,1613854.0,1613854.0,0.0
+2020,D,CA,Elizabeth Warren,fec,762555.0,762555.0,0.0
+2020,D,CA,Michael R. Bloomberg,fec,701803.0,701803.0,0.0
+2020,D,CA,Pete Buttigieg,fec,249256.0,249256.0,0.0
+2020,D,CA,Amy Klobuchar,fec,126961.0,126961.0,0.0
+2020,D,CA,Tom Steyer,fec,113092.0,113092.0,0.0
+2020,D,CA,Andrew Yang,fec,43571.0,43571.0,0.0
+2020,D,CA,Tulsi Gabbard,fec,33769.0,33769.0,0.0
+2020,D,CA,Julián Castro,fec,13892.0,13892.0,0.0
+2020,D,CA,Michael Bennet,fec,7377.0,7377.0,0.0
+2020,D,CA,Marianne Williamson,fec,7052.0,7052.0,0.0
+2020,D,CA,"Roque Rocky, III De La Fuente",fec,6151.0,,
+2020,D,CA,Cory Booker,fec,6000.0,6000.0,0.0
+2020,D,CA,John K. Delaney,fec,4606.0,4606.0,0.0
+2020,D,CA,Michael A. Ellinger,fec,3424.0,,
+2020,D,CA,Joe Sestak,fec,3270.0,3270.0,0.0
+2020,D,CA,Mark Stewart Greenstein,fec,3190.0,,
+2020,D,CA,Deval Patrick,fec,2022.0,2022.0,0.0
+2020,D,CA,Mosie Boyd,fec,1639.0,,
+2020,D,CO,Bernie Sanders,fec,355293.0,355293.0,0.0
+2020,D,CO,Joseph R. Biden,fec,236565.0,236565.0,0.0
+2020,D,CO,Michael R. Bloomberg,fec,177727.0,177727.0,0.0
+2020,D,CO,Elizabeth Warren,fec,168695.0,168695.0,0.0
+2020,D,CO,Tulsi Gabbard,fec,10037.0,10037.0,0.0
+2020,D,CO,Andrew Yang,fec,3988.0,3988.0,0.0
+2020,D,CO,Tom Steyer,fec,3323.0,3323.0,0.0
+2020,D,CO,Cory Booker,fec,1276.0,1276.0,0.0
+2020,D,CO,"Roque Rocky, III De La Fuente",fec,1136.0,,
+2020,D,CO,Marianne Williamson,fec,1086.0,1086.0,0.0
+2020,D,CO,Rita Krichevsky,fec,445.0,,
+2020,D,CO,Robby Wells,fec,330.0,,
+2020,D,CO,Deval Patrick,fec,227.0,227.0,0.0
+2020,D,MA,Joseph R. Biden,fec,473861.0,473861.0,0.0
+2020,D,MA,Bernie Sanders,fec,376990.0,376990.0,0.0
+2020,D,MA,Elizabeth Warren,fec,303864.0,303864.0,0.0
+2020,D,MA,Michael R. Bloomberg,fec,166200.0,166200.0,0.0
+2020,D,MA,Pete Buttigieg,fec,38400.0,38400.0,0.0
+2020,D,MA,Amy Klobuchar,fec,17297.0,17297.0,0.0
+2020,D,MA,Tulsi Gabbard,fec,10548.0,10548.0,0.0
+2020,D,MA,Deval Patrick,fec,6923.0,6923.0,0.0
+2020,D,MA,Tom Steyer,fec,6762.0,6762.0,0.0
+2020,D,MA,Andrew Yang,fec,2708.0,2708.0,0.0
+2020,D,MA,Michael Bennet,fec,1257.0,1257.0,0.0
+2020,D,MA,John K. Delaney,fec,675.0,675.0,0.0
+2020,D,MA,Marianne Williamson,fec,617.0,617.0,0.0
+2020,D,MA,Cory Booker,fec,426.0,426.0,0.0
+2020,D,MA,Julián Castro,fec,305.0,305.0,0.0
+2020,D,ME,"Joseph R., Jr. Biden",fec,68729.0,,
+2020,D,ME,Bernard Sanders,fec,66826.0,66826.0,0.0
+2020,D,ME,Elizabeth A. Warren,fec,32055.0,32055.0,0.0
+2020,D,ME,Michael R. Bloomberg,fec,24294.0,24294.0,0.0
+2020,D,ME,Peter Buttigieg,fec,4364.0,4364.0,0.0
+2020,D,ME,Amy J. Klobuchar,fec,2826.0,2826.0,0.0
+2020,D,ME,Tulsi Gabbard,fec,1815.0,1815.0,0.0
+2020,D,ME,Andrew Yang,fec,696.0,696.0,0.0
+2020,D,ME,Thomas F. Steyer,fec,313.0,313.0,0.0
+2020,D,ME,Deval Patrick,fec,218.0,218.0,0.0
+2020,D,ME,Marianne Williamson,fec,201.0,201.0,0.0
+2020,D,ME,Cory A. Booker,fec,183.0,183.0,0.0
+2020,D,NC,Joseph R. Biden,fec,572271.0,572271.0,0.0
+2020,D,NC,Bernie Sanders,fec,322645.0,322645.0,0.0
+2020,D,NC,Michael R. Bloomberg,fec,172558.0,172558.0,0.0
+2020,D,NC,Elizabeth Warren,fec,139912.0,139912.0,0.0
+2020,D,NC,Pete Buttigieg,fec,43632.0,43632.0,0.0
+2020,D,NC,Amy Klobuchar,fec,30742.0,30742.0,0.0
+2020,D,NC,Tom Steyer,fec,10679.0,10679.0,0.0
+2020,D,NC,Tulsi Gabbard,fec,6622.0,6622.0,0.0
+2020,D,NC,Andrew Yang,fec,2973.0,2973.0,0.0
+2020,D,NC,Cory Booker,fec,2181.0,2181.0,0.0
+2020,D,NC,Michael Bennet,fec,1978.0,1978.0,0.0
+2020,D,NC,Deval Patrick,fec,1341.0,1341.0,0.0
+2020,D,NC,Marianne Williamson,fec,1243.0,1243.0,0.0
+2020,D,NC,John K. Delaney,fec,1098.0,1098.0,0.0
+2020,D,NC,Julian Castro,fec,699.0,699.0,0.0
+2020,D,OK,Joseph R. Biden,fec,117633.0,117633.0,0.0
+2020,D,OK,Bernie Sanders,fec,77425.0,77425.0,0.0
+2020,D,OK,Michael R. Bloomberg,fec,42270.0,42270.0,0.0
+2020,D,OK,Elizabeth Warren,fec,40732.0,40732.0,0.0
+2020,D,OK,Amy Klobuchar,fec,6733.0,6733.0,0.0
+2020,D,OK,Pete Buttigieg,fec,5115.0,5115.0,0.0
+2020,D,OK,Tulsi Gabbard,fec,5109.0,5109.0,0.0
+2020,D,OK,Tom Steyer,fec,2006.0,2006.0,0.0
+2020,D,OK,Andrew Yang,fec,1997.0,1997.0,0.0
+2020,D,OK,Cory Booker,fec,1530.0,1530.0,0.0
+2020,D,OK,Michael Bennet,fec,1273.0,1273.0,0.0
+2020,D,OK,Marianne Williamson,fec,1158.0,1158.0,0.0
+2020,D,OK,Deval Patrick,fec,680.0,680.0,0.0
+2020,D,OK,Julián Castro,fec,620.0,620.0,0.0
+2020,D,TN,Joseph R. Biden,fec,215390.0,215390.0,0.0
+2020,D,TN,Bernie Sanders,fec,129168.0,129168.0,0.0
+2020,D,TN,Michael R. Bloomberg,fec,79789.0,79789.0,0.0
+2020,D,TN,Elizabeth Warren,fec,53732.0,53732.0,0.0
+2020,D,TN,Pete Buttigieg,fec,17102.0,17102.0,0.0
+2020,D,TN,Amy Klobuchar,fec,10671.0,10671.0,0.0
+2020,D,TN,Tulsi Gabbard,fec,2278.0,2278.0,0.0
+2020,D,TN,Tom Steyer,fec,1932.0,1932.0,0.0
+2020,D,TN,Michael Bennet,fec,1650.0,1650.0,0.0
+2020,D,TN,Andrew Yang,fec,1097.0,1097.0,0.0
+2020,D,TN,Cory Booker,fec,953.0,953.0,0.0
+2020,D,TN,Marianne Williamson,fec,498.0,498.0,0.0
+2020,D,TN,John K. Delaney,fec,378.0,378.0,0.0
+2020,D,TN,Julián Castro,fec,239.0,239.0,0.0
+2020,D,TN,Deval Patrick,fec,182.0,182.0,0.0
+2020,D,TX,Joseph R. Biden,fec,725562.0,725562.0,0.0
+2020,D,TX,Bernie Sanders,fec,626339.0,626339.0,0.0
+2020,D,TX,Michael R. Bloomberg,fec,300608.0,300608.0,0.0
+2020,D,TX,Elizabeth Warren,fec,239237.0,239237.0,0.0
+2020,D,TX,Pete Buttigieg,fec,82671.0,82671.0,0.0
+2020,D,TX,Amy Klobuchar,fec,43291.0,43291.0,0.0
+2020,D,TX,Julián Castro,fec,16688.0,16688.0,0.0
+2020,D,TX,Tom Steyer,fec,13929.0,13929.0,0.0
+2020,D,TX,Michael Bennet,fec,10324.0,10324.0,0.0
+2020,D,TX,Tulsi Gabbard,fec,8688.0,8688.0,0.0
+2020,D,TX,Andrew Yang,fec,6674.0,6674.0,0.0
+2020,D,TX,Roque Rocky De La Fuente,fec,5469.0,,
+2020,D,TX,Cory Booker,fec,4941.0,4941.0,0.0
+2020,D,TX,Marianne Williamson,fec,3918.0,3918.0,0.0
+2020,D,TX,John K. Delaney,fec,3280.0,3280.0,0.0
+2020,D,TX,Robby Wells,fec,1505.0,,
+2020,D,TX,Deval Patrick,fec,1304.0,1304.0,0.0
+2020,D,UT,Bernie Sanders,fec,79728.0,79728.0,0.0
+2020,D,UT,Joseph R. Biden,fec,40674.0,40674.0,0.0
+2020,D,UT,Elizabeth Warren,fec,35727.0,35727.0,0.0
+2020,D,UT,Michael R. Bloomberg,fec,33991.0,33991.0,0.0
+2020,D,UT,Pete Buttigieg,fec,18734.0,18734.0,0.0
+2020,D,UT,Amy Klobuchar,fec,7603.0,7603.0,0.0
+2020,D,UT,Tulsi Gabbard,fec,1704.0,1704.0,0.0
+2020,D,UT,Andrew Yang,fec,950.0,950.0,0.0
+2020,D,UT,Tom Steyer,fec,703.0,703.0,0.0
+2020,D,UT,Marianne Williamson,fec,220.0,220.0,0.0
+2020,D,UT,Julián Castro,fec,159.0,159.0,0.0
+2020,D,UT,Cory Booker,fec,138.0,138.0,0.0
+2020,D,UT,Roque De La Fuente,fec,127.0,,
+2020,D,UT,Deval Patrick,fec,55.0,55.0,0.0
+2020,D,VA,Joseph R. Biden,fec,705501.0,705501.0,0.0
+2020,D,VA,Bernie Sanders,fec,306388.0,306388.0,0.0
+2020,D,VA,Elizabeth Warren,fec,142546.0,142546.0,0.0
+2020,D,VA,Michael R. Bloomberg,fec,128030.0,128030.0,0.0
+2020,D,VA,Tulsi Gabbard,fec,11288.0,11288.0,0.0
+2020,D,VA,Pete Buttigieg,fec,11199.0,11199.0,0.0
+2020,D,VA,Amy Klobuchar,fec,8414.0,8414.0,0.0
+2020,D,VA,Andrew Yang,fec,3361.0,3361.0,0.0
+2020,D,VA,Cory Booker,fec,1910.0,1910.0,0.0
+2020,D,VA,Tom Steyer,fec,1472.0,1472.0,0.0
+2020,D,VA,Michael Bennet,fec,1437.0,1437.0,0.0
+2020,D,VA,Marianne Williamson,fec,902.0,902.0,0.0
+2020,D,VA,Julián Castro,fec,691.0,691.0,0.0
+2020,D,VA,Deval Patrick,fec,370.0,370.0,0.0
+2020,D,VT,Bernie Sanders,fec,79921.0,79921.0,0.0
+2020,D,VT,Joseph R. Biden,fec,34669.0,34669.0,0.0
+2020,D,VT,Elizabeth Warren,fec,19785.0,19785.0,0.0
+2020,D,VT,Michael R. Bloomberg,fec,14828.0,14828.0,0.0
+2020,D,VT,Pete Buttigieg,fec,3709.0,3709.0,0.0
+2020,D,VT,Amy Klobuchar,fec,1991.0,1991.0,0.0
+2020,D,VT,Tulsi Gabbard,fec,1303.0,1303.0,0.0
+2020,D,VT,Andrew Yang,fec,591.0,591.0,0.0
+2020,D,VT,Tom Steyer,fec,202.0,202.0,0.0
+2020,D,VT,Deval Patrick,fec,137.0,137.0,0.0
+2020,D,VT,Marianne Williamson,fec,135.0,135.0,0.0
+2020,D,VT,Julian Castro,fec,52.0,52.0,0.0
+2020,D,ID,Joseph R. Biden,fec,53151.0,53151.0,0.0
+2020,D,ID,Bernie Sanders,fec,46114.0,46114.0,0.0
+2020,D,ID,Elizabeth Warren,fec,2878.0,2878.0,0.0
+2020,D,ID,Michael R. Bloomberg,fec,2612.0,2612.0,0.0
+2020,D,ID,Pete Buttigieg,fec,1426.0,1426.0,0.0
+2020,D,ID,Tulsi Gabbard,fec,876.0,876.0,0.0
+2020,D,ID,Amy Klobuchar,fec,774.0,774.0,0.0
+2020,D,ID,Andrew Yang,fec,310.0,310.0,0.0
+2020,D,ID,Tom Steyer,fec,112.0,112.0,0.0
+2020,D,ID,Michael Bennet,fec,92.0,91.0,1.0
+2020,D,ID,John K. Delaney,fec,66.0,65.0,1.0
+2020,D,ID,Marianne Williamson,fec,57.0,57.0,0.0
+2020,D,ID,Cory Booker,fec,55.0,55.0,0.0
+2020,D,ID,Julián Castro,fec,49.0,49.0,0.0
+2020,D,ID,Roque Rocky De La Fuente,fec,22.0,,
+2020,D,ID,Deval Patrick,fec,19.0,19.0,0.0
+2020,D,MI,Joe Biden,fec,840360.0,840360.0,0.0
+2020,D,MI,Bernie Sanders,fec,576926.0,576926.0,0.0
+2020,D,MI,Michael R. Bloomberg,fec,73464.0,73464.0,0.0
+2020,D,MI,Elizabeth Warren,fec,26148.0,26148.0,0.0
+2020,D,MI,Pete Buttigieg,fec,22462.0,22462.0,0.0
+2020,D,MI,Amy Klobuchar,fec,11018.0,11018.0,0.0
+2020,D,MI,Tulsi Gabbard,fec,9461.0,9461.0,0.0
+2020,D,MI,Andrew Yang,fec,2380.0,2380.0,0.0
+2020,D,MI,Tom Steyer,fec,1732.0,1732.0,0.0
+2020,D,MI,Michael Bennet,fec,1536.0,1536.0,0.0
+2020,D,MI,Cory Booker,fec,840.0,840.0,0.0
+2020,D,MI,Joe Sestak,fec,757.0,757.0,0.0
+2020,D,MI,Marianne Williamson,fec,719.0,719.0,0.0
+2020,D,MI,John Delaney,fec,464.0,464.0,0.0
+2020,D,MI,Julian Castro,fec,306.0,306.0,0.0
+2020,D,MO,Joseph R. Biden,fec,400347.0,400347.0,0.0
+2020,D,MO,Bernie Sanders,fec,230374.0,230374.0,0.0
+2020,D,MO,Michael R. Bloomberg,fec,9866.0,9866.0,0.0
+2020,D,MO,Elizabeth Warren,fec,8156.0,8156.0,0.0
+2020,D,MO,Tulsi Gabbard,fec,4887.0,4887.0,0.0
+2020,D,MO,Pete Buttigieg,fec,3309.0,3309.0,0.0
+2020,D,MO,Amy Klobuchar,fec,2682.0,2682.0,0.0
+2020,D,MO,Andrew Yang,fec,953.0,953.0,0.0
+2020,D,MO,Cory Booker,fec,651.0,651.0,0.0
+2020,D,MO,Tom Steyer,fec,584.0,584.0,0.0
+2020,D,MO,William C. (Bill) Haas,fec,392.0,,
+2020,D,MO,Michael Bennet,fec,206.0,206.0,0.0
+2020,D,MO,Marianne Williamson,fec,170.0,170.0,0.0
+2020,D,MO,John K. Delaney,fec,159.0,159.0,0.0
+2020,D,MO,Julián Castro,fec,103.0,103.0,0.0
+2020,D,MO,Henry Hewes,fec,94.0,94.0,0.0
+2020,D,MO,Robby Wells,fec,79.0,,
+2020,D,MO,Roque De La Fuente,fec,66.0,,
+2020,D,MO,Deval Patrick,fec,52.0,52.0,0.0
+2020,D,MS,Joseph R. Biden,fec,222160.0,222160.0,0.0
+2020,D,MS,Bernie Sanders,fec,40657.0,40657.0,0.0
+2020,D,MS,Michael R. Bloomberg,fec,6933.0,6933.0,0.0
+2020,D,MS,Elizabeth Warren,fec,1550.0,1550.0,0.0
+2020,D,MS,Tulsi Gabbard,fec,1003.0,1003.0,0.0
+2020,D,MS,Pete Buttigieg,fec,562.0,562.0,0.0
+2020,D,MS,Andrew Yang,fec,450.0,450.0,0.0
+2020,D,MS,Amy Klobuchar,fec,440.0,440.0,0.0
+2020,D,MS,Tom Steyer,fec,378.0,378.0,0.0
+2020,D,MS,Deval Patrick,fec,258.0,258.0,0.0
+2020,D,WA,Joseph R. Biden,fec,591403.0,591403.0,0.0
+2020,D,WA,Bernie Sanders,fec,570039.0,570039.0,0.0
+2020,D,WA,Elizabeth Warren,fec,142652.0,142652.0,0.0
+2020,D,WA,Michael Bloomberg,fec,122530.0,122530.0,0.0
+2020,D,WA,Pete Buttigieg,fec,63344.0,63344.0,0.0
+2020,D,WA,Amy Klobuchar,fec,33383.0,33383.0,0.0
+2020,D,WA,Tulsi Gabbard,fec,13199.0,13199.0,0.0
+2020,D,WA,Andrew Yang,fec,6403.0,6403.0,0.0
+2020,D,WA,Tom Steyer,fec,3455.0,3455.0,0.0
+2020,D,WA,Michael Bennet,fec,2044.0,2044.0,0.0
+2020,D,WA,Cory Booker,fec,1314.0,1314.0,0.0
+2020,D,WA,John Delaney,fec,573.0,573.0,0.0
+2020,D,WA,Deval Patrick,fec,508.0,508.0,0.0
+2020,D,AZ,Joseph Biden,fec,268029.0,268029.0,0.0
+2020,D,AZ,Bernie Sanders,fec,200456.0,200456.0,0.0
+2020,D,AZ,Elizabeth Warren,fec,35537.0,35537.0,0.0
+2020,D,AZ,Pete Buttigieg,fec,24868.0,24868.0,0.0
+2020,D,AZ,Tulsi Gabbard,fec,3014.0,3014.0,0.0
+2020,D,AZ,Andrew Yang,fec,1921.0,1921.0,0.0
+2020,D,AZ,Julián Castro,fec,754.0,754.0,0.0
+2020,D,AZ,Marianne Williamson,fec,668.0,668.0,0.0
+2020,D,AZ,Roque Rocky De La Fuente,fec,628.0,,
+2020,D,AZ,Deval Patrick,fec,242.0,242.0,0.0
+2020,D,AZ,Henry Hewes,fec,208.0,208.0,0.0
+2020,D,AZ,Michael Ellinger,fec,184.0,,
+2020,D,FL,Joe Biden,fec,1077375.0,1077375.0,0.0
+2020,D,FL,Bernie Sanders,fec,397311.0,397311.0,0.0
+2020,D,FL,Michael R. Bloomberg,fec,146544.0,146544.0,0.0
+2020,D,FL,Pete Buttigieg,fec,39886.0,39886.0,0.0
+2020,D,FL,Elizabeth Warren,fec,32875.0,32875.0,0.0
+2020,D,FL,Amy Klobuchar,fec,17276.0,17276.0,0.0
+2020,D,FL,Tulsi Gabbard,fec,8712.0,8712.0,0.0
+2020,D,FL,Andrew Yang,fec,5286.0,5286.0,0.0
+2020,D,FL,Michael Bennet,fec,4244.0,4244.0,0.0
+2020,D,FL,Tom Steyer,fec,2510.0,2510.0,0.0
+2020,D,FL,Marianne Williamson,fec,1744.0,1744.0,0.0
+2020,D,FL,John Delaney,fec,1583.0,1583.0,0.0
+2020,D,FL,Cory Booker,fec,1507.0,1507.0,0.0
+2020,D,FL,Julián Castro,fec,1036.0,1036.0,0.0
+2020,D,FL,Joe Sestak,fec,664.0,664.0,0.0
+2020,D,FL,Deval Patrick,fec,661.0,661.0,0.0
+2020,D,IL,Joseph R. Biden,fec,986661.0,986661.0,0.0
+2020,D,IL,Bernie Sanders,fec,605701.0,605701.0,0.0
+2020,D,IL,Michael R. Bloomberg,fec,25500.0,25500.0,0.0
+2020,D,IL,Elizabeth Warren,fec,24413.0,24413.0,0.0
+2020,D,IL,Pete Buttigieg,fec,9729.0,9729.0,0.0
+2020,D,IL,Tulsi Gabbard,fec,9642.0,9642.0,0.0
+2020,D,IL,Andrew Yang,fec,4021.0,4021.0,0.0
+2020,D,IL,Cory Booker,fec,2684.0,2684.0,0.0
+2020,D,IL,Tom Steyer,fec,1684.0,1684.0,0.0
+2020,D,IL,Deval Patrick,fec,1567.0,1567.0,0.0
+2020,D,IL,Michael Bennet,fec,1346.0,1346.0,0.0
+2020,D,IL,John K. Delaney,fec,1185.0,1185.0,0.0
+2020,D,WI,Joe Biden,fec,581463.0,581463.0,0.0
+2020,D,WI,Bernie Sanders,fec,293441.0,293441.0,0.0
+2020,D,WI,Elizabeth Warren,fec,14060.0,14060.0,0.0
+2020,D,WI,Michael R. Bloomberg,fec,8846.0,8846.0,0.0
+2020,D,WI,Amy Klobuchar,fec,6079.0,6079.0,0.0
+2020,D,WI,Tulsi Gabbard,fec,5565.0,5565.0,0.0
+2020,D,WI,Pete Buttigieg,fec,4946.0,4946.0,0.0
+2020,D,WI,Andrew Yang,fec,3349.0,3349.0,0.0
+2020,D,WI,Tom Steyer,fec,836.0,836.0,0.0
+2020,D,WI,John Delaney,fec,529.0,529.0,0.0
+2020,D,WI,Michael Bennet,fec,475.0,475.0,0.0
+2020,D,WI,Deval Patrick,fec,311.0,311.0,0.0
+2020,D,AK,Joseph R. Biden,fec,9862.0,10834.0,-972.0
+2020,D,AK,Bernie Sanders,fec,7764.0,8755.0,-991.0
+2020,D,AK,Elizabeth Warren,fec,1402.0,,
+2020,D,AK,Pete Buttigieg,fec,248.0,,
+2020,D,AK,Amy Klobuchar,fec,133.0,,
+2020,D,AK,Tulsi Gabbard,fec,124.0,,
+2020,D,AK,Michael R. Bloomberg,fec,97.0,,
+2020,D,AK,Tom Steyer,fec,65.0,,
+2020,D,OH,Joseph R. Biden,fec,647284.0,647284.0,0.0
+2020,D,OH,Bernie Sanders,fec,149683.0,149683.0,0.0
+2020,D,OH,Elizabeth Warren,fec,30985.0,30985.0,0.0
+2020,D,OH,Michael Bloomberg,fec,28704.0,28704.0,0.0
+2020,D,OH,Pete Buttigieg,fec,15113.0,15113.0,0.0
+2020,D,OH,Amy Klobuchar,fec,11899.0,11899.0,0.0
+2020,D,OH,Tulsi Gabbard,fec,4560.0,4560.0,0.0
+2020,D,OH,Tom Steyer,fec,2801.0,2801.0,0.0
+2020,D,OH,Michael Bennet,fec,2030.0,2030.0,0.0
+2020,D,OH,Deval Patrick,fec,822.0,822.0,0.0
+2020,D,KS,Joseph R. Biden,fec,102829.0,110041.0,-7212.0
+2020,D,KS,Bernie Sanders,fec,26555.0,33142.0,-6587.0
+2020,D,KS,Elizabeth Warren,fec,11518.0,,
+2020,D,KS,Tulsi Gabbard,fec,1604.0,,
+2020,D,NE,Joe Biden,fec,126444.0,126444.0,0.0
+2020,D,NE,Bernie Sanders,fec,23214.0,23214.0,0.0
+2020,D,NE,Elizabeth Warren,fec,10401.0,10401.0,0.0
+2020,D,NE,Tulsi Gabbard,fec,4523.0,4523.0,0.0
+2020,D,OR,Joseph R. Biden,fec,408315.0,408315.0,0.0
+2020,D,OR,Bernie Sanders,fec,127345.0,127345.0,0.0
+2020,D,OR,Elizabeth Warren,fec,59355.0,59355.0,0.0
+2020,D,OR,Tulsi Gabbard,fec,10717.0,10717.0,0.0
+2020,D,DC,Joseph R. Biden,fec,84093.0,84093.0,0.0
+2020,D,DC,Elizabeth Warren,fec,14228.0,14228.0,0.0
+2020,D,DC,Bernie Sanders,fec,11116.0,11116.0,0.0
+2020,D,DC,Tulsi Gabbard,fec,442.0,442.0,0.0
+2020,D,IN,Joseph R. Biden,fec,380836.0,380836.0,0.0
+2020,D,IN,Bernie Sanders,fec,67688.0,67688.0,0.0
+2020,D,IN,Pete Buttigieg,fec,17957.0,17957.0,0.0
+2020,D,IN,Elizabeth Warren,fec,14344.0,14344.0,0.0
+2020,D,IN,Michael R. Bloomberg,fec,4783.0,4783.0,0.0
+2020,D,IN,Andrew Yang,fec,4426.0,4426.0,0.0
+2020,D,IN,Amy Klobuchar,fec,3860.0,3860.0,0.0
+2020,D,IN,Tulsi Gabbard,fec,2657.0,2657.0,0.0
+2020,D,IN,Tom Steyer,fec,1376.0,1376.0,0.0
+2020,D,MD,Joe Biden,fec,879753.0,879753.0,0.0
+2020,D,MD,Bernie Sanders,fec,81939.0,81939.0,0.0
+2020,D,MD,Elizabeth Warren,fec,27134.0,27134.0,0.0
+2020,D,MD,Pete Buttigieg,fec,7180.0,7180.0,0.0
+2020,D,MD,Michael Bloomberg,fec,6773.0,6773.0,0.0
+2020,D,MD,Andrew Yang,fec,6670.0,6670.0,0.0
+2020,D,MD,Amy Klobuchar,fec,5685.0,5685.0,0.0
+2020,D,MD,Tulsi Gabbard,fec,4226.0,4226.0,0.0
+2020,D,MD,Cory Booker,fec,2662.0,2662.0,0.0
+2020,D,MD,Michael Bennet,fec,2291.0,2291.0,0.0
+2020,D,MD,Marianne Williamson,fec,897.0,897.0,0.0
+2020,D,MD,Julian Castro,fec,760.0,760.0,0.0
+2020,D,MD,Tom Steyer,fec,671.0,671.0,0.0
+2020,D,MD,Deval Patrick,fec,406.0,406.0,0.0
+2020,D,MT,Joseph R. Biden,fec,111706.0,111706.0,0.0
+2020,D,MT,Bernie Sanders,fec,22033.0,22033.0,0.0
+2020,D,MT,Elizabeth Warren,fec,11984.0,11984.0,0.0
+2020,D,NM,Joseph R. Biden,fec,181700.0,181700.0,0.0
+2020,D,NM,Bernie Sanders,fec,37435.0,37435.0,0.0
+2020,D,NM,Elizabeth Warren,fec,14552.0,14552.0,0.0
+2020,D,NM,Andrew Yang,fec,4026.0,4026.0,0.0
+2020,D,NM,Tulsi Gabbard,fec,2735.0,2735.0,0.0
+2020,D,NM,Deval Patrick,fec,971.0,971.0,0.0
+2020,D,PA,"Joseph Robinette, Jr. Biden",fec,1264624.0,,
+2020,D,PA,Bernard Sanders,fec,287834.0,287834.0,0.0
+2020,D,PA,Tulsi Gabbard,fec,43050.0,43050.0,0.0
+2020,D,RI,Joseph R. Biden,fec,79728.0,79728.0,0.0
+2020,D,RI,Bernie Sanders,fec,15525.0,15525.0,0.0
+2020,D,RI,Elizabeth Ann Warren,fec,4479.0,4479.0,0.0
+2020,D,RI,Andrew Yang,fec,802.0,802.0,0.0
+2020,D,RI,Tulsi Gabbard,fec,651.0,651.0,0.0
+2020,D,SD,Joseph R. Biden,fec,40800.0,40800.0,0.0
+2020,D,SD,Bernie Sanders,fec,11861.0,11861.0,0.0
+2020,D,GA,Joseph R. Biden,fec,1073556.0,922177.0,151379.0
+2020,D,GA,Bernie Sanders,fec,136912.0,101668.0,35244.0
+2020,D,GA,Elizabeth Warren,fec,26056.0,21906.0,4150.0
+2020,D,GA,Michael R. Bloomberg,fec,14446.0,7657.0,6789.0
+2020,D,GA,Andrew Yang,fec,9411.0,9117.0,294.0
+2020,D,GA,Pete Buttigieg,fec,7276.0,6346.0,930.0
+2020,D,GA,Michael Bennet,fec,5605.0,5154.0,451.0
+2020,D,GA,Amy Klobuchar,fec,4933.0,4317.0,616.0
+2020,D,GA,Tulsi Gabbard,fec,4798.0,4117.0,681.0
+2020,D,GA,Tom Steyer,fec,2248.0,1752.0,496.0
+2020,D,GA,John K. Delaney,fec,1560.0,1476.0,84.0
+2020,D,GA,Deval Patrick,fec,1117.0,1042.0,75.0
+2020,D,WV,Joseph R. Biden,fec,121782.0,122518.0,-736.0
+2020,D,WV,Bernie Sanders,fec,22670.0,22793.0,-123.0
+2020,D,WV,Elizabeth Warren,fec,5706.0,5741.0,-35.0
+2020,D,WV,Tulsi Gabbard,fec,4154.0,4163.0,-9.0
+2020,D,WV,Michael R. Bloomberg,fec,3757.0,3759.0,-2.0
+2020,D,WV,Pete Buttigieg,fec,3435.0,3455.0,-20.0
+2020,D,WV,Amy Klobuchar,fec,3002.0,3011.0,-9.0
+2020,D,WV,Andrew Yang,fec,2581.0,2590.0,-9.0
+2020,D,WV,Michael Bennet,fec,1862.0,1865.0,-3.0
+2020,D,WV,Tom Steyer,fec,1233.0,1235.0,-2.0
+2020,D,WV,Deval Patrick,fec,881.0,882.0,-1.0
+2020,D,KY,Joseph R. Biden,fec,365284.0,365284.0,0.0
+2020,D,KY,Bernie Sanders,fec,65055.0,65055.0,0.0
+2020,D,KY,Elizabeth Warren,fec,15300.0,15300.0,0.0
+2020,D,KY,Pete Buttigieg,fec,9127.0,9127.0,0.0
+2020,D,KY,Andrew Yang,fec,7267.0,7267.0,0.0
+2020,D,KY,Tulsi Gabbard,fec,5859.0,5859.0,0.0
+2020,D,KY,Amy Klobuchar,fec,5296.0,5296.0,0.0
+2020,D,KY,Tom Steyer,fec,2656.0,2656.0,0.0
+2020,D,KY,Michael Bennet,fec,2514.0,2514.0,0.0
+2020,D,KY,Deval Patrick,fec,1183.0,1183.0,0.0
+2020,D,NY,Joseph R. Biden,fec,1136679.0,1136679.0,0.0
+2020,D,NY,Bernie Sanders,fec,285908.0,285908.0,0.0
+2020,D,NY,Elizabeth Warren,fec,82917.0,82917.0,0.0
+2020,D,NY,Michael R. Bloomberg,fec,39433.0,39433.0,0.0
+2020,D,NY,Pete Buttigieg,fec,22927.0,22927.0,0.0
+2020,D,NY,Andrew Yang,fec,22686.0,22686.0,0.0
+2020,D,NY,Amy Klobuchar,fec,11028.0,11028.0,0.0
+2020,D,NY,Tulsi Gabbard,fec,9083.0,9083.0,0.0
+2020,D,NY,Deval Patrick,fec,3040.0,3040.0,0.0
+2020,D,NY,Michael Bennet,fec,2932.0,2932.0,0.0
+2020,D,NY,Tom Steyer,fec,2299.0,2299.0,0.0
+2020,D,DE,Joseph R. Biden,fec,81954.0,81954.0,0.0
+2020,D,DE,Bernie Sanders,fec,6878.0,6878.0,0.0
+2020,D,DE,Elizabeth Warren,fec,2850.0,2850.0,0.0
+2020,D,NJ,Joseph R. Biden,fec,814187.0,814188.0,-1.0
+2020,D,NJ,Bernie Sanders,fec,140412.0,140412.0,0.0
+2020,D,LA,Joseph R. Biden,fec,212555.0,212555.0,0.0
+2020,D,LA,Bernard Bernie Sanders,fec,19859.0,19859.0,0.0
+2020,D,LA,Elizabeth Warren,fec,6426.0,6426.0,0.0
+2020,D,LA,Michael Bennet,fec,6173.0,6173.0,0.0
+2020,D,LA,Andrew Yang,fec,4617.0,4617.0,0.0
+2020,D,LA,Michael R. Bloomberg,fec,4312.0,4312.0,0.0
+2020,D,LA,Amy Klobuchar,fec,2431.0,2431.0,0.0
+2020,D,LA,Pete Buttigieg,fec,2363.0,2363.0,0.0
+2020,D,LA,Tulsi Gabbard,fec,1962.0,1962.0,0.0
+2020,D,LA,John K. Delaney,fec,1877.0,1877.0,0.0
+2020,D,LA,Robby Wells,fec,1395.0,,
+2020,D,LA,Tom Steyer,fec,902.0,902.0,0.0
+2020,D,LA,Deval Patrick,fec,877.0,877.0,0.0
+2020,D,PR,Joseph R. Biden,fec,3930.0,3930.0,0.0
+2020,D,PR,Bernie Sanders,fec,932.0,932.0,0.0
+2020,D,PR,Michael R. Bloomberg,fec,894.0,894.0,0.0
+2020,D,PR,Tulsi Gabbard,fec,194.0,194.0,0.0
+2020,D,PR,Pete Buttigieg,fec,158.0,158.0,0.0
+2020,D,PR,Elizabeth Warren,fec,101.0,101.0,0.0
+2020,D,PR,Tom Steyer,fec,62.0,62.0,0.0
+2020,D,PR,Amy Klobuchar,fec,31.0,31.0,0.0
+2020,D,CT,Joe Biden,fec,224500.0,224500.0,0.0
+2020,D,CT,Bernie Sanders,fec,30512.0,30512.0,0.0
+2020,D,CT,Tulsi Gabbard,fec,3429.0,3429.0,0.0
+2020,R,NH,Donald J. Trump,fec,129734.0,129734.0,0.0
+2020,R,NH,Bill Weld,fec,13844.0,13844.0,0.0
+2020,R,NH,Joe Walsh,fec,838.0,838.0,0.0
+2020,R,NH,Matthew John Matern,fec,268.0,,
+2020,R,NH,"Stephen B., Sr. Comley",fec,202.0,,
+2020,R,NH,Roque Rocky De La Fuente,fec,148.0,148.0,0.0
+2020,R,NH,Robert Ardini,fec,77.0,77.0,0.0
+2020,R,NH,President R. Boddie,fec,72.0,,
+2020,R,NH,Bob Ely,fec,68.0,68.0,0.0
+2020,R,NH,Star Locke,fec,66.0,,
+2020,R,NH,Larry Horn,fec,65.0,,
+2020,R,NH,Zoltan Istvan Gyurko,fec,56.0,,
+2020,R,AL,Donald J. Trump,fec,696832.0,695470.0,1362.0
+2020,R,AL,Bill Weld,fec,10978.0,10962.0,16.0
+2020,R,AR,Donald J. Trump,fec,238980.0,238980.0,0.0
+2020,R,AR,Bill Weld,fec,5216.0,5216.0,0.0
+2020,R,AR,Roque Rocky De La Fuente,fec,1848.0,1848.0,0.0
+2020,R,CA,Donald J. Trump,fec,2279086.0,2279120.0,-34.0
+2020,R,CA,Bill Weld,fec,66904.0,66904.0,0.0
+2020,R,CA,Joe Walsh,fec,64749.0,64749.0,0.0
+2020,R,CA,Roque Rocky De La Fuente,fec,24351.0,24351.0,0.0
+2020,R,CA,Matthew John Matern,fec,15469.0,15469.0,0.0
+2020,R,CA,Robert Ardini,fec,12857.0,12857.0,0.0
+2020,R,CA,Zoltan G. Istvan,fec,8141.0,8141.0,0.0
+2020,R,CO,Donald J. Trump,fec,628876.0,628876.0,0.0
+2020,R,CO,Bill Weld,fec,25698.0,25698.0,0.0
+2020,R,CO,Joe Walsh,fec,13072.0,13072.0,0.0
+2020,R,CO,Matthew John Matern,fec,7239.0,7239.0,0.0
+2020,R,CO,Robert Ardini,fec,3388.0,3388.0,0.0
+2020,R,CO,Zoltan G. Istvan,fec,3350.0,3350.0,0.0
+2020,R,MA,Donald J. Trump,fec,239115.0,239115.0,0.0
+2020,R,MA,William F. Weld,fec,25425.0,25425.0,0.0
+2020,R,MA,Joe Walsh,fec,3008.0,3008.0,0.0
+2020,R,MA,Roque Rocky De La Fuente,fec,675.0,675.0,0.0
+2020,R,ME,Donald J. Trump,fec,95360.0,,
+2020,R,MN,Donald J. Trump,fec,137275.0,,
+2020,R,MN,William (Bill) Weld,fec,443.0,,
+2020,R,MN,Rocky De La Fuente,fec,16.0,,
+2020,R,NC,Donald J. Trump,fec,750600.0,750600.0,0.0
+2020,R,NC,Joe Walsh,fec,16356.0,16356.0,0.0
+2020,R,NC,Bill Weld,fec,15486.0,15486.0,0.0
+2020,R,OK,Donald J. Trump,fec,273738.0,273738.0,0.0
+2020,R,OK,Joe Walsh,fec,10996.0,10996.0,0.0
+2020,R,OK,Matthew John Matern,fec,3810.0,3810.0,0.0
+2020,R,OK,Bob Ely,fec,3294.0,3294.0,0.0
+2020,R,OK,Roque Rocky De La Fuente,fec,2466.0,2466.0,0.0
+2020,R,OK,Zoltan G. Istvan,fec,1297.0,1297.0,0.0
+2020,R,TN,Donald J. Trump,fec,384266.0,384266.0,0.0
+2020,R,TN,Joe Walsh,fec,4178.0,4178.0,0.0
+2020,R,TN,Bill Weld,fec,3922.0,3922.0,0.0
+2020,R,TX,Donald J. Trump,fec,1898664.0,1898664.0,0.0
+2020,R,TX,Bill Weld,fec,15824.0,15739.0,85.0
+2020,R,TX,Joe Walsh,fec,14772.0,15824.0,-1052.0
+2020,R,TX,Roque Rocky De La Fuente,fec,7563.0,7563.0,0.0
+2020,R,TX,Bob Ely,fec,3582.0,3582.0,0.0
+2020,R,TX,Matthew John Matern,fec,3512.0,3525.0,-13.0
+2020,R,TX,Zoltan G. Istvan,fec,1447.0,1447.0,0.0
+2020,R,UT,Donald J. Trump,fec,302751.0,302751.0,0.0
+2020,R,UT,Bill Weld,fec,23652.0,23652.0,0.0
+2020,R,UT,Joe Walsh,fec,7509.0,7509.0,0.0
+2020,R,UT,Matthew John Matern,fec,5751.0,5751.0,0.0
+2020,R,UT,Robert Ardini,fec,3971.0,3971.0,0.0
+2020,R,UT,Bob Ely,fec,1218.0,1218.0,0.0
+2020,R,VT,Donald J. Trump,fec,33984.0,33984.0,0.0
+2020,R,VT,Bill Weld,fec,3971.0,3971.0,0.0
+2020,R,VT,Roque Rocky De La Fuente,fec,341.0,341.0,0.0
+2020,R,ID,Donald J. Trump,fec,112373.0,112373.0,0.0
+2020,R,ID,Bill Weld,fec,2486.0,2486.0,0.0
+2020,R,ID,Joe Walsh,fec,2341.0,2341.0,0.0
+2020,R,ID,Matthew John Matern,fec,645.0,647.0,-2.0
+2020,R,ID,Roque Rocky De La Fuente,fec,637.0,637.0,0.0
+2020,R,ID,Bob Ely,fec,476.0,474.0,2.0
+2020,R,MI,Donald J. Trump,fec,640522.0,640552.0,-30.0
+2020,R,MI,Bill Weld,fec,6099.0,6099.0,0.0
+2020,R,MI,Mark Sanford,fec,4258.0,4258.0,0.0
+2020,R,MI,Joe Walsh,fec,4067.0,4067.0,0.0
+2020,R,MO,Donald J. Trump,fec,301953.0,301953.0,0.0
+2020,R,MO,Bill Weld,fec,2171.0,2171.0,0.0
+2020,R,MO,Joe Walsh,fec,2015.0,2015.0,0.0
+2020,R,MO,Bob Ely,fec,844.0,844.0,0.0
+2020,R,MO,Matthew John Matern,fec,594.0,594.0,0.0
+2020,R,MS,Donald J. Trump,fec,241985.0,240125.0,1860.0
+2020,R,MS,Bill Weld,fec,2311.0,2292.0,19.0
+2020,R,MS,Roque Rocky De La Fuente,fec,1085.0,1078.0,7.0
+2020,R,WA,Donald J. Trump,fec,684239.0,,
+2020,R,FL,Donald J. Trump,fec,1162984.0,1162984.0,0.0
+2020,R,FL,Bill Weld,fec,39319.0,39319.0,0.0
+2020,R,FL,Joe Walsh,fec,25464.0,25464.0,0.0
+2020,R,FL,Roque Rocky De La Fuente,fec,12172.0,12172.0,0.0
+2020,R,IL,Donald J. Trump,fec,520956.0,,
+2020,R,IL,Roque Rocky De La Fuente,fec,21833.0,,
+2020,R,WI,Donald J. Trump,fec,616782.0,,
+2020,R,OH,Donald J. Trump,fec,713546.0,,
+2020,R,NE,Donald J. Trump,fec,243721.0,,
+2020,R,NE,Bill Weld,fec,22934.0,,
+2020,R,OR,Donald J. Trump,fec,361010.0,,
+2020,R,DC,Donald J. Trump,fec,1559.0,,
+2020,R,IN,Donald J. Trump,fec,504726.0,,
+2020,R,IN,Bill Weld,fec,44520.0,,
+2020,R,MD,Donald J. Trump,fec,297198.0,,
+2020,R,MD,Bill Weld,fec,45092.0,,
+2020,R,MT,Donald J. Trump,fec,200174.0,,
+2020,R,NM,Donald J. Trump,fec,144067.0,,
+2020,R,PA,Donald J. Trump,fec,1053616.0,,
+2020,R,PA,William F. Weld,fec,69427.0,,
+2020,R,PA,Roque Rocky De La Fuente,fec,20456.0,,
+2020,R,RI,Donald J. Trump,fec,19176.0,,
+2020,R,RI,Bill Weld,fec,1214.0,,
+2020,R,RI,Roque Rocky De La Fuente,fec,182.0,,
+2020,R,GA,Donald J. Trump,fec,1033313.0,,
+2020,R,WV,Donald J. Trump,fec,198157.0,,
+2020,R,WV,Joe Walsh,fec,3786.0,,
+2020,R,WV,Bill Weld,fec,3690.0,,
+2020,R,WV,Roque Rocky De La Fuente,fec,1526.0,,
+2020,R,WV,Bob Ely,fec,1433.0,,
+2020,R,WV,Matthew John Matern,fec,1306.0,,
+2020,R,KY,Donald J. Trump,fec,371723.0,,
+2020,R,DE,Donald J. Trump,fec,28876.0,,
+2020,R,DE,Roque Rocky De La Fuente,fec,3920.0,,
+2020,R,NJ,Donald J. Trump,fec,404284.0,,
+2020,R,LA,Donald J. Trump,fec,195910.0,,
+2020,R,LA,Bill Weld,fec,3320.0,,
+2020,R,LA,Roque Rocky De La Fuente,fec,2336.0,,
+2020,R,LA,Matthew John Matern,fec,1686.0,,
+2020,R,LA,Bob Ely,fec,1043.0,,
+2020,R,CT,Donald J. Trump,fec,71666.0,,
+2020,R,CT,Roque Rocky De La Fuente,fec,6791.0,,
+2024,R,AL,Ryan L. Binkley,state,509.0,509.0,0.0
+2024,R,AL,Chris Christie,state,1442.0,1442.0,0.0
+2024,R,AL,Ron DeSantis,state,8452.0,8452.0,0.0
+2024,R,AL,Nikki Haley,state,77989.0,77989.0,0.0
+2024,R,AL,Vivek Ramaswamy,state,1864.0,1864.0,0.0
+2024,R,AL,David Stuckenberg,state,752.0,752.0,0.0
+2024,R,AL,Donald J. Trump,state,499147.0,499147.0,0.0
+2024,D,AL,Joseph R Biden Jr,state,168080.0,168080.0,0.0
+2024,D,AL,Dean Phillips,state,8442.0,8442.0,0.0
+2024,R,AR,Nikki Haley,state,49224.0,49085.0,139.0
+2024,R,AR,Chris Christie,state,603.0,600.0,3.0
+2024,R,AR,Ron DeSantis,state,3179.0,3162.0,17.0
+2024,R,AR,David Stuckenberg,state,151.0,151.0,0.0
+2024,R,AR,Doug Burgum,state,157.0,157.0,0.0
+2024,R,AR,Asa Hutchinson,state,7405.0,7377.0,28.0
+2024,R,AR,Ryan L. Binkley,state,183.0,183.0,0.0
+2024,R,AR,Donald J. Trump,state,205527.0,204898.0,629.0
+2024,R,AR,Vivek Ramaswamy,state,864.0,860.0,4.0
+2024,D,AR,Dean Phillips,state,2357.0,2346.0,11.0
+2024,D,AR,"Joseph R. Biden, Jr.",state,72183.0,71978.0,205.0
+2024,D,AR,Frankie Lozada,state,789.0,786.0,3.0
+2024,D,AR,Armando Perez-Serrato,state,879.0,879.0,0.0
+2024,D,AR,Stephen P. Lyons,state,1443.0,1442.0,1.0
+2024,D,AR,Marianne Williamson,state,3898.0,3883.0,15.0
+2024,D,CA,Joseph R Biden Jr,state,3207687.0,3207687.0,0.0
+2024,D,CA,President R Boddie,state,25455.0,25455.0,0.0
+2024,D,CA,Eban Cambridge,state,12758.0,12758.0,0.0
+2024,D,CA,Gabriel Cornejo,state,41390.0,41390.0,0.0
+2024,D,CA,Stephen P Lyons,state,21062.0,21062.0,0.0
+2024,D,CA,Armando Perez-Serrato,state,43105.0,43105.0,0.0
+2024,D,CA,Dean Phillips,state,100284.0,100284.0,0.0
+2024,D,CA,Marianne Williamson,state,146356.0,146356.0,0.0
+2024,D,CA,Willie Felix Carter,state,9.0,,
+2024,D,CA,President Cristina Nicole Grappo,state,5.0,,
+2024,D,CA,Richard Gutierrez,state,4.0,,
+2024,D,CA,James Mark Merts,state,4.0,,
+2024,D,CA,Reed Michaelsen,state,5.0,,
+2024,D,CA,Wayne Anthony Pope Sr.,state,2.0,,
+2024,R,CA,Ryan L Binkley,state,3577.0,3577.0,0.0
+2024,R,CA,Chris Christie,state,20210.0,20210.0,0.0
+2024,R,CA,Ron DeSantis,state,35717.0,35717.0,0.0
+2024,R,CA,Nikki Haley,state,431876.0,431876.0,0.0
+2024,R,CA,Asa Hutchinson,state,3336.0,3336.0,0.0
+2024,R,CA,Vivek Ramaswamy,state,11113.0,11113.0,0.0
+2024,R,CA,David Stuckenberg,state,3909.0,3909.0,0.0
+2024,R,CA,Rachel Swift,state,4253.0,4253.0,0.0
+2024,R,CA,Donald J. Trump,state,1962905.0,1962905.0,0.0
+2024,R,CA,Hugo C Aguilar,state,0.0,,
+2024,R,CA,Ryan Stephen Ehrenreich,state,2.0,,
+2024,R,CA,Douglas Groves,state,0.0,,
+2024,R,CO,Donald J. Trump,state,555863.0,555863.0,0.0
+2024,R,CO,Nikki Haley,state,291615.0,291615.0,0.0
+2024,R,CO,Ron DeSantis,state,12672.0,12672.0,0.0
+2024,R,CO,Chris Christie,state,7188.0,7188.0,0.0
+2024,R,CO,Vivek Ramaswamy,state,5113.0,5113.0,0.0
+2024,R,CO,Ryan L Binkley,state,2220.0,2220.0,0.0
+2024,R,CO,Asa Hutchinson,state,1269.0,1269.0,0.0
+2024,D,CO,Joseph R Biden Jr,state,477365.0,477365.0,0.0
+2024,D,CO,Dean Phillips,state,17936.0,17936.0,0.0
+2024,D,CO,Marianne Williamson,state,16761.0,16761.0,0.0
+2024,D,CO,Gabriel Cornejo,state,4313.0,4313.0,0.0
+2024,D,CO,Jason Michael Palmer,state,3986.0,3986.0,0.0
+2024,D,CO,Armando Perez-Serrato,state,2591.0,2591.0,0.0
+2024,D,CO,Frankie Lozada,state,2402.0,2402.0,0.0
+2024,D,CO,Stephen P Lyons,state,1481.0,1481.0,0.0
+2024,R,CT,Donald J. Trump,state,34750.0,34750.0,0.0
+2024,R,CT,Nikki Haley,state,6229.0,6229.0,0.0
+2024,R,CT,Ron DeSantis,state,1289.0,1289.0,0.0
+2024,R,CT,Ryan Binkley,state,184.0,184.0,0.0
+2024,D,CT,Joe Biden,state,55533.0,55533.0,0.0
+2024,D,CT,Marianne Williamson,state,1490.0,1490.0,0.0
+2024,D,CT,Dean Phillips,state,577.0,577.0,0.0
+2024,D,CT,Cenk Uygur,state,310.0,310.0,0.0
+2024,R,FL,Ryan Binkley,state,1385.0,1385.0,0.0
+2024,R,FL,Chris Christie,state,8953.0,8953.0,0.0
+2024,R,FL,Ron DeSantis,state,41269.0,41269.0,0.0
+2024,R,FL,Nikki Haley,state,155560.0,155560.0,0.0
+2024,R,FL,Asa Hutchinson,state,1190.0,1190.0,0.0
+2024,R,FL,Vivek Ramaswamy,state,2850.0,2850.0,0.0
+2024,R,FL,Donald Trump,state,911424.0,911424.0,0.0
+2024,R,GA,Ryan L. Binkley,state,377.0,377.0,0.0
+2024,R,GA,Doug Burgum,state,161.0,161.0,0.0
+2024,R,GA,Chris Christie,state,2054.0,2054.0,0.0
+2024,R,GA,Ron DeSantis,state,7457.0,7457.0,0.0
+2024,R,GA,Nikki Haley,state,77902.0,77902.0,0.0
+2024,R,GA,Asa Hutchinson,state,383.0,383.0,0.0
+2024,R,GA,Perry Johnson,state,134.0,134.0,0.0
+2024,R,GA,Vivek Ramaswamy,state,1244.0,1244.0,0.0
+2024,R,GA,Tim Scott,state,1398.0,1398.0,0.0
+2024,R,GA,David Stuckenberg,state,243.0,243.0,0.0
+2024,R,GA,Donald J. Trump,state,497594.0,497594.0,0.0
+2024,D,GA,"Joseph R. Biden, Jr.",state,276141.0,276141.0,0.0
+2024,D,GA,Dean Phillips,state,5271.0,5271.0,0.0
+2024,D,GA,Marianne Williamson,state,8673.0,8673.0,0.0
+2024,R,IL,Donald J. Trump,state,479556.0,479556.0,0.0
+2024,D,IL,Joseph R Biden Jr,state,739646.0,739646.0,0.0
+2024,R,IL,Ron Desantis,state,16990.0,16990.0,0.0
+2024,R,IL,Nikki Haley,state,86278.0,86278.0,0.0
+2024,D,IL,Dean Phillips,state,25615.0,25615.0,0.0
+2024,D,IL,Marianne Williamson,state,28777.0,28777.0,0.0
+2024,R,IL,Ryan L Binkley,state,3114.0,3114.0,0.0
+2024,R,IL,Chris Christie,state,9758.0,9758.0,0.0
+2024,D,IL,Frank Lozada,state,14513.0,14513.0,0.0
+2024,R,IN,Donald J. Trump,state,461987.0,461678.0,309.0
+2024,D,IN,Joseph R Biden Jr.,state,178253.0,178253.0,0.0
+2024,R,IN,Nikki R. Haley,state,128270.0,128170.0,100.0
+2024,D,KS,Joseph R Biden Jr,state,35906.0,35906.0,0.0
+2024,D,KS,Jason Michael Palmer,state,516.0,516.0,0.0
+2024,D,KS,Dean Phillips,state,566.0,566.0,0.0
+2024,D,KS,Marianne Williamson,state,1494.0,1494.0,0.0
+2024,R,KS,Ryan L. Binkley,state,508.0,508.0,0.0
+2024,R,KS,Ron DeSantis,state,2543.0,2543.0,0.0
+2024,R,KS,Nikki R. Haley,state,15339.0,15339.0,0.0
+2024,R,KS,Donald J. Trump,state,72115.0,72115.0,0.0
+2024,R,KY,Donald J. Trump,state,215044.0,215044.0,0.0
+2024,R,KY,Nikki R. Haley,state,16232.0,16232.0,0.0
+2024,R,KY,Ron Desantis,state,7803.0,7803.0,0.0
+2024,R,KY,Chris Christie,state,2461.0,2461.0,0.0
+2024,R,KY,Vivek Ramaswamy,state,1640.0,1640.0,0.0
+2024,R,KY,Ryan L. Binkley,state,900.0,900.0,0.0
+2024,D,KY,Joseph R. Biden Jr.,state,131449.0,131449.0,0.0
+2024,D,KY,Marianne Williamson,state,11190.0,11190.0,0.0
+2024,D,KY,Dean Phillips,state,8744.0,8744.0,0.0
+2024,D,LA,"Joseph R. Biden, Jr.",state,143380.0,143380.0,0.0
+2024,D,LA,Bob Ely,state,2652.0,2652.0,0.0
+2024,D,LA,Frankie Lozada,state,2245.0,2245.0,0.0
+2024,D,LA,Stephen P. Lyons,state,3770.0,3770.0,0.0
+2024,D,LA,Armando Perez-Serrato,state,1200.0,1200.0,0.0
+2024,D,LA,Dean Phillips,state,4351.0,4351.0,0.0
+2024,D,LA,Cenk Uygur,state,1114.0,1114.0,0.0
+2024,D,LA,Marianne Williamson,state,7898.0,7898.0,0.0
+2024,R,LA,Ryan L. Binkley,state,580.0,580.0,0.0
+2024,R,LA,Chris Christie,state,1281.0,1281.0,0.0
+2024,R,LA,Ron DeSantis,state,3022.0,3022.0,0.0
+2024,R,LA,Nikki Haley,state,13123.0,13123.0,0.0
+2024,R,LA,Asa Hutchinson,state,519.0,519.0,0.0
+2024,R,LA,Vivek Ramaswamy,state,595.0,595.0,0.0
+2024,R,LA,David Stuckenberg,state,210.0,210.0,0.0
+2024,R,LA,Rachel Hannah Swift,state,335.0,335.0,0.0
+2024,R,LA,Donald J. Trump,state,172503.0,172503.0,0.0
+2024,R,MA,Donald J. Trump,state,343189.0,343189.0,0.0
+2024,R,MA,Nikki Haley,state,211440.0,211440.0,0.0
+2024,R,MA,Chris Christie,state,5217.0,5217.0,0.0
+2024,R,MA,Ron Desantis,state,3981.0,3981.0,0.0
+2024,R,MA,Vivek Ramaswamy,state,1738.0,1738.0,0.0
+2024,R,MA,Ryan Binkley,state,619.0,619.0,0.0
+2024,R,MA,Asa Hutchinson,state,527.0,527.0,0.0
+2024,D,MA,"Joseph R. Biden, Jr.",state,533096.0,533096.0,0.0
+2024,D,MA,Dean Phillips,state,29728.0,29728.0,0.0
+2024,D,MA,Marianne Williamson,state,20402.0,20402.0,0.0
+2024,D,MA,Cenk Uyger,state,82.0,,
+2024,R,MD,Nikki R. Haley,state,64592.0,56506.0,8086.0
+2024,R,MD,Donald J. Trump,state,220493.0,205996.0,14497.0
+2024,D,MD,Joe Biden,state,591523.0,591523.0,0.0
+2024,D,MD,Dean Phillips,state,8188.0,8188.0,0.0
+2024,D,MD,Marianne Williamson,state,12935.0,12935.0,0.0
+2024,R,ME,Ryan L. Binkley,state,299.0,299.0,0.0
+2024,R,ME,Ron DeSantis,state,1191.0,1191.0,0.0
+2024,R,ME,Nikki R. Haley,state,27912.0,27912.0,0.0
+2024,R,ME,Vivek G. Ramaswamy,state,440.0,440.0,0.0
+2024,R,ME,Donald J. Trump,state,79034.0,79034.0,0.0
+2024,D,ME,Joseph R. Biden Jr.,state,60018.0,60018.0,0.0
+2024,D,ME,Dean B. Phillips,state,4623.0,4623.0,0.0
+2024,D,MI,Joseph R. Biden Jr.,state,625221.0,625221.0,0.0
+2024,D,MI,Dean Phillips,state,20684.0,20684.0,0.0
+2024,D,MI,Marianne Williamson,state,22865.0,22865.0,0.0
+2024,R,MI,Ryan L Binkley,state,2348.0,2348.0,0.0
+2024,R,MI,Chris Christie,state,4794.0,4794.0,0.0
+2024,R,MI,Ron DeSantis,state,13456.0,13456.0,0.0
+2024,R,MI,Nikki Haley,state,297124.0,297124.0,0.0
+2024,R,MI,Asa Hutchinson,state,1077.0,1077.0,0.0
+2024,R,MI,Vivek Ramaswamy,state,3702.0,3702.0,0.0
+2024,R,MI,Donald J. Trump,state,761163.0,761163.0,0.0
+2024,R,MN,Ron DeSantis,state,4085.0,4085.0,0.0
+2024,R,MN,Nikki Haley,state,97182.0,97182.0,0.0
+2024,R,MN,Vivek Ramaswamy,state,1470.0,1470.0,0.0
+2024,R,MN,Donald J. Trump,state,232846.0,232846.0,0.0
+2024,R,MN,Chris Christie,state,1431.0,1431.0,0.0
+2024,D,MN,Joseph R Biden Jr,state,171278.0,171278.0,0.0
+2024,D,MN,Eban Cambridge,state,235.0,235.0,0.0
+2024,D,MN,Gabriel Cornejo,state,323.0,323.0,0.0
+2024,D,MN,Frankie Lozada,state,290.0,290.0,0.0
+2024,D,MN,Jason Palmer,state,758.0,758.0,0.0
+2024,D,MN,Armando Perez-Serrato,state,372.0,372.0,0.0
+2024,D,MN,Dean Phillips,state,18960.0,18960.0,0.0
+2024,D,MN,Cenk Uygur,state,692.0,692.0,0.0
+2024,D,MN,Marianne Williamson,state,3459.0,3459.0,0.0
+2024,D,MO,Biden,state,16295.0,16295.0,0.0
+2024,D,MO,Phillips,state,178.0,178.0,0.0
+2024,D,MO,Lyons,state,40.0,40.0,0.0
+2024,D,MO,Perez-Serrato,state,24.0,24.0,0.0
+2024,D,MO,Williamson,state,298.0,298.0,0.0
+2024,D,MO,Palmer,state,36.0,36.0,0.0
+2024,R,MS,Ron DeSantis,state,4042.0,4042.0,0.0
+2024,R,MS,Nikki R. Haley,state,13437.0,13437.0,0.0
+2024,R,MS,Vivek Ramaswamy,state,1096.0,1096.0,0.0
+2024,R,MS,Donald J. Trump,state,229198.0,229198.0,0.0
+2024,D,MS,Joseph R. Biden Jr.,state,91053.0,91053.0,0.0
+2024,D,MT,Joseph R Biden Jr,state,94587.0,94587.0,0.0
+2024,R,MT,Donald J. Trump,state,165678.0,165678.0,0.0
+2024,R,NC,Vivek Ramaswamy,state,3418.0,3418.0,0.0
+2024,R,NC,Ron DeSantis,state,14740.0,14740.0,0.0
+2024,R,NC,Donald J. Trump,state,793978.0,793978.0,0.0
+2024,R,NC,Asa Hutchinson,state,727.0,727.0,0.0
+2024,R,NC,Ryan Binkley,state,916.0,916.0,0.0
+2024,R,NC,Chris Christie,state,3166.0,3166.0,0.0
+2024,R,NC,Nikki Haley,state,250838.0,250838.0,0.0
+2024,D,NC,"Joseph R. Biden, Jr.",state,609680.0,609680.0,0.0
+2024,R,NE,Nikki Haley,state,38246.0,38246.0,0.0
+2024,R,NE,Perry Johnson,state,3902.0,3902.0,0.0
+2024,R,NE,Donald J. Trump,state,167968.0,167968.0,0.0
+2024,D,NE,Joseph R. Biden Jr.,state,84677.0,84677.0,0.0
+2024,D,NE,Dean Phillips,state,9199.0,9199.0,0.0
+2024,D,NJ,Joseph R. Biden Jr.,state,458281.0,458281.0,0.0
+2024,R,NJ,Donald J. Trump,state,303002.0,294658.0,8344.0
+2024,D,NJ,Terrisa Bukovinac,state,14179.0,14179.0,0.0
+2024,R,NM,Donald J. Trump,state,78999.0,78999.0,0.0
+2024,R,NM,Nikki Haley,state,8054.0,8054.0,0.0
+2024,R,NM,Chris Christie,state,2428.0,2428.0,0.0
+2024,R,NM,Vivek Ramaswamy,state,886.0,886.0,0.0
+2024,D,NM,Joseph R. Biden,state,111049.0,111049.0,0.0
+2024,D,NM,Marianne D Williamson,state,8935.0,8935.0,0.0
+2024,R,OK,Asa Hutchinson,state,431.0,431.0,0.0
+2024,R,OK,Vivek Ramaswamy,state,1022.0,1022.0,0.0
+2024,R,OK,RON DeSANTIS,state,3946.0,3946.0,0.0
+2024,R,OK,Ryan L. Binkley,state,303.0,303.0,0.0
+2024,R,OK,David Stuckenberg,state,397.0,397.0,0.0
+2024,R,OK,Donald J. Trump,state,254928.0,254928.0,0.0
+2024,R,OK,Nikki Haley,state,49406.0,49406.0,0.0
+2024,R,OK,Chris Christie,state,1095.0,1095.0,0.0
+2024,D,OK,Joseph R Biden Jr,state,66882.0,66882.0,0.0
+2024,D,OK,Marianne Williamson,state,8356.0,8356.0,0.0
+2024,D,OK,Cenk Uygur,state,1974.0,1974.0,0.0
+2024,D,OK,Stephen Lyons,state,4441.0,4441.0,0.0
+2024,D,OK,Armando Mando Perez-Serrato,state,1809.0,1809.0,0.0
+2024,D,OK,Dean Phillips,state,8182.0,8182.0,0.0
+2024,D,OR,Joseph R. Biden Jr,state,397702.0,397702.0,0.0
+2024,D,OR,Marianne Williamson,state,33603.0,33603.0,0.0
+2024,R,OR,Donald J. Trump,state,297299.0,,
+2024,D,PA,Joseph Biden,state,953865.0,953916.0,-51.0
+2024,D,PA,Dean Phillips,state,69764.0,69765.0,-1.0
+2024,R,PA,Nikki Haley,state,158670.0,158672.0,-2.0
+2024,R,PA,Donald Trump,state,794045.0,794048.0,-3.0
+2024,D,PR,Joe Biden,state,3296.0,3296.0,0.0
+2024,D,PR,Marianne Williamson,state,230.0,230.0,0.0
+2024,D,PR,Dean Phillips,state,165.0,165.0,0.0
+2024,D,RI,"Joseph R. Biden, Jr.",state,21336.0,21336.0,0.0
+2024,D,RI,Dean B. Phillips,state,660.0,660.0,0.0
+2024,R,RI,Donald J. Trump,state,10898.0,10898.0,0.0
+2024,R,RI,Nikki R. Haley,state,1371.0,1371.0,0.0
+2024,R,RI,Ron DeSantis,state,178.0,178.0,0.0
+2024,R,RI,Chris Christie,state,154.0,154.0,0.0
+2024,R,RI,Vivek G. Ramaswamy,state,40.0,40.0,0.0
+2024,R,SC,Ryan L Binkley,state,528.0,528.0,0.0
+2024,R,SC,Chris Christie,state,658.0,658.0,0.0
+2024,R,SC,Ron DeSantis,state,2953.0,2953.0,0.0
+2024,R,SC,Nikki Haley,state,299084.0,299084.0,0.0
+2024,R,SC,Vivek Ramaswamy,state,726.0,726.0,0.0
+2024,R,SC,David Stuckenberg,state,361.0,361.0,0.0
+2024,R,SC,Donald J Trump,state,452496.0,452496.0,0.0
+2024,D,SC,Joseph R Biden,state,126493.0,126493.0,0.0
+2024,D,SC,Dean Phillips,state,2247.0,2247.0,0.0
+2024,D,SC,Marianne Williamson,state,2732.0,2732.0,0.0
+2024,D,SD,Marianne Williamson,state,2073.0,2073.0,0.0
+2024,D,SD,Joseph R Biden Jr,state,13372.0,13372.0,0.0
+2024,D,SD,Dean Phillips,state,1723.0,1723.0,0.0
+2024,D,SD,Armando Perez-Serrato,state,763.0,763.0,0.0
+2024,D,UT,Joseph R Biden Jr,state,59235.0,59235.0,0.0
+2024,D,UT,Gabriel Cornejo,state,1517.0,1517.0,0.0
+2024,D,UT,Marianne Deborah Williamson,state,3562.0,3562.0,0.0
+2024,D,UT,Frank Lozada,state,868.0,868.0,0.0
+2024,D,UT,Dean Benson Phillips,state,3065.0,3065.0,0.0
+2024,R,VA,Donald J. Trump,state,440416.0,440416.0,0.0
+2024,R,VA,Nikki R. Haley,state,244586.0,244586.0,0.0
+2024,R,VA,Ron D. Desantis,state,7494.0,7494.0,0.0
+2024,R,VA,Chris Christie,state,3384.0,3384.0,0.0
+2024,R,VA,Vivek Ramaswamy,state,2503.0,2503.0,0.0
+2024,R,VA,Ryan L. Binkley,state,853.0,853.0,0.0
+2024,D,VA,"Joseph R. Biden, Jr",state,317329.0,317329.0,0.0
+2024,D,VA,Marianne D. Williamson,state,28599.0,28599.0,0.0
+2024,D,VA,Dean Benson Phillips,state,12586.0,12586.0,0.0
+2024,R,VT,Nikki Haley,state,36241.0,36241.0,0.0
+2024,R,VT,Donald J. Trump,state,33162.0,33162.0,0.0
+2024,R,VT,Chris Christie,state,1020.0,1020.0,0.0
+2024,R,VT,Ron Desantis,state,949.0,949.0,0.0
+2024,R,VT,Vivek Ramaswamy,state,546.0,546.0,0.0
+2024,R,VT,Ryan L. Binkley,state,278.0,278.0,0.0
+2024,D,VT,"Joseph R. Biden, Jr",state,56924.0,56924.0,0.0
+2024,D,VT,Marianne Williamson,state,2873.0,2873.0,0.0
+2024,D,VT,Dean Phillips,state,1942.0,1942.0,0.0
+2024,D,VT,Mark Stewart Greenstein,state,779.0,779.0,0.0
+2024,D,VT,Cenk Uygur,state,700.0,700.0,0.0
+2024,D,VT,Jason Michael Palmer,state,404.0,404.0,0.0
+2024,R,WA,Chris Christie,state,8702.0,8702.0,0.0
+2024,R,WA,Ron DeSantis,state,17870.0,17870.0,0.0
+2024,R,WA,Nikki Haley,state,151485.0,151485.0,0.0
+2024,R,WA,Vivek Ramaswamy,state,7318.0,7318.0,0.0
+2024,R,WA,Donald J. Trump,state,601070.0,601070.0,0.0
+2024,D,WA,Joseph R Biden Jr,state,763739.0,763739.0,0.0
+2024,D,WA,Dean Phillips,state,25190.0,25190.0,0.0
+2024,D,WA,Marianne Williamson,state,25308.0,25308.0,0.0
+2024,R,WI,Chris Christie,state,9771.0,9771.0,0.0
+2024,R,WI,Vivek Ramaswamy,state,5200.0,5200.0,0.0
+2024,R,WI,Ron DeSantis,state,20124.0,20124.0,0.0
+2024,R,WI,Nikki Haley,state,76841.0,76841.0,0.0
+2024,R,WI,Donald Trump,state,477103.0,477103.0,0.0
+2024,D,WI,Joe Biden,state,512379.0,512379.0,0.0
+2024,D,WI,Dean Phillips,state,17730.0,17730.0,0.0
+2024,R,WV,Donald J. Trump,state,199521.0,199497.0,24.0
+2024,R,WV,Nikki R. Haley,state,21232.0,21231.0,1.0
+2024,R,WV,RACHEL HANNA MoHAWK SWIFT,state,2326.0,2326.0,0.0
+2024,R,WV,Ryan L. Binkley,state,1481.0,1481.0,0.0
+2024,R,WV,David Stuckenberg,state,1168.0,1168.0,0.0
+2024,D,WV,Joseph R. Biden Jr,state,68165.0,68165.0,0.0
+2024,D,WV,Jason Michael Palmer,state,11079.0,11079.0,0.0
+2024,D,WV,Stephen P Lyons,state,7372.0,7372.0,0.0
+2024,D,WV,Dean Phillips,state,7223.0,7223.0,0.0
+2024,D,WV,Armando Perez-Serrato,state,2787.0,2787.0,0.0

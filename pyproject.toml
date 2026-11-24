@@ -21,6 +21,7 @@ dependencies = [
     "xlrd>=2.0.2,<3",            # run_scorecard.py --manual: .xls downloads
     "pillow>=12.1.1,<13",        # src/site/og_image.py
     "tzdata>=2025.3",            # zoneinfo on Windows (America/New_York)
+    "pymupdf>=1.27.2,<2",        # src/collect/primary_results_states.py: state PDF canvasses
 ]
 
 [tool.uv]

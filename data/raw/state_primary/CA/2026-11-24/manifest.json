@@ -1,0 +1,13 @@
+{
+  "CA_25_presidential_by_county.xlsx": {
+    "url": "https://elections.cdn.sos.ca.gov/sov/2024-primary/sov/25-presidential-formatted.xlsx",
+    "retrieved": "2026-11-24",
+    "bytes": 35809,
+    "note": "Statement of Vote; certified 2024-04-12"
+  },
+  "CA_sov_certificate.pdf": {
+    "url": "https://elections.cdn.sos.ca.gov/sov/2024-primary/sov/25-sov-certificate.pdf",
+    "retrieved": "2026-11-24",
+    "bytes": 1003961
+  }
+}

@@ -1,0 +1,1142 @@
+ElectionDate	PartyCode	PartyName	RaceCode	OfficeDesc	CountyCode	CountyName	Juris1num	Juris2num	Precincts	PrecinctsReporting	CanNameLast	CanNameFirst	CanNameMiddle	CanVotes
+3/19/2024	REP	Republican	PRE	President of the United States	ALA	Alachua			63	63	Binkley	Ryan	L.	18
+3/19/2024	REP	Republican	PRE	President of the United States	BAK	Baker			0	0	Binkley	Ryan	L.	2
+3/19/2024	REP	Republican	PRE	President of the United States	BAY	Bay			28	28	Binkley	Ryan	L.	8
+3/19/2024	REP	Republican	PRE	President of the United States	BRA	Bradford			13	13	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	BRE	Brevard			143	143	Binkley	Ryan	L.	56
+3/19/2024	REP	Republican	PRE	President of the United States	BRO	Broward			358	358	Binkley	Ryan	L.	54
+3/19/2024	REP	Republican	PRE	President of the United States	CAL	Calhoun			10	10	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	CHA	Charlotte			66	66	Binkley	Ryan	L.	16
+3/19/2024	REP	Republican	PRE	President of the United States	CIT	Citrus			32	32	Binkley	Ryan	L.	23
+3/19/2024	REP	Republican	PRE	President of the United States	CLA	Clay			48	48	Binkley	Ryan	L.	17
+3/19/2024	REP	Republican	PRE	President of the United States	CLL	Collier			0	0	Binkley	Ryan	L.	22
+3/19/2024	REP	Republican	PRE	President of the United States	CLM	Columbia			28	28	Binkley	Ryan	L.	2
+3/19/2024	REP	Republican	PRE	President of the United States	DES	Desoto			15	15	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	DIX	Dixie			10	10	Binkley	Ryan	L.	3
+3/19/2024	REP	Republican	PRE	President of the United States	DUV	Duval			159	159	Binkley	Ryan	L.	62
+3/19/2024	REP	Republican	PRE	President of the United States	ESC	Escambia			80	80	Binkley	Ryan	L.	26
+3/19/2024	REP	Republican	PRE	President of the United States	FLA	Flagler			21	21	Binkley	Ryan	L.	9
+3/19/2024	REP	Republican	PRE	President of the United States	FRA	Franklin			0	0	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	GAD	Gadsden			25	25	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	GIL	Gilchrist			10	10	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	GLA	Glades			13	13	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	GUL	Gulf			0	0	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	HAM	Hamilton			8	8	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	HAR	Hardee			12	12	Binkley	Ryan	L.	2
+3/19/2024	REP	Republican	PRE	President of the United States	HEN	Hendry			10	10	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	HER	Hernando			32	32	Binkley	Ryan	L.	20
+3/19/2024	REP	Republican	PRE	President of the United States	HIG	Highlands			25	25	Binkley	Ryan	L.	4
+3/19/2024	REP	Republican	PRE	President of the United States	HIL	Hillsborough			421	421	Binkley	Ryan	L.	79
+3/19/2024	REP	Republican	PRE	President of the United States	HOL	Holmes			8	8	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	IND	Indian River			34	34	Binkley	Ryan	L.	10
+3/19/2024	REP	Republican	PRE	President of the United States	JAC	Jackson			1	1	Binkley	Ryan	L.	5
+3/19/2024	REP	Republican	PRE	President of the United States	JEF	Jefferson			16	16	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	LAF	Lafayette			5	5	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	LAK	Lake			92	92	Binkley	Ryan	L.	39
+3/19/2024	REP	Republican	PRE	President of the United States	LEE	Lee			99	99	Binkley	Ryan	L.	63
+3/19/2024	REP	Republican	PRE	President of the United States	LEO	Leon			118	118	Binkley	Ryan	L.	21
+3/19/2024	REP	Republican	PRE	President of the United States	LEV	Levy			13	13	Binkley	Ryan	L.	3
+3/19/2024	REP	Republican	PRE	President of the United States	LIB	Liberty			0	0	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	MAD	Madison			11	11	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	MAN	Manatee			71	71	Binkley	Ryan	L.	31
+3/19/2024	REP	Republican	PRE	President of the United States	MRN	Marion			106	106	Binkley	Ryan	L.	27
+3/19/2024	REP	Republican	PRE	President of the United States	MRT	Martin			28	28	Binkley	Ryan	L.	14
+3/19/2024	REP	Republican	PRE	President of the United States	DAD	Miami-Dade			754	754	Binkley	Ryan	L.	62
+3/19/2024	REP	Republican	PRE	President of the United States	MON	Monroe			33	33	Binkley	Ryan	L.	3
+3/19/2024	REP	Republican	PRE	President of the United States	NAS	Nassau			18	18	Binkley	Ryan	L.	5
+3/19/2024	REP	Republican	PRE	President of the United States	OKA	Okaloosa			52	52	Binkley	Ryan	L.	20
+3/19/2024	REP	Republican	PRE	President of the United States	OKE	Okeechobee			11	11	Binkley	Ryan	L.	6
+3/19/2024	REP	Republican	PRE	President of the United States	ORA	Orange			249	249	Binkley	Ryan	L.	81
+3/19/2024	REP	Republican	PRE	President of the United States	OSC	Osceola			121	121	Binkley	Ryan	L.	20
+3/19/2024	REP	Republican	PRE	President of the United States	PAL	Palm Beach			712	712	Binkley	Ryan	L.	88
+3/19/2024	REP	Republican	PRE	President of the United States	PAS	Pasco			120	120	Binkley	Ryan	L.	36
+3/19/2024	REP	Republican	PRE	President of the United States	PIN	Pinellas			285	285	Binkley	Ryan	L.	166
+3/19/2024	REP	Republican	PRE	President of the United States	POL	Polk			172	172	Binkley	Ryan	L.	64
+3/19/2024	REP	Republican	PRE	President of the United States	PUT	Putnam			37	37	Binkley	Ryan	L.	8
+3/19/2024	REP	Republican	PRE	President of the United States	SAN	Santa Rosa			41	41	Binkley	Ryan	L.	12
+3/19/2024	REP	Republican	PRE	President of the United States	SAR	Sarasota			103	103	Binkley	Ryan	L.	56
+3/19/2024	REP	Republican	PRE	President of the United States	SEM	Seminole			82	82	Binkley	Ryan	L.	38
+3/19/2024	REP	Republican	PRE	President of the United States	STJ	St. Johns			54	54	Binkley	Ryan	L.	21
+3/19/2024	REP	Republican	PRE	President of the United States	STL	St. Lucie			60	60	Binkley	Ryan	L.	14
+3/19/2024	REP	Republican	PRE	President of the United States	SUM	Sumter			30	30	Binkley	Ryan	L.	12
+3/19/2024	REP	Republican	PRE	President of the United States	SUW	Suwannee			14	14	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	TAY	Taylor			14	14	Binkley	Ryan	L.	2
+3/19/2024	REP	Republican	PRE	President of the United States	UNI	Union			8	8	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	VOL	Volusia			142	142	Binkley	Ryan	L.	25
+3/19/2024	REP	Republican	PRE	President of the United States	WAK	Wakulla			0	0	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	WAL	Walton			0	0	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PRE	President of the United States	WAS	Washington			12	12	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PRE	President of the United States	ALA	Alachua			63	63	Christie	Chris		96
+3/19/2024	REP	Republican	PRE	President of the United States	BAK	Baker			0	0	Christie	Chris		5
+3/19/2024	REP	Republican	PRE	President of the United States	BAY	Bay			28	28	Christie	Chris		54
+3/19/2024	REP	Republican	PRE	President of the United States	BRA	Bradford			13	13	Christie	Chris		4
+3/19/2024	REP	Republican	PRE	President of the United States	BRE	Brevard			143	143	Christie	Chris		361
+3/19/2024	REP	Republican	PRE	President of the United States	BRO	Broward			358	358	Christie	Chris		338
+3/19/2024	REP	Republican	PRE	President of the United States	CAL	Calhoun			10	10	Christie	Chris		0
+3/19/2024	REP	Republican	PRE	President of the United States	CHA	Charlotte			66	66	Christie	Chris		115
+3/19/2024	REP	Republican	PRE	President of the United States	CIT	Citrus			32	32	Christie	Chris		135
+3/19/2024	REP	Republican	PRE	President of the United States	CLA	Clay			48	48	Christie	Chris		61
+3/19/2024	REP	Republican	PRE	President of the United States	CLL	Collier			0	0	Christie	Chris		405
+3/19/2024	REP	Republican	PRE	President of the United States	CLM	Columbia			28	28	Christie	Chris		11
+3/19/2024	REP	Republican	PRE	President of the United States	DES	Desoto			15	15	Christie	Chris		4
+3/19/2024	REP	Republican	PRE	President of the United States	DIX	Dixie			10	10	Christie	Chris		4
+3/19/2024	REP	Republican	PRE	President of the United States	DUV	Duval			159	159	Christie	Chris		267
+3/19/2024	REP	Republican	PRE	President of the United States	ESC	Escambia			80	80	Christie	Chris		145
+3/19/2024	REP	Republican	PRE	President of the United States	FLA	Flagler			21	21	Christie	Chris		70
+3/19/2024	REP	Republican	PRE	President of the United States	FRA	Franklin			0	0	Christie	Chris		6
+3/19/2024	REP	Republican	PRE	President of the United States	GAD	Gadsden			25	25	Christie	Chris		2
+3/19/2024	REP	Republican	PRE	President of the United States	GIL	Gilchrist			10	10	Christie	Chris		10
+3/19/2024	REP	Republican	PRE	President of the United States	GLA	Glades			13	13	Christie	Chris		5
+3/19/2024	REP	Republican	PRE	President of the United States	GUL	Gulf			0	0	Christie	Chris		5
+3/19/2024	REP	Republican	PRE	President of the United States	HAM	Hamilton			8	8	Christie	Chris		1
+3/19/2024	REP	Republican	PRE	President of the United States	HAR	Hardee			12	12	Christie	Chris		1
+3/19/2024	REP	Republican	PRE	President of the United States	HEN	Hendry			10	10	Christie	Chris		7
+3/19/2024	REP	Republican	PRE	President of the United States	HER	Hernando			32	32	Christie	Chris		85
+3/19/2024	REP	Republican	PRE	President of the United States	HIG	Highlands			25	25	Christie	Chris		27
+3/19/2024	REP	Republican	PRE	President of the United States	HIL	Hillsborough			421	421	Christie	Chris		482
+3/19/2024	REP	Republican	PRE	President of the United States	HOL	Holmes			8	8	Christie	Chris		2
+3/19/2024	REP	Republican	PRE	President of the United States	IND	Indian River			34	34	Christie	Chris		136
+3/19/2024	REP	Republican	PRE	President of the United States	JAC	Jackson			1	1	Christie	Chris		5
+3/19/2024	REP	Republican	PRE	President of the United States	JEF	Jefferson			16	16	Christie	Chris		8
+3/19/2024	REP	Republican	PRE	President of the United States	LAF	Lafayette			5	5	Christie	Chris		1
+3/19/2024	REP	Republican	PRE	President of the United States	LAK	Lake			92	92	Christie	Chris		158
+3/19/2024	REP	Republican	PRE	President of the United States	LEE	Lee			99	99	Christie	Chris		439
+3/19/2024	REP	Republican	PRE	President of the United States	LEO	Leon			118	118	Christie	Chris		149
+3/19/2024	REP	Republican	PRE	President of the United States	LEV	Levy			13	13	Christie	Chris		21
+3/19/2024	REP	Republican	PRE	President of the United States	LIB	Liberty			0	0	Christie	Chris		2
+3/19/2024	REP	Republican	PRE	President of the United States	MAD	Madison			11	11	Christie	Chris		1
+3/19/2024	REP	Republican	PRE	President of the United States	MAN	Manatee			71	71	Christie	Chris		260
+3/19/2024	REP	Republican	PRE	President of the United States	MRN	Marion			106	106	Christie	Chris		183
+3/19/2024	REP	Republican	PRE	President of the United States	MRT	Martin			28	28	Christie	Chris		175
+3/19/2024	REP	Republican	PRE	President of the United States	DAD	Miami-Dade			754	754	Christie	Chris		376
+3/19/2024	REP	Republican	PRE	President of the United States	MON	Monroe			33	33	Christie	Chris		41
+3/19/2024	REP	Republican	PRE	President of the United States	NAS	Nassau			18	18	Christie	Chris		62
+3/19/2024	REP	Republican	PRE	President of the United States	OKA	Okaloosa			52	52	Christie	Chris		127
+3/19/2024	REP	Republican	PRE	President of the United States	OKE	Okeechobee			11	11	Christie	Chris		6
+3/19/2024	REP	Republican	PRE	President of the United States	ORA	Orange			249	249	Christie	Chris		433
+3/19/2024	REP	Republican	PRE	President of the United States	OSC	Osceola			121	121	Christie	Chris		96
+3/19/2024	REP	Republican	PRE	President of the United States	PAL	Palm Beach			712	712	Christie	Chris		827
+3/19/2024	REP	Republican	PRE	President of the United States	PAS	Pasco			120	120	Christie	Chris		184
+3/19/2024	REP	Republican	PRE	President of the United States	PIN	Pinellas			285	285	Christie	Chris		798
+3/19/2024	REP	Republican	PRE	President of the United States	POL	Polk			172	172	Christie	Chris		209
+3/19/2024	REP	Republican	PRE	President of the United States	PUT	Putnam			37	37	Christie	Chris		12
+3/19/2024	REP	Republican	PRE	President of the United States	SAN	Santa Rosa			41	41	Christie	Chris		55
+3/19/2024	REP	Republican	PRE	President of the United States	SAR	Sarasota			103	103	Christie	Chris		487
+3/19/2024	REP	Republican	PRE	President of the United States	SEM	Seminole			82	82	Christie	Chris		164
+3/19/2024	REP	Republican	PRE	President of the United States	STJ	St. Johns			54	54	Christie	Chris		206
+3/19/2024	REP	Republican	PRE	President of the United States	STL	St. Lucie			60	60	Christie	Chris		136
+3/19/2024	REP	Republican	PRE	President of the United States	SUM	Sumter			30	30	Christie	Chris		154
+3/19/2024	REP	Republican	PRE	President of the United States	SUW	Suwannee			14	14	Christie	Chris		11
+3/19/2024	REP	Republican	PRE	President of the United States	TAY	Taylor			14	14	Christie	Chris		1
+3/19/2024	REP	Republican	PRE	President of the United States	UNI	Union			8	8	Christie	Chris		2
+3/19/2024	REP	Republican	PRE	President of the United States	VOL	Volusia			142	142	Christie	Chris		279
+3/19/2024	REP	Republican	PRE	President of the United States	WAK	Wakulla			0	0	Christie	Chris		6
+3/19/2024	REP	Republican	PRE	President of the United States	WAL	Walton			0	0	Christie	Chris		32
+3/19/2024	REP	Republican	PRE	President of the United States	WAS	Washington			12	12	Christie	Chris		3
+3/19/2024	REP	Republican	PRE	President of the United States	ALA	Alachua			63	63	DeSantis	Ron		437
+3/19/2024	REP	Republican	PRE	President of the United States	BAK	Baker			0	0	DeSantis	Ron		41
+3/19/2024	REP	Republican	PRE	President of the United States	BAY	Bay			28	28	DeSantis	Ron		476
+3/19/2024	REP	Republican	PRE	President of the United States	BRA	Bradford			13	13	DeSantis	Ron		64
+3/19/2024	REP	Republican	PRE	President of the United States	BRE	Brevard			143	143	DeSantis	Ron		1612
+3/19/2024	REP	Republican	PRE	President of the United States	BRO	Broward			358	358	DeSantis	Ron		1016
+3/19/2024	REP	Republican	PRE	President of the United States	CAL	Calhoun			10	10	DeSantis	Ron		45
+3/19/2024	REP	Republican	PRE	President of the United States	CHA	Charlotte			66	66	DeSantis	Ron		573
+3/19/2024	REP	Republican	PRE	President of the United States	CIT	Citrus			32	32	DeSantis	Ron		620
+3/19/2024	REP	Republican	PRE	President of the United States	CLA	Clay			48	48	DeSantis	Ron		484
+3/19/2024	REP	Republican	PRE	President of the United States	CLL	Collier			0	0	DeSantis	Ron		1605
+3/19/2024	REP	Republican	PRE	President of the United States	CLM	Columbia			28	28	DeSantis	Ron		146
+3/19/2024	REP	Republican	PRE	President of the United States	DES	Desoto			15	15	DeSantis	Ron		29
+3/19/2024	REP	Republican	PRE	President of the United States	DIX	Dixie			10	10	DeSantis	Ron		35
+3/19/2024	REP	Republican	PRE	President of the United States	DUV	Duval			159	159	DeSantis	Ron		1813
+3/19/2024	REP	Republican	PRE	President of the United States	ESC	Escambia			80	80	DeSantis	Ron		931
+3/19/2024	REP	Republican	PRE	President of the United States	FLA	Flagler			21	21	DeSantis	Ron		313
+3/19/2024	REP	Republican	PRE	President of the United States	FRA	Franklin			0	0	DeSantis	Ron		25
+3/19/2024	REP	Republican	PRE	President of the United States	GAD	Gadsden			25	25	DeSantis	Ron		60
+3/19/2024	REP	Republican	PRE	President of the United States	GIL	Gilchrist			10	10	DeSantis	Ron		76
+3/19/2024	REP	Republican	PRE	President of the United States	GLA	Glades			13	13	DeSantis	Ron		18
+3/19/2024	REP	Republican	PRE	President of the United States	GUL	Gulf			0	0	DeSantis	Ron		62
+3/19/2024	REP	Republican	PRE	President of the United States	HAM	Hamilton			8	8	DeSantis	Ron		25
+3/19/2024	REP	Republican	PRE	President of the United States	HAR	Hardee			12	12	DeSantis	Ron		22
+3/19/2024	REP	Republican	PRE	President of the United States	HEN	Hendry			10	10	DeSantis	Ron		37
+3/19/2024	REP	Republican	PRE	President of the United States	HER	Hernando			32	32	DeSantis	Ron		414
+3/19/2024	REP	Republican	PRE	President of the United States	HIG	Highlands			25	25	DeSantis	Ron		162
+3/19/2024	REP	Republican	PRE	President of the United States	HIL	Hillsborough			421	421	DeSantis	Ron		2565
+3/19/2024	REP	Republican	PRE	President of the United States	HOL	Holmes			8	8	DeSantis	Ron		43
+3/19/2024	REP	Republican	PRE	President of the United States	IND	Indian River			34	34	DeSantis	Ron		422
+3/19/2024	REP	Republican	PRE	President of the United States	JAC	Jackson			1	1	DeSantis	Ron		89
+3/19/2024	REP	Republican	PRE	President of the United States	JEF	Jefferson			16	16	DeSantis	Ron		63
+3/19/2024	REP	Republican	PRE	President of the United States	LAF	Lafayette			5	5	DeSantis	Ron		19
+3/19/2024	REP	Republican	PRE	President of the United States	LAK	Lake			92	92	DeSantis	Ron		862
+3/19/2024	REP	Republican	PRE	President of the United States	LEE	Lee			99	99	DeSantis	Ron		2104
+3/19/2024	REP	Republican	PRE	President of the United States	LEO	Leon			118	118	DeSantis	Ron		935
+3/19/2024	REP	Republican	PRE	President of the United States	LEV	Levy			13	13	DeSantis	Ron		133
+3/19/2024	REP	Republican	PRE	President of the United States	LIB	Liberty			0	0	DeSantis	Ron		15
+3/19/2024	REP	Republican	PRE	President of the United States	MAD	Madison			11	11	DeSantis	Ron		38
+3/19/2024	REP	Republican	PRE	President of the United States	MAN	Manatee			71	71	DeSantis	Ron		1147
+3/19/2024	REP	Republican	PRE	President of the United States	MRN	Marion			106	106	DeSantis	Ron		817
+3/19/2024	REP	Republican	PRE	President of the United States	MRT	Martin			28	28	DeSantis	Ron		471
+3/19/2024	REP	Republican	PRE	President of the United States	DAD	Miami-Dade			754	754	DeSantis	Ron		1209
+3/19/2024	REP	Republican	PRE	President of the United States	MON	Monroe			33	33	DeSantis	Ron		128
+3/19/2024	REP	Republican	PRE	President of the United States	NAS	Nassau			18	18	DeSantis	Ron		384
+3/19/2024	REP	Republican	PRE	President of the United States	OKA	Okaloosa			52	52	DeSantis	Ron		685
+3/19/2024	REP	Republican	PRE	President of the United States	OKE	Okeechobee			11	11	DeSantis	Ron		76
+3/19/2024	REP	Republican	PRE	President of the United States	ORA	Orange			249	249	DeSantis	Ron		1884
+3/19/2024	REP	Republican	PRE	President of the United States	OSC	Osceola			121	121	DeSantis	Ron		420
+3/19/2024	REP	Republican	PRE	President of the United States	PAL	Palm Beach			712	712	DeSantis	Ron		2498
+3/19/2024	REP	Republican	PRE	President of the United States	PAS	Pasco			120	120	DeSantis	Ron		985
+3/19/2024	REP	Republican	PRE	President of the United States	PIN	Pinellas			285	285	DeSantis	Ron		3459
+3/19/2024	REP	Republican	PRE	President of the United States	POL	Polk			172	172	DeSantis	Ron		1177
+3/19/2024	REP	Republican	PRE	President of the United States	PUT	Putnam			37	37	DeSantis	Ron		123
+3/19/2024	REP	Republican	PRE	President of the United States	SAN	Santa Rosa			41	41	DeSantis	Ron		470
+3/19/2024	REP	Republican	PRE	President of the United States	SAR	Sarasota			103	103	DeSantis	Ron		1696
+3/19/2024	REP	Republican	PRE	President of the United States	SEM	Seminole			82	82	DeSantis	Ron		825
+3/19/2024	REP	Republican	PRE	President of the United States	STJ	St. Johns			54	54	DeSantis	Ron		1025
+3/19/2024	REP	Republican	PRE	President of the United States	STL	St. Lucie			60	60	DeSantis	Ron		501
+3/19/2024	REP	Republican	PRE	President of the United States	SUM	Sumter			30	30	DeSantis	Ron		1033
+3/19/2024	REP	Republican	PRE	President of the United States	SUW	Suwannee			14	14	DeSantis	Ron		103
+3/19/2024	REP	Republican	PRE	President of the United States	TAY	Taylor			14	14	DeSantis	Ron		52
+3/19/2024	REP	Republican	PRE	President of the United States	UNI	Union			8	8	DeSantis	Ron		37
+3/19/2024	REP	Republican	PRE	President of the United States	VOL	Volusia			142	142	DeSantis	Ron		1260
+3/19/2024	REP	Republican	PRE	President of the United States	WAK	Wakulla			0	0	DeSantis	Ron		103
+3/19/2024	REP	Republican	PRE	President of the United States	WAL	Walton			0	0	DeSantis	Ron		220
+3/19/2024	REP	Republican	PRE	President of the United States	WAS	Washington			12	12	DeSantis	Ron		52
+3/19/2024	REP	Republican	PRE	President of the United States	ALA	Alachua			63	63	Haley	Nikki	R.	1487
+3/19/2024	REP	Republican	PRE	President of the United States	BAK	Baker			0	0	Haley	Nikki	R.	51
+3/19/2024	REP	Republican	PRE	President of the United States	BAY	Bay			28	28	Haley	Nikki	R.	948
+3/19/2024	REP	Republican	PRE	President of the United States	BRA	Bradford			13	13	Haley	Nikki	R.	85
+3/19/2024	REP	Republican	PRE	President of the United States	BRE	Brevard			143	143	Haley	Nikki	R.	5852
+3/19/2024	REP	Republican	PRE	President of the United States	BRO	Broward			358	358	Haley	Nikki	R.	5459
+3/19/2024	REP	Republican	PRE	President of the United States	CAL	Calhoun			10	10	Haley	Nikki	R.	37
+3/19/2024	REP	Republican	PRE	President of the United States	CHA	Charlotte			66	66	Haley	Nikki	R.	2703
+3/19/2024	REP	Republican	PRE	President of the United States	CIT	Citrus			32	32	Haley	Nikki	R.	1932
+3/19/2024	REP	Republican	PRE	President of the United States	CLA	Clay			48	48	Haley	Nikki	R.	1408
+3/19/2024	REP	Republican	PRE	President of the United States	CLL	Collier			0	0	Haley	Nikki	R.	6754
+3/19/2024	REP	Republican	PRE	President of the United States	CLM	Columbia			28	28	Haley	Nikki	R.	215
+3/19/2024	REP	Republican	PRE	President of the United States	DES	Desoto			15	15	Haley	Nikki	R.	56
+3/19/2024	REP	Republican	PRE	President of the United States	DIX	Dixie			10	10	Haley	Nikki	R.	47
+3/19/2024	REP	Republican	PRE	President of the United States	DUV	Duval			159	159	Haley	Nikki	R.	5252
+3/19/2024	REP	Republican	PRE	President of the United States	ESC	Escambia			80	80	Haley	Nikki	R.	2718
+3/19/2024	REP	Republican	PRE	President of the United States	FLA	Flagler			21	21	Haley	Nikki	R.	1275
+3/19/2024	REP	Republican	PRE	President of the United States	FRA	Franklin			0	0	Haley	Nikki	R.	78
+3/19/2024	REP	Republican	PRE	President of the United States	GAD	Gadsden			25	25	Haley	Nikki	R.	71
+3/19/2024	REP	Republican	PRE	President of the United States	GIL	Gilchrist			10	10	Haley	Nikki	R.	67
+3/19/2024	REP	Republican	PRE	President of the United States	GLA	Glades			13	13	Haley	Nikki	R.	70
+3/19/2024	REP	Republican	PRE	President of the United States	GUL	Gulf			0	0	Haley	Nikki	R.	91
+3/19/2024	REP	Republican	PRE	President of the United States	HAM	Hamilton			8	8	Haley	Nikki	R.	18
+3/19/2024	REP	Republican	PRE	President of the United States	HAR	Hardee			12	12	Haley	Nikki	R.	45
+3/19/2024	REP	Republican	PRE	President of the United States	HEN	Hendry			10	10	Haley	Nikki	R.	79
+3/19/2024	REP	Republican	PRE	President of the United States	HER	Hernando			32	32	Haley	Nikki	R.	1288
+3/19/2024	REP	Republican	PRE	President of the United States	HIG	Highlands			25	25	Haley	Nikki	R.	433
+3/19/2024	REP	Republican	PRE	President of the United States	HIL	Hillsborough			421	421	Haley	Nikki	R.	10872
+3/19/2024	REP	Republican	PRE	President of the United States	HOL	Holmes			8	8	Haley	Nikki	R.	56
+3/19/2024	REP	Republican	PRE	President of the United States	IND	Indian River			34	34	Haley	Nikki	R.	2418
+3/19/2024	REP	Republican	PRE	President of the United States	JAC	Jackson			1	1	Haley	Nikki	R.	100
+3/19/2024	REP	Republican	PRE	President of the United States	JEF	Jefferson			16	16	Haley	Nikki	R.	82
+3/19/2024	REP	Republican	PRE	President of the United States	LAF	Lafayette			5	5	Haley	Nikki	R.	28
+3/19/2024	REP	Republican	PRE	President of the United States	LAK	Lake			92	92	Haley	Nikki	R.	2520
+3/19/2024	REP	Republican	PRE	President of the United States	LEE	Lee			99	99	Haley	Nikki	R.	10510
+3/19/2024	REP	Republican	PRE	President of the United States	LEO	Leon			118	118	Haley	Nikki	R.	2236
+3/19/2024	REP	Republican	PRE	President of the United States	LEV	Levy			13	13	Haley	Nikki	R.	292
+3/19/2024	REP	Republican	PRE	President of the United States	LIB	Liberty			0	0	Haley	Nikki	R.	18
+3/19/2024	REP	Republican	PRE	President of the United States	MAD	Madison			11	11	Haley	Nikki	R.	34
+3/19/2024	REP	Republican	PRE	President of the United States	MAN	Manatee			71	71	Haley	Nikki	R.	4914
+3/19/2024	REP	Republican	PRE	President of the United States	MRN	Marion			106	106	Haley	Nikki	R.	2560
+3/19/2024	REP	Republican	PRE	President of the United States	MRT	Martin			28	28	Haley	Nikki	R.	2117
+3/19/2024	REP	Republican	PRE	President of the United States	DAD	Miami-Dade			754	754	Haley	Nikki	R.	7505
+3/19/2024	REP	Republican	PRE	President of the United States	MON	Monroe			33	33	Haley	Nikki	R.	906
+3/19/2024	REP	Republican	PRE	President of the United States	NAS	Nassau			18	18	Haley	Nikki	R.	1236
+3/19/2024	REP	Republican	PRE	President of the United States	OKA	Okaloosa			52	52	Haley	Nikki	R.	1628
+3/19/2024	REP	Republican	PRE	President of the United States	OKE	Okeechobee			11	11	Haley	Nikki	R.	127
+3/19/2024	REP	Republican	PRE	President of the United States	ORA	Orange			249	249	Haley	Nikki	R.	7064
+3/19/2024	REP	Republican	PRE	President of the United States	OSC	Osceola			121	121	Haley	Nikki	R.	1296
+3/19/2024	REP	Republican	PRE	President of the United States	PAL	Palm Beach			712	712	Haley	Nikki	R.	11138
+3/19/2024	REP	Republican	PRE	President of the United States	PAS	Pasco			120	120	Haley	Nikki	R.	3256
+3/19/2024	REP	Republican	PRE	President of the United States	PIN	Pinellas			285	285	Haley	Nikki	R.	13528
+3/19/2024	REP	Republican	PRE	President of the United States	POL	Polk			172	172	Haley	Nikki	R.	4307
+3/19/2024	REP	Republican	PRE	President of the United States	PUT	Putnam			37	37	Haley	Nikki	R.	297
+3/19/2024	REP	Republican	PRE	President of the United States	SAN	Santa Rosa			41	41	Haley	Nikki	R.	1183
+3/19/2024	REP	Republican	PRE	President of the United States	SAR	Sarasota			103	103	Haley	Nikki	R.	7584
+3/19/2024	REP	Republican	PRE	President of the United States	SEM	Seminole			82	82	Haley	Nikki	R.	3409
+3/19/2024	REP	Republican	PRE	President of the United States	STJ	St. Johns			54	54	Haley	Nikki	R.	2870
+3/19/2024	REP	Republican	PRE	President of the United States	STL	St. Lucie			60	60	Haley	Nikki	R.	1983
+3/19/2024	REP	Republican	PRE	President of the United States	SUM	Sumter			30	30	Haley	Nikki	R.	3461
+3/19/2024	REP	Republican	PRE	President of the United States	SUW	Suwannee			14	14	Haley	Nikki	R.	144
+3/19/2024	REP	Republican	PRE	President of the United States	TAY	Taylor			14	14	Haley	Nikki	R.	74
+3/19/2024	REP	Republican	PRE	President of the United States	UNI	Union			8	8	Haley	Nikki	R.	20
+3/19/2024	REP	Republican	PRE	President of the United States	VOL	Volusia			142	142	Haley	Nikki	R.	4619
+3/19/2024	REP	Republican	PRE	President of the United States	WAK	Wakulla			0	0	Haley	Nikki	R.	135
+3/19/2024	REP	Republican	PRE	President of the United States	WAL	Walton			0	0	Haley	Nikki	R.	469
+3/19/2024	REP	Republican	PRE	President of the United States	WAS	Washington			12	12	Haley	Nikki	R.	45
+3/19/2024	REP	Republican	PRE	President of the United States	ALA	Alachua			63	63	Hutchinson	Asa		12
+3/19/2024	REP	Republican	PRE	President of the United States	BAK	Baker			0	0	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	BAY	Bay			28	28	Hutchinson	Asa		7
+3/19/2024	REP	Republican	PRE	President of the United States	BRA	Bradford			13	13	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	BRE	Brevard			143	143	Hutchinson	Asa		46
+3/19/2024	REP	Republican	PRE	President of the United States	BRO	Broward			358	358	Hutchinson	Asa		44
+3/19/2024	REP	Republican	PRE	President of the United States	CAL	Calhoun			10	10	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	CHA	Charlotte			66	66	Hutchinson	Asa		23
+3/19/2024	REP	Republican	PRE	President of the United States	CIT	Citrus			32	32	Hutchinson	Asa		23
+3/19/2024	REP	Republican	PRE	President of the United States	CLA	Clay			48	48	Hutchinson	Asa		15
+3/19/2024	REP	Republican	PRE	President of the United States	CLL	Collier			0	0	Hutchinson	Asa		45
+3/19/2024	REP	Republican	PRE	President of the United States	CLM	Columbia			28	28	Hutchinson	Asa		6
+3/19/2024	REP	Republican	PRE	President of the United States	DES	Desoto			15	15	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	DIX	Dixie			10	10	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PRE	President of the United States	DUV	Duval			159	159	Hutchinson	Asa		38
+3/19/2024	REP	Republican	PRE	President of the United States	ESC	Escambia			80	80	Hutchinson	Asa		24
+3/19/2024	REP	Republican	PRE	President of the United States	FLA	Flagler			21	21	Hutchinson	Asa		6
+3/19/2024	REP	Republican	PRE	President of the United States	FRA	Franklin			0	0	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	GAD	Gadsden			25	25	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	GIL	Gilchrist			10	10	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	GLA	Glades			13	13	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	GUL	Gulf			0	0	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	HAM	Hamilton			8	8	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	HAR	Hardee			12	12	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	HEN	Hendry			10	10	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	HER	Hernando			32	32	Hutchinson	Asa		8
+3/19/2024	REP	Republican	PRE	President of the United States	HIG	Highlands			25	25	Hutchinson	Asa		5
+3/19/2024	REP	Republican	PRE	President of the United States	HIL	Hillsborough			421	421	Hutchinson	Asa		79
+3/19/2024	REP	Republican	PRE	President of the United States	HOL	Holmes			8	8	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	IND	Indian River			34	34	Hutchinson	Asa		15
+3/19/2024	REP	Republican	PRE	President of the United States	JAC	Jackson			1	1	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	JEF	Jefferson			16	16	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PRE	President of the United States	LAF	Lafayette			5	5	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	LAK	Lake			92	92	Hutchinson	Asa		30
+3/19/2024	REP	Republican	PRE	President of the United States	LEE	Lee			99	99	Hutchinson	Asa		61
+3/19/2024	REP	Republican	PRE	President of the United States	LEO	Leon			118	118	Hutchinson	Asa		33
+3/19/2024	REP	Republican	PRE	President of the United States	LEV	Levy			13	13	Hutchinson	Asa		3
+3/19/2024	REP	Republican	PRE	President of the United States	LIB	Liberty			0	0	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	MAD	Madison			11	11	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	MAN	Manatee			71	71	Hutchinson	Asa		23
+3/19/2024	REP	Republican	PRE	President of the United States	MRN	Marion			106	106	Hutchinson	Asa		17
+3/19/2024	REP	Republican	PRE	President of the United States	MRT	Martin			28	28	Hutchinson	Asa		22
+3/19/2024	REP	Republican	PRE	President of the United States	DAD	Miami-Dade			754	754	Hutchinson	Asa		48
+3/19/2024	REP	Republican	PRE	President of the United States	MON	Monroe			33	33	Hutchinson	Asa		5
+3/19/2024	REP	Republican	PRE	President of the United States	NAS	Nassau			18	18	Hutchinson	Asa		15
+3/19/2024	REP	Republican	PRE	President of the United States	OKA	Okaloosa			52	52	Hutchinson	Asa		20
+3/19/2024	REP	Republican	PRE	President of the United States	OKE	Okeechobee			11	11	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PRE	President of the United States	ORA	Orange			249	249	Hutchinson	Asa		62
+3/19/2024	REP	Republican	PRE	President of the United States	OSC	Osceola			121	121	Hutchinson	Asa		10
+3/19/2024	REP	Republican	PRE	President of the United States	PAL	Palm Beach			712	712	Hutchinson	Asa		83
+3/19/2024	REP	Republican	PRE	President of the United States	PAS	Pasco			120	120	Hutchinson	Asa		20
+3/19/2024	REP	Republican	PRE	President of the United States	PIN	Pinellas			285	285	Hutchinson	Asa		100
+3/19/2024	REP	Republican	PRE	President of the United States	POL	Polk			172	172	Hutchinson	Asa		46
+3/19/2024	REP	Republican	PRE	President of the United States	PUT	Putnam			37	37	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	SAN	Santa Rosa			41	41	Hutchinson	Asa		15
+3/19/2024	REP	Republican	PRE	President of the United States	SAR	Sarasota			103	103	Hutchinson	Asa		47
+3/19/2024	REP	Republican	PRE	President of the United States	SEM	Seminole			82	82	Hutchinson	Asa		18
+3/19/2024	REP	Republican	PRE	President of the United States	STJ	St. Johns			54	54	Hutchinson	Asa		34
+3/19/2024	REP	Republican	PRE	President of the United States	STL	St. Lucie			60	60	Hutchinson	Asa		18
+3/19/2024	REP	Republican	PRE	President of the United States	SUM	Sumter			30	30	Hutchinson	Asa		14
+3/19/2024	REP	Republican	PRE	President of the United States	SUW	Suwannee			14	14	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PRE	President of the United States	TAY	Taylor			14	14	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	UNI	Union			8	8	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PRE	President of the United States	VOL	Volusia			142	142	Hutchinson	Asa		30
+3/19/2024	REP	Republican	PRE	President of the United States	WAK	Wakulla			0	0	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PRE	President of the United States	WAL	Walton			0	0	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	WAS	Washington			12	12	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PRE	President of the United States	ALA	Alachua			63	63	Ramaswamy	Vivek		30
+3/19/2024	REP	Republican	PRE	President of the United States	BAK	Baker			0	0	Ramaswamy	Vivek		6
+3/19/2024	REP	Republican	PRE	President of the United States	BAY	Bay			28	28	Ramaswamy	Vivek		36
+3/19/2024	REP	Republican	PRE	President of the United States	BRA	Bradford			13	13	Ramaswamy	Vivek		3
+3/19/2024	REP	Republican	PRE	President of the United States	BRE	Brevard			143	143	Ramaswamy	Vivek		131
+3/19/2024	REP	Republican	PRE	President of the United States	BRO	Broward			358	358	Ramaswamy	Vivek		96
+3/19/2024	REP	Republican	PRE	President of the United States	CAL	Calhoun			10	10	Ramaswamy	Vivek		1
+3/19/2024	REP	Republican	PRE	President of the United States	CHA	Charlotte			66	66	Ramaswamy	Vivek		41
+3/19/2024	REP	Republican	PRE	President of the United States	CIT	Citrus			32	32	Ramaswamy	Vivek		45
+3/19/2024	REP	Republican	PRE	President of the United States	CLA	Clay			48	48	Ramaswamy	Vivek		24
+3/19/2024	REP	Republican	PRE	President of the United States	CLL	Collier			0	0	Ramaswamy	Vivek		87
+3/19/2024	REP	Republican	PRE	President of the United States	CLM	Columbia			28	28	Ramaswamy	Vivek		9
+3/19/2024	REP	Republican	PRE	President of the United States	DES	Desoto			15	15	Ramaswamy	Vivek		5
+3/19/2024	REP	Republican	PRE	President of the United States	DIX	Dixie			10	10	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PRE	President of the United States	DUV	Duval			159	159	Ramaswamy	Vivek		159
+3/19/2024	REP	Republican	PRE	President of the United States	ESC	Escambia			80	80	Ramaswamy	Vivek		55
+3/19/2024	REP	Republican	PRE	President of the United States	FLA	Flagler			21	21	Ramaswamy	Vivek		24
+3/19/2024	REP	Republican	PRE	President of the United States	FRA	Franklin			0	0	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PRE	President of the United States	GAD	Gadsden			25	25	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PRE	President of the United States	GIL	Gilchrist			10	10	Ramaswamy	Vivek		4
+3/19/2024	REP	Republican	PRE	President of the United States	GLA	Glades			13	13	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PRE	President of the United States	GUL	Gulf			0	0	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PRE	President of the United States	HAM	Hamilton			8	8	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PRE	President of the United States	HAR	Hardee			12	12	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PRE	President of the United States	HEN	Hendry			10	10	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PRE	President of the United States	HER	Hernando			32	32	Ramaswamy	Vivek		23
+3/19/2024	REP	Republican	PRE	President of the United States	HIG	Highlands			25	25	Ramaswamy	Vivek		11
+3/19/2024	REP	Republican	PRE	President of the United States	HIL	Hillsborough			421	421	Ramaswamy	Vivek		208
+3/19/2024	REP	Republican	PRE	President of the United States	HOL	Holmes			8	8	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PRE	President of the United States	IND	Indian River			34	34	Ramaswamy	Vivek		29
+3/19/2024	REP	Republican	PRE	President of the United States	JAC	Jackson			1	1	Ramaswamy	Vivek		4
+3/19/2024	REP	Republican	PRE	President of the United States	JEF	Jefferson			16	16	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PRE	President of the United States	LAF	Lafayette			5	5	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PRE	President of the United States	LAK	Lake			92	92	Ramaswamy	Vivek		52
+3/19/2024	REP	Republican	PRE	President of the United States	LEE	Lee			99	99	Ramaswamy	Vivek		109
+3/19/2024	REP	Republican	PRE	President of the United States	LEO	Leon			118	118	Ramaswamy	Vivek		38
+3/19/2024	REP	Republican	PRE	President of the United States	LEV	Levy			13	13	Ramaswamy	Vivek		8
+3/19/2024	REP	Republican	PRE	President of the United States	LIB	Liberty			0	0	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PRE	President of the United States	MAD	Madison			11	11	Ramaswamy	Vivek		3
+3/19/2024	REP	Republican	PRE	President of the United States	MAN	Manatee			71	71	Ramaswamy	Vivek		63
+3/19/2024	REP	Republican	PRE	President of the United States	MRN	Marion			106	106	Ramaswamy	Vivek		52
+3/19/2024	REP	Republican	PRE	President of the United States	MRT	Martin			28	28	Ramaswamy	Vivek		20
+3/19/2024	REP	Republican	PRE	President of the United States	DAD	Miami-Dade			754	754	Ramaswamy	Vivek		101
+3/19/2024	REP	Republican	PRE	President of the United States	MON	Monroe			33	33	Ramaswamy	Vivek		7
+3/19/2024	REP	Republican	PRE	President of the United States	NAS	Nassau			18	18	Ramaswamy	Vivek		19
+3/19/2024	REP	Republican	PRE	President of the United States	OKA	Okaloosa			52	52	Ramaswamy	Vivek		41
+3/19/2024	REP	Republican	PRE	President of the United States	OKE	Okeechobee			11	11	Ramaswamy	Vivek		4
+3/19/2024	REP	Republican	PRE	President of the United States	ORA	Orange			249	249	Ramaswamy	Vivek		183
+3/19/2024	REP	Republican	PRE	President of the United States	OSC	Osceola			121	121	Ramaswamy	Vivek		23
+3/19/2024	REP	Republican	PRE	President of the United States	PAL	Palm Beach			712	712	Ramaswamy	Vivek		202
+3/19/2024	REP	Republican	PRE	President of the United States	PAS	Pasco			120	120	Ramaswamy	Vivek		76
+3/19/2024	REP	Republican	PRE	President of the United States	PIN	Pinellas			285	285	Ramaswamy	Vivek		275
+3/19/2024	REP	Republican	PRE	President of the United States	POL	Polk			172	172	Ramaswamy	Vivek		79
+3/19/2024	REP	Republican	PRE	President of the United States	PUT	Putnam			37	37	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PRE	President of the United States	SAN	Santa Rosa			41	41	Ramaswamy	Vivek		31
+3/19/2024	REP	Republican	PRE	President of the United States	SAR	Sarasota			103	103	Ramaswamy	Vivek		97
+3/19/2024	REP	Republican	PRE	President of the United States	SEM	Seminole			82	82	Ramaswamy	Vivek		58
+3/19/2024	REP	Republican	PRE	President of the United States	STJ	St. Johns			54	54	Ramaswamy	Vivek		65
+3/19/2024	REP	Republican	PRE	President of the United States	STL	St. Lucie			60	60	Ramaswamy	Vivek		38
+3/19/2024	REP	Republican	PRE	President of the United States	SUM	Sumter			30	30	Ramaswamy	Vivek		49
+3/19/2024	REP	Republican	PRE	President of the United States	SUW	Suwannee			14	14	Ramaswamy	Vivek		7
+3/19/2024	REP	Republican	PRE	President of the United States	TAY	Taylor			14	14	Ramaswamy	Vivek		5
+3/19/2024	REP	Republican	PRE	President of the United States	UNI	Union			8	8	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PRE	President of the United States	VOL	Volusia			142	142	Ramaswamy	Vivek		80
+3/19/2024	REP	Republican	PRE	President of the United States	WAK	Wakulla			0	0	Ramaswamy	Vivek		3
+3/19/2024	REP	Republican	PRE	President of the United States	WAL	Walton			0	0	Ramaswamy	Vivek		12
+3/19/2024	REP	Republican	PRE	President of the United States	WAS	Washington			12	12	Ramaswamy	Vivek		1
+3/19/2024	REP	Republican	PRE	President of the United States	ALA	Alachua			63	63	Trump	Donald	J.	6426
+3/19/2024	REP	Republican	PRE	President of the United States	BAK	Baker			0	0	Trump	Donald	J.	2348
+3/19/2024	REP	Republican	PRE	President of the United States	BAY	Bay			28	28	Trump	Donald	J.	11547
+3/19/2024	REP	Republican	PRE	President of the United States	BRA	Bradford			13	13	Trump	Donald	J.	2071
+3/19/2024	REP	Republican	PRE	President of the United States	BRE	Brevard			143	143	Trump	Donald	J.	37087
+3/19/2024	REP	Republican	PRE	President of the United States	BRO	Broward			358	358	Trump	Donald	J.	27626
+3/19/2024	REP	Republican	PRE	President of the United States	CAL	Calhoun			10	10	Trump	Donald	J.	1087
+3/19/2024	REP	Republican	PRE	President of the United States	CHA	Charlotte			66	66	Trump	Donald	J.	14094
+3/19/2024	REP	Republican	PRE	President of the United States	CIT	Citrus			32	32	Trump	Donald	J.	16092
+3/19/2024	REP	Republican	PRE	President of the United States	CLA	Clay			48	48	Trump	Donald	J.	11683
+3/19/2024	REP	Republican	PRE	President of the United States	CLL	Collier			0	0	Trump	Donald	J.	28474
+3/19/2024	REP	Republican	PRE	President of the United States	CLM	Columbia			28	28	Trump	Donald	J.	3959
+3/19/2024	REP	Republican	PRE	President of the United States	DES	Desoto			15	15	Trump	Donald	J.	982
+3/19/2024	REP	Republican	PRE	President of the United States	DIX	Dixie			10	10	Trump	Donald	J.	1205
+3/19/2024	REP	Republican	PRE	President of the United States	DUV	Duval			159	159	Trump	Donald	J.	36751
+3/19/2024	REP	Republican	PRE	President of the United States	ESC	Escambia			80	80	Trump	Donald	J.	18959
+3/19/2024	REP	Republican	PRE	President of the United States	FLA	Flagler			21	21	Trump	Donald	J.	9553
+3/19/2024	REP	Republican	PRE	President of the United States	FRA	Franklin			0	0	Trump	Donald	J.	819
+3/19/2024	REP	Republican	PRE	President of the United States	GAD	Gadsden			25	25	Trump	Donald	J.	1098
+3/19/2024	REP	Republican	PRE	President of the United States	GIL	Gilchrist			10	10	Trump	Donald	J.	1481
+3/19/2024	REP	Republican	PRE	President of the United States	GLA	Glades			13	13	Trump	Donald	J.	830
+3/19/2024	REP	Republican	PRE	President of the United States	GUL	Gulf			0	0	Trump	Donald	J.	1099
+3/19/2024	REP	Republican	PRE	President of the United States	HAM	Hamilton			8	8	Trump	Donald	J.	792
+3/19/2024	REP	Republican	PRE	President of the United States	HAR	Hardee			12	12	Trump	Donald	J.	1084
+3/19/2024	REP	Republican	PRE	President of the United States	HEN	Hendry			10	10	Trump	Donald	J.	1634
+3/19/2024	REP	Republican	PRE	President of the United States	HER	Hernando			32	32	Trump	Donald	J.	13015
+3/19/2024	REP	Republican	PRE	President of the United States	HIG	Highlands			25	25	Trump	Donald	J.	4727
+3/19/2024	REP	Republican	PRE	President of the United States	HIL	Hillsborough			421	421	Trump	Donald	J.	49478
+3/19/2024	REP	Republican	PRE	President of the United States	HOL	Holmes			8	8	Trump	Donald	J.	1350
+3/19/2024	REP	Republican	PRE	President of the United States	IND	Indian River			34	34	Trump	Donald	J.	10708
+3/19/2024	REP	Republican	PRE	President of the United States	JAC	Jackson			1	1	Trump	Donald	J.	2426
+3/19/2024	REP	Republican	PRE	President of the United States	JEF	Jefferson			16	16	Trump	Donald	J.	999
+3/19/2024	REP	Republican	PRE	President of the United States	LAF	Lafayette			5	5	Trump	Donald	J.	635
+3/19/2024	REP	Republican	PRE	President of the United States	LAK	Lake			92	92	Trump	Donald	J.	18062
+3/19/2024	REP	Republican	PRE	President of the United States	LEE	Lee			99	99	Trump	Donald	J.	42507
+3/19/2024	REP	Republican	PRE	President of the United States	LEO	Leon			118	118	Trump	Donald	J.	9131
+3/19/2024	REP	Republican	PRE	President of the United States	LEV	Levy			13	13	Trump	Donald	J.	3996
+3/19/2024	REP	Republican	PRE	President of the United States	LIB	Liberty			0	0	Trump	Donald	J.	385
+3/19/2024	REP	Republican	PRE	President of the United States	MAD	Madison			11	11	Trump	Donald	J.	1161
+3/19/2024	REP	Republican	PRE	President of the United States	MAN	Manatee			71	71	Trump	Donald	J.	23766
+3/19/2024	REP	Republican	PRE	President of the United States	MRN	Marion			106	106	Trump	Donald	J.	20935
+3/19/2024	REP	Republican	PRE	President of the United States	MRT	Martin			28	28	Trump	Donald	J.	9649
+3/19/2024	REP	Republican	PRE	President of the United States	DAD	Miami-Dade			754	754	Trump	Donald	J.	60368
+3/19/2024	REP	Republican	PRE	President of the United States	MON	Monroe			33	33	Trump	Donald	J.	3816
+3/19/2024	REP	Republican	PRE	President of the United States	NAS	Nassau			18	18	Trump	Donald	J.	8227
+3/19/2024	REP	Republican	PRE	President of the United States	OKA	Okaloosa			52	52	Trump	Donald	J.	11543
+3/19/2024	REP	Republican	PRE	President of the United States	OKE	Okeechobee			11	11	Trump	Donald	J.	2229
+3/19/2024	REP	Republican	PRE	President of the United States	ORA	Orange			249	249	Trump	Donald	J.	32989
+3/19/2024	REP	Republican	PRE	President of the United States	OSC	Osceola			121	121	Trump	Donald	J.	9817
+3/19/2024	REP	Republican	PRE	President of the United States	PAL	Palm Beach			712	712	Trump	Donald	J.	53132
+3/19/2024	REP	Republican	PRE	President of the United States	PAS	Pasco			120	120	Trump	Donald	J.	26889
+3/19/2024	REP	Republican	PRE	President of the United States	PIN	Pinellas			285	285	Trump	Donald	J.	54787
+3/19/2024	REP	Republican	PRE	President of the United States	POL	Polk			172	172	Trump	Donald	J.	32278
+3/19/2024	REP	Republican	PRE	President of the United States	PUT	Putnam			37	37	Trump	Donald	J.	4196
+3/19/2024	REP	Republican	PRE	President of the United States	SAN	Santa Rosa			41	41	Trump	Donald	J.	11480
+3/19/2024	REP	Republican	PRE	President of the United States	SAR	Sarasota			103	103	Trump	Donald	J.	31750
+3/19/2024	REP	Republican	PRE	President of the United States	SEM	Seminole			82	82	Trump	Donald	J.	18488
+3/19/2024	REP	Republican	PRE	President of the United States	STJ	St. Johns			54	54	Trump	Donald	J.	19190
+3/19/2024	REP	Republican	PRE	President of the United States	STL	St. Lucie			60	60	Trump	Donald	J.	16228
+3/19/2024	REP	Republican	PRE	President of the United States	SUM	Sumter			30	30	Trump	Donald	J.	21104
+3/19/2024	REP	Republican	PRE	President of the United States	SUW	Suwannee			14	14	Trump	Donald	J.	3707
+3/19/2024	REP	Republican	PRE	President of the United States	TAY	Taylor			14	14	Trump	Donald	J.	1827
+3/19/2024	REP	Republican	PRE	President of the United States	UNI	Union			8	8	Trump	Donald	J.	879
+3/19/2024	REP	Republican	PRE	President of the United States	VOL	Volusia			142	142	Trump	Donald	J.	26693
+3/19/2024	REP	Republican	PRE	President of the United States	WAK	Wakulla			0	0	Trump	Donald	J.	2214
+3/19/2024	REP	Republican	PRE	President of the United States	WAL	Walton			0	0	Trump	Donald	J.	4440
+3/19/2024	REP	Republican	PRE	President of the United States	WAS	Washington			12	12	Trump	Donald	J.	1442
+3/19/2024	REP	Republican	PPC	President of the United States	ESC	Escambia	001		80	80	Binkley	Ryan	L.	26
+3/19/2024	REP	Republican	PPC	President of the United States	OKA	Okaloosa	001		52	52	Binkley	Ryan	L.	20
+3/19/2024	REP	Republican	PPC	President of the United States	SAN	Santa Rosa	001		41	41	Binkley	Ryan	L.	12
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	001		14	14	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	ESC	Escambia	001		80	80	Christie	Chris		145
+3/19/2024	REP	Republican	PPC	President of the United States	OKA	Okaloosa	001		52	52	Christie	Chris		127
+3/19/2024	REP	Republican	PPC	President of the United States	SAN	Santa Rosa	001		41	41	Christie	Chris		55
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	001		14	14	Christie	Chris		20
+3/19/2024	REP	Republican	PPC	President of the United States	ESC	Escambia	001		80	80	DeSantis	Ron		931
+3/19/2024	REP	Republican	PPC	President of the United States	OKA	Okaloosa	001		52	52	DeSantis	Ron		685
+3/19/2024	REP	Republican	PPC	President of the United States	SAN	Santa Rosa	001		41	41	DeSantis	Ron		470
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	001		14	14	DeSantis	Ron		142
+3/19/2024	REP	Republican	PPC	President of the United States	ESC	Escambia	001		80	80	Haley	Nikki	R.	2718
+3/19/2024	REP	Republican	PPC	President of the United States	OKA	Okaloosa	001		52	52	Haley	Nikki	R.	1628
+3/19/2024	REP	Republican	PPC	President of the United States	SAN	Santa Rosa	001		41	41	Haley	Nikki	R.	1183
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	001		14	14	Haley	Nikki	R.	301
+3/19/2024	REP	Republican	PPC	President of the United States	ESC	Escambia	001		80	80	Hutchinson	Asa		24
+3/19/2024	REP	Republican	PPC	President of the United States	OKA	Okaloosa	001		52	52	Hutchinson	Asa		20
+3/19/2024	REP	Republican	PPC	President of the United States	SAN	Santa Rosa	001		41	41	Hutchinson	Asa		15
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	001		14	14	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	ESC	Escambia	001		80	80	Ramaswamy	Vivek		55
+3/19/2024	REP	Republican	PPC	President of the United States	OKA	Okaloosa	001		52	52	Ramaswamy	Vivek		41
+3/19/2024	REP	Republican	PPC	President of the United States	SAN	Santa Rosa	001		41	41	Ramaswamy	Vivek		31
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	001		14	14	Ramaswamy	Vivek		7
+3/19/2024	REP	Republican	PPC	President of the United States	ESC	Escambia	001		80	80	Trump	Donald	J.	18959
+3/19/2024	REP	Republican	PPC	President of the United States	OKA	Okaloosa	001		52	52	Trump	Donald	J.	11543
+3/19/2024	REP	Republican	PPC	President of the United States	SAN	Santa Rosa	001		41	41	Trump	Donald	J.	11480
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	001		14	14	Trump	Donald	J.	2934
+3/19/2024	REP	Republican	PPC	President of the United States	BAY	Bay	002		28	28	Binkley	Ryan	L.	8
+3/19/2024	REP	Republican	PPC	President of the United States	CAL	Calhoun	002		10	10	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	FRA	Franklin	002		0	0	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	GAD	Gadsden	002		25	25	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	GUL	Gulf	002		0	0	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	HOL	Holmes	002		8	8	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	JAC	Jackson	002		1	1	Binkley	Ryan	L.	5
+3/19/2024	REP	Republican	PPC	President of the United States	JEF	Jefferson	002		16	16	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	002		1	1	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	LEO	Leon	002		118	118	Binkley	Ryan	L.	21
+3/19/2024	REP	Republican	PPC	President of the United States	LIB	Liberty	002		0	0	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	MAD	Madison	002		11	11	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	TAY	Taylor	002		14	14	Binkley	Ryan	L.	2
+3/19/2024	REP	Republican	PPC	President of the United States	WAK	Wakulla	002		0	0	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	002		13	13	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	WAS	Washington	002		12	12	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	BAY	Bay	002		28	28	Christie	Chris		54
+3/19/2024	REP	Republican	PPC	President of the United States	CAL	Calhoun	002		10	10	Christie	Chris		0
+3/19/2024	REP	Republican	PPC	President of the United States	FRA	Franklin	002		0	0	Christie	Chris		6
+3/19/2024	REP	Republican	PPC	President of the United States	GAD	Gadsden	002		25	25	Christie	Chris		2
+3/19/2024	REP	Republican	PPC	President of the United States	GUL	Gulf	002		0	0	Christie	Chris		5
+3/19/2024	REP	Republican	PPC	President of the United States	HOL	Holmes	002		8	8	Christie	Chris		2
+3/19/2024	REP	Republican	PPC	President of the United States	JAC	Jackson	002		1	1	Christie	Chris		5
+3/19/2024	REP	Republican	PPC	President of the United States	JEF	Jefferson	002		16	16	Christie	Chris		8
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	002		1	1	Christie	Chris		0
+3/19/2024	REP	Republican	PPC	President of the United States	LEO	Leon	002		118	118	Christie	Chris		149
+3/19/2024	REP	Republican	PPC	President of the United States	LIB	Liberty	002		0	0	Christie	Chris		2
+3/19/2024	REP	Republican	PPC	President of the United States	MAD	Madison	002		11	11	Christie	Chris		1
+3/19/2024	REP	Republican	PPC	President of the United States	TAY	Taylor	002		14	14	Christie	Chris		1
+3/19/2024	REP	Republican	PPC	President of the United States	WAK	Wakulla	002		0	0	Christie	Chris		6
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	002		13	13	Christie	Chris		12
+3/19/2024	REP	Republican	PPC	President of the United States	WAS	Washington	002		12	12	Christie	Chris		3
+3/19/2024	REP	Republican	PPC	President of the United States	BAY	Bay	002		28	28	DeSantis	Ron		476
+3/19/2024	REP	Republican	PPC	President of the United States	CAL	Calhoun	002		10	10	DeSantis	Ron		45
+3/19/2024	REP	Republican	PPC	President of the United States	FRA	Franklin	002		0	0	DeSantis	Ron		25
+3/19/2024	REP	Republican	PPC	President of the United States	GAD	Gadsden	002		25	25	DeSantis	Ron		60
+3/19/2024	REP	Republican	PPC	President of the United States	GUL	Gulf	002		0	0	DeSantis	Ron		62
+3/19/2024	REP	Republican	PPC	President of the United States	HOL	Holmes	002		8	8	DeSantis	Ron		43
+3/19/2024	REP	Republican	PPC	President of the United States	JAC	Jackson	002		1	1	DeSantis	Ron		89
+3/19/2024	REP	Republican	PPC	President of the United States	JEF	Jefferson	002		16	16	DeSantis	Ron		63
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	002		1	1	DeSantis	Ron		0
+3/19/2024	REP	Republican	PPC	President of the United States	LEO	Leon	002		118	118	DeSantis	Ron		935
+3/19/2024	REP	Republican	PPC	President of the United States	LIB	Liberty	002		0	0	DeSantis	Ron		15
+3/19/2024	REP	Republican	PPC	President of the United States	MAD	Madison	002		11	11	DeSantis	Ron		38
+3/19/2024	REP	Republican	PPC	President of the United States	TAY	Taylor	002		14	14	DeSantis	Ron		52
+3/19/2024	REP	Republican	PPC	President of the United States	WAK	Wakulla	002		0	0	DeSantis	Ron		103
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	002		13	13	DeSantis	Ron		78
+3/19/2024	REP	Republican	PPC	President of the United States	WAS	Washington	002		12	12	DeSantis	Ron		52
+3/19/2024	REP	Republican	PPC	President of the United States	BAY	Bay	002		28	28	Haley	Nikki	R.	948
+3/19/2024	REP	Republican	PPC	President of the United States	CAL	Calhoun	002		10	10	Haley	Nikki	R.	37
+3/19/2024	REP	Republican	PPC	President of the United States	FRA	Franklin	002		0	0	Haley	Nikki	R.	78
+3/19/2024	REP	Republican	PPC	President of the United States	GAD	Gadsden	002		25	25	Haley	Nikki	R.	71
+3/19/2024	REP	Republican	PPC	President of the United States	GUL	Gulf	002		0	0	Haley	Nikki	R.	91
+3/19/2024	REP	Republican	PPC	President of the United States	HOL	Holmes	002		8	8	Haley	Nikki	R.	56
+3/19/2024	REP	Republican	PPC	President of the United States	JAC	Jackson	002		1	1	Haley	Nikki	R.	100
+3/19/2024	REP	Republican	PPC	President of the United States	JEF	Jefferson	002		16	16	Haley	Nikki	R.	82
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	002		1	1	Haley	Nikki	R.	2
+3/19/2024	REP	Republican	PPC	President of the United States	LEO	Leon	002		118	118	Haley	Nikki	R.	2236
+3/19/2024	REP	Republican	PPC	President of the United States	LIB	Liberty	002		0	0	Haley	Nikki	R.	18
+3/19/2024	REP	Republican	PPC	President of the United States	MAD	Madison	002		11	11	Haley	Nikki	R.	34
+3/19/2024	REP	Republican	PPC	President of the United States	TAY	Taylor	002		14	14	Haley	Nikki	R.	74
+3/19/2024	REP	Republican	PPC	President of the United States	WAK	Wakulla	002		0	0	Haley	Nikki	R.	135
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	002		13	13	Haley	Nikki	R.	168
+3/19/2024	REP	Republican	PPC	President of the United States	WAS	Washington	002		12	12	Haley	Nikki	R.	45
+3/19/2024	REP	Republican	PPC	President of the United States	BAY	Bay	002		28	28	Hutchinson	Asa		7
+3/19/2024	REP	Republican	PPC	President of the United States	CAL	Calhoun	002		10	10	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	FRA	Franklin	002		0	0	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	GAD	Gadsden	002		25	25	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	GUL	Gulf	002		0	0	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	HOL	Holmes	002		8	8	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	JAC	Jackson	002		1	1	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	JEF	Jefferson	002		16	16	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	002		1	1	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	LEO	Leon	002		118	118	Hutchinson	Asa		33
+3/19/2024	REP	Republican	PPC	President of the United States	LIB	Liberty	002		0	0	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	MAD	Madison	002		11	11	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	TAY	Taylor	002		14	14	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	WAK	Wakulla	002		0	0	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	002		13	13	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	WAS	Washington	002		12	12	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	BAY	Bay	002		28	28	Ramaswamy	Vivek		36
+3/19/2024	REP	Republican	PPC	President of the United States	CAL	Calhoun	002		10	10	Ramaswamy	Vivek		1
+3/19/2024	REP	Republican	PPC	President of the United States	FRA	Franklin	002		0	0	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	GAD	Gadsden	002		25	25	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PPC	President of the United States	GUL	Gulf	002		0	0	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PPC	President of the United States	HOL	Holmes	002		8	8	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PPC	President of the United States	JAC	Jackson	002		1	1	Ramaswamy	Vivek		4
+3/19/2024	REP	Republican	PPC	President of the United States	JEF	Jefferson	002		16	16	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	002		1	1	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PPC	President of the United States	LEO	Leon	002		118	118	Ramaswamy	Vivek		38
+3/19/2024	REP	Republican	PPC	President of the United States	LIB	Liberty	002		0	0	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	MAD	Madison	002		11	11	Ramaswamy	Vivek		3
+3/19/2024	REP	Republican	PPC	President of the United States	TAY	Taylor	002		14	14	Ramaswamy	Vivek		5
+3/19/2024	REP	Republican	PPC	President of the United States	WAK	Wakulla	002		0	0	Ramaswamy	Vivek		3
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	002		13	13	Ramaswamy	Vivek		5
+3/19/2024	REP	Republican	PPC	President of the United States	WAS	Washington	002		12	12	Ramaswamy	Vivek		1
+3/19/2024	REP	Republican	PPC	President of the United States	BAY	Bay	002		28	28	Trump	Donald	J.	11547
+3/19/2024	REP	Republican	PPC	President of the United States	CAL	Calhoun	002		10	10	Trump	Donald	J.	1087
+3/19/2024	REP	Republican	PPC	President of the United States	FRA	Franklin	002		0	0	Trump	Donald	J.	819
+3/19/2024	REP	Republican	PPC	President of the United States	GAD	Gadsden	002		25	25	Trump	Donald	J.	1098
+3/19/2024	REP	Republican	PPC	President of the United States	GUL	Gulf	002		0	0	Trump	Donald	J.	1099
+3/19/2024	REP	Republican	PPC	President of the United States	HOL	Holmes	002		8	8	Trump	Donald	J.	1350
+3/19/2024	REP	Republican	PPC	President of the United States	JAC	Jackson	002		1	1	Trump	Donald	J.	2426
+3/19/2024	REP	Republican	PPC	President of the United States	JEF	Jefferson	002		16	16	Trump	Donald	J.	999
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	002		1	1	Trump	Donald	J.	34
+3/19/2024	REP	Republican	PPC	President of the United States	LEO	Leon	002		118	118	Trump	Donald	J.	9131
+3/19/2024	REP	Republican	PPC	President of the United States	LIB	Liberty	002		0	0	Trump	Donald	J.	385
+3/19/2024	REP	Republican	PPC	President of the United States	MAD	Madison	002		11	11	Trump	Donald	J.	1161
+3/19/2024	REP	Republican	PPC	President of the United States	TAY	Taylor	002		14	14	Trump	Donald	J.	1827
+3/19/2024	REP	Republican	PPC	President of the United States	WAK	Wakulla	002		0	0	Trump	Donald	J.	2214
+3/19/2024	REP	Republican	PPC	President of the United States	WAL	Walton	002		13	13	Trump	Donald	J.	1506
+3/19/2024	REP	Republican	PPC	President of the United States	WAS	Washington	002		12	12	Trump	Donald	J.	1442
+3/19/2024	REP	Republican	PPC	President of the United States	ALA	Alachua	003		63	63	Binkley	Ryan	L.	18
+3/19/2024	REP	Republican	PPC	President of the United States	BAK	Baker	003		0	0	Binkley	Ryan	L.	2
+3/19/2024	REP	Republican	PPC	President of the United States	BRA	Bradford	003		13	13	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	CLM	Columbia	003		28	28	Binkley	Ryan	L.	2
+3/19/2024	REP	Republican	PPC	President of the United States	DIX	Dixie	003		10	10	Binkley	Ryan	L.	3
+3/19/2024	REP	Republican	PPC	President of the United States	GIL	Gilchrist	003		10	10	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	HAM	Hamilton	003		8	8	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	003		5	5	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	LEV	Levy	003		13	13	Binkley	Ryan	L.	3
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	003		0	0	Binkley	Ryan	L.	16
+3/19/2024	REP	Republican	PPC	President of the United States	SUW	Suwannee	003		14	14	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	UNI	Union	003		8	8	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	ALA	Alachua	003		63	63	Christie	Chris		96
+3/19/2024	REP	Republican	PPC	President of the United States	BAK	Baker	003		0	0	Christie	Chris		5
+3/19/2024	REP	Republican	PPC	President of the United States	BRA	Bradford	003		13	13	Christie	Chris		4
+3/19/2024	REP	Republican	PPC	President of the United States	CLM	Columbia	003		28	28	Christie	Chris		11
+3/19/2024	REP	Republican	PPC	President of the United States	DIX	Dixie	003		10	10	Christie	Chris		4
+3/19/2024	REP	Republican	PPC	President of the United States	GIL	Gilchrist	003		10	10	Christie	Chris		10
+3/19/2024	REP	Republican	PPC	President of the United States	HAM	Hamilton	003		8	8	Christie	Chris		1
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	003		5	5	Christie	Chris		1
+3/19/2024	REP	Republican	PPC	President of the United States	LEV	Levy	003		13	13	Christie	Chris		21
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	003		0	0	Christie	Chris		118
+3/19/2024	REP	Republican	PPC	President of the United States	SUW	Suwannee	003		14	14	Christie	Chris		11
+3/19/2024	REP	Republican	PPC	President of the United States	UNI	Union	003		8	8	Christie	Chris		2
+3/19/2024	REP	Republican	PPC	President of the United States	ALA	Alachua	003		63	63	DeSantis	Ron		437
+3/19/2024	REP	Republican	PPC	President of the United States	BAK	Baker	003		0	0	DeSantis	Ron		41
+3/19/2024	REP	Republican	PPC	President of the United States	BRA	Bradford	003		13	13	DeSantis	Ron		64
+3/19/2024	REP	Republican	PPC	President of the United States	CLM	Columbia	003		28	28	DeSantis	Ron		146
+3/19/2024	REP	Republican	PPC	President of the United States	DIX	Dixie	003		10	10	DeSantis	Ron		35
+3/19/2024	REP	Republican	PPC	President of the United States	GIL	Gilchrist	003		10	10	DeSantis	Ron		76
+3/19/2024	REP	Republican	PPC	President of the United States	HAM	Hamilton	003		8	8	DeSantis	Ron		25
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	003		5	5	DeSantis	Ron		19
+3/19/2024	REP	Republican	PPC	President of the United States	LEV	Levy	003		13	13	DeSantis	Ron		133
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	003		0	0	DeSantis	Ron		477
+3/19/2024	REP	Republican	PPC	President of the United States	SUW	Suwannee	003		14	14	DeSantis	Ron		103
+3/19/2024	REP	Republican	PPC	President of the United States	UNI	Union	003		8	8	DeSantis	Ron		37
+3/19/2024	REP	Republican	PPC	President of the United States	ALA	Alachua	003		63	63	Haley	Nikki	R.	1487
+3/19/2024	REP	Republican	PPC	President of the United States	BAK	Baker	003		0	0	Haley	Nikki	R.	51
+3/19/2024	REP	Republican	PPC	President of the United States	BRA	Bradford	003		13	13	Haley	Nikki	R.	85
+3/19/2024	REP	Republican	PPC	President of the United States	CLM	Columbia	003		28	28	Haley	Nikki	R.	215
+3/19/2024	REP	Republican	PPC	President of the United States	DIX	Dixie	003		10	10	Haley	Nikki	R.	47
+3/19/2024	REP	Republican	PPC	President of the United States	GIL	Gilchrist	003		10	10	Haley	Nikki	R.	67
+3/19/2024	REP	Republican	PPC	President of the United States	HAM	Hamilton	003		8	8	Haley	Nikki	R.	18
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	003		5	5	Haley	Nikki	R.	26
+3/19/2024	REP	Republican	PPC	President of the United States	LEV	Levy	003		13	13	Haley	Nikki	R.	292
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	003		0	0	Haley	Nikki	R.	1645
+3/19/2024	REP	Republican	PPC	President of the United States	SUW	Suwannee	003		14	14	Haley	Nikki	R.	144
+3/19/2024	REP	Republican	PPC	President of the United States	UNI	Union	003		8	8	Haley	Nikki	R.	20
+3/19/2024	REP	Republican	PPC	President of the United States	ALA	Alachua	003		63	63	Hutchinson	Asa		12
+3/19/2024	REP	Republican	PPC	President of the United States	BAK	Baker	003		0	0	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	BRA	Bradford	003		13	13	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	CLM	Columbia	003		28	28	Hutchinson	Asa		6
+3/19/2024	REP	Republican	PPC	President of the United States	DIX	Dixie	003		10	10	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PPC	President of the United States	GIL	Gilchrist	003		10	10	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	HAM	Hamilton	003		8	8	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	003		5	5	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	LEV	Levy	003		13	13	Hutchinson	Asa		3
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	003		0	0	Hutchinson	Asa		12
+3/19/2024	REP	Republican	PPC	President of the United States	SUW	Suwannee	003		14	14	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PPC	President of the United States	UNI	Union	003		8	8	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	ALA	Alachua	003		63	63	Ramaswamy	Vivek		30
+3/19/2024	REP	Republican	PPC	President of the United States	BAK	Baker	003		0	0	Ramaswamy	Vivek		6
+3/19/2024	REP	Republican	PPC	President of the United States	BRA	Bradford	003		13	13	Ramaswamy	Vivek		3
+3/19/2024	REP	Republican	PPC	President of the United States	CLM	Columbia	003		28	28	Ramaswamy	Vivek		9
+3/19/2024	REP	Republican	PPC	President of the United States	DIX	Dixie	003		10	10	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	GIL	Gilchrist	003		10	10	Ramaswamy	Vivek		4
+3/19/2024	REP	Republican	PPC	President of the United States	HAM	Hamilton	003		8	8	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	003		5	5	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PPC	President of the United States	LEV	Levy	003		13	13	Ramaswamy	Vivek		8
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	003		0	0	Ramaswamy	Vivek		29
+3/19/2024	REP	Republican	PPC	President of the United States	SUW	Suwannee	003		14	14	Ramaswamy	Vivek		7
+3/19/2024	REP	Republican	PPC	President of the United States	UNI	Union	003		8	8	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	ALA	Alachua	003		63	63	Trump	Donald	J.	6426
+3/19/2024	REP	Republican	PPC	President of the United States	BAK	Baker	003		0	0	Trump	Donald	J.	2348
+3/19/2024	REP	Republican	PPC	President of the United States	BRA	Bradford	003		13	13	Trump	Donald	J.	2071
+3/19/2024	REP	Republican	PPC	President of the United States	CLM	Columbia	003		28	28	Trump	Donald	J.	3959
+3/19/2024	REP	Republican	PPC	President of the United States	DIX	Dixie	003		10	10	Trump	Donald	J.	1205
+3/19/2024	REP	Republican	PPC	President of the United States	GIL	Gilchrist	003		10	10	Trump	Donald	J.	1481
+3/19/2024	REP	Republican	PPC	President of the United States	HAM	Hamilton	003		8	8	Trump	Donald	J.	792
+3/19/2024	REP	Republican	PPC	President of the United States	LAF	Lafayette	003		5	5	Trump	Donald	J.	601
+3/19/2024	REP	Republican	PPC	President of the United States	LEV	Levy	003		13	13	Trump	Donald	J.	3996
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	003		0	0	Trump	Donald	J.	11466
+3/19/2024	REP	Republican	PPC	President of the United States	SUW	Suwannee	003		14	14	Trump	Donald	J.	3707
+3/19/2024	REP	Republican	PPC	President of the United States	UNI	Union	003		8	8	Trump	Donald	J.	879
+3/19/2024	REP	Republican	PPC	President of the United States	CLA	Clay	004		48	48	Binkley	Ryan	L.	17
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	004		0	0	Binkley	Ryan	L.	27
+3/19/2024	REP	Republican	PPC	President of the United States	NAS	Nassau	004		18	18	Binkley	Ryan	L.	5
+3/19/2024	REP	Republican	PPC	President of the United States	CLA	Clay	004		48	48	Christie	Chris		61
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	004		0	0	Christie	Chris		61
+3/19/2024	REP	Republican	PPC	President of the United States	NAS	Nassau	004		18	18	Christie	Chris		62
+3/19/2024	REP	Republican	PPC	President of the United States	CLA	Clay	004		48	48	DeSantis	Ron		484
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	004		0	0	DeSantis	Ron		553
+3/19/2024	REP	Republican	PPC	President of the United States	NAS	Nassau	004		18	18	DeSantis	Ron		384
+3/19/2024	REP	Republican	PPC	President of the United States	CLA	Clay	004		48	48	Haley	Nikki	R.	1408
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	004		0	0	Haley	Nikki	R.	1305
+3/19/2024	REP	Republican	PPC	President of the United States	NAS	Nassau	004		18	18	Haley	Nikki	R.	1236
+3/19/2024	REP	Republican	PPC	President of the United States	CLA	Clay	004		48	48	Hutchinson	Asa		15
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	004		0	0	Hutchinson	Asa		11
+3/19/2024	REP	Republican	PPC	President of the United States	NAS	Nassau	004		18	18	Hutchinson	Asa		15
+3/19/2024	REP	Republican	PPC	President of the United States	CLA	Clay	004		48	48	Ramaswamy	Vivek		24
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	004		0	0	Ramaswamy	Vivek		49
+3/19/2024	REP	Republican	PPC	President of the United States	NAS	Nassau	004		18	18	Ramaswamy	Vivek		19
+3/19/2024	REP	Republican	PPC	President of the United States	CLA	Clay	004		48	48	Trump	Donald	J.	11683
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	004		0	0	Trump	Donald	J.	13319
+3/19/2024	REP	Republican	PPC	President of the United States	NAS	Nassau	004		18	18	Trump	Donald	J.	8227
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	005		0	0	Binkley	Ryan	L.	35
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	005		47	47	Binkley	Ryan	L.	20
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	005		0	0	Christie	Chris		206
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	005		47	47	Christie	Chris		174
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	005		0	0	DeSantis	Ron		1260
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	005		47	47	DeSantis	Ron		882
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	005		0	0	Haley	Nikki	R.	3947
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	005		47	47	Haley	Nikki	R.	2458
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	005		0	0	Hutchinson	Asa		27
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	005		47	47	Hutchinson	Asa		30
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	005		0	0	Ramaswamy	Vivek		110
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	005		47	47	Ramaswamy	Vivek		50
+3/19/2024	REP	Republican	PPC	President of the United States	DUV	Duval	005		0	0	Trump	Donald	J.	23432
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	005		47	47	Trump	Donald	J.	15556
+3/19/2024	REP	Republican	PPC	President of the United States	FLA	Flagler	006		21	21	Binkley	Ryan	L.	9
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	006		0	0	Binkley	Ryan	L.	12
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	006		0	0	Binkley	Ryan	L.	11
+3/19/2024	REP	Republican	PPC	President of the United States	PUT	Putnam	006		37	37	Binkley	Ryan	L.	8
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	006		11	11	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	006		69	69	Binkley	Ryan	L.	15
+3/19/2024	REP	Republican	PPC	President of the United States	FLA	Flagler	006		21	21	Christie	Chris		70
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	006		0	0	Christie	Chris		50
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	006		0	0	Christie	Chris		65
+3/19/2024	REP	Republican	PPC	President of the United States	PUT	Putnam	006		37	37	Christie	Chris		12
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	006		11	11	Christie	Chris		32
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	006		69	69	Christie	Chris		142
+3/19/2024	REP	Republican	PPC	President of the United States	FLA	Flagler	006		21	21	DeSantis	Ron		313
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	006		0	0	DeSantis	Ron		291
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	006		0	0	DeSantis	Ron		340
+3/19/2024	REP	Republican	PPC	President of the United States	PUT	Putnam	006		37	37	DeSantis	Ron		123
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	006		11	11	DeSantis	Ron		143
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	006		69	69	DeSantis	Ron		580
+3/19/2024	REP	Republican	PPC	President of the United States	FLA	Flagler	006		21	21	Haley	Nikki	R.	1275
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	006		0	0	Haley	Nikki	R.	823
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	006		0	0	Haley	Nikki	R.	915
+3/19/2024	REP	Republican	PPC	President of the United States	PUT	Putnam	006		37	37	Haley	Nikki	R.	297
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	006		11	11	Haley	Nikki	R.	412
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	006		69	69	Haley	Nikki	R.	2118
+3/19/2024	REP	Republican	PPC	President of the United States	FLA	Flagler	006		21	21	Hutchinson	Asa		6
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	006		0	0	Hutchinson	Asa		9
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	006		0	0	Hutchinson	Asa		5
+3/19/2024	REP	Republican	PPC	President of the United States	PUT	Putnam	006		37	37	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	006		11	11	Hutchinson	Asa		4
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	006		69	69	Hutchinson	Asa		11
+3/19/2024	REP	Republican	PPC	President of the United States	FLA	Flagler	006		21	21	Ramaswamy	Vivek		24
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	006		0	0	Ramaswamy	Vivek		13
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	006		0	0	Ramaswamy	Vivek		23
+3/19/2024	REP	Republican	PPC	President of the United States	PUT	Putnam	006		37	37	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	006		11	11	Ramaswamy	Vivek		15
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	006		69	69	Ramaswamy	Vivek		29
+3/19/2024	REP	Republican	PPC	President of the United States	FLA	Flagler	006		21	21	Trump	Donald	J.	9553
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	006		0	0	Trump	Donald	J.	5861
+3/19/2024	REP	Republican	PPC	President of the United States	MRN	Marion	006		0	0	Trump	Donald	J.	9469
+3/19/2024	REP	Republican	PPC	President of the United States	PUT	Putnam	006		37	37	Trump	Donald	J.	4196
+3/19/2024	REP	Republican	PPC	President of the United States	STJ	St. Johns	006		11	11	Trump	Donald	J.	3634
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	006		69	69	Trump	Donald	J.	11847
+3/19/2024	REP	Republican	PPC	President of the United States	SEM	Seminole	007		82	82	Binkley	Ryan	L.	38
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	007		73	73	Binkley	Ryan	L.	10
+3/19/2024	REP	Republican	PPC	President of the United States	SEM	Seminole	007		82	82	Christie	Chris		164
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	007		73	73	Christie	Chris		137
+3/19/2024	REP	Republican	PPC	President of the United States	SEM	Seminole	007		82	82	DeSantis	Ron		825
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	007		73	73	DeSantis	Ron		680
+3/19/2024	REP	Republican	PPC	President of the United States	SEM	Seminole	007		82	82	Haley	Nikki	R.	3409
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	007		73	73	Haley	Nikki	R.	2501
+3/19/2024	REP	Republican	PPC	President of the United States	SEM	Seminole	007		82	82	Hutchinson	Asa		18
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	007		73	73	Hutchinson	Asa		19
+3/19/2024	REP	Republican	PPC	President of the United States	SEM	Seminole	007		82	82	Ramaswamy	Vivek		58
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	007		73	73	Ramaswamy	Vivek		51
+3/19/2024	REP	Republican	PPC	President of the United States	SEM	Seminole	007		82	82	Trump	Donald	J.	18488
+3/19/2024	REP	Republican	PPC	President of the United States	VOL	Volusia	007		73	73	Trump	Donald	J.	14846
+3/19/2024	REP	Republican	PPC	President of the United States	BRE	Brevard	008		143	143	Binkley	Ryan	L.	56
+3/19/2024	REP	Republican	PPC	President of the United States	IND	Indian River	008		34	34	Binkley	Ryan	L.	10
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	008		0	0	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	BRE	Brevard	008		143	143	Christie	Chris		361
+3/19/2024	REP	Republican	PPC	President of the United States	IND	Indian River	008		34	34	Christie	Chris		136
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	008		0	0	Christie	Chris		1
+3/19/2024	REP	Republican	PPC	President of the United States	BRE	Brevard	008		143	143	DeSantis	Ron		1612
+3/19/2024	REP	Republican	PPC	President of the United States	IND	Indian River	008		34	34	DeSantis	Ron		422
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	008		0	0	DeSantis	Ron		4
+3/19/2024	REP	Republican	PPC	President of the United States	BRE	Brevard	008		143	143	Haley	Nikki	R.	5852
+3/19/2024	REP	Republican	PPC	President of the United States	IND	Indian River	008		34	34	Haley	Nikki	R.	2418
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	008		0	0	Haley	Nikki	R.	16
+3/19/2024	REP	Republican	PPC	President of the United States	BRE	Brevard	008		143	143	Hutchinson	Asa		46
+3/19/2024	REP	Republican	PPC	President of the United States	IND	Indian River	008		34	34	Hutchinson	Asa		15
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	008		0	0	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	BRE	Brevard	008		143	143	Ramaswamy	Vivek		131
+3/19/2024	REP	Republican	PPC	President of the United States	IND	Indian River	008		34	34	Ramaswamy	Vivek		29
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	008		0	0	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PPC	President of the United States	BRE	Brevard	008		143	143	Trump	Donald	J.	37087
+3/19/2024	REP	Republican	PPC	President of the United States	IND	Indian River	008		34	34	Trump	Donald	J.	10708
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	008		0	0	Trump	Donald	J.	170
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	009		0	0	Binkley	Ryan	L.	9
+3/19/2024	REP	Republican	PPC	President of the United States	OSC	Osceola	009		121	121	Binkley	Ryan	L.	20
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	009		0	0	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	009		0	0	Christie	Chris		67
+3/19/2024	REP	Republican	PPC	President of the United States	OSC	Osceola	009		121	121	Christie	Chris		96
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	009		0	0	Christie	Chris		12
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	009		0	0	DeSantis	Ron		285
+3/19/2024	REP	Republican	PPC	President of the United States	OSC	Osceola	009		121	121	DeSantis	Ron		420
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	009		0	0	DeSantis	Ron		68
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	009		0	0	Haley	Nikki	R.	1204
+3/19/2024	REP	Republican	PPC	President of the United States	OSC	Osceola	009		121	121	Haley	Nikki	R.	1296
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	009		0	0	Haley	Nikki	R.	257
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	009		0	0	Hutchinson	Asa		4
+3/19/2024	REP	Republican	PPC	President of the United States	OSC	Osceola	009		121	121	Hutchinson	Asa		10
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	009		0	0	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	009		0	0	Ramaswamy	Vivek		19
+3/19/2024	REP	Republican	PPC	President of the United States	OSC	Osceola	009		121	121	Ramaswamy	Vivek		23
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	009		0	0	Ramaswamy	Vivek		3
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	009		0	0	Trump	Donald	J.	6389
+3/19/2024	REP	Republican	PPC	President of the United States	OSC	Osceola	009		121	121	Trump	Donald	J.	9817
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	009		0	0	Trump	Donald	J.	1699
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	010		0	0	Binkley	Ryan	L.	45
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	010		0	0	Christie	Chris		241
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	010		0	0	DeSantis	Ron		913
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	010		0	0	Haley	Nikki	R.	3865
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	010		0	0	Hutchinson	Asa		36
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	010		0	0	Ramaswamy	Vivek		93
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	010		0	0	Trump	Donald	J.	14798
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	011		0	0	Binkley	Ryan	L.	27
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	011		0	0	Binkley	Ryan	L.	27
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	011		0	0	Binkley	Ryan	L.	3
+3/19/2024	REP	Republican	PPC	President of the United States	SUM	Sumter	011		30	30	Binkley	Ryan	L.	12
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	011		0	0	Christie	Chris		108
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	011		0	0	Christie	Chris		124
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	011		0	0	Christie	Chris		11
+3/19/2024	REP	Republican	PPC	President of the United States	SUM	Sumter	011		30	30	Christie	Chris		154
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	011		0	0	DeSantis	Ron		571
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	011		0	0	DeSantis	Ron		682
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	011		0	0	DeSantis	Ron		48
+3/19/2024	REP	Republican	PPC	President of the United States	SUM	Sumter	011		30	30	DeSantis	Ron		1033
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	011		0	0	Haley	Nikki	R.	1697
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	011		0	0	Haley	Nikki	R.	1979
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	011		0	0	Haley	Nikki	R.	181
+3/19/2024	REP	Republican	PPC	President of the United States	SUM	Sumter	011		30	30	Haley	Nikki	R.	3461
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	011		0	0	Hutchinson	Asa		21
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	011		0	0	Hutchinson	Asa		22
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	011		0	0	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	SUM	Sumter	011		30	30	Hutchinson	Asa		14
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	011		0	0	Ramaswamy	Vivek		39
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	011		0	0	Ramaswamy	Vivek		71
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	011		0	0	Ramaswamy	Vivek		4
+3/19/2024	REP	Republican	PPC	President of the United States	SUM	Sumter	011		30	30	Ramaswamy	Vivek		49
+3/19/2024	REP	Republican	PPC	President of the United States	LAK	Lake	011		0	0	Trump	Donald	J.	12201
+3/19/2024	REP	Republican	PPC	President of the United States	ORA	Orange	011		0	0	Trump	Donald	J.	11632
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	011		0	0	Trump	Donald	J.	1737
+3/19/2024	REP	Republican	PPC	President of the United States	SUM	Sumter	011		30	30	Trump	Donald	J.	21104
+3/19/2024	REP	Republican	PPC	President of the United States	CIT	Citrus	012		32	32	Binkley	Ryan	L.	23
+3/19/2024	REP	Republican	PPC	President of the United States	HER	Hernando	012		32	32	Binkley	Ryan	L.	20
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	012		0	0	Binkley	Ryan	L.	25
+3/19/2024	REP	Republican	PPC	President of the United States	CIT	Citrus	012		32	32	Christie	Chris		135
+3/19/2024	REP	Republican	PPC	President of the United States	HER	Hernando	012		32	32	Christie	Chris		85
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	012		0	0	Christie	Chris		147
+3/19/2024	REP	Republican	PPC	President of the United States	CIT	Citrus	012		32	32	DeSantis	Ron		620
+3/19/2024	REP	Republican	PPC	President of the United States	HER	Hernando	012		32	32	DeSantis	Ron		414
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	012		0	0	DeSantis	Ron		740
+3/19/2024	REP	Republican	PPC	President of the United States	CIT	Citrus	012		32	32	Haley	Nikki	R.	1932
+3/19/2024	REP	Republican	PPC	President of the United States	HER	Hernando	012		32	32	Haley	Nikki	R.	1288
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	012		0	0	Haley	Nikki	R.	2557
+3/19/2024	REP	Republican	PPC	President of the United States	CIT	Citrus	012		32	32	Hutchinson	Asa		23
+3/19/2024	REP	Republican	PPC	President of the United States	HER	Hernando	012		32	32	Hutchinson	Asa		8
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	012		0	0	Hutchinson	Asa		11
+3/19/2024	REP	Republican	PPC	President of the United States	CIT	Citrus	012		32	32	Ramaswamy	Vivek		45
+3/19/2024	REP	Republican	PPC	President of the United States	HER	Hernando	012		32	32	Ramaswamy	Vivek		23
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	012		0	0	Ramaswamy	Vivek		59
+3/19/2024	REP	Republican	PPC	President of the United States	CIT	Citrus	012		32	32	Trump	Donald	J.	16092
+3/19/2024	REP	Republican	PPC	President of the United States	HER	Hernando	012		32	32	Trump	Donald	J.	13015
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	012		0	0	Trump	Donald	J.	20714
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	013		229	229	Binkley	Ryan	L.	141
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	013		229	229	Christie	Chris		674
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	013		229	229	DeSantis	Ron		3046
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	013		229	229	Haley	Nikki	R.	11364
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	013		229	229	Hutchinson	Asa		91
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	013		229	229	Ramaswamy	Vivek		241
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	013		229	229	Trump	Donald	J.	49135
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	014		0	0	Binkley	Ryan	L.	27
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	014		57	57	Binkley	Ryan	L.	25
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	014		0	0	Christie	Chris		184
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	014		57	57	Christie	Chris		124
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	014		0	0	DeSantis	Ron		871
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	014		57	57	DeSantis	Ron		413
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	014		0	0	Haley	Nikki	R.	4221
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	014		57	57	Haley	Nikki	R.	2164
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	014		0	0	Hutchinson	Asa		32
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	014		57	57	Hutchinson	Asa		9
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	014		0	0	Ramaswamy	Vivek		86
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	014		57	57	Ramaswamy	Vivek		34
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	014		0	0	Trump	Donald	J.	15740
+3/19/2024	REP	Republican	PPC	President of the United States	PIN	Pinellas	014		57	57	Trump	Donald	J.	5652
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	015		0	0	Binkley	Ryan	L.	23
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	015		0	0	Binkley	Ryan	L.	11
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	015		0	0	Binkley	Ryan	L.	19
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	015		0	0	Christie	Chris		159
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	015		0	0	Christie	Chris		37
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	015		0	0	Christie	Chris		33
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	015		0	0	DeSantis	Ron		878
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	015		0	0	DeSantis	Ron		245
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	015		0	0	DeSantis	Ron		195
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	015		0	0	Haley	Nikki	R.	3339
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	015		0	0	Haley	Nikki	R.	699
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	015		0	0	Haley	Nikki	R.	732
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	015		0	0	Hutchinson	Asa		30
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	015		0	0	Hutchinson	Asa		9
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	015		0	0	Hutchinson	Asa		14
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	015		0	0	Ramaswamy	Vivek		67
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	015		0	0	Ramaswamy	Vivek		17
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	015		0	0	Ramaswamy	Vivek		8
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	015		0	0	Trump	Donald	J.	17704
+3/19/2024	REP	Republican	PPC	President of the United States	PAS	Pasco	015		0	0	Trump	Donald	J.	6175
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	015		0	0	Trump	Donald	J.	5282
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	016		0	0	Binkley	Ryan	L.	29
+3/19/2024	REP	Republican	PPC	President of the United States	MAN	Manatee	016		71	71	Binkley	Ryan	L.	31
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	016		0	0	Christie	Chris		139
+3/19/2024	REP	Republican	PPC	President of the United States	MAN	Manatee	016		71	71	Christie	Chris		260
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	016		0	0	DeSantis	Ron		816
+3/19/2024	REP	Republican	PPC	President of the United States	MAN	Manatee	016		71	71	DeSantis	Ron		1147
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	016		0	0	Haley	Nikki	R.	3312
+3/19/2024	REP	Republican	PPC	President of the United States	MAN	Manatee	016		71	71	Haley	Nikki	R.	4914
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	016		0	0	Hutchinson	Asa		17
+3/19/2024	REP	Republican	PPC	President of the United States	MAN	Manatee	016		71	71	Hutchinson	Asa		23
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	016		0	0	Ramaswamy	Vivek		55
+3/19/2024	REP	Republican	PPC	President of the United States	MAN	Manatee	016		71	71	Ramaswamy	Vivek		63
+3/19/2024	REP	Republican	PPC	President of the United States	HIL	Hillsborough	016		0	0	Trump	Donald	J.	16034
+3/19/2024	REP	Republican	PPC	President of the United States	MAN	Manatee	016		71	71	Trump	Donald	J.	23766
+3/19/2024	REP	Republican	PPC	President of the United States	CHA	Charlotte	017		66	66	Binkley	Ryan	L.	16
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	017		21	21	Binkley	Ryan	L.	18
+3/19/2024	REP	Republican	PPC	President of the United States	SAR	Sarasota	017		103	103	Binkley	Ryan	L.	56
+3/19/2024	REP	Republican	PPC	President of the United States	CHA	Charlotte	017		66	66	Christie	Chris		115
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	017		21	21	Christie	Chris		53
+3/19/2024	REP	Republican	PPC	President of the United States	SAR	Sarasota	017		103	103	Christie	Chris		487
+3/19/2024	REP	Republican	PPC	President of the United States	CHA	Charlotte	017		66	66	DeSantis	Ron		573
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	017		21	21	DeSantis	Ron		307
+3/19/2024	REP	Republican	PPC	President of the United States	SAR	Sarasota	017		103	103	DeSantis	Ron		1696
+3/19/2024	REP	Republican	PPC	President of the United States	CHA	Charlotte	017		66	66	Haley	Nikki	R.	2703
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	017		21	21	Haley	Nikki	R.	1280
+3/19/2024	REP	Republican	PPC	President of the United States	SAR	Sarasota	017		103	103	Haley	Nikki	R.	7584
+3/19/2024	REP	Republican	PPC	President of the United States	CHA	Charlotte	017		66	66	Hutchinson	Asa		23
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	017		21	21	Hutchinson	Asa		7
+3/19/2024	REP	Republican	PPC	President of the United States	SAR	Sarasota	017		103	103	Hutchinson	Asa		47
+3/19/2024	REP	Republican	PPC	President of the United States	CHA	Charlotte	017		66	66	Ramaswamy	Vivek		41
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	017		21	21	Ramaswamy	Vivek		10
+3/19/2024	REP	Republican	PPC	President of the United States	SAR	Sarasota	017		103	103	Ramaswamy	Vivek		97
+3/19/2024	REP	Republican	PPC	President of the United States	CHA	Charlotte	017		66	66	Trump	Donald	J.	14094
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	017		21	21	Trump	Donald	J.	7239
+3/19/2024	REP	Republican	PPC	President of the United States	SAR	Sarasota	017		103	103	Trump	Donald	J.	31750
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	018		1	1	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	DES	Desoto	018		15	15	Binkley	Ryan	L.	0
+3/19/2024	REP	Republican	PPC	President of the United States	GLA	Glades	018		13	13	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	HAR	Hardee	018		12	12	Binkley	Ryan	L.	2
+3/19/2024	REP	Republican	PPC	President of the United States	HEN	Hendry	018		10	10	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	HIG	Highlands	018		25	25	Binkley	Ryan	L.	4
+3/19/2024	REP	Republican	PPC	President of the United States	OKE	Okeechobee	018		11	11	Binkley	Ryan	L.	6
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	018		0	0	Binkley	Ryan	L.	41
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	018		1	1	Christie	Chris		0
+3/19/2024	REP	Republican	PPC	President of the United States	DES	Desoto	018		15	15	Christie	Chris		4
+3/19/2024	REP	Republican	PPC	President of the United States	GLA	Glades	018		13	13	Christie	Chris		5
+3/19/2024	REP	Republican	PPC	President of the United States	HAR	Hardee	018		12	12	Christie	Chris		1
+3/19/2024	REP	Republican	PPC	President of the United States	HEN	Hendry	018		10	10	Christie	Chris		7
+3/19/2024	REP	Republican	PPC	President of the United States	HIG	Highlands	018		25	25	Christie	Chris		27
+3/19/2024	REP	Republican	PPC	President of the United States	OKE	Okeechobee	018		11	11	Christie	Chris		6
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	018		0	0	Christie	Chris		153
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	018		1	1	DeSantis	Ron		0
+3/19/2024	REP	Republican	PPC	President of the United States	DES	Desoto	018		15	15	DeSantis	Ron		29
+3/19/2024	REP	Republican	PPC	President of the United States	GLA	Glades	018		13	13	DeSantis	Ron		18
+3/19/2024	REP	Republican	PPC	President of the United States	HAR	Hardee	018		12	12	DeSantis	Ron		22
+3/19/2024	REP	Republican	PPC	President of the United States	HEN	Hendry	018		10	10	DeSantis	Ron		37
+3/19/2024	REP	Republican	PPC	President of the United States	HIG	Highlands	018		25	25	DeSantis	Ron		162
+3/19/2024	REP	Republican	PPC	President of the United States	OKE	Okeechobee	018		11	11	DeSantis	Ron		76
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	018		0	0	DeSantis	Ron		866
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	018		1	1	Haley	Nikki	R.	3
+3/19/2024	REP	Republican	PPC	President of the United States	DES	Desoto	018		15	15	Haley	Nikki	R.	56
+3/19/2024	REP	Republican	PPC	President of the United States	GLA	Glades	018		13	13	Haley	Nikki	R.	70
+3/19/2024	REP	Republican	PPC	President of the United States	HAR	Hardee	018		12	12	Haley	Nikki	R.	45
+3/19/2024	REP	Republican	PPC	President of the United States	HEN	Hendry	018		10	10	Haley	Nikki	R.	79
+3/19/2024	REP	Republican	PPC	President of the United States	HIG	Highlands	018		25	25	Haley	Nikki	R.	433
+3/19/2024	REP	Republican	PPC	President of the United States	OKE	Okeechobee	018		11	11	Haley	Nikki	R.	127
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	018		0	0	Haley	Nikki	R.	3137
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	018		1	1	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	DES	Desoto	018		15	15	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	GLA	Glades	018		13	13	Hutchinson	Asa		1
+3/19/2024	REP	Republican	PPC	President of the United States	HAR	Hardee	018		12	12	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	HEN	Hendry	018		10	10	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	HIG	Highlands	018		25	25	Hutchinson	Asa		5
+3/19/2024	REP	Republican	PPC	President of the United States	OKE	Okeechobee	018		11	11	Hutchinson	Asa		2
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	018		0	0	Hutchinson	Asa		31
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	018		1	1	Ramaswamy	Vivek		0
+3/19/2024	REP	Republican	PPC	President of the United States	DES	Desoto	018		15	15	Ramaswamy	Vivek		5
+3/19/2024	REP	Republican	PPC	President of the United States	GLA	Glades	018		13	13	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	HAR	Hardee	018		12	12	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	HEN	Hendry	018		10	10	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	HIG	Highlands	018		25	25	Ramaswamy	Vivek		11
+3/19/2024	REP	Republican	PPC	President of the United States	OKE	Okeechobee	018		11	11	Ramaswamy	Vivek		4
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	018		0	0	Ramaswamy	Vivek		64
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	018		1	1	Trump	Donald	J.	13
+3/19/2024	REP	Republican	PPC	President of the United States	DES	Desoto	018		15	15	Trump	Donald	J.	982
+3/19/2024	REP	Republican	PPC	President of the United States	GLA	Glades	018		13	13	Trump	Donald	J.	830
+3/19/2024	REP	Republican	PPC	President of the United States	HAR	Hardee	018		12	12	Trump	Donald	J.	1084
+3/19/2024	REP	Republican	PPC	President of the United States	HEN	Hendry	018		10	10	Trump	Donald	J.	1634
+3/19/2024	REP	Republican	PPC	President of the United States	HIG	Highlands	018		25	25	Trump	Donald	J.	4727
+3/19/2024	REP	Republican	PPC	President of the United States	OKE	Okeechobee	018		11	11	Trump	Donald	J.	2229
+3/19/2024	REP	Republican	PPC	President of the United States	POL	Polk	018		0	0	Trump	Donald	J.	23560
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	019		37	37	Binkley	Ryan	L.	15
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	019		85	85	Binkley	Ryan	L.	45
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	019		37	37	Christie	Chris		272
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	019		85	85	Christie	Chris		386
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	019		37	37	DeSantis	Ron		1066
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	019		85	85	DeSantis	Ron		1797
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	019		37	37	Haley	Nikki	R.	4683
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	019		85	85	Haley	Nikki	R.	9230
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	019		37	37	Hutchinson	Asa		27
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	019		85	85	Hutchinson	Asa		54
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	019		37	37	Ramaswamy	Vivek		51
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	019		85	85	Ramaswamy	Vivek		99
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	019		37	37	Trump	Donald	J.	15250
+3/19/2024	REP	Republican	PPC	President of the United States	LEE	Lee	019		85	85	Trump	Donald	J.	35268
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	020		104	104	Binkley	Ryan	L.	14
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	020		0	0	Binkley	Ryan	L.	10
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	020		104	104	Christie	Chris		46
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	020		0	0	Christie	Chris		50
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	020		104	104	DeSantis	Ron		117
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	020		0	0	DeSantis	Ron		161
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	020		104	104	Haley	Nikki	R.	666
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	020		0	0	Haley	Nikki	R.	535
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	020		104	104	Hutchinson	Asa		7
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	020		0	0	Hutchinson	Asa		9
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	020		104	104	Ramaswamy	Vivek		15
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	020		0	0	Ramaswamy	Vivek		19
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	020		104	104	Trump	Donald	J.	4155
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	020		0	0	Trump	Donald	J.	3871
+3/19/2024	REP	Republican	PPC	President of the United States	MRT	Martin	021		28	28	Binkley	Ryan	L.	14
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	021		0	0	Binkley	Ryan	L.	26
+3/19/2024	REP	Republican	PPC	President of the United States	STL	St. Lucie	021		60	60	Binkley	Ryan	L.	14
+3/19/2024	REP	Republican	PPC	President of the United States	MRT	Martin	021		28	28	Christie	Chris		175
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	021		0	0	Christie	Chris		228
+3/19/2024	REP	Republican	PPC	President of the United States	STL	St. Lucie	021		60	60	Christie	Chris		136
+3/19/2024	REP	Republican	PPC	President of the United States	MRT	Martin	021		28	28	DeSantis	Ron		471
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	021		0	0	DeSantis	Ron		775
+3/19/2024	REP	Republican	PPC	President of the United States	STL	St. Lucie	021		60	60	DeSantis	Ron		501
+3/19/2024	REP	Republican	PPC	President of the United States	MRT	Martin	021		28	28	Haley	Nikki	R.	2117
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	021		0	0	Haley	Nikki	R.	3508
+3/19/2024	REP	Republican	PPC	President of the United States	STL	St. Lucie	021		60	60	Haley	Nikki	R.	1983
+3/19/2024	REP	Republican	PPC	President of the United States	MRT	Martin	021		28	28	Hutchinson	Asa		22
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	021		0	0	Hutchinson	Asa		24
+3/19/2024	REP	Republican	PPC	President of the United States	STL	St. Lucie	021		60	60	Hutchinson	Asa		18
+3/19/2024	REP	Republican	PPC	President of the United States	MRT	Martin	021		28	28	Ramaswamy	Vivek		20
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	021		0	0	Ramaswamy	Vivek		52
+3/19/2024	REP	Republican	PPC	President of the United States	STL	St. Lucie	021		60	60	Ramaswamy	Vivek		38
+3/19/2024	REP	Republican	PPC	President of the United States	MRT	Martin	021		28	28	Trump	Donald	J.	9649
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	021		0	0	Trump	Donald	J.	16179
+3/19/2024	REP	Republican	PPC	President of the United States	STL	St. Lucie	021		60	60	Trump	Donald	J.	16228
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	022		0	0	Binkley	Ryan	L.	44
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	022		0	0	Christie	Chris		427
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	022		0	0	DeSantis	Ron		1137
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	022		0	0	Haley	Nikki	R.	5156
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	022		0	0	Hutchinson	Asa		41
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	022		0	0	Ramaswamy	Vivek		94
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	022		0	0	Trump	Donald	J.	25224
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	023		105	105	Binkley	Ryan	L.	14
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	023		0	0	Binkley	Ryan	L.	8
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	023		105	105	Christie	Chris		155
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	023		0	0	Christie	Chris		122
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	023		105	105	DeSantis	Ron		468
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	023		0	0	DeSantis	Ron		425
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	023		105	105	Haley	Nikki	R.	2534
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	023		0	0	Haley	Nikki	R.	1939
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	023		105	105	Hutchinson	Asa		18
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	023		0	0	Hutchinson	Asa		9
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	023		105	105	Ramaswamy	Vivek		40
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	023		0	0	Ramaswamy	Vivek		37
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	023		105	105	Trump	Donald	J.	10894
+3/19/2024	REP	Republican	PPC	President of the United States	PAL	Palm Beach	023		0	0	Trump	Donald	J.	7858
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	024		12	12	Binkley	Ryan	L.	1
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	024		0	0	Binkley	Ryan	L.	5
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	024		12	12	Christie	Chris		3
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	024		0	0	Christie	Chris		70
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	024		12	12	DeSantis	Ron		7
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	024		0	0	DeSantis	Ron		228
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	024		12	12	Haley	Nikki	R.	37
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	024		0	0	Haley	Nikki	R.	1446
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	024		12	12	Hutchinson	Asa		0
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	024		0	0	Hutchinson	Asa		9
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	024		12	12	Ramaswamy	Vivek		2
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	024		0	0	Ramaswamy	Vivek		23
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	024		12	12	Trump	Donald	J.	328
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	024		0	0	Trump	Donald	J.	6329
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	025		142	142	Binkley	Ryan	L.	25
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	025		142	142	Christie	Chris		134
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	025		142	142	DeSantis	Ron		424
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	025		142	142	Haley	Nikki	R.	2222
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	025		142	142	Hutchinson	Asa		19
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	025		142	142	Ramaswamy	Vivek		39
+3/19/2024	REP	Republican	PPC	President of the United States	BRO	Broward	025		142	142	Trump	Donald	J.	12249
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	026		39	39	Binkley	Ryan	L.	7
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	026		0	0	Binkley	Ryan	L.	15
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	026		39	39	Christie	Chris		133
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	026		0	0	Christie	Chris		41
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	026		39	39	DeSantis	Ron		539
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	026		0	0	DeSantis	Ron		176
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	026		39	39	Haley	Nikki	R.	2068
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	026		0	0	Haley	Nikki	R.	887
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	026		39	39	Hutchinson	Asa		18
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	026		0	0	Hutchinson	Asa		3
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	026		39	39	Ramaswamy	Vivek		36
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	026		0	0	Ramaswamy	Vivek		15
+3/19/2024	REP	Republican	PPC	President of the United States	CLL	Collier	026		39	39	Trump	Donald	J.	13211
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	026		0	0	Trump	Donald	J.	14530
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	027		0	0	Binkley	Ryan	L.	25
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	027		0	0	Christie	Chris		182
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	027		0	0	DeSantis	Ron		514
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	027		0	0	Haley	Nikki	R.	3702
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	027		0	0	Hutchinson	Asa		33
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	027		0	0	Ramaswamy	Vivek		45
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	027		0	0	Trump	Donald	J.	21632
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	028		0	0	Binkley	Ryan	L.	17
+3/19/2024	REP	Republican	PPC	President of the United States	MON	Monroe	028		33	33	Binkley	Ryan	L.	3
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	028		0	0	Christie	Chris		83
+3/19/2024	REP	Republican	PPC	President of the United States	MON	Monroe	028		33	33	Christie	Chris		41
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	028		0	0	DeSantis	Ron		291
+3/19/2024	REP	Republican	PPC	President of the United States	MON	Monroe	028		33	33	DeSantis	Ron		128
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	028		0	0	Haley	Nikki	R.	1470
+3/19/2024	REP	Republican	PPC	President of the United States	MON	Monroe	028		33	33	Haley	Nikki	R.	906
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	028		0	0	Hutchinson	Asa		3
+3/19/2024	REP	Republican	PPC	President of the United States	MON	Monroe	028		33	33	Hutchinson	Asa		5
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	028		0	0	Ramaswamy	Vivek		18
+3/19/2024	REP	Republican	PPC	President of the United States	MON	Monroe	028		33	33	Ramaswamy	Vivek		7
+3/19/2024	REP	Republican	PPC	President of the United States	DAD	Miami-Dade	028		0	0	Trump	Donald	J.	17877
+3/19/2024	REP	Republican	PPC	President of the United States	MON	Monroe	028		33	33	Trump	Donald	J.	3816
