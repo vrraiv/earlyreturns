@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-23e",
+  version: "2026-11-23f",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -910,13 +910,26 @@ window.PLAN = {
             "2026 governor results stay uncollected and unscored until this gate is passed.",
             "Record the frozen design: the commit, the parameters and the scoring rule.",
             "Three decisions come from GV-3: whether to adopt the earlier-polls change (and in which of its two versions), which poll average the design names (the plain 21-day mean the model was fitted on, or the published weighted one), and what to do with a race that is three-way in the polls, since the model covers two-way races. A fourth: ratings in the prior for races without polls, which passed, with the spread of those races re-estimated first.",
-            "Decided 2026-11-20: adopt the earlier-polls change in its forecast-only version; adopt ratings for races without polls, once their spread is re-estimated and the 2026 ratings are added; feed the model the plain 21-day mean; and treat a three-way race as the Democrat against the strongest opponent in the polls, with a wider range, checked on the 13 past three-way races. None of this is built into the harness's default yet, and the gate is not passed."
-          ] },
+            "Decided 2026-11-20: adopt the earlier-polls change in its forecast-only version; adopt ratings for races without polls, once their spread is re-estimated and the 2026 ratings are added; feed the model the plain 21-day mean; and treat a three-way race as the Democrat against the strongest opponent in the polls, with a wider range, checked on the 13 past three-way races. None of this is built into the harness's default yet, and the gate is not passed.",
+            "Built 2026-11-23 (BACKTEST.md, \"The governor design freeze\"). Every step was written down before it ran: two spread candidates, the three-way rule and its check, the frozen design and the 2026 scoring rule.",
+            "Both spread candidates failed the rule: wider ranges for races on earlier polls (candidate 16) or on ratings alone (17). Wider ranges cover more of those races' results, but those races are lopsided and the scores do not improve, so the spreads stay and the ranges are known to be narrow.",
+            "Three-way rule: a third candidate at 15% or more in the polls. Against an independent the forecast is the polls alone, and the range is 1.5 times wider either way. In 2026 this applies only to Rhode Island. Of the 13 past three-way races, 9 can be scored; the check left the factor as it was.",
+            "2026 ratings come from the Wikipedia page as it stood before polls closed. The generic ballot is the published forecast's average, because the snapshot has a single late poll.",
+            "The frozen design is `backtest_asof.py --gov-design frozen` (tag `governor-design-2026`). Its 2026 forecast is written beside the old design's, before any result is collected. Scoring both is GV-5."
+          ],
+          checklist: [
+            { id: "a", text: "Spread candidates run and judged" },
+            { id: "b", text: "Three-way rule set and checked on past races" },
+            { id: "c", text: "2026 ratings collected from before the election" },
+            { id: "d", text: "Frozen design recorded and tagged, 2026 forecast written" }
+          ],
+          refs: ["BACKTEST.md", "src/model/backtest_asof.py", "data/processed/governor_2026_forecast.json"] },
         { id: "GV-5", title: "Score 2026", kind: "story", phase: "p2", needs: ["GV-4", "SC-1"],
           why: "One clean out-of-sample test.",
           details: [
             "Run the frozen design on the snapshot from before the election.",
-            "Then collect certified results and score once."
+            "Then collect certified results and score once.",
+            "The forecast was written at the freeze (GV-4, 2026-11-23): `data/processed/governor_2026_forecast.json`, with the old design's beside it. The scores and comparison are fixed in BACKTEST.md."
           ],
           checklist: [
             { id: "a", text: "Forecast run on the frozen snapshot" },
