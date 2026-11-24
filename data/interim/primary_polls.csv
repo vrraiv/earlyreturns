@@ -29756,8 +29756,8 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2024,D,US,primary,76285,145353,McLaughlin,203.0,,,,lv,476.0,,2021-09-09,2021-09-14,,,,True,john-wright-hickenlooper,John Wright Hickenlooper,D,Hickenlooper,0.0,not_running,16,0,0,1,0,15,0,538,,primary
 2024,D,US,primary,76285,145353,McLaughlin,203.0,,,,lv,476.0,,2021-09-09,2021-09-14,,,,True,timothy-michael-kaine,Timothy Michael Kaine,D,Kaine,0.0,not_running,16,0,0,1,0,15,0,538,,primary
 2024,D,US,primary,76285,145353,McLaughlin,203.0,,,,lv,476.0,,2021-09-09,2021-09-14,,,,True,ilhan-omar,Ilhan Omar,D,Omar,0.0,not_running,16,0,0,1,0,15,0,538,,primary
-2024,D,FL,primary,76752,146305,Victory Insights,673.0,,,,lv,174.0,,2021-09-16,2021-09-18,,,head-to-head poll,True,joe-biden,Joe Biden,D,Biden,60.0,not_yet,2,0,0,2,0,0,0,538,,primary
-2024,D,FL,primary,76752,146305,Victory Insights,673.0,,,,lv,174.0,,2021-09-16,2021-09-18,,,head-to-head poll,True,kamala-harris,Kamala Harris,D,Harris,17.0,not_yet,2,0,0,2,0,0,0,538,,primary
+2024,D,FL,cancelled,76752,146305,Victory Insights,673.0,,,,lv,174.0,,2021-09-16,2021-09-18,,,head-to-head poll,True,joe-biden,Joe Biden,D,Biden,60.0,not_yet,2,0,0,2,0,0,0,538,,primary
+2024,D,FL,cancelled,76752,146305,Victory Insights,673.0,,,,lv,174.0,,2021-09-16,2021-09-18,,,head-to-head poll,True,kamala-harris,Kamala Harris,D,Harris,17.0,not_yet,2,0,0,2,0,0,0,538,,primary
 2024,D,US,primary,77527,149801,Zogby,395.0,,,,lv,426.0,,2021-10-08,2021-10-10,,,,True,joe-biden,Joe Biden,D,Biden,40.2,not_yet,6,0,0,2,0,4,0,538,,primary
 2024,D,US,primary,77527,149801,Zogby,395.0,,,,lv,426.0,,2021-10-08,2021-10-10,,,,True,michelle-obama,Michelle Obama,D,M. Obama,20.0,not_running,6,0,0,2,0,4,0,538,,primary
 2024,D,US,primary,77527,149801,Zogby,395.0,,,,lv,426.0,,2021-10-08,2021-10-10,,,,True,kamala-harris,Kamala Harris,D,Harris,9.8,not_yet,6,0,0,2,0,4,0,538,,primary
@@ -30042,8 +30042,8 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2024,D,US,primary,78351,152917,YouGov,391.0,Yahoo News,,,rv,544.0,,2022-01-20,2022-01-24,,,,True,kamala-harris,Kamala Harris,D,Harris,10.0,not_yet,7,0,0,2,0,5,0,538,,primary
 2024,D,US,primary,78351,152917,YouGov,391.0,Yahoo News,,,rv,544.0,,2022-01-20,2022-01-24,,,,True,alexandria-ocasio-cortez,Alexandria Ocasio-Cortez,D,Ocasio-Cortez,5.0,not_running,7,0,0,2,0,5,0,538,,primary
 2024,D,US,primary,78351,152917,YouGov,391.0,Yahoo News,,,rv,544.0,,2022-01-20,2022-01-24,,,,True,joe-manchin-iii,"Joe Manchin, III",D,Manchin,2.0,not_running,7,0,0,2,0,5,0,538,,primary
-2024,D,FL,primary,78368,152300,Suffolk,323.0,USA Today,,,lv,164.0,,2022-01-26,2022-01-29,,,head-to-head poll,True,hillary-rodham-clinton,Hillary Rodham Clinton,D,Clinton,46.34,not_running,2,0,0,1,0,1,0,538,,primary
-2024,D,FL,primary,78368,152300,Suffolk,323.0,USA Today,,,lv,164.0,,2022-01-26,2022-01-29,,,head-to-head poll,True,joe-biden,Joe Biden,D,Biden,42.68,not_yet,2,0,0,1,0,1,0,538,,primary
+2024,D,FL,cancelled,78368,152300,Suffolk,323.0,USA Today,,,lv,164.0,,2022-01-26,2022-01-29,,,head-to-head poll,True,hillary-rodham-clinton,Hillary Rodham Clinton,D,Clinton,46.34,not_running,2,0,0,1,0,1,0,538,,primary
+2024,D,FL,cancelled,78368,152300,Suffolk,323.0,USA Today,,,lv,164.0,,2022-01-26,2022-01-29,,,head-to-head poll,True,joe-biden,Joe Biden,D,Biden,42.68,not_yet,2,0,0,1,0,1,0,538,,primary
 2024,D,US,primary,78491,152918,McLaughlin,203.0,,,,lv,453.0,,2022-02-16,2022-02-22,,,,True,joe-biden,Joe Biden,D,Biden,23.0,not_yet,19,0,0,2,0,17,0,538,,primary
 2024,D,US,primary,78491,152918,McLaughlin,203.0,,,,lv,453.0,,2022-02-16,2022-02-22,,,,True,michelle-obama,Michelle Obama,D,M. Obama,19.0,not_running,19,0,0,2,0,17,0,538,,primary
 2024,D,US,primary,78491,152918,McLaughlin,203.0,,,,lv,453.0,,2022-02-16,2022-02-22,,,,True,pete-buttigieg,Pete Buttigieg,D,Buttigieg,8.0,not_running,19,0,0,2,0,17,0,538,,primary
@@ -30883,8 +30883,8 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2024,D,US,primary,80803,162433,TIPP,144.0,Issues & Insights,,,rv,596.0,,2022-09-07,2022-09-09,,,,True,jay-robert-inslee,Jay Robert Inslee,D,Inslee,1.0,not_running,21,0,0,2,0,19,0,538,,primary
 2024,D,US,primary,80803,162433,TIPP,144.0,Issues & Insights,,,rv,596.0,,2022-09-07,2022-09-09,,,,True,michelle-lujan-grisham,Michelle Lujan Grisham,D,Lujan Grisham,1.0,not_running,21,0,0,2,0,19,0,538,,primary
 2024,D,US,primary,80803,162433,TIPP,144.0,Issues & Insights,,,rv,596.0,,2022-09-07,2022-09-09,,,,True,tulsi-gabbard,Tulsi Gabbard,D,Gabbard,0.0,not_running,21,0,0,2,0,19,0,538,,primary
-2024,D,FL,primary,80715,161817,Suffolk,323.0,USA Today,,,lv,163.0,,2022-09-15,2022-09-18,,,head-to-head poll,True,joe-biden,Joe Biden,D,Biden,50.31,not_yet,2,0,0,1,0,1,0,538,,primary
-2024,D,FL,primary,80715,161817,Suffolk,323.0,USA Today,,,lv,163.0,,2022-09-15,2022-09-18,,,head-to-head poll,True,gavin-newsom,Gavin Newsom,D,Newsom,32.52,not_running,2,0,0,1,0,1,0,538,,primary
+2024,D,FL,cancelled,80715,161817,Suffolk,323.0,USA Today,,,lv,163.0,,2022-09-15,2022-09-18,,,head-to-head poll,True,joe-biden,Joe Biden,D,Biden,50.31,not_yet,2,0,0,1,0,1,0,538,,primary
+2024,D,FL,cancelled,80715,161817,Suffolk,323.0,USA Today,,,lv,163.0,,2022-09-15,2022-09-18,,,head-to-head poll,True,gavin-newsom,Gavin Newsom,D,Newsom,32.52,not_running,2,0,0,1,0,1,0,538,,primary
 2024,D,US,primary,80705,161715,Echelon Insights,407.0,,,,lv,509.0,,2022-09-16,2022-09-19,,,,True,kamala-harris,Kamala Harris,D,Harris,28.0,not_yet,19,0,0,1,0,18,0,538,,primary
 2024,D,US,primary,80705,161715,Echelon Insights,407.0,,,,lv,509.0,,2022-09-16,2022-09-19,,,,True,pete-buttigieg,Pete Buttigieg,D,Buttigieg,11.0,not_running,19,0,0,1,0,18,0,538,,primary
 2024,D,US,primary,80705,161715,Echelon Insights,407.0,,,,lv,509.0,,2022-09-16,2022-09-19,,,,True,stacey-abrams,Stacey Abrams,D,Abrams,8.0,not_running,19,0,0,1,0,18,0,538,,primary
@@ -31632,8 +31632,8 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2024,D,NH,primary,82071,167738,co/efficient,514.0,New Hampshire Journal,REP,False,lv,486.0,,2023-01-25,2023-01-26,2024-01-23,362,,True,michelle-obama,Michelle Obama,D,M. Obama,15.0,not_running,5,0,0,2,0,3,0,538,2024-01-23,primary
 2024,D,NH,primary,82071,167738,co/efficient,514.0,New Hampshire Journal,REP,False,lv,486.0,,2023-01-25,2023-01-26,2024-01-23,362,,True,kamala-harris,Kamala Harris,D,Harris,5.0,not_yet,5,0,0,2,0,3,0,538,2024-01-23,primary
 2024,D,NH,primary,82071,167738,co/efficient,514.0,New Hampshire Journal,REP,False,lv,486.0,,2023-01-25,2023-01-26,2024-01-23,362,,True,gavin-newsom,Gavin Newsom,D,Newsom,3.0,not_running,5,0,0,2,0,3,0,538,2024-01-23,primary
-2024,D,FL,primary,82142,168676,Alvarado Strategies,710.0,Floridians for Economic Advancement,,,lv,1078.0,,2023-01-31,2023-02-03,,,head-to-head poll,True,joe-biden,Joe Biden,D,Biden,66.0,not_yet,2,0,0,1,0,1,0,538,,primary
-2024,D,FL,primary,82142,168676,Alvarado Strategies,710.0,Floridians for Economic Advancement,,,lv,1078.0,,2023-01-31,2023-02-03,,,head-to-head poll,True,gavin-newsom,Gavin Newsom,D,Newsom,19.0,not_running,2,0,0,1,0,1,0,538,,primary
+2024,D,FL,cancelled,82142,168676,Alvarado Strategies,710.0,Floridians for Economic Advancement,,,lv,1078.0,,2023-01-31,2023-02-03,,,head-to-head poll,True,joe-biden,Joe Biden,D,Biden,66.0,not_yet,2,0,0,1,0,1,0,538,,primary
+2024,D,FL,cancelled,82142,168676,Alvarado Strategies,710.0,Floridians for Economic Advancement,,,lv,1078.0,,2023-01-31,2023-02-03,,,head-to-head poll,True,gavin-newsom,Gavin Newsom,D,Newsom,19.0,not_running,2,0,0,1,0,1,0,538,,primary
 2024,D,US,primary,82308,169608,TIPP,144.0,Issues & Insights,,,rv,658.0,,2023-02-01,2023-02-03,,,,True,joe-biden,Joe Biden,D,Biden,38.0,not_yet,15,0,0,2,0,13,0,538,,primary
 2024,D,US,primary,82308,169608,TIPP,144.0,Issues & Insights,,,rv,658.0,,2023-02-01,2023-02-03,,,,True,kamala-harris,Kamala Harris,D,Harris,9.0,not_yet,15,0,0,2,0,13,0,538,,primary
 2024,D,US,primary,82308,169608,TIPP,144.0,Issues & Insights,,,rv,658.0,,2023-02-01,2023-02-03,,,,True,michelle-obama,Michelle Obama,D,M. Obama,8.0,not_running,15,0,0,2,0,13,0,538,,primary
@@ -31861,14 +31861,14 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2024,D,US,primary,82344,170525,Premise,709.0,,,,rv,782.0,,2023-03-04,2023-03-07,,,,True,stacey-abrams,Stacey Abrams,D,Abrams,3.0,not_running,9,0,0,1,0,8,0,538,,primary
 2024,D,US,primary,82344,170525,Premise,709.0,,,,rv,782.0,,2023-03-04,2023-03-07,,,,True,amy-klobuchar,Amy Klobuchar,D,Klobuchar,3.0,not_running,9,0,0,1,0,8,0,538,,primary
 2024,D,US,primary,82344,170525,Premise,709.0,,,,rv,782.0,,2023-03-04,2023-03-07,,,,True,j-b-pritzker,J.B. Pritzker,D,Pritzker,2.0,not_running,9,0,0,1,0,8,0,538,,primary
-2024,D,FL,primary,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,joe-biden,Joe Biden,D,Biden,41.3,not_yet,8,1,0,2,0,5,0,538,,primary
-2024,D,FL,primary,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,kamala-harris,Kamala Harris,D,Harris,13.7,not_yet,8,1,0,2,0,5,0,538,,primary
-2024,D,FL,primary,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,bernie-sanders,Bernie Sanders,D,Sanders,11.0,not_running,8,1,0,2,0,5,0,538,,primary
-2024,D,FL,primary,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,pete-buttigieg,Pete Buttigieg,D,Buttigieg,8.1,not_running,8,1,0,2,0,5,0,538,,primary
-2024,D,FL,primary,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,elizabeth-ann-warren,Elizabeth Ann Warren,D,Warren,4.9,not_running,8,1,0,2,0,5,0,538,,primary
-2024,D,FL,primary,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,amy-klobuchar,Amy Klobuchar,D,Klobuchar,2.8,not_running,8,1,0,2,0,5,0,538,,primary
-2024,D,FL,primary,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,gretchen-whitmer,Gretchen Whitmer,D,Whitmer,2.7,not_running,8,1,0,2,0,5,0,538,,primary
-2024,D,FL,primary,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,marianne-williamson,Marianne Williamson,D,Williamson,0.3,running,8,1,0,2,0,5,0,538,,primary
+2024,D,FL,cancelled,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,joe-biden,Joe Biden,D,Biden,41.3,not_yet,8,1,0,2,0,5,0,538,,primary
+2024,D,FL,cancelled,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,kamala-harris,Kamala Harris,D,Harris,13.7,not_yet,8,1,0,2,0,5,0,538,,primary
+2024,D,FL,cancelled,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,bernie-sanders,Bernie Sanders,D,Sanders,11.0,not_running,8,1,0,2,0,5,0,538,,primary
+2024,D,FL,cancelled,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,pete-buttigieg,Pete Buttigieg,D,Buttigieg,8.1,not_running,8,1,0,2,0,5,0,538,,primary
+2024,D,FL,cancelled,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,elizabeth-ann-warren,Elizabeth Ann Warren,D,Warren,4.9,not_running,8,1,0,2,0,5,0,538,,primary
+2024,D,FL,cancelled,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,amy-klobuchar,Amy Klobuchar,D,Klobuchar,2.8,not_running,8,1,0,2,0,5,0,538,,primary
+2024,D,FL,cancelled,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,gretchen-whitmer,Gretchen Whitmer,D,Whitmer,2.7,not_running,8,1,0,2,0,5,0,538,,primary
+2024,D,FL,cancelled,82402,170814,Emerson,88.0,,,,rv,402.0,,2023-03-13,2023-03-15,,,,True,marianne-williamson,Marianne Williamson,D,Williamson,0.3,running,8,1,0,2,0,5,0,538,,primary
 2024,D,US,primary,82418,170878,Big Village,37.0,,,False,a,434.0,,2023-03-15,2023-03-17,,,,True,joe-biden,Joe Biden,D,Biden,33.2,not_yet,10,0,0,2,0,8,0,538,,primary
 2024,D,US,primary,82418,170878,Big Village,37.0,,,False,a,434.0,,2023-03-15,2023-03-17,,,,True,kamala-harris,Kamala Harris,D,Harris,17.2,not_yet,10,0,0,2,0,8,0,538,,primary
 2024,D,US,primary,82418,170878,Big Village,37.0,,,False,a,434.0,,2023-03-15,2023-03-17,,,,True,bernie-sanders,Bernie Sanders,D,Sanders,15.4,not_running,10,0,0,2,0,8,0,538,,primary
@@ -32461,9 +32461,9 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2024,D,US,primary,84316,182834,Spry Strategies,508.0,,,,lv,488.0,,2023-06-06,2023-06-09,,,,True,joe-biden,Joe Biden,D,Biden,68.5,running,3,3,0,0,0,0,0,538,,primary
 2024,D,US,primary,84316,182834,Spry Strategies,508.0,,,,lv,488.0,,2023-06-06,2023-06-09,,,,True,robert-f-kennedy-jr,Robert F. Kennedy,D,Kennedy,9.3,running,3,3,0,0,0,0,0,538,,primary
 2024,D,US,primary,84316,182834,Spry Strategies,508.0,,,,lv,488.0,,2023-06-06,2023-06-09,,,,True,marianne-williamson,Marianne Williamson,D,Williamson,4.2,running,3,3,0,0,0,0,0,538,,primary
-2024,D,FL,primary,83003,217376,Sachs Media,706.0,,,,rv,422.0,,2023-06-09,2023-06-11,,,,True,joe-biden,Joe Biden,D,Biden,58.0,running,3,3,0,0,0,0,0,538,,primary
-2024,D,FL,primary,83003,217376,Sachs Media,706.0,,,,rv,422.0,,2023-06-09,2023-06-11,,,,True,robert-f-kennedy-jr,Robert F. Kennedy,D,Kennedy,12.0,running,3,3,0,0,0,0,0,538,,primary
-2024,D,FL,primary,83003,217376,Sachs Media,706.0,,,,rv,422.0,,2023-06-09,2023-06-11,,,,True,marianne-williamson,Marianne Williamson,D,Williamson,7.0,running,3,3,0,0,0,0,0,538,,primary
+2024,D,FL,cancelled,83003,217376,Sachs Media,706.0,,,,rv,422.0,,2023-06-09,2023-06-11,,,,True,joe-biden,Joe Biden,D,Biden,58.0,running,3,3,0,0,0,0,0,538,,primary
+2024,D,FL,cancelled,83003,217376,Sachs Media,706.0,,,,rv,422.0,,2023-06-09,2023-06-11,,,,True,robert-f-kennedy-jr,Robert F. Kennedy,D,Kennedy,12.0,running,3,3,0,0,0,0,0,538,,primary
+2024,D,FL,cancelled,83003,217376,Sachs Media,706.0,,,,rv,422.0,,2023-06-09,2023-06-11,,,,True,marianne-williamson,Marianne Williamson,D,Williamson,7.0,running,3,3,0,0,0,0,0,538,,primary
 2024,D,US,primary,83000,174369,Premise,709.0,,,,a,831.0,,2023-06-09,2023-06-12,,,,True,kamala-harris,Kamala Harris,D,Harris,22.0,not_yet,12,2,0,1,0,9,0,538,,primary
 2024,D,US,primary,83000,174369,Premise,709.0,,,,a,831.0,,2023-06-09,2023-06-12,,,,True,bernie-sanders,Bernie Sanders,D,Sanders,14.0,not_running,12,2,0,1,0,9,0,538,,primary
 2024,D,US,primary,83000,174369,Premise,709.0,,,,a,831.0,,2023-06-09,2023-06-12,,,,True,hillary-rodham-clinton,Hillary Rodham Clinton,D,Clinton,14.0,not_running,12,2,0,1,0,9,0,538,,primary
@@ -32835,9 +32835,9 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2024,D,IL,primary,84043,180767,Cor Strategies,688.0,,,,rv,,,2023-08-24,2023-08-27,2024-03-19,205,,True,amy-klobuchar,Amy Klobuchar,D,Klobuchar,7.0,not_running,8,0,0,1,0,7,0,538,2024-03-19,primary
 2024,D,IL,primary,84043,180767,Cor Strategies,688.0,,,,rv,,,2023-08-24,2023-08-27,2024-03-19,205,,True,gavin-newsom,Gavin Newsom,D,Newsom,5.0,not_running,8,0,0,1,0,7,0,538,2024-03-19,primary
 2024,D,IL,primary,84043,180767,Cor Strategies,688.0,,,,rv,,,2023-08-24,2023-08-27,2024-03-19,205,,True,elizabeth-ann-warren,Elizabeth Ann Warren,D,Warren,4.0,not_running,8,0,0,1,0,7,0,538,2024-03-19,primary
-2024,D,FL,primary,86928,199004,Big Data Poll,251.0,Public Polling Project,,,lv,511.0,,2023-08-27,2023-08-28,,,,True,joe-biden,Joe Biden,D,Biden,67.1,running,3,3,0,0,0,0,0,538,,primary
-2024,D,FL,primary,86928,199004,Big Data Poll,251.0,Public Polling Project,,,lv,511.0,,2023-08-27,2023-08-28,,,,True,robert-f-kennedy-jr,Robert F. Kennedy,D,Kennedy,7.6,running,3,3,0,0,0,0,0,538,,primary
-2024,D,FL,primary,86928,199004,Big Data Poll,251.0,Public Polling Project,,,lv,511.0,,2023-08-27,2023-08-28,,,,True,marianne-williamson,Marianne Williamson,D,Williamson,4.1,running,3,3,0,0,0,0,0,538,,primary
+2024,D,FL,cancelled,86928,199004,Big Data Poll,251.0,Public Polling Project,,,lv,511.0,,2023-08-27,2023-08-28,,,,True,joe-biden,Joe Biden,D,Biden,67.1,running,3,3,0,0,0,0,0,538,,primary
+2024,D,FL,cancelled,86928,199004,Big Data Poll,251.0,Public Polling Project,,,lv,511.0,,2023-08-27,2023-08-28,,,,True,robert-f-kennedy-jr,Robert F. Kennedy,D,Kennedy,7.6,running,3,3,0,0,0,0,0,538,,primary
+2024,D,FL,cancelled,86928,199004,Big Data Poll,251.0,Public Polling Project,,,lv,511.0,,2023-08-27,2023-08-28,,,,True,marianne-williamson,Marianne Williamson,D,Williamson,4.1,running,3,3,0,0,0,0,0,538,,primary
 2024,D,CA,primary,84085,180973,UC Berkeley,457.0,LA Times,,,lv,2833.0,,2023-08-24,2023-08-29,2024-03-05,189,,True,joe-biden,Joe Biden,D,Biden,66.0,running,3,3,0,0,0,0,0,538,2024-03-05,primary
 2024,D,CA,primary,84085,180973,UC Berkeley,457.0,LA Times,,,lv,2833.0,,2023-08-24,2023-08-29,2024-03-05,189,,True,robert-f-kennedy-jr,Robert F. Kennedy,D,Kennedy,9.0,running,3,3,0,0,0,0,0,538,2024-03-05,primary
 2024,D,CA,primary,84085,180973,UC Berkeley,457.0,LA Times,,,lv,2833.0,,2023-08-24,2023-08-29,2024-03-05,189,,True,marianne-williamson,Marianne Williamson,D,Williamson,3.0,running,3,3,0,0,0,0,0,538,2024-03-05,primary
@@ -51282,11 +51282,11 @@ cycle,party,geo,stage,poll_id,question_id,pollster,pollster_rating_id,sponsor,pa
 2024,R,NH,primary,85564,190085,Suffolk,323.0,Boston Globe | USA Today,,,lv,491.0,,2024-01-03,2024-01-07,2024-01-23,16,,False,chris-christie,Chris Christie,R,Christie,12.42,running,5,5,0,0,0,0,0,538,2024-01-23,primary
 2024,R,NH,primary,85564,190085,Suffolk,323.0,Boston Globe | USA Today,,,lv,491.0,,2024-01-03,2024-01-07,2024-01-23,16,,False,ron-desantis,Ron DeSantis,R,DeSantis,7.54,running,5,5,0,0,0,0,0,538,2024-01-23,primary
 2024,R,NH,primary,85564,190085,Suffolk,323.0,Boston Globe | USA Today,,,lv,491.0,,2024-01-03,2024-01-07,2024-01-23,16,,False,vivek-ramaswamy,Vivek G. Ramaswamy,R,Ramaswamy,2.24,running,5,5,0,0,0,0,0,538,2024-01-23,primary
-2024,R,SD,primary,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,2024-06-04,149,,True,donald-trump,Donald Trump,R,Trump,52.0,running,5,5,0,0,0,0,0,538,2024-06-04,primary
-2024,R,SD,primary,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,2024-06-04,149,,True,nikki-haley,Nikki Haley,R,Haley,12.3,running,5,5,0,0,0,0,0,538,2024-06-04,primary
-2024,R,SD,primary,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,2024-06-04,149,,True,ron-desantis,Ron DeSantis,R,DeSantis,8.5,running,5,5,0,0,0,0,0,538,2024-06-04,primary
-2024,R,SD,primary,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,2024-06-04,149,,True,chris-christie,Chris Christie,R,Christie,7.1,running,5,5,0,0,0,0,0,538,2024-06-04,primary
-2024,R,SD,primary,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,2024-06-04,149,,True,vivek-ramaswamy,Vivek G. Ramaswamy,R,Ramaswamy,3.3,running,5,5,0,0,0,0,0,538,2024-06-04,primary
+2024,R,SD,cancelled,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,,,,True,donald-trump,Donald Trump,R,Trump,52.0,running,5,5,0,0,0,0,0,538,2024-06-04,primary
+2024,R,SD,cancelled,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,,,,True,nikki-haley,Nikki Haley,R,Haley,12.3,running,5,5,0,0,0,0,0,538,2024-06-04,primary
+2024,R,SD,cancelled,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,,,,True,ron-desantis,Ron DeSantis,R,DeSantis,8.5,running,5,5,0,0,0,0,0,538,2024-06-04,primary
+2024,R,SD,cancelled,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,,,,True,chris-christie,Chris Christie,R,Christie,7.1,running,5,5,0,0,0,0,0,538,2024-06-04,primary
+2024,R,SD,cancelled,85613,190358,Victory Insights,673.0,,,,lv,850.0,,2024-01-05,2024-01-07,,,,True,vivek-ramaswamy,Vivek G. Ramaswamy,R,Ramaswamy,3.3,running,5,5,0,0,0,0,0,538,2024-06-04,primary
 2024,R,NV,caucus,85563,190084,Emerson,88.0,,,,lv,277.0,,2024-01-05,2024-01-08,2024-02-08,31,,True,donald-trump,Donald Trump,R,Trump,73.0,running,6,5,0,0,0,0,1,538,2024-02-08,caucus
 2024,R,NV,caucus,85563,190084,Emerson,88.0,,,,lv,277.0,,2024-01-05,2024-01-08,2024-02-08,31,,True,ron-desantis,Ron DeSantis,R,DeSantis,8.0,running,6,5,0,0,0,0,1,538,2024-02-08,caucus
 2024,R,NV,caucus,85563,190084,Emerson,88.0,,,,lv,277.0,,2024-01-05,2024-01-08,2024-02-08,31,,True,vivek-ramaswamy,Vivek G. Ramaswamy,R,Ramaswamy,6.0,running,6,5,0,0,0,0,1,538,2024-02-08,caucus
