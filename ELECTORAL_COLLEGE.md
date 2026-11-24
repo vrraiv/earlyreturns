@@ -4612,3 +4612,14 @@ inside an 80% range four times in four is what a range that is too wide also giv
   the second rung would do that; the cause is not established, and no split by rung was run.
 - **The winner's log loss at 100 and 60 days (0.66, 0.68) is close to a coin's,** on three elections, one of them 2016.
 - **2024** is scored once by this recipe, unchanged, at the freeze.
+
+### EC-7: B2 by rung, a diagnostic (declared 2026-11-24, after the results and before its run; asked for by the user)
+
+Suggested by the results above: B2 worsens from 5.7 to 7.7 between 30 and 7 days in 2020. The question is whether
+that comes from one rung of the ladder. This decides nothing: no benchmark, score or flag changes, whatever it shows.
+
+For every scored cell, the 56 contests are split by B2's rung. For each rung: the number of contests, and the root
+mean square error on those contests of B2, of B1 and of the model's point margin. For the second rung also: how
+many of its contests draw all their polls from one firm, and the number of distinct firms across the rung. The
+7-day and 30-day cells of 2020 are read first; the others are reported beside them.
+(`python src/model/pres_backtest.py rungs`, written to `pres_backtest_rungs.json`.)
