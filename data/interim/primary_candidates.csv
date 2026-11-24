@@ -1,26 +1,26 @@
 cycle,party,candidate,candidate_key,section,exploratory,announced,suspended,secured,wiki_revision,note
-2008,D,Barack Obama,barack-obama,Nominee,,,,2008-06-03,1384443023,
-2008,D,Bill Richardson,bill-richardson,Withdrew during the primaries,,,2008-01-10,,1384443023,
-2008,D,Chris Dodd,chris-dodd,Withdrew during the primaries,,,2008-01-03,,1384443023,
-2008,D,Dennis Kucinich,dennis-kucinich,Withdrew during the primaries,,,2008-01-23,,1384443023,
-2008,D,Hillary Clinton,hillary-clinton,Withdrew during the primaries,,,2008-06-07,,1384443023,"suspended date from the page's text (conceded and endorsed Obama), as in campaign_calendar.py"
-2008,D,Joe Biden,joe-biden,Withdrew during the primaries,,,2008-01-03,,1384443023,
-2008,D,John Edwards,john-edwards,Withdrew during the primaries,,,2008-01-30,,1384443023,
-2008,D,Mike Gravel,mike-gravel,Withdrew during the primaries,,,2008-03-26,,1384443023,
-2008,D,Tom Vilsack,tom-vilsack,Withdrew before the primaries,,,2007-02-23,,1384443023,
-2008,R,Alan Keyes,alan-keyes,Withdrew during primaries,,,2008-04-15,,1387282510,
-2008,R,Duncan Hunter,duncan-hunter,Withdrew during primaries,,,2008-01-19,,1387282510,
-2008,R,Fred Thompson,fred-thompson,Withdrew during primaries,,,2008-01-22,,1387282510,
-2008,R,Jim Gilmore,jim-gilmore,Withdrew before primaries,,,2007-07-14,,1387282510,
+2008,D,Mike Gravel,mike-gravel,Withdrew during the primaries,,2006-04-17,2008-03-26,,1384443023,"announcement from the campaign article, revision 1387324927 (infobox)"
+2008,D,Tom Vilsack,tom-vilsack,Withdrew before the primaries,2006-11-09,2006-11-30,2007-02-23,,1384443023,"announcement from the campaign article, revision 1381374535 (lead: formal announcement November 30, 2006; filed with the FEC November 9 (entered as exploratory))"
+2008,D,Dennis Kucinich,dennis-kucinich,Withdrew during the primaries,,2006-12-11,2008-01-23,,1384443023,"announcement from the campaign article, revision 1386687508 (text: announced in a speech on December 11, 2006 (the lead says the campaign began December 12))"
+2008,D,John Edwards,john-edwards,Withdrew during the primaries,,2006-12-28,2008-01-30,,1384443023,"announcement from the campaign article, revision 1387472252 (infobox)"
+2008,D,Joe Biden,joe-biden,Withdrew during the primaries,,2007-01-07,2008-01-03,,1384443023,"announcement from the campaign article, revision 1387225521 (infobox: announced January 7 on Meet the Press, launched January 31)"
+2008,D,Chris Dodd,chris-dodd,Withdrew during the primaries,,2007-01-11,2008-01-03,,1384443023,"announcement from the campaign article, revision 1387455541 (lead: launched on January 11, 2007)"
+2008,D,Hillary Clinton,hillary-clinton,Withdrew during the primaries,,2007-01-20,2008-06-07,,1384443023,"suspended date from the page's text (conceded and endorsed Obama), as in campaign_calendar.py; announcement from the campaign article, revision 1387311704 (infobox)"
+2008,D,Barack Obama,barack-obama,Nominee,,2007-02-10,,2008-06-03,1384443023,"announcement from the campaign article, revision 1387444957 (infobox)"
+2008,D,Bill Richardson,bill-richardson,Withdrew during the primaries,,2007-05-21,2008-01-10,,1384443023,"announcement from the campaign article, revision 1337519140 (infobox)"
+2008,R,Duncan Hunter,duncan-hunter,Withdrew during primaries,2006-10-30,2007-01-01,2008-01-19,,1387282510,"announcement from the campaign article, revision 1387304707 (text: announced in January 2007, month only (entered as the 1st); exploratory committee October 30, 2006)"
+2008,R,Sam Brownback,sam-brownback,Withdrew before primaries,2006-12-04,2007-01-20,2007-10-19,,1387282510,"announcement from the campaign article, revision 1387432452 (lead: exploratory committee December 4, 2006; announced January 20, 2007)"
+2008,R,Mike Huckabee,mike-huckabee,Withdrew during primaries,,2007-01-28,2008-03-04,,1387282510,"announcement from the campaign article, revision 1387324932 (infobox)"
+2008,R,Rudy Giuliani,rudy-giuliani,Withdrew during primaries,,2007-02-05,2008-01-30,,1387282510,"announcement from the campaign article, revision 1387332181 (infobox)"
+2008,R,Mitt Romney,mitt-romney,Withdrew during primaries,,2007-02-13,2008-02-07,,1387282510,"announcement from the campaign article, revision 1387406283 (infobox)"
+2008,R,John McCain,john-mccain,Nominee,,2007-02-28,,2008-03-04,1387282510,"announcement from the campaign article, revision 1387445813 (infobox: informal announcement February 28, formal April 25, 2007)"
+2008,R,Ron Paul,ron-paul,Withdrew during primaries,,2007-03-12,2008-06-12,,1387282510,"announcement from the campaign article, revision 1387331942 (infobox)"
+2008,R,Tommy Thompson,tommy-thompson,Withdrew before primaries,2006-11-16,2007-04-01,2007-08-12,,1387282510,"announcement from the campaign article, revision 1345339539 (text: exploratory committee November 16, 2006; entered April 1, 2007)"
+2008,R,Tom Tancredo,tom-tancredo,Withdrew before primaries,,2007-04-02,2007-12-20,,1387282510,"announcement from the campaign article, revision 1319548861 (lead)"
+2008,R,Jim Gilmore,jim-gilmore,Withdrew before primaries,2007-01-10,2007-04-26,2007-07-14,,1387282510,"announcement from the campaign article, revision 1366886283 (text: exploratory committee January 10, announced April 26, 2007)"
+2008,R,Fred Thompson,fred-thompson,Withdrew during primaries,,2007-09-05,2008-01-22,,1387282510,"announcement from the campaign article, revision 1387308487 (infobox)"
+2008,R,Alan Keyes,alan-keyes,Withdrew during primaries,,,2008-04-15,,1387282510,"announcement from the campaign article, revision 1385915083 (text: entered in late September 2007, no day given (left blank))"
 2008,R,John H. Cox,john-h-cox,Withdrew before primaries,,,2007-12-01,,1387282510,month only on the page (entered as the 1st): suspended
-2008,R,John McCain,john-mccain,Nominee,,,,2008-03-04,1387282510,
-2008,R,Mike Huckabee,mike-huckabee,Withdrew during primaries,,,2008-03-04,,1387282510,
-2008,R,Mitt Romney,mitt-romney,Withdrew during primaries,,,2008-02-07,,1387282510,
-2008,R,Ron Paul,ron-paul,Withdrew during primaries,,,2008-06-12,,1387282510,
-2008,R,Rudy Giuliani,rudy-giuliani,Withdrew during primaries,,,2008-01-30,,1387282510,
-2008,R,Sam Brownback,sam-brownback,Withdrew before primaries,,,2007-10-19,,1387282510,
-2008,R,Tom Tancredo,tom-tancredo,Withdrew before primaries,,,2007-12-20,,1387282510,
-2008,R,Tommy Thompson,tommy-thompson,Withdrew before primaries,,,2007-08-12,,1387282510,
 2012,D,Barack Obama,barack-obama,Nominee,,,,2012-04-03,1385393019,
 2012,R,Fred Karger,fred-karger,Withdrew after the primaries,,2011-03-23,2012-06-29,,1387283190,
 2012,R,Gary Johnson,gary-johnson,Withdrew before the primaries,,2011-04-21,2011-12-28,,1387283190,
