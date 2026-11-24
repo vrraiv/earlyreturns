@@ -704,3 +704,171 @@ in every race gave (0.188) without that version's cost in polled races.
   the 8 with no poll in 60 days.
 
 That makes fifteen candidates. Three passes, from two ideas, both about races polls do not reach.
+
+## The governor design freeze (GV-4), written 2026-11-23 before any run
+
+Decided 2026-11-20 and 2026-11-23, before any 2026 governor result was collected. No such result is in the repo:
+the governor files stop at 2025 and the scorecard holds the Senate and House only.
+
+### What is already decided
+
+- **Polls.** The plain mean of the late (21-day) polls, as the model was fitted. Sponsored polls are shifted by the
+  as-of amount; for 2026 a poll counts as sponsored where VoteHub lists a sponsor (`sponsor_listed`), which is
+  closest to the FiveThirtyEight flag the shift was fitted on. A pollster's own party leaning does not count.
+- **Earlier polls, forecast only** (`govpolls_fallback60_fcst`): a race with no late poll uses its polls ending 22
+  to 60 days out; the fit reads late polls only.
+- **Ratings for races without polls** (`govprior_ratings_unpolled`): a race with no poll in 60 days takes the
+  ratings prior. For 2026 the ratings come from the cached Wikipedia page as it stood on 2026-11-03 at 19:59 UTC
+  (revision 1383627330, before polls closed; `governors.py` refuses a revision that shows vote shares). Only the
+  Cook, Sabato and Inside Elections columns are read.
+- So each race takes one of three paths, in this order: late polls, earlier polls, ratings. In 2026: 28, 2
+  (Maryland, Oregon) and 6 (Arkansas, Hawaii, Idaho, New Mexico, Oklahoma, Wyoming).
+
+Two spreads are still open. Each gets one candidate below. Both are suggested by earlier results (the coverage
+of 53% and 40% reported above) and are declared as such.
+
+### Candidate 16: spread of a race forecast from earlier polls
+
+`govfb_width`. As of each cycle, k = the root-mean-square error of the 22-to-60-day average against the result,
+divided by that of the late average. It is measured on the training races (two-way, even years) that have both,
+with the same sponsor shift, and set to 1 if it comes out below 1. A race forecast from earlier polls keeps its
+centre and its weight on polls. Its spread becomes 1 / sqrt(1 / (k x sdp)^2 + 1 / sp^2) in place of
+1 / sqrt(1 / sdp^2 + 1 / sp^2). Here sdp is the poll average's error for its number of polls, and sp is the
+prior's spread. Only the 17 races of that kind can move.
+
+### Candidate 17: spread of a race forecast from ratings
+
+`govratings_rms`. The spread of a ratings-only race is the root-mean-square of the ratings prior's errors in the
+earlier rated races, in place of the median-based estimate. Only those 20 races can move.
+
+**How both are judged.** Each changes uncertainty only, so each is judged on rules 1, 3 and 4. The comparison is
+with the design as decided above (both adopted changes together, tag `govdesign_adopted`), not with the original
+baseline. The two touch different races, so each is adopted or not on its own. With two candidates, the chance
+that at least one clears the one-standard-deviation bar by luck is about one in three. That makes 17 candidates
+for governors.
+
+### A three-way race
+
+- **Rule.** A 2026 race is three-way when a candidate other than the two major-party nominees averages 15% or more
+  in its late polls (in its earlier polls if it has no late ones). This is the 15% line the history uses, but read
+  from polls, not results. Read on 2026-11-23: Rhode Island (34% in its one late poll) is the only one. Tennessee
+  (12% late) and Maine (5%) are not.
+- **Strongest opponent.** The non-Democrat with the higher average in those polls.
+- **If that is the Republican,** the race is forecast as usual from its Democrat-Republican polls, with its spread
+  times 1.5.
+- **If it is an independent,** the prior does not apply. The forecast is the poll average of the Democrat against
+  that candidate (two-party between them), with weight 1 on polls. It carries the statewide polls' shared miss,
+  and its spread is 1.5 x sqrt(a^2 + b^2 / n).
+- **What a Democratic win means.** The Democrat beats that opponent. A race the opponent wins counts against the
+  Democrats' total.
+- The factor of 1.5 is fixed now and is not tuned to the check below.
+
+**The check on past races.** Nine past three-way races can be scored (2004 on, even years): Maine 2006, Texas
+2006, Vermont 2008, Colorado 2010, Maine 2010, Rhode Island 2010, Rhode Island 2014, Alaska 2022 and Idaho 2022.
+For years before 2018 the poll files hold only the Democrat against the Republican, so the independent's share
+cannot be read.
+
+- Each race is forecast with that cycle's as-of fit, as a Democrat-Republican race with the spread times 1.5,
+  and scored against the two-party result between them. These races stay out of every fit.
+- Colorado 2010 and Rhode Island 2010, where an independent finished ahead of the Republican, are reported apart:
+  the rule would have treated them as Democrat against independent, and the polls for that pairing are missing.
+- Reported: log loss and whether each result fell in its 80% range, with and without the factor of 1.5.
+- Nine races cannot pass or fail anything. If the ranges look badly off, that goes back to you as a decision.
+
+### Results (GV-4), 2026-11-23
+
+The design as decided (`govdesign_adopted`: `--gov-lean ratings_unpolled --gov-poll-fallback forecast`) reproduces
+the earlier confirmation run against the baseline: gap -0.022, SD 0.008, better in 8 of 11 cycles. A rerun of the
+baseline after the code changes matched every race forecast exactly. Both candidates were compared with
+`--compare NAME --against govdesign_adopted`. Every Senate and House forecast matched in both runs.
+
+| Candidate | Pooled log-loss gap | Its SD | Gap without 2004 | Cycles better | Share in 80% range (0.83) | Count spread (0.224) | Rule |
+|---|---|---|---|---|---|---|---|
+| `govfb_width` (16) | +0.0004 | 0.0003 | +0.0004 | 0 of 11 | 0.83 | 0.223 | fails: worse |
+| `govratings_rms` (17) | -0.0010 | 0.0014 | -0.0010 | 1 of 11 | 0.83 | 0.225 | fails: gain under the floor and its SD |
+
+- **k**, the earlier polls' error relative to the late polls', is steady: 1.34 to 1.45 as of each cycle, on 64 to
+  256 races. Polls from 22 to 60 days out miss by about 37% more than late ones.
+- **Coverage, reported only.** A diagnostic cannot rescue a fail. Over every race each candidate touches,
+  competitive or not, the wider spread lifts the share inside the 80% range: from 53% to 65% in the 17
+  earlier-poll races (spread 7.7 to 9.5 points, error 10.4), and from 50% to 62% in the 8 races now forecast from
+  ratings alone (6.4 to 8.6 points, error 8.8). Nearly all of these races are lopsided, so a wider range moves a win
+  probability very little, and the competitive set the rule scores holds few of them.
+- So the spreads stay as they are, and the ranges of these races are known to be too narrow. That costs little in
+  win probabilities. It matters for any use of the range itself, and it is written into the frozen design below.
+
+Seventeen candidates have now been run for governors. Three passes, from two ideas.
+
+**The three-way check** (`--threeway-check`, `data/processed/governor_threeway_check.json`), polls and
+fundamentals:
+
+| Race | Polls | Forecast | Spread x1 / x1.5 | Result (D-R) | In 80% range, x1 / x1.5 |
+|---|---|---|---|---|---|
+| Maine 2006 | 5 | +15.9 | 5.6 / 8.4 | +11.6 | yes / yes |
+| Texas 2006 | 5 | -19.0 | 5.6 / 8.4 | -13.4 | yes / yes |
+| Vermont 2008 | 1 | -10.4 | 8.9 / 13.4 | -42.2 | no / no |
+| Maine 2010 | 8 | -15.4 | 4.5 / 6.7 | -33.3 | no / no |
+| Rhode Island 2014 | 3 | +6.9 | 6.1 / 9.2 | +5.9 | yes / yes |
+| Alaska 2022 | 1 | -31.7 | 8.3 / 12.4 | -35.0 | yes / yes |
+| Idaho 2022 | 0 | -32.8 | 7.8 / 11.6 | -49.8 | no / no |
+| *Colorado 2010 (independent ahead)* | 13 | +63.0 | 3.9 / 5.9 | +64.3 | yes / yes |
+| *Rhode Island 2010 (independent ahead)* | 3 | +1.5 | 6.2 / 9.2 | -18.5 | no / no |
+
+- Of the 7 races checked, 4 fall inside the 80% range with the factor and 4 without. Log loss is 0.034 without the
+  factor and 0.069 with it. Every winner was called right, so the wider range only costs certainty.
+- All three misses go the same way: the Democrat ran further behind the Republican than the forecast said. In
+  those races the independent drew more from the Democrat than the polls showed.
+- Neither version is badly off in a way the factor could fix, so the factor of 1.5 stands as fixed.
+- The check says nothing about a race against an independent. That case has no polls on file, and it is the
+  2026 case (Rhode Island).
+
+### The frozen design
+
+- **Code path.** Polls-and-fundamentals version. The baseline (no flag) is unchanged.
+  - The 2026 forecast: `python src/model/backtest_asof.py --gov-design frozen --forecast-2026 final`.
+  - The old design's, for comparison: `python src/model/backtest_asof.py --tag baseline --forecast-2026 final`.
+  - The design over history: `--gov-design frozen --tag NAME`. Without a tag it would overwrite the baseline files.
+- **What it contains.** The design as decided: late polls, then earlier polls (forecast only), then ratings. The
+  spreads are left as they are, since candidates 16 and 17 failed, and the three-way rule applies with its factor
+  of 1.5.
+- **2026 fit.** Every parameter is fitted as of 2026 on even-year races from 1998 to 2024. 20,000 draws with a
+  fixed seed (`--forecast-2026 final`).
+- **The 2026 environment.** The polls-and-fundamentals blend. Its generic-ballot input is D+9.0, the
+  five-aggregator average the published forecast used (`data/final/national_inputs.json`, `G_polls`), known before
+  the election.
+  - *Changed 2026-11-23, before any 2026 run.* The text above said a plain mean of the snapshot's polls from the
+    final 21 days, but the Nov 3 VoteHub snapshot holds only one such poll (Ipsos, D+8.3). A one-poll mean is not
+    what the harness's error figure for the generic ballot assumes, and you chose the published average.
+- **What it writes.** `data/processed/governor_2026_forecast.{csv,json}` (each race's path, centre, spread, win
+  probability, and the count of Democratic wins with its range), plus the parameters. Also the same file from the
+  baseline design on the same snapshot, to compare against. Both are written at the freeze, before any result is
+  collected.
+- **The record.** The commit is tagged `governor-design-2026`.
+- **Written at the freeze, 2026-11-23.** The environment is D+9.6: the generic ballot D+9.0 and fundamentals D+10.3,
+  with 0.56 of the weight on polls.
+  - The design forecasts a mean of 21.7 Democratic governorships of the 36, with an 80% range of 18 to 25.
+  - The baseline forecasts 21.1 of 35, with a range of 18 to 24.
+  - The two differ only in the nine races the design was built for. Maryland and Oregon are on earlier polls, and
+    Arkansas, Hawaii, Idaho, New Mexico, Oklahoma and Wyoming are on ratings. Rhode Island is Foulkes against Block
+    (independent): D+23.6 from one poll, with a spread of 13.9.
+  - Every race with late polls is identical in the two. Oregon is the one race where the paths disagree on the
+    winner's side by much: earlier polls about even, against a prior of D+25.
+
+### The 2026 score (GV-5), fixed now
+
+Run once, on certified results collected after the tag. Rhode Island is scored against the two-party result
+between the Democrat and the opponent the rule named. The scores are those of rule 5, on all 36 races and on the
+competitive ones (forecast margin within 15 points):
+
+- log loss and Brier;
+- margin RMSE and mean error;
+- share of results inside the 80% and 50% ranges;
+- the count of Democratic wins against its 80% range, and its percentile.
+
+The baseline design is scored on the same races, apart from Rhode Island, which it does not cover. The design is
+also reported on those 35. The result is recorded whichever way it goes, and nothing is retuned after it (rule 5).
+
+*Added 2026-11-23, before any result was collected.* The two designs disagree on which races are competitive.
+New Mexico, Oklahoma and Wyoming are within 15 points only in the baseline, and Oregon only in the design. The
+comparison of the two uses the baseline's competitive set, as `--compare` does. The design's own competitive set
+is reported beside it.
