@@ -8,7 +8,7 @@ from PIL import Image, ImageDraw, ImageFont
 # The card uses the site's light-mode colours (site/assets/site.css) and its font, IBM Plex Sans, from the copies in
 # src/site/fonts (SIL Open Font License 1.1; Pillow cannot read the .woff2 files the pages use).
 FONTS = Path(__file__).with_name("fonts")
-BG, SURF, BORDER = "#FAF8F4", "#FFFFFF", "#CFDDEE"
+BG, SURF, BORDER, OFF = "#FAF8F4", "#FFFFFF", "#CFDDEE", "#F1EFEA"
 TITLE, HEAD, TEXT, TEXT2, TEXT3 = "#0A1D37", "#1B4978", "#1F2733", "#505B6A", "#667080"
 TINT, OCHRE, TEAL, ACCENT, DEM, REP = "#1B4978", "#B8641C", "#0F957D", "#A8551A", "#2F6FC4", "#CF4A40"
 NAME = json.loads(Path(__file__).with_name("site.json").read_text(encoding="utf-8"))["name"]
@@ -130,17 +130,32 @@ def make_home(S, out_path):
     save(im, out_path)
 
 
-def make_preview(S, key, out_path):
+def make_preview(S, key, out_path, board=None):
+    """A coming cycle's card: its title, line and dates. With `board` (landing.board_data(), 2028 before the
+    nominees) the dates take the left side and the board the right: grey tiles, each with its electoral votes and
+    seven bars for 2000 to 2024, as on the page."""
     P = S["previews"][key]
     im, d, y = _base(P["title"], P["image_line"])
     dates = [x for x in P["dates"] if x["when"] != "Through 2027"]
     y = max(y + 24, 250)
+    text_x, text_w = (300, 840) if board is None else (262, 320)
+    fs = 24 if board is None else 20
     for x in dates:
-        for i, ln in enumerate(wrap(d, x["text"], font(REGULAR, 24), 840)):
+        for i, ln in enumerate(wrap(d, x["text"], font(REGULAR, fs), text_w)):
             if i == 0:
-                d.text((60, y), x["when"], font=font(SEMIBOLD, 24), fill=ACCENT if x.get("target") else HEAD)
-            d.text((300, y), ln, font=font(REGULAR, 24), fill=TEXT)
-            y += 36
-        y += 8
+                d.text((60, y), x["when"], font=font(SEMIBOLD, fs), fill=ACCENT if x.get("target") else HEAD)
+            d.text((text_x, y), ln, font=font(REGULAR, fs), fill=TEXT)
+            y += 36 if board is None else 28
+        y += 8 if board is None else 4
+    if board:
+        U, T, x0, y0 = 37, 34, 660, 236
+        for k, c, r, ev, won in board:
+            x, yy = round(x0 + c * U), round(y0 + (8.3 if r == 9 else r) * U)   # districts just under the grid
+            d.rounded_rectangle([x, yy, x + T, yy + T], radius=4, fill=OFF, outline=BORDER, width=1)
+            d.text((x + T / 2, yy + 3), k, font=font(MEDIUM, 9), fill=TEXT3, anchor="mt")
+            d.text((x + T / 2, yy + 12), str(ev), font=font(SEMIBOLD, 14), fill=TEXT, anchor="mt")
+            for i, yr in enumerate(sorted(won)):     # seven 3-pixel bars with 1-pixel gaps, centred
+                bx = x + (T - 27) // 2 + i * 4
+                d.rectangle([bx, yy + T - 8, bx + 2, yy + T - 4], fill=DEM if won[yr] == "D" else REP)
     sign(im, d)
     save(im, out_path)

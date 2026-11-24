@@ -116,7 +116,7 @@ The 2026 model was only ever run at the end. This one is scored at 100, 60, 30 a
 - The spread of a poll average gains a term that grows with days out: squared spread = a + b / (number of polls) +
   d x days. The national error does the same. Both are fitted on earlier elections.
 - Polls count for a date if they ended before it and name the two candidates presumed to be the nominees on that
-  date. What to show before nominees are known is EC-8's decision.
+  date. What the page shows before the nominees are known is EC-8's decision (section 17).
 
 ## 7. Test
 
@@ -285,7 +285,7 @@ user confirmed each of them the same day:
 ## 10. Open questions
 
 1. Whether the popular vote should be pulled toward the national polls (the alternative in section 4).
-2. What to show before the nominees are known (EC-8).
+2. What to show before the nominees are known (EC-8): decided 2026-11-24, section 17.
 3. Third candidates: a state where one polls in double digits needs a rule, as for governors.
 4. The check against the 2026 lessons list is done at the design freeze (EC-9). The list (SC-4) waits for the final
    scorecard, and the build does not wait for it.
@@ -426,8 +426,8 @@ with the two under them:
 - How polls move over a campaign is learned on the national series and applied to the national part of every
   state. A state's own distance from the nation gets no separate rule for bounces or reversion: four elections of
   state polls cannot support one.
-- Before both nominees are presumptive there is no forecast. That answers most of EC-8, which stays open for what
-  the page shows in the meantime.
+- Before both nominees are presumptive there is no forecast. That answers most of EC-8; what the page shows in the
+  meantime was decided on 2026-11-24 (section 17).
 - A state where a third candidate polls in double digits still needs a rule (section 10).
 - Until the fundamentals model exists (EC-3), the anchor is the president's approval plus the previous result.
 - The three convention treatments are the ones listed in stage 2.
@@ -4681,3 +4681,35 @@ firm fill it, as the cost written beside that choice said. B2 stands as register
 
 **To the design freeze (EC-9), suggested by this diagnostic:** how the model's average treats one firm releasing
 repeatedly in states nobody else polls, late in the campaign, with 2020 as the case that suggested it.
+
+## 17. What the page shows before the nominees (EC-8)
+
+**Decided 2026-11-24** by the user, from mocks of two designs (a map shaded by each state's record, and grey tiles
+with a strip of results). A **decision**: nothing here is tested or fitted.
+
+- **No forecast until both nominees are presumptive.** This is section 11's rule, confirmed 2026-11-20: the forecast
+  starts on the later of the two parties' days, and waits for a rival who is still contesting. Before then the page
+  shows no generic party matchup and no hypothetical candidate matchups, whether from polls or from the model. Either
+  would read as a forecast before one exists. This closes the card's other two options.
+- **Until then, the 2028 page shows the board.** It has one tile per state, one for DC, and one for each Maine and
+  Nebraska district (56 in all). Each tile shows the contest's 2028 electoral votes and a strip of seven bars, one for
+  each election from 2000 to 2024, coloured by the party that won it. The tiles are grey and only the bars carry party
+  colour, so nothing reads as a forecast at a glance. The heading is "Before the nominees". An elephant and a donkey
+  frame the heading, drawn for the site in the logo's style (no party logos), in party colours faded toward the
+  background. The 2028 link-preview card shows the same board beside the key dates.
+- **Electoral votes** are the 2020 census apportionment, as in 2024: 538 in all, 270 to win
+  (`data/interim/electoral_votes.csv`, election 2028; section 2).
+- **Past results, not a forecast.** Nothing on the board comes from a model, and the page says so. A district's
+  record is of the district as drawn at each election, since district lines changed over the period.
+- **2024 on the board, and the holdout.** The states' 2024 results are already in the repo, collected by the
+  governors track (`data/interim/state_presidential.csv`), and the history page already shows them. The districts'
+  2024 results are not: the collector never opens the 2024 results page (section 2). The user decided that the five
+  districts' 2024 winners are written into the site code as a display-only table (`DISTRICTS_2024` in
+  `src/site/landing.py`; source: Ballotpedia's 2024 presidential election pages for Maine and Nebraska, which report
+  the AP's calls). Only the page build reads that table. Nothing in `src/model` reads it, and the collector's check
+  that 2024 is absent from `district_presidential.csv` still holds. Showing who won fits nothing and scores
+  nothing, so the 2024 holdout for the design freeze (EC-9) stands.
+- **The switch.** When both nominees are presumptive, the forecast replaces the board. Once the primaries forecast
+  is live (target May 2027), the board's section links to it.
+- Built in `src/site/landing.py` (`board`, `board_data`) from the words in `src/site/site.json`
+  (`previews.2028.board`); the card is drawn by `src/site/og_image.py`.

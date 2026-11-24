@@ -290,6 +290,27 @@ td .none { color: var(--text-3); font-size: .8rem; }
 .maplegend i.ring { background: transparent; border: 2px solid var(--ochre); }
 @media (max-width: 1000px) { .hasmap .seatlines { grid-template-columns: 4.5em 1fr; gap: 2px 14px; } .hasmap .seatline .fc { grid-column: 2; margin-bottom: 6px; } }
 @media (max-width: 760px) { .sec.hasmap { display: block; } .senmap { max-width: 380px; margin-top: 14px; } }
+/* the 2028 board before the nominees (EC-8) */
+.board { margin: 20px 0 8px; }
+.boardhead { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; max-width: 720px; }
+.boardhead h2 { margin: 0; }
+.boardhead p { margin: 4px 0 0; color: var(--text-2); }
+.mascot { width: 64px; height: 48px; }
+.mascot.rep { color: color-mix(in srgb, var(--rep) 60%, var(--bg)); }
+.mascot.dem { color: color-mix(in srgb, var(--dem) 60%, var(--bg)); }
+@media (max-width: 560px) { .boardhead { grid-template-columns: minmax(0, 1fr); } .boardhead .mascot { display: none; } }
+.ecboard { margin: 10px 0 0; max-width: 720px; }
+.ecboard svg { display: block; width: 100%; max-width: 460px; height: auto; margin: 0 auto; }
+.ecboard rect.t { fill: var(--off); stroke: var(--border); stroke-width: 1; }
+.ecboard rect.d { fill: var(--dem); }
+.ecboard rect.r { fill: var(--rep); }
+.ecboard text { text-anchor: middle; }
+.ecboard text.st { font-size: 7.5px; font-weight: 500; fill: var(--text-3); }
+.ecboard text.ev { font-size: 12px; font-weight: 600; fill: var(--text); font-variant-numeric: tabular-nums; }
+.ecboard text.cap { font-size: 9px; fill: var(--text-3); text-anchor: start; }
+.ecboard .maplegend { justify-content: center; }
+.ecboard .maplegend .how { color: var(--text-3); }
+.board > .tiny { max-width: 720px; }
 .sec p.target { font-size: .8rem; color: var(--accent); font-weight: 600; margin-top: 8px; }
 .tracks .sec:hover { border-color: var(--border); }
 img.preview { display: block; width: 100%; max-width: 720px; height: auto; border: 1px solid var(--border); border-radius: 6px; margin: 16px 0 4px; }
