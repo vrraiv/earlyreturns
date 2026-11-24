@@ -104,19 +104,20 @@ def seat_lines(sc, version):
             f'<p class="tiny">{E(label)} Forecast version: {E(VERSION_NAME[version])}.</p>')
 
 
-# The tile map: one square per state at (column, row), roughly where the state sits. 50 states; DC has no senators.
+# The tile map: one square per state at (column, row). The forecast page's layout (TILES in template.html); keep the
+# two the same. 50 states; DC has no senators.
 TILES = {
-    "AK": (0, 0), "ME": (10, 0),
-    "WI": (5, 1), "VT": (9, 1), "NH": (10, 1),
-    "WA": (0, 2), "ID": (1, 2), "MT": (2, 2), "ND": (3, 2), "MN": (4, 2), "IL": (5, 2), "MI": (6, 2), "NY": (8, 2),
-    "MA": (9, 2),
-    "OR": (0, 3), "NV": (1, 3), "WY": (2, 3), "SD": (3, 3), "IA": (4, 3), "IN": (5, 3), "OH": (6, 3), "PA": (7, 3),
-    "NJ": (8, 3), "CT": (9, 3), "RI": (10, 3),
-    "CA": (0, 4), "UT": (1, 4), "CO": (2, 4), "NE": (3, 4), "MO": (4, 4), "KY": (5, 4), "WV": (6, 4), "VA": (7, 4),
-    "MD": (8, 4), "DE": (9, 4),
-    "AZ": (1, 5), "NM": (2, 5), "KS": (3, 5), "AR": (4, 5), "TN": (5, 5), "NC": (6, 5), "SC": (7, 5),
-    "OK": (3, 6), "LA": (4, 6), "MS": (5, 6), "AL": (6, 6), "GA": (7, 6),
-    "HI": (0, 7), "TX": (3, 7), "FL": (8, 7),
+    "AK": (0, 0), "ME": (11, 0),
+    "WI": (6, 1), "VT": (10, 1), "NH": (11, 1),
+    "WA": (1, 2), "ID": (2, 2), "MT": (3, 2), "ND": (4, 2), "MN": (5, 2), "IL": (6, 2), "MI": (7, 2), "NY": (9, 2),
+    "MA": (10, 2),
+    "OR": (1, 3), "NV": (2, 3), "WY": (3, 3), "SD": (4, 3), "IA": (5, 3), "IN": (6, 3), "OH": (7, 3), "PA": (8, 3),
+    "NJ": (9, 3), "CT": (10, 3), "RI": (11, 3),
+    "CA": (1, 4), "UT": (2, 4), "CO": (3, 4), "NE": (4, 4), "MO": (5, 4), "KY": (6, 4), "WV": (7, 4), "VA": (8, 4),
+    "MD": (9, 4), "DE": (10, 4),
+    "AZ": (2, 5), "NM": (3, 5), "KS": (4, 5), "AR": (5, 5), "TN": (6, 5), "NC": (7, 5), "SC": (8, 5),
+    "OK": (4, 6), "LA": (5, 6), "MS": (6, 6), "AL": (7, 6), "GA": (8, 6),
+    "HI": (0, 7), "TX": (4, 7), "FL": (9, 7),
 }
 STATE_NAMES = {
     "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas", "CA": "California", "CO": "Colorado",
@@ -130,7 +131,7 @@ STATE_NAMES = {
     "WI": "Wisconsin", "WY": "Wyoming",
 }
 assert len(TILES) == 50 == len(set(TILES.values())) and set(TILES) == set(STATE_NAMES)
-PARTY = {"D": ("dem", "Democratic"), "R": ("rep", "Republican")}
+PARTY = {"D": ("dem", "D"), "R": ("rep", "R"), "I": ("ind", "independent")}
 
 
 def pct(p):
@@ -138,16 +139,20 @@ def pct(p):
 
 
 def senate_map(sc, version):
-    """The 2026 Senate races as a tile map: each state's winner, and a ring where the forecast favoured the other party.
-    Static SVG (the card is a link, so nothing in it is interactive); each tile's <title> gives the details on hover."""
+    """The 2026 Senate races as a tile map: each state's winner, with upsets outlined as on the forecast page (won by
+    the side the forecast gave under 50%). A race's probability is the non-Republican side's chance, so the winner's
+    chance is p, or 1 - p for a Republican. Static SVG (the card is a link, so nothing in it is interactive); each
+    tile's <title> gives the details on hover. Returns "" if the scorecard lacks what it needs."""
     races = {}
-    for r in sc["senate"]["races"]:
+    for r in sc.get("senate", {}).get("races", []):
         st = r["race_key"].split("|")[1]
         if st in races:          # two races in one state (a regular and a special) would need a split tile
             return ""
         races[st] = r
+    if not races or any(version not in r or r["winner_party"] not in PARTY for r in races.values() if r.get("called")):
+        return ""
     U, T = 30, 27                # grid step and tile size
-    tiles, won, missed = [], {"dem": 0, "rep": 0}, []
+    tiles, won, upsets = [], {"dem": 0, "rep": 0, "ind": 0}, []
     for st, (c, rw) in TILES.items():
         x, y, name = c * U, rw * U, STATE_NAMES[st]
         r = races.get(st)
@@ -157,23 +162,26 @@ def senate_map(sc, version):
         elif not r.get("called"):
             cls, tip = "pend", f"{name}: not yet called"
         else:
-            cls, pname = PARTY.get(r["winner_party"], ("oth", "Independent"))
-            if cls in won:
-                won[cls] += 1
-            p = r[version]
-            tip = f"{name}: {r['winner']} ({pname}) won. The forecast gave the Democrat {pct(p)}."
-            if (p > 0.5 and r["winner_party"] != "D") or (p < 0.5 and r["winner_party"] == "D"):
-                missed.append(name)
-                tip += " The forecast favoured the other party."
-                ring = f'<rect class="miss" x="{x + 1}" y="{y + 1}" width="{T - 2}" height="{T - 2}" rx="2.5"/>'
+            cls, pname = PARTY[r["winner_party"]]
+            won[cls] += 1
+            pw = 1 - r[version] if r["winner_party"] == "R" else r[version]
+            tip = f"{name}: {r['winner']} ({pname}) won. The forecast gave the winner a {pct(pw)} chance."
+            if pw < 0.5:
+                upsets.append(name)
+                tip += " An upset."
+                ring = f'<rect class="upset" x="{x + 1}" y="{y + 1}" width="{T - 2}" height="{T - 2}" rx="2.5"/>'
         tiles.append(f'<g class="{cls}"><title>{E(tip)}</title><rect x="{x}" y="{y}" width="{T}" height="{T}" rx="3"/>{ring}'
                      f'<text x="{x + T / 2}" y="{y + T / 2 + 3.5}">{st}</text></g>')
     summary = (f"Map of the 2026 Senate races by state. Democrats won {won['dem']}, Republicans {won['rep']}"
-               + (f"; the forecast favoured the other party in {', '.join(missed)}." if missed else "."))
-    W, H = 10 * U + T, 7 * U + T
+               + (f", independents {won['ind']}" if won["ind"] else "")
+               + (f". Upsets, won by the side the forecast gave under 50%: {', '.join(upsets)}." if upsets else "."))
+    W, H = 11 * U + T, 7 * U + T
     legend = ('<div class="maplegend" aria-hidden="true"><span><i class="dem"></i>Democrat won</span>'
-              '<span><i class="rep"></i>Republican won</span><span><i class="none"></i>No race this year</span>'
-              + ('<span><i class="ring"></i>Forecast favoured the other party</span>' if missed else "") + '</div>')
+              '<span><i class="rep"></i>Republican won</span>'
+              + ('<span><i class="ind"></i>Independent won</span>' if won["ind"] else "")
+              + '<span><i class="none"></i>Not up</span>'
+              + ('<span><i class="ring"></i>Upset: the forecast gave the winner under 50%</span>' if upsets else "")
+              + '</div>')
     return (f'<figure class="senmap"><figcaption>2026 Senate races, by state</figcaption>'
             f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="{E(summary)}">{"".join(tiles)}</svg>{legend}</figure>')
 
