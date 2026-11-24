@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-23d",
+  version: "2026-11-23e",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -501,7 +501,8 @@ window.PLAN = {
             "The scorecard numbers on the landing page come from the same build as the scorecard and carry its provisional label. The landing page gets its own link preview (title, description, image).",
             "Development results move to the model page (SI-5).",
             "Decided 2026-11-23: the landing page shows the scorecard's seat counts beside the forecast (polls + fundamentals, the scorecard tab's default), labelled provisional. `/2028/` gets a drawn preview image, which is also its link preview, and shows the May 2027 and May 2028 deadlines as the site's own targets. 2028 joins the top row now.",
-            "Added 2026-11-23: `/2027/` in the same coming state, for the Kentucky, Louisiana and Mississippi governor races, and in the top row beside 2028. GV-6 fills it in once the governors model is frozen. Exact election dates go on only once checked against official sources."
+            "Added 2026-11-23: `/2027/` in the same coming state, for the Kentucky, Louisiana and Mississippi governor races, and in the top row beside 2028. GV-6 fills it in once the governors model is frozen. Exact election dates go on only once checked against official sources.",
+            "Added 2026-11-23 (revisited): the landing page's scorecard card carries a tile map of the 2026 Senate races, built from the same scorecard as the seat lines: each state's winner, states not up left pale, and upsets outlined as on the forecast page (won by the side the forecast gave under 50%). It uses the forecast page's tile layout and updates with the daily scorecard job."
           ],
           checklist: [
             { id: "a", text: "Layout sketched" },
