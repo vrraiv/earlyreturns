@@ -266,6 +266,28 @@ td .none { color: var(--text-3); font-size: .8rem; }
 .seatline .ch { font-weight: 600; color: var(--head); }
 .seatline .res { font-weight: 600; }
 .seatline .fc { color: var(--text-2); }
+.sec.hasmap { display: grid; grid-template-columns: 1fr minmax(300px, 400px); column-gap: 32px; align-content: start; }
+.sec.hasmap > * { grid-column: 1; }
+.sec.hasmap > .senmap { grid-column: 2; grid-row: 1 / span 6; }
+.senmap { margin: 0; }
+.senmap figcaption { font-size: .76rem; font-weight: 600; color: var(--text-2); margin-bottom: 6px; }
+.senmap svg { display: block; width: 100%; height: auto; }
+.senmap rect { fill: var(--off); stroke: var(--border); stroke-width: 1; }
+.senmap .dem rect { fill: var(--dem); stroke: none; }
+.senmap .rep rect { fill: var(--rep); stroke: none; }
+.senmap .oth rect { fill: var(--neutral); stroke: none; }
+.senmap .pend rect { fill: var(--toss); stroke: none; }
+.senmap rect.miss { fill: none; stroke: var(--ink); stroke-width: 2; }
+.senmap text { font-size: 9px; font-weight: 600; text-anchor: middle; fill: var(--text-3); }
+.senmap .dem text, .senmap .rep text, .senmap .oth text { fill: #fff; }
+:root[data-theme="dark"] .senmap .dem text, :root[data-theme="dark"] .senmap .rep text { fill: var(--on-fill-dark); }
+.maplegend { display: flex; flex-wrap: wrap; gap: 4px 12px; margin-top: 8px; font-size: .74rem; color: var(--text-2); }
+.maplegend span { display: inline-flex; align-items: center; gap: 5px; }
+.maplegend i { display: inline-block; width: 11px; height: 11px; border-radius: 2px; background: var(--off); border: 1px solid var(--border); }
+.maplegend i.dem { background: var(--dem); border-color: var(--dem); }
+.maplegend i.rep { background: var(--rep); border-color: var(--rep); }
+.maplegend i.ring { background: var(--text-3); border: 2px solid var(--ink); }
+@media (max-width: 760px) { .sec.hasmap { display: block; } .senmap { max-width: 380px; margin-top: 14px; } }
 .sec p.target { font-size: .8rem; color: var(--accent); font-weight: 600; margin-top: 8px; }
 .tracks .sec:hover { border-color: var(--border); }
 img.preview { display: block; width: 100%; max-width: 720px; height: auto; border: 1px solid var(--border); border-radius: 6px; margin: 16px 0 4px; }
