@@ -3,7 +3,8 @@ opening page, 404.html and _redirects, and the link-preview cards (site/og-home.
 
     python src/site/landing.py        (src/site/build.py runs this too)
 
-Everything here comes from src/site/site.json and, for the landing page's figures, data/scorecard/scorecard.json. No
+Everything here comes from src/site/site.json and, for the landing page's figures, data/scorecard/scorecard.json;
+the 2028 page's board (EC-8) also reads three files in data/interim (`board_data` below). No
 page carries a build date, so a rebuild with the same scorecard writes the same bytes; the daily scorecard job changes
 the landing page only when the seat counts change, and leaves the preview cards alone (only `landing.py` run by itself
 or `build.py --all` draws them, after a change to site.json). build.py passes the scorecard it read for the forecast page, so the
@@ -144,8 +145,13 @@ PARTY = {"D": ("dem", "D"), "R": ("rep", "R"), "I": ("ind", "independent")}
 BOARD_YEARS = (2000, 2004, 2008, 2012, 2016, 2020, 2024)
 BOARD_TILES = {**TILES, "DC": (9, 5)}            # DC beside Maryland; the districts go in a strip under the map
 BOARD_DISTRICTS = ("ME-1", "ME-2", "NE-1", "NE-2", "NE-3")
-DISTRICTS_2024 = {"ME-1": "D", "ME-2": "R", "NE-1": "R", "NE-2": "D", "NE-3": "R"}   # Ballotpedia, "Presidential
-# election in Maine, 2024" and "Presidential election in Nebraska, 2024" (the AP's calls); read 2026-11-24
+# The five districts' 2024 winners, from NBC News's results pages (data: the National Election Pool), read 2026-11-24:
+# nbcnews.com/politics/2024-elections/maine-president-results and .../nebraska-president-results. Two-candidate shares:
+# ME-1 Harris 59.5 Trump 38.3; ME-2 Trump 53.6 Harris 44.3; NE-1 Trump 55.5 Harris 42.5; NE-2 Harris 51.3 Trump 46.7;
+# NE-3 Trump 76.0 Harris 22.4. The pages' statewide splits agree (Harris 3 of Maine's 4, Trump 4 of Nebraska's 5).
+# When the design freeze (EC-9) collects the 2024 district results, the assert in board_data stops the build: then
+# delete this table.
+DISTRICTS_2024 = {"ME-1": "D", "ME-2": "R", "NE-1": "R", "NE-2": "D", "NE-3": "R"}
 BOARD_NAMES = {**STATE_NAMES, "DC": "District of Columbia", "ME-1": "Maine's 1st district",
                "ME-2": "Maine's 2nd district", "NE-1": "Nebraska's 1st district", "NE-2": "Nebraska's 2nd district",
                "NE-3": "Nebraska's 3rd district"}
@@ -338,7 +344,8 @@ def not_found():
 
 
 def main(scorecard=None, cards=True):
-    """cards=False (the daily build) leaves the preview cards as committed: they depend on site.json only, and a
+    """cards=False (the daily build) leaves the preview cards as committed: they depend on site.json (and the 2028
+    card on the board's data files, which the daily job does not change), and a
     machine with another font renderer (the scorecard job runs on Linux) would redraw them with different pixels."""
     if scorecard is None and SCORECARD.exists():
         scorecard = json.loads(SCORECARD.read_text())

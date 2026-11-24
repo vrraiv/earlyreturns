@@ -79,8 +79,8 @@ def make(models, out_path, updated, final=False):
     im.save(out_path, optimize=True)
 
 
-# The landing page's and the coming cycles' cards (landing.py). They are drawn from site.json alone and carry no numbers
-# and no date. A card is rewritten only when its pixels change, so a machine whose PNG compressor writes different bytes
+# The landing page's and the coming cycles' cards (landing.py). They are drawn from site.json and carry no forecast
+# numbers and no date; the 2028 card also draws the board before the nominees (EC-8), from landing.board_data(). A card is rewritten only when its pixels change, so a machine whose PNG compressor writes different bytes
 # (the scorecard job runs on Linux) leaves the committed files alone.
 
 def save(im, path):

@@ -4702,13 +4702,14 @@ with a strip of results). A **decision**: nothing here is tested or fitted.
 - **Past results, not a forecast.** Nothing on the board comes from a model, and the page says so. A district's
   record is of the district as drawn at each election, since district lines changed over the period.
 - **2024 on the board, and the holdout.** The states' 2024 results are already in the repo, collected by the
-  governors track (`data/interim/state_presidential.csv`), and the history page already shows them. The districts'
-  2024 results are not: the collector never opens the 2024 results page (section 2). The user decided that the five
-  districts' 2024 winners are written into the site code as a display-only table (`DISTRICTS_2024` in
-  `src/site/landing.py`; source: Ballotpedia's 2024 presidential election pages for Maine and Nebraska, which report
-  the AP's calls). Only the page build reads that table. Nothing in `src/model` reads it, and the collector's check
+  governors track (`data/interim/state_presidential.csv`), and the history page's chart of state leans runs to
+  2024. The districts' 2024 results are not: the collector never opens the 2024 results page (section 15, A2). The
+  user decided that the five districts' 2024 winners are written into the site code as a display-only table
+  (`DISTRICTS_2024` in `src/site/landing.py`; source: NBC News's 2024 presidential results pages for Maine and
+  Nebraska, data from the National Election Pool, read 2026-11-24). Only the page build reads that table. Nothing in `src/model` reads it, and the collector's check
   that 2024 is absent from `district_presidential.csv` still holds. Showing who won fits nothing and scores
-  nothing, so the 2024 holdout for the design freeze (EC-9) stands.
+  nothing, so the 2024 holdout for the design freeze (EC-9) stands. When EC-9 collects the 2024 district results,
+  the board's build stops on purpose (an assert in `board_data`), and the table is deleted.
 - **The switch.** When both nominees are presumptive, the forecast replaces the board. Once the primaries forecast
   is live (target May 2027), the board's section links to it.
 - Built in `src/site/landing.py` (`board`, `board_data`) from the words in `src/site/site.json`
