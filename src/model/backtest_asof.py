@@ -35,6 +35,16 @@ Run:  python src/model/backtest_asof.py                  the baseline: writes da
                --gov-unpolled-sd robust|rms (the spread of a governor race forecast from the prior alone)
                --gov-unpolled flat|demo (an unpolled governor race borrows the polled races' gap from the prior:
                from all alike, or by demographic similarity; needs The Downballot's tables in data/linked/)
+               --compare NAME --against REF (NAME against another run in place of the baseline)
+               --gov-fb-width, --gov-ratings-sd rms (GV-4's candidates 16 and 17; both failed)
+               --threeway-check (the past three-way governor races -> data/processed/governor_threeway_check.json)
+
+The frozen governor design (GV-4, tag governor-design-2026; BACKTEST.md, "The governor design freeze"):
+      python src/model/backtest_asof.py --gov-design frozen --forecast-2026 final
+          the 2026 governor forecast, fitted on 1998-2024, from the Nov 3 snapshot; reads no result
+          -> data/processed/governor_2026_forecast.{csv,json}
+      python src/model/backtest_asof.py --tag baseline --forecast-2026 final
+          the same from the baseline design, the comparison for the 2026 score -> governor_2026_forecast_baseline.*
 """
 import argparse
 import hashlib
@@ -151,6 +161,10 @@ FALLBACK_DAYS = (22, 60)         # --gov-poll-fallback: the earlier window (raw_
 GOV_UNPOLLED_SD = "robust"       # --gov-unpolled-sd: "rms" uses the prior's root-mean-square error instead
 GOV_UNPOLLED = None              # --gov-unpolled
 GOV_FB_FIT = True                # whether the governor fit reads the marked polls too ("all") or only the forecast does
+# GV-4 (BACKTEST.md, "The governor design freeze"): candidates 16 and 17, and the three-way rule
+GOV_FB_WIDTH = False             # --gov-fb-width: a race on earlier polls takes their error, k times the late polls'
+GOV_RATINGS_SD = "robust"        # --gov-ratings-sd rms: the spread of a ratings-only race is the ratings prior's RMS error
+THREEWAY_PCT, THREEWAY_SCALE = 15.0, 1.5    # a third candidate at 15% or more in the polls; its range 1.5 times wider
 
 
 def gov_fallback(r):
@@ -472,7 +486,7 @@ def gov_estimate(tr, gen_miss, a, b):
     unp_r = {}
     if GOV_LEAN == "ratings_unpolled" and not thin:
         rf = smf.ols(GOV_PRIORS["ratings"], tr).fit()
-        unp_r = {"_g_unp_fit": rf, "g_sd_unp_rating": float(1.4826 * np.median(np.abs(rf.resid - np.median(rf.resid)))),
+        unp_r = {"_g_unp_fit": rf, "g_sd_unp_rating": rms(rf.resid) if GOV_RATINGS_SD == "rms" else float(1.4826 * np.median(np.abs(rf.resid - np.median(rf.resid)))),
                  "g_c_unp_rating": float(rf.params["rating"])}
     # a race without the candidate's lean measure takes the baseline prior
     tr = tr.assign(prior=prior.fittedvalues if prior is base else prior.predict(tr).fillna(base.predict(tr)))
@@ -626,7 +640,23 @@ def fit_params(r, sen, hh, fund, train, late_only=True, gov=None):
         gt = gov[gov.cycle.isin(train)].merge(gov_polls(r[r.cycle.isin(train) & r.act2.notna() & (r.late | (r.gov_fb & GOV_FB_FIT))]), on=["cycle", "state"], how="left")
         gt["n"] = gt.n.fillna(0)
         p.update(gov_estimate(gt, gen_miss, p["sdn_a"], p["sdn_b"]))
+        if GOV_FB_WIDTH:
+            p.update(gov_fb_ratio(r, gov[gov.cycle.isin(train)], p["sponsor_statewide"]))
     return p
+
+
+def gov_fb_ratio(r, gov, shift):
+    """Candidate 16: k = RMS error of the 22-to-60-day average over that of the late average, on the training races
+    (two-way, even years) that have both, sponsored polls shifted as in the forecast; at least 1."""
+    x = r[r.cycle.isin(set(gov.cycle)) & (r.type_simple == "Gov-G") & r.scored].copy()
+    sg = np.where(x.partisan.astype(str).str.upper() == "DEM", 1, np.where(x.partisan.astype(str).str.upper() == "REP", -1, 0))
+    x["m"] = x.poll2 - shift * sg
+    days = x.time_to_election.fillna(FALLBACK_DAYS[0])             # the archived 2024 rows are already in their window
+    early = ~x.late & days.between(*FALLBACK_DAYS)
+    avg = lambda s: s.groupby(["cycle", "location"]).m.mean().rename_axis(["cycle", "state"])  # noqa: E731
+    j = gov.set_index(["cycle", "state"])[["actual"]].join(avg(x[x.late]).rename("late"), how="inner").join(avg(x[early]).rename("early"), how="inner")
+    k = rms(j.early - j.actual) / rms(j.late - j.actual)
+    return {"g_fb_k_raw": float(k), "g_fb_k": float(max(k, 1.0)), "g_fb_k_races": int(len(j))}
 
 
 def fundamentals_pred(p, row):
@@ -646,7 +676,9 @@ def poll_table(r, cycle, ts, shift):
     x["k"] = x.ukey if ts == "Sen-G" else x.location
     sg = np.where(x.partisan.astype(str).str.upper() == "DEM", 1, np.where(x.partisan.astype(str).str.upper() == "REP", -1, 0))
     x["m"] = x.poll2 - shift * sg
-    return x.dropna(subset=["k"]).groupby("k").m.agg(avg="mean", n="size", spread=lambda v: float(v.std(ddof=0))).reset_index()
+    # fb: the race is averaged from earlier polls (it has no late ones)
+    return x.dropna(subset=["k"]).groupby("k").agg(avg=("m", "mean"), n=("m", "size"), spread=("m", lambda v: float(v.std(ddof=0))),
+                                                   fb=("gov_fb", "all")).reset_index()
 
 
 def simulate(rng, p, sen, hou, sd_nat, do_house):
@@ -689,6 +721,20 @@ def gov_forecast(rng, y, G, sd_nat, p, gov_u, pt):
     if "g_unp_c" in p and (g.n > 0).any():
         z = borrowed_gap(g.state.values, (g.avg - g.prior).values, (g.n > 0).values)
         g["mu"] = np.where(g.n > 0, g.mu, g.prior + p["g_unp_c"] * z)
+    if "g_fb_k" in p and "fb" in g:
+        # candidate 16: a race on earlier polls keeps its centre and weight; its poll error is k times the late polls'
+        fb = (g.n > 0) & g.fb.fillna(False).astype(bool)
+        g["sd_race"] = np.where(fb, GOV_SD_SCALE / np.sqrt(1 / (p["g_fb_k"] * sdp) ** 2 + 1 / sp ** 2), g.sd_race)
+    if "opp_ind" in g:
+        # a three-way race against an independent: the polls alone (Democrat against that candidate), weight 1 on polls
+        ind = g.opp_ind.fillna(False).astype(bool).values & (g.n > 0).values
+        w = np.where(ind, 1.0, w)
+        g["poll_weight"] = w
+        g["prior"] = np.where(ind, np.nan, g.prior)
+        g["mu"] = np.where(ind, g.avg, g.mu)
+        g["sd_race"] = np.where(ind, sdp, g.sd_race)
+    if "sd_mult" in g:
+        g["sd_race"] = g.sd_race * g.sd_mult.fillna(1.0)
     df = p["df_t"]
     ts = np.sqrt((df - 2) / df)
     chi = np.sqrt(rng.chisquare(df, NSIM) / df)
@@ -874,15 +920,16 @@ def parity_governor():
     return [{"parameter": k, "harness_estimator": float(e[k]), "governor_model": float(v)} for k, v in ref.items()]
 
 
-def compare(tag):
+def compare(tag, against=None):
     """A candidate run against the baseline on the baseline's races: the competitive set is fixed by the baseline's
     forecast margins, so both are scored on the same contests. Differences are candidate minus baseline (negative
-    log loss and Brier differences are improvements)."""
+    log loss and Brier differences are improvements). `against` names another run to stand in for the baseline."""
     def races(sfx):
         t, jp = pd.read_csv(OUT / f"backtest_asof{sfx}_races.csv"), jacobson_path()
         extra = jp.parent / f"backtest_asof{sfx}_races_jacobson.csv" if jp else None
         return pd.concat([t, pd.read_csv(extra)], ignore_index=True) if extra is not None and extra.exists() else t
-    base, new = races(""), races(f"_{tag}")
+    ref = f"_{against}" if against else ""
+    base, new = races(ref), races(f"_{tag}")
     keys = ["cycle", "variant", "chamber", "race"]
     j = base.merge(new, on=keys, suffixes=("_b", "_n"))
     print(f"{len(j)} of {len(base)} baseline race forecasts matched in '{tag}'")
@@ -910,7 +957,7 @@ def compare(tag):
               f"pooled gap {per['sum'].sum() / per['size'].sum():+.4f}, SD with cycles redrawn {boot.std():.4f} "
               f"(80% between {lo:+.4f} and {hi:+.4f}, better in {(boot < 0).mean():.0%} of redraws)")
         print(d.round(4).to_string(index=False))
-    sb, sn = (json.loads((OUT / f"backtest_asof{x}.json").read_text())["scores"] for x in ("", f"_{tag}"))
+    sb, sn = (json.loads((OUT / f"backtest_asof{x}.json").read_text())["scores"] for x in (ref, f"_{tag}"))
     print("\nseat counts (baseline -> candidate): spread of the result's position in the simulated distribution (0.25 is calibrated), RMSE")
     for v in VARIANTS:
         for ch in CHAMBERS:
@@ -918,13 +965,157 @@ def compare(tag):
                 b, n = sb[v][ch]["seats"], sn[v][ch]["seats"]
                 out[f"{v}/{ch}"]["seats"] = {"pit_spread": [b["pit_spread"], n["pit_spread"]], "rmse": [b["rmse"], n["rmse"]]}
                 print(f"  {v:28} {ch:6} spread {b['pit_spread']:.3f} -> {n['pit_spread']:.3f}   RMSE {b['rmse']:.2f} -> {n['rmse']:.2f}")
-    (OUT / f"backtest_asof_{tag}_vs_baseline.json").write_text(json.dumps(out, indent=1, default=float))
+    (OUT / f"backtest_asof_{tag}_vs_{against or 'baseline'}.json").write_text(json.dumps(out, indent=1, default=float))
 
 
-def main(tag=None, seed_shift=0, lean="cook", gov_lean="pres", gov_fb=None, gov_unpolled_sd="robust", gov_unpolled=None, gov_scales=(1.0, 1.0)):
-    global GOV_LEAN, GOV_FB_FIT, GOV_UNPOLLED_SD, GOV_UNPOLLED, GOV_PRIOR_SD_SCALE, GOV_SD_SCALE
+# ---------------------------------------------------------------- GV-4: three-way races and 2026
+def threeway_universe():
+    """The past even-year governor races with a third candidate at 15% or more (governor_universe() leaves them out),
+    from 2004 on, as Democrat-Republican races. `ind_ahead`: an independent finished ahead of the Republican."""
+    d = pd.read_csv(ROOT / "data/interim/governor_dataset.csv")
+    d = d[d.contested.astype(bool) & d.multi_candidate.astype(bool) & ~d.recall.astype(bool) & (d.year % 2 == 0) & (d.year >= 2004)]
+    d = d[~d.year.isin(HELD_OUT)]
+    g = pd.DataFrame({"cycle": d.year.values, "state": d.state.values, "key": d.state.values, "lean_avg2": d.lean_avg2.values,
+                      "inc": d.inc.values, "env": d.nat_house.values, "actual": d.margin_2p.values,
+                      "ind_ahead": (d.max_other_pct > d.r_pct).values})
+    rt_ = pd.read_csv(ROOT / "data/interim/governor_ratings.csv")
+    rt_ = rt_[~rt_.year.isin(HELD_OUT)].groupby(["year", "state"]).value.mean()
+    g["rating"] = [rt_.get((c, s), np.nan) for c, s in zip(g.cycle, g.state)]
+    return g
+
+
+def threeway_check_cycle(y, p, r, nat, tw, seed):
+    """Each past three-way race of cycle y, forecast with the cycle's as-of fit, with its spread as is and times 1.5."""
+    t = tw[tw.cycle == y]
+    if t.empty or "g_const" not in p:
+        return []
+    pt = poll_table(r, y, "Gov-G", p["sponsor_statewide"])
+    rows = []
+    for mult in (1.0, THREEWAY_SCALE):
+        g, m = gov_forecast(np.random.default_rng(seed), y, nat["G"], nat["sd_nat"], p, t.assign(sd_mult=mult), pt)
+        q = np.percentile(m, [10, 90], axis=0)
+        for i, x in enumerate(g.itertuples()):
+            rows.append({"cycle": y, "state": x.state, "sd_mult": mult, "n_polls": int(x.n), "mu": float(x.mu), "sd_race": float(x.sd_race),
+                         "p_dem": float((m[:, i] > 0).mean()), "q10": float(q[0, i]), "q90": float(q[1, i]), "actual": float(x.actual),
+                         "ind_ahead": bool(x.ind_ahead)})
+    return rows
+
+
+def threeway_report(rows):
+    t = pd.DataFrame(rows)
+    t["in80"] = (t.actual >= t.q10) & (t.actual <= t.q90)
+    pp = t.p_dem.clip(CLIP, 1 - CLIP)
+    won = (t.actual > 0).astype(float)
+    t["log_loss"] = -(won * np.log(pp) + (1 - won) * np.log(1 - pp))
+    out = {"races": t.round(4).to_dict("records")}
+    for name, s in (("checked", ~t.ind_ahead), ("independent_ahead", t.ind_ahead)):
+        out[name] = {str(m): {"races": int(len(x)), "in80": int(x.in80.sum()), "log_loss": float(x.log_loss.mean())}
+                     for m, x in t[s].groupby("sd_mult")}
+    (OUT / "governor_threeway_check.json").write_text(json.dumps(out, indent=1, default=float))
+    print("\nthree-way check (polls and fundamentals):")
+    print(t.round(2).to_string(index=False))
+    print(json.dumps({k: v for k, v in out.items() if k != "races"}, indent=1))
+
+
+ELECTION_2026 = pd.Timestamp("2026-11-03")
+VOTEHUB_2026 = ROOT / "data/raw/votehub/2026-11-03/polls.json"     # the final forecast's snapshot, before polls closed
+
+
+def generic_2026(source):
+    """The 2026 generic-ballot average for the governor forecast. 'snapshot': plain mean of the snapshot's polls ending
+    in the final 21 days, one version per poll (likely voters first), as the harness averages; 'final': the number
+    the frozen forecast used (data/final/national_inputs.json, G_polls), known before the election."""
+    if source == "final":
+        x = json.loads((ROOT / "data/final/national_inputs.json").read_text())
+        return float(x["G_polls"]), None
+    rows = []
+    for x in json.loads(VOTEHUB_2026.read_text(encoding="utf-8")):
+        if x["poll_type"] != "generic-ballot":
+            continue
+        days = (ELECTION_2026 - pd.Timestamp(x["end_date"])).days
+        a = {y["choice"]: y["pct"] for y in x["answers"]}
+        if 0 <= days <= LATE_DAYS and "Dem" in a and "Rep" in a:
+            rows.append({"pollster": x["pollster"], "start": x.get("start_date"), "end": x["end_date"], "rank": {"lv": 0, "v": 0, "rv": 1, "a": 2}.get((x.get("population") or "").lower(), 3),
+                         "poll2": 100 * (a["Dem"] - a["Rep"]) / (a["Dem"] + a["Rep"])})
+    d = pd.DataFrame(rows).sort_values("rank").drop_duplicates(["pollster", "start", "end"])
+    return float(d.poll2.mean()), int(len(d))
+
+
+def universe_2026():
+    t = pd.read_csv(ROOT / "data/interim/governor_2026_inputs.csv")
+    rt_ = pd.read_csv(ROOT / "data/interim/governor_ratings.csv")
+    rt_ = rt_[rt_.year == 2026].groupby("state").value.mean()
+    return pd.DataFrame({"cycle": 2026, "state": t.state, "key": t.state, "lean_avg2": t.lean_avg2, "inc": t.inc, "env": np.nan,
+                         "actual": np.nan, "rating": t.state.map(rt_)})
+
+
+def polls_2026(shift, design):
+    """The 2026 poll table in poll_table()'s shape. Sponsored: VoteHub lists a sponsor and flags its party. The design
+    adds earlier polls for a race with no late ones, and the three-way rule (BACKTEST.md, GV-4)."""
+    x = pd.read_csv(ROOT / "data/interim/governor_2026_polls.csv")
+    x = x[x.window.isin(["late", "earlier"] if design else ["late"])]
+    has_late = set(x[x.window == "late"].state)
+    x = x[(x.window == "late") | ~x.state.isin(has_late)].copy()
+    sg = np.where(x.sponsor_listed.astype(bool), np.where(x.sponsor_party == "DEM", 1, np.where(x.sponsor_party == "REP", -1, 0)), 0)
+    out = []
+    for s, v in x.assign(sg=sg).groupby("state"):
+        row = {"k": s, "fb": bool((v.window == "earlier").all()), "third_avg": float(v.third_pct.mean()), "rep_avg": float(v.rep_pct.mean())}
+        three = design and row["third_avg"] >= THREEWAY_PCT
+        ind = three and row["third_avg"] > row["rep_avg"]
+        m = (100 * (v.dem_pct - v.third_pct) / (v.dem_pct + v.third_pct)) if ind else v.poll2
+        m = m - shift * v.sg
+        row.update({"avg": float(m.mean()), "n": int(len(v)), "spread": float(m.std(ddof=0)), "threeway": bool(three), "opp_ind": bool(ind)})
+        out.append(row)
+    return pd.DataFrame(out)
+
+
+def forecast_2026(r, sen_u, hh, fund, gov_u, train, design, generic, sfx, seed=20261103):
+    """The 2026 governor forecast, fitted on every even year to 2024, polls-and-fundamentals version. No result is read."""
+    p = fit_params(r, sen_u, hh, fund, train, gov=gov_u)
+    g_polls, n_gen = generic_2026(generic)
+    sd_polls = p["sd_nat_generic"]
+    F = fundamentals_pred(p, fund[fund.year == 2026].iloc[0])
+    w = (1 / sd_polls ** 2) / (1 / sd_polls ** 2 + 1 / p["fund_sd"] ** 2)
+    G, sd_nat = w * g_polls + (1 - w) * F, 1 / np.sqrt(1 / sd_polls ** 2 + 1 / p["fund_sd"] ** 2)
+    nat = {"generic_source": generic, "G_polls": g_polls, "n_generic_polls": n_gen, "fundamentals": F, "w_polls": w, "G": G, "sd_nat": sd_nat}
+    u, pt = universe_2026(), polls_2026(p["sponsor_statewide"], design)
+    if design:
+        tw = set(pt[pt.threeway].k)
+        u["sd_mult"] = np.where(u.state.isin(tw), THREEWAY_SCALE, 1.0)
+        u["opp_ind"] = u.state.isin(set(pt[pt.opp_ind].k))
+    else:
+        u = u[~u.state.isin(set(polls_2026(p["sponsor_statewide"], True).query("threeway").k))]     # the model covers two-way races
+    g, m = gov_forecast(np.random.default_rng(seed), 2026, G, sd_nat, p, u, pt[["k", "avg", "n", "spread", "fb"]])
+    q = np.percentile(m, [10, 25, 75, 90], axis=0)
+    g["path"] = np.where(g.n > 0, np.where(g.fb.fillna(False).astype(bool), "earlier polls", "late polls"),
+                         np.where(g.rating.notna() & ("_g_unp_fit" in p), "ratings", "prior"))
+    if design:
+        g["path"] = np.where(g.opp_ind, "polls, Democrat against an independent", g.path)
+    g = g.assign(p_dem=(m > 0).mean(0), q10=q[0], q25=q[1], q75=q[2], q90=q[3], competitive=np.abs(g.mu) <= COMP)
+    wins = (m > 0).sum(1)
+    cols = ["state", "path", "n", "avg", "rating", "prior", "poll_weight", "mu", "sd_race", "p_dem", "q10", "q25", "q75", "q90", "competitive"]
+    g[cols].round(4).to_csv(OUT / f"governor_2026_forecast{sfx}.csv", index=False)
+    out = {"design": design, "asof": "2026-11-03, before polls closed", "train_cycles": p["train_cycles"], "national": nat, "nsim": NSIM, "seed": seed,
+           "dem_wins": {"races": int(len(g)), "mean": float(wins.mean()), "p10": float(np.percentile(wins, 10)), "p90": float(np.percentile(wins, 90)),
+                        "distribution": {int(k): int(v) for k, v in zip(*np.unique(wins, return_counts=True))}},
+           "params": {k: v for k, v in p.items() if not k.startswith("_") and k != "train_cycles"}}
+    (OUT / f"governor_2026_forecast{sfx}.json").write_text(json.dumps(out, indent=1, default=float))
+    pd.set_option("display.width", 220)
+    print(json.dumps(nat, indent=1, default=float))
+    print(g[cols].round(2).to_string(index=False))
+    print({k: v for k, v in out["dem_wins"].items() if k != "distribution"})
+
+
+# keyed by the command-line options; completed once candidates 16 and 17 are judged
+DESIGNS = {"frozen": {"gov_lean": "ratings_unpolled", "gov_poll_fallback": "forecast"}}
+
+
+def main(tag=None, seed_shift=0, lean="cook", gov_lean="pres", gov_fb=None, gov_unpolled_sd="robust", gov_unpolled=None, gov_scales=(1.0, 1.0),
+         fb_width=False, ratings_sd="robust", threeway_check=False, f2026=None, design=False):
+    global GOV_LEAN, GOV_FB_FIT, GOV_UNPOLLED_SD, GOV_UNPOLLED, GOV_PRIOR_SD_SCALE, GOV_SD_SCALE, GOV_FB_WIDTH, GOV_RATINGS_SD
     GOV_PRIOR_SD_SCALE, GOV_SD_SCALE = gov_scales
     GOV_LEAN, GOV_FB_FIT, GOV_UNPOLLED_SD, GOV_UNPOLLED = gov_lean, gov_fb != "forecast", gov_unpolled_sd, gov_unpolled
+    GOV_FB_WIDTH, GOV_RATINGS_SD = fb_width, ratings_sd
     pd.set_option("display.width", 220)
     sfx = f"_{tag}" if tag else ""
     r = gov_fallback(load_polls()) if gov_fb else load_polls()
@@ -939,6 +1130,9 @@ def main(tag=None, seed_shift=0, lean="cook", gov_lean="pres", gov_fb=None, gov_
     hh["nat"] = hh.year.map(vote)
     cov = coverage(r, sen_u, hh, fund, gov_u)
     poll_cycles = sorted(int(c) for c in r.cycle.unique() if c not in HELD_OUT)
+    if f2026:
+        return forecast_2026(r, sen_u, hh, fund, gov_u, poll_cycles, design, f2026, sfx)
+    tw, tw_rows = (threeway_universe() if threeway_check else None), []
     cyc, tabs, prm = [], [], []
     for row in cov:
         y = row["cycle"]
@@ -951,6 +1145,8 @@ def main(tag=None, seed_shift=0, lean="cook", gov_lean="pres", gov_fb=None, gov_
         for i, v in enumerate(VARIANTS):
             res[v], t = forecast_cycle(y, v, p, r, sen_u, hh, fund, seed=y * 10 + i + 100000 * seed_shift, gov_u=gov_u)
             tabs.append(t)
+            if tw is not None and v == "polls_fundamentals":
+                tw_rows += threeway_check_cycle(y, p, r, res[v]["national"], tw, seed=y * 10 + i + 7_000_000)
         cyc.append({"cycle": y, "res": res, "actual_nat": float(vote[y])})
         prm.append(dict(cycle=y, **{k: v for k, v in p.items() if not k.startswith("_") and k != "train_cycles"}, n_train=len(p["train_cycles"])))
         print(y, "G polls %+.1f, +fund %+.1f, actual %+.1f | Senate %d races | House %s" % (
@@ -982,6 +1178,8 @@ def main(tag=None, seed_shift=0, lean="cook", gov_lean="pres", gov_fb=None, gov_
                       f"cover80 {c['cover80']:.2f} cover50 {c['cover50']:.2f} | seats in 80% {s['cover80']:.2f} of {s['n_cycles']}, spread {s['pit_spread']:.2f}, mean err {s['mean_error']:+.1f}, RMSE {s['rmse']:.1f}")
         n = summ[v]["national"]
         print(f"{v:28} national environment RMSE {n['rmse']:.2f}, bias {n['bias']:+.2f}, in 80% {n['cover80']:.2f}")
+    if tw_rows:
+        threeway_report(tw_rows)
 
 
 if __name__ == "__main__":
@@ -993,10 +1191,19 @@ if __name__ == "__main__":
     ap.add_argument("--gov-unpolled-sd", choices=("robust", "rms"), default="robust")
     ap.add_argument("--gov-unpolled", choices=("flat", "demo"))
     ap.add_argument("--gov-prior-sd-scale", type=float, default=1.0); ap.add_argument("--gov-sd-scale", type=float, default=1.0)
+    ap.add_argument("--against", help="with --compare: the run to compare with, in place of the baseline")
+    ap.add_argument("--gov-fb-width", action="store_true"); ap.add_argument("--gov-ratings-sd", choices=("robust", "rms"), default="robust")
+    ap.add_argument("--threeway-check", action="store_true")
+    ap.add_argument("--gov-design", choices=tuple(DESIGNS), help="the frozen governor design (GV-4); sets the governor options above")
+    ap.add_argument("--forecast-2026", choices=("snapshot", "final"), help="write the 2026 governor forecast only; the generic-ballot source")
     a = ap.parse_args()
+    if a.gov_design:
+        for k, v in DESIGNS[a.gov_design].items():
+            setattr(a, k, v)
     if a.compare:
-        compare(a.compare)
+        compare(a.compare, a.against)
     else:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore", RuntimeWarning)     # empty region cells in the first cycles
-            main(a.tag, a.seed_shift, a.house_lean, a.gov_lean, a.gov_poll_fallback, a.gov_unpolled_sd, a.gov_unpolled, (a.gov_prior_sd_scale, a.gov_sd_scale))
+            main(a.tag, a.seed_shift, a.house_lean, a.gov_lean, a.gov_poll_fallback, a.gov_unpolled_sd, a.gov_unpolled, (a.gov_prior_sd_scale, a.gov_sd_scale),
+                 a.gov_fb_width, a.gov_ratings_sd, a.threeway_check, a.forecast_2026, bool(a.gov_design))
