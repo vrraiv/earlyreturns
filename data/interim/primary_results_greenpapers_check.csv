@@ -157,11 +157,11 @@ cycle,party,state,contest,candidate_name,source_kind,measure,votes,green_papers_
 2008,D,MO,primary,Joe Biden,fec,votes,626.0,626.0,Popular Vote,votes,0.0
 2008,D,MO,primary,Mike Gravel,fec,votes,438.0,438.0,Popular Vote,votes,0.0
 2008,D,MO,primary,Christopher J. Dodd,fec,votes,250.0,250.0,Popular Vote,votes,0.0
-2008,D,ND,caucus,Barack Obama,wikipedia,votes,11625.0,11625.0,Popular Vote,votes,0.0
-2008,D,ND,caucus,Hillary Clinton,wikipedia,votes,6948.0,6948.0,Popular Vote,votes,0.0
-2008,D,ND,caucus,John Edwards,wikipedia,votes,283.0,283.0,Popular Vote,votes,0.0
-2008,D,ND,caucus,Dennis Kucinich,wikipedia,votes,72.0,72.0,Popular Vote,votes,0.0
-2008,D,ND,caucus,Mike Gravel,wikipedia,votes,31.0,31.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,Barack Obama,wikipedia,unclear,11625.0,11625.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,Hillary Clinton,wikipedia,unclear,6948.0,6948.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,John Edwards,wikipedia,unclear,283.0,283.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,Dennis Kucinich,wikipedia,unclear,72.0,72.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,Mike Gravel,wikipedia,unclear,31.0,31.0,Popular Vote,votes,0.0
 2008,D,NJ,primary,Hillary Clinton,fec,votes,613500.0,613500.0,Popular Vote,votes,0.0
 2008,D,NJ,primary,Barack Obama,fec,votes,501372.0,501372.0,Popular Vote,votes,0.0
 2008,D,NJ,primary,John Edwards,fec,votes,15728.0,15728.0,Popular Vote,votes,0.0
