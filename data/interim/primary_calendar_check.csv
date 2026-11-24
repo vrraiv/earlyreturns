@@ -1,0 +1,539 @@
+cycle,party,state,contest,date,green_papers_has_date,green_papers_events
+2008,D,IA,caucus,2008-01-03,True,Caucus 2008-01-03; County Conventions 2008-03-15; District Conventions 2008-04-26; State Convention postponed 2008-06-14; State Convention 2008-06-28
+2008,R,IA,caucus,2008-01-03,True,Caucus 2008-01-03; County Conventions 2008-03-08; District Statutory Caucus 2008-04-19; State Convention postponed 2008-06-14; State Convention 2008-07-11
+2008,R,WY,caucus,2008-01-05,True,County Conventions 2008-01-05; Convention 2008-05-30
+2008,D,NH,primary,2008-01-08,True,Primary 2008-01-08; Caucus / National Convention Delegation Meeting 2008-04-26
+2008,R,NH,primary,2008-01-08,True,Primary 2008-01-08
+2008,D,MI,primary,2008-01-15,True,Primary 2008-01-15; District Conventions 2008-04-19; State Central Committee 2008-06-14
+2008,R,MI,primary,2008-01-15,True,Primary 2008-01-15; County Conventions 2008-02-07; Congressional Caucuses / State Convention 2008-02-15
+2008,D,NV,caucus,2008-01-19,True,Precinct Caucuses 2008-01-19; County Conventions 2008-02-23; State Convention 2008-05-17
+2008,R,NV,caucus,2008-01-19,True,Precinct Caucus 2008-01-19; County Conventions 2008-03-15; District Meetings and State Convention 2008-04-26; Rump State Convention 2008-06-28; State Convention 2008-07-26
+2008,R,SC,primary,2008-01-19,True,Primary 2008-01-19
+2008,R,HI,caucus,2008-01-25,True,Precinct Caucuses 2008-01-25; State Convention 2008-05-16
+2008,D,SC,primary,2008-01-26,True,Party-run Primary 2008-01-26; Precinct Meetings 2008-02-23; State Convention 2008-05-03
+2008,D,FL,primary,2008-01-29,True,Primary 2008-01-29; Florida Democratic Party State Executive Committee 2008-04-05; Do-over Primary 2008-06-03
+2008,R,FL,primary,2008-01-29,True,Primary 2008-01-29
+2008,R,ME,caucus,2008-02-01,True,Municipal Caucuses 2008-02-01; District Caucuses and State Convention 2008-05-03
+2008,D,AK,caucus,2008-02-05,True,Precinct / House District Caucuses 2008-02-05; State Party Convention 2008-05-24
+2008,R,AK,caucus,2008-02-05,True,District Conventions 2008-02-05; Convention 2008-03-13
+2008,D,AL,primary,2008-02-05,True,Primary 2008-02-05; State Democratic Executive Committee Meeting 2008-03-01
+2008,R,AL,primary,2008-02-05,True,Primary 2008-02-05
+2008,D,AR,primary,2008-02-05,True,Primary 2008-02-05; Special State Convention 2008-03-08
+2008,R,AR,primary,2008-02-05,True,Primary 2008-02-05; Special District Convention 2008-05-03; State Committee Meeting 2008-06-14
+2008,D,AZ,primary,2008-02-05,True,Primary 2008-02-05; Regional Caucuses 2008-03-08; State Convention 2008-04-19
+2008,R,AZ,primary,2008-02-05,True,Primary 2008-02-05; District and Country Conventions 2008-04-05; District Caucus and State Convention 2008-05-10
+2008,D,CA,primary,2008-02-05,True,Primary 2008-02-05; Delegation Meeting 2008-05-18
+2008,R,CA,primary,2008-02-05,True,Primary 2008-02-05
+2008,D,CO,caucus,2008-02-05,True,Precinct Caucus 2008-02-05; County Assemblies and Conventions 2008-02-20; District Conventions 2008-05-03; State Convention 2008-05-17
+2008,R,CO,caucus,2008-02-05,True,Precinct Caucuses 2008-02-05; County Assemblies 2008-04-25; District Conventions 2008-05-24; State Convention 2008-05-31
+2008,D,CT,primary,2008-02-05,True,Primary 2008-02-05; Post Primary Caucus 2008-03-19; State Central Committee 2008-03-26
+2008,R,CT,primary,2008-02-05,True,Primary 2008-02-05
+2008,D,DE,primary,2008-02-05,True,Primary 2008-02-05; State Convention 2008-04-05
+2008,R,DE,primary,2008-02-05,True,Primary 2008-02-05; Delegate Selection Meetings 2008-03-10; State Convention 2008-05-02
+2008,D,GA,primary,2008-02-05,True,Primary 2008-02-05; State Committee Meeting 2008-05-24
+2008,R,GA,primary,2008-02-05,True,Primary 2008-02-05; Precinct Mass Meetings 2008-02-16; County Conventions / Precinct Mass Meetings 2008-03-15; District Conventions 2008-04-19; State Convention 2008-05-16
+2008,D,ID,caucus,2008-02-05,True,County Caucus 2008-02-05; Non-binding Primary 2008-05-27; State Convention 2008-06-12
+2008,D,IL,primary,2008-02-05,True,Primary 2008-02-05; National Convention delegation meeting 2008-05-05
+2008,R,IL,primary,2008-02-05,True,Primary 2008-02-05; Convention 2008-06-07
+2008,D,KS,caucus,2008-02-05,True,Local Unit Conventions 2008-02-05; District Conventions 2008-04-12; State Convention 2008-05-17
+2008,D,MA,primary,2008-02-05,True,Primary 2008-02-05; State Committee and National Convention Delegate Meeting 2008-05-10
+2008,R,MA,primary,2008-02-05,True,Primary 2008-02-05
+2008,D,MN,caucus,2008-02-05,True,Precinct Caucuses 2008-02-05; State Convention 2008-06-06
+2008,R,MN,caucus,2008-02-05,True,Precinct Caucuses / non-binding straw poll 2008-02-05; BPOU Conventions 2008-02-22; District Conventions 2008-03-29; State Convention 2008-05-29
+2008,D,MO,primary,2008-02-05,True,Primary 2008-02-05; State Committee 2008-04-05; State Convention 2008-05-10
+2008,R,MO,primary,2008-02-05,True,Primary 2008-02-05
+2008,D,ND,caucus,2008-02-05,True,Precinct Caucuses 2008-02-05; Legislative District Conventions 2008-02-19; State Convention 2008-04-04
+2008,R,ND,caucus,2008-02-05,True,Caucus 2008-02-05; State Convention 2008-03-28
+2008,D,NJ,primary,2008-02-05,True,Primary 2008-02-05; State Committee 2008-04-17
+2008,R,NJ,primary,2008-02-05,True,Primary 2008-02-05; Election of Delegates 2008-06-03
+2008,D,NM,caucus,2008-02-05,True,Party-run Primary 2008-02-05; District Conventions 2008-04-19; State Central Committee 2008-04-26
+2008,D,NY,primary,2008-02-05,True,Primary 2008-02-05; State Committee 2008-05-01
+2008,R,NY,primary,2008-02-05,True,Primary 2008-02-05; State Committee 2008-05-20
+2008,D,OK,primary,2008-02-05,True,Primary 2008-02-05; State Convention 2008-02-23
+2008,R,OK,primary,2008-02-05,True,Primary 2008-02-05
+2008,D,TN,primary,2008-02-05,True,Primary 2008-02-05; State Executive Committee 2008-03-15
+2008,R,TN,primary,2008-02-05,True,Primary 2008-02-05; State Executive Committee 2008-03-01
+2008,D,UT,primary,2008-02-05,True,Primary 2008-02-05; State Convention 2008-05-09
+2008,R,UT,primary,2008-02-05,True,Primary 2008-02-05; State Convention 2008-05-10
+2008,R,KS,caucus,2008-02-09,True,Caucuses 2008-02-09; State Party Committee Meeting 2008-05-22
+2008,D,LA,primary,2008-02-09,True,Primary 2008-02-09; State Convention 2008-05-03
+2008,R,LA,primary,2008-02-09,True,District Caucuses 2008-01-22; Primary 2008-02-09; State Convention 2008-02-16
+2008,D,NE,caucus,2008-02-09,True,Precinct Caucus 2008-02-09; Advisory Primary 2008-05-13; County Conventions 2008-06-01; State Convention 2008-06-20
+2008,D,WA,caucus,2008-02-09,True,Precinct Caucuses 2008-02-09; Non-binding primary 2008-02-19; Legislative District Caucuses 2008-04-05; County Conventions and Legislative District Caucuses 2008-04-19; Congressional District Caucuses 2008-05-17; State Convention 2008-06-13
+2008,R,WA,caucus,2008-02-09,True,Precinct Caucuses 2008-02-09; Primary 2008-02-19; County Conventions 2008-03-22; State Convention 2008-05-29
+2008,D,ME,caucus,2008-02-10,True,Municipal Caucuses 2008-02-10; State Convention. 2008-05-31
+2008,D,DC,primary,2008-02-12,True,Primary 2008-02-12; State Party Committee 2008-04-03
+2008,R,DC,primary,2008-02-12,True,Primary 2008-02-12
+2008,D,MD,primary,2008-02-12,True,Primary 2008-02-12; State Democratic Central Committee Meeting 2008-05-01
+2008,R,MD,primary,2008-02-12,True,Primary 2008-02-12
+2008,D,VA,primary,2008-02-12,True,Primary 2008-02-12; State Convention 2008-06-14
+2008,R,VA,primary,2008-02-12,True,Primary 2008-02-12; District Conventions 2008-05-09; State Convention 2008-05-30
+2008,D,HI,caucus,2008-02-19,True,Precinct Caucus 2008-02-19; State Convention 2008-05-23
+2008,D,WA,primary,2008-02-19,True,Precinct Caucuses 2008-02-09; Non-binding primary 2008-02-19; Legislative District Caucuses 2008-04-05; County Conventions and Legislative District Caucuses 2008-04-19; Congressional District Caucuses 2008-05-17; State Convention 2008-06-13
+2008,R,WA,primary,2008-02-19,True,Precinct Caucuses 2008-02-09; Primary 2008-02-19; County Conventions 2008-03-22; State Convention 2008-05-29
+2008,D,WI,primary,2008-02-19,True,Primary 2008-02-19; County Caucuses 2008-04-06; Congressional District Caucuses 2008-05-04; State Convention 2008-06-13
+2008,R,WI,primary,2008-02-19,True,Primary 2008-02-19
+2008,R,PR,caucus,2008-02-24,True,Territorial Caucus 2008-02-24; Territorial Convention 2008-03-08
+2008,D,OH,primary,2008-03-04,True,Primary 2008-03-04; State Executive Committee 2008-05-10
+2008,R,OH,primary,2008-03-04,True,Primary 2008-03-04
+2008,D,RI,primary,2008-03-04,True,Primary 2008-03-04; State Executive Committee 2008-06-19
+2008,R,RI,primary,2008-03-04,True,Primary 2008-03-04
+2008,D,TX,primary,2008-03-04,True,Primary 2008-03-04; County and Senate District Conventions 2008-03-29; State Convention 2008-06-06
+2008,R,TX,primary,2008-03-04,True,Primary 2008-03-04; State Convention 2008-06-12
+2008,D,VT,primary,2008-03-04,True,Primary 2008-03-04; State Convention 2008-05-24; National Convention Delegate Meeting 2008-06-07
+2008,R,VT,primary,2008-03-04,True,Primary 2008-03-04
+2008,D,WY,caucus,2008-03-08,True,County Caucuses 2008-03-08; State Convention 2008-05-24
+2008,D,MS,primary,2008-03-11,True,Precinct Meetings 2008-02-23; Primary 2008-03-11; County Conventions 2008-03-15; Congressional District Conventions 2008-04-05; State Convention 2008-06-07
+2008,R,MS,primary,2008-03-11,True,Primary 2008-03-11; State Convention 2008-05-09
+2008,D,PA,primary,2008-04-22,True,Primary 2008-04-22; State Committee 2008-06-07
+2008,R,PA,primary,2008-04-22,True,Primary 2008-04-22; Summer Meeting 2008-06-06
+2008,D,IN,primary,2008-05-06,True,Primary 2008-05-06; State Convention 2008-06-20
+2008,R,IN,primary,2008-05-06,True,Primary 2008-05-06; State Convention 2008-06-01
+2008,D,NC,primary,2008-05-06,True,Primary 2008-05-06; State Convention 2008-06-21
+2008,R,NC,primary,2008-05-06,True,District Conventions 2008-04-05; Primary 2008-05-06; State Convention 2008-06-06
+2008,D,NE,primary,2008-05-13,True,Precinct Caucus 2008-02-09; Advisory Primary 2008-05-13; County Conventions 2008-06-01; State Convention 2008-06-20
+2008,R,NE,primary,2008-05-13,True,Primary 2008-05-13; State Convention 2008-07-12
+2008,D,WV,primary,2008-05-13,True,Primary 2008-05-13; State Convention & Executive Committee 2008-06-13
+2008,R,WV,primary,2008-05-13,True,State Presidential Convention Delegates Selected 2008-01-01; State Presidential Convention 2008-02-05; Primary 2008-05-13
+2008,D,KY,primary,2008-05-20,True,Primary 2008-05-20; State Convention 2008-06-07
+2008,R,KY,primary,2008-05-20,True,Primary 2008-05-20
+2008,D,OR,primary,2008-05-20,True,Primary 2008-05-20; State Convention 2008-06-21
+2008,R,OR,primary,2008-05-20,True,Primary 2008-05-20; District Conventions 2008-07-12
+2008,D,ID,primary,2008-05-27,True,County Caucus 2008-02-05; Non-binding Primary 2008-05-27; State Convention 2008-06-12
+2008,R,ID,primary,2008-05-27,True,Primary 2008-05-27; State Convention 2008-06-12
+2008,D,PR,primary,2008-06-01,True,Primary 2008-06-01; Democratic Assembly 2008-06-21
+2008,D,MT,primary,2008-06-03,True,Primary 2008-06-03; State Convention 2008-06-08
+2008,R,MT,primary,2008-06-03,True,Caucus 2008-02-05; Advisory Primary 2008-06-03
+2008,R,NM,primary,2008-06-03,True,Primary 2008-06-03; State Republican Convention 2008-06-14
+2008,D,SD,primary,2008-06-03,True,Primary 2008-06-03; State Party Central Committee 2008-06-28
+2008,R,SD,primary,2008-06-03,True,Primary 2008-06-03
+2012,D,IA,caucus,2012-01-03,True,Caucus 2012-01-03; County Conventions 2012-03-10; District Conventions 2012-04-28; State Convention 2012-06-16
+2012,R,IA,caucus,2012-01-03,True,Presidential Straw Poll 2011-08-13; Caucus 2012-01-03; County Conventions 2012-03-10; District Statutory Caucus 2012-04-21; State Convention 2012-06-16
+2012,D,NH,primary,2012-01-10,True,Primary 2012-01-10; District Caucuses 2012-01-14; Caucus / National Convention Delegation Meeting 2012-04-28
+2012,R,NH,primary,2012-01-10,True,Primary 2012-01-10
+2012,D,NV,caucus,2012-01-21,True,Non-binding Precinct Viability Caucuses 2012-01-21; County Conventions 2012-04-14; State Convention 2012-06-09
+2012,R,SC,primary,2012-01-21,True,Primary 2012-01-21; State Convention 2012-05-19
+2012,D,SC,primary,2012-01-28,True,Presidential Primary/Precinct Reorganization meeting 2012-01-28; Precinct Reorganization Meeting 2012-03-03; County Democratic Conventions 2012-03-15; State Convention 2012-05-12
+2012,D,FL,primary,2012-01-31,True,Non-binding Primary 2012-01-31; County Caucuses 2012-05-05; State Convention 2012-06-02
+2012,R,FL,primary,2012-01-31,True,Presidency 5 Straw Poll 2012-09-22; Primary 2012-01-31; District Caucuses 2012-02-07; Executive Board Meeting 2012-04-27
+2012,R,ME,caucus,2012-02-04,False,Municipal Caucuses / non-binding straw poll 2012-01-29; Municipal Caucuses / non-binding straw poll results announced 2012-02-11; District Caucuses and State Convention 2012-05-05
+2012,R,NV,caucus,2012-02-04,True,Straw Poll 2011-10-21; Precinct Caucuses 2012-02-04; County Conventions 2012-03-10; State Convention 2012-05-05
+2012,R,CO,caucus,2012-02-07,True,Precinct Caucuses 2012-02-07; County Assemblies complete 2012-03-28; District Conventions 2012-04-12; State Convention 2012-04-14
+2012,D,MN,caucus,2012-02-07,True,Precinct Caucuses 2012-02-07; Organizing Unit Conventions 2012-03-06; Congressional District Conventions 2012-04-09; State Convention 2012-06-02
+2012,R,MN,caucus,2012-02-07,True,Precinct Caucuses / non-binding straw poll 2012-02-07; BPOU Conventions 2012-02-17; District Conventions 2012-03-31; State Convention 2012-05-18
+2012,D,MO,primary,2012-02-07,True,Primary 2012-02-07; Mass Meeting 2012-03-29; Congressional District Conventions 2012-04-26; State Committee 2012-05-05; State Convention 2012-06-09
+2012,R,MO,primary,2012-02-07,True,Non-binding Primary 2012-02-07; County Caucuses 2012-03-15; County Caucuses Complete 2012-03-24; Congressional District Conventions 2012-04-21; State Convention 2012-06-02
+2012,D,AZ,primary,2012-02-28,True,Non-binding Primary 2012-02-28; Congressional District Caucuses 2012-03-31; State Convention 2012-04-21
+2012,R,AZ,primary,2012-02-28,True,Primary 2012-02-28; District and Country Conventions 2012-04-07; District Caucus and State Convention 2012-05-12
+2012,D,MI,primary,2012-02-28,True,Non-binding Primary 2012-02-28; Precinct Caucuses 2012-05-05; District Conventions 2012-06-02; State Central Committee 2012-06-23
+2012,R,MI,primary,2012-02-28,True,Primary 2012-02-28; County Conventions 2012-05-03; Congressional District Caucuses / State Convention 2012-05-18
+2012,R,WA,caucus,2012-03-03,True,Precinct Caucuses / Non-binding Straw Poll 2012-03-03; County Conventions / Legislative District Caucus 2012-03-17; County Conventions (last day) 2012-04-24; State Convention 2012-05-30
+2012,R,AK,caucus,2012-03-06,True,District Conventions 2012-03-06; State Convention 2012-04-26
+2012,D,CO,caucus,2012-03-06,True,Precinct Caucus 2012-03-06; County Assemblies and Conventions 2012-03-30; District Conventions 2012-05-19; State Convention 2012-06-02
+2012,D,GA,primary,2012-03-06,True,Primary 2012-03-06; Congressional District Caucuses 2012-04-21; State Committee Meeting 2012-05-12; State Committee Meeting 2012-05-19
+2012,R,GA,primary,2012-03-06,True,Precinct Mass Meetings 2012-02-18; Primary 2012-03-06; Precinct Mass Meetings / County Conventions 2012-03-10; District Conventions 2012-04-14; State Convention 2012-05-18
+2012,R,ID,caucus,2012-03-06,True,County Caucuses 2012-03-06; Non-binding Primary 2012-05-15; State Convention 2012-06-21
+2012,D,MA,primary,2012-03-06,True,Primary 2012-03-06; Congressional District Caucuses 2012-04-21; State Committee and National Convention Delegate Meeting 2012-05-05
+2012,R,MA,primary,2012-03-06,True,Primary 2012-03-06; Deadline for Congressional District Conventions 2012-04-28; Deadline for State Committee Meeting 2012-06-12
+2012,R,ND,caucus,2012-03-06,True,Caucus 2012-03-06; State Convention 2012-03-30
+2012,D,OH,primary,2012-03-06,True,Primary 2012-03-06; Post Primary Caucus 2012-04-12; State Executive Committee 2012-04-28
+2012,R,OH,primary,2012-03-06,True,Primary 2012-03-06
+2012,D,OK,primary,2012-03-06,True,Primary 2012-03-06; State Convention 2012-04-14
+2012,R,OK,primary,2012-03-06,True,Primary 2012-03-06; District Conventions 2012-03-31; State Convention 2012-05-11
+2012,D,TN,primary,2012-03-06,True,Primary 2012-03-06; County Conventions 2012-03-10; District Conventions 2012-03-24; State Executive Committee 2012-03-31
+2012,R,TN,primary,2012-03-06,True,Primary 2012-03-06; State Executive Committee 2012-04-07
+2012,D,VA,primary,2012-03-06,True,Primary (only 1 candidate qualified - primary cancelled) 2012-03-06; Congressional District Conventions 2012-05-12; State Convention 2012-06-02
+2012,R,VA,primary,2012-03-06,True,"Local Mass Meetings, Party Canvasses, Conventions 2012-02-15; Primary 2012-03-06; District Conventions 2012-04-28; State Convention 2012-06-16"
+2012,D,VT,primary,2012-03-06,True,Primary 2012-03-06; Town Caucuses 2012-03-24; State Convention 2012-05-26; National Convention Delegate Meeting 2012-06-09
+2012,R,VT,primary,2012-03-06,True,Primary 2012-03-06; State Convention 2012-05-19
+2012,R,WY,caucus,2012-03-06,True,Non-binding straw poll 2012-02-09; Last Possible Day for Precinct Caucuses 2012-02-29; County Conventions 2012-03-06; Convention 2012-04-12
+2012,D,HI,caucus,2012-03-07,True,Precinct Caucus 2012-03-07; State Convention 2012-05-25
+2012,R,KS,caucus,2012-03-10,True,Caucuses 2012-03-10; Congressional District Conventions 2012-03-30; State Party Committee Meeting 2012-04-28
+2012,D,ME,caucus,2012-03-11,False,Municipal Caucuses 2012-02-26; County Conventions 2012-03-06; State Convention. 2012-06-02
+2012,D,AL,primary,2012-03-13,True,Primary 2012-03-13; State Democratic Executive Committee Meeting 2012-04-14
+2012,R,AL,primary,2012-03-13,True,Alabama Straw Poll 2011-10-29; Primary 2012-03-13
+2012,R,HI,caucus,2012-03-13,True,Precinct Caucuses 2012-03-13
+2012,D,MS,primary,2012-03-13,True,Precinct Meetings 2012-02-18; County Conventions 2012-03-10; Primary 2012-03-13; Congressional District Conventions 2012-03-31; State Convention 2012-06-02
+2012,R,MS,primary,2012-03-13,True,Primary 2012-03-13; Precinct Caucuses / County Presidential Conventions 2012-04-28; State Convention 2012-05-18
+2012,D,UT,caucus,2012-03-13,True,Caucuses 2012-03-13; County Conventions 2012-03-13; State Convention 2012-04-20
+2012,R,MO,caucus,2012-03-17,False,Non-binding Primary 2012-02-07; County Caucuses 2012-03-15; County Caucuses Complete 2012-03-24; Congressional District Conventions 2012-04-21; State Convention 2012-06-02
+2012,R,PR,primary,2012-03-18,True,Primary 2012-03-18
+2012,D,IL,primary,2012-03-20,True,Primary 2012-03-20; National Convention delegation meeting 2012-05-07
+2012,R,IL,primary,2012-03-20,True,Primary 2012-03-20; Convention 2012-06-08
+2012,D,LA,primary,2012-03-24,True,Primary 2012-03-24; Post Primary Congressional Caucus 2012-05-05; Democratic State Central Committee in Baton Rouge 2012-06-02
+2012,R,LA,primary,2012-03-24,True,Primary 2012-03-24; District Caucuses 2012-04-28; State Convention 2012-06-02
+2012,D,DC,primary,2012-04-03,True,Primary 2012-04-03; State Party Committee 2012-05-03
+2012,R,DC,primary,2012-04-03,True,Primary 2012-04-03
+2012,D,MD,primary,2012-04-03,True,Primary 2012-04-03; State Democratic Central Committee Meeting 2012-05-12
+2012,R,MD,primary,2012-04-03,True,Presidential Straw Poll 2011-09-09; Primary 2012-04-03; Spring Convention 2012-04-27
+2012,D,WI,primary,2012-04-03,True,Primary 2012-04-03; County Caucuses 2012-04-15; Congressional District Caucuses 2012-05-06; Administrative Committee Meeting and State Convention 2012-06-08
+2012,R,WI,primary,2012-04-03,True,Primary 2012-04-03
+2012,D,AK,caucus,2012-04-09,False,Precinct / House District Caucuses 2012-04-10; State Party Convention 2012-05-11
+2012,D,ID,caucus,2012-04-14,True,County Caucus 2012-04-14; Non-binding Primary 2012-05-15; State Convention 2012-06-14
+2012,D,KS,caucus,2012-04-14,True,Local Unit Conventions 2012-04-14; District Conventions 2012-05-05; State Convention 2012-06-09
+2012,D,NE,caucus,2012-04-14,True,Precinct Caucuses 2012-04-14; Advisory Primary 2012-05-15; County Conventions 2012-06-01; State Convention 2012-06-23
+2012,D,WY,caucus,2012-04-14,True,County Caucuses 2012-04-14; State Convention 2012-05-26
+2012,D,WA,caucus,2012-04-15,True,Non-binding primary (cancelled by the state Legislature) 2012-02-21; Precinct Caucuses 2012-04-15; Legislative District Caucuses 2012-04-28; County Conventions 2012-04-29; Congressional District Caucuses 2012-05-20; State Convention 2012-06-01
+2012,D,CT,primary,2012-04-24,True,Primary (only 1 candidate - no primary will be held) 2012-04-24; State Convention 2012-05-12; Congressional District Caucuses 2012-05-30; District Level Delegation Meeting 2012-06-06
+2012,R,CT,primary,2012-04-24,True,Primary 2012-04-24; State Committee Meeting 2012-05-18
+2012,D,DE,primary,2012-04-24,True,Primary (only 1 candidate filed - no primary) 2012-04-24; Representative District Caucuses / Party-run Primary 2012-05-01; State Convention 2012-06-09
+2012,R,DE,primary,2012-04-24,True,Presidential Straw Poll 2011-12-07; Primary 2012-04-24; State Convention 2012-04-28
+2012,D,NY,primary,2012-04-24,True,Primary 2012-04-24; State Committee 2012-05-24
+2012,R,NY,primary,2012-04-24,True,Primary 2012-04-24; State Committee 2012-05-30
+2012,D,PA,primary,2012-04-24,True,Primary 2012-04-24; State Committee 2012-06-09
+2012,R,PA,primary,2012-04-24,True,Primary 2012-04-24; Summer Meeting 2012-06-10
+2012,D,RI,primary,2012-04-24,True,Primary 2012-04-24; State Convention 2012-06-21
+2012,R,RI,primary,2012-04-24,True,Primary 2012-04-24
+2012,D,IN,primary,2012-05-08,True,Primary 2012-05-08; State Convention 2012-06-16
+2012,R,IN,primary,2012-05-08,True,Primary 2012-05-08; State Convention 2012-06-08
+2012,D,NC,primary,2012-05-08,True,Primary 2012-05-08; Congressional District Conventions 2012-05-19; State Convention 2012-06-16
+2012,R,NC,primary,2012-05-08,True,District Conventions 2012-04-07; Primary 2012-05-08; State Convention 2012-06-01
+2012,D,WV,primary,2012-05-08,True,Primary 2012-05-08; State Convention & Executive Committee 2012-06-08
+2012,R,WV,primary,2012-05-08,True,Primary 2012-05-08
+2012,D,NE,primary,2012-05-15,True,Precinct Caucuses 2012-04-14; Advisory Primary 2012-05-15; County Conventions 2012-06-01; State Convention 2012-06-23
+2012,R,NE,primary,2012-05-15,True,Non-binding Primary 2012-05-15; County Conventions 2012-06-01; State Convention 2012-07-14
+2012,D,OR,primary,2012-05-15,True,Primary 2012-05-15; Congressional District Conventions 2012-06-02; State Convention 2012-06-16
+2012,R,OR,primary,2012-05-15,True,Primary 2012-05-15; District Conventions 2012-06-23
+2012,D,AR,primary,2012-05-22,True,Primary 2012-05-22; Special State Convention 2012-06-16
+2012,R,AR,primary,2012-05-22,True,Special Meeting of the County Conventions 2012-04-23; Primary 2012-05-22; Special District Convention 2012-06-09; State Committee Meeting 2012-06-23
+2012,D,KY,primary,2012-05-22,True,Primary 2012-05-22; State Convention 2012-06-02
+2012,R,KY,primary,2012-05-22,True,District Conventions 2012-04-07; Primary 2012-05-22; State Convention 2012-06-09
+2012,D,TX,primary,2012-05-29,True,County/Senatorial District Conventions 2012-04-21; Advisory Primary 2012-05-29; State Convention 2012-06-08
+2012,R,TX,primary,2012-05-29,True,Primary 2012-05-29; State Convention 2012-06-07
+2012,D,PR,caucus,2012-06-03,True,Senate District Caucuses 2012-06-03; Democratic Assembly 2012-06-10
+2012,D,CA,primary,2012-06-05,True,Pre-primary Caucus 2012-04-28; Primary 2012-06-05; Delegation Meeting 2012-06-24
+2012,R,CA,primary,2012-06-05,True,Primary 2012-06-05
+2012,D,MT,primary,2012-06-05,True,Primary 2012-06-05; County Caucuses 2012-06-07; State Convention 2012-06-09
+2012,R,MT,primary,2012-06-05,True,Non-binding Primary 2012-06-05; State Convention 2012-06-14
+2012,D,ND,caucus,2012-06-05,True,Legislative District Caucus 2012-06-05; State Delegate Selection Meeting 2012-06-16
+2012,D,NJ,primary,2012-06-05,True,Primary 2012-06-05; State Committee 2012-06-16
+2012,R,NJ,primary,2012-06-05,True,Primary 2012-06-05
+2012,D,NM,primary,2012-06-05,True,Primary 2012-06-05; State Party Central Committee and District Conventions 2012-06-09; State Party Central Committee 2012-06-16
+2012,R,NM,primary,2012-06-05,True,County Conventions 2012-05-12; Primary 2012-06-05; State Republican Convention 2012-06-09
+2012,D,SD,primary,2012-06-05,True,State Legislative District Caucuses 2012-03-10; Congressional District Caucuses 2012-03-24; Primary 2012-06-05; State Convention / State Party Central Committee 2012-06-16
+2012,R,SD,primary,2012-06-05,True,Sioux Falls Straw Poll 2011-11-05; Primary 2012-06-05; State Central Committee Meeting 2012-06-21
+2012,D,UT,primary,2012-06-26,False,Caucuses 2012-03-13; County Conventions 2012-03-13; State Convention 2012-04-20
+2012,R,UT,primary,2012-06-26,True,Precinct Caucuses 2012-03-15; State Convention 2012-04-21; Primary 2012-06-26
+2012,R,NE,caucus,2012-07-14,True,Non-binding Primary 2012-05-15; County Conventions 2012-06-01; State Convention 2012-07-14
+2016,D,IA,caucus,2016-02-01,True,Precinct Caucuses 2016-02-01; County Conventions 2016-03-12; District Conventions 2016-04-30; State Convention 2016-06-18
+2016,R,IA,caucus,2016-02-01,True,Precinct Caucuses 2016-02-01; County Conventions 2016-03-12; District Statutory Caucus 2016-04-09; State Convention 2016-05-21
+2016,D,NH,primary,2016-02-09,True,District Level Pre-primary Caucuses 2016-01-30; Primary 2016-02-09; Caucus / National Convention Delegation Meeting 2016-04-16
+2016,R,NH,primary,2016-02-09,True,Primary 2016-02-09
+2016,D,NV,caucus,2016-02-20,True,Precinct Viability Caucuses 2016-02-20; County Conventions 2016-04-02; State Convention 2016-05-14
+2016,R,SC,primary,2016-02-20,True,Primary 2016-02-20; State Convention 2016-05-07
+2016,R,WA,caucus,2016-02-20,True,Precinct Caucuses 2016-02-20; County Conventions / Legislative District Caucus 2016-03-12; State Convention 2016-05-19; Primary 2016-05-24
+2016,R,NV,caucus,2016-02-23,True,Precinct Caucuses 2016-02-23; State Convention 2016-05-13
+2016,D,SC,primary,2016-02-27,True,Primary 2016-02-27; Precinct Reorganization Meeting 2016-03-12; County Democratic Conventions 2016-03-19; State Convention 2016-04-30
+2016,R,AK,caucus,2016-03-01,True,District Conventions 2016-03-01; Legislative District Conventions 2016-03-01; State Convention 2016-04-28
+2016,D,AL,primary,2016-03-01,True,Primary 2016-03-01; State Democratic Executive Committee Meeting 2016-04-02
+2016,R,AL,primary,2016-03-01,True,Primary 2016-03-01
+2016,D,AR,primary,2016-03-01,True,Primary 2016-03-01; Congressional District and State Conventions 2016-06-11
+2016,R,AR,primary,2016-03-01,True,Primary 2016-03-01; Special Meeting of the County Conventions 2016-03-07; Special District Convention 2016-04-30; State Committee Meeting 2016-05-14
+2016,D,CO,caucus,2016-03-01,True,Precinct Caucus 2016-03-01; County Assemblies/Conventions 2016-03-02; District Assemblies/Conventions 2016-04-01; State Assembly/Convention 2016-04-16
+2016,R,CO,caucus,2016-03-01,True,Precinct Caucuses 2016-03-01; County Assemblies 2016-03-01; State Convention 2016-04-09
+2016,D,GA,primary,2016-03-01,True,Primary 2016-03-01; Congressional District Caucuses 2016-04-16; Quorum of District Delegates 2016-05-14; State Committee Meeting 2016-06-11
+2016,R,GA,primary,2016-03-01,True,"Precinct Mass Meetings [in counties with populations over 80,000] 2016-02-11; Primary 2016-03-01; Precinct Mass Meetings 2016-03-10; County Conventions 2016-03-19; District Conventions 2016-04-16; State Convention 2016-06-03"
+2016,D,MA,primary,2016-03-01,True,Primary 2016-03-01; Congressional District Caucuses 2016-04-09; State Committee and National Convention Delegate Meeting 2016-05-07
+2016,R,MA,primary,2016-03-01,True,Primary 2016-03-01; Congressional District Conventions 2016-04-30; State Committee Meeting 2016-05-25
+2016,D,MN,caucus,2016-03-01,True,Precinct Caucuses 2016-03-01; Organizing Unit Conventions 2016-03-12; Congressional District Conventions 2016-04-30; State Convention 2016-06-04
+2016,R,MN,caucus,2016-03-01,True,Precinct Caucuses 2016-03-01; BPOU Conventions 2016-03-12; District Conventions 2016-04-22; State Convention 2016-05-20
+2016,D,OK,primary,2016-03-01,True,Primary 2016-03-01; State Convention 2016-04-09
+2016,R,OK,primary,2016-03-01,True,Precinct Meetings 2016-02-09; Primary 2016-03-01; County Conventions 2016-03-12; District Conventions 2016-04-16; State Convention 2016-05-13
+2016,D,TN,primary,2016-03-01,True,Primary 2016-03-01; County Conventions 2016-03-05; District Conventions 2016-03-19; State Executive Committee 2016-04-09
+2016,R,TN,primary,2016-03-01,True,Primary 2016-03-01; State Executive Committee 2016-04-02
+2016,D,TX,primary,2016-03-01,True,Primary 2016-03-01; Precinct/County/Senatorial District Conventions 2016-03-19; State Convention 2016-06-16
+2016,R,TX,primary,2016-03-01,True,Primary 2016-03-01; County and Senatorial District Conventions 2016-03-19; State Convention 2016-05-12
+2016,D,VA,primary,2016-03-01,True,Primary 2016-03-01; Congressional District Conventions 2016-05-07; State Convention 2016-06-18
+2016,R,VA,primary,2016-03-01,True,"Local Mass Meetings, Party Canvasses, Conventions 2016-02-06; Primary 2016-03-01; District Conventions 2016-03-02; State Convention 2016-04-30"
+2016,D,VT,primary,2016-03-01,True,Primary 2016-03-01; Town Caucuses 2016-03-26; State Convention 2016-05-22; National Convention Delegate Meeting 2016-06-11
+2016,R,VT,primary,2016-03-01,True,Primary 2016-03-01; State Convention 2016-05-21
+2016,D,KS,caucus,2016-03-05,True,Local Unit Conventions 2016-03-05; District Conventions 2016-04-02; State Convention 2016-04-30
+2016,R,KS,caucus,2016-03-05,True,Caucuses 2016-03-05; Congressional District Conventions 2016-03-22; State Convention 2016-05-14
+2016,R,KY,caucus,2016-03-05,True,Presidential Caucuses 2016-03-05; County Meetings 2016-03-06; District Conventions 2016-04-01
+2016,D,LA,primary,2016-03-05,True,Primary 2016-03-05; Post Primary Congressional Caucus 2016-04-30; State Central Committee 2016-05-28
+2016,R,LA,primary,2016-03-05,True,District Caucuses 2016-03-01; Primary 2016-03-05; State Convention 2016-03-12
+2016,R,ME,caucus,2016-03-05,True,Municipal Caucuses 2016-03-05; District Caucuses / State Convention 2016-04-21
+2016,D,NE,caucus,2016-03-05,True,Precinct Caucuses 2016-03-05; Advisory Primary 2016-05-10; County Conventions 2016-05-19; State Convention 2016-06-18
+2016,D,ME,caucus,2016-03-06,True,Municipal Caucuses 2016-03-06; State Convention. 2016-05-06
+2016,R,PR,primary,2016-03-06,True,Primary 2016-03-06
+2016,R,HI,caucus,2016-03-08,True,Precinct Caucuses 2016-03-08
+2016,D,ID,primary,2016-03-08,True,Republican Primary 2016-03-08; County Caucus 2016-03-22; State Convention 2016-06-18
+2016,R,ID,primary,2016-03-08,True,Primary 2016-03-08; Precinct Conventions 2016-05-17; County Conventions 2016-05-20; State Convention 2016-06-02
+2016,D,MI,primary,2016-03-08,True,Primary 2016-03-08; District Conventions 2016-05-21; State Central Committee 2016-06-11
+2016,R,MI,primary,2016-03-08,True,Primary 2016-03-08; County Conventions 2016-03-22; Congressional District Caucuses / State Convention 2016-04-08
+2016,D,MS,primary,2016-03-08,True,Precinct Meetings 2016-02-13; Primary 2016-03-08; County Conventions 2016-03-12; Congressional District Conventions 2016-04-02; State Convention 2016-05-21
+2016,R,MS,primary,2016-03-08,True,Primary 2016-03-08; Precinct Caucuses / County Presidential Conventions 2016-04-23; State Convention 2016-05-13
+2016,R,DC,caucus,2016-03-12,True,Convention 2016-03-12
+2016,D,FL,primary,2016-03-15,True,Primary 2016-03-15; Congressional District Caucuses 2016-05-07; State Convention 2016-05-21
+2016,R,FL,primary,2016-03-15,True,Primary 2016-03-15; Congression District Caucuses and Executive Board Meeting 2016-03-22
+2016,D,IL,primary,2016-03-15,True,Primary 2016-03-15; National Convention delegation meeting 2016-05-09
+2016,R,IL,primary,2016-03-15,True,Primary 2016-03-15; Convention 2016-05-20
+2016,D,MO,primary,2016-03-15,True,Primary 2016-03-15; Mass Meeting 2016-03-31; Congressional District Conventions 2016-04-28; State Committee 2016-05-07; State Convention 2016-06-18
+2016,R,MO,primary,2016-03-15,True,Primary 2016-03-15; Local Caucuses 2016-04-09; Congressional District Conventions 2016-04-30; State Convention 2016-05-20
+2016,D,NC,primary,2016-03-15,True,Precinct Meetings 2016-03-08; Primary 2016-03-15; County Conventions 2016-04-16; Congressional District Conventions 2016-05-21; State Convention 2016-06-11
+2016,R,NC,primary,2016-03-15,True,Primary 2016-03-15; State Convention 2016-05-05
+2016,D,OH,primary,2016-03-15,True,Primary 2016-03-15; Post Primary Caucus 2016-04-16; State Executive Committee 2016-05-14
+2016,R,OH,primary,2016-03-15,True,Primary 2016-03-15
+2016,D,AZ,primary,2016-03-22,True,Primary 2016-03-22; Congressional District Caucuses 2016-04-16; State Convention 2016-05-14
+2016,R,AZ,primary,2016-03-22,True,Primary 2016-03-22; County and Legislative District Meetings 2016-03-26; State Convention and Congressional District Caucus 2016-04-30
+2016,D,ID,caucus,2016-03-22,True,Republican Primary 2016-03-08; County Caucus 2016-03-22; State Convention 2016-06-18
+2016,D,UT,caucus,2016-03-22,True,Neighborhood Caucuses 2016-03-22; County Conventions 2016-03-22; State Convention 2016-04-22
+2016,R,UT,caucus,2016-03-22,True,Precinct Caucuses 2016-03-22; State Convention 2016-04-23
+2016,D,AK,caucus,2016-03-26,True,Precinct / House District Caucuses 2016-03-26; State Party Convention 2016-05-14
+2016,D,HI,caucus,2016-03-26,True,Precinct Caucus 2016-03-26; State Convention 2016-05-28
+2016,D,WA,caucus,2016-03-26,True,Precinct Caucuses 2016-03-26; Legislative District Caucuses 2016-04-17; County Conventions 2016-05-01; Congressional District Caucuses 2016-05-21; Advisory Primary 2016-05-24; State Convention 2016-06-19
+2016,R,ND,caucus,2016-04-02,False,District Caucuses 2016-01-01; State Convention 2016-04-01
+2016,D,WI,primary,2016-04-05,True,Primary 2016-04-05; County Caucuses 2016-04-17; Congressional District Caucuses 2016-05-01; Administrative Committee Meeting and State Convention 2016-06-03
+2016,R,WI,primary,2016-04-05,True,Primary 2016-04-05; District Caucuses 2016-04-06; State Convention 2016-05-14
+2016,R,WY,caucus,2016-04-16,False,Precinct Caucuses 2016-02-16; County Conventions 2016-03-12; State Convention 2016-04-14
+2016,D,NY,primary,2016-04-19,True,Primary 2016-04-19; State Committee 2016-05-24
+2016,R,NY,primary,2016-04-19,True,Primary 2016-04-19
+2016,D,CT,primary,2016-04-26,True,Primary 2016-04-26; Congressional District Caucuses 2016-05-30; The State Party Committee 2016-06-07
+2016,R,CT,primary,2016-04-26,True,Primary 2016-04-26
+2016,D,DE,primary,2016-04-26,True,Primary 2016-04-26; State Convention 2016-05-07
+2016,R,DE,primary,2016-04-26,True,Primary 2016-04-26; State Convention 2016-04-29
+2016,D,MD,primary,2016-04-26,True,Primary 2016-04-26; State Democratic Central Committee Meeting 2016-05-21
+2016,R,MD,primary,2016-04-26,True,Primary 2016-04-26; Spring Convention 2016-05-14
+2016,D,PA,primary,2016-04-26,True,Primary 2016-04-26; State Convention 2016-06-11
+2016,R,PA,primary,2016-04-26,True,Primary 2016-04-26; Summer Meeting 2016-05-21
+2016,D,RI,primary,2016-04-26,True,Primary 2016-04-26; State Democratic Committee 2016-05-25; Special Post Primary Caucus 2016-06-10; National Convention delegation meeting 2016-06-13
+2016,R,RI,primary,2016-04-26,True,Primary 2016-04-26
+2016,D,IN,primary,2016-05-03,True,Primary 2016-05-03; State Convention 2016-06-18
+2016,R,IN,primary,2016-05-03,True,Congressional District Caucuses 2016-04-09; State Committee Meeting 2016-04-13; Primary 2016-05-03
+2016,D,NE,primary,2016-05-10,True,Precinct Caucuses 2016-03-05; Advisory Primary 2016-05-10; County Conventions 2016-05-19; State Convention 2016-06-18
+2016,R,NE,primary,2016-05-10,True,County Conventions 2016-04-01; Presidential Primary 2016-05-10; State Convention 2016-05-14
+2016,D,WV,primary,2016-05-10,True,Primary 2016-05-10; State Convention & Executive Committee 2016-06-10
+2016,R,WV,primary,2016-05-10,True,Primary 2016-05-10
+2016,D,KY,primary,2016-05-17,True,County/Legislative Conventions 2016-04-16; Primary 2016-05-17; District and State Conventions 2016-06-04
+2016,R,KY,primary,2016-05-17,False,Presidential Caucuses 2016-03-05; County Meetings 2016-03-06; District Conventions 2016-04-01
+2016,D,OR,primary,2016-05-17,True,Primary 2016-05-17; Congressional District Conventions 2016-06-04; State Convention 2016-06-18
+2016,R,OR,primary,2016-05-17,True,Primary 2016-05-17; District and State Conventions 2016-06-04
+2016,D,WA,primary,2016-05-24,True,Precinct Caucuses 2016-03-26; Legislative District Caucuses 2016-04-17; County Conventions 2016-05-01; Congressional District Caucuses 2016-05-21; Advisory Primary 2016-05-24; State Convention 2016-06-19
+2016,R,WA,primary,2016-05-24,True,Precinct Caucuses 2016-02-20; County Conventions / Legislative District Caucus 2016-03-12; State Convention 2016-05-19; Primary 2016-05-24
+2016,D,WY,caucus,2016-04-09,True,County Caucuses 2016-04-09; State Convention 2016-05-28
+2016,D,PR,primary,2016-06-05,True,Primary 2016-06-05; Democratic Assembly 2016-06-21
+2016,D,CA,primary,2016-06-07,True,Pre-primary Caucus 2016-05-01; Primary 2016-06-07; Delegation Meeting 2016-06-19
+2016,R,CA,primary,2016-06-07,True,Primary 2016-06-07
+2016,D,MT,primary,2016-06-07,True,Primary 2016-06-07; County Caucuses 2016-06-09; State Convention 2016-06-11
+2016,R,MT,primary,2016-06-07,True,State Convention 2016-05-14; Primary 2016-06-07
+2016,D,ND,caucus,2016-06-07,True,Legislative District Caucuses 2016-06-07; State Delegate Selection Meeting 2016-06-18
+2016,D,NJ,primary,2016-06-07,True,Primary 2016-06-07; State Convention 2016-06-15
+2016,R,NJ,primary,2016-06-07,True,Primary 2016-06-07
+2016,D,NM,primary,2016-06-07,True,Primary 2016-06-07; District Conventions 2016-06-18; State Post Primary Election Convention 2016-06-25
+2016,R,NM,primary,2016-06-07,True,County Conventions 2016-04-16; State Republican Convention 2016-05-21; Primary 2016-06-07
+2016,D,SD,primary,2016-06-07,True,State Legislative District Caucuses 2016-03-12; Congressional District Caucuses 2016-03-19; Primary 2016-06-07; State Convention / State Party Central Committee 2016-06-24
+2016,R,SD,primary,2016-06-07,True,County/Regional/State National Delegate Selection Meetings 2016-03-01; State National Delegate Selection meeting 2016-03-19; Primary 2016-06-07; State Convention 2016-06-24
+2016,D,DC,primary,2016-06-14,True,Pre-primary Caucus 2016-05-21; Primary 2016-06-14; State Party Committee 2016-06-21
+2016,R,DC,primary,2016-06-14,False,Convention 2016-03-12
+2020,D,IA,caucus,2020-02-03,True,Precinct Caucuses 2020-02-03; County Conventions 2020-03-21; District Conventions 2020-04-25; State Convention 2020-06-13
+2020,R,IA,caucus,2020-02-03,True,Precinct Caucuses 2020-02-03; County Conventions 2020-03-14; District Statutory Caucus 2020-04-25; State Convention 2020-06-13
+2020,D,NH,primary,2020-02-11,True,District Level Pre-primary Caucuses 2020-01-25; Primary 2020-02-11; Caucus / National Convention Delegation Meeting 2020-04-25
+2020,R,NH,primary,2020-02-11,True,Primary 2020-02-11
+2020,D,NV,caucus,2020-02-22,True,Precinct Viability Caucuses 2020-02-22; County Conventions 2020-04-18; State Convention 2020-05-30
+2020,D,SC,primary,2020-02-29,True,Primary 2020-02-29; Precinct Reorganization Meeting 2020-03-14; County Democratic Conventions 2020-03-14; State Convention 2020-05-30
+2020,D,AL,primary,2020-03-03,True,Primary 2020-03-03; State Democratic Executive Committee Meeting 2020-06-06
+2020,R,AL,primary,2020-03-03,True,Primary 2020-03-03
+2020,D,AR,primary,2020-03-03,True,Primary 2020-03-03; Congressional District Caucus and State Conventions 2020-05-30
+2020,R,AR,primary,2020-03-03,True,Primary 2020-03-03; Special Meeting of the County Conventions 2020-03-09; Special District Convention 2020-05-02; State Committee Meeting 2020-05-30
+2020,D,CA,primary,2020-03-03,True,Primary 2020-03-03; Post-primary Caucus 2020-06-07; Delegation Meeting/State Convention 2020-06-28
+2020,R,CA,primary,2020-03-03,True,Primary 2020-03-03
+2020,D,CO,primary,2020-03-03,True,Primary 2020-03-03; Precinct Caucus 2020-03-07; County Assemblies/Conventions 2020-03-07; District Assemblies/Conventions 2020-04-02; State Assembly/Convention 2020-04-18
+2020,R,CO,primary,2020-03-03,True,Primary 2020-03-03; Precinct Caucuses 2020-03-07; County Assemblies 2020-03-08; Congressional District Conventions 2020-04-04; State Convention 2020-04-18
+2020,D,MA,primary,2020-03-03,True,Primary 2020-03-03; Congressional District Caucuses 2020-04-25; State Committee and National Convention Delegate Meeting 2020-05-16
+2020,R,MA,primary,2020-03-03,True,Primary 2020-03-03
+2020,D,ME,primary,2020-03-03,True,Primary 2020-03-03; Municipal Caucuses 2020-03-08; State Convention. 2020-05-30
+2020,R,ME,primary,2020-03-03,True,Primary 2020-03-03; District Caucuses / State Convention 2020-04-30
+2020,D,MN,primary,2020-03-03,True,Precinct Caucuses 2020-02-25; Primary 2020-03-03; Organizing Unit Conventions 2020-03-07; Congressional District Conventions 2020-05-02; State Convention 2020-05-31
+2020,R,MN,primary,2020-03-03,True,Primary 2020-03-03; BPOU Conventions 2020-03-07; District Conventions 2020-03-29; State Convention 2020-05-15
+2020,D,NC,primary,2020-03-03,True,Precinct Meetings 2020-02-15; Primary 2020-03-03; County Conventions 2020-03-28; Congressional District Conventions 2020-04-25; State Convention 2020-06-06
+2020,R,NC,primary,2020-03-03,True,Primary 2020-03-03; State Convention 2020-05-14
+2020,D,OK,primary,2020-03-03,True,Primary 2020-03-03; State Convention 2020-04-04
+2020,R,OK,primary,2020-03-03,True,Precinct Meetings 2020-02-22; Primary 2020-03-03; District Conventions 2020-03-21; State Convention 2020-05-01
+2020,D,TN,primary,2020-03-03,True,Primary 2020-03-03; County Conventions 2020-03-07; District Conventions 2020-03-21; State Executive Committee 2020-04-18
+2020,R,TN,primary,2020-03-03,True,Primary 2020-03-03; State Executive Committee 2020-04-04
+2020,D,TX,primary,2020-03-03,True,Primary 2020-03-03; Precinct/County/Senatorial District Conventions 2020-03-21; State Convention 2020-06-04
+2020,R,TX,primary,2020-03-03,True,Primary 2020-03-03; County and Senatorial District Conventions 2020-03-21; State Convention 2020-07-13
+2020,D,UT,primary,2020-03-03,True,Primary 2020-03-03; County Conventions 2020-03-20; Neighborhood Caucuses 2020-03-24; State Convention 2020-04-24
+2020,R,UT,primary,2020-03-03,True,Primary 2020-03-03; State Convention 2020-04-25
+2020,D,VA,primary,2020-03-03,True,Primary 2020-03-03; County and City Caucuses 2020-04-18; Congressional District Conventions 2020-05-02; State Convention 2020-06-20
+2020,D,VT,primary,2020-03-03,True,Primary 2020-03-03; Town Caucuses 2020-04-21; State Convention 2020-05-30; National Convention Delegate Meeting 2020-06-13
+2020,R,VT,primary,2020-03-03,True,Primary 2020-03-03; Town Caucuses 2020-04-06; State Convention 2020-05-16
+2020,R,HI,caucus,2020-03-10,False,Party announcement 2019-12-11; Precinct Elections 2020-02-01; State Convention 2020-07-25
+2020,D,ID,primary,2020-03-10,True,Primary 2020-03-10; County Caucus 2020-04-04; State Convention 2020-06-06
+2020,R,ID,primary,2020-03-10,True,Primary 2020-03-10; Precinct Conventions 2020-05-19; County and Re-organization Conventions 2020-05-22; State Convention 2020-06-25
+2020,D,MI,primary,2020-03-10,True,Primary 2020-03-10; District Conventions 2020-05-16; State Central Committee 2020-06-13
+2020,R,MI,primary,2020-03-10,True,Primary 2020-03-10; County Conventions 2020-03-26; Congressional District Caucuses / State Convention 2020-04-24
+2020,D,MO,primary,2020-03-10,True,"Primary 2020-03-10; Ward, Township, Legislative District, and County Mass Meetings 2020-04-09; Congressional District Conventions 2020-04-30; State Committee 2020-05-09; State Convention 2020-06-20"
+2020,R,MO,primary,2020-03-10,True,Primary 2020-03-10; Local Caucuses 2020-04-04; Congressional District Conventions 2020-05-30; State Convention 2020-06-20
+2020,D,MS,primary,2020-03-10,True,Precinct Meetings 2020-02-15; Primary 2020-03-10; County Conventions 2020-03-14; Congressional District Conventions 2020-04-04; State Convention 2020-05-30
+2020,R,MS,primary,2020-03-10,True,Primary 2020-03-10; Precinct Caucuses / County Presidential Conventions 2020-04-25; State Convention 2020-05-16
+2020,D,ND,caucus,2020-03-10,True,Firehouse Caucuses 2020-03-10; Legislative District Conventions 2020-03-11; State Convention 2020-03-19; Select Committee on Delegates 2020-04-04
+2020,R,ND,caucus,2020-03-10,False,District Caucuses 2020-01-01; State Convention (cancelled -- issues addressed by mail ballots) 2020-03-27
+2020,D,WA,primary,2020-03-10,True,Primary 2020-03-10; Legislative District Caucuses 2020-04-26; County Conventions 2020-05-03; Congressional District Caucuses 2020-05-30; State Convention 2020-06-13
+2020,R,WA,primary,2020-03-10,True,Precinct Caucuses 2020-02-29; Primary 2020-03-10; County Conventions / Legislative District Caucus 2020-03-14; State Convention 2020-05-14
+2020,D,AZ,primary,2020-03-17,True,Primary 2020-03-17; Congressional District Caucuses 2020-04-18; State Convention 2020-05-16
+2020,R,AZ,primary,2020-03-17,False,State Convention and Congressional District Caucus 2020-05-09
+2020,D,FL,primary,2020-03-17,True,Primary 2020-03-17; Congressional District Caucuses 2020-05-02; State Convention 2020-05-30
+2020,R,FL,primary,2020-03-17,True,Primary 2020-03-17; Congressional District Caucuses and Executive Board Meeting 2020-03-24
+2020,D,IL,primary,2020-03-17,True,Primary 2020-03-17; National Convention delegation meeting 2020-04-27
+2020,R,IL,primary,2020-03-17,True,Primary 2020-03-17; Convention 2020-06-11
+2020,D,WI,primary,2020-04-07,True,Primary 2020-04-07; County Caucuses 2020-04-26; Congressional District Caucuses 2020-05-17; Administrative Committee Meeting and State Convention 2020-06-12
+2020,R,WI,primary,2020-04-07,True,Primary 2020-04-07; District Caucuses 2020-04-11; State Convention 2020-05-15
+2020,D,AK,primary,2020-04-10,False,Party-Run Primary 2020-04-11; Precinct / House District Caucuses 2020-04-18; State Party Convention 2020-05-16
+2020,R,AK,primary,2020-04-10,False,State Convention 2020-04-02
+2020,D,WY,caucus,2020-04-17,False,Presidential Preference County Caucuses (no in-person voting) 2020-04-04; State Convention 2020-06-06
+2020,D,OH,primary,2020-04-28,True,District Delegates Slated 2020-01-07; Post Primary Caucus 2020-04-16; Primary 2020-04-28; State Executive Committee 2020-05-09
+2020,R,OH,primary,2020-04-28,True,Primary 2020-04-28
+2020,D,KS,primary,2020-05-02,True,Party-Run Primary 2020-05-02; Senate District Conventions 2020-05-09; District Conventions 2020-05-16; State Convention 2020-06-06
+2020,R,KS,primary,2020-05-02,False,National Convention Delegate Selection Plan 2019-09-06; State Convention 2020-01-31; Congressional District Conventions 2020-03-28
+2020,R,WY,caucus,2020-05-09,False,State Convention 2020-05-07; Wyoming Republican Party State Convention 2020-06-27
+2020,D,NE,primary,2020-05-12,True,Primary 2020-05-12; County Conventions 2020-05-17; State Convention 2020-06-13
+2020,R,NE,primary,2020-05-12,True,County Conventions 2020-03-01; Presidential Primary 2020-05-12; State Convention 2020-06-05
+2020,D,OR,primary,2020-05-19,True,Primary 2020-05-19; State Convention (vpte by mail) 2020-05-27
+2020,R,OR,primary,2020-05-19,True,Primary 2020-05-19; District and State Conventions 2020-06-20
+2020,D,HI,caucus,2020-05-22,False,Precinct Meetings 2020-03-04; Party-run Presidential Preference Poll (firehouse primary) 2020-05-23; State Convention 2020-05-23
+2020,D,DC,primary,2020-06-02,True,Pre-primary Caucus 2020-04-25; Primary 2020-06-02; State Party Committee selects Pledged PLEO Delegates 2020-06-04; State Party Committee selects Distrtict Delegates 2020-06-09; State Party Committee selects At-Large Delegates 2020-06-11
+2020,R,DC,primary,2020-06-02,True,Primary 2020-06-02
+2020,D,IN,primary,2020-06-02,True,Primary 2020-06-02; State Convention 2020-06-13
+2020,R,IN,primary,2020-06-02,True,Congressional District Caucuses 2020-05-09; State Committee Meeting 2020-05-20; Primary 2020-06-02
+2020,D,MD,primary,2020-06-02,True,State Party Committee Meeting 2020-05-30; Primary 2020-06-02
+2020,R,MD,primary,2020-06-02,True,Spring Convention 2020-05-15; Primary 2020-06-02
+2020,D,MT,primary,2020-06-02,True,Primary 2020-06-02; County Caucuses 2020-06-04; State Convention 2020-06-06
+2020,R,MT,primary,2020-06-02,True,Primary 2020-06-02; State Convention 2020-06-11
+2020,D,NM,primary,2020-06-02,True,Primary 2020-06-02; District Conventions 2020-06-13; State Post-Primary Convention 2020-06-19
+2020,R,NM,primary,2020-06-02,True,Precinct Meetings 2020-04-20; County Conventions 2020-05-02; Primary 2020-06-02; State Republican Convention 2020-06-13
+2020,D,PA,primary,2020-06-02,True,Primary 2020-06-02
+2020,R,PA,primary,2020-06-02,True,Summer Meeting 2020-05-29; Primary 2020-06-02
+2020,D,RI,primary,2020-06-02,True,State Committee Convention 2020-05-11; Primary 2020-06-02; National Convention delegation meeting 2020-06-15
+2020,R,RI,primary,2020-06-02,True,Primary 2020-06-02
+2020,D,SD,primary,2020-06-02,True,Regional / Legislative District Caucuses 2020-03-14; Congressional District Caucuses 2020-03-21; Primary 2020-06-02; State Convention / State Party Central Committee 2020-06-20
+2020,R,SD,primary,2020-06-02,True,Primary 2020-06-02; State Convention 2020-06-18
+2020,D,GA,primary,2020-06-09,True,Congressional District Caucuses 2020-05-23; Primary 2020-06-09; Quorum of District Delegates Elect PLEO Delegates 2020-06-20
+2020,R,GA,primary,2020-06-09,True,"Precinct Mass Meetings [in counties with populations over 80,000] 2020-02-13; Precinct Mass Meetings 2020-03-12; District Conventions 2020-04-18; State Convention 2020-05-29; Primary 2020-06-09"
+2020,D,WV,primary,2020-06-09,True,Primary 2020-06-09; State Convention & Executive Committee 2020-06-13
+2020,R,WV,primary,2020-06-09,True,Primary 2020-06-09
+2020,D,KY,primary,2020-06-23,True,County/Legislative Conventions 2020-05-30; State Executive Meeting 2020-06-06; Primary (results delayed until 30 June) 2020-06-23
+2020,R,KY,primary,2020-06-23,True,County Meetings 2020-03-16; District Conventions 2020-04-04; State Convention 2020-06-06; Primary (results delayed until 30 June) 2020-06-23
+2020,D,NY,primary,2020-06-23,True,Primary 2020-06-23; State Committee 2020-08-04
+2020,R,NY,primary,2020-06-23,True,Primary (cancelled - only 1 candidate) 2020-06-23
+2020,D,DE,primary,2020-07-07,True,Primary 2020-07-07
+2020,R,DE,primary,2020-07-07,True,State Convention 2020-04-24; Primary 2020-07-07
+2020,D,NJ,primary,2020-07-07,True,Democratic State Committee / State Convention 2020-06-13; Primary 2020-07-07; Special post-Primary State Convention 2020-07-18
+2020,R,NJ,primary,2020-07-07,True,Primary 2020-07-07
+2020,D,LA,primary,2020-07-11,True,Post Primary Congressional Caucus 2020-05-18; Primary 2020-07-11
+2020,R,LA,primary,2020-07-11,True,Congressional Caucuses 2020-06-06; State Convention 2020-06-13; Primary 2020-07-11
+2020,D,PR,primary,2020-07-12,True,Primary 2020-07-12; State Convention 2020-07-26
+2020,D,CT,primary,2020-08-11,True,Pre-primary Virtual Congressional District Caucuses 2020-06-30; The State Party Committee 2020-07-08; Primary 2020-08-11
+2020,R,CT,primary,2020-08-11,True,State Committee Meeting 2020-05-26; Primary 2020-08-11
+2020,R,VA,caucus,2020-08-15,False,State Convention 2020-05-01
+2024,D,NH,primary,2024-01-23,True,Candidate filing 2024-10-11; Non Binding Advisory Primary 2024-01-23; Party-Run delegate selection Primary 2024-04-27
+2024,D,SC,primary,2024-02-03,True,Candidate filing 2024-11-01; Primary 2024-02-03; County Conventions 2024-03-01; Congressional District Caucuses 2024-05-08; State Convention 2024-05-18
+2024,D,NV,primary,2024-02-06,True,Candidate filing 2024-10-02; Primary 2024-02-06; Assembly Legislative District Caucuses 2024-04-13; State Convention 2024-05-18
+2024,D,MI,primary,2024-02-27,True,Filing for candidates not generally recognized by the Secretary of State 2024-10-01; Secretary of State publishes generally recognized candidates 2023-11-10; Party publishes generally recognized candidates 2023-11-14; Candidate filing deadline - Write-in 2024-02-16; Primary 2024-02-27; District Conventions 2024-05-11; State Central Committee 2024-06-01
+2024,D,AL,primary,2024-03-05,True,Candidate filing deadline 2023-11-10; Primary 2024-03-05; State Democratic Executive Committee Meeting 2024-06-08
+2024,D,AS,caucus,2024-03-05,True,Candidate filing deadline with the Territorial Chair 2024-02-02; Territorial Caucus 2024-03-05; Territorial Caucus Elects At-Large delegates 2024-03-08
+2024,D,AR,primary,2024-03-05,True,Candidate filing 2024-11-06; Primary 2024-03-05; Congressional District Caucus and State Conventions 2024-06-08
+2024,D,CA,primary,2024-03-05,True,Petition deadline for candidates not generally recognized by the Secretary of State 2024-11-06; Generally Recognized candidates must substantiate with the Secretary of State 2023-11-28; Primary 2024-03-05; Congressional District Caucuses 2024-04-21; Delegation Meeting 2024-05-18
+2024,D,CO,primary,2024-03-05,True,Candidate filing deadline 2023-12-11; Primary 2024-03-05; Precinct Caucus 2024-03-05; County Assemblies/Conventions 2024-03-08; District Assemblies/Conventions 2024-04-11; State Assembly/Convention 2024-04-13
+2024,D,IA,caucus,2024-03-05,True,Precinct Caucuses 2024-01-15; President Preference Cards (Party run Primary) 2024-03-05; County Conventions 2024-03-23; District Conventions 2024-05-04; State Convention 2024-06-15
+2024,D,ME,primary,2024-03-05,True,Deadline for political parties to certify participation in primary 2023-10-02; Municipal Caucuses 2024-02-03; Primary 2024-03-05; State Convention 2024-05-31
+2024,D,MA,primary,2024-03-05,True,Candidate filing with local registrars 2024-09-26; Candidate filing deadline with Secretary of the Commonwealth 2024-01-05; Primary 2024-03-05; Congressional District Caucuses 2024-04-27; State Committee and National Convention Delegate Meeting 2024-05-18
+2024,D,MN,primary,2024-03-05,True,Candidate filing deadline 2023-12-12; Party submits list of candidates to Secretary of State 2024-01-02; Precinct Caucuses 2024-02-27; Primary 2024-03-05; Organizing Unit Conventions 2024-03-09; Congressional District Conventions 2024-05-04; State Convention 2024-05-31
+2024,D,NC,primary,2024-03-05,True,Party submits generally recognized candidates to State Board of Elections 2023-12-06; Filing deadline for candidates not generally recognized 2024-01-01; Precinct Meetings 2024-02-17; Primary 2024-03-05; County Conventions 2024-03-16; Congressional District Conventions 2024-04-20; State Convention 2024-06-01
+2024,D,OK,primary,2024-03-05,True,Candidate filing 2024-12-04; Primary 2024-03-05; State Convention 2024-04-06
+2024,D,TN,primary,2024-03-05,True,Filing for candidates not generally recognized 2024-09-06; Deadline for party to submit candidates to Secretary of State 2023-12-05; Primary 2024-03-05; County Conventions 2024-03-16; District Conventions 2024-04-06; State Executive Committee 2024-04-27
+2024,D,TX,primary,2024-03-05,True,Candidate filing deadline 2024-11-11; Primary 2024-03-05; Precinct/County/Congressional District Conventions 2024-03-23; State Convention 2024-06-06
+2024,D,UT,primary,2024-03-05,True,Candidate filing 2024-08-15; County Conventions 2024-03-01; Primary and neighborhood caucuses 2024-03-05; State Convention 2024-04-26
+2024,D,VT,primary,2024-03-05,True,Candidate filing deadline 2023-12-15; Primary 2024-03-05; Town Caucuses 2024-04-16; State Convention 2024-05-18; National Convention Delegate Meeting 2024-06-01
+2024,D,VA,primary,2024-03-05,True,Political parties certify participation in primary 2024-07-03; Candidate filing 2024-07-03; Primary 2024-03-05; Local County and City Caucuses 2024-04-20; Congressional District Conventions 2024-05-11; State Convention 2024-06-22
+2024,D,HI,caucus,2024-03-06,True,Candidate filing deadline 2024-01-24; Caucus 2024-03-06; State Convention 2024-05-18
+2024,D,GA,primary,2024-03-12,True,Candidate deadline to inform party's Executive Committee of intent to run 2023-11-01; Party provides list of generally recognized candidates to Secretary of State 2024-01-08; Primary 2024-03-12; Congressional District Caucuses 2024-04-06; Quorum of District Delegates elect PLEO Delegates 2024-04-20; State Committee Meeting 2024-05-18
+2024,D,MS,primary,2024-03-12,True,Filing for candidates not generally recognized by Secretary of State 2024-01-01; Secretary of State certifies generally recognized candidates 2024-01-15; Primary 2024-03-12; County Conventions 2024-03-23; Congressional District Conventions 2024-04-06; State Convention 2024-05-25
+2024,D,MP,caucus,2024-03-12,False,Candidate filing deadline 2024-01-16; State Chair announces candidates to be placed on the ballot 2024-01-18; Party-run Primary 2024-03-05
+2024,D,WA,primary,2024-03-12,True,Candidate filing deadline with Party 2024-01-06; Deadline for political parties to submit candidate names to Secretary of State 2024-01-09; Primary 2024-03-12; Legislative District Caucuses 2024-04-06; Congressional District Caucuses 2024-05-18; State Central Committee Meeting 2024-06-09
+2024,D,AZ,primary,2024-03-19,True,Candidate filing 2024-11-10; Primary 2024-03-19; Congressional District Caucuses 2024-04-20; State Convention 2024-05-18
+2024,D,IL,primary,2024-03-19,True,Candidate filing 2024-01-04; Primary 2024-03-19; National Convention delegation meeting 2024-04-29
+2024,D,KS,primary,2024-03-19,True,Deadline for political parties to certify participation in primary 2023-12-01; Candidate filing deadline 2024-01-19; Primary 2024-03-19; District Conventions 2024-04-20; State Convention 2024-05-25
+2024,D,OH,primary,2024-03-19,True,Candidate filing deadline 2023-12-20; Candidate filing deadline - Write-in 2024-01-08; District Delegates Slated 2024-01-09; Primary 2024-03-19; Post Primary Caucus 2024-04-14; State Executive Committee 2024-05-11
+2024,D,LA,primary,2024-03-23,True,Candidate filing 2024-12-13; Primary 2024-03-23; Post Primary Congressional Caucus 2024-04-03; State Central Committee 2024-06-08
+2024,D,MO,primary,2024-03-23,True,"Candidate filing 2024-01-02; Party-run Primary 2024-03-23; Ward, Township, Legislative District, and County Mass Meetings 2024-04-18; Congressional District Conventions 2024-05-09; State Committee 2024-05-18; State Convention 2024-06-22"
+2024,D,ND,primary,2024-03-30,True,Candidate filing 2023-09-25; Legislative District Conventions 2024-02-06; Party-Run Primary 2024-03-30; State Convention 2024-04-06; District Delegate Meeting via Zoom 2024-04-20
+2024,D,CT,primary,2024-04-02,True,Secretary of State publishes generally recognized candidates 2024-01-19; Filing for candidates not generally recognized 2024-01-19; Primary 2024-04-02; Congressional District Caucuses 2024-05-01; The State Party Committee 2024-05-02
+2024,D,NY,primary,2024-04-02,True,Candidate filing 2024-01-08; Primary 2024-04-02
+2024,D,RI,primary,2024-04-02,True,Candidate Statement of Intent 2024-12-28; Candidate petition deadline 2024-01-11; Primary 2024-04-02; State Convention/State Committee Meeting 2024-06-09
+2024,D,WI,primary,2024-04-02,True,Deadline for political parties to certify participation in primary 2023-12-12; Wisconsin Elections Commission and party certify generally recognized candidates 2024-01-02; Filing for candidates not generally recognized 2024-01-02; Primary 2024-04-02; County Caucuses 2024-04-28; Congressional District Caucuses 2024-05-19; Administrative Committee Meeting and State Convention 2024-06-08
+2024,D,AK,primary,2024-04-13,True,Candidate filing deadline 2024-01-22; Party-Run Primary / Tier 1 Caucuses 2024-04-13; State Party Convention 2024-05-18
+2024,D,WY,caucus,2024-04-13,True,Candidate filing with the State Democratic Chair 2024-01-01; Presidential Preference County Caucuses 2024-04-13; State Convention 2024-06-01
+2024,D,PA,primary,2024-04-23,True,Candidate filing deadline 2024-02-13; Primary 2024-04-23; State Committee 2024-06-01
+2024,D,NH,primary,2024-04-27,True,Candidate filing 2024-10-11; Non Binding Advisory Primary 2024-01-23; Party-Run delegate selection Primary 2024-04-27
+2024,D,PR,primary,2024-04-28,True,Secretary of State publishes list of candidates 2024-01-05; Party-run Primary 2024-04-28; State Convention 2024-06-08
+2024,D,IN,primary,2024-05-07,True,Candidate filing deadline 2024-01-10; Primary 2024-05-07; State Convention 2024-07-13
+2024,D,MD,primary,2024-05-14,True,Secretary of State certifies generally recognized candidates 2024-01-22; Filing deadline for candidates not generally recognized by the Secretary of State 2024-01-29; Primary 2024-05-14; State Party Committee Meeting 2024-06-08
+2024,D,NE,primary,2024-05-14,True,Candidate filing deadline for candidates not generally recognized 2024-03-14; Primary 2024-05-14; County Conventions 2024-05-18; State Convention 2024-06-07
+2024,D,WV,primary,2024-05-14,True,Candidate filing 2024-01-08; Mass County Conventions 2024-03-16; Primary 2024-05-14; State Convention 2024-06-14
+2024,D,KY,primary,2024-05-21,True,Candidate filing deadline 2024-01-05; Primary 2024-05-21; County/Legislative Conventions 2024-06-01; Congressional District Caucus / State Convention / State Executive Meeting 2024-06-15
+2024,D,OR,primary,2024-05-21,True,Petition deadline for candidates not recognized by the Secretary of State 2024-02-27; Primary 2024-05-21; Congressional District Conventions 2024-06-01; State Convention 2024-06-22
+2024,D,ID,caucus,2024-05-23,True,Candidate filing deadline 2024-04-15; County Caucuses 2024-05-23; State Convention 2024-06-22
+2024,D,DC,primary,2024-06-04,True,Deadline for political parties to certify participation in primary 2023-12-07; Candidate filing 2024-01-12; Pre-primary Caucus 2024-04-20; Primary 2024-06-04; State Party Committee selects Pledged PLEO and At-Large Delegates 2024-06-13
+2024,D,MT,primary,2024-06-04,True,Candidate filing with Secretary of State 2024-01-11; Candidate deadline with county 2024-03-04; Primary 2024-06-04; County Caucuses 2024-06-06; State Convention 2024-06-08
+2024,D,NJ,primary,2024-06-04,True,Candidate filing deadline 2024-03-25; Primary 2024-06-04; Special post-Primary State Convention 2024-06-12; Democratic State Committee / State Convention 2024-06-15
+2024,D,NM,primary,2024-06-04,True,New Mexico Supreme Court/Secretary of State certifies generally recognized candidates 2024-03-16; Filing deadline for candidates not generally recognized 2024-04-02; Primary 2024-06-04; County Conventions 2024-06-08; District Conventions 2024-06-15; State Convention 2024-06-22
+2024,D,SD,primary,2024-06-04,True,Candidate filing 2024-01-01; Congressional District Caucuses 2024-03-23; Primary 2024-06-04; State Convention / State Party Central Committee 2024-06-14
+2024,D,GU,caucus,2024-06-08,True,Candidate filing deadline 2024-02-15; Caucus 2024-06-08
+2024,D,VI,caucus,2024-06-08,True,Candidate filing deadline 2024-04-01; Party-run Primary 2024-06-08
+2024,R,IA,caucus,2024-01-15,True,Precinct Caucuses 2024-01-15; County Conventions 2024-02-17; District Statutory Caucus 2024-04-06; State Convention 2024-05-04
+2024,R,NH,primary,2024-01-23,True,Candidate filing 2024-10-11; Primary 2024-01-23
+2024,R,NV,primary,2024-02-06,True,Caucus Filing 2024-09-01; Candidate filing for non-binding state Primary 2024-10-02; Non Binding state run Advisory Primary 2024-02-06; Precinct Caucuses 2024-02-08; County Conventions 2024-03-16; State Convention 2024-05-03
+2024,R,NV,caucus,2024-02-08,True,Caucus Filing 2024-09-01; Candidate filing for non-binding state Primary 2024-10-02; Non Binding state run Advisory Primary 2024-02-06; Precinct Caucuses 2024-02-08; County Conventions 2024-03-16; State Convention 2024-05-03
+2024,R,VI,caucus,2024-02-08,True,"Candidate filing on or before - $20,000 fee 2023-09-30; Candidate filing - $50,000 fee 2023-10-01; Territorial Caucus 2024-02-08"
+2024,R,SC,primary,2024-02-24,True,Candidate filing deadline 2023-10-31; Primary 2024-02-24; State Convention 2024-05-01
+2024,R,MI,primary,2024-02-27,True,Primary filing for candidates not generally recognized by the Secretary of State 2024-10-01; Secretary of State publishes generally recognized candidates 2023-11-10; Party publishes generally recognized candidates 2023-11-14; Call to County Conventions 2024-01-15; Candidate filing deadline - Congressional District Caucuses 2024-01-19; Candidate filing deadline - Write-in 2024-02-16; state run Primary 2024-02-27; State Convention 2024-03-02
+2024,R,ID,caucus,2024-03-02,True,Candidate filing deadline 2024-02-01; Presidential Preference Caucus 2024-03-02; Regional Nominating and Executive Committee 2024-04-13
+2024,R,MI,caucus,2024-03-02,True,Primary filing for candidates not generally recognized by the Secretary of State 2024-10-01; Secretary of State publishes generally recognized candidates 2023-11-10; Party publishes generally recognized candidates 2023-11-14; Call to County Conventions 2024-01-15; Candidate filing deadline - Congressional District Caucuses 2024-01-19; Candidate filing deadline - Write-in 2024-02-16; state run Primary 2024-02-27; State Convention 2024-03-02
+2024,R,MO,caucus,2024-03-02,True,Precinct Caucuses 2024-03-02; Congressional District Conventions 2024-04-06; State Convention 2024-05-04
+2024,R,DC,primary,2024-03-01,True,Candidate filing deadline 2023-12-01; Deadline for political parties to certify participation in primary 2023-12-07; Party-run Primary 2024-03-01; State Executive Committee Meeting 2024-03-08
+2024,R,ND,caucus,2024-03-04,True,Candidate filing deadline 2023-12-31; Presidential Preference Caucus 2024-03-04; State Convention 2024-04-05
+2024,R,AL,primary,2024-03-05,True,Candidate filing deadline 2023-11-10; Primary 2024-03-05; Executive Committee Delegate Election Meeting 2024-05-04
+2024,R,AK,primary,2024-03-05,True,Presidential Preference Caucus (Party run primary) 2024-03-05; State Convention 2024-04-19
+2024,R,AR,primary,2024-03-05,True,Candidate filing 2024-11-06; Primary 2024-03-05; District Convention 2024-05-11; State Committee Meeting 2024-05-18
+2024,R,CA,primary,2024-03-05,True,Petition deadline for candidates not generally recognized by the Secretary of State 2024-11-06; Generally Recognized candidates must substantiate with the Secretary of State 2023-11-28; Primary 2024-03-05
+2024,R,CO,primary,2024-03-05,True,Candidate filing deadline 2023-12-11; Primary 2024-03-05; Precinct Caucuses 2024-03-07; Congressional District Conventions 2024-04-05; State Assembly and Convention 2024-04-06
+2024,R,ME,primary,2024-03-05,True,Deadline for political parties to certify participation in primary 2023-10-02; Primary 2024-03-05; District Caucuses / State Convention 2024-04-26
+2024,R,MA,primary,2024-03-05,True,Candidate filing with local registrars 2024-09-26; Candidate filing deadline 2024-01-05; Primary 2024-03-05; State Committee Meeting 2024-04-18
+2024,R,MN,primary,2024-03-05,True,Candidate filing deadline 2023-12-12; Party submits list of candidates to Secretary of State 2024-01-02; Precinct Caucus 2024-02-27; Primary 2024-03-05; BPOU Conventions 2024-03-09; District Conventions 2024-04-27; State Convention 2024-05-16
+2024,R,NC,primary,2024-03-05,True,Party submits generally recognized candidates to State Board of Elections 2023-12-06; Filing deadline for candidates not generally recognized 2024-01-01; Primary 2024-03-05; State Convention 2024-05-23
+2024,R,OK,primary,2024-03-05,True,Candidate filing 2024-12-04; Primary 2024-03-05; District Conventions 2024-03-16; State Convention 2024-05-03
+2024,R,TN,primary,2024-03-05,True,Filing for candidates not generally recognized 2024-09-06; Deadline for party to submit candidates to Secretary of State 2023-12-05; Primary 2024-03-05
+2024,R,TX,primary,2024-03-05,True,Candidate filing deadline 2024-11-11; Primary 2024-03-05; County and Senatorial District Conventions 2024-03-24; State Convention 2024-05-23
+2024,R,UT,caucus,2024-03-05,True,Candidate filing deadline 2023-12-15; Precinct Caucuses 2024-03-05; State Convention 2024-04-27
+2024,R,VT,primary,2024-03-05,True,Candidate filing deadline 2023-12-15; Primary 2024-03-05; State Convention 2024-05-18
+2024,R,VA,primary,2024-03-05,True,Political parties certify participation in primary 2024-07-03; Candidate filing 2024-07-03; Primary 2024-03-05
+2024,R,AS,caucus,2024-03-08,True,Territorial Caucus 2024-03-08
+2024,R,GA,primary,2024-03-12,True,Candidate informs party's Executive Committee of intent to run 2024-11-01; Party provides list of generally recognized candidates to Secretary of State 2024-01-08; Primary 2024-03-12; District Conventions 2024-04-20; State Convention 2024-05-17
+2024,R,HI,caucus,2024-03-12,True,Candidate filing deadline 2023-12-01; Precinct Caucuses 2024-03-12; State Convention 2024-05-04
+2024,R,MS,primary,2024-03-12,True,Filing for candidates not generally recognized by Secretary of State 2024-01-01; Secretary of State certifies generally recognized candidates 2024-01-15; Primary 2024-03-12; State Convention 2024-05-10
+2024,R,WA,primary,2024-03-12,True,Candidate filing deadline with Party 2024-01-06; Deadline for political parties to submit candidate names to Secretary of State 2024-01-09; Precinct Caucuses 2024-01-13; County Conventions / Legislative District Caucus 2024-01-20; Primary 2024-03-12; State Convention 2024-04-19
+2024,R,MP,caucus,2024-03-15,True,Commonwealth Convention 2024-03-15
+2024,R,GU,caucus,2024-03-16,True,Territorial Convention 2024-03-16
+2024,R,AZ,primary,2024-03-19,True,Candidate filing 2024-11-10; Primary 2024-03-19; County and Legislative District Meetings 2024-04-07; State Convention and Congressional District Caucus 2024-04-27
+2024,R,FL,primary,2024-03-19,True,Party submits list of candidates to Secretary of State 2023-11-30; Secretary of State publishes list of candidates 2023-12-12; Primary 2024-03-19; State Executive Committee Meeting 2024-03-26; Congressional District Conventions 2024-03-28
+2024,R,IL,primary,2024-03-19,True,Candidate filing 2024-01-04; Primary 2024-03-19; Convention 2024-05-24
+2024,R,KS,primary,2024-03-19,True,Deadline for political parties to certify participation in primary 2023-12-01; Candidate filing deadline 2024-01-19; Primary 2024-03-19; Congressional District Conventions 2024-04-05; State Convention 2024-05-19
+2024,R,OH,primary,2024-03-19,True,Candidate filing deadline 2023-12-20; Candidate filing deadline - Write-in 2024-01-08; Primary 2024-03-19
+2024,R,LA,primary,2024-03-23,True,Candidate filing 2024-12-13; Congressional Caucuses 2024-03-19; Primary 2024-03-23; State Convention 2024-04-06
+2024,R,CT,primary,2024-04-02,True,Secretary of State publishes generally recognized candidates 2024-01-19; Filing for candidates not generally recognized 2024-01-19; Primary 2024-04-02
+2024,R,NY,primary,2024-04-02,True,Candidate filing (Nationally Known) 2023-12-12; Candidate filing (Designating Petition) 2024-01-08; State Committee 2024-03-01; Primary 2024-04-02
+2024,R,RI,primary,2024-04-02,True,Candidate Statement of Intent 2024-12-28; Candidate petition deadline 2024-01-11; Primary 2024-04-02
+2024,R,WI,primary,2024-04-02,True,Deadline for political parties to certify participation in primary 2023-12-12; Wisconsin Elections Commission and party certify generally recognized candidates 2024-01-02; Filing for candidates not generally recognized 2024-01-02; District Caucuses 2024-04-01; Primary 2024-04-02; State Convention / State Executive Committee Meeting 2024-05-17
+2024,R,WY,caucus,2024-04-18,True,Precinct Caucuses 2024-02-02; County Conventions 2024-02-24; State Convention 2024-04-18
+2024,R,PR,primary,2024-04-21,True,Party-run Primary 2024-04-21
+2024,R,PA,primary,2024-04-23,True,Candidate filing deadline 2024-02-13; State Committee Meeting 2024-04-01; Primary 2024-04-23
+2024,R,IN,primary,2024-05-07,True,Candidate filing deadline 2024-01-10; State Committee Meeting / Congressional District Caucuses 2024-03-17; Primary 2024-05-07
+2024,R,MD,primary,2024-05-14,True,Secretary of State certifies generally recognized candidates 2024-01-22; Filing deadline for candidates not generally recognized by the Secretary of State 2024-01-29; Primary 2024-05-14; Spring Convention 2024-05-17
+2024,R,NE,primary,2024-05-14,True,Candidate filing deadline for candidates not generally recognized 2024-03-14; Primary 2024-05-14; State Convention 2024-05-18
+2024,R,WV,primary,2024-05-14,True,Candidate filing 2024-01-08; Primary 2024-05-14; State Executive Committee Meeting 2024-05-18
+2024,R,KY,primary,2024-05-21,True,Candidate filing deadline 2024-01-05; County Meetings 2024-03-01; District Conventions 2024-04-01; State Convention 2024-05-18; Primary 2024-05-21
+2024,R,OR,primary,2024-05-21,True,Petition deadline for candidates not recognized by the Secretary of State 2024-02-27; Non Binding Advisory Primary 2024-05-21; State Convention 2024-05-25
+2024,R,MT,primary,2024-06-04,True,Candidate filing with Secretary of State for Non Binding Advisory Primary 2024-01-11; Candidate deadline with county 2024-03-04; Delegate Convention 2024-05-18; Non Binding Advisory Primary 2024-06-04
+2024,R,NJ,primary,2024-06-04,True,Candidate filing deadline 2024-03-25; Primary 2024-06-04
+2024,R,NM,primary,2024-06-04,True,County Conventions 2024-03-04; State Convention 2024-04-27; Non Binding Advisory Primary 2024-06-04
