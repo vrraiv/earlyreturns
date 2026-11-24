@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-24j",
+  version: "2026-11-24k",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -713,7 +713,7 @@ window.PLAN = {
             "Options: nothing until there are nominees, a generic party matchup, or the leading candidates' matchups.",
             "Mostly answered at EC-2 on 2026-11-20: there is no forecast until both nominees are presumptive. Still open: what the page shows in the meantime.",
             "Decided 2026-11-24 (section 17 of the note), from mocks: no generic or hypothetical matchups are shown. Until both nominees are presumptive, the 2028 page shows the board: a tile for each state, DC and each Maine and Nebraska district, with its 2028 electoral votes and a strip of seven bars for how it voted from 2000 to 2024. The tiles are grey; only the bars carry party colour. A drawn elephant and donkey, in faded party colours, frame the heading. The link-preview card shows the same board.",
-            "The five districts' 2024 winners are a display-only table in the site code, sourced from Ballotpedia. The model never reads it, and the 2024 holdout stands. The board links to the primaries forecast once that is live."
+            "The five districts' 2024 winners are a display-only table in the site code, sourced from NBC News's results pages (National Election Pool data). The model never reads it, and the 2024 holdout stands. The board links to the primaries forecast once that is live."
           ],
           refs: ["ELECTORAL_COLLEGE.md", "src/site/landing.py"] },
         { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8", "EC-10", "SC-4"],
