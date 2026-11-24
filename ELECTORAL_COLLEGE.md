@@ -4312,3 +4312,346 @@ read. What was read:
   saturating count term), given 42% and 73% coverage at 7 days against 57% and 86% at 100; the national range fitted
   from 1980; and T1's one untouched test on 2024.
 - **To the site (SI-3, SI-7):** the outputs' shape in A6, and the per-draw file still to be written.
+
+## 16. The backtest, 2008 to 2020: scoring plan (EC-7)
+
+EC-6 ran the assembled model as of each election from 2008 to 2020, at 100, 60, 30 and 7 days, and wrote the
+outputs to `data/processed/pres_sim_asof.json` without reading them. EC-7 scores those outputs against the results.
+It has no candidates: nothing is adopted or rejected here, and section 8's rule is not used. What is written down
+before the read is the scoring itself, so that no score is chosen after its value is known.
+
+### EC-7: pre-registration (written 2026-11-24, before any output is read; all eight questions confirmed by the user the same day)
+
+Nothing below has been run. Of `pres_sim_asof.json`, only the names of its fields have been read, to confirm it
+carries what the scores need. No number in this draft comes from it.
+
+**Decided by the user 2026-11-24 (question 1): 2024 is not scored here.** The card's title names the 2024 holdout,
+but section 7 opens 2024 once, when the design is frozen (EC-9), and three provisional adoptions (F, T1, the
+similarity structure) and the rival model (EC-10) all have their one 2024 test there. EC-7 scores 2008 to 2020 and
+fixes the recipe 2024 will be scored by: the one below, unchanged. The scorer loads nothing from 2024 and checks
+that it has not.
+
+**How blind this is.**
+
+- **The states' centre is not blind.** EC-4 and EC-5 scored the centre's misses for 2004 to 2020, so the states'
+  margin error below restates what is known.
+- **The states' coverage here is not the one EC-6 read** (corrected 2026-11-24, before any score was read; the
+  first draft said the two would agree). EC-6's 42% and 73% are of each state's miss with that election's national
+  miss taken out, against the range fitted to those. The percentiles in the file are of the whole margin, national
+  draw included. Nobody has read that coverage, and it can differ a good deal, because every state shares one
+  national miss in an election. EC-6 also read the popular vote's coverage from 1952.
+- **What nobody has computed:** each contest's win probability against its result (Brier, log loss), the coverage
+  of the whole-margin ranges, the count, the winner's probability, the tipping point, the gap, and the simulated
+  popular vote against the result.
+- **Everyone knows these four elections.** The model was built by people and tools that know 2016 and 2020 polls
+  missed toward the Democrat. Fitting as of each election limits that; it does not remove it.
+- **Nothing found here changes the model in this card.** Anything the scores suggest goes to EC-9, declared as
+  suggested by these results.
+
+**What is scored.** 16 cells exist; 14 are scored (section 7: 2008 at 100 and 60 days is not). The 7-day date leads.
+The other dates are reported beside it.
+
+| Target | Scores | From the file |
+|---|---|---|
+| States (56 contests) | error of the point margin (mean absolute, root mean square, mean signed); Brier and log loss of the win probability; share of results inside the 50% and 80% ranges; winners called wrong | `contests` |
+| Popular vote | error of the median; whether the result is inside the 80% range | `popular_vote` |
+| Electoral votes | error of the median count; whether the result is inside the 80% range (10th to 90th percentile); where the result falls in the count's distribution; the probability given to the actual winner and its log loss | `count_pmf`, `p_dem_270_exact`, `p_rep_270_exact` |
+| The gap | error of the median gap; whether the realized gap is inside the 80% range; whether the sign is right | `gap` |
+| Tipping point | the share given to the actual tipping-point contest, and its rank among the 56 | `tipping_point` |
+
+Definitions, fixed now:
+
+- **Results.** State margins are two-party, from `state_presidential_history.csv`; district margins from
+  `district_presidential.csv`; electoral votes from `electoral_votes.csv`. The national margin is the two-party
+  margin from state totals (`national_margin_2p`), not the model's weighted sum.
+- **A contest's point margin** is the midpoint of its 25th and 75th percentiles: the file carries no median, and the
+  draws are symmetric about the centre. Check: for the 51 states it equals `C` in `pres_addup_rerun_frame.csv`
+  within 0.15 points.
+- **Log loss** uses the probability clipped to 0.001 and 0.999. The number of clipped probabilities, and any that
+  were clipped and wrong, are reported.
+- **Where the result falls in the count** is P(count < actual) + half of P(count = actual), from the exact
+  distribution.
+- **The actual count is pledged electors,** each contest's winner taking its votes (question 5). Check: this gives
+  the Democrat 365, 332, 232 and 306 in 2008 to 2020.
+- **The realized tipping point and gap** are A6's, unchanged: the 56 contests ordered by actual margin, the contest
+  whose votes take the winner past 269, and its margin less the national margin (question 6).
+- **Competitive contests** are those the forecast itself gives between 5% and 95% on that date. States' scores are
+  reported for all 56, for the competitive ones, for the 51 and for the five districts apart.
+
+**Benchmarks (question 3).** Two, each with no fitted number. They give point margins only, so they are compared on
+the margin error, the winners called wrong, the count (each contest's point winner taking its votes), the popular
+vote (the previous election's vote shares as weights) and the gap (the tipping point of the point margins). They
+have no probabilities and no ranges.
+
+- **B1. Last time.** Each contest's own two-party margin at the presidential election four years earlier, repeated
+  (Ohio in 2012 takes Ohio's 2008 margin).
+- **B2. Recent polls** (revised at the user's request 2026-11-24, before any run: the first draft used the model's
+  own poll average, which carries its corrections and half-life and is not naive). Raw two-party margins, plain
+  means, no pollster, sponsor or likely-voter adjustment, no forecast of the undecided. Polls that ended before the
+  date. In the 30-day window each firm counts once, by its latest poll (several on its latest day are averaged into
+  one reading), so a daily tracker does not fill the window alone. A ladder:
+  1. three or more firms polled the contest in the 30 days before the date: the plain mean of their latest readings;
+  2. otherwise, three or more polls of it exist in the cycle so far: the plain mean of the three most recent polls,
+     whatever their age or firm (every poll tied at the third date included). Polls, not firms, at the user's
+     request (2026-11-24): a state polled three times by one or two firms uses its polls and not its lean, at the
+     cost of carrying one firm's lean undiluted;
+  3. otherwise: the national figure plus the contest's lean four years earlier (its margin less the national
+     margin, that year). The national figure is the same ladder applied to national polls.
+  The five districts go through the same ladder with their own polls. The number of contests on each rung is
+  reported for every cell. The 30 days and the three firms are chosen by hand and not tuned: the 30 days is the
+  window `pres_prior.py` already counts recent polls in.
+- **Districts** take the earlier result on the lines the file reports for that year, as the model's own district
+  prior does; Maine's and Nebraska's lines were redrawn before 2012.
+- **Seen before the choice (2026-11-24):** counts of states by polls in the last 30 days, from
+  `pres_prior_frame.csv`, and no result. At 7 days, 15 to 25 of the 51 states have fewer than three in 2008 to 2016
+  and none in 2020; at 100 days about 40 do.
+
+A benchmark is not a candidate. If one beats the model on a target, that is reported and goes to EC-9.
+
+**How results are reported (question 4).** Every score per election and pooled over the four, at each date. 2008 is
+shown apart as well as pooled (section 7). A calibration table pools the contests' win probabilities at 7 days in
+five bands (0 to 5%, 5 to 25%, 25 to 75%, 75 to 95%, 95 to 100%), with the caution that the 224 are not independent.
+Monte Carlo error is EC-6's (about 0.006 on a win probability) and is quoted beside the winner's probability.
+
+**"Plainly wrong" (question 7).** Section 1 says four elections can show a model that is plainly wrong and little
+more. Six flags are fixed now, all at 7 days. A flag changes nothing in this card: it is reported and goes to EC-9.
+No flag is not evidence the model is right.
+
+1. **The count:** the result is outside the 80% range in three or four of the four elections (a calibrated forecast
+   does this about 1 time in 37).
+2. **The winner:** the mean log loss over the four is worse than a coin's (0.693).
+3. **The popular vote:** the result is outside the 80% range in three or four of the four.
+4. **The gap:** the realized gap is outside the 80% range in three or four of the four, or the median gap has the
+   wrong sign in three or four.
+5. **The tipping point:** the actual tipping-point contest was given less than 1 in 56 in three or four of the four.
+6. **Against the benchmarks:** either benchmark has a smaller root-mean-square state error than the model in three
+   or four of the four, or a smaller count error in three or four.
+
+The states' coverage is reported and is not a flag. It was left out of the flags in the draft the user confirmed,
+on the mistaken ground that EC-6 had read it (see "How blind this is"); no flag is added after that confirmation
+without the user's word. The user was not asked about one before the run: the mistake was found and corrected
+between their confirmation and the run, and they were told with the results.
+
+**The code.** A new `src/model/pres_backtest.py`. It takes any outputs file of A6's shape, so the rival (EC-10) is
+scored by the same code. `pres_sim.py` and `pres_sim_asof.json` are not touched.
+
+**Checks before any score is read** (`pres_backtest.py checks`, printing pass or fail only):
+
+- No 2024 row survives the loaders, and the outputs file has no 2024 cell.
+- Every cell has 56 contests; the three outcome probabilities sum to one; the count's distribution sums to one; the
+  tipping-point shares and P(tie) sum to one.
+- The pledged counts are 365, 332, 232 and 306; the realized tipping point and gap are computed on made-up margins
+  with known answers, including a tie.
+- The point margins equal `C` within 0.15 points for the 51 states.
+- On planted outputs with known answers: a perfect forecast scores zero error and Brier; a 50% forecast scores
+  Brier 0.25 and log loss 0.693; a planted result at a known percentile of the count returns that percentile; each
+  flag fires on a planted failure and stays silent on a planted calibrated forecast.
+- `pres_sim_asof.json` is unchanged byte for byte after the run.
+
+**One run.** The scores are computed once and every one is reported. A fault found in the scorer after the read is
+fixed, declared, and the full run repeated.
+
+**Questions for the user.**
+
+1. **2024:** answered 2026-11-24, above.
+2. **The scores per target:** the table above, section 1's list with the tipping point added.
+3. **The benchmarks:** B1 and B2 as defined. For B2: the 30 days, the three firms, and the last rung (the national
+   figure plus the lean four years earlier, against B1's margin with no national figure).
+4. **Reporting:** per election and pooled at every date, 7 days leading, 2008 apart as well, one calibration table.
+5. **Pledged electors,** not votes as cast (2016 had seven faithless electors).
+6. **The realized tipping point and gap** as A6 wrote them.
+7. **The six flags** and their thresholds.
+8. **The log loss's clip** at 0.001, and the competitive band at 5% to 95%.
+
+**EC-7: the user's answers (2026-11-24, before any run).** Question 1: 2024 is not scored here. Question 3: B2
+revised by the user to recent polls with a fallback ladder, with polls and not firms on the second rung; the 30
+days, the three firms on the first rung and the last rung (the national figure plus the lean four years earlier)
+confirmed. Questions 2 and 4 to 8: confirmed as proposed.
+
+**Amendments written while building the scorer, before any score is read (2026-11-24).** Found by reading
+`pres_sim.py`, not the outputs.
+
+- **The tipping-point shares are the twelve largest only.** `pres_sim.py` wrote the twelve contests most often the
+  tipping point, as shares of the draws that have one. So the shares do not sum to one with the tie, and that check
+  is dropped. If the actual tipping point is not among the twelve, its share is known only to be at most the
+  twelfth's: it is reported as "not listed" with that bound, its rank as "below 12", and flag 5 counts it as under
+  1 in 56 only when the twelfth share is itself under 1 in 56; otherwise the election is reported as undetermined
+  for that flag and not counted.
+- **Results come from `state_presidential.csv`** (through `pres_thin_states.load_results`, which drops every row
+  after 2020), the file the model's own misses were computed on, not from the history file named above. The
+  national margin is its `national_margin_2p`. Check: the state margins equal the `result` column of
+  `pres_addup_rerun_frame.csv`.
+- **A contest's win probability is simulated** (a share of 40,000 draws), so it can be exactly 0 or 1; the clip
+  applies to those.
+- **The model's count error** is taken on the median of the exact count; a benchmark's on its point winners' sum.
+  A tie in absolute error does not count as the benchmark being smaller.
+- **Signed errors** are the result less the forecast, as everywhere in this note.
+- **The point-margin check failed at 0.15 points and its tolerance is now 0.25.** The largest difference between a
+  state's point margin and the stored centre is 0.22 points (Delaware, 2012). Read from the differences alone (no
+  result). One cause is established: the stored centre was shifted with the previous election's vote shares, and
+  EC-6's as-of runs used T1's shares, which moves every state by the same 0.03 to 0.06 points in an election. The
+  rest (0.02 to 0.06 points across states) is not established: it is not plain simulation noise, because a state's
+  difference barely changes from 7 to 100 days while its range widens by a third or more (the same states lead at
+  every date: Delaware and several southern states). The point margin stays the midpoint of the 25th and 75th
+  percentiles: it is what the file forecast, and a quarter of a point is small beside misses of several points.
+- **The realized tipping points, computed before the run** (results only): Colorado in 2008, Pennsylvania in 2012,
+  Wisconsin in 2016 and 2020, with gaps of +1.7, +1.5, −3.0 and −3.9 points. 2012 is usually given as Colorado; on
+  two-party margins Pennsylvania (5.46) sits just inside Colorado (5.49), so Pennsylvania takes the winner past
+  269. The definition stands as written.
+- **B2's rungs, counted before the run** (polls only): at 7 days 30, 25, 31 and 35 of the 56 contests are on the
+  first rung in 2008 to 2020, and 6, 14, 12 and 2 on the last; at 100 days as many as 30 are on the last (2016).
+  The national figure is on the first rung in every cell.
+- **Fewer than twelve listed tipping points** would mean an unlisted contest was never the tipping point: its share
+  is then zero. Every cell lists twelve, so the case does not arise in this file.
+- **A fault in a planted input, fixed:** the planted failure listed twelve tipping-point shares all above 1 in 56,
+  so flag 5 was undetermined and did not fire. The plant now has small shares, and a check was added that an
+  unlisted tipping point with a twelfth share above 1 in 56 is reported as undetermined.
+
+### EC-7: results (run 2026-11-24, once). No flag fires.
+
+`python src/model/pres_backtest.py run`, after commits f34d827 (this plan) and 318c92c (the scorer, 19 checks
+passing). Everything is in `data/processed/pres_backtest.json`, with one row per contest and date in
+`pres_backtest_contests.csv`. Nothing was fitted, and nothing here changes the model.
+
+**The six flags, at 7 days.**
+
+| Flag | What it counted | Fires |
+|---|---|---|
+| 1. The count | outside the 80% range in 0 of 4 | no |
+| 2. The winner | mean log loss 0.526, against a coin's 0.693 | no |
+| 3. The popular vote | outside the 80% range in 0 of 4 | no |
+| 4. The gap | outside the 80% range in 2 of 4 (2008, 2016); wrong sign in 1 (2012) | no (one short) |
+| 5. The tipping point | under 1 in 56 in 0 of 4; none undetermined | no |
+| 6. The benchmarks | each has a smaller state error in 1 of 4 and a smaller count error in 1 of 4 | no |
+
+**The states, at 7 days** (56 contests an election; error is root mean square, in points).
+
+| Election | Model | B1 last time | B2 recent polls | Mean signed miss | Brier | Log loss | Called wrong | In the 50% range | In the 80% range |
+|---|---|---|---|---|---|---|---|---|---|
+| 2008 | 5.22 | 12.84 | 5.31 | +2.4 | 0.040 | 0.131 | 3 | 55% | 82% |
+| 2012 | 4.69 | 6.25 | 4.52 | +1.4 | 0.032 | 0.119 | 3 | 66% | 96% |
+| 2016 | 6.78 | 8.67 | 9.19 | −3.6 | 0.070 | 0.231 | 4 | 45% | 75% |
+| 2020 | 5.33 | 4.71 | 7.66 | −4.0 | 0.033 | 0.109 | 4 | 39% | 79% |
+| Pooled | 5.56 | 8.68 | 6.93 | −1.0 | 0.044 | 0.148 | 14 of 224 | 51% | 83% |
+
+- B2 beats the model in 2012 and B1 (2016 repeated) beats it in 2020. Called wrong, pooled: 14 for the model, 26
+  for B1, 15 for B2.
+- Without 2008 the pooled error is 5.67, the Brier 0.045, and the coverage 50% and 83%.
+- **The whole-margin ranges cover 51% and 83% at 7 days,** close to their names. This is the coverage nobody had
+  read. EC-6's 42% and 73% are of the misses with the national miss taken out, and stand as they were.
+- Competitive contests (67 of the 224): error 4.88, Brier 0.132, log loss 0.422, 13 called wrong, coverage 49% and
+  85%. The 51 states alone: error 5.53, Brier 0.041. The five districts (20): error 5.86, Brier 0.074, 3 called
+  wrong, coverage 50% and 85%.
+- 73 probabilities were clipped at 7 days; none was clipped and wrong at any date.
+- Calibration at 7 days (the 224 are not independent): given under 5%, 0 of 82 won; 5% to 25% (mean 14%), 2 of 17;
+  25% to 75% (mean 52%), 12 of 25; 75% to 95% (mean 86%), 23 of 25; over 95%, 74 of 75.
+
+**The top line, at 7 days.**
+
+| | 2008 | 2012 | 2016 | 2020 |
+|---|---|---|---|---|
+| Popular vote: result, forecast median | +7.4, +4.7 | +3.9, +1.9 | +2.2, +4.0 | +4.5, +7.9 |
+| Democratic count: result, median (80% range) | 365, 340 (264 to 387) | 332, 295 (210 to 360) | 232, 312 (230 to 369) | 306, 335 (254 to 413) |
+| Where the result fell in the count | 0.72 | 0.70 | 0.10 | 0.32 |
+| Probability given to the winner | 0.86 | 0.67 | 0.25 | 0.86 |
+| The gap: realized, forecast median | +1.7, +0.3 (outside) | +1.5, −0.0 (inside, wrong sign) | −3.0, −1.2 (outside) | −3.9, −3.2 (inside) |
+| Tipping point: actual, its share and rank; the forecast's first | CO, 21%, 3rd; OH | PA, 4%, 7th; OH | WI, 5%, 8th; FL | WI, 10%, 4th; PA |
+
+- The popular vote is inside its 80% range in all four, with a mean absolute error of 2.4 points (B1 4.3, B2 2.8).
+  With EC-6's finding that this range is too wide, four of four says little.
+- The count's median misses by 25, 37, 80 and 29 votes (mean 43; B1 79, B2 55). B2 is closer in 2008 (12) and B1
+  in 2012 (27). In 2016 the result sat two votes inside the bottom of the 80% range, which is within what another
+  seed can move the count's percentiles (EC-6 found the median moving by up to five votes), so flag 1's count of
+  zero for 2016 is not secure. The flag needs three of four either way.
+- The model favoured the winner in three of four and gave the 2016 winner 1 in 4. The Monte Carlo error on these
+  probabilities is about 0.006 (EC-6).
+- The gap's mean absolute error is 1.4 points (B1 1.7, B2 1.7). The forecast gap was near zero in 2008 and 2012,
+  when the realized gap favoured the Democrat, and less than half the realized gap in 2016.
+- The actual tipping point was always among the twelve listed and never the forecast's first. B1's point margins
+  name it once (2020) and B2's never.
+
+**By date, on 2012 to 2020** (the three elections scored at every date; 2008 is left out so the dates compare).
+
+| | 100 days | 60 days | 30 days | 7 days |
+|---|---|---|---|---|
+| State error, model | 5.63 | 5.50 | 5.30 | 5.67 |
+| State error, B2 (B1 is 6.74 throughout) | 6.52 | 6.50 | 6.33 | 7.38 |
+| Brier | 0.061 | 0.054 | 0.047 | 0.045 |
+| In the 50% and 80% ranges | 85%, 99% | 81%, 98% | 75%, 95% | 50%, 83% |
+| Popular vote, mean absolute error | 1.7 | 1.9 | 1.8 | 2.4 |
+| Count, mean absolute error | 46 | 49 | 43 | 49 |
+| Winner's mean log loss | 0.66 | 0.68 | 0.60 | 0.65 |
+
+The popular vote, count, winner and B2 figures at 30 and 7 days in this table are means over the three
+elections' cells in the results file, which stores the four-election pooling only. With 2008, the 30-day figures
+over four elections are: state error 5.50 (B1 8.68, B2 6.60), Brier 0.048, coverage
+70% and 94%, popular vote 2.3, count 44, winner's log loss 0.54. B2's rungs are in the amendments above and in the
+results file for every cell.
+
+**What this can and cannot say.** Four elections: the model missed toward the Republican in two (2008, 2012) and toward the Democrat in two (2016, 2020). No flag
+fired, so the backtest does not show the model plainly wrong on any target. It does not show it right: a count
+inside an 80% range four times in four is what a range that is too wide also gives.
+
+**To the design freeze (EC-9), all suggested by these results.**
+
+- **The centre does not get closer as the election nears** on 2012 to 2020 pooled: the state error is 5.6 at 100
+  days and 5.7 at 7, and the popular vote's error is larger at 7 days than at 100. The Brier score still improves
+  because the ranges narrow. The elections differ: from 30 to 7 days 2016 improves a little (6.9 to 6.8, from 7.7
+  at 100), 2012 is flat (4.6 to 4.7) and 2020 worsens (3.9 to 5.3). The cause is not established.
+- **The whole-margin ranges are too wide early:** 85% and 99% coverage at 100 days for ranges named 50% and 80%.
+  EC-6 found the states' part alone covering 57% and 86% at 100 days, so most of the excess is not the states' part;
+  that points at the national draw, which EC-6 also found too wide. Which part carries how much is not established.
+- **At 7 days two errors may offset** (an inference from two numbers, not a test): the states' part covered 42% and
+  73% at EC-6 and the whole margin covers 51% and 83% here. A narrow state part under a wide national draw would
+  give that. If so, correcting one alone at the freeze would unbalance the other.
+- **The gap is forecast too close to zero.** It was outside its 80% range twice and one election short of the flag.
+- **Recent polls alone are worse than last time's result at 7 days in 2020** (7.7 against 4.7), and the model sits
+  between them (5.3). Its signed miss is −3.6 and −4.0 in 2016 and 2020 and positive in 2008 and 2012. B2 itself
+  worsens from 5.7 at 30 days to 7.7 at 7 in 2020, the date at which every state has ten or more polls in the
+  window while 21 of the 56 contests still have fewer than three firms there (19 of them on the second rung). One firm's 50-state releases entering through
+  the second rung would do that; the cause is not established, and no split by rung was run.
+- **The winner's log loss at 100 and 60 days (0.66, 0.68) is close to a coin's,** on three elections, one of them 2016.
+- **2024** is scored once by this recipe, unchanged, at the freeze.
+
+### EC-7: B2 by rung, a diagnostic (declared 2026-11-24, after the results and before its run; asked for by the user)
+
+Suggested by the results above: B2 worsens from 5.7 to 7.7 between 30 and 7 days in 2020. The question is whether
+that comes from one rung of the ladder. This decides nothing: no benchmark, score or flag changes, whatever it shows.
+
+For every scored cell, the 56 contests are split by B2's rung. For each rung: the number of contests, and the root
+mean square error on those contests of B2, of B1 and of the model's point margin. For the second rung also: how
+many of its contests draw all their polls from one firm, and the number of distinct firms across the rung. The
+7-day and 30-day cells of 2020 are read first; the others are reported beside them.
+(`python src/model/pres_backtest.py rungs`, written to `pres_backtest_rungs.json`.)
+
+### EC-7: B2 by rung, results (run 2026-11-24). The second rung carries most of 2020's late worsening, through one firm.
+
+Root mean square error in points, on the contests of each rung (`pres_backtest_rungs.json` has every cell).
+
+| 2020 | Rung | Contests | B2 | B1 | Model |
+|---|---|---|---|---|---|
+| 30 days | 1: three firms in 30 days | 28 | 5.4 | 4.6 | 3.6 |
+| 30 days | 2: the three latest polls | 26 | 6.2 | 4.7 | 3.8 |
+| 30 days | 3: national figure plus lean | 2 | 2.3 | 5.7 | 7.6 |
+| 7 days | 1 | 35 | 6.2 | 4.3 | 4.3 |
+| 7 days | 2 | 19 | 10.1 | 5.3 | 6.3 |
+| 7 days | 3 | 2 | 3.1 | 5.7 | 10.3 |
+
+- **At 7 days in 2020, 16 of the 19 second-rung contests take all three of their polls from one firm,** and one firm
+  appears in 18 of the 19. Only 6 firms supply the whole rung. Those 16 miss by 10.9 points; the other 3 by 3.2.
+  B2's mean signed miss on the rung is −7.2 (the polls too Democratic).
+- At 30 days the same rung has 26 contests, 9 of them from one firm, and the one-firm contests are no worse than
+  the rest (6.1 against 6.2). So the damage arrives in the last weeks, as that firm's repeated releases come to
+  be the three latest polls in thinly polled states.
+- The first rung worsens too (5.4 to 6.2), so the second rung is most of B2's late worsening, not all of it.
+- **The model worsens on the same contests** (3.8 to 6.3 on the second rung, against 3.6 to 4.3 on the first). It
+  reads the same polls, with its own corrections. Whether that firm's releases are what moves the model's centre
+  late in 2020 was not tested here.
+- In no other election is the second rung dominated by one firm at 7 days (0, 2 and 1 one-firm contests in 2008,
+  2012 and 2016).
+
+**What it means for the benchmark.** The user's choice of polls over firms on the second rung is what lets one
+firm fill it, as the cost written beside that choice said. B2 stands as registered and its scores are not rerun.
+
+**To the design freeze (EC-9), suggested by this diagnostic:** how the model's average treats one firm releasing
+repeatedly in states nobody else polls, late in the campaign, with 2020 as the case that suggested it.

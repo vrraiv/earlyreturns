@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-24c",
+  version: "2026-11-24e",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -696,8 +696,12 @@ window.PLAN = {
             "Each election forecast with only what was known then.",
             "Score the states (Brier and log loss), the winner, the electoral vote range and the tipping point.",
             "Report the small sample plainly.",
-            "Decided at EC-1: 2008 to 2020 are scored as of each election, at four dates before it; 2024 is held out of every fit and choice and scored once when the design is frozen. The popular vote and the gap to the tipping-point state are scored beside the states and the count."
-          ] },
+            "Decided at EC-1: 2008 to 2020 are scored as of each election, at four dates before it; 2024 is held out of every fit and choice and scored once when the design is frozen. The popular vote and the gap to the tipping-point state are scored beside the states and the count.",
+            "Decided 2026-11-24: this card scores 2008 to 2020 only. 2024 is scored once at the design freeze (EC-9), by the recipe fixed here. The scoring plan is section 16 of the note, written and confirmed before any output was read: the scores for each target, two naive benchmarks (last election's result repeated; recent polls with a fallback for thinly polled states), and six signs of a plainly wrong model. The card tests no candidate and changes nothing in the model.",
+            "Run 2026-11-24, once (section 16 of the note): none of the six signs fires. A week out, the model's state error is 5.6 points against 8.7 for last time's result and 6.9 for recent polls; its 50% and 80% ranges held 51% and 83% of results; the electoral vote count and the popular vote were inside their 80% ranges in all four elections; it favoured the winner in three of four and gave the 2016 winner 1 in 4. Each benchmark beats it on state error in one election of four. Four elections cannot show the model is right, only that it is not plainly wrong.",
+            "Carried to EC-9, suggested by these results: the forecast's centre is no closer a week out than 100 days out on 2012 to 2020; the ranges are too wide early (85% of results inside the 50% range at 100 days); the gap between the tipping-point state and the popular vote is forecast too close to zero, outside its 80% range in two of four."
+          ],
+          refs: ["src/model/pres_backtest.py"] },
         { id: "EC-8", title: "What to show before the nominees are known", kind: "decision", phase: "p4",
           why: "Nominees are unknown until mid-2028.",
           details: [
@@ -710,7 +714,10 @@ window.PLAN = {
             "Backtest published on the site.",
             "Parameters frozen for the season.",
             "Before the freeze, the design is checked against the 2026 lessons list (moved here from EC-1).",
-            "From EC-4 (2026-11-21), to be scored once on 2024: the fixed weight on a state's polls, adopted provisionally, and a version of it with no pull in close states (prior within 10 points), which EC-4's results suggested. Each one's exact fit is written down before 2024 is opened (`ELECTORAL_COLLEGE.md`, section 13)."
+            "From EC-4 (2026-11-21), to be scored once on 2024: the fixed weight on a state's polls, adopted provisionally, and a version of it with no pull in close states (prior within 10 points), which EC-4's results suggested. Each one's exact fit is written down before 2024 is opened (`ELECTORAL_COLLEGE.md`, section 13).",
+            "From EC-7 (2026-11-24): 2024 is scored here, once, by the recipe EC-7 fixed and used on 2008 to 2020 (section 16 of the note), unchanged: the same scores, the same two benchmarks, the same six signs of a plainly wrong model, run by `src/model/pres_backtest.py`.",
+            "From EC-7's results, each suggested by them and so declared with anything built on it: the forecast's centre is no closer a week out than 100 days out on 2012 to 2020; the ranges are too wide early, and most of the excess looks like the national part; a week out the states' part looks too narrow and the national part too wide, so correcting one alone could unbalance the other; the gap between the tipping-point state and the popular vote is forecast too close to zero.",
+            "From EC-7's diagnostic (2026-11-24): in the last weeks of 2020, one firm's repeated releases were the only recent polls in many thinly polled states, and both the recent-polls benchmark and the model got worse there. How the average treats one firm polling alone and often is a question for the freeze."
           ],
           checklist: [
             { id: "a", text: "Design checked against the lessons list" }
