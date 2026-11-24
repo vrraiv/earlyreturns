@@ -9,13 +9,20 @@ governors.get_page (cached in data/raw/wikipedia_hist/, revision id in every row
   secured       nomination secured (nominees)
 Each date is labelled by the words before it in its cell ("Exploratory committee:", "Withdrew:", "Secured
 nomination:", "Lost nomination:") or else by its column's header. Birth dates are left out by year.
-Minor candidates listed only in "Other candidates" bullet lists, with no table row, are not in the timeline.
+Minor candidates listed only in "Other candidates" bullet lists (2024) are added with their withdrawal date only.
 
 Polls (data/interim/primary_polls.csv), one row per question and candidate:
   2020, 2024   538's archived primary poll file (538_wayback/president_primary_polls_historical.csv, Feb 2025
                capture, CC BY): every poll of the cycle, every question, all candidates, state and national.
-  2012, 2016   to come: archived HuffPost Pollster files (CC BY-NC-SA), in a separately licensed file.
   2008         to come.
+HuffPost Pollster's 2012 (Republican) and 2016 primary polls, state and national, go to a separate file,
+data/interim/primary_polls_huffpost.csv, because Pollster licensed its data CC BY-NC-SA 3.0 ("If you use our API,
+please attribute it. Link back to our site", the API page; saved as licence_api_page.html beside the raw files),
+which cannot be relicensed under this project's CC BY-SA (LICENSE-DATA.md lists the file as not covered). One
+archived file per contest, chosen by the rules in hp_snapshot(); file_rule 3 marks a contest whose only capture
+may predate the contest, so its last polls can be missing (Georgia's 2016 Republican file was captured in
+November 2015). Pollster's files give one row per poll and population with a column per candidate surname; each
+row becomes a question here. Undecided and Other are kept as columns, not as candidates.
 Nothing is dropped. Poll URLs are left out (they would double the file); the 538 archive has them by poll_id.
 538's own `hypothetical` flag is kept as hypothetical_538 but not used: it is a ballot test
 (the question is hypothetical unless every candidate is confirmed on the ballot; FiftyPlusOne's readme and 538's
@@ -35,8 +42,10 @@ Candidates are matched to the timeline by surname, with the first initial (or a 
 
 Run:  python src/collect/primary_polls.py
 """
+import json
 import re
 import sys
+import time
 import unicodedata
 from pathlib import Path
 
@@ -44,7 +53,7 @@ import pandas as pd
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import ROOT, latest  # noqa: E402
+from common import RAW, ROOT, SESSION, fetch, latest, raw_dir  # noqa: E402
 from downballot import STATE_ABBR  # noqa: E402
 from governors import get_page  # noqa: E402
 
@@ -205,8 +214,11 @@ def match_keys(polls, cands):
     out = {}
     for (cycle, party, name) in polls[["cycle", "party", "candidate_name"]].drop_duplicates().itertuples(index=False):
         first, sur = name_parts(name)
+        hits = idx.get((cycle, party, sur), [])
         hit = None
-        for r in idx.get((cycle, party, sur), []):
+        if len(fold(name).split()) == 1:          # surname only (HuffPost's columns): only an unambiguous match
+            hit = hits[0].candidate_key if len(hits) == 1 else None
+        for r in hits if hit is None else []:
             f2 = name_parts(r.candidate)[0]
             if f2[:1] == first[:1] or (first, f2) in NICK or (f2, first) in NICK:
                 hit = r.candidate_key
@@ -228,6 +240,23 @@ def status(end, c):
     return "not_yet"
 
 
+QCOLS = ["q_" + x for x in STATUSES]
+
+
+def add_status(a, cands):
+    """candidate_key, cand_status on the end date, and per-question counts by status and of answers."""
+    keys = match_keys(a, cands)
+    a["candidate_key"] = [keys[k] for k in zip(a.cycle, a.party, a.candidate_name)]
+    cinfo = {(r["cycle"], r["party"], r["candidate_key"]): r for r in cands.to_dict("records")}
+    a["cand_status"] = [status(e, cinfo.get((c, p, k)) if k else None)
+                        for e, c, p, k in zip(a.end_date, a.cycle, a.party, a.candidate_key)]
+    a["candidate_key"] = a.candidate_key.fillna(a.candidate_name.map(slug))
+    q = pd.crosstab(a.question_id, a.cand_status).reindex(columns=STATUSES, fill_value=0).add_prefix("q_")
+    a = a.join(q, on="question_id")
+    a["n_answers"] = a.groupby("question_id").question_id.transform("size")
+    return a
+
+
 def polls_538(cands):
     a = pd.read_csv(latest("538_wayback", "president_primary_polls_historical.csv"), low_memory=False)
     a["candidate_party"] = a.party.map({"DEM": "D", "REP": "R"})
@@ -241,15 +270,7 @@ def polls_538(cands):
     a["geo"] = geo
     for c in ["start_date", "end_date", "election_date"]:
         a[c] = pd.to_datetime(a[c], format="mixed").dt.date
-    keys = match_keys(a, cands)
-    a["candidate_key"] = [keys[k] for k in zip(a.cycle, a.party, a.candidate_name)]
-    cinfo = {(r["cycle"], r["party"], r["candidate_key"]): r for r in cands.to_dict("records")}
-    a["cand_status"] = [status(e, cinfo.get((c, p, k)) if k else None)
-                        for e, c, p, k in zip(a.end_date, a.cycle, a.party, a.candidate_key)]
-    a["candidate_key"] = a.candidate_key.fillna(a.candidate_name.map(slug))
-    q = pd.crosstab(a.question_id, a.cand_status).reindex(columns=STATUSES, fill_value=0).add_prefix("q_")
-    a = a.join(q, on="question_id")
-    a["n_answers"] = a.groupby("question_id").question_id.transform("size")
+    a = add_status(a, cands)
     a["days_to_contest"] = pd.array([(e - d).days if pd.notna(e) else None for e, d in zip(a.election_date, a.end_date)],
                                     dtype="Int64")
     a["source"] = "538"
@@ -257,9 +278,189 @@ def polls_538(cands):
         ["cycle", "party", "geo", "stage", "poll_id", "question_id", "pollster", "pollster_rating_id", "sponsor",
          "partisan", "internal", "population", "sample_size", "tracking", "start_date", "end_date", "election_date",
          "days_to_contest", "notes", "hypothetical_538", "candidate_key", "candidate_name", "candidate_party", "answer", "pct",
-         "cand_status", "n_answers"] + list(q.columns) + ["source"]]
+         "cand_status", "n_answers"] + QCOLS + ["source"]]
     return out.sort_values(["cycle", "party", "end_date", "poll_id", "question_id", "pct"],
                            ascending=[True, True, True, True, True, False])
+
+
+HP_HOST = "elections.huffingtonpost.com/pollster/"
+HP_SOURCE = "huffpost_pollster"
+HP_NOT_CANDIDATES = {"Undecided", "Other", "Not Voting", "Refused", "None", "Wouldn't Vote", "Someone else"}
+
+
+def hp_contest(fname):
+    """'2016-iowa-presidential-republican-caucus.csv' -> (2016, 'IA', 'R', 'caucus'); None if not a presidential
+    primary chart (Senate and governor primaries share the folder)."""
+    m = re.match(r"(\d{4})-(.+)\.csv$", fname)
+    if not m:
+        return None
+    cycle, rest = int(m.group(1)), m.group(2)
+    if cycle not in (2012, 2016) or not re.search(r"primary|caucus", rest):
+        return None
+    if re.search(r"senate|governor|house", rest):
+        return None
+    party = "R" if re.search(r"gop|republican", rest) else "D" if "democratic" in rest else None
+    if party is None or (cycle == 2012 and party == "D"):
+        return None
+    words = re.sub(r"-?(presidential|republican|democratic|gop|primary|caucus)", "", rest).strip("-")
+    geo = "US" if words == "national" else ABBR.get(words.replace("-", " ").title())
+    if geo is None:
+        raise ValueError(f"unmapped Pollster chart {fname}")
+    return cycle, geo, party, "caucus" if "caucus" in rest else "primary"
+
+
+def hp_api_contest(path):
+    """'16-MI-Pres-DemPR/poll-responses-clean.tsv' -> (2016, 'MI', 'D'); None for other questions."""
+    m = re.match(r"(\d\d)-([A-Z]{2})-Pres-(Dem|Rep)PR/poll-responses-clean\.tsv$", path)
+    if not m or int(m.group(1)) not in (12, 16):
+        return None
+    geo = m.group(2)
+    if geo != "US" and geo not in ABBR.values():
+        raise ValueError(f"unmapped Pollster question {path}")
+    return 2000 + int(m.group(1)), geo, "D" if m.group(3) == "Dem" else "R"
+
+
+def cdx(prefix):
+    for attempt in range(5):
+        r = SESSION.get("https://web.archive.org/cdx/search/cdx", timeout=300,
+                        params={"url": prefix, "matchType": "prefix", "filter": "statuscode:200",
+                                "fl": "original,timestamp,length", "output": "json"})
+        if r.status_code not in (429, 503, 504):
+            break
+        time.sleep(30 * (attempt + 1))
+    r.raise_for_status()
+    return [{"original": o, "timestamp": t, "length": int(n)} for o, t, n in r.json()[1:]]
+
+
+def hp_snapshot():
+    """One archived file per contest (cycle, state or US, party), chosen from every Wayback capture of Pollster's
+    2012 and 2016 primary files:
+      1. the API's poll-responses file for the question (pollster/api/v2/questions/<yy>-<geo>-Pres-<Dem|Rep>PR/),
+         where archived: every capture of it postdates the cycle, and it adds question text and partisanship;
+      2. else the chart CSV (pollster/<year>-<state>-...-primary.csv): its largest capture after July 1 of the cycle;
+      3. else the chart CSV's latest capture, which may predate the contest and miss its last polls.
+    The choice per contest is written to sources.json beside the files, with each capture's timestamp; the full
+    capture listing to cdx_listing.json. Cached: the latest data/raw/huffpost_pollster/<date>/ with a sources.json
+    is reused."""
+    hits = sorted((RAW / HP_SOURCE).glob("*/sources.json"))
+    if hits:
+        return hits[-1].parent
+    d = raw_dir(HP_SOURCE)
+    caps = []
+    for pre in ["2012-", "2016-", "api/v2/questions/12-", "api/v2/questions/16-"]:
+        caps += cdx(HP_HOST + pre)
+    opts = {}
+    for c in caps:
+        path = c["original"].split("/pollster/", 1)[-1].split("?")[0]
+        if path.startswith("api/v2/questions/"):
+            con = hp_api_contest(path[len("api/v2/questions/"):])
+            if con:
+                opts.setdefault(con, []).append({**c, "path": path, "rank": 1, "stage": None})
+            continue
+        con = hp_contest(path)
+        if con is None:
+            continue
+        late = c["timestamp"][:8] >= f"{con[0]}0701"
+        opts.setdefault(con[:3], []).append({**c, "path": path, "rank": 2 if late else 3, "stage": con[3]})
+    chosen = {}
+    for con, lst in sorted(opts.items()):
+        rank = min(x["rank"] for x in lst)
+        pool = [x for x in lst if x["rank"] == rank]
+        pick = max(pool, key=lambda x: (x["length"], x["timestamp"])) if rank < 3 else \
+            max(pool, key=lambda x: (x["timestamp"], x["length"]))
+        stages = sorted({x["stage"] for x in lst if x["stage"]})
+        fname = ("api-" + pick["path"].split("/")[3] + ".tsv") if rank == 1 else pick["path"]
+        fetch(HP_SOURCE, fname, f"https://web.archive.org/web/{pick['timestamp']}id_/http://{HP_HOST}{pick['path']}")
+        time.sleep(1)
+        chosen["|".join(map(str, con))] = {"file": fname, "path": pick["path"], "timestamp": pick["timestamp"],
+                                           "rule": rank, "stage": "caucus" if stages == ["caucus"] else "primary"}
+    # the licence, as the API page stated it (January 2017 capture)
+    fetch(HP_SOURCE, "licence_api_page.html",
+          "https://web.archive.org/web/20170126155740id_/http://elections.huffingtonpost.com/pollster/api")
+    (d / "cdx_listing.json").write_text(json.dumps([c for lst in opts.values() for c in lst], indent=0))
+    (d / "sources.json").write_text(json.dumps(chosen, indent=1, sort_keys=True))
+    return d
+
+
+def hp_read(f, rule):
+    """A Pollster file as one row per poll row and candidate, with common column names."""
+    if rule == 1:
+        t = pd.read_csv(f, sep="\t")
+        cols = list(t.columns)
+        cand = [c for c in cols[:cols.index("poll_slug")] if re.sub(r"\.\d+$", "", c) not in HP_NOT_CANDIDATES]
+        t = t.rename(columns={"survey_house": "pollster", "poll_slug": "poll_id", "sample_subpopulation": "population",
+                              "observations": "sample_size", "partisan_affiliation": "partisan"})
+        t["url"] = "http://" + HP_HOST + "polls/" + t.poll_id
+    else:
+        t = pd.read_csv(f)
+        cols = list(t.columns)
+        first = cols.index("Mode") + 1 if "Mode" in cols else cols.index("Population") + 1
+        cand = [c for c in cols[first:cols.index("Pollster URL")] if re.sub(r"\.\d+$", "", c) not in HP_NOT_CANDIDATES]
+        t = t.rename(columns={"Pollster": "pollster", "Start Date": "start_date", "End Date": "end_date",
+                              "Number of Observations": "sample_size", "Population": "population",
+                              "Pollster URL": "url"})
+        t["poll_id"] = t.url.str.rsplit("/", n=1).str[-1]
+        t["question_text"] = None
+        t["partisan"] = None
+    t["undecided"] = t["Undecided"] if "Undecided" in cols else None
+    t["other"] = t["Other"] if "Other" in cols else None
+    t["row"] = range(len(t))
+    keep = ["row", "pollster", "poll_id", "population", "sample_size", "start_date", "end_date", "question_text",
+            "partisan", "undecided", "other", "url"]
+    return t.melt(id_vars=keep, value_vars=cand, var_name="candidate_name", value_name="pct").dropna(subset=["pct"])
+
+
+def polls_huffpost(cands):
+    d = hp_snapshot()
+    src = json.loads((d / "sources.json").read_text())
+    frames = []
+    for key, s_ in src.items():
+        cycle, geo, party = key.split("|")
+        long = hp_read(d / s_["file"], s_["rule"])
+        long["cycle"], long["geo"], long["party"], long["stage"] = int(cycle), geo, party, s_["stage"]
+        long["file"], long["capture"], long["file_rule"] = s_["path"], s_["timestamp"][:8], s_["rule"]
+        long["question_id"] = "hp-" + cycle[2:] + "-" + geo + "-" + party + "-" + long.row.astype(str)
+        frames.append(long)
+    a = pd.concat(frames, ignore_index=True)
+    a["start_date"] = pd.to_datetime(a.start_date).dt.date
+    a["end_date"] = pd.to_datetime(a.end_date).dt.date
+    a = add_status(a, cands)
+    a["source"] = "HuffPost Pollster"
+    out = a[["cycle", "party", "geo", "stage", "poll_id", "question_id", "pollster", "partisan", "population",
+             "sample_size", "start_date", "end_date", "question_text", "candidate_key", "candidate_name", "pct",
+             "undecided", "other", "cand_status", "n_answers"] + QCOLS + ["source", "file", "file_rule", "capture", "url"]]
+    rules = pd.Series([v["rule"] for v in src.values()]).value_counts().sort_index()
+    print(f"\nHuffPost Pollster: {len(src)} contests; by rule (1 API file, 2 chart after July 1, 3 chart, earlier "
+          f"capture): {rules.to_dict()}")
+    return out.sort_values(["cycle", "party", "geo", "end_date", "question_id", "pct"],
+                           ascending=[True, True, True, True, True, False])
+
+
+def hp_checks(hp):
+    qq = hp.drop_duplicates("question_id")
+    allrun = qq.q_running == qq.n_answers
+    print(pd.DataFrame({"questions": qq.groupby(["cycle", "party"]).size(),
+                        "states": qq[qq.geo != "US"].groupby(["cycle", "party"]).geo.nunique(),
+                        "national": qq[qq.geo == "US"].groupby(["cycle", "party"]).size(),
+                        "all_running": qq[allrun].groupby(["cycle", "party"]).size()}).fillna(0).astype(int).to_string())
+    print("Polled names not matched to the timeline (cycle, party, name, rows):")
+    nr = hp[hp.cand_status == "not_running"].groupby(["cycle", "party", "candidate_name"]).size()
+    print(nr.sort_values(ascending=False).head(30).to_string())
+    print("Cross-check: 538's raw_polls.csv late primary polls (top two only). Found = a Pollster poll of the same "
+          "contest in the field that day, give or take a day (the two sources name pollsters differently):")
+    r = pd.read_csv(latest("538_github", "raw_polls.csv"), low_memory=False)
+    r = r[(r.type_simple == "Pres-P") & r.cycle.isin([2012, 2016])].copy()
+    r["party"] = r.race.str.extract(r"Pres-([DR])-P")[0]
+    r["day"] = pd.to_datetime(r.polldate).dt.date
+    spans = {}
+    for x in qq.itertuples():
+        spans.setdefault((x.cycle, x.party, x.geo), []).append((x.start_date, x.end_date))
+    one = pd.Timedelta(days=1)
+    r["result"] = ["no Pollster file" if (c, p, g) not in spans else
+                   "found" if any(s0 - one <= day <= e0 + one for s0, e0 in spans[(c, p, g)]) else "not found"
+                   for c, p, g, day in zip(r.cycle, r.party, r.location, r.day)]
+    print(pd.crosstab([r.cycle, r.party], r.result).to_string())
+    print("  contests with no Pollster file:", sorted(set(r.loc[r.result == "no Pollster file", "location"])))
 
 
 def checks(cands, polls):
@@ -289,6 +490,9 @@ def main():
     polls = polls_538(cands)
     polls.to_csv(INTERIM / "primary_polls.csv", index=False)
     checks(cands, polls)
+    hp = polls_huffpost(cands)
+    hp.to_csv(INTERIM / "primary_polls_huffpost.csv", index=False)
+    hp_checks(hp)
 
 
 if __name__ == "__main__":

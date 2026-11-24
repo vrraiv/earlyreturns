@@ -1,0 +1,360 @@
+Cain	Huntsman	Perry	Bachmann	Romney	Palin	Gingrich	Paul	Giuliani	Santorum	Undecided	Other	Not Voting	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+				49.0		17.0	16.0			7.0	11.0		yougov-economist-13672	YouGov/Economist	2012-04-28	2012-04-30		Likely Voters - Republican			Internet	Nonpartisan	None
+				57.0		14.0	13.0			8.0	9.0		yougov-economist-13625	YouGov/Economist	2012-04-21	2012-04-23		Likely Voters - Republican			Internet	Nonpartisan	None
+				54.0		20.0	12.0			5.0	9.0		cbs-times-13553	CBS/Times	2012-04-13	2012-04-17		Likely Voters - Republican	268	6.0	Live Phone	Nonpartisan	None
+				49.0		20.0	13.0			8.0	10.0		yougov-economist-13564	YouGov/Economist	2012-04-14	2012-04-16		Likely Voters - Republican			Internet	Nonpartisan	None
+				57.0		19.0	18.0			3.0	3.0		cnn-13536	CNN	2012-04-13	2012-04-15		Adults - Republican	473	4.5	Live Phone	Nonpartisan	None
+				54.0		24.0	14.0			9.0			ppp-d-13550	PPP (D)	2012-04-12	2012-04-15		Likely Voters - Republican	742	3.6	Automated Phone	Pollster	Dem
+				46.0		13.0	16.0		15.0	8.0	2.0		fox-13521	FOX	2012-04-09	2012-04-11		Likely Voters - Republican	376	5.0	Live Phone	Nonpartisan	None
+				36.0		10.0	15.0		18.0	8.0	13.0		yougov-economist-13517	YouGov/Economist	2012-04-07	2012-04-10		Likely Voters - Republican			Internet	Nonpartisan	None
+				42.0		10.0	10.0		24.0		1.0		gallup-13489	Gallup	2012-04-04	2012-04-09		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				44.0		10.0	13.0		25.0	3.0	2.0	3.0	abc-post-13481	ABC/Post	2012-04-05	2012-04-08		Registered Voters - Republican			Live Phone	Nonpartisan	None
+				42.0		9.0	11.0		25.0		1.0		gallup-13480	Gallup	2012-04-03	2012-04-07		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				41.0		10.0	11.0		26.0		2.0		gallup-13472	Gallup	2012-04-02	2012-04-06		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				41.0		9.0	12.0		25.0		1.0		gallup-13462	Gallup	2012-04-01	2012-04-05		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				39.0		10.0	12.0		26.0		2.0		gallup-13445	Gallup	2012-03-31	2012-04-04		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				29.0		12.0	14.0		26.0	6.0	12.0		yougov-economist-13440	YouGov/Economist	2012-03-31	2012-04-03		Likely Voters - Republican			Internet	Nonpartisan	None
+				40.0		11.0	12.0		25.0		2.0		gallup-13429	Gallup	2012-03-30	2012-04-03		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				41.0		12.0	11.0		25.0		2.0		gallup-13420	Gallup	2012-03-29	2012-04-02		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				43.0		11.0	10.0		25.0		2.0		gallup-13415	Gallup	2012-03-28	2012-04-01		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				42.0		11.0	10.0		27.0		2.0		gallup-13413	Gallup	2012-03-27	2012-03-31		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				42.0		11.0	10.0		27.0		2.0		gallup-13412	Gallup	2012-03-26	2012-03-30		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				42.0		11.0	10.0		27.0		2.0		gallup-13387	Gallup	2012-03-27	2012-03-29		Adults	1500	3.0	Live Phone	Nonpartisan	None
+				39.0		10.0	11.0		28.0		2.0		gallup-13381	Gallup	2012-03-24	2012-03-28		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				31.0		11.0	9.0		31.0	6.0	12.0		yougov-economist-13377	YouGov/Economist	2012-03-24	2012-03-27		Likely Voters - Republican			Internet	Nonpartisan	None
+				39.0		11.0	11.0		28.0		2.0		gallup-13367	Gallup	2012-03-23	2012-03-27		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				39.0		12.0	10.0		27.0		2.0		gallup-13345	Gallup	2012-03-24	2012-03-26		Adults	1500	3.0	Live Phone	Nonpartisan	None
+				36.0		15.0	17.0		26.0	2.0	1.0		cnn-13349	CNN	2012-03-24	2012-03-25		Adults - Republican	436	4.5	Live Phone	Nonpartisan	None
+				30.0		19.0	13.0		30.0	8.0			ppp-d-13372	PPP (D)	2012-03-22	2012-03-25		Registered Voters	561	4.1	Automated Phone	Pollster	Dem
+				39.0		14.0	9.0		27.0		2.0		gallup-13337	Gallup	2012-03-21	2012-03-25		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				41.0		13.0	8.0		26.0		2.0		gallup-13334	Gallup	2012-03-20	2012-03-24		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				42.0		15.0	8.0		26.0		2.0		gallup-13333	Gallup	2012-03-19	2012-03-23		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				39.0		13.0	13.0		31.0	4.0			marist-mcclatchy-13344	Marist/McClatchy	2012-03-20	2012-03-22		Adults - Republican	377	5.0	Live Phone	Nonpartisan	None
+				40.0		14.0	8.0		26.0	3.0			gallup-13307	Gallup	2012-03-18	2012-03-22		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				38.0		14.0	9.0		27.0		3.0		gallup-13290	Gallup	2012-03-17	2012-03-21		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				31.0		21.0	12.0		23.0	3.0	10.0		yougov-economist-13283	YouGov/Economist	2012-03-17	2012-03-20		Likely Voters - Republican			Internet	Nonpartisan	None
+				37.0		13.0	10.0		27.0		3.0		gallup-13278	Gallup	2012-03-16	2012-03-20		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				39.0		10.0	12.0		26.0	10.0	1.0	1.0	reason-rupe-13340	Reason/Rupe	2012-03-10	2012-03-20		Adults - Republican	468		Live Phone	Nonpartisan	None
+				34.0		13.0	10.0		30.0		3.0		gallup-13261	Gallup	2012-03-17	2012-03-19		Adults	1500	3.0	Live Phone	Nonpartisan	None
+				35.0		13.0	10.0		29.0		3.0		gallup-13248	Gallup	2012-03-14	2012-03-18		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				34.0		20.0	9.0		31.0	6.0			ppp-d-13269	PPP (D)	2012-03-15	2012-03-17		Likely Voters - Republican	734	3.6	Automated Phone	Pollster	Dem
+				36.0		12.0	11.0		28.0		2.0		gallup-13242	Gallup	2012-03-13	2012-03-17		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				36.0		13.0	10.0		28.0		2.0		gallup-13241	Gallup	2012-03-12	2012-03-16		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				37.0		17.0			28.0	5.0	13.0		rasmussen-13224	Rasmussen	2012-03-13	2012-03-15		Likely Voters	1500		Automated Phone	Nonpartisan	None
+				36.0		13.0	10.0		28.0		2.0		gallup-13226	Gallup	2012-03-11	2012-03-15		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				35.0		15.0	10.0		27.0		2.0		gallup-13218	Gallup	2012-03-10	2012-03-14		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				33.0		16.0	11.0		27.0		2.0		gallup-13215	Gallup	2012-03-11	2012-03-13		Adults	1500	3.0	Live Phone	Nonpartisan	None
+				28.0		21.0	10.0		24.0	8.0	8.0		yougov-economist-13219	YouGov/Economist	2012-03-10	2012-03-13		Likely Voters - Republican			Internet	Nonpartisan	None
+				38.0		13.0	12.0		32.0	3.0	3.0		fox-13212	FOX	2012-03-10	2012-03-12		Likely Voters - Republican	341	5.0	Live Phone	Nonpartisan	None
+				32.0		17.0	12.0		27.0		2.0		gallup-13205	Gallup	2012-03-08	2012-03-12		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				37.0		12.0	11.0		32.0	6.0	5.0	1.0	ipsos-reuters-13208	Ipsos/Reuters	2012-03-08	2012-03-11		Adults - Republican	421		Live Phone	Nonpartisan	None
+				37.0		13.0	11.0		27.0	9.0		3.0	bloomberg-13207	Bloomberg	2012-03-08	2012-03-11		Adults - Republican	377		Live Phone	Nonpartisan	None
+				33.0		20.0	14.0		24.0	5.0	4.0		pew-13211	Pew	2012-03-07	2012-03-11		Registered Voters - Republican	538	5.0	Live Phone	Nonpartisan	None
+				34.0		15.0	12.0		25.0		2.0		gallup-13203	Gallup	2012-03-07	2012-03-11		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				30.0		13.0	8.0		34.0				cbs-times-13183	CBS/Times	2012-03-07	2012-03-11		Likely Voters - Republican	301	6.0	Live Phone	Nonpartisan	None
+				33.0		14.0	12.0		29.0	4.0	2.0	6.0	abc-post-13184	ABC/Post	2012-03-07	2012-03-10		Registered Voters - Republican			Live Phone	Nonpartisan	None
+				36.0		14.0	11.0		24.0		3.0		gallup-13188	Gallup	2012-03-06	2012-03-10		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				36.0		13.0	11.0		23.0		2.0		gallup-13187	Gallup	2012-03-05	2012-03-09		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				35.0		13.0	11.0		24.0		2.0		gallup-13177	Gallup	2012-03-06	2012-03-08		Adults	1500	3.0	Live Phone	Nonpartisan	None
+				37.0		12.0	11.0		23.0		2.0		gallup-13173	Gallup	2012-03-03	2012-03-07		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				31.0		19.0	11.0		22.0	6.0	11.0		yougov-economist-13169	YouGov/Economist	2012-03-03	2012-03-06		Likely Voters - Republican			Internet	Nonpartisan	None
+				37.0		14.0	11.0		23.0		2.0		gallup-13172	Gallup	2012-03-02	2012-03-06		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				34.0		15.0	12.0		24.0		1.0		gallup-13164	Gallup	2012-03-01	2012-03-05		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				38.0		15.0	12.0		22.0		1.0		gallup-13141	Gallup	2012-03-02	2012-03-04		Adults	1500	3.0	Live Phone	Nonpartisan	None
+				38.0		13.0	13.0		32.0	2.0		2.0	nbc-wsj-13135	NBC/WSJ	2012-02-29	2012-03-03		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+				36.0		17.0	10.0		22.0		1.0		gallup-13111	Gallup	2012-02-28	2012-03-03		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				35.0		16.0	11.0		23.0		1.0		gallup-13110	Gallup	2012-02-27	2012-03-02		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				35.0		16.0	11.0		23.0		1.0		gallup-13105	Gallup	2012-02-26	2012-03-01		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				40.0		16.0	12.0		24.0	6.0	2.0		rasmussen-13091	Rasmussen	2012-02-29	2012-02-29		Likely Voters - Republican	1000		Automated Phone	Nonpartisan	None
+				35.0		15.0	11.0		24.0		2.0		gallup-13094	Gallup	2012-02-25	2012-02-29		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				29.0		19.0	12.0		28.0	4.0	7.0		yougov-economist-13092	YouGov/Economist	2012-02-25	2012-02-28		Likely Voters - Republican			Internet	Nonpartisan	None
+				33.0		16.0	11.0		25.0		2.0		gallup-13084	Gallup	2012-02-24	2012-02-28		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				31.0		14.0	13.0		26.0		2.0		gallup-13065	Gallup	2012-02-23	2012-02-27		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				32.0		14.0	12.0		28.0		3.0		gallup-13056	Gallup	2012-02-22	2012-02-26		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				31.0		15.0	11.0		29.0		3.0		gallup-13048	Gallup	2012-02-21	2012-02-25		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				30.0		16.0	11.0		31.0		3.0		gallup-13047	Gallup	2012-02-20	2012-02-24		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				27.0		16.0	11.0		33.0		3.0		gallup-13024	Gallup	2012-02-19	2012-02-23		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				34.0		13.0	7.0		36.0	10.0			politico-gwu-battleground-13054	Politico/GWU/Battleground	2012-02-19	2012-02-22		Likely Voters	1000	3.1	Live Phone	Nonpartisan	None
+				27.0		15.0	10.0		34.0		2.0		gallup-13016	Gallup	2012-02-18	2012-02-22		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				25.0		16.0	10.0		34.0	8.0	7.0		yougov-economist-13011	YouGov/Economist	2012-02-18	2012-02-21		Likely Voters - Republican			Internet	Nonpartisan	None
+				27.0		15.0	10.0		35.0		2.0		gallup-13006	Gallup	2012-02-17	2012-02-21		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				32.0		15.0	15.0		33.0	7.0		9.0	ap-gfk-12993	AP-GfK	2012-02-16	2012-02-20		Adults - Republican	450		Live Phone	Nonpartisan	None
+				26.0		14.0	11.0		36.0		2.0		gallup-12987	Gallup	2012-02-16	2012-02-20		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				26.0		14.0	11.0		35.0	14.0			quinnipiac-12992	Quinnipiac	2012-02-14	2012-02-20		Registered Voters - Republican	1124	2.9	Live Phone	Nonpartisan	None
+				26.0		13.0	11.0		36.0		2.0		gallup-12979	Gallup	2012-02-15	2012-02-19		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				28.0		13.0	11.0		36.0		2.0		gallup-12978	Gallup	2012-02-14	2012-02-18		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				29.0		13.0	11.0		35.0				gallup-12977	Gallup	2012-02-13	2012-02-17		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				30.0		14.0	11.0		34.0		2.0		gallup-12964	Gallup	2012-02-12	2012-02-16		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				31.0		14.0	10.0		32.0		2.0		gallup-12941	Gallup	2012-02-11	2012-02-15		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				27.0		15.0	10.0		39.0	6.0	3.0		rasmussen-12920	Rasmussen	2012-02-14	2012-02-14		Likely Voters	1000	3.0	Automated Phone	Nonpartisan	None
+				27.0		16.0	14.0		29.0	6.0	8.0		yougov-economist-12939	YouGov/Economist	2012-02-11	2012-02-14		Likely Voters - Republican			Internet	Nonpartisan	None
+				33.0		15.0	8.0		31.0		1.0		gallup-12933	Gallup	2012-02-10	2012-02-14		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				32.0		15.0	16.0		34.0	4.0			cnn-12911	CNN	2012-02-10	2012-02-13		Adults - Republican	478	4.5	Live Phone	Nonpartisan	None
+				32.0		16.0	8.0		30.0		2.0		gallup-12907	Gallup	2012-02-09	2012-02-13		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				27.0		10.0	12.0		30.0				cbs-times-12900	CBS/Times	2012-02-08	2012-02-13		Likely Voters - Republican	331	5.0	Live Phone	Nonpartisan	None
+				28.0		17.0	12.0		30.0	8.0	1.0	4.0	pew-12891	Pew	2012-02-08	2012-02-12		Registered Voters - Republican	552	5.0	Live Phone	Nonpartisan	None
+				32.0		16.0	8.0		30.0		2.0		gallup-12890	Gallup	2012-02-08	2012-02-12		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				33.0		15.0	7.0		33.0	13.0			fairleigh-dickinson-12901	Fairleigh Dickinson	2012-02-06	2012-02-12		Registered Voters - Republican	578		Live Phone	Nonpartisan	None
+				34.0		16.0	8.0		27.0		2.0		gallup-12851	Gallup	2012-02-07	2012-02-11		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				23.0		17.0	13.0		38.0	8.0			ppp-d-12846	PPP (D)	2012-02-09	2012-02-10		Likely Voters - Republican	656	3.8	Automated Phone	Pollster	Dem
+				34.0		17.0	8.0		24.0		3.0		gallup-12850	Gallup	2012-02-04	2012-02-10		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				33.0		22.0	15.0		23.0	7.0	1.0		fox-12822	FOX	2012-02-06	2012-02-09		Likely Voters - Republican	407	5.0	Live Phone	Nonpartisan	None
+				34.0		18.0	10.0		22.0		2.0		gallup-12829	Gallup	2012-02-03	2012-02-09		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				36.0		20.0	10.0		20.0		3.0		gallup-12817	Gallup	2012-02-02	2012-02-08		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				32.0		23.0	16.0		16.0	6.0	7.0		yougov-economist-12813	YouGov/Economist	2012-02-04	2012-02-07		Likely Voters - Republican			Internet	Nonpartisan	None
+				37.0		21.0	12.0		17.0	3.0			gallup-12760	Gallup	2012-02-01	2012-02-07		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				34.0		27.0	11.0		18.0	7.0	3.0		rasmussen-12742	Rasmussen	2012-02-06	2012-02-06		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None
+				29.0		19.0	21.0		18.0	10.0	3.0	1.0	ipsos-reuters-12743	Ipsos/Reuters	2012-02-02	2012-02-06		Adults - Republican	400		Live Phone	Nonpartisan	None
+				37.0		22.0	11.0		16.0		3.0		gallup-12741	Gallup	2012-01-31	2012-02-06		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				38.0		24.0	14.0		18.0	5.0	1.0		abc-post-12721	ABC/Post	2012-02-01	2012-02-04		Registered Voters - Republican			Live Phone	Nonpartisan	None
+				35.0		24.0	12.0		16.0		3.0		gallup-12723	Gallup	2012-01-30	2012-02-03		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				33.0		25.0	11.0		16.0		3.0		gallup-12712	Gallup	2012-01-29	2012-02-02		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				31.0		25.0	12.0		17.0		2.0		gallup-12706	Gallup	2012-01-28	2012-02-01		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				29.0		23.0	14.0		20.0	8.0	5.0		yougov-economist-12704	YouGov/Economist	2012-01-28	2012-01-31		Likely Voters - Republican			Internet	Nonpartisan	None
+				31.0		26.0	11.0		16.0		2.0		gallup-12699	Gallup	2012-01-27	2012-01-31		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				27.0		28.0	13.0		17.0		2.0		gallup-12693	Gallup	2012-01-26	2012-01-30		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				27.0		28.0	13.0		16.0		2.0		gallup-12682	Gallup	2012-01-25	2012-01-29		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				26.0		28.0	14.0		15.0		2.0		gallup-12667	Gallup	2012-01-24	2012-01-28		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				26.0		32.0	13.0		13.0				gallup-12666	Gallup	2012-01-23	2012-01-27		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				24.0		32.0	14.0		13.0				gallup-12665	Gallup	2012-01-22	2012-01-26		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				25.0		31.0	13.0		13.0		3.0		gallup-12637	Gallup	2012-01-21	2012-01-25		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				28.0		37.0	12.0		18.0	3.0	1.0	1.0	nbc-wsj-12644	NBC/WSJ	2012-01-22	2012-01-24		Likely Voters - Republican	248		Live Phone	Nonpartisan	None
+				31.0		29.0	13.0		11.0	9.0	7.0		yougov-economist-12631	YouGov/Economist	2012-01-21	2012-01-24		Likely Voters - Republican			Internet	Nonpartisan	None
+				28.0		31.0	12.0		12.0		3.0		gallup-12628	Gallup	2012-01-20	2012-01-24		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				28.0		35.0	10.0		16.0	9.0	2.0		rasmussen-12621	Rasmussen	2012-01-23	2012-01-23		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None
+				27.0		31.0	12.0		12.0		3.0		gallup-12620	Gallup	2012-01-19	2012-01-23		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				29.0		28.0	13.0		11.0		5.0		gallup-12614	Gallup	2012-01-18	2012-01-22		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				30.0		25.0	13.0		12.0		6.0		gallup-12609	Gallup	2012-01-17	2012-01-21		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				31.0		23.0	14.0		12.0				gallup-12611	Gallup	2012-01-16	2012-01-20		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+				30.0		20.0	13.0		13.0		9.0		gallup-12534	Gallup	2012-01-15	2012-01-19		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+		8.0		33.0		17.0	13.0		13.0		2.0		gallup-12516	Gallup	2012-01-14	2012-01-18		Registered Voters - Republican	1000	3.0	Live Phone	Nonpartisan	None
+		4.0		30.0		27.0	13.0		15.0	7.0	4.0		rasmussen-12497	Rasmussen	2012-01-17	2012-01-17		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None
+		7.0		33.0		16.0	12.0		14.0	14.0	3.0		gallup-12501	Gallup	2012-01-13	2012-01-17		Registered Voters - Republican	1192	3.0	Live Phone	Nonpartisan	None
+	2.0	7.0		28.0		21.0	15.0		16.0	7.0			cbs-times-12495	CBS/Times	2012-01-12	2012-01-17		Likely Voters - Republican	340	5.0	Live Phone	Nonpartisan	None
+		6.0		34.0		15.0	12.0		15.0				gallup-12490	Gallup	2012-01-12	2012-01-16		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	5.0		31.0		16.0	15.0		14.0	12.0	2.0	4.0	pew-12503	Pew	2012-01-11	2012-01-16		Registered Voters - Republican	527	5.5	Live Phone	Nonpartisan	None
+		9.0		35.0		17.0	16.0		13.0	6.0	13.0		abc-post-12487	ABC/Post	2012-01-12	2012-01-15		Adults - Republican			Live Phone	Nonpartisan	None
+	2.0	5.0		37.0		14.0	12.0		14.0	15.0	1.0		gallup-12486	Gallup	2012-01-11	2012-01-15		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	5.0	6.0		40.0		14.0	13.0		15.0	6.0	1.0		fox-12472	FOX	2012-01-12	2012-01-14		Likely Voters - Republican	365	5.0	Live Phone	Nonpartisan	None
+	3.0	5.0		37.0		13.0	12.0		14.0	15.0	1.0		gallup-12485	Gallup	2012-01-10	2012-01-14		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	3.0	5.0		35.0		13.0	13.0		14.0	15.0	2.0		gallup-12484	Gallup	2012-01-09	2012-01-13		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	4.0	9.0		34.0		18.0	15.0		15.0	6.0			cnn-12471	CNN	2012-01-11	2012-01-12		Adults - Republican	449	4.5	Live Phone	Nonpartisan	None
+	2.0	5.0		34.0		15.0	12.0		14.0		2.0		gallup-12465	Gallup	2012-01-08	2012-01-12		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	5.0		34.0		14.0	13.0		15.0		2.0		gallup-12454	Gallup	2012-01-09	2012-01-11		Adults	1500	3.0	Live Phone	Nonpartisan	None
+	6.0	6.0		24.0		17.0	15.0		19.0	7.0	6.0		yougov-economist-12456	YouGov/Economist	2012-01-07	2012-01-10		Likely Voters - Republican			Internet	Nonpartisan	None
+	2.0	6.0		31.0		16.0	13.0		15.0		2.0		gallup-12451	Gallup	2012-01-06	2012-01-10		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	3.0	7.0		30.0		20.0	16.0		13.0	7.0	2.0	1.0	ipsos-reuters-12444	Ipsos/Reuters	2012-01-05	2012-01-09		Adults - Republican	400		Live Phone	Nonpartisan	None
+	1.0	5.0		30.0		18.0	12.0		17.0		3.0		gallup-12442	Gallup	2012-01-05	2012-01-09		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	6.0		27.0		16.0	12.0		16.0	15.0	1.0	4.0	pew-12433	Pew	2012-01-04	2012-01-08		Registered Voters - Republican	549	5.5	Live Phone	Nonpartisan	None
+	1.0	6.0		30.0		17.0	13.0		18.0				gallup-12432	Gallup	2012-01-04	2012-01-08		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	4.0	6.0		19.0		15.0	10.0		14.0	13.0	19.0		cbs-12422	CBS	2012-01-04	2012-01-08		Likely Voters - Republican	440	5.0	Live Phone	Nonpartisan	None
+	1.0	6.0		31.0		16.0	13.0		18.0	13.0	3.0		gallup-12424	Gallup	2012-01-03	2012-01-07		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	1.0	6.0		29.0		17.0	12.0		16.0	14.0	5.0		gallup-12423	Gallup	2012-01-02	2012-01-06		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	6.0		27.0		19.0	12.0		15.0		6.0		gallup-12411	Gallup	2011-12-29	2012-01-05		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	4.0	4.0		29.0		16.0	12.0		21.0	11.0	3.0		rasmussen-12398	Rasmussen	2012-01-04	2012-01-04		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None
+	2.0	6.0		27.0		19.0	13.0		11.0		6.0		gallup-12399	Gallup	2011-12-28	2012-01-04		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	5.0	8.0	2.0	30.0		17.0	13.0		8.0	9.0	8.0		yougov-economist-12402	YouGov/Economist	2011-12-31	2012-01-03		Likely Voters - Republican			Internet	Nonpartisan	None
+	2.0	6.0	5.0	26.0		22.0	13.0		8.0				gallup-12393	Gallup	2011-12-27	2012-01-03		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	7.0	5.0	24.0		23.0	13.0		6.0				gallup-12387	Gallup	2011-12-26	2012-01-02		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	7.0	5.0	26.0		24.0	11.0		5.0				gallup-12379	Gallup	2011-12-23	2011-12-29		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	8.0	5.0	27.0		23.0	11.0		4.0				gallup-12375	Gallup	2011-12-22	2011-12-28		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	1.0	8.0	5.0	25.0		25.0	11.0		4.0		3.0		gallup-12367	Gallup	2011-12-21	2011-12-27		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	8.0	6.0	24.0		25.0	11.0		3.0				gallup-12356	Gallup	2011-12-20	2011-12-26		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	1.0	8.0	6.0	23.0		26.0	12.0		3.0				gallup-12352	Gallup	2011-12-19	2011-12-23		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	1.0	8.0	6.0	22.0		26.0	13.0		3.0		3.0		gallup-12349	Gallup	2011-12-18	2011-12-22		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	1.0	7.0	6.0	21.0		27.0	12.0		4.0		3.0		gallup-12337	Gallup	2011-12-17	2011-12-21		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	6.0	5.0	8.0	21.0		27.0	13.0		4.0	8.0	8.0		yougov-economist-12334	YouGov/Economist	2011-12-17	2011-12-20		Likely Voters - Republican			Internet	Nonpartisan	None
+	2.0	8.0	7.0	23.0		25.0	12.0		4.0		2.0		gallup-12331	Gallup	2011-12-16	2011-12-20		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	8.0	6.0	23.0		25.0	12.0		4.0		2.0		gallup-12321	Gallup	2011-12-15	2011-12-19		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	3.0	6.0	7.0	22.0		35.0	11.0		4.0	10.0			ppp-d-12315	PPP (D)	2011-12-16	2011-12-18		Likely Voters - Republican	576	4.1	Automated Phone	Pollster	Dem
+	2.0	7.0	7.0	24.0		26.0	11.0		4.0		2.0		gallup-12310	Gallup	2011-12-16	2011-12-18		Adults	1500	3.0	Live Phone	Nonpartisan	None
+	2.0	7.0	8.0	28.0		28.0	14.0		4.0	9.0			cnn-12308	CNN	2011-12-16	2011-12-18		Adults - Republican	402	5.0	Live Phone	Nonpartisan	None
+	3.0	7.0	7.0	30.0		30.0	15.0		3.0	4.0		1.0	abc-post-12313	ABC/Post	2011-12-15	2011-12-18		Adults - Republican			Live Phone	Nonpartisan	None
+	1.0	6.0	4.0	20.0		20.0	10.0		3.0	17.0	19.0		cbs-12316	CBS	2011-12-14	2011-12-18		Likely Voters - Republican	291	6.0	Live Phone	Nonpartisan	None
+	2.0	6.0	7.0	24.0		28.0	10.0		4.0				gallup-12302	Gallup	2011-12-13	2011-12-17		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	6.0	8.0	24.0		28.0	10.0		4.0				gallup-12301	Gallup	2011-12-12	2011-12-16		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	5.0	7.0	24.0		29.0	10.0		4.0		2.0		gallup-12299	Gallup	2011-12-11	2011-12-15		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	5.0	7.0	24.0		29.0	10.0		4.0		2.0		gallup-12292	Gallup	2011-12-10	2011-12-14		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	6.0	7.0	18.0		29.0	14.0		6.0	10.0	8.0		yougov-economist-12285	YouGov/Economist	2011-12-10	2011-12-13		Likely Voters - Republican			Internet	Nonpartisan	None
+	2.0	6.0	6.0	23.0		31.0	9.0		4.0		2.0		gallup-12282	Gallup	2011-12-09	2011-12-13		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	5.0	6.0	25.0		27.0	7.0		4.0	22.0	1.0		reason-rupe-12333	Reason/Rupe	2011-12-01	2011-12-13		Adults - Republican			Live Phone	Nonpartisan	None
+	2.0	6.0	9.0	27.0		33.0	9.0		3.0	6.0		6.0	ap-gfk-12277	AP-GfK	2011-12-08	2011-12-12		Adults - Republican	460		Live Phone	Nonpartisan	None
+	5.0	12.0	10.0	18.0		28.0	12.0		4.0	8.0	4.0	0.0	ipsos-reuters-12275	Ipsos/Reuters	2011-12-08	2011-12-12		Adults - Republican	500		Live Phone	Nonpartisan	None
+	2.0	7.0	6.0	22.0		31.0	8.0		4.0		1.0		gallup-12270	Gallup	2011-12-08	2011-12-12		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	3.0	4.0	6.0	21.0		33.0	8.0		3.0	11.0		10.0	pew-12271	Pew	2011-12-07	2011-12-11		Registered Voters - Republican	504	5.5	Live Phone	Nonpartisan	None
+	2.0	6.0	6.0	23.0		33.0	8.0		3.0		1.0		gallup-12265	Gallup	2011-12-07	2011-12-11		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	6.0	5.0	23.0		33.0	9.0		2.0	18.0	2.0		gallup-12262	Gallup	2011-12-06	2011-12-10		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	1.0	6.0	6.0	23.0		37.0	9.0		2.0		2.0		gallup-12248	Gallup	2011-12-04	2011-12-08		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	2.0	8.0	5.0	23.0		36.0	12.0		4.0	8.0	2.0		fox-12246	FOX	2011-12-05	2011-12-07		Likely Voters - Republican	356	5.0	Live Phone	Nonpartisan	None
+	1.0	5.0	7.0	25.0		34.0	10.0		2.0		2.0		gallup-12243	Gallup	2011-12-03	2011-12-07		Adults - Republican	1000	3.0	Live Phone	Nonpartisan	None
+	6.0	9.0	6.0	15.0		31.0	11.0		7.0	9.0	5.0		yougov-economist-12240	YouGov/Economist	2011-12-03	2011-12-06		Likely Voters - Republican			Internet	Nonpartisan	None
+	1.0	6.0	6.0	23.0		36.0	9.0		3.0		3.0		gallup-12231	Gallup	2011-12-02	2011-12-06		Adults - Republican	1277	3.0	Live Phone	Nonpartisan	None
+	1.0	7.0	6.0	22.0		37.0	8.0		3.0	14.0	3.0		gallup-12224	Gallup	2011-12-01	2011-12-05		Adults - Republican	1277	3.0	Live Phone	Nonpartisan	None
+8.0	1.0	6.0	4.0	25.0		37.0	3.0		4.0	12.0			fairleigh-dickinson-12230	Fairleigh Dickinson	2011-11-29	2011-12-05		Registered Voters - Republican	407		Live Phone	Nonpartisan	None
+		3.0	6.0	23.0		37.0	7.0		2.0	15.0	6.0		poll-position-12205	Poll Position	2011-12-04	2011-12-04		Likely Voters - Republican	502	4.0	Automated Phone	Nonpartisan	None
+	3.0	4.0	8.0	17.0		38.0	8.0		4.0	10.0	7.0		rasmussen-12191	Rasmussen	2011-11-30	2011-11-30		Likely Voters	1000	3.0	Automated Phone	Nonpartisan	None
+15.0	5.0	5.0	5.0	17.0		25.0	9.0		3.0	10.0	5.0		yougov-economist-12186	YouGov/Economist	2011-11-26	2011-11-29		Likely Voters - Republican			Internet	Nonpartisan	None
+14.0		5.0	4.0	23.0		32.0	6.0			11.0	7.0		poll-position-12175	Poll Position	2011-11-27	2011-11-27		Likely Voters - Republican	499	4.0	Automated Phone	Nonpartisan	None
+15.0	4.0	5.0	3.0	20.0		31.0	8.0		3.0	8.0	3.0		yougov-economist-12176	YouGov/Economist	2011-11-19	2011-11-22		Likely Voters - Republican			Internet	Nonpartisan	None
+	3.0	11.0	5.0	20.0		24.0	9.0		4.0	5.0	17.0		cnn-12157	CNN	2011-11-18	2011-11-20		Adults - Republican	402	5.0	Live Phone	Nonpartisan	None
+14.0	2.0	6.0	4.0	22.0		26.0	6.0		2.0	19.0			quinnipiac-12158	Quinnipiac	2011-11-14	2011-11-20		Registered Voters - Republican	1039	3.0	Live Phone	Nonpartisan	None
+26.0	3.0	6.0	2.0	14.0		32.0	8.0		3.0	7.0	1.0		zogby-internet-12145	Zogby (Internet)	2011-11-15	2011-11-17		Likely Voters - Republican	1366	2.7	Internet	Nonpartisan	None
+16.0	1.0	8.0	4.0	21.0		22.0	9.0		1.0	18.0	1.0		usa-today-gallup-12148	USA Today/Gallup	2011-11-13	2011-11-17		Registered Voters - Republican	946	4.0	Live Phone	Nonpartisan	None
+	3.0	7.0	6.0	22.0		23.0	8.0		2.0	12.0	17.0		fox-12136	FOX	2011-11-13	2011-11-15		Likely Voters - Republican	370	5.5	Live Phone	Nonpartisan	None
+21.0	5.0	6.0	5.0	19.0		23.0	7.0		2.0	6.0	5.0		yougov-economist-12134	YouGov/Economist	2011-11-12	2011-11-15		Likely Voters - Republican			Internet	Nonpartisan	None
+22.0	1.0	8.0	5.0	23.0		16.0	8.0		2.0	14.0			pew-12140	Pew	2011-11-09	2011-11-14		Adults - Republican	738	5.5	Live Phone	Nonpartisan	None
+	3.0	12.0	6.0	24.0		22.0	8.0		3.0	8.0	15.0		cnn-12115	CNN	2011-11-11	2011-11-13		Adults - Republican	480	4.5	Live Phone	Nonpartisan	None
+25.0	3.0	6.0	5.0	18.0		28.0	5.0		1.0	9.0	1.0		ppp-d-12116	PPP (D)	2011-11-10	2011-11-13		Likely Voters - Republican	576	4.1	Automated Phone	Pollster	Dem
+17.0	1.0	8.0	5.0	23.0		19.0	10.0		1.0	17.0			marist-mcclatchy-12102	Marist/McClatchy	2011-11-08	2011-11-10		Registered Voters - Republican			Live Phone	Nonpartisan	None
+18.0	1.0	8.0	4.0	15.0		15.0	5.0		2.0	17.0	14.0	1.0	cbs-12100	CBS	2011-11-06	2011-11-10		Likely Voters - Republican	382	5.0	Live Phone	Nonpartisan	None
+27.0		14.0		25.0		14.0	5.0		2.0	9.0	3.0		politico-gwu-battleground-12111	Politico/GWU/Battleground	2011-11-06	2011-11-09		Likely Voters - Republican			Live Phone	Nonpartisan	None
+21.0	5.0	7.0	7.0	24.0		16.0	7.0		2.0	6.0	6.0		yougov-economist-12101	YouGov/Economist	2011-11-05	2011-11-08		Likely Voters - Republican			Internet	Nonpartisan	None
+21.0	1.0	11.0	3.0	21.0		12.0	8.0		2.0	21.0			usa-today-gallup-12084	USA Today/Gallup	2011-11-02	2011-11-06		Adults - Republican	1054	4.0	Live Phone	Nonpartisan	None
+27.0		10.0	4.0	28.0		13.0	10.0		2.0	4.0		1.0	nbc-wsj-12087	NBC/WSJ	2011-11-02	2011-11-05		Likely Voters - Republican	248		Live Phone	Nonpartisan	None
+23.0	1.0	13.0	4.0	24.0		12.0	8.0		1.0	11.0		3.0	abc-post-12073	ABC/Post	2011-10-31	2011-11-03		Adults - Republican	438	5.5	Live Phone	Nonpartisan	None
+	2.0	8.0	26.0	23.0		14.0	7.0		1.0	13.0	6.0		rasmussen-12070	Rasmussen	2011-01-02	2011-11-02		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None
+26.0	4.0	6.0	4.0	17.0		15.0	10.0		1.0	11.0	5.0		yougov-economist-12064	YouGov/Economist	2011-10-29	2011-11-01		Likely Voters - Republican			Internet	Nonpartisan	None
+30.0	2.0	8.0	4.0	23.0		10.0	7.0		1.0	16.0			quinnipiac-12060	Quinnipiac	2011-10-25	2011-10-31		Registered Voters - Republican	869	3.2	Live Phone	Nonpartisan	None
+		10.0	3.0	20.0		12.0	9.0		3.0	16.0	25.0		fox-12034	FOX	2011-10-23	2011-10-25		Likely Voters - Republican	328	5.5	Live Phone	Nonpartisan	None
+28.0	3.0	9.0	4.0	24.0		7.0	9.0		2.0	7.0	6.0		yougov-economist-12045	YouGov/Economist	2011-10-22	2011-10-25		Adults - Republican	242		Internet	Nonpartisan	None
+25.0	1.0	6.0	2.0	21.0		10.0	8.0		1.0	14.0			cbs-times-12023	CBS/Times	2011-10-19	2011-10-24		Likely Voters - Republican	455	4.0	Live Phone	Nonpartisan	None
+39.0	4.0	8.0	1.0	19.0		12.0	9.0		2.0	7.0	1.0		zogby-internet-12039	Zogby (Internet)	2011-10-18	2011-10-21		Likely Voters	1077	3.0	Internet	Nonpartisan	None
+31.0	3.0	8.0	4.0	21.0		11.0	10.0		3.0	6.0	5.0		yougov-economist-12005	YouGov/Economist	2011-10-15	2011-10-18		Adults - Republican	242		Internet	Nonpartisan	None
+26.0	2.0	13.0	4.0	30.0		7.0	8.0		2.0	7.0		2.0	ap-gfk-12002	AP-GfK	2011-10-13	2011-10-17		Adults - Republican	431		Live Phone	Nonpartisan	None
+	1.0	13.0	6.0	26.0		8.0	9.0		2.0	9.0	26.0		cnn-11986	CNN	2011-10-14	2011-10-16		Adults - Republican	416	5.0	Live Phone	Nonpartisan	None
+45.0	3.0	7.0	1.0	21.0		6.0	8.0		3.0	5.0	1.0		zogby-internet-11983	Zogby (Internet)	2011-10-11	2011-10-14		Likely Voters - Republican	1214	2.9	Internet	Nonpartisan	None
+	2.0	9.0	29.0	29.0		10.0	5.0		2.0	7.0	7.0		rasmussen-11988	Rasmussen	2011-10-12	2011-10-12		Likely Voters	1000	3.0	Automated Phone	Nonpartisan	None
+33.0	4.0	10.0	3.0	18.0		9.0	7.0		0.0	9.0	6.0		yougov-economist-11968	YouGov/Economist	2011-10-08	2011-10-11		Likely Voters - Republican			Internet	Nonpartisan	None
+30.0	2.0	14.0	5.0	22.0		15.0	5.0		1.0	6.0			ppp-d-11963	PPP (D)	2011-10-07	2011-10-10		Likely Voters - Republican	484	4.5	Automated Phone	Pollster	Dem
+27.0	3.0	16.0	5.0	23.0		8.0	11.0		1.0	5.0		1.0	nbc-wsj-11967	NBC/WSJ	2011-10-06	2011-10-10		Likely Voters - Republican	336		Live Phone	Nonpartisan	None
+19.0	2.0	10.0	5.0	23.0		7.0	13.0			13.0	7.0	2.0	ipsos-reuters-11964	Ipsos/Reuters	2011-10-06	2011-10-10		Adults - Republican	410		Live Phone	Nonpartisan	None
+16.0	0.0	13.0	4.0	24.0		3.0	6.0		1.0	29.0		3.0	washington-post-bloomberg-11947	Washington Post/Bloomberg	2011-10-06	2011-10-09		Adults - Republican	391	6.0	Live Phone	Nonpartisan	None
+18.0	2.0	15.0	5.0	20.0		7.0	8.0		3.0	20.0	1.0		gallup-11948	Gallup	2011-10-03	2011-10-07		Registered Voters - Republican	1064	4.0	Live Phone	Nonpartisan	None
+38.0	4.0	12.0	3.0	18.0		4.0	12.0		1.0	7.0	1.0		zogby-internet-11936	Zogby (Internet)	2011-10-03	2011-10-05		Likely Voters - Republican	796	3.5	Internet	Nonpartisan	None
+21.0	3.0	10.0	3.0	17.0		7.0	8.0	5.0	1.0	8.0	17.0		yougov-economist-11935	YouGov/Economist	2011-10-01	2011-10-04		Likely Voters - Republican			Internet	Nonpartisan	None
+13.0	1.0	17.0	6.0	22.0		8.0	12.0		2.0		1.0	17.0	pew-11934	Pew	2011-09-22	2011-10-04		Adults - Republican	549	5.5	Live Phone	Nonpartisan	None
+17.0	1.0	14.0	3.0	22.0		8.0	6.0		3.0	18.0	9.0		quinnipiac-11923	Quinnipiac	2011-09-27	2011-10-03		Registered Voters - Republican	927	3.2	Live Phone	Nonpartisan	None
+14.0	1.0	14.0	4.0	21.0		6.0	9.0		1.0	6.0	20.0	3.0	abc-post-11922	ABC/Post	2011-09-29	2011-10-02		Registered Voters - Republican			Live Phone	Nonpartisan	None
+17.0	2.0	12.0	4.0	17.0		8.0	7.0		3.0	18.0	10.0	2.0	cbs-11926	CBS	2011-09-28	2011-10-02		Likely Voters - Republican	324	6.0	Live Phone	Nonpartisan	None
+	4.0	19.0	3.0	23.0		11.0	6.0		3.0	12.0	19.0		fox-11900	FOX	2011-09-25	2011-09-27		Likely Voters - Republican	363	5.0	Live Phone	Nonpartisan	None
+11.0	2.0	14.0	4.0	15.0		6.0	6.0	6.0	2.0	6.0	28.0		yougov-economist-11898	YouGov/Economist	2011-09-24	2011-09-27		Registered Voters - Republican			Internet	Nonpartisan	None
+5.0	1.0	31.0	5.0	24.0		5.0	13.0		2.0				gallup-11869	Gallup	2011-09-16	2011-09-18		Registered Voters - Republican			Live Phone	Nonpartisan	None
+5.0	1.0	23.0	7.0	16.0		7.0	5.0		1.0	22.0	11.0	2.0	cbs-times-11852	CBS/Times	2011-09-10	2011-09-15		Likely Voters - Republican	747		Live Phone	Nonpartisan	None
+4.0	2.0	20.0	6.0	13.0		6.0	6.0	14.0	2.0	14.0	13.0		marist-mcclatchy-11884	Marist/McClatchy	2011-09-13	2011-09-14		Registered Voters - Republican			Live Phone	Nonpartisan	None
+7.0	2.0	24.0	5.0	17.0		5.0	8.0	8.0	2.0	7.0	15.0		yougov-economist-11846	YouGov/Economist	2011-09-10	2011-09-13		Registered Voters - Republican			Internet	Nonpartisan	None
+12.0	3.0	37.0	7.0	14.0		2.0	11.0		3.0	8.0	2.0		zogby-internet-11849	Zogby (Internet)	2011-09-09	2011-09-12		Likely Voters - Republican	1023	3.2	Internet	Nonpartisan	None
+4.0	1.0	26.0	9.0	22.0		4.0	8.0		2.0	10.0	8.0	6.0	bloomberg-11845	Bloomberg	2011-09-09	2011-09-12		Adults - Republican	545		Live Phone	Nonpartisan	None
+	2.0	30.0	4.0	18.0		5.0	12.0		2.0	6.0	22.0		cnn-11823	CNN	2011-09-09	2011-09-11		Adults - Republican	446	4.5	Live Phone	Nonpartisan	None
+5.0	5.0	29.0	5.0	13.0		3.0	8.0	9.0	1.0	8.0	14.0		yougov-economist-11815	YouGov/Economist	2011-09-03	2011-09-06		Adults	1000	3.9	Internet	Nonpartisan	None
+3.0	1.0	29.0	6.0	23.0		4.0	8.0		2.0	8.0	15.0	1.0	abc-post-11797	ABC/Post	2011-08-29	2011-09-01		Adults	1001	3.5	Live Phone	Nonpartisan	None
+4.0	1.0	36.0		17.0		5.0	10.0		5.0	11.0	11.0		politico-gwu-battleground-11799	Politico/GWU/Battleground	2011-08-28	2011-09-01		Likely Voters - Republican			Live Phone	Nonpartisan	None
+	1.0	26.0	4.0	18.0		3.0	7.0	4.0	3.0	13.0	22.0		fox-11794	FOX	2011-08-29	2011-08-31		Likely Voters - Republican	341	5.5	Live Phone	Nonpartisan	None
+5.0	2.0	38.0	8.0	23.0		5.0	9.0		3.0	5.0		2.0	nbc-wsj-11798	NBC/WSJ	2011-08-27	2011-08-31		Likely Voters - Republican	238		Live Phone	Nonpartisan	None
+7.0	2.0	28.0	5.0	14.0		6.0	13.0	5.0	1.0	6.0	14.0		yougov-economist-11787	YouGov/Economist	2011-08-27	2011-08-30		Adults - Republican	242		Internet	Nonpartisan	None
+8.0	3.0	41.0	9.0	12.0		3.0	11.0		3.0	8.0	2.0		zogby-internet-11781	Zogby (Internet)	2011-08-25	2011-08-29		Likely Voters - Republican	1184		Internet	Nonpartisan	None
+5.0	1.0	24.0	10.0	18.0		3.0	9.0		1.0	16.0	12.0		quinnipiac-11783	Quinnipiac	2011-08-16	2011-08-27		Likely Voters - Republican	1185	2.9	Live Phone	Nonpartisan	None
+	1.0	27.0	9.0	14.0		6.0	6.0	9.0	1.0	8.0	17.0		cnn-11775	CNN	2011-08-24	2011-08-25		Adults - Republican	467	4.5	Live Phone	Nonpartisan	None
+8.0	2.0	23.0	9.0	15.0		4.0	11.0	6.0	2.0	11.0	10.0		yougov-economist-11755	YouGov/Economist	2011-08-20	2011-08-23		Registered Voters - Republican			Internet	Nonpartisan	None
+7.0	2.0	27.0	10.0	17.0		7.0	6.0		3.0	7.0	13.0		ppp-d-11754	PPP (D)	2011-08-18	2011-08-21		Likely Voters - Republican	663	3.8	Automated Phone	Pollster	Dem
+4.0	1.0	29.0	10.0	17.0		4.0	13.0		3.0	17.0	2.0		gallup-11753	Gallup	2011-08-17	2011-08-21		Adults - Republican	1040	4.0	Live Phone	Nonpartisan	None
+	1.0	29.0	6.0	18.0		5.0	9.0		1.0		13.0		rasmussen-11718	Rasmussen	2011-08-15	2011-08-15		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None
+	2.0	13.0	7.0	21.0		6.0	6.0	7.0	2.0	14.0	21.0		fox-11696	FOX	2011-08-07	2011-08-09		Likely Voters - Republican	319	5.5	Live Phone	Nonpartisan	None
+	4.0	15.0	7.0	17.0		5.0	12.0	12.0	2.0	6.0	20.0		cnn-11692	CNN	2011-08-05	2011-08-07		Adults - Republican			Live Phone	Nonpartisan	None
+4.0	2.0	17.0	13.0	24.0		7.0	14.0		1.0		3.0		usa-today-gallup-11681	USA Today/ Gallup	2011-08-04	2011-08-07		Adults - Republican			Live Phone	Nonpartisan	None
+6.0	2.0	18.0	8.0	21.0		2.0	3.0	9.0	3.0	14.0	15.0		marist-mcclatchy-11687	Marist/McClatchy	2011-08-02	2011-08-04		Registered Voters - Republican	301	6.0	Live Phone	Nonpartisan	None
+	2.0	18.0	9.0	22.0		6.0	10.0				16.0		rasmussen-11657	Rasmussen	2011-07-28	2011-07-28		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None
+18.0	3.0		25.0	17.0		1.0	11.0		5.0	9.0	9.0	3.0	zogby-internet-11636	Zogby (Internet)	2011-07-22	2011-07-25		Likely Voters - Republican	1103	3.0	Internet	Nonpartisan	None
+8.0	2.0	12.0	11.0	21.0		3.0	9.0		1.0	34.0	1.0		pew-11646	Pew	2011-07-20	2011-07-24		Registered Voters - Republican	546	5.5	Live Phone	Nonpartisan	None
+3.0	2.0	15.0	11.0	17.0		3.0	8.0	11.0	2.0	14.0	15.0		gallup-11638	Gallup	2011-07-20	2011-07-24		Adults - Republican	1088	4.0	Live Phone	Nonpartisan	None
+	1.0	14.0	12.0	16.0		4.0	8.0	13.0	2.0	9.0	23.0		cnn-11621	CNN	2011-07-18	2011-07-20		Adults	455	4.5	Live Phone	Nonpartisan	None
+	1.0	14.0	10.0	17.0		4.0	9.0	9.0	2.0	15.0	20.0		fox-11620	FOX	2011-07-17	2011-07-19		Likely Voters - Republican	323	5.5	Live Phone	Nonpartisan	None
+10.0	2.0	11.0	16.0	20.0		6.0	9.0			10.0	17.0		ppp-d-11601	PPP (D)	2011-07-15	2011-07-17		Likely Voters - Republican	730	3.6	Automated Phone	Pollster	Dem
+7.0	3.0	8.0	13.0	26.0		4.0	7.0		2.0	8.0	19.0	1.0	abc-post-11614	ABC/Post	2011-07-14	2011-07-17		Registered Voters - Republican			Live Phone	Nonpartisan	None
+5.0	2.0	11.0	16.0	30.0		8.0	9.0		3.0	10.0	4.0	2.0	nbc-wsj-11606	NBC/WSJ	2011-07-14	2011-07-17		Likely Voters - Republican	238		Live Phone	Nonpartisan	None
+16.0	4.0		28.0	15.0		4.0	13.0		3.0	10.0	5.0		zogby-internet-11568	Zogby (Internet)	2011-07-08	2011-07-11		Likely Voters - Republican	1015	3.1	Internet	Nonpartisan	None
+6.0	1.0	10.0	14.0	25.0		5.0	5.0		1.0	18.0	15.0		quinnipiac-11572	Quinnipiac	2011-07-05	2011-07-11		Registered Voters - Republican	913	3.2	Live Phone	Nonpartisan	None
+	2.0	13.0	8.0	19.0		2.0	5.0	13.0	1.0		16.0		marist-mcclatchy-11522	Marist/McClatchy	2011-06-15	2011-06-23		Registered Voters - Republican	308	5.5	Live Phone	Nonpartisan	None
+15.0	2.0		24.0	15.0		2.0	13.0		5.0	13.0	8.0		zogby-internet-11533	Zogby (Internet)	2011-06-17	2011-06-21		Likely Voters - Republican	998	3.2	Internet	Nonpartisan	None
+	2.0		10.0	33.0		9.0	7.0		6.0		33.0		rasmussen-11478	Rasmussen	2011-06-14	2011-06-14		Likely Voters	1000	3.0	Automated Phone	Nonpartisan	None
+7.0	2.0	8.0	5.0	14.0		5.0	5.0	11.0	3.0	15.0	21.0		yougov-economist-11480	YouGov/Economist	2011-06-11	2011-06-14		Adults - Republican	242		Internet	Nonpartisan	None
+12.0	1.0	8.0	3.0	30.0		6.0	7.0		4.0	8.0	19.0	2.0	nbc-wsj-11473	NBC/WSJ	2011-06-09	2011-06-13		Likely Voters - Republican	238		Live Phone	Nonpartisan	None
+17.0	1.0		8.0	22.0		9.0	7.0			12.0	24.0		ppp-d-11477	PPP (D)	2011-06-09	2011-06-12		Likely Voters - Republican	544	4.2	Automated Phone	Pollster	Dem
+8.0	2.0	1.0	5.0	17.0		9.0	10.0		2.0	22.0	26.0		gallup-11460	Gallup	2011-06-08	2011-06-11		Adults - Republican	972	4.0	Live Phone	Nonpartisan	None
+	3.0	13.0	11.0	18.0		3.0	7.0	10.0	2.0	10.0	22.0		fox-11529	FOX	2011-06-05	2011-06-07		Likely Voters - Republican	324		Live Phone	Nonpartisan	None
+	2.0		4.0	23.0		7.0	5.0	13.0	4.0	12.0	31.0		fox-11443	FOX	2011-06-05	2011-06-07		Likely Voters - Republican	338	5.5	Live Phone	Nonpartisan	None
+	1.0		4.0	24.0		10.0	7.0	12.0	1.0	3.0	35.0		cnn-11459	CNN	2011-06-03	2011-06-07		Adults - Republican	433	4.5	Live Phone	Nonpartisan	None
+10.0	2.0		7.0	35.0		16.0	13.0		1.0	11.0	6.0		cnn-11459	CNN	2011-06-03	2011-06-07		Adults - Republican	433	4.5	Live Phone	Nonpartisan	None
+8.0			7.0	27.0		9.0	5.0		2.0	27.0	4.0		fairleigh-dickinson-11461	Fairleigh Dickinson	2011-06-01	2011-06-07		Likely Voters - Republican	509	4.5	Live Phone	Nonpartisan	None
+8.0			7.0	27.0		9.0	5.0		2.0		4.0		fairleigh-dickinson-11461	Fairleigh Dickinson	2011-06-01	2011-06-07		Likely Voters - Republican	509	4.5	Live Phone	Nonpartisan	None
+6.0	2.0	5.0	5.0	18.0		4.0	8.0			18.0	32.0	1.0	ipsos-reuters-11445	Ipsos/Reuters	2011-06-03	2011-06-06		Adults - Republican	621		Live Phone	Nonpartisan	None
+9.0	1.0		6.0	25.0		8.0	8.0		4.0	20.0	20.0		quinnipiac-11440	Quinnipiac	2011-05-31	2011-06-06		Registered Voters - Republican	830	3.4	Live Phone	Nonpartisan	None
+5.0	1.0	4.0	3.0	22.0		7.0	5.0	8.0	1.0	11.0	29.0	5.0	abc-post-11431	ABC/Post	2011-06-02	2011-06-05		Registered Voters - Republican			Live Phone	Nonpartisan	None
+	1.0		7.0	15.0		8.0	12.0	16.0	2.0	2.0	32.0		cnn-11392	CNN	2011-05-24	2011-05-26		Adults - Republican	473		Live Phone	Nonpartisan	None
+13.0	3.0		9.0	21.0		12.0	15.0		3.0	2.0	13.0	9.0	cnn-11392	CNN	2011-05-24	2011-05-26		Adults - Republican	473		Live Phone	Nonpartisan	None
+12.0	4.0		9.0	16.0		9.0	9.0			12.0	29.0		ppp-d-11415	PPP (D)	2011-05-23	2011-05-25		Likely Voters - Republican	574	4.1	Automated Phone	Pollster	Dem
+8.0	2.0		5.0	17.0		9.0	10.0		2.0	22.0	26.0		gallup-11383	Gallup	2011-05-20	2011-05-24		Adults - Republican	972	4.0	Live Phone	Nonpartisan	None
+19.0	1.0		5.0	11.0		3.0	9.0		3.0	12.0	32.0	6.0	zogby-internet-11374	Zogby (Internet)	2011-05-20	2011-05-23		Likely Voters - Republican	1169	2.9	Internet	Nonpartisan	None
+3.0			4.0	17.0		9.0	4.0	6.0	2.0	18.0	36.0		suffolk-11348	Suffolk	2011-05-10	2011-05-17		Likely Voters - Republican	468		Live Phone	Nonpartisan	None
+			7.0	18.0		13.0	8.0			11.0	44.0		ppp-d-11316	PPP (D)	2011-05-05	2011-05-08		Likely Voters - Republican	610	4.0	Automated Phone	Pollster	Dem
+	1.0		5.0	13.0		10.0	10.0		2.0	6.0	52.0		cnn-11299	CNN	2011-04-29	2011-05-01		Adults - Republican	475	4.5	Live Phone	Nonpartisan	None
+	1.0		4.0	18.0		5.0	5.0		1.0	15.0	52.0		quinnipiac-11285	Quinnipiac	2011-04-26	2011-05-01		Registered Voters - Republican	613	4.0	Live Phone	Nonpartisan	None
+2.0			1.0	20.0		3.0	7.0	23.0	1.0	10.0	33.0		marist-11302	Marist	2011-04-25	2011-04-29		Likely Voters - Republican	205	7.0	Live Phone	Nonpartisan	None
+	1.0		3.0	19.0		7.0	7.0		3.0		46.0		fox-11271	FOX	2011-04-25	2011-04-27		Registered Voters - Republican	322	5.5	Live Phone	Nonpartisan	None
+				17.0		9.0	8.0			11.0	56.0		rasmussen-11261	Rasmussen	2011-04-26	2011-04-26		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None
+	1.0		4.0	13.0		6.0	6.0		2.0	14.0	51.0		gallup-11241	Gallup	2011-04-15	2011-04-20		Adults - Republican	1047	4.0	Live Phone	Nonpartisan	None
+			1.0	16.0		2.0	2.0			49.0	29.0		abc-post-11215	ABC/Post	2011-04-14	2011-04-17		Adults - Republican	432		Live Phone	Nonpartisan	None
+	1.0		3.0	18.0		4.0		9.0	2.0	11.0	35.0		marist-mcclatchy-11226	Marist/McClatchy	2011-04-10	2011-04-14		Adults - Republican	468	4.5	Live Phone	Nonpartisan	None
+			5.0	11.0		11.0	7.0		2.0	5.0	58.0		cnn-11185	CNN	2011-04-09	2011-04-10		Adults - Republican	385	5.0	Live Phone	Nonpartisan	None
+			6.0	16.0		15.0	8.0			13.0	43.0		ppp-d-11203	PPP (D)	2011-04-07	2011-04-10		Likely Voters - Republican	400	4.9	Automated Phone	Pollster	Dem
+	1.0		2.0	14.0		7.0	3.0	9.0	2.0		49.0		fox-11171	FOX	2011-04-03	2011-04-05		Registered Voters - Republican	319	5.5	Live Phone	Nonpartisan	None
+			5.0	21.0		11.0			3.0	8.0	52.0		nbc-wsj-11159	NBC/WSJ	2011-03-31	2011-04-04		Likely Voters - Republican	238		Live Phone	Nonpartisan	None
+				20.0		10.0				23.0	48.0		fairleigh-dickinson-11136	Fairleigh Dickinson	2011-03-21	2011-03-28		Registered Voters	800	3.5	Live Phone	Nonpartisan	None
+	2.0		5.0	15.0		10.0	6.0		2.0	8.0	45.0		gallup-11112	Gallup	2011-03-18	2011-03-22		Adults - Republican	1082	4.0	Live Phone	Nonpartisan	None
+			2.0	10.0		5.0	3.0			16.0	50.0	10.0	zogby-internet-11113	Zogby (Internet)	2011-03-18	2011-03-21		Likely Voters - Republican	2168	2.1	Internet	Nonpartisan	None
+				18.0		14.0	8.0		3.0	5.0	52.0		cnn-11101	CNN	2011-03-18	2011-03-20		Adults - Republican	504	4.5	Live Phone	Nonpartisan	None
+				21.0		11.0	8.0		2.0	42.0	1.0		pew-11097	Pew	2011-03-08	2011-03-14		Registered Voters - Republican	382	6.5	Live Phone	Nonpartisan	None
+				17.0		14.0	9.0			15.0	43.0		ppp-d-11064	PPP (D)	2011-03-10	2011-03-13		Likely Voters - Republican	400	4.9	Automated Phone	Pollster	Dem
+				21.0		13.0	6.0		2.0	12.0	45.0		nbc-wsj-11019	NBC/WSJ	2011-02-24	2011-02-28		Likely Voters - Republican	282		Live Phone	Nonpartisan	None
+	1.0		4.0	16.0		9.0	5.0		2.0	14.0	50.0		gallup-10991	Gallup	2011-02-18	2011-02-20		Adults - Republican	1326	3.0	Live Phone	Nonpartisan	None
+	1.0			19.0		7.0				31.0	43.0		newsweek-daily-beast-10985	Newsweek/Daily Beast	2011-02-12	2011-02-15		Likely Voters - Republican	517		Live Phone	Pollster	Dem
+				17.0		12.0	8.0			18.0	44.0		ppp-d-10960	PPP (D)	2011-02-11	2011-02-13		Likely Voters - Republican	400	4.9	Automated Phone	Pollster	Dem
+				18.0		10.0	7.0		1.0	6.0	56.0		cnn-10928	CNN	2011-01-21	2011-01-23		Adults - Republican			Live Phone	Nonpartisan	None
+				24.0		11.0	4.0			10.0	51.0		rasmussen-10874	Rasmussen	2011-01-18	2011-01-18		Likely Voters	1000	3.0	Automated Phone	Nonpartisan	None
+				19.0		10.0	8.0		3.0	8.0	45.0	6.0	nbc-wsj-10853	NBC/WSJ	2011-01-13	2011-01-17		Adults	1000	3.1	Live Phone	Nonpartisan	None
+				14.0		11.0	7.0			16.0	51.0		ppp-d-10865	PPP (D)	2011-01-14	2011-01-16		Likely Voters - Republican	515	4.3	Automated Phone	Pollster	Dem
+	1.0	3.0		17.0		9.0				12.0	45.0		abc-post-10831	ABC/Post	2011-01-13	2011-01-16		Adults	1053	3.5	Live Phone	Nonpartisan	None
+				17.0						18.0	66.0		zogby-internet-10788	Zogby (Internet)	2010-12-30	2011-01-03		Likely Voters - Republican	746	3.7	Internet	Nonpartisan	None
+				19.0		10.0	4.0			5.0	62.0		clarus-10758	Clarus	2010-12-10	2010-12-16		Registered Voters - Republican	365	5.1	Live Phone	Nonpartisan	None
+				18.0		19.0	5.0			12.0	47.0		ppp-d-10672	PPP (D)	2010-11-19	2010-11-21		Likely Voters - Republican	400	4.9	Automated Phone	Pollster	Dem
+				18.0		15.0				17.0	49.0	1.0	quinnipiac-10653	Quinnipiac	2010-11-08	2010-11-15		Registered Voters - Republican			Live Phone	Nonpartisan	None
+				19.0		13.0	6.0		1.0	14.0	49.0		gallup-10635	Gallup	2010-11-13	2010-11-14		Adults - Republican	925	4.0	Live Phone	Nonpartisan	None
+				20.0		12.0	7.0		2.0	10.0	51.0		cnn-10424	CNN	2010-10-27	2010-10-30		Adults - Republican	500	4.5	Live Phone	Nonpartisan	None
+				19.0		9.0	7.0		2.0	11.0	45.0		gallup-10548	Gallup	2010-09-25	2010-09-26		Registered Voters - Republican	906	4.0	Live Phone	Nonpartisan	None
+				25.0		16.0				13.0	46.0		marist-mcclatchy-10547	Marist/McClatchy	2010-09-14	2010-09-16		Registered Voters - Republican	369	5.0	Live Phone	Nonpartisan	None
+				22.0		18.0	6.0			10.0	44.0		ppp-d-9153	PPP (D)	2010-09-10	2010-09-13		Registered Voters	419	4.8	Automated Phone	Pollster	Dem
+				21.0		15.0	10.0		2.0	4.0	47.0		cnn-10546	CNN	2010-08-06	2010-08-10		Registered Voters - Republican	494	4.5	Live Phone	Nonpartisan	None
+				26.0		14.0				15.0	42.0		clarus-10534	Clarus	2010-07-26	2010-07-27		Registered Voters - Republican	374	5.0	Live Phone	Nonpartisan	None
+				19.0		23.0	7.0			10.0	42.0		ppp-d-10532	PPP (D)	2010-07-09	2010-07-12		Registered Voters - Republican	400	4.9	Automated Phone	Pollster	Dem
+				25.0		15.0	6.0			6.0	46.0		ppp-d-10531	PPP (D)	2010-06-04	2010-06-07		Likely Voters - Republican	401	4.9	Automated Phone	Pollster	Dem
+				23.0		21.0	8.0			3.0	45.0		ppp-d-10530	PPP (D)	2010-05-07	2010-05-09		Likely Voters - Republican	539	4.2	Automated Phone	Pollster	Dem
+				33.0						17.0	50.0		ppp-d-10529	PPP (D)	2010-04-09	2010-04-11		Registered Voters - Republican	400	4.9	Automated Phone	Pollster	Dem
+				20.0		14.0	8.0		3.0	6.0	49.0		cnn-7587	CNN	2010-04-09	2010-04-11		Adults - Republican	498	4.5	Live Phone	Nonpartisan	None
+				22.0		8.0	8.0		5.0	5.0	53.0		cnn-10528	CNN	2010-03-19	2010-03-21		Adults - Republican	531	4.5	Live Phone	Nonpartisan	None
+				29.0		13.0				10.0	49.0		clarus-10527	Clarus	2010-03-17	2010-03-20		Registered Voters - Republican	415	4.8	Live Phone	Nonpartisan	None
+				28.0			11.0			9.0	53.0		ppp-d-10526	PPP (D)	2010-03-12	2010-03-14		Registered Voters - Republican	614	4.0	Automated Phone	Pollster	Dem
+				14.0		3.0	2.0			42.0	26.0		gallup-10525	Gallup	2010-02-01	2010-02-03		Adults - Republican	490	5.0	Live Phone	Nonpartisan	None
+				7.0		2.0	1.0	1.0		28.0	46.0	14.0	washington-post-10524	Washington Post	2009-11-19	2009-11-23		Adults - Republican	804	3.5	Live Phone	Nonpartisan	None
+				21.0							72.0		cnn-6419	CNN	2009-10-16	2009-10-18		Adults - Republican	462	4.5	Live Phone	Nonpartisan	None
+				24.0		14.0				7.0	57.0		rasmussen-10523	Rasmussen	2009-10-15	2009-10-15		Likely Voters - Republican	750	4.0	Automated Phone	Nonpartisan	None
+				30.0		15.0				10.0	46.0		clarus-5917	Clarus	2009-08-14	2009-08-18		Registered Voters - Republican	353	5.2	Live Phone	Nonpartisan	None
+				21.0		10.0				24.0	45.0		marist-college-10208	Marist College	2009-08-03	2009-08-06		Registered Voters - Republican	310	5.5	Live Phone	Nonpartisan	None
+				22.0		9.0		13.0		12.0	44.0		fox-5703	FOX	2009-07-21	2009-07-22		Registered Voters - Republican	303	6.0	Live Phone	Nonpartisan	None
+				21.0		10.0				6.0	62.0	1.0	abc-post-5704	ABC/Post	2009-07-15	2009-07-18		Adults - Republican			Live Phone	Nonpartisan	None
+				26.0		14.0					45.0		usa-today-gallup-5616	USA Today/Gallup	2009-07-10	2009-07-12		Adults - Republican	455	5.0	Live Phone	Nonpartisan	None
+				25.0		14.0					54.0		rasmussen-10204	Rasmussen	2009-07-06	2009-07-06		Likely Voters	750	4.0	Automated Phone	Nonpartisan	None
+				21.0		13.0				4.0	59.0		cnn-10203	CNN	2009-05-14	2009-05-17		Adults - Republican	448	4.5	Live Phone	Nonpartisan	None
+				14.0		7.0		16.0		20.0	42.0		fox-5241	FOX	2009-05-12	2009-05-13		Registered Voters	900	3.0	Live Phone	Nonpartisan	None
+				18.0		14.0		12.0		11.0	46.0		fox-5241	FOX	2009-05-12	2009-05-13		Registered Voters - Republican	274	6.0	Live Phone	Nonpartisan	None
+				12.0		5.0		19.0		23.0	41.0		fox-5241	FOX	2009-05-12	2009-05-13		Registered Voters - independent	213	7.0	Live Phone	Nonpartisan	None
+				21.0							74.0		cnn-10198	CNN	2009-02-18	2009-02-19		Adults - Republican	429	4.5	Live Phone	Nonpartisan	None
+				11.0						6.0	83.0		rasmussen-10102	Rasmussen	2008-11-05	2008-11-05		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None

@@ -1,0 +1,15 @@
+Walker	Huckabee	Santorum	Ryan	Rubio	Paul	McDonnell	Jindal	Cruz	Christie	Bush	Pence	Portman	Kasich	Perry	Carson	Trump	Fiorina	Gilmore	Graham	Pataki	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+				26.0				13.0					7.0		11.0	36.0					8.0		surveymonkey-23950	SurveyMonkey	2016-02-22	2016-02-29		Registered Voters - Republican	848		Internet	Nonpartisan	None
+				27.0				22.0					6.0		4.0	40.0					1.0		cbs-yougov-23907	CBS/YouGov	2016-02-22	2016-02-26		Likely Voters - Republican	481	8.6	Internet	Nonpartisan	None
+				27.0				14.0					7.0		7.0	41.0					4.0		monmouth-university-23870	Monmouth University	2016-02-22	2016-02-24		Likely Voters - Republican	421	4.8	Live Phone	Nonpartisan	None
+				13.0				15.0		2.0			8.0		8.0	38.0					17.0		roanoke-college-23888	Roanoke College	2016-02-16	2016-02-24		Likely Voters - Republican	466	4.5	Live Phone	Nonpartisan	None
+				22.0				19.0	4.0	4.0			7.0		7.0	28.0	2.0	1.0			6.0	1.0	christopher-newport-23758	Christopher Newport	2016-02-03	2016-02-14		Likely Voters - Republican	368	5.6	Live Phone	Nonpartisan	None
+	4.0			11.0	4.0			10.0	4.0	5.0			1.0		29.0	24.0	5.0	0.0			2.0		university-of-mary-washington-psrai-23165	University of Mary Washington/PSRAI	2015-11-04	2015-11-09		Likely Voters - Republican	333		Live Phone	Nonpartisan	None
+	3.0	0.0		14.0	2.0		0.0	5.0	4.0	9.0			2.0		17.0	23.0	13.0	0.0	1.0	0.0	5.0	1.0	christopher-newport-22896	Christopher Newport	2015-09-29	2015-10-08		Registered Voters - Republican	412	5.1	Live Phone	Nonpartisan	None
+10.0	2.0	0.0		4.0	5.0		1.0	6.0	3.0	15.0			3.0	2.0	8.0	28.0	7.0		1.0	1.0	3.0	2.0	opinion-savvy-southern-political-report-22507	Opinion Savvy/Southern Political Report	2015-08-02	2015-08-03		Likely Voters - Republican	546	4.1	IVR/Online	Nonpartisan	None
+14.0	8.0	1.0		7.0	5.0		3.0	5.0	5.0	18.0			1.0	2.0	10.0	14.0	5.0	1.0	1.0	0.0			ppp-d-22389	PPP (D)	2015-07-13	2015-07-15		Likely Voters - Republican	502	4.4	IVR/Online	Pollster	Dem
+10.0	6.0	0.0		16.0	10.0		2.0	7.0	10.0	17.0			0.0	0.0	7.0	5.0	1.0				7.0	0.0	christopher-newport-22071	Christopher Newport	2015-04-13	2015-04-24		Registered Voters - Republican	301		Live Phone	Nonpartisan	None
+16.0	10.0	1.0	5.0	6.0	6.0		2.0	3.0	10.0	21.0	1.0	1.0	3.0	1.0	9.0						4.0	1.0	christopher-newport-21723	Christopher Newport	2015-01-30	2015-02-10		Registered Voters - Republican	351	5.5	Live Phone	Nonpartisan	None
+3.0	13.0		13.0	4.0	7.0			9.0	19.0	18.0											13.0		christopher-newport-18947	Christopher Newport	2014-02-23	2014-02-28		Registered Voters - Republican	338	5.3	Live Phone	Nonpartisan	None
+		2.0	11.0	12.0	15.0	8.0	4.0	9.0	16.0	16.0											7.0		ppp-d-17701	PPP (D)	2013-07-11	2013-07-14		Likely Voters - Republican	415	4.8	Automated Phone	Pollster	Dem
+		2.0	8.0	17.0	10.0	12.0	3.0	8.0	15.0	14.0											11.0		ppp-d-19119	PPP (D)	2013-05-24	2013-05-26		Likely Voters - Republican	500	4.4	Automated Phone	Pollster	Dem

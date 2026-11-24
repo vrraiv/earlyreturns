@@ -1,0 +1,3114 @@
+[
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-arizona-gop-primary.csv",
+"timestamp": "20131204121408",
+"length": 1866,
+"path": "2012-arizona-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2012-arizona-gop-primary.csv",
+"timestamp": "20150711160759",
+"length": 1766,
+"path": "2012-arizona-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-arizona-gop-primary.csv",
+"timestamp": "20150921040857",
+"length": 1914,
+"path": "2012-arizona-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-california-gop-primary.csv",
+"timestamp": "20131204121449",
+"length": 1563,
+"path": "2012-california-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-california-gop-primary.csv",
+"timestamp": "20150919182300",
+"length": 1599,
+"path": "2012-california-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-florida-gop-primary.csv",
+"timestamp": "20131204123456",
+"length": 4290,
+"path": "2012-florida-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-florida-gop-primary.csv",
+"timestamp": "20160102114336",
+"length": 4391,
+"path": "2012-florida-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-georgia-gop-primary.csv",
+"timestamp": "20131204123744",
+"length": 2218,
+"path": "2012-georgia-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-georgia-gop-primary.csv",
+"timestamp": "20150919230113",
+"length": 2270,
+"path": "2012-georgia-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-illinois-gop-primary.csv",
+"timestamp": "20131204082228",
+"length": 1113,
+"path": "2012-illinois-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-iowa-gop-primary.csv",
+"timestamp": "20131204124042",
+"length": 4560,
+"path": "2012-iowa-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-iowa-gop-primary.csv",
+"timestamp": "20150919035500",
+"length": 4735,
+"path": "2012-iowa-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-louisiana-gop-primary.csv",
+"timestamp": "20131204082251",
+"length": 1153,
+"path": "2012-louisiana-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-maryland-gop-primary.csv",
+"timestamp": "20131204082616",
+"length": 821,
+"path": "2012-maryland-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-michigan-gop-primary.csv",
+"timestamp": "20131204081910",
+"length": 2722,
+"path": "2012-michigan-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-michigan-gop-primary.csv",
+"timestamp": "20150924172212",
+"length": 2793,
+"path": "2012-michigan-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-national-gop-primary.csv",
+"timestamp": "20131204115010",
+"length": 13539,
+"path": "2012-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-national-gop-primary.csv",
+"timestamp": "20150910161553",
+"length": 14250,
+"path": "2012-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2012-national-gop-primary.csv",
+"timestamp": "20150921060821",
+"length": 14095,
+"path": "2012-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2012-national-gop-primary.csv",
+"timestamp": "20151124194256",
+"length": 14067,
+"path": "2012-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-national-gop-primary.csv",
+"timestamp": "20160328020123",
+"length": 14232,
+"path": "2012-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-national-gop-primary.csv",
+"timestamp": "20160604130206",
+"length": 14078,
+"path": "2012-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-nevada-gop-primary.csv",
+"timestamp": "20131204081701",
+"length": 1331,
+"path": "2012-nevada-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-nevada-gop-primary.csv",
+"timestamp": "20150923163919",
+"length": 1370,
+"path": "2012-nevada-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2012-nevada-gop-primary.csv",
+"timestamp": "20160226090832",
+"length": 1219,
+"path": "2012-nevada-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-new-hampshire-gop-primary.csv",
+"timestamp": "20131204081251",
+"length": 3896,
+"path": "2012-new-hampshire-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-new-hampshire-gop-primary.csv",
+"timestamp": "20150921163116",
+"length": 4043,
+"path": "2012-new-hampshire-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-new-jersey-gop-primary.csv",
+"timestamp": "20131204082603",
+"length": 974,
+"path": "2012-new-jersey-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-new-jersey-gop-primary.csv",
+"timestamp": "20150919140207",
+"length": 999,
+"path": "2012-new-jersey-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2012-new-jersey-gop-primary.csv",
+"timestamp": "20160131190339",
+"length": 850,
+"path": "2012-new-jersey-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-new-york-gop-primary.csv",
+"timestamp": "20131204082338",
+"length": 1030,
+"path": "2012-new-york-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-new-york-gop-primary.csv",
+"timestamp": "20150923043548",
+"length": 1060,
+"path": "2012-new-york-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-north-carolina-gop-primary.csv",
+"timestamp": "20131204082526",
+"length": 1420,
+"path": "2012-north-carolina-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-north-carolina-gop-primary.csv",
+"timestamp": "20150921162513",
+"length": 1455,
+"path": "2012-north-carolina-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-ohio-gop-primary.csv",
+"timestamp": "20131204082116",
+"length": 2206,
+"path": "2012-ohio-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-ohio-gop-primary.csv",
+"timestamp": "20151229124730",
+"length": 2269,
+"path": "2012-ohio-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-pennsylvania-gop-primary.csv",
+"timestamp": "20131204082433",
+"length": 1692,
+"path": "2012-pennsylvania-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-pennsylvania-gop-primary.csv",
+"timestamp": "20150923163545",
+"length": 1730,
+"path": "2012-pennsylvania-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-south-carolina-gop-primary.csv",
+"timestamp": "20131204081603",
+"length": 3409,
+"path": "2012-south-carolina-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-tennessee-gop-primary.csv",
+"timestamp": "20131204082146",
+"length": 1184,
+"path": "2012-tennessee-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-tennessee-gop-primary.csv",
+"timestamp": "20150924232147",
+"length": 1205,
+"path": "2012-tennessee-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-texas-gop-primary.csv",
+"timestamp": "20131204082555",
+"length": 975,
+"path": "2012-texas-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-texas-gop-primary.csv",
+"timestamp": "20160101233143",
+"length": 994,
+"path": "2012-texas-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-virginia-gop-primary.csv",
+"timestamp": "20131204082202",
+"length": 1359,
+"path": "2012-virginia-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-virginia-gop-primary.csv",
+"timestamp": "20151017082810",
+"length": 1378,
+"path": "2012-virginia-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-wisconsin-gop-primary.csv",
+"timestamp": "20131204082320",
+"length": 1294,
+"path": "2012-wisconsin-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2012-wisconsin-gop-primary.csv",
+"timestamp": "20150920040045",
+"length": 1334,
+"path": "2012-wisconsin-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-alabama-republican-presidential-primary.csv",
+"timestamp": "20160223062353",
+"length": 762,
+"path": "2016-alabama-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-alabama-republican-presidential-primary.csv",
+"timestamp": "20160425143742",
+"length": 1406,
+"path": "2016-alabama-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-alaska-presidential-democratic-caucus.csv",
+"timestamp": "20160306204705",
+"length": 567,
+"path": "2016-alaska-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-alaska-presidential-democratic-caucus.csv",
+"timestamp": "20161109095045",
+"length": 800,
+"path": "2016-alaska-presidential-democratic-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-alaska-presidential-republican-caucus.csv",
+"timestamp": "20160227204834",
+"length": 851,
+"path": "2016-alaska-presidential-republican-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-arizona-presidential-democratic-primary.csv",
+"timestamp": "20160305093156",
+"length": 826,
+"path": "2016-arizona-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-arizona-presidential-democratic-primary.csv",
+"timestamp": "20160505184757",
+"length": 1038,
+"path": "2016-arizona-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-arizona-presidential-democratic-primary.csv",
+"timestamp": "20160706134624",
+"length": 1022,
+"path": "2016-arizona-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-arizona-presidential-democratic-primary.csv",
+"timestamp": "20161109011355",
+"length": 1198,
+"path": "2016-arizona-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-arizona-presidential-republican-primary.csv",
+"timestamp": "20160319130744",
+"length": 1519,
+"path": "2016-arizona-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-arizona-presidential-republican-primary.csv",
+"timestamp": "20160519140143",
+"length": 1664,
+"path": "2016-arizona-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-arizona-presidential-republican-primary.csv",
+"timestamp": "20160720204456",
+"length": 1682,
+"path": "2016-arizona-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-arizona-presidential-republican-primary.csv",
+"timestamp": "20161109000745",
+"length": 1832,
+"path": "2016-arizona-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-arkansas-democratic-presidential-primary.csv",
+"timestamp": "20160303161150",
+"length": 765,
+"path": "2016-arkansas-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-arkansas-republican-presidential-primary.csv",
+"timestamp": "20160226184036",
+"length": 958,
+"path": "2016-arkansas-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-california-democratic-presidential-primary.csv",
+"timestamp": "20151015235618",
+"length": 953,
+"path": "2016-california-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-california-democratic-presidential-primary.csv",
+"timestamp": "20160412031112",
+"length": 1459,
+"path": "2016-california-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-california-democratic-presidential-primary.csv",
+"timestamp": "20160612000835",
+"length": 2508,
+"path": "2016-california-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-california-democratic-presidential-primary.csv",
+"timestamp": "20160811182407",
+"length": 2521,
+"path": "2016-california-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-california-democratic-presidential-primary.csv",
+"timestamp": "20161012014726",
+"length": 2526,
+"path": "2016-california-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-california-republican-presidential-primary.csv",
+"timestamp": "20150930053803",
+"length": 927,
+"path": "2016-california-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-california-republican-presidential-primary.csv",
+"timestamp": "20160324123601",
+"length": 1486,
+"path": "2016-california-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-california-republican-presidential-primary.csv",
+"timestamp": "20160524093847",
+"length": 2196,
+"path": "2016-california-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-california-republican-presidential-primary.csv",
+"timestamp": "20160724045052",
+"length": 2408,
+"path": "2016-california-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-california-republican-presidential-primary.csv",
+"timestamp": "20160801184007",
+"length": 2559,
+"path": "2016-california-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-colorado-democratic-presidential-caucus.csv",
+"timestamp": "20160226090844",
+"length": 763,
+"path": "2016-colorado-democratic-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-connecticut-presidential-democratic-primary.csv",
+"timestamp": "20160321131857",
+"length": 732,
+"path": "2016-connecticut-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-connecticut-presidential-democratic-primary.csv",
+"timestamp": "20160521074904",
+"length": 1155,
+"path": "2016-connecticut-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-connecticut-presidential-democratic-primary.csv",
+"timestamp": "20160722070338",
+"length": 1177,
+"path": "2016-connecticut-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-connecticut-presidential-republican-primary.csv",
+"timestamp": "20160320234459",
+"length": 808,
+"path": "2016-connecticut-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-connecticut-presidential-republican-primary.csv",
+"timestamp": "20160521062413",
+"length": 1333,
+"path": "2016-connecticut-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-connecticut-presidential-republican-primary.csv",
+"timestamp": "20160723085846",
+"length": 1372,
+"path": "2016-connecticut-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-delaware-democratic-presidential-primary.csv",
+"timestamp": "20160425020154",
+"length": 610,
+"path": "2016-delaware-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-florida-presidential-democratic-primary.csv",
+"timestamp": "20150905190346",
+"length": 2106,
+"path": "2016-florida-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-florida-presidential-democratic-primary.csv",
+"timestamp": "20151109133622",
+"length": 2416,
+"path": "2016-florida-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-florida-presidential-democratic-primary.csv",
+"timestamp": "20160309145925",
+"length": 2158,
+"path": "2016-florida-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-florida-presidential-democratic-primary.csv",
+"timestamp": "20160326080103",
+"length": 2725,
+"path": "2016-florida-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-florida-presidential-democratic-primary.csv",
+"timestamp": "20160509093812",
+"length": 3911,
+"path": "2016-florida-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-florida-presidential-democratic-primary.csv",
+"timestamp": "20160709045453",
+"length": 3911,
+"path": "2016-florida-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-florida-presidential-republican-primary.csv",
+"timestamp": "20150819041430",
+"length": 2217,
+"path": "2016-florida-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-florida-presidential-republican-primary.csv",
+"timestamp": "20150905183213",
+"length": 2419,
+"path": "2016-florida-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-florida-presidential-republican-primary.csv",
+"timestamp": "20151019060541",
+"length": 2555,
+"path": "2016-florida-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-florida-presidential-republican-primary.csv",
+"timestamp": "20160101174833",
+"length": 2557,
+"path": "2016-florida-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-florida-presidential-republican-primary.csv",
+"timestamp": "20160326065648",
+"length": 3889,
+"path": "2016-florida-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-florida-presidential-republican-primary.csv",
+"timestamp": "20160801154452",
+"length": 5724,
+"path": "2016-florida-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-florida-presidential-republican-primary.csv",
+"timestamp": "20170120172008",
+"length": 5736,
+"path": "2016-florida-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-georgia-democratic-presidential-primary.csv",
+"timestamp": "20160922163713",
+"length": 1991,
+"path": "2016-georgia-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-georgia-republican-presidential-primary.csv",
+"timestamp": "20151126232942",
+"length": 1335,
+"path": "2016-georgia-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-idaho-democratic-presidential-caucus.csv",
+"timestamp": "20160313175237",
+"length": 593,
+"path": "2016-idaho-democratic-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-idaho-republican-presidential-primary.csv",
+"timestamp": "20160311155755",
+"length": 622,
+"path": "2016-idaho-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-illinois-presidential-democratic-primary.csv",
+"timestamp": "20160227150212",
+"length": 746,
+"path": "2016-illinois-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-illinois-presidential-democratic-primary.csv",
+"timestamp": "20160326063028",
+"length": 1594,
+"path": "2016-illinois-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-illinois-presidential-democratic-primary.csv",
+"timestamp": "20160429060343",
+"length": 1495,
+"path": "2016-illinois-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-illinois-presidential-republican-primary.csv",
+"timestamp": "20160227204843",
+"length": 988,
+"path": "2016-illinois-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-illinois-presidential-republican-primary.csv",
+"timestamp": "20160429044307",
+"length": 1584,
+"path": "2016-illinois-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-illinois-presidential-republican-primary.csv",
+"timestamp": "20161108232429",
+"length": 1774,
+"path": "2016-illinois-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-indiana-democratic-presidential-primary.csv",
+"timestamp": "20160427102514",
+"length": 848,
+"path": "2016-indiana-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-indiana-democratic-presidential-primary.csv",
+"timestamp": "20160628120633",
+"length": 1082,
+"path": "2016-indiana-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-indiana-presidential-republican-primary.csv",
+"timestamp": "20160312184604",
+"length": 605,
+"path": "2016-indiana-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-indiana-presidential-republican-primary.csv",
+"timestamp": "20160512224542",
+"length": 1447,
+"path": "2016-indiana-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-indiana-presidential-republican-primary.csv",
+"timestamp": "20160712220215",
+"length": 1443,
+"path": "2016-indiana-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-iowa-presidential-democratic-caucus.csv",
+"timestamp": "20160107054749",
+"length": 3232,
+"path": "2016-iowa-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-iowa-presidential-democratic-caucus.csv",
+"timestamp": "20160215021631",
+"length": 4221,
+"path": "2016-iowa-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-iowa-presidential-democratic-caucus.csv",
+"timestamp": "20160308031819",
+"length": 4065,
+"path": "2016-iowa-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-iowa-presidential-democratic-caucus.csv",
+"timestamp": "20160508025631",
+"length": 6324,
+"path": "2016-iowa-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-iowa-presidential-democratic-caucus.csv",
+"timestamp": "20160915045456",
+"length": 6390,
+"path": "2016-iowa-presidential-democratic-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-iowa-presidential-democratic-caucus.csv",
+"timestamp": "20170106203429",
+"length": 6393,
+"path": "2016-iowa-presidential-democratic-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-iowa-presidential-democratic-primary.csv",
+"timestamp": "20150824031148",
+"length": 2631,
+"path": "2016-iowa-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-iowa-presidential-democratic-primary.csv",
+"timestamp": "20150906125752",
+"length": 3054,
+"path": "2016-iowa-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-iowa-presidential-democratic-primary.csv",
+"timestamp": "20151023233347",
+"length": 3552,
+"path": "2016-iowa-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-iowa-presidential-democratic-primary.csv",
+"timestamp": "20151223124600",
+"length": 3190,
+"path": "2016-iowa-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-iowa-presidential-republican-caucus.csv",
+"timestamp": "20160109123256",
+"length": 4607,
+"path": "2016-iowa-presidential-republican-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-iowa-presidential-republican-caucus.csv",
+"timestamp": "20160914145822",
+"length": 8542,
+"path": "2016-iowa-presidential-republican-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-iowa-presidential-republican-caucus.csv",
+"timestamp": "20170106201643",
+"length": 8543,
+"path": "2016-iowa-presidential-republican-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-iowa-presidential-republican-primary.csv",
+"timestamp": "20150620210326",
+"length": 3427,
+"path": "2016-iowa-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-iowa-presidential-republican-primary.csv",
+"timestamp": "20150902085608",
+"length": 4315,
+"path": "2016-iowa-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-iowa-presidential-republican-primary.csv",
+"timestamp": "20150905093552",
+"length": 4514,
+"path": "2016-iowa-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-iowa-presidential-republican-primary.csv",
+"timestamp": "20151123114507",
+"length": 5866,
+"path": "2016-iowa-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-kansas-democratic-presidential-caucus.csv",
+"timestamp": "20160227211022",
+"length": 591,
+"path": "2016-kansas-democratic-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-kansas-democratic-presidential-caucus.csv",
+"timestamp": "20161109014559",
+"length": 932,
+"path": "2016-kansas-democratic-presidential-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-kansas-republican-presidential-caucus.csv",
+"timestamp": "20160227190835",
+"length": 712,
+"path": "2016-kansas-republican-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-kansas-republican-presidential-caucus.csv",
+"timestamp": "20161109011909",
+"length": 1236,
+"path": "2016-kansas-republican-presidential-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-kentucky-democratic-presidential-primary.csv",
+"timestamp": "20160425232909",
+"length": 641,
+"path": "2016-kentucky-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-kentucky-democratic-presidential-primary.csv",
+"timestamp": "20160626153316",
+"length": 654,
+"path": "2016-kentucky-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-kentucky-democratic-presidential-primary.csv",
+"timestamp": "20160826151252",
+"length": 672,
+"path": "2016-kentucky-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-kentucky-republican-presidential-caucus.csv",
+"timestamp": "20151026152807",
+"length": 918,
+"path": "2016-kentucky-republican-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-kentucky-republican-presidential-caucus.csv",
+"timestamp": "20161107091448",
+"length": 1357,
+"path": "2016-kentucky-republican-presidential-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-louisiana-democratic-presidential-primary.csv",
+"timestamp": "20160303234620",
+"length": 766,
+"path": "2016-louisiana-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-louisiana-democratic-presidential-primary.csv",
+"timestamp": "20161109012754",
+"length": 1116,
+"path": "2016-louisiana-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-louisiana-republican-presidential-primary.csv",
+"timestamp": "20161108235455",
+"length": 1572,
+"path": "2016-louisiana-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-maine-republican-presidential-caucus.csv",
+"timestamp": "20160227140138",
+"length": 597,
+"path": "2016-maine-republican-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-maine-republican-presidential-caucus.csv",
+"timestamp": "20161109100228",
+"length": 834,
+"path": "2016-maine-republican-presidential-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-maryland-presidential-democratic-primary.csv",
+"timestamp": "20160301161912",
+"length": 792,
+"path": "2016-maryland-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-maryland-presidential-democratic-primary.csv",
+"timestamp": "20160502092101",
+"length": 1929,
+"path": "2016-maryland-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-maryland-presidential-democratic-primary.csv",
+"timestamp": "20160503120934",
+"length": 1933,
+"path": "2016-maryland-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-maryland-presidential-democratic-primary.csv",
+"timestamp": "20160703121252",
+"length": 1924,
+"path": "2016-maryland-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-maryland-presidential-republican-primary.csv",
+"timestamp": "20160416121206",
+"length": 1109,
+"path": "2016-maryland-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-maryland-presidential-republican-primary.csv",
+"timestamp": "20160628044705",
+"length": 1413,
+"path": "2016-maryland-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-massachusetts-democratic-presidential-primary.csv",
+"timestamp": "20160223183928",
+"length": 972,
+"path": "2016-massachusetts-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-massachusetts-republican-presidential-primary.csv",
+"timestamp": "20160226184051",
+"length": 995,
+"path": "2016-massachusetts-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-michigan-presidential-democratic-primary.csv",
+"timestamp": "20160326090306",
+"length": 1664,
+"path": "2016-michigan-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-michigan-presidential-republican-primary.csv",
+"timestamp": "20160227220050",
+"length": 1516,
+"path": "2016-michigan-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-michigan-presidential-republican-primary.csv",
+"timestamp": "20160326060015",
+"length": 2255,
+"path": "2016-michigan-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-michigan-presidential-republican-primary.csv",
+"timestamp": "20160430174024",
+"length": 2906,
+"path": "2016-michigan-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-minnesota-democratic-presidential-caucus.csv",
+"timestamp": "20160227150217",
+"length": 674,
+"path": "2016-minnesota-democratic-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-minnesota-republican-presidential-caucus.csv",
+"timestamp": "20160226090853",
+"length": 749,
+"path": "2016-minnesota-republican-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-mississippi-democratic-presidential-primary.csv",
+"timestamp": "20160304223412",
+"length": 648,
+"path": "2016-mississippi-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-mississippi-democratic-presidential-primary.csv",
+"timestamp": "20160505050347",
+"length": 760,
+"path": "2016-mississippi-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-mississippi-democratic-presidential-primary.csv",
+"timestamp": "20161109100214",
+"length": 940,
+"path": "2016-mississippi-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-mississippi-presidential-republican-primary.csv",
+"timestamp": "20160227204915",
+"length": 797,
+"path": "2016-mississippi-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-mississippi-presidential-republican-primary.csv",
+"timestamp": "20161108235538",
+"length": 1189,
+"path": "2016-mississippi-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-missouri-presidential-democratic-primary.csv",
+"timestamp": "20160227190839",
+"length": 579,
+"path": "2016-missouri-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-missouri-presidential-democratic-primary.csv",
+"timestamp": "20161109005957",
+"length": 1024,
+"path": "2016-missouri-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-missouri-presidential-republican-primary.csv",
+"timestamp": "20160227204918",
+"length": 648,
+"path": "2016-missouri-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-missouri-presidential-republican-primary.csv",
+"timestamp": "20160429065415",
+"length": 843,
+"path": "2016-missouri-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-missouri-presidential-republican-primary.csv",
+"timestamp": "20161108235621",
+"length": 1010,
+"path": "2016-missouri-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-montana-democratic-presidential-primary.csv",
+"timestamp": "20160323200315",
+"length": 592,
+"path": "2016-montana-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-montana-democratic-presidential-primary.csv",
+"timestamp": "20160523101636",
+"length": 654,
+"path": "2016-montana-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-montana-democratic-presidential-primary.csv",
+"timestamp": "20160723212924",
+"length": 678,
+"path": "2016-montana-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-montana-republican-presidential-primary.csv",
+"timestamp": "20160509042315",
+"length": 674,
+"path": "2016-montana-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-montana-republican-presidential-primary.csv",
+"timestamp": "20160709035831",
+"length": 674,
+"path": "2016-montana-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20130521045444",
+"length": 1324,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20130819061253",
+"length": 1623,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20131204005218",
+"length": 2104,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20140104040229",
+"length": 2315,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20140806055609",
+"length": 3149,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20150403120246",
+"length": 4412,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20150721210417",
+"length": 6386,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20150823221344",
+"length": 7630,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20150905183738",
+"length": 8186,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20151023233352",
+"length": 10456,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20151231093334",
+"length": 8755,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20160301112207",
+"length": 10520,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20160322134608",
+"length": 17149,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20160406082100",
+"length": 17945,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20160502065200",
+"length": 19540,
+"path": "2016-national-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20160702092954",
+"length": 20953,
+"path": "2016-national-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20160801220624",
+"length": 20840,
+"path": "2016-national-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20160901145128",
+"length": 20705,
+"path": "2016-national-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-democratic-primary.csv",
+"timestamp": "20161208182317",
+"length": 20871,
+"path": "2016-national-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20130518073306",
+"length": 1247,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20130828103148",
+"length": 1869,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20131204005317",
+"length": 2301,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20140104041612",
+"length": 2553,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20140807105727",
+"length": 4521,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20150403162353",
+"length": 5821,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-gop-primary.csv",
+"timestamp": "20150826165239",
+"length": 10320,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20150905201401",
+"length": 11060,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-gop-primary.csv",
+"timestamp": "20151026095251",
+"length": 13552,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-gop-primary.csv",
+"timestamp": "20151226003547",
+"length": 11714,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-gop-primary.csv",
+"timestamp": "20160308111853",
+"length": 14125,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20160326091531",
+"length": 21748,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20160411115105",
+"length": 23220,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-gop-primary.csv",
+"timestamp": "20160509042330",
+"length": 24187,
+"path": "2016-national-gop-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-gop-primary.csv",
+"timestamp": "20160709034249",
+"length": 23947,
+"path": "2016-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-national-gop-primary.csv",
+"timestamp": "20160909005544",
+"length": 24234,
+"path": "2016-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20170408201422",
+"length": 24088,
+"path": "2016-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/2016-national-gop-primary.csv",
+"timestamp": "20220308050545",
+"length": 22188,
+"path": "2016-national-gop-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-nebraska-republican-presidential-primary.csv",
+"timestamp": "20160415092241",
+"length": 620,
+"path": "2016-nebraska-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-nevada-democratic-presidential-caucus.csv",
+"timestamp": "20160213080819",
+"length": 1015,
+"path": "2016-nevada-democratic-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-nevada-republican-presidential-caucus.csv",
+"timestamp": "20160111051737",
+"length": 1042,
+"path": "2016-nevada-republican-presidential-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-hampshire-presidential-democratic-caucus.csv",
+"timestamp": "20150823221348",
+"length": 3009,
+"path": "2016-new-hampshire-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-hampshire-presidential-democratic-caucus.csv",
+"timestamp": "20150905211731",
+"length": 3214,
+"path": "2016-new-hampshire-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-hampshire-presidential-democratic-caucus.csv",
+"timestamp": "20151024190524",
+"length": 3958,
+"path": "2016-new-hampshire-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-hampshire-presidential-democratic-caucus.csv",
+"timestamp": "20160101102547",
+"length": 3133,
+"path": "2016-new-hampshire-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-hampshire-presidential-democratic-primary.csv",
+"timestamp": "20160213015215",
+"length": 4411,
+"path": "2016-new-hampshire-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-hampshire-presidential-democratic-primary.csv",
+"timestamp": "20160305063037",
+"length": 4252,
+"path": "2016-new-hampshire-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-hampshire-presidential-democratic-primary.csv",
+"timestamp": "20160406075410",
+"length": 4412,
+"path": "2016-new-hampshire-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-hampshire-presidential-democratic-primary.csv",
+"timestamp": "20161002003406",
+"length": 6695,
+"path": "2016-new-hampshire-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-hampshire-presidential-democratic-primary.csv",
+"timestamp": "20161115233413",
+"length": 6847,
+"path": "2016-new-hampshire-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-hampshire-presidential-democratic-primary.csv",
+"timestamp": "20170106083427",
+"length": 6850,
+"path": "2016-new-hampshire-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-hampshire-presidential-republican-caucus.csv",
+"timestamp": "20150905183834",
+"length": 3891,
+"path": "2016-new-hampshire-presidential-republican-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-hampshire-presidential-republican-caucus.csv",
+"timestamp": "20151030104954",
+"length": 4650,
+"path": "2016-new-hampshire-presidential-republican-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-hampshire-presidential-republican-primary.csv",
+"timestamp": "20160109123306",
+"length": 4306,
+"path": "2016-new-hampshire-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-hampshire-presidential-republican-primary.csv",
+"timestamp": "20160801181812",
+"length": 8723,
+"path": "2016-new-hampshire-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-hampshire-presidential-republican-primary.csv",
+"timestamp": "20170106092408",
+"length": 8744,
+"path": "2016-new-hampshire-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-jersey-democratic-presidential-primary.csv",
+"timestamp": "20160125192332",
+"length": 974,
+"path": "2016-new-jersey-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-jersey-democratic-presidential-primary.csv",
+"timestamp": "20160326140616",
+"length": 1007,
+"path": "2016-new-jersey-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-jersey-democratic-presidential-primary.csv",
+"timestamp": "20160328005735",
+"length": 1011,
+"path": "2016-new-jersey-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-jersey-democratic-presidential-primary.csv",
+"timestamp": "20160528082704",
+"length": 1581,
+"path": "2016-new-jersey-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-jersey-democratic-presidential-primary.csv",
+"timestamp": "20160728140058",
+"length": 1773,
+"path": "2016-new-jersey-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-jersey-democratic-presidential-primary.csv",
+"timestamp": "20160828225205",
+"length": 1915,
+"path": "2016-new-jersey-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-jersey-republican-presidential-primary.csv",
+"timestamp": "20151103022145",
+"length": 1151,
+"path": "2016-new-jersey-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-jersey-republican-presidential-primary.csv",
+"timestamp": "20160416110630",
+"length": 1411,
+"path": "2016-new-jersey-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-jersey-republican-presidential-primary.csv",
+"timestamp": "20160618144727",
+"length": 1549,
+"path": "2016-new-jersey-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-new-jersey-republican-presidential-primary.csv",
+"timestamp": "20160801214722",
+"length": 1731,
+"path": "2016-new-jersey-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-mexico-democratic-presidential-primary.csv",
+"timestamp": "20160229031209",
+"length": 618,
+"path": "2016-new-mexico-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-mexico-democratic-presidential-primary.csv",
+"timestamp": "20160507030836",
+"length": 693,
+"path": "2016-new-mexico-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-york-presidential-democratic-primary.csv",
+"timestamp": "20160303230619",
+"length": 771,
+"path": "2016-new-york-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-york-presidential-democratic-primary.csv",
+"timestamp": "20160504050317",
+"length": 2222,
+"path": "2016-new-york-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-york-presidential-democratic-primary.csv",
+"timestamp": "20160703193208",
+"length": 2209,
+"path": "2016-new-york-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-york-presidential-democratic-primary.csv",
+"timestamp": "20160902232347",
+"length": 2228,
+"path": "2016-new-york-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-york-presidential-democratic-primary.csv",
+"timestamp": "20160904025837",
+"length": 2232,
+"path": "2016-new-york-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-york-presidential-republican-primary.csv",
+"timestamp": "20160422234018",
+"length": 2629,
+"path": "2016-new-york-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-new-york-presidential-republican-primary.csv",
+"timestamp": "20160622181626",
+"length": 2628,
+"path": "2016-new-york-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-north-carolina-democratic-presidential-primary.csv",
+"timestamp": "20151229214904",
+"length": 1384,
+"path": "2016-north-carolina-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-north-carolina-democratic-presidential-primary.csv",
+"timestamp": "20161108235755",
+"length": 2498,
+"path": "2016-north-carolina-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-north-carolina-republican-presidential-primary.csv",
+"timestamp": "20150713224732",
+"length": 1599,
+"path": "2016-north-carolina-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-north-carolina-republican-presidential-primary.csv",
+"timestamp": "20160102150858",
+"length": 1914,
+"path": "2016-north-carolina-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-north-carolina-republican-presidential-primary.csv",
+"timestamp": "20161109000418",
+"length": 3143,
+"path": "2016-north-carolina-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-ohio-democratic-presidential-primary.csv",
+"timestamp": "20150831155012",
+"length": 977,
+"path": "2016-ohio-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-ohio-democratic-presidential-primary.csv",
+"timestamp": "20160316204235",
+"length": 1405,
+"path": "2016-ohio-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-ohio-democratic-presidential-primary.csv",
+"timestamp": "20160517094752",
+"length": 1978,
+"path": "2016-ohio-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-ohio-democratic-presidential-primary.csv",
+"timestamp": "20160718083443",
+"length": 2030,
+"path": "2016-ohio-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-ohio-democratic-presidential-primary.csv",
+"timestamp": "20160719120903",
+"length": 2030,
+"path": "2016-ohio-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-ohio-democratic-presidential-primary.csv",
+"timestamp": "20161108230314",
+"length": 2151,
+"path": "2016-ohio-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-ohio-republican-presidential-primary.csv",
+"timestamp": "20160306060759",
+"length": 1143,
+"path": "2016-ohio-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-ohio-republican-presidential-primary.csv",
+"timestamp": "20160326092535",
+"length": 1707,
+"path": "2016-ohio-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-ohio-republican-presidential-primary.csv",
+"timestamp": "20160506130222",
+"length": 2111,
+"path": "2016-ohio-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-ohio-republican-presidential-primary.csv",
+"timestamp": "20160706203413",
+"length": 2114,
+"path": "2016-ohio-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-ohio-republican-presidential-primary.csv",
+"timestamp": "20160707204001",
+"length": 2113,
+"path": "2016-ohio-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-ohio-republican-presidential-primary.csv",
+"timestamp": "20160801183547",
+"length": 2292,
+"path": "2016-ohio-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-oklahoma-republican-presidential-primary.csv",
+"timestamp": "20160227150228",
+"length": 995,
+"path": "2016-oklahoma-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-oregon-republican-presidential-primary.csv",
+"timestamp": "20160503083837",
+"length": 640,
+"path": "2016-oregon-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-pennsylvania-democratic-presidential-primary.csv",
+"timestamp": "20160324123751",
+"length": 1245,
+"path": "2016-pennsylvania-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-pennsylvania-democratic-presidential-primary.csv",
+"timestamp": "20160524093927",
+"length": 2599,
+"path": "2016-pennsylvania-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-pennsylvania-democratic-presidential-primary.csv",
+"timestamp": "20160724212710",
+"length": 2579,
+"path": "2016-pennsylvania-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-pennsylvania-republican-presidential-primary.csv",
+"timestamp": "20160324185841",
+"length": 1863,
+"path": "2016-pennsylvania-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-pennsylvania-republican-presidential-primary.csv",
+"timestamp": "20160524225900",
+"length": 3097,
+"path": "2016-pennsylvania-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-pennsylvania-republican-presidential-primary.csv",
+"timestamp": "20160724201254",
+"length": 3131,
+"path": "2016-pennsylvania-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-pennsylvania-republican-presidential-primary.csv",
+"timestamp": "20160725221144",
+"length": 3130,
+"path": "2016-pennsylvania-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-pennsylvania-republican-presidential-primary.csv",
+"timestamp": "20160801215140",
+"length": 3273,
+"path": "2016-pennsylvania-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-rhode-island-democratic-presidential-primary.csv",
+"timestamp": "20160321203327",
+"length": 600,
+"path": "2016-rhode-island-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-rhode-island-democratic-presidential-primary.csv",
+"timestamp": "20160522003237",
+"length": 885,
+"path": "2016-rhode-island-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-rhode-island-democratic-presidential-primary.csv",
+"timestamp": "20160723225717",
+"length": 910,
+"path": "2016-rhode-island-democratic-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-rhode-island-republican-presidential-primary.csv",
+"timestamp": "20160401112508",
+"length": 625,
+"path": "2016-rhode-island-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-rhode-island-republican-presidential-primary.csv",
+"timestamp": "20160601134447",
+"length": 1034,
+"path": "2016-rhode-island-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-south-carolina-presidential-democratic-primary.csv",
+"timestamp": "20150915233647",
+"length": 1437,
+"path": "2016-south-carolina-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-south-carolina-presidential-democratic-primary.csv",
+"timestamp": "20150919020251",
+"length": 1305,
+"path": "2016-south-carolina-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-south-carolina-presidential-democratic-primary.csv",
+"timestamp": "20151118225031",
+"length": 1882,
+"path": "2016-south-carolina-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-south-carolina-presidential-democratic-primary.csv",
+"timestamp": "20161130160605",
+"length": 3281,
+"path": "2016-south-carolina-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-south-carolina-presidential-republican-primary.csv",
+"timestamp": "20150324013139",
+"length": 1287,
+"path": "2016-south-carolina-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-south-carolina-presidential-republican-primary.csv",
+"timestamp": "20150907053449",
+"length": 2294,
+"path": "2016-south-carolina-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-south-carolina-presidential-republican-primary.csv",
+"timestamp": "20151123075817",
+"length": 3245,
+"path": "2016-south-carolina-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-south-carolina-presidential-republican-primary.csv",
+"timestamp": "20160123083802",
+"length": 2493,
+"path": "2016-south-carolina-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-south-carolina-presidential-republican-primary.csv",
+"timestamp": "20160801214751",
+"length": 5069,
+"path": "2016-south-carolina-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-tennessee-republican-presidential-primary.csv",
+"timestamp": "20160227192409",
+"length": 759,
+"path": "2016-tennessee-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-texas-republican-presidential-primary.csv",
+"timestamp": "20160801214923",
+"length": 3348,
+"path": "2016-texas-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-utah-presidential-democratic-caucus.csv",
+"timestamp": "20150708153200",
+"length": 669,
+"path": "2016-utah-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-utah-presidential-democratic-caucus.csv",
+"timestamp": "20161108235815",
+"length": 1181,
+"path": "2016-utah-presidential-democratic-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-utah-presidential-republican-primary.csv",
+"timestamp": "20160321133802",
+"length": 1179,
+"path": "2016-utah-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-utah-presidential-republican-primary.csv",
+"timestamp": "20160521074914",
+"length": 1334,
+"path": "2016-utah-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-utah-presidential-republican-primary.csv",
+"timestamp": "20160722234859",
+"length": 1373,
+"path": "2016-utah-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-utah-presidential-republican-primary.csv",
+"timestamp": "20161109095107",
+"length": 1519,
+"path": "2016-utah-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-vermont-republican-presidential-primary.csv",
+"timestamp": "20160304154844",
+"length": 625,
+"path": "2016-vermont-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-vermont-republican-presidential-primary.csv",
+"timestamp": "20160806024525",
+"length": 864,
+"path": "2016-vermont-republican-presidential-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-virginia-democratic-presidential-primary.csv",
+"timestamp": "20160226184056",
+"length": 1175,
+"path": "2016-virginia-democratic-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-virginia-republican-presidential-primary.csv",
+"timestamp": "20160228005442",
+"length": 1397,
+"path": "2016-virginia-republican-presidential-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-washington-presidential-democratic-caucus.csv",
+"timestamp": "20160303234630",
+"length": 665,
+"path": "2016-washington-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-washington-presidential-democratic-caucus.csv",
+"timestamp": "20160504025518",
+"length": 819,
+"path": "2016-washington-presidential-democratic-caucus.csv",
+"rank": 3,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-washington-presidential-democratic-caucus.csv",
+"timestamp": "20160709133915",
+"length": 816,
+"path": "2016-washington-presidential-democratic-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/2016-washington-presidential-democratic-caucus.csv",
+"timestamp": "20161109014554",
+"length": 988,
+"path": "2016-washington-presidential-democratic-caucus.csv",
+"rank": 2,
+"stage": "caucus"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-washington-presidential-republican-primary.csv",
+"timestamp": "20160314032141",
+"length": 694,
+"path": "2016-washington-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-washington-presidential-republican-primary.csv",
+"timestamp": "20160513172259",
+"length": 844,
+"path": "2016-washington-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-washington-presidential-republican-primary.csv",
+"timestamp": "20160714220339",
+"length": 842,
+"path": "2016-washington-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-west-virginia-presidential-democratic-primary.csv",
+"timestamp": "20160227192415",
+"length": 632,
+"path": "2016-west-virginia-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-west-virginia-presidential-republican-primary.csv",
+"timestamp": "20160404234210",
+"length": 687,
+"path": "2016-west-virginia-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-west-virginia-presidential-republican-primary.csv",
+"timestamp": "20160605054117",
+"length": 1073,
+"path": "2016-west-virginia-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-wisconsin-presidential-democratic-primary.csv",
+"timestamp": "20160322233225",
+"length": 1161,
+"path": "2016-wisconsin-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-wisconsin-presidential-democratic-primary.csv",
+"timestamp": "20160523101641",
+"length": 2134,
+"path": "2016-wisconsin-presidential-democratic-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-wisconsin-presidential-democratic-primary.csv",
+"timestamp": "20160723140645",
+"length": 2079,
+"path": "2016-wisconsin-presidential-democratic-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-wisconsin-presidential-republican-primary.csv",
+"timestamp": "20160324123933",
+"length": 1814,
+"path": "2016-wisconsin-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-wisconsin-presidential-republican-primary.csv",
+"timestamp": "20160524073353",
+"length": 2608,
+"path": "2016-wisconsin-presidential-republican-primary.csv",
+"rank": 3,
+"stage": "primary"
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/2016-wisconsin-presidential-republican-primary.csv",
+"timestamp": "20160724172456",
+"length": 2612,
+"path": "2016-wisconsin-presidential-republican-primary.csv",
+"rank": 2,
+"stage": "primary"
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-FL-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220814033550",
+"length": 3156,
+"path": "api/v2/questions/12-FL-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-IA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210917215848",
+"length": 3492,
+"path": "api/v2/questions/12-IA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-IA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220518161048",
+"length": 3494,
+"path": "api/v2/questions/12-IA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-LA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20211016095303",
+"length": 1411,
+"path": "api/v2/questions/12-LA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-NH-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220707052129",
+"length": 3187,
+"path": "api/v2/questions/12-NH-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-NJ-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20190720143930",
+"length": 1150,
+"path": "api/v2/questions/12-NJ-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-SC-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20211130143237",
+"length": 2692,
+"path": "api/v2/questions/12-SC-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-SC-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220518185829",
+"length": 2694,
+"path": "api/v2/questions/12-SC-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20190722022932",
+"length": 9901,
+"path": "api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20191116232005",
+"length": 9895,
+"path": "api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210515081734",
+"length": 9767,
+"path": "api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210920022905",
+"length": 10129,
+"path": "api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220520012420",
+"length": 10136,
+"path": "api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-VA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20211128204619",
+"length": 1540,
+"path": "api/v2/questions/12-VA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/12-WI-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20190921222638",
+"length": 1286,
+"path": "api/v2/questions/12-WI-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-AR-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210927154709",
+"length": 1365,
+"path": "api/v2/questions/16-AR-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-AZ-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20200930200721",
+"length": 1650,
+"path": "api/v2/questions/16-AZ-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-CA-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210905052424",
+"length": 1989,
+"path": "api/v2/questions/16-CA-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-CA-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20220811205643",
+"length": 2127,
+"path": "api/v2/questions/16-CA-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-CA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220517204958",
+"length": 2203,
+"path": "api/v2/questions/16-CA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-CA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20221005181545",
+"length": 2201,
+"path": "api/v2/questions/16-CA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-CO-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20211128213010",
+"length": 1566,
+"path": "api/v2/questions/16-CO-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-CO-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220527041505",
+"length": 1567,
+"path": "api/v2/questions/16-CO-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-CT-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20190919030213",
+"length": 1265,
+"path": "api/v2/questions/16-CT-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-FL-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20191216055415",
+"length": 2786,
+"path": "api/v2/questions/16-FL-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IA-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210922114951",
+"length": 4002,
+"path": "api/v2/questions/16-IA-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IA-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20220516055519",
+"length": 4006,
+"path": "api/v2/questions/16-IA-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210622075443",
+"length": 5871,
+"path": "api/v2/questions/16-IA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210622075443",
+"length": 5871,
+"path": "api/v2/questions/16-IA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210920051834",
+"length": 5688,
+"path": "api/v2/questions/16-IA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20190720061859",
+"length": 1459,
+"path": "api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20191017042111",
+"length": 1460,
+"path": "api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20220517205420",
+"length": 1681,
+"path": "api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20221005182159",
+"length": 1683,
+"path": "api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IN-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20220706042516",
+"length": 1398,
+"path": "api/v2/questions/16-IN-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IN-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20190720062003",
+"length": 1394,
+"path": "api/v2/questions/16-IN-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-IN-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20191017042231",
+"length": 1395,
+"path": "api/v2/questions/16-IN-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-KY-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20200919035826",
+"length": 1371,
+"path": "api/v2/questions/16-KY-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-MA-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20220116182909",
+"length": 1793,
+"path": "api/v2/questions/16-MA-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-MD-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210421024934",
+"length": 1561,
+"path": "api/v2/questions/16-MD-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-MD-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20211015213515",
+"length": 1778,
+"path": "api/v2/questions/16-MD-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-MD-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20211016094311",
+"length": 1625,
+"path": "api/v2/questions/16-MD-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-MI-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210906113155",
+"length": 1890,
+"path": "api/v2/questions/16-MI-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "http://elections.huffingtonpost.com:80/pollster/api/v2/questions/16-MO-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20170711194224",
+"length": 801,
+"path": "api/v2/questions/16-MO-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-MO-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220706040948",
+"length": 1374,
+"path": "api/v2/questions/16-MO-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NC-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20220124192523",
+"length": 2206,
+"path": "api/v2/questions/16-NC-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NC-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20211130142223",
+"length": 2778,
+"path": "api/v2/questions/16-NC-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NH-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210509072346",
+"length": 4306,
+"path": "api/v2/questions/16-NH-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NH-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210924053925",
+"length": 4527,
+"path": "api/v2/questions/16-NH-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NH-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210422052509",
+"length": 5774,
+"path": "api/v2/questions/16-NH-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NH-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210505210703",
+"length": 5898,
+"path": "api/v2/questions/16-NH-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NH-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220524081757",
+"length": 6127,
+"path": "api/v2/questions/16-NH-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NV-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20211130155242",
+"length": 1635,
+"path": "api/v2/questions/16-NV-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NV-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20220518203612",
+"length": 1636,
+"path": "api/v2/questions/16-NV-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-NY-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20211021211736",
+"length": 2257,
+"path": "api/v2/questions/16-NY-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-OH-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20211021202119",
+"length": 1911,
+"path": "api/v2/questions/16-OH-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-OH-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210513041725",
+"length": 1827,
+"path": "api/v2/questions/16-OH-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-RI-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20190819151408",
+"length": 1102,
+"path": "api/v2/questions/16-RI-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-SC-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210923024936",
+"length": 2424,
+"path": "api/v2/questions/16-SC-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-SC-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20200918075847",
+"length": 3421,
+"path": "api/v2/questions/16-SC-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-SC-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220526105028",
+"length": 3643,
+"path": "api/v2/questions/16-SC-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-TX-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220819132041",
+"length": 2709,
+"path": "api/v2/questions/16-TX-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210607085429",
+"length": 10642,
+"path": "api/v2/questions/16-US-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20210927050603",
+"length": 11003,
+"path": "api/v2/questions/16-US-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "http://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20170628012353",
+"length": 13887,
+"path": "api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20190718081628",
+"length": 14119,
+"path": "api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20191022152708",
+"length": 14123,
+"path": "api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210605082413",
+"length": 13986,
+"path": "api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220517052013",
+"length": 14363,
+"path": "api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220926133029",
+"length": 14357,
+"path": "api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-UT-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20210927161913",
+"length": 1653,
+"path": "api/v2/questions/16-UT-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-UT-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220516120633",
+"length": 1654,
+"path": "api/v2/questions/16-UT-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-VA-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20190825152653",
+"length": 1813,
+"path": "api/v2/questions/16-VA-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-WI-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20220517211502",
+"length": 2023,
+"path": "api/v2/questions/16-WI-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-WI-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20221005184755",
+"length": 2021,
+"path": "api/v2/questions/16-WI-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-WI-Pres-RepPR/poll-responses-clean.tsv",
+"timestamp": "20220517205718",
+"length": 2383,
+"path": "api/v2/questions/16-WI-Pres-RepPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-WV-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20200930194758",
+"length": 1233,
+"path": "api/v2/questions/16-WV-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+},
+{
+"original": "https://elections.huffingtonpost.com/pollster/api/v2/questions/16-WV-Pres-DemPR/poll-responses-clean.tsv",
+"timestamp": "20220811205716",
+"length": 1458,
+"path": "api/v2/questions/16-WV-Pres-DemPR/poll-responses-clean.tsv",
+"rank": 1,
+"stage": null
+}
+]

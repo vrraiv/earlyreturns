@@ -1,0 +1,744 @@
+{
+ "2012|AZ|R": {
+  "file": "2012-arizona-gop-primary.csv",
+  "path": "2012-arizona-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20150921040857"
+ },
+ "2012|CA|R": {
+  "file": "2012-california-gop-primary.csv",
+  "path": "2012-california-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20150919182300"
+ },
+ "2012|FL|R": {
+  "file": "api-12-FL-Pres-RepPR.tsv",
+  "path": "api/v2/questions/12-FL-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220814033550"
+ },
+ "2012|GA|R": {
+  "file": "2012-georgia-gop-primary.csv",
+  "path": "2012-georgia-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20150919230113"
+ },
+ "2012|IA|R": {
+  "file": "api-12-IA-Pres-RepPR.tsv",
+  "path": "api/v2/questions/12-IA-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220518161048"
+ },
+ "2012|IL|R": {
+  "file": "2012-illinois-gop-primary.csv",
+  "path": "2012-illinois-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20131204082228"
+ },
+ "2012|LA|R": {
+  "file": "api-12-LA-Pres-RepPR.tsv",
+  "path": "api/v2/questions/12-LA-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20211016095303"
+ },
+ "2012|MD|R": {
+  "file": "2012-maryland-gop-primary.csv",
+  "path": "2012-maryland-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20131204082616"
+ },
+ "2012|MI|R": {
+  "file": "2012-michigan-gop-primary.csv",
+  "path": "2012-michigan-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20150924172212"
+ },
+ "2012|NC|R": {
+  "file": "2012-north-carolina-gop-primary.csv",
+  "path": "2012-north-carolina-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20150921162513"
+ },
+ "2012|NH|R": {
+  "file": "api-12-NH-Pres-RepPR.tsv",
+  "path": "api/v2/questions/12-NH-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220707052129"
+ },
+ "2012|NJ|R": {
+  "file": "api-12-NJ-Pres-RepPR.tsv",
+  "path": "api/v2/questions/12-NJ-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20190720143930"
+ },
+ "2012|NV|R": {
+  "file": "2012-nevada-gop-primary.csv",
+  "path": "2012-nevada-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20150923163919"
+ },
+ "2012|NY|R": {
+  "file": "2012-new-york-gop-primary.csv",
+  "path": "2012-new-york-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20150923043548"
+ },
+ "2012|OH|R": {
+  "file": "2012-ohio-gop-primary.csv",
+  "path": "2012-ohio-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20151229124730"
+ },
+ "2012|PA|R": {
+  "file": "2012-pennsylvania-gop-primary.csv",
+  "path": "2012-pennsylvania-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20150923163545"
+ },
+ "2012|SC|R": {
+  "file": "api-12-SC-Pres-RepPR.tsv",
+  "path": "api/v2/questions/12-SC-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220518185829"
+ },
+ "2012|TN|R": {
+  "file": "2012-tennessee-gop-primary.csv",
+  "path": "2012-tennessee-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20150924232147"
+ },
+ "2012|TX|R": {
+  "file": "2012-texas-gop-primary.csv",
+  "path": "2012-texas-gop-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160101233143"
+ },
+ "2012|US|R": {
+  "file": "api-12-US-Pres-RepPR.tsv",
+  "path": "api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220520012420"
+ },
+ "2012|VA|R": {
+  "file": "api-12-VA-Pres-RepPR.tsv",
+  "path": "api/v2/questions/12-VA-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20211128204619"
+ },
+ "2012|WI|R": {
+  "file": "api-12-WI-Pres-RepPR.tsv",
+  "path": "api/v2/questions/12-WI-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20190921222638"
+ },
+ "2016|AK|D": {
+  "file": "2016-alaska-presidential-democratic-caucus.csv",
+  "path": "2016-alaska-presidential-democratic-caucus.csv",
+  "rule": 2,
+  "stage": "caucus",
+  "timestamp": "20161109095045"
+ },
+ "2016|AK|R": {
+  "file": "2016-alaska-presidential-republican-caucus.csv",
+  "path": "2016-alaska-presidential-republican-caucus.csv",
+  "rule": 3,
+  "stage": "caucus",
+  "timestamp": "20160227204834"
+ },
+ "2016|AL|R": {
+  "file": "2016-alabama-republican-presidential-primary.csv",
+  "path": "2016-alabama-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160425143742"
+ },
+ "2016|AR|D": {
+  "file": "api-16-AR-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-AR-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20210927154709"
+ },
+ "2016|AR|R": {
+  "file": "2016-arkansas-republican-presidential-primary.csv",
+  "path": "2016-arkansas-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160226184036"
+ },
+ "2016|AZ|D": {
+  "file": "2016-arizona-presidential-democratic-primary.csv",
+  "path": "2016-arizona-presidential-democratic-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20161109011355"
+ },
+ "2016|AZ|R": {
+  "file": "api-16-AZ-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-AZ-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20200930200721"
+ },
+ "2016|CA|D": {
+  "file": "api-16-CA-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-CA-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220811205643"
+ },
+ "2016|CA|R": {
+  "file": "api-16-CA-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-CA-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220517204958"
+ },
+ "2016|CO|D": {
+  "file": "2016-colorado-democratic-presidential-caucus.csv",
+  "path": "2016-colorado-democratic-presidential-caucus.csv",
+  "rule": 3,
+  "stage": "caucus",
+  "timestamp": "20160226090844"
+ },
+ "2016|CO|R": {
+  "file": "api-16-CO-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-CO-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220527041505"
+ },
+ "2016|CT|D": {
+  "file": "api-16-CT-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-CT-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20190919030213"
+ },
+ "2016|CT|R": {
+  "file": "2016-connecticut-presidential-republican-primary.csv",
+  "path": "2016-connecticut-presidential-republican-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160723085846"
+ },
+ "2016|DE|D": {
+  "file": "2016-delaware-democratic-presidential-primary.csv",
+  "path": "2016-delaware-democratic-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160425020154"
+ },
+ "2016|FL|D": {
+  "file": "api-16-FL-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-FL-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20191216055415"
+ },
+ "2016|FL|R": {
+  "file": "2016-florida-presidential-republican-primary.csv",
+  "path": "2016-florida-presidential-republican-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20170120172008"
+ },
+ "2016|GA|D": {
+  "file": "2016-georgia-democratic-presidential-primary.csv",
+  "path": "2016-georgia-democratic-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160922163713"
+ },
+ "2016|GA|R": {
+  "file": "2016-georgia-republican-presidential-primary.csv",
+  "path": "2016-georgia-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20151126232942"
+ },
+ "2016|IA|D": {
+  "file": "api-16-IA-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-IA-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220516055519"
+ },
+ "2016|IA|R": {
+  "file": "api-16-IA-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-IA-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20210622075443"
+ },
+ "2016|ID|D": {
+  "file": "2016-idaho-democratic-presidential-caucus.csv",
+  "path": "2016-idaho-democratic-presidential-caucus.csv",
+  "rule": 3,
+  "stage": "caucus",
+  "timestamp": "20160313175237"
+ },
+ "2016|ID|R": {
+  "file": "2016-idaho-republican-presidential-primary.csv",
+  "path": "2016-idaho-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160311155755"
+ },
+ "2016|IL|D": {
+  "file": "api-16-IL-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20221005182159"
+ },
+ "2016|IL|R": {
+  "file": "2016-illinois-presidential-republican-primary.csv",
+  "path": "2016-illinois-presidential-republican-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20161108232429"
+ },
+ "2016|IN|D": {
+  "file": "api-16-IN-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-IN-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220706042516"
+ },
+ "2016|IN|R": {
+  "file": "api-16-IN-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-IN-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20191017042231"
+ },
+ "2016|KS|D": {
+  "file": "2016-kansas-democratic-presidential-caucus.csv",
+  "path": "2016-kansas-democratic-presidential-caucus.csv",
+  "rule": 2,
+  "stage": "caucus",
+  "timestamp": "20161109014559"
+ },
+ "2016|KS|R": {
+  "file": "2016-kansas-republican-presidential-caucus.csv",
+  "path": "2016-kansas-republican-presidential-caucus.csv",
+  "rule": 2,
+  "stage": "caucus",
+  "timestamp": "20161109011909"
+ },
+ "2016|KY|D": {
+  "file": "2016-kentucky-democratic-presidential-primary.csv",
+  "path": "2016-kentucky-democratic-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160826151252"
+ },
+ "2016|KY|R": {
+  "file": "api-16-KY-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-KY-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "caucus",
+  "timestamp": "20200919035826"
+ },
+ "2016|LA|D": {
+  "file": "2016-louisiana-democratic-presidential-primary.csv",
+  "path": "2016-louisiana-democratic-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20161109012754"
+ },
+ "2016|LA|R": {
+  "file": "2016-louisiana-republican-presidential-primary.csv",
+  "path": "2016-louisiana-republican-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20161108235455"
+ },
+ "2016|MA|D": {
+  "file": "api-16-MA-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-MA-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220116182909"
+ },
+ "2016|MA|R": {
+  "file": "2016-massachusetts-republican-presidential-primary.csv",
+  "path": "2016-massachusetts-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160226184051"
+ },
+ "2016|MD|D": {
+  "file": "api-16-MD-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-MD-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20211015213515"
+ },
+ "2016|MD|R": {
+  "file": "api-16-MD-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-MD-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20211016094311"
+ },
+ "2016|ME|R": {
+  "file": "2016-maine-republican-presidential-caucus.csv",
+  "path": "2016-maine-republican-presidential-caucus.csv",
+  "rule": 2,
+  "stage": "caucus",
+  "timestamp": "20161109100228"
+ },
+ "2016|MI|D": {
+  "file": "api-16-MI-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-MI-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20210906113155"
+ },
+ "2016|MI|R": {
+  "file": "2016-michigan-presidential-republican-primary.csv",
+  "path": "2016-michigan-presidential-republican-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160430174024"
+ },
+ "2016|MN|D": {
+  "file": "2016-minnesota-democratic-presidential-caucus.csv",
+  "path": "2016-minnesota-democratic-presidential-caucus.csv",
+  "rule": 3,
+  "stage": "caucus",
+  "timestamp": "20160227150217"
+ },
+ "2016|MN|R": {
+  "file": "2016-minnesota-republican-presidential-caucus.csv",
+  "path": "2016-minnesota-republican-presidential-caucus.csv",
+  "rule": 3,
+  "stage": "caucus",
+  "timestamp": "20160226090853"
+ },
+ "2016|MO|D": {
+  "file": "2016-missouri-presidential-democratic-primary.csv",
+  "path": "2016-missouri-presidential-democratic-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20161109005957"
+ },
+ "2016|MO|R": {
+  "file": "api-16-MO-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-MO-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220706040948"
+ },
+ "2016|MS|D": {
+  "file": "2016-mississippi-democratic-presidential-primary.csv",
+  "path": "2016-mississippi-democratic-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20161109100214"
+ },
+ "2016|MS|R": {
+  "file": "2016-mississippi-presidential-republican-primary.csv",
+  "path": "2016-mississippi-presidential-republican-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20161108235538"
+ },
+ "2016|MT|D": {
+  "file": "2016-montana-democratic-presidential-primary.csv",
+  "path": "2016-montana-democratic-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160723212924"
+ },
+ "2016|MT|R": {
+  "file": "2016-montana-republican-presidential-primary.csv",
+  "path": "2016-montana-republican-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160709035831"
+ },
+ "2016|NC|D": {
+  "file": "api-16-NC-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-NC-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220124192523"
+ },
+ "2016|NC|R": {
+  "file": "api-16-NC-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-NC-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20211130142223"
+ },
+ "2016|NE|R": {
+  "file": "2016-nebraska-republican-presidential-primary.csv",
+  "path": "2016-nebraska-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160415092241"
+ },
+ "2016|NH|D": {
+  "file": "api-16-NH-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-NH-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20210924053925"
+ },
+ "2016|NH|R": {
+  "file": "api-16-NH-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-NH-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220524081757"
+ },
+ "2016|NJ|D": {
+  "file": "2016-new-jersey-democratic-presidential-primary.csv",
+  "path": "2016-new-jersey-democratic-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160828225205"
+ },
+ "2016|NJ|R": {
+  "file": "2016-new-jersey-republican-presidential-primary.csv",
+  "path": "2016-new-jersey-republican-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160801214722"
+ },
+ "2016|NM|D": {
+  "file": "2016-new-mexico-democratic-presidential-primary.csv",
+  "path": "2016-new-mexico-democratic-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160507030836"
+ },
+ "2016|NV|D": {
+  "file": "api-16-NV-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-NV-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "caucus",
+  "timestamp": "20220518203612"
+ },
+ "2016|NV|R": {
+  "file": "2016-nevada-republican-presidential-caucus.csv",
+  "path": "2016-nevada-republican-presidential-caucus.csv",
+  "rule": 3,
+  "stage": "caucus",
+  "timestamp": "20160111051737"
+ },
+ "2016|NY|D": {
+  "file": "2016-new-york-presidential-democratic-primary.csv",
+  "path": "2016-new-york-presidential-democratic-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160904025837"
+ },
+ "2016|NY|R": {
+  "file": "api-16-NY-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-NY-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20211021211736"
+ },
+ "2016|OH|D": {
+  "file": "api-16-OH-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-OH-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20211021202119"
+ },
+ "2016|OH|R": {
+  "file": "api-16-OH-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-OH-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20210513041725"
+ },
+ "2016|OK|R": {
+  "file": "2016-oklahoma-republican-presidential-primary.csv",
+  "path": "2016-oklahoma-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160227150228"
+ },
+ "2016|OR|R": {
+  "file": "2016-oregon-republican-presidential-primary.csv",
+  "path": "2016-oregon-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160503083837"
+ },
+ "2016|PA|D": {
+  "file": "2016-pennsylvania-democratic-presidential-primary.csv",
+  "path": "2016-pennsylvania-democratic-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160724212710"
+ },
+ "2016|PA|R": {
+  "file": "2016-pennsylvania-republican-presidential-primary.csv",
+  "path": "2016-pennsylvania-republican-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160801215140"
+ },
+ "2016|RI|D": {
+  "file": "api-16-RI-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-RI-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20190819151408"
+ },
+ "2016|RI|R": {
+  "file": "2016-rhode-island-republican-presidential-primary.csv",
+  "path": "2016-rhode-island-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160601134447"
+ },
+ "2016|SC|D": {
+  "file": "api-16-SC-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-SC-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20210923024936"
+ },
+ "2016|SC|R": {
+  "file": "api-16-SC-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-SC-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220526105028"
+ },
+ "2016|TN|R": {
+  "file": "2016-tennessee-republican-presidential-primary.csv",
+  "path": "2016-tennessee-republican-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160227192409"
+ },
+ "2016|TX|R": {
+  "file": "api-16-TX-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-TX-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220819132041"
+ },
+ "2016|US|D": {
+  "file": "api-16-US-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-US-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20210927050603"
+ },
+ "2016|US|R": {
+  "file": "api-16-US-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220517052013"
+ },
+ "2016|UT|D": {
+  "file": "2016-utah-presidential-democratic-caucus.csv",
+  "path": "2016-utah-presidential-democratic-caucus.csv",
+  "rule": 2,
+  "stage": "caucus",
+  "timestamp": "20161108235815"
+ },
+ "2016|UT|R": {
+  "file": "api-16-UT-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-UT-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220516120633"
+ },
+ "2016|VA|D": {
+  "file": "2016-virginia-democratic-presidential-primary.csv",
+  "path": "2016-virginia-democratic-presidential-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160226184056"
+ },
+ "2016|VA|R": {
+  "file": "api-16-VA-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-VA-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20190825152653"
+ },
+ "2016|VT|R": {
+  "file": "2016-vermont-republican-presidential-primary.csv",
+  "path": "2016-vermont-republican-presidential-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160806024525"
+ },
+ "2016|WA|D": {
+  "file": "2016-washington-presidential-democratic-caucus.csv",
+  "path": "2016-washington-presidential-democratic-caucus.csv",
+  "rule": 2,
+  "stage": "caucus",
+  "timestamp": "20161109014554"
+ },
+ "2016|WA|R": {
+  "file": "2016-washington-presidential-republican-primary.csv",
+  "path": "2016-washington-presidential-republican-primary.csv",
+  "rule": 2,
+  "stage": "primary",
+  "timestamp": "20160714220339"
+ },
+ "2016|WI|D": {
+  "file": "api-16-WI-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-WI-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220517211502"
+ },
+ "2016|WI|R": {
+  "file": "api-16-WI-Pres-RepPR.tsv",
+  "path": "api/v2/questions/16-WI-Pres-RepPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220517205718"
+ },
+ "2016|WV|D": {
+  "file": "api-16-WV-Pres-DemPR.tsv",
+  "path": "api/v2/questions/16-WV-Pres-DemPR/poll-responses-clean.tsv",
+  "rule": 1,
+  "stage": "primary",
+  "timestamp": "20220811205716"
+ },
+ "2016|WV|R": {
+  "file": "2016-west-virginia-presidential-republican-primary.csv",
+  "path": "2016-west-virginia-presidential-republican-primary.csv",
+  "rule": 3,
+  "stage": "primary",
+  "timestamp": "20160605054117"
+ }
+}

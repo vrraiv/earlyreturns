@@ -1,0 +1,14 @@
+Cruz	Walker	Huckabee	Paul	Jindal	Ryan	Bush	Rubio	Christie	Carson	Perry	Kasich	Trump	Fiorina	Graham	Pataki	Santorum	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+33.0											17.0	46.0					4.0		opinion-savvy-fox-10-24121	Opinion Savvy/Fox 10	2016-03-20	2016-03-20		Likely Voters - Republican	588		IVR/Online	Nonpartisan	None
+19.0							10.0				10.0	31.0					30.0		merrill-westgroup-24101	Merrill/WestGroup	2016-03-07	2016-03-11		Likely Voters - Republican	300	5.4	Live Phone	Nonpartisan	None
+23.0							12.0				15.0	37.0					10.0	3.0	mbqf-r-24037	MBQF (R)	2016-03-08	2016-03-08		Likely Voters - Republican	751	3.57	Automated Phone	Pollster	Rep
+14.0							23.0				7.0	35.0					21.0		mbqf-r-23844	MBQF (R)	2016-02-22	2016-02-22		Likely Voters - Republican	736	3.61	Automated Phone	Pollster	Rep
+16.0		1.0	0.0			7.0	11.0	3.0	7.0		3.0	38.0	3.0				10.0		mbqf-r-23546	MBQF (R)	2016-01-19	2016-01-19		Likely Voters - Republican	771	3.53	Automated Phone	Pollster	Rep
+5.0		1.0	1.0	0.0		8.0	15.0	1.0	23.0		1.0	21.0	2.0	0.0		0.0	22.0		behavior-research-center-23117	Behavior Research Center	2015-10-24	2015-11-05		Registered Voters - Republican	226		Live Phone	Nonpartisan	None
+15.0		1.0	1.0			7.0	15.0	3.0	26.0		3.0	25.0	4.0				1.0		mbqf-r-23037	MBQF (R)	2015-10-29	2015-10-29		Likely Voters - Republican	1057	3.01	Automated Phone	Pollster	Rep
+6.0	3.0	2.0	1.0			11.0	4.0	2.0	21.0		3.0	30.0	9.0				8.0		mbqf-r-22751	MBQF (R)	2015-09-12	2015-09-12		Likely Voters - Republican	643	3.86	Automated Phone	Pollster	Rep
+9.0	4.0	2.0	1.0			9.0	3.0		15.0		4.0	28.0	10.0				11.0		mbqf-r-22591	MBQF (R)	2015-08-17	2015-08-17		Likely Voters - Republican	787	3.49	Automated Phone	Pollster	Rep
+8.0	4.0	4.0	2.0	0.0		10.0	6.0	1.0	16.0	0.0	4.0	33.0	11.0	0.0	0.0				gravis-marketing-oann-22593	Gravis Marketing/OANN	2015-08-13	2015-08-16		Likely Voters - Republican	844	3.4	Automated Phone	Sponsor	Rep
+6.0	13.0	4.0	2.0			12.0	4.0		9.0			27.0					21.0		mbqf-r-22592	MBQF (R)	2015-07-29	2015-07-29		Likely Voters - Republican	758	3.56	Automated Phone	Pollster	Rep
+9.0	16.0	5.0	11.0			14.0	14.0	5.0	11.0	2.0							12.0		ppp-d-22106	PPP (D)	2015-05-01	2015-05-03		Likely Voters - Republican	300	5.7	IVR/Online	Pollster	Dem
+16.0	8.0	11.0	14.0	2.0	8.0	11.0	4.0	12.0									13.0		ppp-d-18978	PPP (D)	2014-02-28	2014-03-02		Likely Voters - Republican	403	4.9	Automated Phone	Pollster	Dem

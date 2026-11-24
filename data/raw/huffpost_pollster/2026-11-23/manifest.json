@@ -1,0 +1,537 @@
+{
+  "2012-arizona-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20150921040857id_/http://elections.huffingtonpost.com/pollster/2012-arizona-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:26",
+    "bytes": 5223
+  },
+  "2012-california-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20150919182300id_/http://elections.huffingtonpost.com/pollster/2012-california-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:28",
+    "bytes": 3752
+  },
+  "2012-georgia-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20150919230113id_/http://elections.huffingtonpost.com/pollster/2012-georgia-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:31",
+    "bytes": 6381
+  },
+  "2012-illinois-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20131204082228id_/http://elections.huffingtonpost.com/pollster/2012-illinois-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:33",
+    "bytes": 1602
+  },
+  "2012-maryland-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20131204082616id_/http://elections.huffingtonpost.com/pollster/2012-maryland-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:37",
+    "bytes": 717
+  },
+  "2012-michigan-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20150924172212id_/http://elections.huffingtonpost.com/pollster/2012-michigan-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:39",
+    "bytes": 9688
+  },
+  "2012-nevada-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20150923163919id_/http://elections.huffingtonpost.com/pollster/2012-nevada-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:43",
+    "bytes": 2949
+  },
+  "2012-new-york-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20150923043548id_/http://elections.huffingtonpost.com/pollster/2012-new-york-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:49",
+    "bytes": 1605
+  },
+  "2012-north-carolina-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20150921162513id_/http://elections.huffingtonpost.com/pollster/2012-north-carolina-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:50",
+    "bytes": 3568
+  },
+  "2012-ohio-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20151229124730id_/http://elections.huffingtonpost.com/pollster/2012-ohio-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:52",
+    "bytes": 7858
+  },
+  "2012-pennsylvania-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20150923163545id_/http://elections.huffingtonpost.com/pollster/2012-pennsylvania-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:54",
+    "bytes": 4370
+  },
+  "2012-tennessee-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20150924232147id_/http://elections.huffingtonpost.com/pollster/2012-tennessee-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:57",
+    "bytes": 1990
+  },
+  "2012-texas-gop-primary.csv": {
+    "url": "https://web.archive.org/web/20160101233143id_/http://elections.huffingtonpost.com/pollster/2012-texas-gop-primary.csv",
+    "retrieved": "2026-11-23T23:03:59",
+    "bytes": 1531
+  },
+  "2016-alaska-presidential-democratic-caucus.csv": {
+    "url": "https://web.archive.org/web/20161109095045id_/http://elections.huffingtonpost.com/pollster/2016-alaska-presidential-democratic-caucus.csv",
+    "retrieved": "2026-11-23T23:04:04",
+    "bytes": 481
+  },
+  "2016-arizona-presidential-democratic-primary.csv": {
+    "url": "https://web.archive.org/web/20161109011355id_/http://elections.huffingtonpost.com/pollster/2016-arizona-presidential-democratic-primary.csv",
+    "retrieved": "2026-11-23T23:04:06",
+    "bytes": 1559
+  },
+  "2016-connecticut-presidential-republican-primary.csv": {
+    "url": "https://web.archive.org/web/20160723085846id_/http://elections.huffingtonpost.com/pollster/2016-connecticut-presidential-republican-primary.csv",
+    "retrieved": "2026-11-23T23:04:15",
+    "bytes": 2647
+  },
+  "2016-florida-presidential-republican-primary.csv": {
+    "url": "https://web.archive.org/web/20170120172008id_/http://elections.huffingtonpost.com/pollster/2016-florida-presidential-republican-primary.csv",
+    "retrieved": "2026-11-23T23:04:20",
+    "bytes": 21528
+  },
+  "2016-georgia-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160922163713id_/http://elections.huffingtonpost.com/pollster/2016-georgia-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:04:22",
+    "bytes": 4327
+  },
+  "2016-illinois-presidential-republican-primary.csv": {
+    "url": "https://web.archive.org/web/20161108232429id_/http://elections.huffingtonpost.com/pollster/2016-illinois-presidential-republican-primary.csv",
+    "retrieved": "2026-11-23T23:04:23",
+    "bytes": 3331
+  },
+  "2016-kansas-democratic-presidential-caucus.csv": {
+    "url": "https://web.archive.org/web/20161109014559id_/http://elections.huffingtonpost.com/pollster/2016-kansas-democratic-presidential-caucus.csv",
+    "retrieved": "2026-11-23T23:04:33",
+    "bytes": 810
+  },
+  "2016-kansas-republican-presidential-caucus.csv": {
+    "url": "https://web.archive.org/web/20161109011909id_/http://elections.huffingtonpost.com/pollster/2016-kansas-republican-presidential-caucus.csv",
+    "retrieved": "2026-11-23T23:04:41",
+    "bytes": 1550
+  },
+  "2016-kentucky-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160826151252id_/http://elections.huffingtonpost.com/pollster/2016-kentucky-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:04:43",
+    "bytes": 480
+  },
+  "2016-louisiana-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20161109012754id_/http://elections.huffingtonpost.com/pollster/2016-louisiana-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:04:46",
+    "bytes": 1180
+  },
+  "2016-louisiana-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20161108235455id_/http://elections.huffingtonpost.com/pollster/2016-louisiana-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:04:48",
+    "bytes": 2710
+  },
+  "2016-maine-republican-presidential-caucus.csv": {
+    "url": "https://web.archive.org/web/20161109100228id_/http://elections.huffingtonpost.com/pollster/2016-maine-republican-presidential-caucus.csv",
+    "retrieved": "2026-11-23T23:04:50",
+    "bytes": 527
+  },
+  "2016-mississippi-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20161109100214id_/http://elections.huffingtonpost.com/pollster/2016-mississippi-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:04:53",
+    "bytes": 794
+  },
+  "2016-mississippi-presidential-republican-primary.csv": {
+    "url": "https://web.archive.org/web/20161108235538id_/http://elections.huffingtonpost.com/pollster/2016-mississippi-presidential-republican-primary.csv",
+    "retrieved": "2026-11-23T23:04:54",
+    "bytes": 1397
+  },
+  "2016-missouri-presidential-democratic-primary.csv": {
+    "url": "https://web.archive.org/web/20161109005957id_/http://elections.huffingtonpost.com/pollster/2016-missouri-presidential-democratic-primary.csv",
+    "retrieved": "2026-11-23T23:04:56",
+    "bytes": 1080
+  },
+  "2016-montana-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160723212924id_/http://elections.huffingtonpost.com/pollster/2016-montana-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:04:59",
+    "bytes": 531
+  },
+  "2016-montana-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160709035831id_/http://elections.huffingtonpost.com/pollster/2016-montana-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:05:00",
+    "bytes": 507
+  },
+  "2016-new-jersey-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160828225205id_/http://elections.huffingtonpost.com/pollster/2016-new-jersey-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:05:10",
+    "bytes": 4911
+  },
+  "2016-new-jersey-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160801214722id_/http://elections.huffingtonpost.com/pollster/2016-new-jersey-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:05:12",
+    "bytes": 4235
+  },
+  "2016-new-york-presidential-democratic-primary.csv": {
+    "url": "https://web.archive.org/web/20160904025837id_/http://elections.huffingtonpost.com/pollster/2016-new-york-presidential-democratic-primary.csv",
+    "retrieved": "2026-11-23T23:05:13",
+    "bytes": 6428
+  },
+  "2016-pennsylvania-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160724212710id_/http://elections.huffingtonpost.com/pollster/2016-pennsylvania-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:05:21",
+    "bytes": 8389
+  },
+  "2016-pennsylvania-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160801215140id_/http://elections.huffingtonpost.com/pollster/2016-pennsylvania-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:05:25",
+    "bytes": 10203
+  },
+  "2016-utah-presidential-democratic-caucus.csv": {
+    "url": "https://web.archive.org/web/20161108235815id_/http://elections.huffingtonpost.com/pollster/2016-utah-presidential-democratic-caucus.csv",
+    "retrieved": "2026-11-23T23:05:33",
+    "bytes": 1616
+  },
+  "2016-vermont-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160806024525id_/http://elections.huffingtonpost.com/pollster/2016-vermont-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:05:36",
+    "bytes": 581
+  },
+  "2016-washington-presidential-democratic-caucus.csv": {
+    "url": "https://web.archive.org/web/20161109014554id_/http://elections.huffingtonpost.com/pollster/2016-washington-presidential-democratic-caucus.csv",
+    "retrieved": "2026-11-23T23:05:38",
+    "bytes": 882
+  },
+  "2016-washington-presidential-republican-primary.csv": {
+    "url": "https://web.archive.org/web/20160714220339id_/http://elections.huffingtonpost.com/pollster/2016-washington-presidential-republican-primary.csv",
+    "retrieved": "2026-11-23T23:05:39",
+    "bytes": 867
+  },
+  "api-12-FL-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220814033550id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/12-FL-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:00",
+    "bytes": 8840
+  },
+  "api-12-IA-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220518161048id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/12-IA-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:02",
+    "bytes": 10482
+  },
+  "api-12-LA-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20211016095303id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/12-LA-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:05",
+    "bytes": 1014
+  },
+  "api-12-NH-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220707052129id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/12-NH-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:09",
+    "bytes": 9447
+  },
+  "api-12-NJ-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20190720143930id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/12-NJ-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:10",
+    "bytes": 865
+  },
+  "api-12-SC-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220518185829id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/12-SC-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:16",
+    "bytes": 6894
+  },
+  "api-12-US-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220520012420id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/12-US-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:19",
+    "bytes": 52594
+  },
+  "api-12-VA-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20211128204619id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/12-VA-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:21",
+    "bytes": 1477
+  },
+  "api-12-WI-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20190921222638id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/12-WI-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:22",
+    "bytes": 1480
+  },
+  "2016-alaska-presidential-republican-caucus.csv": {
+    "url": "https://web.archive.org/web/20160227204834id_/http://elections.huffingtonpost.com/pollster/2016-alaska-presidential-republican-caucus.csv",
+    "retrieved": "2026-11-23T23:10:25",
+    "bytes": 1205
+  },
+  "2016-alabama-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160425143742id_/http://elections.huffingtonpost.com/pollster/2016-alabama-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:10:26",
+    "bytes": 2822
+  },
+  "api-16-AR-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20210927154709id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-AR-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:28",
+    "bytes": 696
+  },
+  "2016-arkansas-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160226184036id_/http://elections.huffingtonpost.com/pollster/2016-arkansas-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:10:29",
+    "bytes": 1398
+  },
+  "api-16-AZ-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20200930200721id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-AZ-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:33",
+    "bytes": 2466
+  },
+  "api-16-CA-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20220811205643id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-CA-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:35",
+    "bytes": 3668
+  },
+  "api-16-CA-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220517204958id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-CA-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:36",
+    "bytes": 3497
+  },
+  "2016-colorado-democratic-presidential-caucus.csv": {
+    "url": "https://web.archive.org/web/20160226090844id_/http://elections.huffingtonpost.com/pollster/2016-colorado-democratic-presidential-caucus.csv",
+    "retrieved": "2026-11-23T23:10:38",
+    "bytes": 922
+  },
+  "api-16-CO-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220527041505id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-CO-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:39",
+    "bytes": 1227
+  },
+  "api-16-CT-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20190919030213id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-CT-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:41",
+    "bytes": 1193
+  },
+  "2016-delaware-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160425020154id_/http://elections.huffingtonpost.com/pollster/2016-delaware-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:10:43",
+    "bytes": 439
+  },
+  "api-16-FL-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20191216055415id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-FL-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:46",
+    "bytes": 7331
+  },
+  "2016-georgia-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20151126232942id_/http://elections.huffingtonpost.com/pollster/2016-georgia-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:10:49",
+    "bytes": 2952
+  },
+  "api-16-IA-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20220516055519id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-IA-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:10:56",
+    "bytes": 13145
+  },
+  "api-16-IA-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20210622075443id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-IA-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:00",
+    "bytes": 19595
+  },
+  "2016-idaho-democratic-presidential-caucus.csv": {
+    "url": "https://web.archive.org/web/20160313175237id_/http://elections.huffingtonpost.com/pollster/2016-idaho-democratic-presidential-caucus.csv",
+    "retrieved": "2026-11-23T23:11:01",
+    "bytes": 439
+  },
+  "2016-idaho-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160311155755id_/http://elections.huffingtonpost.com/pollster/2016-idaho-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:11:03",
+    "bytes": 478
+  },
+  "api-16-IL-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20221005182159id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-IL-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:04",
+    "bytes": 1707
+  },
+  "api-16-IN-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20220706042516id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-IN-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:07",
+    "bytes": 931
+  },
+  "api-16-IN-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20191017042231id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-IN-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:08",
+    "bytes": 1602
+  },
+  "api-16-KY-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20200919035826id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-KY-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:13",
+    "bytes": 1347
+  },
+  "api-16-MA-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20220116182909id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-MA-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:16",
+    "bytes": 2277
+  },
+  "2016-massachusetts-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160226184051id_/http://elections.huffingtonpost.com/pollster/2016-massachusetts-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:11:17",
+    "bytes": 1900
+  },
+  "api-16-MD-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20211015213515id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-MD-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:19",
+    "bytes": 2492
+  },
+  "api-16-MD-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20211016094311id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-MD-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:20",
+    "bytes": 1535
+  },
+  "api-16-MI-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20210906113155id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-MI-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:23",
+    "bytes": 3318
+  },
+  "2016-michigan-presidential-republican-primary.csv": {
+    "url": "https://web.archive.org/web/20160430174024id_/http://elections.huffingtonpost.com/pollster/2016-michigan-presidential-republican-primary.csv",
+    "retrieved": "2026-11-23T23:11:25",
+    "bytes": 9392
+  },
+  "2016-minnesota-democratic-presidential-caucus.csv": {
+    "url": "https://web.archive.org/web/20160227150217id_/http://elections.huffingtonpost.com/pollster/2016-minnesota-democratic-presidential-caucus.csv",
+    "retrieved": "2026-11-23T23:11:26",
+    "bytes": 643
+  },
+  "2016-minnesota-republican-presidential-caucus.csv": {
+    "url": "https://web.archive.org/web/20160226090853id_/http://elections.huffingtonpost.com/pollster/2016-minnesota-republican-presidential-caucus.csv",
+    "retrieved": "2026-11-23T23:11:28",
+    "bytes": 769
+  },
+  "api-16-MO-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220706040948id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-MO-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:30",
+    "bytes": 659
+  },
+  "api-16-NC-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20220124192523id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-NC-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:36",
+    "bytes": 4080
+  },
+  "api-16-NC-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20211130142223id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-NC-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:37",
+    "bytes": 6122
+  },
+  "2016-nebraska-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160415092241id_/http://elections.huffingtonpost.com/pollster/2016-nebraska-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:11:39",
+    "bytes": 470
+  },
+  "api-16-NH-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20210924053925id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-NH-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:40",
+    "bytes": 16518
+  },
+  "api-16-NH-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220524081757id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-NH-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:42",
+    "bytes": 23468
+  },
+  "2016-new-mexico-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160507030836id_/http://elections.huffingtonpost.com/pollster/2016-new-mexico-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:11:46",
+    "bytes": 506
+  },
+  "api-16-NV-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20220518203612id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-NV-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:49",
+    "bytes": 1690
+  },
+  "2016-nevada-republican-presidential-caucus.csv": {
+    "url": "https://web.archive.org/web/20160111051737id_/http://elections.huffingtonpost.com/pollster/2016-nevada-republican-presidential-caucus.csv",
+    "retrieved": "2026-11-23T23:11:50",
+    "bytes": 1898
+  },
+  "api-16-NY-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20211021211736id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-NY-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:53",
+    "bytes": 4409
+  },
+  "api-16-OH-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20211021202119id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-OH-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:55",
+    "bytes": 2863
+  },
+  "api-16-OH-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20210513041725id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-OH-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:11:59",
+    "bytes": 3303
+  },
+  "2016-oklahoma-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160227150228id_/http://elections.huffingtonpost.com/pollster/2016-oklahoma-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:12:00",
+    "bytes": 1693
+  },
+  "2016-oregon-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160503083837id_/http://elections.huffingtonpost.com/pollster/2016-oregon-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:12:02",
+    "bytes": 436
+  },
+  "api-16-RI-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20190819151408id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-RI-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:05",
+    "bytes": 756
+  },
+  "2016-rhode-island-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160601134447id_/http://elections.huffingtonpost.com/pollster/2016-rhode-island-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:12:06",
+    "bytes": 1668
+  },
+  "api-16-SC-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20210923024936id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-SC-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:12",
+    "bytes": 5157
+  },
+  "api-16-SC-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220526105028id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-SC-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:13",
+    "bytes": 9805
+  },
+  "2016-tennessee-republican-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160227192409id_/http://elections.huffingtonpost.com/pollster/2016-tennessee-republican-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:12:14",
+    "bytes": 807
+  },
+  "api-16-TX-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220819132041id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-TX-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:16",
+    "bytes": 6145
+  },
+  "api-16-US-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20210927050603id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:17",
+    "bytes": 58843
+  },
+  "api-16-US-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220517052013id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-US-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:20",
+    "bytes": 71466
+  },
+  "api-16-UT-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220516120633id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-UT-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:24",
+    "bytes": 1755
+  },
+  "2016-virginia-democratic-presidential-primary.csv": {
+    "url": "https://web.archive.org/web/20160226184056id_/http://elections.huffingtonpost.com/pollster/2016-virginia-democratic-presidential-primary.csv",
+    "retrieved": "2026-11-23T23:12:25",
+    "bytes": 3024
+  },
+  "api-16-VA-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20190825152653id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-VA-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:26",
+    "bytes": 2980
+  },
+  "api-16-WI-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20220517211502id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-WI-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:31",
+    "bytes": 3477
+  },
+  "api-16-WI-Pres-RepPR.tsv": {
+    "url": "https://web.archive.org/web/20220517205718id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-WI-Pres-RepPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:32",
+    "bytes": 4599
+  },
+  "api-16-WV-Pres-DemPR.tsv": {
+    "url": "https://web.archive.org/web/20220811205716id_/http://elections.huffingtonpost.com/pollster/api/v2/questions/16-WV-Pres-DemPR/poll-responses-clean.tsv",
+    "retrieved": "2026-11-23T23:12:34",
+    "bytes": 972
+  },
+  "2016-west-virginia-presidential-republican-primary.csv": {
+    "url": "https://web.archive.org/web/20160605054117id_/http://elections.huffingtonpost.com/pollster/2016-west-virginia-presidential-republican-primary.csv",
+    "retrieved": "2026-11-23T23:12:35",
+    "bytes": 1543
+  },
+  "licence_api_page.html": {
+    "url": "https://web.archive.org/web/20170126155740id_/http://elections.huffingtonpost.com/pollster/api",
+    "retrieved": "2026-11-23T23:13:49",
+    "bytes": 53400
+  }
+}

@@ -1,0 +1,25 @@
+Cruz	Walker	Paul	Ryan	Bush	Rubio	Christie	Huckabee	Jindal	Martinez	Perry	Kasich	Carson	Santorum	Fiorina	Gilmore	Trump	Graham	Pataki	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+32.0											23.0					42.0			3.0	0.0	arg-24201	ARG	2016-04-01	2016-04-03		Likely Voters - Republican	400	5.0	Live Phone	Nonpartisan	None
+40.0											21.0					35.0			4.0		emerson-college-polling-society-24195	Emerson College Polling Society	2016-03-30	2016-04-03		Likely Voters - Republican	549	4.1	Automated Phone	Nonpartisan	None
+43.0											18.0					37.0			2.0		cbs-yougov-24191	CBS/YouGov	2016-03-29	2016-04-01		Likely Voters - Republican	675	5.7	Internet	Nonpartisan	None
+42.0											19.0					32.0			5.0	1.0	fox-news-24182	Fox News	2016-03-28	2016-03-30		Likely Voters - Republican	742	3.5	Live Phone	Nonpartisan	None
+38.0											18.0					31.0			3.0		loras-college-24189	Loras College	2016-03-28	2016-03-29		Likely Voters - Republican	416	4.8	Live Phone	Nonpartisan	None
+38.0											17.0					37.0			9.0		ppp-d-votevets-action-fund-24176	PPP (D-VoteVets Action Fund)	2016-03-28	2016-03-29		Likely Voters - Republican	768	3.5	IVR/Online	Sponsor	Dem
+40.0											21.0					30.0			8.0	1.0	marquette-law-school-24172	Marquette Law School	2016-03-24	2016-03-28		Likely Voters - Republican	471	5.8	Live Phone	Nonpartisan	None
+25.0											27.0					29.0			19.0		0ptimus-r-24165	0ptimus (R)	2016-03-22	2016-03-24		Likely Voters - Republican	6182	1.14	Automated Phone	Pollster	Rep
+36.0											19.0					35.0			10.0		emerson-college-polling-society-24138	Emerson College Polling Society	2016-03-20	2016-03-22		Likely Voters - Republican	439	4.6	Automated Phone	Nonpartisan	None
+36.0											21.0					31.0			12.0		basswood-r-free-beacon-24151	Basswood (R)/ Free Beacon	2016-03-19	2016-03-20		Likely Voters - Republican	500	4.4	Live Phone	Sponsor	Rep
+19.0					20.0						8.0	8.0				30.0			10.0	1.0	marquette-law-school-23872	Marquette Law School	2016-02-18	2016-02-21		Likely Voters - Republican	297	7.5	Live Phone	Nonpartisan	None
+16.0		3.0		2.0	18.0	5.0	1.0				2.0	8.0	0.0	3.0		24.0			17.0	1.0	marquette-law-school-23623	Marquette Law School	2016-01-21	2016-01-24		Likely Voters - Republican	313	6.5	Live Phone	Nonpartisan	None
+9.0		1.0		6.0	19.0	4.0	1.0	0.0			1.0	22.0	0.0	5.0		19.0			11.0	1.0	marquette-law-school-23197	Marquette Law School	2015-11-12	2015-11-15		Registered Voters - Republican	326	6.6	Live Phone	Nonpartisan	None
+10.0		2.0		3.0	18.0	1.0	3.0				3.0	20.0	2.0	8.0		18.0			12.0	0.0	st-norbert-wpr-wptv-22973	St Norbert/WPR/WPTV	2015-10-14	2015-10-17		Likely Voters - Republican	234		Live Phone	Nonpartisan	None
+5.0		5.0		7.0	14.0	3.0	3.0	1.0			3.0	16.0	1.0	11.0	0.0	20.0	0.0	0.0	10.0	1.0	marquette-law-school-22823	Marquette Law School	2015-09-24	2015-09-28		Registered Voters - Republican	321	6.5	Live Phone	Nonpartisan	None
+8.0	25.0	2.0		6.0	7.0	2.0	4.0	2.0		1.0	1.0	13.0	1.0	7.0	1.0	9.0			10.0	2.0	marquette-law-school-22596	Marquette Law School	2015-08-13	2015-08-16		Registered Voters - Republican	334	6.6	Live Phone	Nonpartisan	None
+6.0	40.0	10.0		8.0	4.0	6.0	5.0	2.0		1.0		5.0	2.0	1.0					9.0	3.0	marquette-law-school-22030	Marquette Law School	2015-04-07	2015-04-10		Registered Voters - Republican	319	5.6	Live Phone	Nonpartisan	None
+2.0	53.0	6.0		8.0	6.0	4.0	3.0			1.0		12.0							5.0		ppp-d-21840	PPP (D)	2015-03-06	2015-03-08		Likely Voters - Republican	461	4.6	Automated Phone	Pollster	Dem
+7.0	21.0	8.0	25.0	6.0	6.0	8.0	8.0	3.0											8.0		ppp-d-19314	PPP (D)	2014-04-17	2014-04-20		Likely Voters - Republican	522	4.3	IVR/Online	Pollster	Dem
+9.0	37.0	12.0		8.0	8.0	4.0	9.0				1.0								12.0		magellan-r-liberty-foundation-of-america-19340	Magellan (R-Liberty Foundation of America)	2014-04-14	2014-04-15		Likely Voters - Republican			Automated Phone	Sponsor	Rep
+4.0	29.0	8.0	25.0	2.0	9.0	9.0													9.0	4.0	marquette-law-school-18313	Marquette Law School	2013-10-21	2013-10-24		Registered Voters - Republican	337		Live Phone	Nonpartisan	None
+9.0	14.0	8.0	27.0	8.0	10.0	12.0		3.0					3.0						5.0		ppp-d-17977	PPP (D)	2013-09-13	2013-09-16		Likely Voters - Republican	447	4.6	Automated Phone	Pollster	Dem
+	16.0	7.0	27.0	5.0	21.0	11.0		1.0											11.0	3.0	marquette-law-school-17396	Marquette Law School	2013-05-06	2013-05-09		Registered Voters - Republican	302		Live Phone	Nonpartisan	None
+		8.0	35.0	5.0	22.0	10.0	7.0	3.0	1.0	1.0									8.0		ppp-d-17081	PPP (D)	2013-02-21	2013-02-24		Likely Voters - Republican	679	2.3	Automated Phone	Pollster	Dem

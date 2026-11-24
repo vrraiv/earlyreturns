@@ -1,0 +1,66 @@
+Bachmann	Perry	Cain	Huntsman	Johnson	Paul	Gingrich	Santorum	Romney	Undecided	Other	Not Voting	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+6.0	10.0		2.0		22.0	16.0	18.0	23.0	2.0	1.0		insideradvantage-12385	InsiderAdvantage	2012-01-01	2012-01-01		Likely Voters	729		Automated Phone	Nonpartisan	None
+8.0	10.0		4.0		20.0	14.0	18.0	19.0	4.0			ppp-d-12381	PPP (D)	2011-12-31	2012-01-01		Likely Voters - Republican	572	4.1	Automated Phone	Pollster	Dem
+8.0	9.0		4.0		17.0	15.0	16.0	22.0	7.0			arg-12384	ARG	2011-12-29	2012-01-01		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+7.0	11.0		2.0		22.0	12.0	15.0	24.0	7.0			des-moines-register-selzer-12376	Des Moines Register/Selzer	2011-12-27	2011-12-30		Likely Voters - Republican	602	4.0	Live Phone	Nonpartisan	None
+12.0	10.0		4.0		14.0	13.0	17.0	24.0	7.0			we-ask-america-12372	We Ask America	2011-12-29	2011-12-29		Likely Voters - Republican	970	3.2	Automated Phone	Nonpartisan	None
+5.0	13.0		3.0		22.0	13.0	16.0	23.0	6.0	1.0		rasmussen-12368	Rasmussen	2011-12-28	2011-12-28		Likely Voters - Republican	800	4.0	Automated Phone	Nonpartisan	None
+12.0	11.0		3.0		17.0	17.0	13.0	17.0	7.0	3.0		insideradvantage-12363	InsiderAdvantage	2011-12-28	2011-12-28		Likely Voters	429	4.7	Automated Phone	Nonpartisan	None
+6.0	14.0		2.0		21.0	13.0	15.0	23.0	7.0			nbc-marist-12371	NBC/Marist	2011-12-27	2011-12-28		Likely Voters - Republican	433	4.7	Live Phone	Nonpartisan	None
+8.0	9.0		6.0		16.0	17.0	11.0	22.0	9.0			arg-12362	ARG	2011-12-26	2011-12-28		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+11.0	10.0		4.0		24.0	13.0	10.0	20.0	5.0			ppp-d-12353	PPP (D)	2011-12-26	2011-12-27		Likely Voters - Republican	572	4.1	Automated Phone	Pollster	Dem
+9.0	11.0		1.0		22.0	14.0	16.0	25.0	2.0			cnn-time-12360	CNN/Time	2011-12-21	2011-12-27		Likely Voters - Republican	452	4.5	Live Phone	Nonpartisan	None
+8.0	9.0		6.0		21.0	19.0	4.0	20.0	12.0			arg-12341	ARG	2011-12-19	2011-12-22		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+15.0	11.0		4.0		19.0	16.0	9.0	18.0	8.0			we-ask-america-12326	We Ask America	2011-12-20	2011-12-20		Likely Voters - Republican	1250	2.8	Automated Phone	Nonpartisan	None
+6.0	10.0		4.0		20.0	17.0	10.0	25.0	8.0	1.0		rasmussen-12329	Rasmussen	2011-12-19	2011-12-19		Likely Voters - Republican	800	4.0	Automated Phone	Nonpartisan	None
+10.0	16.0		4.0		24.0	13.0	3.0	18.0				insideradvantage-12347	InsiderAdvantage	2011-12-18	2011-12-18		Likely Voters	422		Automated Phone	Nonpartisan	None
+10.0	10.0		4.0		23.0	14.0	10.0	20.0	7.0			ppp-d-12300	PPP (D)	2011-12-16	2011-12-18		Likely Voters - Republican	597	4.0	Automated Phone	Pollster	Dem
+7.0	11.0	0.0	0.0		28.0	25.0	5.0	18.0	5.0			iowa-state-12325	Iowa State	2011-12-08	2011-12-18		Likely Voters - Republican	333	5.0	Live Phone	Nonpartisan	None
+9.0	10.0		5.0		18.0	20.0	6.0	23.0	8.0	2.0		rasmussen-12286	Rasmussen	2011-12-13	2011-12-13		Likely Voters - Republican	750	4.0	Automated Phone	Nonpartisan	None
+11.0	9.0		5.0		21.0	22.0	8.0	16.0	7.0			ppp-d-12273	PPP (D)	2011-12-11	2011-12-13		Likely Voters - Republican	572	4.1	Automated Phone	Pollster	Dem
+10.0	13.0		4.0		17.0	27.0	7.0	12.0				insideradvantage-12346	InsiderAdvantage	2011-12-12	2011-12-12		Likely Voters	422		Automated Phone	Nonpartisan	None
+7.0	13.0		5.0		17.0	22.0	7.0	17.0	12.0			arg-12259	ARG	2011-12-08	2011-12-11		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+9.0	8.0	4.0	2.0		11.0	30.0	5.0	20.0	11.0	1.0		u-of-iowa-12260	U of Iowa	2011-11-30	2011-12-07		Likely Voters - Republican	277	6.0	Live Phone	Nonpartisan	None
+7.0	9.0		1.0		17.0	33.0	5.0	20.0	5.0		2.0	cnn-time-12234	CNN/Time	2011-11-29	2011-12-06		Likely Voters - Republican	419	5.0	Live Phone	Nonpartisan	None
+13.0	7.0		3.0		14.0	30.0	4.0	16.0	12.0			we-ask-america-12222	We Ask America	2011-12-05	2011-12-05		Likely Voters - Republican	970	3.2	Automated Phone	Nonpartisan	None
+13.0	9.0		4.0		18.0	27.0	6.0	16.0	7.0			ppp-d-12220	PPP (D)	2011-12-03	2011-12-05		Likely Voters - Republican	572	4.1	Automated Phone	Pollster	Dem
+9.0	11.0		1.0		16.0	31.0	4.0	17.0				cbs-times-12226	CBS/Times	2011-11-30	2011-12-05		Likely Voters - Republican	642	4.0	Live Phone	Nonpartisan	None
+8.0	11.0		2.0		18.0	33.0	7.0	18.0	3.0		1.0	abc-post-12218	ABC/Post	2011-11-30	2011-12-04		Likely Voters - Republican	356	6.0	Live Phone	Nonpartisan	None
+8.0	6.0	8.0	2.0		18.0	25.0	6.0	16.0				des-moines-register-selzer-12197	Des Moines Register/Selzer	2011-11-27	2011-11-30		Likely Voters - Republican	401	4.9	Live Phone	Nonpartisan	None
+5.0	9.0	9.0	2.0		17.0	26.0	5.0	18.0	9.0			nbc-marist-12198	NBC/Marist	2011-11-27	2011-11-29		Likely Voters - Republican	425	4.8	Live Phone	Nonpartisan	None
+10.0	7.0	10.0			13.0	28.0	3.0	12.0				insideradvantage-12345	InsiderAdvantage	2011-11-28	2011-11-28		Likely Voters	422		Automated Phone	Nonpartisan	None
+13.0	5.0	7.0	4.0		11.0	29.0	5.0	13.0	13.0			we-ask-america-12184	We Ask America	2011-11-28	2011-11-28		Likely Voters - Republican	962	3.2	Automated Phone	Nonpartisan	None
+6.0	5.0	6.0	3.0		16.0	27.0	6.0	20.0	11.0			arg-12166	ARG	2011-11-17	2011-11-23		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+6.0	6.0	13.0	2.0		10.0	32.0	5.0	19.0	6.0	1.0		rasmussen-12139	Rasmussen	2011-11-15	2011-11-15		Likely Voters - Republican	800	4.0	Automated Phone	Nonpartisan	None
+10.0	5.0	20.0	2.0		10.0	19.0	4.0	14.0	13.0	1.0		the-polling-company-r-12119	The Polling Company (R)	2011-11-11	2011-11-13		Likely Voters	501		Live Phone	Pollster	Rep
+8.0	8.0	25.0			20.0	5.0	5.0	16.0	8.0	5.0		iowa-state-12135	Iowa State	2011-11-01	2011-11-13		Likely Voters - Republican	377	5.0	Live Phone	Nonpartisan	None
+5.0	7.0	20.0	1.0		19.0	17.0	3.0	18.0	10.0			bloomberg-12120	Bloomberg	2011-11-10	2011-11-12		Likely Voters - Republican	503		Live Phone	Nonpartisan	None
+5.0	9.0	23.0			11.0	15.0	3.0	19.0				insideradvantage-12344	InsiderAdvantage	2011-11-08	2011-11-08		Likely Voters	422		Automated Phone	Nonpartisan	None
+11.0	4.0	22.0	2.0		11.0	18.0	3.0	15.0	14.0			we-ask-america-12082	We Ask America	2011-11-06	2011-11-06		Likely Voters - Republican	864	3.3	Automated Phone	Nonpartisan	None
+8.0	6.0	30.0	2.0		9.0	12.0		15.0				insideradvantage-12343	InsiderAdvantage	2011-11-03	2011-11-03		Likely Voters	422		Automated Phone	Nonpartisan	None
+8.0	7.0	23.0	1.0		12.0	7.0	5.0	22.0	15.0			des-moines-register-selzer-12049	Des Moines Register/Selzer	2011-10-23	2011-10-26		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+6.0	10.0	21.0	1.0		12.0	10.0	2.0	24.0	11.0		3.0	cnn-time-12032	CNN/Time	2011-10-20	2011-10-25		Registered Voters - Republican	405	5.0	Live Phone	Nonpartisan	None
+8.0	7.0	28.0	2.0		10.0	9.0	4.0	21.0	8.0	4.0		rasmussen-12008	Rasmussen	2011-10-19	2011-10-19		Likely Voters - Republican	800	4.0	Automated Phone	Nonpartisan	None
+4.0	6.0	37.0	1.0		12.0	8.0	3.0	27.0		3.0		u-of-iowa-12015	U of Iowa	2011-10-12	2011-10-19		Likely Voters - Republican	181	7.4	Live Phone	Nonpartisan	None
+7.0	5.0	25.0	1.0		8.0	6.0	4.0	22.0	23.0			aarp-gs-strategies-12107	AARP/GS Strategies	2011-10-17	2011-10-18		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+11.0	6.0	26.0	1.0		10.0	12.0		18.0				insideradvantage-12342	InsiderAdvantage	2011-10-16	2011-10-16		Likely Voters	422		Automated Phone	Nonpartisan	None
+11.0	11.0	20.0	1.0		12.0	5.0	3.0	26.0	10.0	1.0		nbc-marist-11951	NBC/Marist	2011-10-03	2011-10-05		Likely Voters - Republican	371	5.1	Live Phone	Nonpartisan	None
+15.0	14.0	6.0	1.0		12.0	8.0	2.0	21.0	15.0	4.0		arg-11896	ARG	2011-09-22	2011-09-27		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+18.0	29.0	4.0	3.0		14.0	2.0	4.0	17.0				rasmussen-11806	Rasmussen	2011-08-31	2011-08-31		Likely Voters - Republican	682	3.0	Automated Phone	Nonpartisan	None
+22.0	24.0	6.0	1.0		9.0	4.0	4.0	19.0	8.0	3.0		magellan-r-11761	Magellan (R)	2011-08-22	2011-08-23		Likely Voters - Republican	676	3.8	Automated Phone	Pollster	Rep
+20.0	23.0	8.0	2.0		9.0	3.0	7.0	16.0	12.0			make-us-great-again-wilson-r-11764	Make US Great Again/Wilson (R)	2011-08-21	2011-08-22		Likely Voters - Republican	402	4.9	Live Phone	Pollster	Rep
+15.0	21.0	6.0	3.0		12.0	7.0	5.0	18.0	4.0	10.0		ppp-d-11746	PPP (D)	2011-08-19	2011-08-21		Likely Voters - Republican	317	5.5	Automated Phone	Pollster	Dem
+22.0	12.0	4.0	2.0		16.0	5.0		21.0		18.0		rasmussen-11678	Rasmussen	2011-08-04	2011-08-04		Likely Voters - Republican	627	4.0	Automated Phone	Nonpartisan	None
+29.0		8.0			5.0	5.0	3.0	16.0	24.0	10.0		magellan-r-11575	Magellan (R)	2011-07-10	2011-07-11		Likely Voters - Republican	1024	3.1	Automated Phone	Pollster	Rep
+21.0	2.0	2.0	3.0		14.0	8.0	5.0	19.0	10.0	15.0		arg-11570	ARG	2011-07-05	2011-07-11		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+32.0		1.0	0.0		3.0	2.0	6.0	29.0	19.0	8.0		mason-dixon-every-child-matters-11587	Mason-Dixon/Every Child Matters	2011-07-05	2011-07-07		Likely Voters - Republican	300	5.7	Live Phone	Nonpartisan	None
+25.0		9.0	1.0		6.0	4.0		21.0		11.0		the-iowa-republican-vcr-r-11569	The Iowa Republican/VCR (R)	2011-06-26	2011-06-30		Registered Voters - Republican	500	4.4	Live Phone	Sponsor	Rep
+22.0		10.0	2.0		7.0	7.0	4.0	23.0		6.0		des-moines-register-selzer-11677	Des Moines Register/Selzer	2011-06-19	2011-06-22		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+11.0		15.0	0.0		8.0	12.0		21.0	8.0	25.0		ppp-d-11412	PPP (D)	2011-05-27	2011-05-30		Likely Voters - Republican	481	4.5	Automated Phone	Pollster	Dem
+9.0					3.0	12.0	2.0	17.0	8.0	49.0		arg-11225	ARG	2011-04-12	2011-04-19		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+6.0					6.0	9.0		16.0	9.0	54.0		ppp-d-11217	PPP (D)	2011-04-15	2011-04-17		Likely Voters - Republican	419	4.8	Automated Phone	Pollster	Dem
+5.0		3.0			3.0	8.0	1.0	14.0	24.0	43.0		neighborhood-r-11156	Neighborhood (R)	2011-03-29	2011-04-04		Likely Voters - Republican	319	5.5	Live Phone	Pollster	Rep
+					5.0	14.0		13.0	11.0	56.0		we-ask-america-11050	We Ask America	2011-03-10	2011-03-10		Likely Voters	885	3.3	Automated Phone	Nonpartisan	None
+					6.0	13.0		18.0	10.0	53.0		ppp-d-10813	PPP (D)	2011-01-07	2011-01-09		Likely Voters - Republican	494	4.4	Automated Phone	Pollster	Dem
+2.0					3.0	8.0		19.0		41.0		neighborhood-r-11157	Neighborhood (R)	2011-01-03	2011-01-08		Likely Voters - Republican	556	4.1	Live Phone	Pollster	Rep
+					5.0	14.0		18.0	23.0	40.0		vcr-r-10541	VCR (R)	2010-07-25	2010-07-28		Registered Voters - Republican	399	4.9	Live Phone	Pollster	Rep

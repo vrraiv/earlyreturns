@@ -1,0 +1,19 @@
+Warren	O'Malley	Cuomo	Clinton	Biden	Sanders	Webb	Bloomberg	Chafee	Lessig	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+			52.0		45.0					3.0	0.0	arg-24083	ARG	2016-03-12	2016-03-13		Likely Voters - Democrat	400	5.0	Live Phone	Nonpartisan	None
+			54.0		40.0					4.0	1.0	monmouth-university-24080	Monmouth University	2016-03-11	2016-03-13		Likely Voters - Democrat	302	5.6	Live Phone	Nonpartisan	None
+			51.0		46.0					4.0		quinnipiac-24070	Quinnipiac	2016-03-08	2016-03-13		Likely Voters - Democrat	543	4.2	Live Phone	Nonpartisan	None
+			46.0		41.0							ppp-d-votevets-action-fund-24066	PPP (D-VoteVets Action Fund)	2016-03-11	2016-03-12		Likely Voters - Democrat	502	4.4	IVR/Online	Sponsor	Dem
+			52.0		43.0					5.0		cbs-yougov-24061	CBS/YouGov	2016-03-09	2016-03-11		Likely Voters - Democrat	750	5.3	Internet	Nonpartisan	None
+			58.0		38.0					4.0	0.0	nbc-wsj-marist-24059	NBC/WSJ/Marist	2016-03-04	2016-03-10		Likely Voters - Democrat	453	4.6	Live Phone	Nonpartisan	None
+			52.0		43.0					5.0		quinnipiac-24018	Quinnipiac	2016-03-02	2016-03-07		Likely Voters - Democrat	521	4.3	Live Phone	Nonpartisan	None
+			56.0		35.0					9.0		ppp-d-24003	PPP (D)	2016-03-04	2016-03-06		Likely Voters - Democrat	508	4.4	Automated Phone	Pollster	Dem
+			63.0		33.0					4.0		cnn-24022	CNN	2016-03-02	2016-03-06		Likely Voters - Democrat	294	5.5	Live Phone	Nonpartisan	None
+			55.0		40.0					5.0		quinnipiac-23835	Quinnipiac	2016-02-16	2016-02-20		Likely Voters - Democrat	518	4.3	Live Phone	Nonpartisan	None
+			44.0		45.0					11.0		baldwin-wallace-university-23879	Baldwin Wallace University	2016-02-11	2016-02-20		Likely Voters - Democrat	385	5.0	Internet	Nonpartisan	None
+			53.0		37.0					10.0		ppp-d-ohio-democratic-party-23530	PPP (D-Ohio Democratic Party)	2016-01-12	2016-01-14		Likely Voters - Democrat	1138		Automated Phone	Sponsor	Dem
+	0.0		40.0	21.0	19.0	0.0		0.0	1.0	16.0	2.0	quinnipiac-22861	Quinnipiac	2015-09-25	2015-10-05		Registered Voters - Democrat	396	4.9	Live Phone	Nonpartisan	None
+	0.0		47.0	14.0	17.0	1.0		0.0		18.0	3.0	quinnipiac-22583	Quinnipiac	2015-08-07	2015-08-18		Registered Voters - Democrat	353	5.2	Live Phone	Nonpartisan	None
+	1.0		60.0	13.0	10.0	0.0		0.0		14.0	1.0	quinnipiac-22266	Quinnipiac	2015-06-04	2015-06-15		Registered Voters - Democrat	388	5.0	Live Phone	Nonpartisan	None
+	2.0		61.0		13.0	1.0	7.0			13.0		ppp-d-22236	PPP (D)	2015-06-04	2015-06-07		Likely Voters - Democrat	360	5.2	Automated Phone	Pollster	Dem
+14.0	3.0		54.0	9.0	3.0	2.0				15.0	1.0	quinnipiac-21961	Quinnipiac	2015-03-17	2015-03-28		Registered Voters - Democrat	324	5.4	Live Phone	Nonpartisan	None
+14.0	1.0		51.0	7.0	5.0	0.0				19.0	2.0	quinnipiac-21683	Quinnipiac	2015-01-22	2015-02-01		Registered Voters - Democrat	315	5.5	Live Phone	Nonpartisan	None

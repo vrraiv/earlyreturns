@@ -1,0 +1,45 @@
+Bachmann	Cain	Huntsman	Perry	Santorum	Gingrich	Paul	Romney	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+				13.0	40.0	18.0	26.0	2.0	1.0	arg-12601	ARG	2012-01-19	2012-01-20		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+				16.0	33.0	18.0	29.0			yougov-polimetrix-12600	YouGov/Polimetrix	2012-01-18	2012-01-20		Likely Voters - Republican	339	6.1	Internet	Nonpartisan	None
+				16.0	37.0	14.0	28.0	5.0		ppp-d-12512	PPP (D)	2012-01-18	2012-01-20		Likely Voters - Republican	1540	2.5	Automated Phone	Pollster	Dem
+		3.0	3.0	9.0	32.0	13.0	28.0	14.0		we-ask-america-12518	We Ask America	2012-01-19	2012-01-19		Likely Voters - Republican	988	3.1	Automated Phone	Nonpartisan	None
+				9.0	32.0	11.0	26.0	20.0		clemson-12540	Clemson	2012-01-18	2012-01-19		Likely Voters - Republican	429	4.7	Live Phone	Nonpartisan	None
+			2.0	11.0	33.0	15.0	31.0	6.0	1.0	rasmussen-12514	Rasmussen	2012-01-18	2012-01-18		Likely Voters - Republican	750	4.0	Automated Phone	Nonpartisan	None
+			3.0	11.0	32.0	15.0	29.0	7.0	3.0	insideradvantage-12508	InsiderAdvantage	2012-01-18	2012-01-18		Likely Voters - Republican	718	3.8	Automated Phone	Nonpartisan	None
+			4.0	9.0	33.0	19.0	32.0	3.0		arg-12509	ARG	2012-01-17	2012-01-18		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+			4.0	10.0	30.0	11.0	37.0	8.0		politico-tarrance-12505	Politico (Tarrance)	2012-01-17	2012-01-18		Likely Voters - Republican	600		Live Phone	Pollster	Rep
+			4.0	14.0	24.0	16.0	34.0	8.0		nbc-marist-12506	NBC/Marist	2012-01-16	2012-01-17		Likely Voters - Republican	684	3.8	Live Phone	Nonpartisan	None
+			6.0	16.0	23.0	13.0	33.0	8.0	1.0	cnn-time-12504	CNN/Time	2012-01-13	2012-01-17		Likely Voters - Republican	505	4.5	Live Phone	Nonpartisan	None
+			5.0	16.0	21.0	16.0	35.0	8.0	1.0	rasmussen-12492	Rasmussen	2012-01-16	2012-01-16		Likely Voters - Republican	750	4.0	Automated Phone	Nonpartisan	None
+		5.0	6.0	9.0	18.0	12.0	31.0	19.0		we-ask-america-12474	We Ask America	2012-01-15	2012-01-15		Likely Voters - Republican	989	3.1	Automated Phone	Nonpartisan	None
+		6.0	5.0	13.0	21.0	14.0	32.0	7.0	2.0	insideradvantage-12473	InsiderAdvantage	2012-01-15	2012-01-15		Likely Voters - Republican	720	3.8	Automated Phone	Nonpartisan	None
+		4.0	6.0	14.0	22.0	12.0	33.0	7.0	2.0	monmouth-surveyusa-12476	Monmouth/SurveyUSA	2012-01-12	2012-01-15		Likely Voters - Republican	963	3.2	Automated Phone	Nonpartisan	None
+		5.0	6.0	14.0	24.0	15.0	29.0	6.0		ppp-d-12466	PPP (D)	2012-01-11	2012-01-13		Likely Voters - Republican	803	3.5	Automated Phone	Pollster	Dem
+		3.0	6.0	16.0	12.0	16.0	37.0	11.0		ipsos-reuters-internet-12475	Ipsos/Reuters (Internet)	2012-01-10	2012-01-13		Registered Voters - Republican	398		Internet	Nonpartisan	None
+		5.0	6.0	16.0	21.0	16.0	28.0	8.0	1.0	rasmussen-12459	Rasmussen	2012-01-12	2012-01-12		Likely Voters - Republican	750	4.0	Automated Phone	Nonpartisan	None
+		1.0	9.0	7.0	25.0	20.0	29.0	7.0	2.0	arg-12457	ARG	2012-01-11	2012-01-12		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+		7.0	5.0	14.0	21.0	13.0	23.0	17.0		insideradvantage-12452	InsiderAdvantage	2012-01-11	2012-01-11		Likely Voters - Republican	726	3.6	Automated Phone	Nonpartisan	None
+		4.0	5.0	13.0	21.0	8.0	26.0	22.0		we-ask-america-12439	We Ask America	2012-01-09	2012-01-09		Likely Voters - Republican	993	3.1	Automated Phone	Nonpartisan	None
+		4.0	5.0	19.0	23.0	9.0	30.0	9.0		ppp-d-12418	PPP (D)	2012-01-05	2012-01-07		Likely Voters - Republican	1112	2.9	Automated Phone	Pollster	Dem
+		2.0	5.0	24.0	18.0	11.0	27.0	11.0	2.0	rasmussen-12404	Rasmussen	2012-01-05	2012-01-05		Likely Voters - Republican	750	4.0	Automated Phone	Nonpartisan	None
+		1.0	5.0	19.0	18.0	12.0	37.0	6.0		cnn-time-12408	CNN/Time	2012-01-04	2012-01-05		Likely Voters - Republican	485	4.5	Live Phone	Nonpartisan	None
+		2.0	2.0	24.0	24.0	9.0	31.0	7.0	1.0	arg-12403	ARG	2012-01-04	2012-01-05		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+5.0		3.0	5.0	2.0	38.0	10.0	21.0			clemson-12312	Clemson	2011-12-06	2011-12-19		Likely Voters - Republican	600	4.5	Live Phone	Nonpartisan	None
+7.0		3.0	7.0	2.0	42.0	9.0	23.0	8.0		nbc-marist-12252	NBC/Marist	2011-12-04	2011-12-06		Likely Voters - Republican	635	3.9	Live Phone	Nonpartisan	None
+6.0		1.0	8.0	4.0	43.0	6.0	20.0	11.0		cnn-time-12236	CNN/Time	2011-11-29	2011-12-06		Likely Voters - Republican	510	4.5	Live Phone	Nonpartisan	None
+5.0		1.0	9.0	3.0	38.0	4.0	22.0	10.0	8.0	winthrop-university-12219	Winthrop University	2011-11-27	2011-12-04		Likely Voters - Republican		5.4	Live Phone	Nonpartisan	None
+3.0			4.0	2.0	38.0	7.0	15.0	13.0	18.0	insideradvantage-12215	InsiderAdvantage	2011-11-28	2011-11-28		Likely Voters - Republican	519	4.0	Automated Phone	Nonpartisan	None
+3.0		3.0	8.0	1.0	33.0	8.0	22.0	12.0	10.0	arg-12217	ARG	2011-11-25	2011-11-28		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+5.0		3.0	6.0	1.0	31.0	5.0	16.0	17.0	17.0	the-polling-company-r-12216	The Polling Company (R)	2011-11-18	2011-11-21		Likely Voters - Republican	505		Live Phone	Pollster	Rep
+3.0		1.0	9.0	1.0	10.0	4.0	22.0	31.0	20.0	clemson-12207	Clemson	2011-10-27	2011-11-07		Likely Voters - Republican	600	4.5	Live Phone	Nonpartisan	None
+2.0		1.0	9.0	1.0	15.0	5.0	23.0	10.0	34.0	rasmussen-12208	Rasmussen	2011-11-01	2011-11-01		Likely Voters	770	4.0	Automated Phone	Nonpartisan	None
+4.0		1.0	9.0	1.0	9.0	6.0	30.0	21.0	19.0	cnn-time-12209	CNN/Time	2011-10-20	2011-10-25		Registered Voters - Republican	401	5.0	Live Phone	Nonpartisan	None
+5.0		1.0	9.0	2.0	6.0	5.0	26.0	15.0	30.0	nbc-marist-12210	NBC/Marist	2011-10-11	2011-10-13		Likely Voters - Republican	639	3.9	Live Phone	Nonpartisan	None
+4.0		1.0	30.0	3.0	5.0	4.0	27.0	13.0	14.0	winthrop-university-12211	Winthrop University	2011-09-11	2011-09-18		Likely Voters - Republican	586	4.0	Live Phone	Nonpartisan	None
+7.0		2.0	36.0	4.0	7.0	5.0	13.0	7.0	19.0	ppp-d-12212	PPP (D)	2011-08-25	2011-08-28		Likely Voters - Republican	750	3.6	Automated Phone	Pollster	Dem
+14.0		2.0	31.0	2.0	5.0	4.0	20.0	9.0	13.0	magellan-r-12213	Magellan (R)	2011-08-22	2011-08-23		Likely Voters - Republican	637	3.9	Automated Phone	Pollster	Rep
+9.0		2.0			12.0	7.0	27.0	9.0	34.0	ppp-d-11435	PPP (D)	2011-06-02	2011-06-05		Likely Voters - Republican	1000	3.1	Automated Phone	Pollster	Dem
+5.0				1.0	9.0	1.0	18.0	11.0	53.0	arg-11243	ARG	2011-04-18	2011-04-23		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+4.0		1.0		1.0	8.0	3.0	16.0	17.0	53.0	winthrop-university-11251	Winthrop University	2011-04-17	2011-04-23		Likely Voters - Republican	1363	2.7	Live Phone	Nonpartisan	None
+					13.0	7.0	20.0	8.0	48.0	ppp-d-12214	PPP (D)	2011-01-28	2011-01-30		Likely Voters - Republican	559	4.1	Automated Phone	Pollster	Dem
+					25.0	7.0	24.0	4.0	41.0	ppp-d-8601	PPP (D)	2010-05-22	2010-05-23		Likely Voters - Republican	638	3.9	Automated Phone	Pollster	Dem

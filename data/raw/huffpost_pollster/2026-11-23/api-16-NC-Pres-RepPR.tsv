@@ -1,0 +1,34 @@
+Huckabee	Kasich	Paul	Rubio	Santorum	Trump	Bush	Carson	Christie	Cruz	Fiorina	Gilmore	Perry	Romney	Undecided	Other	Huntsman	Graham	Pataki	Walker	Jindal	Ryan	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+	11.0		7.0		44.0				33.0					5.0								ppp-d-24064	PPP (D)	2016-03-11	2016-03-13		Likely Voters - Republican	749	3.6	Live Phone/Online	Pollster	Dem
+	12.0		8.0		48.0				28.0					2.0	1.0							surveyusa-high-point-university-24055	SurveyUSA/High Point University	2016-03-09	2016-03-10		Likely Voters - Republican	734	3.7	IVR/Online	Nonpartisan	None
+	11.0		14.0		41.0				27.0					3.0	4.0							surveyusa-wral-news-24029	SurveyUSA/WRAL News	2016-03-04	2016-03-07		Likely Voters - Republican	688	3.8	IVR/Online	Nonpartisan	None
+2.0	11.0	1.0	11.0	0.0	32.0	2.0	3.0	0.0	26.0	0.0	0.0			6.0	1.0							civitas-r-24039	Civitas (R)	2016-03-03	2016-03-07		Likely Voters - Republican	500	4.38	Live Phone	Pollster	Rep
+	7.0		16.0		28.0	4.0	10.0		19.0					15.0	2.0							elon-23831	Elon	2016-02-15	2016-02-19		Likely Voters - Republican	733	3.62	Live Phone	Nonpartisan	None
+	11.0		16.0		29.0	7.0	9.0		19.0					9.0								ppp-d-23843	PPP (D)	2016-02-14	2016-02-16		Likely Voters - Republican	597	4.0	IVR/Online	Pollster	Dem
+	7.0		18.0		36.0	5.0	10.0		18.0					5.0	1.0							surveyusa-twc-news-north-carolina-23837	SurveyUSA/TWC News North Carolina	2016-02-14	2016-02-16		Likely Voters - Republican	437		IVR/Online	Nonpartisan	None
+2.0	2.0	2.0	20.0	0.0	26.0	3.0	9.0	2.0	22.0	1.0	0.0			10.0								high-point-university-23715	High Point University	2016-01-30	2016-02-04		Likely Voters - Republican	477	4.5	Live Phone	Nonpartisan	None
+2.0	2.0	2.0	10.0	1.0	27.0	4.0	7.0	4.0	23.0	2.0	0.0			11.0	2.0							civitas-r-23548	Civitas (R)	2016-01-18	2016-01-19		Likely Voters - Republican	500	4.38	Live Phone	Pollster	Rep
+6.0	2.0	3.0	11.0	1.0	38.0	6.0	8.0	4.0	16.0	3.0	0.0			4.0								ppp-d-23535	PPP (D)	2016-01-18	2016-01-19		Likely Voters - Republican	433	4.7	IVR/Online	Pollster	Dem
+2.0	3.0	2.0	14.0	1.0	33.0	5.0	14.0	4.0	16.0	2.0	0.0			3.0			1.0	0.0				ppp-d-23277	PPP (D)	2015-12-05	2015-12-07		Likely Voters - Republican	537	4.2	IVR/Online	Pollster	Dem
+3.0	1.0	2.0	10.0	0.0	19.0	5.0	31.0	2.0	10.0	3.0				12.0	2.0		1.0	0.0		0.0		elon-23075	Elon	2015-10-29	2015-11-02		Likely Voters - Republican	466	4.5	Live Phone	Nonpartisan	None
+5.0	5.0	2.0	11.0	2.0	31.0	6.0	23.0	3.0	6.0	6.0	0.0			1.0			0.0	0.0		0.0		ppp-d-23002	PPP (D)	2015-10-23	2015-10-25		Likely Voters - Republican	425	4.8	IVR/Online	Pollster	Dem
+6.0	4.0	0.0	10.0	1.0	26.0	5.0	21.0	2.0	9.0	12.0	0.0			2.0			0.0	0.0		1.0		ppp-d-22812	PPP (D)	2015-09-24	2015-09-27		Likely Voters - Republican	576	4.1	IVR/Online	Pollster	Dem
+4.0	2.0	2.0	7.0	1.0	22.0	7.0	21.0	2.0	6.0	10.0	0.0			13.0	2.0		0.0	0.0	2.0	0.0		elon-22796	Elon	2015-09-17	2015-09-21		Likely Voters - Republican	516	4.3	Live Phone	Nonpartisan	None
+6.0	1.0	3.0	9.0	2.0	24.0	13.0	14.0	2.0	10.0	6.0	0.0	1.0		3.0			0.0	0.0	6.0	0.0		ppp-d-22577	PPP (D)	2015-08-12	2015-08-16		Likely Voters - Republican	406	4.9	IVR/Online	Pollster	Dem
+5.0	2.0	2.0	5.0	1.0	30.0	19.0	12.0	2.0	6.0	3.0		0.0		4.0	1.0		1.0	0.0	5.0	1.0		opinion-savvy-fox-46-charlote-22506	Opinion Savvy/Fox 46 Charlote	2015-08-02	2015-08-03		Likely Voters - Republican	504	4.3	IVR/Online	Nonpartisan	None
+11.0	0.0	7.0	9.0	1.0	16.0	12.0	9.0	5.0	6.0	4.0		2.0		4.0			1.0	0.0	12.0	1.0		ppp-d-22353	PPP (D)	2015-07-02	2015-07-06		Likely Voters - Republican	288	5.8	IVR/Online	Pollster	Dem
+10.0		12.0	12.0			19.0	9.0	8.0	11.0	2.0				5.0					12.0			ppp-d-22212	PPP (D)	2015-05-28	2015-05-31		Likely Voters - Republican	277	4.1	IVR/Online	Pollster	Dem
+11.0		6.0	16.0	3.0		18.0	8.0	4.0	8.0	1.0				13.0					13.0			gravis-marketing-22213	Gravis Marketing	2015-05-11	2015-05-11		Likely Voters - Republican	835	3.0	Automated Phone	Nonpartisan	None
+11.0		6.0	16.0	3.0		18.0	8.0	4.0	8.0	1.0				13.0					13.0			gravis-marketing-22152	Gravis Marketing	2015-04-30	2015-04-30		Likely Voters - Republican	835	3.0	Automated Phone	Nonpartisan	None
+11.0		6.0	11.0			19.0	9.0	7.0	11.0			2.0		7.0					16.0			ppp-d-21999	PPP (D)	2015-04-02	2015-04-05		Likely Voters - Republican	351	5.2	IVR/Online	Pollster	Dem
+14.0		8.0		3.0		16.0	13.0	7.0						10.0					29.0			civitas-r-21957	Civitas (R)	2015-03-20	2015-03-23		Likely Voters - Republican	400	4.0	IVR/Live Phone	Pollster	Rep
+15.0		5.0	7.0			17.0	12.0	5.0	3.0			3.0		8.0					24.0			ppp-d-21818	PPP (D)	2015-02-24	2015-02-26		Likely Voters - Republican	389	5.0	IVR/Online	Pollster	Dem
+13.0		6.0				14.0	14.0	5.0	6.0			3.0	16.0	9.0					14.0			ppp-d-21686	PPP (D)	2015-01-29	2015-01-31		Likely Voters - Republican	400	4.9	IVR/Online	Pollster	Dem
+14.0		5.0	4.0			15.0	19.0	14.0	5.0			7.0		7.0							11.0	ppp-d-24077	PPP (D)	2014-12-04	2014-12-07		Likely Voters - Republican	390	5.0	IVR/Online	Pollster	Dem
+18.0	1.0	4.0	4.0	0.0		11.0		7.0	3.0			6.0		32.0	2.0	0.0			4.0	2.0	6.0	suffolk-usa-today-20160	Suffolk/USA Today	2014-08-16	2014-08-19		Likely Voters - Republican	200		Live Phone	Nonpartisan	None
+		9.0	8.0	3.0		16.0		9.0	7.0			7.0		22.0	1.0				3.0	3.0		civitas-r-24075	Civitas (R)	2014-07-28	2014-07-29		Registered Voters - Republican	336		Live Phone	Pollster	Rep
+17.0		12.0	5.0			17.0		12.0	12.0					11.0					5.0	2.0	8.0	ppp-d-19441	PPP (D)	2014-05-09	2014-05-11		Likely Voters - Republican	394	4.9	Automated Phone	Pollster	Dem
+21.0	3.0	15.0	6.0			19.0		12.0	11.0					11.0					2.0			magellan-r-liberty-foundation-of-america-19336	Magellan (R-Liberty Foundation of America)	2014-04-14	2014-04-15		Likely Voters - Republican			Automated Phone	Sponsor	Rep
+22.0		9.0	5.0			18.0		12.0	12.0					6.0					7.0	2.0	9.0	ppp-d-19222	PPP (D)	2014-04-03	2014-04-06		Likely Voters - Republican	314	5.5	Automated Phone	Pollster	Dem
+19.0		12.0	5.0			12.0		15.0	14.0					12.0					6.0	1.0	4.0	ppp-d-19032	PPP (D)	2014-03-06	2014-03-09		Likely Voters - Republican	392	5.0	Automated Phone	Pollster	Dem
+		14.0	9.0	4.0		14.0		17.0	11.0					13.0					3.0	5.0	11.0	ppp-d-18771	PPP (D)	2014-01-09	2014-01-12		Likely Voters - Republican	575	4.1	Automated Phone	Pollster	Dem

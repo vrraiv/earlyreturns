@@ -1,0 +1,7 @@
+Paul	Santorum	Romney	Gingrich	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+8.0	42.0	28.0	18.0	2.0	2.0	ppp-d-13291	PPP (D)	2012-03-22	2012-03-22		Likely Voters - Republican	650	3.8	Automated Phone	Pollster	Dem
+5.0	43.0	31.0	16.0	5.0	1.0	rasmussen-13284	Rasmussen	2012-03-21	2012-03-21		Likely Voters - Republican	750	4.0	Automated Phone	Nonpartisan	None
+3.0	37.0	24.0	24.0	6.0	6.0	magellan-r-13267	Magellan (R)	2012-03-19	2012-03-19		Likely Voters - Republican	2018	2.2	Automated Phone	Pollster	Rep
+6.0	25.0	21.0	20.0	26.0		gcr-wwl-tv-13266	GCR/WWL-TV	2012-03-08	2012-03-10		Likely Voters - Republican	515	4.4	Live Phone	Nonpartisan	None
+6.0		23.0	31.0	10.0	30.0	clarus-13264	Clarus	2011-11-20	2011-11-22		Likely Voters - Republican	300	5.6	Live Phone	Nonpartisan	None
+4.0		17.0	4.0	24.0	51.0	clarus-13265	Clarus	2011-10-05	2011-10-07		Likely Voters - Republican	301	5.6	Live Phone	Nonpartisan	None
