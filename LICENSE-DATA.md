@@ -22,10 +22,14 @@ Share-alike is required because many tables are adapted from Wikipedia (CC BY-SA
   them (such as `state_presidential_history.csv`) are covered above, with credit and a link to
   [the-downballot.com/p/data](https://www.the-downballot.com/p/data); please do not rebuild their whole sheets from
   this project's files.
+- **`data/interim/primary_polls_huffpost.csv`** is adapted from HuffPost Pollster, which licensed its data
+  under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/). That file, and anything derived
+  from it poll by poll, is under the same licence: non-commercial use only, with credit to HuffPost Pollster
+  and to this project.
 - **University of Michigan consumer sentiment** (in the raw FRED folder) is copyrighted and not used in any output.
 
 ## Sources to credit
 
-Wikipedia contributors (CC BY-SA 4.0); FiveThirtyEight / ABC News; VoteHub; Gallup via the American Presidency
+Wikipedia contributors (CC BY-SA 4.0); FiveThirtyEight / ABC News; HuffPost Pollster (CC BY-NC-SA 3.0, the primary polls file only); VoteHub; Gallup via the American Presidency
 Project; BLS, BEA and EIA via FRED (public domain); the Federal Election Commission (public domain); the U.S. Census Bureau (public domain; its Data API is used, without its endorsement or certification); state election offices and the California Secretary of State (public records); AtlasIntel (poll toplines); Will Jennings and Christopher Wlezien (national presidential polls 1952-2016, CC0); The Economist (presidential polls, MIT); the MIT Election Data and Science Lab (House and Senate returns, CC0); David Broockman (district presidential vote 1952-2004, CC0); The
 Downballot (presidential results by state, with a link to its data page).

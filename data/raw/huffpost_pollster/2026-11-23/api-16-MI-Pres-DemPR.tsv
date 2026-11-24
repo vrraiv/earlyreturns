@@ -1,0 +1,20 @@
+Biden	Clinton	Cuomo	O'Malley	Warren	Chafee	Sanders	Webb	Undecided	Other	Not Voting	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+	66.0					29.0		6.0			mitchell-research-r-fox-2-detroit-23996	Mitchell Research (R)/Fox 2 Detroit	2016-03-06	2016-03-06		Likely Voters - Democrat	475	4.5	Automated Phone	Pollster	Rep
+	55.0					42.0		4.0	0.0		monmouth-university-23998	Monmouth University	2016-03-03	2016-03-06		Likely Voters - Democrat	302	5.6	Live Phone	Nonpartisan	None
+	60.0					36.0		4.0	0.0		arg-23991	ARG	2016-03-04	2016-03-05		Likely Voters - Democrat	400	5.0	Live Phone	Nonpartisan	None
+	55.0					44.0		1.0			cbs-yougov-23994	CBS/YouGov	2016-03-02	2016-03-04		Likely Voters - Democrat	597		Internet	Nonpartisan	None
+	57.0					40.0		3.0			nbc-wsj-marist-23993	NBC/WSJ/Marist	2016-03-01	2016-03-03		Likely Voters - Democrat	546	4.2	Live Phone	Nonpartisan	None
+	52.0		1.0			47.0					michigan-state-university-24007	Michigan State University	2016-01-25	2016-03-03		Likely Voters - Democrat	262	6.1	Live Phone	Nonpartisan	None
+	61.0					33.0		5.0			mitchell-research-r-fox-2-detroit-23973	Mitchell Research (R)/Fox 2 Detroit	2016-03-01	2016-03-01		Likely Voters - Democrat	427	4.74	Automated Phone	Pollster	Rep
+	56.0					31.0		13.0			epic-mra-detroit-free-press-wxyz-tv-23992	EPIC-MRA/Detroit Free Press/WXYZ-TV 	2016-02-28	2016-03-01		Likely Voters - Democrat	400	4.9	Live Phone	Nonpartisan	None
+	56.0					36.0		11.0			marketing-resource-group-r-23917	Marketing Resource Group (R)	2016-02-22	2016-02-27		Likely Voters - Democrat	218		Live Phone	Pollster	Rep
+	65.0					31.0		4.0			mitchell-research-r-fox-2-detroit-23974	Mitchell Research (R)/Fox 2 Detroit	2016-02-23	2016-02-23		Likely Voters - Democrat	344	5.28	Automated Phone	Pollster	Rep
+	53.0					40.0		7.0	0.0		arg-23819	ARG	2016-02-19	2016-02-20		Likely Voters - Democrat	400	5.0	Live Phone	Nonpartisan	None
+	50.0					40.0		10.0			ppp-d-american-family-voices-23773	PPP (D-American Family Voices)	2016-02-14	2016-02-16		Likely Voters - Democrat	500	4.4	IVR/Online	Sponsor	Dem
+	60.0					27.0		13.0			mitchell-research-r-fox-2-detroit-23813	Mitchell Research (R)/Fox 2 Detroit	2016-02-15	2016-02-15		Likely Voters - Democrat	430	4.69	Automated Phone	Pollster	Rep
+	57.0					28.0		11.0		5.0	mitchell-research-r-fox-2-detroit-23726	Mitchell Research (R)/Fox 2 Detroit	2016-02-04	2016-02-04		Likely Voters - Democrat	321	5.47	Automated Phone	Pollster	Rep
+	62.0					30.0		7.0			target-insyght-mirs-imp-23706	Target-Insyght/MIRS/IMP	2016-02-02	2016-02-04		Likely Voters - Democrat	400	4.0	Automated Phone	Nonpartisan	None
+	61.0		4.0			34.0					mitchell-research-r-fox-2-detroit-23975	Mitchell Research (R)/Fox 2 Detroit	2016-01-25	2016-01-25		Likely Voters - Democrat	344	5.28	Automated Phone	Pollster	Rep
+22.0	41.0		1.0		0.0	22.0	0.0	12.0			marketing-resource-group-r-22758	Marketing Resource Group (R)	2015-09-09	2015-09-14		Likely Voters - Democrat	189		Live Phone	Pollster	Rep
+	57.0		1.0		5.0	25.0	2.0	10.0			ppp-d-22328	PPP (D)	2015-06-25	2015-06-28		Likely Voters - Democrat	431	4.7	IVR/Online	Pollster	Dem
+17.0	61.0	4.0	1.0	7.0				10.0	0.0		suffolk-usa-today-20386	Suffolk/USA Today	2014-09-06	2014-09-10		Likely Voters - Democrat	212		Live Phone	Nonpartisan	None

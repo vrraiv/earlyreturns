@@ -1,0 +1,10 @@
+Trump	Graham	Pataki	Gilmore	Fiorina	Carson	Kasich	Santorum	Cruz	Paul	Christie	Rubio	Bush	Huckabee	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+44.0						9.0		27.0						19.0		gravis-marketing-24420	Gravis Marketing	2016-04-28	2016-04-29		Likely Voters - Republican	379	5.0	Live Phone	Nonpartisan	None
+41.0						21.0		32.0						6.0	0.0	arg-24405	ARG	2016-04-27	2016-04-28		Likely Voters - Republican	400	5.0	Live Phone	Nonpartisan	None
+49.0						13.0		34.0						4.0	0.0	nbc-wsj-marist-24413	NBC/WSJ/Marist	2016-04-26	2016-04-28		Likely Voters - Republican	645	3.9	Live Phone	Nonpartisan	None
+37.0						16.0		35.0						11.0		clout-research-r-24401	Clout Research (R)	2016-04-27	2016-04-27		Likely Voters - Republican	423	4.75	Live Phone	Pollster	Rep
+29.0						13.0		45.0						13.0		ipfw-24412	IPFW	2016-04-13	2016-04-27		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+40.0						20.0		35.0						5.0		cbs-yougov-24337	CBS/YouGov	2016-04-20	2016-04-22		Likely Voters - Republican	439	8.2	Internet	Nonpartisan	None
+41.0						16.0		33.0						7.0	0.0	fox-news-24333	Fox News	2016-04-18	2016-04-21		Likely Voters - Republican	602	4.0	Live Phone	Nonpartisan	None
+37.0						22.0		31.0						7.0	2.0	pos-r-hpi-wthr-24332	POS (R)/HPI/WTHR	2016-04-18	2016-04-21		Likely Voters - Republican	507	4.3	Live Phone	Pollster	Rep
+26.0				3.0	16.0	1.0	1.0	17.0	5.0	3.0	17.0	6.0	1.0			bellwether-r-23310	Bellwether (R)	2015-12-02	2015-12-09		Likely Voters - Republican	670		Internet	Pollster	Rep

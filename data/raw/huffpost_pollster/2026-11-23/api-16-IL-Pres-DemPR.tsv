@@ -1,0 +1,11 @@
+O'Malley	Clinton	Sanders	Chafee	Webb	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+	31.0	30.0			39.0		mckeon-associates-24072	McKeon & Associates	2016-03-12	2016-03-12		Likely Voters - Democrat	428	4.1	Live Phone	Nonpartisan	None
+	48.0	45.0					ppp-d-votevets-action-fund-24067	PPP (D-VoteVets Action Fund)	2016-03-11	2016-03-12		Likely Voters - Democrat	597	4.0	IVR/Online	Sponsor	Dem
+	46.0	48.0			6.0		cbs-yougov-24062	CBS/YouGov	2016-03-09	2016-03-11		Likely Voters - Democrat	722	5.5	Internet	Nonpartisan	None
+	51.0	45.0			4.0	0.0	nbc-wsj-marist-24058	NBC/WSJ/Marist	2016-03-04	2016-03-10		Likely Voters - Democrat	529	4.3	Live Phone	Nonpartisan	None
+	62.0	25.0			10.0	2.0	we-ask-america-24053	We Ask America	2016-03-07	2016-03-08		Likely Voters - Democrat	994	3.11	IVR/Live Phone	Nonpartisan	None
+	67.0	25.0			8.0		chicago-tribune-research-america-24030	Chicago Tribune/Research America	2016-03-02	2016-03-06		Likely Voters - Democrat	600	4.1	Live Phone	Nonpartisan	None
+	57.0	28.0			11.0	4.0	we-ask-america-23890	We Ask America	2016-02-24	2016-02-24		Registered Voters - Democrat	1116	3.0	IVR/Live Phone	Nonpartisan	None
+	51.0	32.0			16.0		southern-illinois-university-23838	Southern Illinois University	2016-02-15	2016-02-20		Likely Voters - Democrat	422	4.7	Live Phone	Nonpartisan	None
+5.0	43.0	12.0	2.0	2.0	37.0		mckeon-associates-d-harris-23127	McKeon & Associates (D-Harris)	2015-10-20	2015-10-20		Likely Voters - Democrat	831	3.9	Live Phone	Sponsor	Dem
+4.0	60.0	23.0	1.0	3.0	8.0		ppp-d-22470	PPP (D)	2015-07-20	2015-07-21		Likely Voters - Democrat	409	4.9	IVR/Online	Pollster	Dem

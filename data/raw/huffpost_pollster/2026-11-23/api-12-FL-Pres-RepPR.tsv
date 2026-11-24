@@ -1,0 +1,60 @@
+Perry	Huntsman	Paul	Santorum	Romney	Gingrich	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+		9.0	13.0	43.0	31.0	3.0	1.0	arg-12684	ARG	2012-01-29	2012-01-30		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+		11.0	15.0	39.0	31.0	5.0		ppp-d-12650	PPP (D)	2012-01-28	2012-01-30		Likely Voters	1087	3.0	Automated Phone	Pollster	Dem
+		12.0	12.0	36.0	31.0	9.0		newsmax-insideradvantage-12658	NewsMax/InsiderAdvantage	2012-01-29	2012-01-29		Likely Voters - Republican	646		Automated Phone	Nonpartisan	None
+		10.0	10.0	44.0	25.0	11.0		we-ask-america-12657	We Ask America	2012-01-29	2012-01-29		Likely Voters - Republican	1188	2.8	Automated Phone	Nonpartisan	None
+		9.0	12.0	47.0	27.0	5.0		suffolk-12671	Suffolk	2012-01-28	2012-01-29		Registered Voters	500	4.0	Live Phone	Nonpartisan	None
+		11.0	11.0	43.0	29.0	7.0		quinnipiac-12660	Quinnipiac	2012-01-27	2012-01-29		Likely Voters - Republican	539	4.2	Live Phone	Nonpartisan	None
+		12.0	12.0	41.0	26.0	8.0	2.0	surveyusa-12659	SurveyUSA	2012-01-27	2012-01-29		Likely Voters - Republican	500	4.5	IVR/Live Phone	Nonpartisan	None
+		10.0	12.0	44.0	28.0	5.0	1.0	rasmussen-12654	Rasmussen	2012-01-28	2012-01-28		Likely Voters	750	4.0	Automated Phone	Nonpartisan	None
+		8.0	11.0	43.0	32.0	5.0	1.0	arg-12656	ARG	2012-01-27	2012-01-28		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+		6.0	15.0	40.0	30.0	8.0		war-room-logistics-12683	War Room Logistics	2012-01-27	2012-01-27		Likely Voters - Republican	1632	2.5	Automated Phone	Nonpartisan	None
+		5.0	13.0	41.0	33.0	8.0		ipsos-reuters-12649	Ipsos/Reuters	2012-01-26	2012-01-27		Likely Voters	732	4.2	Internet	Nonpartisan	None
+		11.0	16.0	42.0	27.0	4.0		nbc-marist-12653	NBC/Marist	2012-01-25	2012-01-27		Likely Voters - Republican	682	3.2	Live Phone	Nonpartisan	None
+		6.0	14.0	42.0	31.0	7.0		mason-dixon-12651	Mason-Dixon	2012-01-24	2012-01-26		Likely Voters - Republican	500	4.5	Live Phone	Nonpartisan	None
+		9.0	12.0	40.0	31.0	6.0		sunshine-state-news-vss-12643	Sunshine State News/VSS	2012-01-24	2012-01-26		Likely Voters - Republican	865	3.3	Live Phone	Nonpartisan	None
+		14.0	12.0	38.0	29.0	6.0	1.0	quinnipiac-12642	Quinnipiac	2012-01-24	2012-01-26		Likely Voters - Republican	601	5.3	Live Phone	Nonpartisan	None
+		9.0	8.0	40.0	32.0	9.0	2.0	newsmax-insideradvantage-12634	NewsMax/InsiderAdvantage	2012-01-25	2012-01-25		Likely Voters - Republican	530		Automated Phone	Nonpartisan	None
+		9.0	12.0	39.0	31.0	7.0	4.0	rasmussen-12633	Rasmussen	2012-01-25	2012-01-25		Likely Voters	750	4.0	Automated Phone	Nonpartisan	None
+		8.0	11.0	39.0	32.0	7.0	3.0	monmouth-surveyusa-12636	Monmouth/SurveyUSA	2012-01-24	2012-01-25		Likely Voters - Republican	540		Automated Phone	Nonpartisan	None
+		7.0	9.0	35.0	35.0	9.0	4.0	dixie-strategies-r-first-coast-news-12655	Dixie Strategies (R)/First Coast News	2012-01-23	2012-01-25		Likely Voters	2567	1.9	Automated Phone	Pollster	Dem
+		7.0	9.0	41.0	34.0	6.0	3.0	arg-12624	ARG	2012-01-23	2012-01-24		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+		9.0	11.0	36.0	34.0	7.0		cnn-time-12630	CNN/Time	2012-01-22	2012-01-24		Likely Voters - Republican	369	5.0	Live Phone	Nonpartisan	None
+		8.0	9.0	34.0	32.0	17.0		we-ask-america-12616	We Ask America	2012-01-23	2012-01-23		Likely Voters - Republican	946	3.2	Automated Phone	Nonpartisan	None
+		6.0	10.0	33.0	33.0			fl-chamber-of-commerce-12622	FL Chamber of Commerce	2012-01-22	2012-01-23		Likely Voters - Republican	504	4.4	Live Phone	Pollster	Rep
+		10.0	13.0	33.0	38.0	6.0		ppp-d-12615	PPP (D)	2012-01-22	2012-01-23		Likely Voters	921	3.2	Automated Phone	Pollster	Dem
+		10.0	13.0	36.0	34.0	7.0	1.0	quinnipiac-12623	Quinnipiac	2012-01-19	2012-01-23		Likely Voters - Republican	601	5.3	Live Phone	Nonpartisan	None
+		8.0	11.0	32.0	41.0	9.0	0.0	rasmussen-12603	Rasmussen	2012-01-22	2012-01-22		Likely Voters	750	4.0	Automated Phone	Nonpartisan	None
+		13.0	11.0	26.0	34.0	14.0	2.0	newsmax-insideradvantage-12602	NewsMax/InsiderAdvantage	2012-01-22	2012-01-22		Likely Voters - Republican	557		Automated Phone	Nonpartisan	None
+2.0		9.0	19.0	43.0	18.0	9.0		cnn-time-12541	CNN/Time	2012-01-13	2012-01-17		Likely Voters - Republican	391	5.0	Live Phone	Nonpartisan	None
+4.0		10.0	11.0	41.0	26.0	7.0		ppp-d-12543	PPP (D)	2012-01-14	2012-01-14		Likely Voters	572	4.1	Automated Phone	Pollster	Dem
+3.0		9.0	12.0	46.0	20.0	8.0	1.0	sunshine-state-news-vss-12595	Sunshine State News/VSS	2012-01-11	2012-01-14		Likely Voters - Republican	1266	2.8	Live Phone	Nonpartisan	None
+2.0	5.0	9.0	15.0	41.0	19.0	8.0	1.0	rasmussen-12557	Rasmussen	2012-01-11	2012-01-11		Likely Voters	750	4.0	Automated Phone	Nonpartisan	None
+		7.0	17.0	36.0	25.0	10.0	5.0	surveyusa-12579	SurveyUSA	2012-01-08	2012-01-09		Likely Voters - Republican	500	4.5	IVR/Live Phone	Nonpartisan	None
+5.0	2.0	10.0	16.0	36.0	24.0	7.0		quinnipiac-12558	Quinnipiac	2012-01-04	2012-01-08		Likely Voters - Republican	560	4.1	Live Phone	Nonpartisan	None
+4.0	1.0	5.0	1.0	27.0	26.0	31.0	4.0	tel-opinion-r-12596	Tel Opinion (R)	2011-12-15	2011-12-19		Registered Voters - Republican	800		Live Phone	Pollster	Rep
+4.0	2.0	8.0	2.0	27.0	42.0	12.0	3.0	nbc-marist-12593	NBC/Marist	2011-12-04	2011-12-07		Likely Voters - Republican	469	4.5	Live Phone	Nonpartisan	None
+5.0	3.0	4.0	2.0	23.0	45.0	9.0	9.0	surveyusa-12581	SurveyUSA	2011-12-05	2011-12-06		Likely Voters - Republican	500	4.5	IVR/Live Phone	Nonpartisan	None
+3.0	3.0	5.0	1.0	25.0	48.0	10.0	4.0	cnn-time-12589	CNN/Time	2011-11-29	2011-12-06		Likely Voters - Republican	446	4.5	Live Phone	Nonpartisan	None
+4.0	2.0	8.0	2.0	22.0	35.0	15.0	13.0	quinnipiac-12560	Quinnipiac	2011-11-28	2011-12-05		Registered Voters - Republican	509	4.3	Live Phone	Nonpartisan	None
+2.0	3.0	5.0	1.0	17.0	47.0	7.0	19.0	ppp-d-12545	PPP (D)	2011-11-28	2011-11-30		Likely Voters	470	4.5	Automated Phone	Pollster	Dem
+7.0		4.0	1.0	17.0	41.0	11.0	19.0	newsmax-insideradvantage-12597	NewsMax/InsiderAdvantage	2011-11-29	2011-11-29		Likely Voters - Republican	513		Automated Phone	Nonpartisan	None
+5.0	1.0	3.0	1.0	21.0	17.0	19.0	33.0	quinnipiac-12562	Quinnipiac	2011-10-31	2011-11-07		Registered Voters - Republican	513	4.3	Live Phone	Nonpartisan	None
+9.0	2.0	5.0	1.0	25.0	11.0	20.0	27.0	suffolk-12067	Suffolk	2011-10-26	2011-10-30		Registered Voters - Republican	287		Live Phone	Nonpartisan	None
+9.0	1.0	6.0	1.0	30.0	9.0	21.0	22.0	cnn-time-12590	CNN/Time	2011-10-20	2011-10-25		Likely Voters - Republican	401	5.0	Live Phone	Nonpartisan	None
+3.0		3.0		33.0	12.0	16.0	34.0	times-union-insideradvantage-12598	Times-Union/InsiderAdvantage	2011-10-16	2011-10-16		Likely Voters - Republican	505	4.0	Automated Phone	Nonpartisan	None
+8.0	2.0	6.0	1.0	31.0	6.0	11.0	34.0	nbc-marist-12594	NBC/Marist	2011-10-10	2011-10-12		Likely Voters - Republican	524	4.3	Live Phone	Nonpartisan	None
+13.0	3.0	5.0	2.0	27.0	6.0	12.0	34.0	surveyusa-12583	SurveyUSA	2011-09-24	2011-09-27		Likely Voters - Republican	500	4.5	Automated Phone	Nonpartisan	None
+24.0	3.0	8.0	2.0	30.0	10.0	9.0	14.0	ppp-d-12546	PPP (D)	2011-09-22	2011-09-25		Likely Voters - Republican	472	4.5	Automated Phone	Pollster	Dem
+28.0	2.0	6.0	2.0	22.0	7.0	13.0	21.0	quinnipiac-11881	Quinnipiac	2011-09-14	2011-09-19		Registered Voters - Republican	374	5.1	Live Phone	Nonpartisan	None
+29.0	1.0	5.0	2.0	20.0	9.0	21.0	14.0	insideradvantage-12599	InsiderAdvantage	2011-09-13	2011-09-13		Likely Voters - Republican	456		Automated Phone	Nonpartisan	None
+21.0		4.0	2.0	28.0	5.0	17.0	23.0	mason-dixon-11763	Mason-Dixon	2011-08-18	2011-08-22		Likely Voters - Republican	300	5.8	Live Phone	Nonpartisan	None
+16.0	3.0	5.0	0.0	27.0	5.0	22.0	22.0	mclaughlin-r-aif-11740	McLaughlin (R)/AIF	2011-08-08	2011-08-09		Registered Voters - Republican	223	4.0	Live Phone	Pollster	Rep
+13.0	1.0	9.0	1.0	23.0	4.0	20.0	29.0	quinnipiac-11667	Quinnipiac	2011-08-01	2011-08-02		Registered Voters	743	3.6	Live Phone	Nonpartisan	None
+	2.0	7.0		27.0	8.0	9.0	48.0	ppp-d-12547	PPP (D)	2011-06-16	2011-06-19		Likely Voters - Republican	377	5.1	Automated Phone	Pollster	Dem
+		1.0	1.0	26.0	11.0	11.0	49.0	arg-11282	ARG	2011-04-27	2011-05-02		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+		2.0		33.0	9.0	17.0	40.0	suffolk-11200	Suffolk	2011-04-10	2011-04-12		Registered Voters - Republican	217		Live Phone	Nonpartisan	None
+		3.0	1.0	23.0	11.0		49.0	mason-dixon-11181	Mason-Dixon	2011-04-04	2011-04-07		Likely Voters - Republican	400	5.0	Live Phone	Nonpartisan	None
+		6.0		18.0	18.0	8.0	49.0	ppp-d-11150	PPP (D)	2011-03-24	2011-03-27		Likely Voters - Republican	427	4.7	Automated Phone	Pollster	Dem
+		8.0		21.0	18.0	10.0	43.0	ppp-d-12551	PPP (D)	2010-12-17	2010-12-21		Likely Voters	400	4.9	Automated Phone	Pollster	Dem
+				28.0	15.0	12.0	45.0	ppp-d-10607	PPP (D)	2010-10-30	2010-10-31		Likely Voters - Republican	280	5.9	Automated Phone	Pollster	Dem

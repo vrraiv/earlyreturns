@@ -1,0 +1,21 @@
+Cuomo	O'Malley	Biden	Clinton	Warren	Booker	Feingold	Gillibrand	Warner	Webb	Sanders	Chafee	Patrick	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+			49.0							48.0			2.0	0.0	arg-24200	ARG	2016-04-01	2016-04-03		Likely Voters - Democrat	400	5.0	Live Phone	Nonpartisan	None
+			43.0							51.0			6.0		emerson-college-polling-society-24195	Emerson College Polling Society	2016-03-30	2016-04-03		Likely Voters - Democrat	542	4.2	Automated Phone	Nonpartisan	None
+			47.0							49.0			4.0		cbs-yougov-24191	CBS/YouGov	2016-03-29	2016-04-01		Likely Voters - Democrat	653	6.1	Internet	Nonpartisan	None
+			43.0							48.0			5.0	1.0	fox-news-24182	Fox News	2016-03-28	2016-03-30		Likely Voters - Democrat	860	3.0	Live Phone	Nonpartisan	None
+			47.0							41.0			11.0		loras-college-24189	Loras College	2016-03-28	2016-03-29		Likely Voters - Democrat	416	4.8	Live Phone	Nonpartisan	None
+			43.0							49.0			8.0		ppp-d-votevets-action-fund-24176	PPP (D-VoteVets Action Fund)	2016-03-28	2016-03-29		Likely Voters - Democrat	720	3.7	IVR/Online	Sponsor	Dem
+			45.0							49.0			6.0	0.0	marquette-law-school-24172	Marquette Law School	2016-03-24	2016-03-28		Likely Voters - Democrat	405	6.3	Live Phone	Nonpartisan	None
+			50.0							44.0			5.0		emerson-college-polling-society-24138	Emerson College Polling Society	2016-03-20	2016-03-22		Likely Voters - Democrat	354	5.2	Automated Phone	Nonpartisan	None
+			43.0							44.0			12.0		marquette-law-school-23872	Marquette Law School	2016-02-18	2016-02-21		Likely Voters - Democrat	343	6.9	Live Phone	Nonpartisan	None
+	1.0		45.0							43.0			9.0	0.0	marquette-law-school-23623	Marquette Law School	2016-01-21	2016-01-24		Likely Voters - Democrat	312	6.5	Live Phone	Nonpartisan	None
+	2.0		50.0							41.0			6.0	1.0	marquette-law-school-23197	Marquette Law School	2015-11-12	2015-11-15		Registered Voters - Democrat	374	6.1	Live Phone	Nonpartisan	None
+	1.0		47.0						0.0	42.0	1.0		7.0	1.0	st-norbert-wpr-wptv-22973	St Norbert/WPR/WPTV	2015-10-14	2015-10-17		Likely Voters - Democrat	266		Live Phone	Nonpartisan	None
+	1.0	17.0	42.0						0.0	30.0	0.0		8.0	2.0	marquette-law-school-22823	Marquette Law School	2015-09-24	2015-09-28		Registered Voters - Democrat	394	6.1	Live Phone	Nonpartisan	None
+	1.0	12.0	44.0						1.0	32.0	1.0		9.0	1.0	marquette-law-school-22596	Marquette Law School	2015-08-13	2015-08-16		Registered Voters - Democrat	396	6.1	Live Phone	Nonpartisan	None
+	1.0	12.0	58.0	14.0					1.0				9.0	4.0	marquette-law-school-22030	Marquette Law School	2015-04-07	2015-04-10		Registered Voters - Democrat	391	5.1	Live Phone	Nonpartisan	None
+	1.0	14.0	60.0	12.0					1.0	5.0			7.0		ppp-d-21840	PPP (D)	2015-03-06	2015-03-08		Likely Voters - Democrat	504	4.4	Automated Phone	Pollster	Dem
+1.0	0.0	8.0	57.0	5.0	1.0	19.0	0.0	1.0					8.0		ppp-d-19314	PPP (D)	2014-04-17	2014-04-20		Likely Voters - Democrat	579	4.1	IVR/Online	Pollster	Dem
+2.0	1.0	11.0	64.0	11.0									9.0	2.0	marquette-law-school-18313	Marquette Law School	2013-10-21	2013-10-24		Registered Voters - Democrat	392		Live Phone	Nonpartisan	None
+2.0		11.0	50.0	4.0	3.0	20.0	0.0	0.0					9.0		ppp-d-17977	PPP (D)	2013-09-13	2013-09-16		Likely Voters - Democrat	449	4.6	Automated Phone	Pollster	Dem
+4.0	1.0	13.0	62.0	5.0				1.0				2.0	11.0		marquette-law-school-17396	Marquette Law School	2013-05-06	2013-05-09		Registered Voters - Democrat	333		Live Phone	Nonpartisan	None

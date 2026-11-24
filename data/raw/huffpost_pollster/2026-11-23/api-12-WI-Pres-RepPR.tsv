@@ -1,0 +1,10 @@
+Santorum	Romney	Paul	Gingrich	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+31.0	39.0	16.0	15.0			we-ask-america-13400	We Ask America	2012-04-01	2012-04-01		Likely Voters - Republican	1173	2.9	Automated Phone	Nonpartisan	None
+36.0	43.0	11.0	8.0	2.0		ppp-d-13396	PPP (D)	2012-03-31	2012-04-01		Likely Voters - Republican	609	4.0	Automated Phone	Pollster	Dem
+34.0	44.0	7.0	7.0	6.0	2.0	rasmussen-13397	Rasmussen	2012-03-29	2012-03-29		Likely Voters - Republican	717	4.0	Automated Phone	Nonpartisan	None
+33.0	40.0	11.0	8.0	7.0		nbc-marist-13384	NBC/Marist	2012-03-26	2012-03-27		Likely Voters - Republican	740	3.6	Live Phone	Nonpartisan	None
+31.0	39.0	11.0	5.0	13.0		marquette-law-school-13348	Marquette Law School	2012-03-22	2012-03-25		Likely Voters - Republican	349	5.2	Live Phone	Nonpartisan	None
+33.0	46.0	8.0	7.0	5.0	1.0	rasmussen-13296	Rasmussen	2012-03-21	2012-03-21		Likely Voters - Republican	1000	3.0	Automated Phone	Nonpartisan	None
+43.0	27.0	8.0	10.0	12.0		ppp-d-13305	PPP (D)	2012-02-23	2012-02-26		Likely Voters - Republican	556	4.2	Automated Phone	Pollster	Dem
+34.0	18.0	17.0	12.0	18.0		marquette-law-school-13156	Marquette Law School	2012-02-16	2012-02-19		Likely Voters - Republican	424		Live Phone	Nonpartisan	None
+2.0	18.0	8.0	12.0	12.0	49.0	ppp-d-13304	PPP (D)	2011-10-20	2011-10-23		Likely Voters - Republican	650	3.8	Automated Phone	Pollster	Dem

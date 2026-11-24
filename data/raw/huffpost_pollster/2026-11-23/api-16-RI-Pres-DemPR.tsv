@@ -1,0 +1,5 @@
+Clinton	Sanders	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+45.0	49.0	6.0		ppp-d-votevets-action-fund-24341	PPP (D-VoteVets Action Fund)	2016-04-22	2016-04-24		Likely Voters - Democrat	668	3.8	IVR/Online	Sponsor	Dem
+43.0	34.0	16.0	7.0	brown-university-24338	Brown University	2016-04-19	2016-04-21		Likely Voters - Democrat	436	4.6	Live Phone	Nonpartisan	None
+49.0	40.0	11.0	1.0	brown-university-23875	Brown University	2016-02-22	2016-02-23		Likely Voters - Democrat	394		Live Phone	Nonpartisan	None
+41.0	48.0	11.0	1.0	brown-university-23874	Brown University	2016-02-17	2016-02-20		Likely Voters - Democrat	396		Live Phone	Nonpartisan	None

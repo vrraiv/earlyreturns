@@ -1,0 +1,6 @@
+Romney	Santorum	Gingrich	Paul	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+51.0	14.0	9.0	7.0	14.0	5.0	quinnipiac-13518	Quinnipiac	2012-04-03	2012-04-09		Registered Voters - Republican	513	4.3	Live Phone	Nonpartisan	None
+38.0	24.0	9.0	12.0	11.0	2.0	quinnipiac-13086	Quinnipiac	2012-02-21	2012-02-27		Registered Voters	446	4.6	Live Phone	Nonpartisan	None
+40.0	14.0	14.0	12.0	13.0	6.0	quinnipiac-12499	Quinnipiac	2012-01-10	2012-01-16		Registered Voters	464	4.6	Live Phone	Nonpartisan	None
+29.0	1.0	22.0	6.0	16.0	24.0	quinnipiac-12131	Quinnipiac	2011-11-09	2011-11-14		Registered Voters	548	4.2	Live Phone	Nonpartisan	None
+18.0		15.0	8.0	19.0	41.0	ppp-d-10880	PPP (D)	2011-01-06	2011-01-09		Likely Voters - Republican	400		Automated Phone	Pollster	Dem

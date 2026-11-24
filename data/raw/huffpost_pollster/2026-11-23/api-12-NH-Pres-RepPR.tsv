@@ -1,0 +1,61 @@
+Pawlenty	Gingrich	Perry	Bachmann	Cain	Huntsman	Palin	Paul	Romney	Johnson	Santorum	Undecided	Other	Not Voting	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+	9.0	1.0			16.0		18.0	37.0		11.0	7.0			suffolk-12436	Suffolk	2012-01-08	2012-01-09		Likely Voters - Republican	500	4.4	Live Phone	Nonpartisan	None
+	10.0	1.0			18.0		17.0	37.0		11.0	4.0			arg-12434	ARG	2012-01-08	2012-01-09		Likely Voters	600	4.0	Live Phone	Nonpartisan	None
+	12.0	1.0			15.0		17.0	37.0		13.0	3.0	1.0		rasmussen-12437	Rasmussen	2012-01-08	2012-01-08		Likely Voters - Republican	722	4.0	Automated Phone	Nonpartisan	None
+	11.0	1.0			13.0		20.0	33.0		10.0	12.0			suffolk-12430	Suffolk	2012-01-07	2012-01-08		Likely Voters - Republican	500	4.4	Live Phone	Nonpartisan	None
+	12.0	1.0			16.0		18.0	35.0		11.0		7.0		ppp-d-12421	PPP (D)	2012-01-07	2012-01-08		Likely Voters - Republican	1771	2.3	Automated Phone	Pollster	Dem
+	8.0	1.0	1.0		11.0		17.0	41.0		11.0	8.0	2.0		unh-wmur-12420	UNH/WMUR	2012-01-05	2012-01-08		Likely Voters - Republican	461	4.6	Live Phone	Nonpartisan	None
+	9.0	1.0			11.0		20.0	35.0		8.0	15.0			suffolk-12419	Suffolk	2012-01-06	2012-01-07		Likely Voters - Republican	500	4.4	Live Phone	Nonpartisan	None
+	8.0	1.0			17.0		16.0	40.0		12.0	4.0			arg-12416	ARG	2012-01-06	2012-01-07		Likely Voters	600	4.0	Live Phone	Nonpartisan	None
+	10.0	1.0			9.0		17.0	39.0		9.0	15.0			suffolk-12417	Suffolk	2012-01-05	2012-01-06		Likely Voters - Republican	500	4.4	Live Phone	Nonpartisan	None
+	8.0	1.0			12.0		18.0	42.0		13.0	6.0	1.0		rasmussen-12405	Rasmussen	2012-01-05	2012-01-05		Likely Voters - Republican	750	4.0	Automated Phone	Nonpartisan	None
+	9.0	1.0			9.0		22.0	42.0		13.0	5.0			nbc-marist-12414	NBC/Marist	2012-01-04	2012-01-05		Likely Voters - Republican	711	3.7	Live Phone	Nonpartisan	None
+	9.0				7.0		18.0	43.0		11.0	7.0			unh-wmur-12412	UNH/WMUR	2012-01-04	2012-01-05		Likely Voters - Republican	318	5.5	Live Phone	Nonpartisan	None
+	9.0	1.0			8.0		17.0	40.0		11.0	15.0			suffolk-12409	Suffolk	2012-01-04	2012-01-05		Likely Voters - Republican	500	4.9	Live Phone	Nonpartisan	None
+	9.0	1.0			16.0		19.0	37.0		14.0	4.0	1.0		pulse-opinion-research-12413	Pulse Opinion Research	2012-01-04	2012-01-04		Likely Voters - Republican	865		Automated Phone	Nonpartisan	None
+	9.0	1.0			8.0		24.0	38.0		11.0	10.0			washington-times-jz-analytics-12407	Washington Times/JZ Analytics	2012-01-04	2012-01-04		Likely Voters - Republican	498	4.4	Live Phone	Nonpartisan	None
+	7.0	1.0	1.0		7.0		18.0	41.0		8.0	17.0			suffolk-12397	Suffolk	2012-01-03	2012-01-04		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+	7.0				8.0		23.0	46.0		4.0	10.0			unh-wmur-12415	UNH/WMUR	2012-01-02	2012-01-03		Likely Voters - Republican	313	5.5	Live Phone	Nonpartisan	None
+	9.0	1.0	2.0		7.0		14.0	43.0		6.0	16.0			suffolk-12395	Suffolk	2012-01-02	2012-01-03		Likely Voters - Republican	500	4.9	Live Phone	Nonpartisan	None
+	9.0	2.0	2.0		10.0		16.0	43.0		5.0	13.0			suffolk-12389	Suffolk	2012-01-01	2012-01-02		Likely Voters - Republican	500	4.9	Live Phone	Nonpartisan	None
+	8.0	2.0	2.0		9.0		17.0	43.0		3.0	15.0			suffolk-12386	Suffolk	2011-12-31	2012-01-01		Likely Voters - Republican	500	4.4	Live Phone	Nonpartisan	None
+	11.0	2.0	3.0		9.0		15.0	41.0		3.0	16.0			suffolk-12382	Suffolk	2011-12-30	2011-12-31		Likely Voters - Republican	500	4.9	Live Phone	Nonpartisan	None
+	12.0	3.0	4.0		12.0		21.0	41.0		4.0	1.0	2.0		magellan-r-12383	Magellan (R)	2011-12-27	2011-12-28		Likely Voters - Republican	648	3.9	Automated Phone	Pollster	Rep
+	13.0	3.0	7.0		12.0		21.0	36.0		3.0	2.0	3.0		ppp-d-12370	PPP (D)	2011-12-27	2011-12-28		Likely Voters - Republican	341	5.3	Automated Phone	Pollster	Dem
+	16.0	2.0	3.0		9.0		17.0	44.0		4.0	4.0		1.0	cnn-time-12361	CNN/Time	2011-12-21	2011-12-27		Likely Voters - Republican	543	4.0	Live Phone	Nonpartisan	None
+	17.0				11.0		17.0	39.0		3.0				unh-boston-globe-12350	UNH/Boston Globe	2011-12-12	2011-12-19		Likely Voters - Republican	543	4.2	Live Phone	Nonpartisan	None
+	17.0	2.0	5.0		13.0		19.0	35.0		3.0	4.0	1.0		ppp-d-12309	PPP (D)	2011-12-16	2011-12-18		Likely Voters - Republican	1235	2.8	Automated Phone	Pollster	Dem
+	16.0	2.0	4.0		13.0		21.0	35.0		1.0	8.0			arg-12290	ARG	2011-12-11	2011-12-14		Likely Voters	600	4.0	Live Phone	Nonpartisan	None
+	20.0	1.0	3.0	2.0	13.0		8.0	38.0	1.0	2.0	11.0			suffolk-12288	Suffolk	2011-12-10	2011-12-13		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+	22.0	3.0	3.0		10.0		18.0	33.0		3.0	5.0	2.0		rasmussen-12272	Rasmussen	2011-12-12	2011-12-12		Likely Voters - Republican	762	4.0	Automated Phone	Nonpartisan	None
+	26.0	2.0	3.0		8.0		17.0	35.0		2.0	6.0	1.0	1.0	cnn-time-12235	CNN/Time	2011-11-29	2011-12-06		Likely Voters - Republican	4507	4.5	Live Phone	Nonpartisan	None
+	23.0	3.0	3.0	2.0	9.0		15.0	38.0		1.0	7.0			nbc-marist-12199	NBC/Marist	2011-11-28	2011-11-30		Likely Voters - Republican	696	3.7	Live Phone	Nonpartisan	None
+	24.0	2.0	2.0	5.0	11.0		14.0	34.0		1.0	6.0	1.0		rasmussen-12180	Rasmussen	2011-11-28	2011-11-28		Likely Voters - Republican	762	4.0	Automated Phone	Nonpartisan	None
+	14.0	2.0	1.0	8.0	9.0		14.0	41.0		3.0	9.0			suffolk-12159	Suffolk	2011-11-16	2011-11-20		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+	22.0	2.0	2.0	9.0	8.0		12.0	33.0	1.0	1.0	9.0			arg-12154	ARG	2011-11-16	2011-11-20		Likely Voters	600	4.0	Live Phone	Nonpartisan	None
+	15.0	4.0	2.0	4.0	8.0		12.0	42.0		1.0	11.0			unh-wmur-12169	UNH/WMUR	2011-11-15	2011-11-20		Likely Voters - Republican	413	4.8	Live Phone	Nonpartisan	None
+	27.0	2.0	2.0	10.0	8.0		16.0	29.0		1.0	3.0	2.0		magellan-r-12144	Magellan (R)	2011-11-15	2011-11-16		Likely Voters - Republican	736	3.6	Automated Phone	Pollster	Rep
+	11.0	3.0	2.0	8.0	7.0		17.0	40.0		1.0	10.0	1.0		bloomberg-12128	Bloomberg	2011-11-10	2011-11-12		Likely Voters - Republican	504		Live Phone	Nonpartisan	None
+	8.0	4.0	3.0	17.0	7.0		11.0	41.0		1.0	5.0	2.0		rasmussen-12037	Rasmussen	2011-10-25	2011-10-25		Likely Voters - Republican	816	4.0	Automated Phone	Nonpartisan	None
+	5.0	4.0	2.0	13.0	6.0		12.0	40.0		1.0	14.0		5.0	cnn-time-12033	CNN/Time	2011-10-20	2011-10-25		Registered Voters - Republican	400	5.0	Live Phone	Nonpartisan	None
+	5.0	3.0	3.0	18.0			9.0	43.0		1.0	15.0	3.0		aarp-gs-strategies-12108	AARP/GS Strategies	2011-10-17	2011-10-18		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+	6.0	2.0	4.0	20.0	6.0		10.0	41.0		2.0	8.0	1.0		magellan-r-11976	Magellan (R)	2011-10-12	2011-10-13		Likely Voters - Republican	736	3.6	Automated Phone	Pollster	Rep
+	4.0	4.0	2.0	12.0	8.0		9.0	37.0		2.0		13.0		unh-wmur-11939	UNH/WMUR	2011-09-26	2011-10-06		Likely Voters - Republican	345	5.3	Live Phone	Nonpartisan	None
+	4.0	7.0	3.0	13.0	5.0		13.0	45.0		1.0	8.0	1.0		nbc-marist-11950	NBC/Marist	2011-10-03	2011-10-05		Likely Voters - Republican	691	3.7	Live Phone	Nonpartisan	None
+	2.0	18.0	10.0	3.0	3.0		14.0	36.0		1.0	10.0	3.0		magellan-r-11729	Magellan (R)	2011-08-15	2011-08-16		Likely Voters - Republican	613	4.0	Automated Phone	Pollster	Rep
+	7.0	2.0	12.0	4.0			4.0	29.0		2.0	2.0	22.0		arg-11586	ARG	2011-07-09	2011-07-13		Likely Voters	600	4.0	Live Phone	Nonpartisan	None
+	4.0	7.0	18.0	7.0	6.0		9.0	25.0			7.0	17.0		ppp-d-11545	PPP (D)	2011-06-30	2011-07-05		Likely Voters - Republican	341	5.3	Automated Phone	Pollster	Dem
+	1.0	4.0	12.0	2.0	2.0		7.0	35.0		1.0	19.0	16.0		unh-wmur-11547	UNH/WMUR	2011-06-30	2011-07-01		Likely Voters - Republican	357	5.2	Live Phone	Nonpartisan	None
+	2.0	2.0	11.0	2.0	4.0		8.0	36.0	0.0	1.0	21.0	11.0		suffolk-11526	Suffolk	2011-06-25	2011-06-27		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+	3.0		10.0	4.0	3.0		10.0	42.0		2.0	8.0	18.0		magellan-r-11506	Magellan (R)	2011-06-14	2011-06-15		Likely Voters - Republican	727	3.6	Automated Phone	Pollster	Rep
+	3.0		4.0	4.0	3.0		6.0	41.0		3.0	13.0	22.0		unh-boston-globe-11462	UNH/Boston Globe	2011-06-01	2011-06-08		Likely Voters - Republican	424	4.8	Live Phone	Nonpartisan	None
+	6.0		4.0	4.0	4.0		9.0	32.0		2.0	17.0	22.0		unh-wmur-cnn-11369	UNH/WMUR/CNN	2011-05-17	2011-05-22		Likely Voters - Republican	347	3.5	Live Phone	Nonpartisan	None
+	3.0		3.0	2.0	0.0		8.0	35.0	1.0	2.0	13.0	36.0		suffolk-11297	Suffolk	2011-04-30	2011-05-02		Likely Voters - Republican	400	4.9	Live Phone	Nonpartisan	None
+	4.0		4.0				6.0	36.0				31.0		unh-11298	UNH	2011-04-15	2011-05-02		Likely Voters - Republican	416	4.8	Live Phone	Nonpartisan	None
+	8.0		1.0	2.0			8.0	32.0	1.0		8.0	40.0		arg-11242	ARG	2011-04-16	2011-04-21		Likely Voters - Republican	600	4.0	Live Phone	Nonpartisan	None
+	13.0		4.0				10.0	31.0			12.0	31.0		ppp-d-11151	PPP (D)	2011-03-31	2011-04-03		Likely Voters - Republican	384	5.0	Automated Phone	Pollster	Dem
+	8.0						7.0	39.0		3.0	8.0	35.0		magellan-r-10800	Magellan (R)	2011-01-04	2011-01-04		Likely Voters - Republican	1451	2.6	Automated Phone	Pollster	Rep
+	10.0							40.0			19.0	32.0		ppp-d-10594	PPP (D)	2010-10-27	2010-10-29		Likely Voters - Republican	582	4.1	Automated Phone	Pollster	Dem
+	5.0	4.0	3.0	20.0	4.0		13.0	38.0		1.0	11.0	1.0		harvard-st-anselm-11945	Harvard/St Anselm	2010-10-02	2010-10-06		Likely Voters - Republican	648	4.4	Live Phone	Nonpartisan	None
+	12.0						8.0	41.0			7.0	27.0		ppp-d-10575	PPP (D)	2010-09-11	2010-09-12		Likely Voters - Republican	1134	2.91	Automated Phone	Pollster	Dem
+	5.0						6.0	41.0		2.0	9.0	38.0		unh-10574	UNH	2010-04-18	2010-04-28		Likely Voters - Republican	228	6.5	Live Phone	Nonpartisan	None

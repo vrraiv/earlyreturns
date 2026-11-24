@@ -1,0 +1,15 @@
+Clinton	Biden	Sanders	O'Malley	Webb	Chafee	Warren	Cuomo	Undecided	Other	poll_slug	survey_house	start_date	end_date	question_text	sample_subpopulation	observations	margin_of_error	mode	partisanship	partisan_affiliation
+50.0		44.0						5.0	1.0	arg-24352	ARG	2016-04-21	2016-04-24		Likely Voters - Democrat	400	5.0	Live Phone	Nonpartisan	None
+57.0		32.0						10.0	1.0	monmouth-university-24325	Monmouth University	2016-04-18	2016-04-20		Likely Voters - Democrat	300	5.7	Live Phone	Nonpartisan	None
+58.0		33.0						9.0		ppp-d-24314	PPP (D)	2016-04-15	2016-04-17		Likely Voters - Democrat	492	3.3	IVR/Online	Pollster	Dem
+58.0		36.0						6.0	0.0	nbc4-marist-24262	NBC4/Marist	2016-04-05	2016-04-09		Likely Voters - Democrat	775	3.5	Live Phone	Nonpartisan	None
+55.0		40.0								washington-post-university-of-maryland-24223	Washington Post/University of Maryland	2016-03-30	2016-04-03		Likely Voters - Democrat	539	5.5	Live Phone	Nonpartisan	None
+61.0		28.0						10.0	1.0	baltimore-sun-university-of-baltimore-opinionworks-24048	Baltimore Sun/University of Baltimore/OpinionWorks	2016-03-04	2016-03-08		Likely Voters - Democrat	400	4.8	Live Phone	Nonpartisan	None
+57.0		26.0						17.0		gonzales-research-24046	Gonzales Research	2016-02-29	2016-03-04		Likely Voters - Democrat	411	5.0	Live Phone	Nonpartisan	None
+58.0		28.0						13.0	1.0	goucher-college-23852	Goucher College	2016-02-13	2016-02-18		Likely Voters - Democrat	307	5.6	Live Phone	Nonpartisan	None
+40.0		27.0	5.0					28.0		gonzales-research-23529	Gonzales Research	2016-01-11	2016-01-16		Likely Voters - Democrat	402	5.0	Live Phone	Nonpartisan	None
+43.0	26.0	20.0	4.0	1.0	0.0			2.0	3.0	washington-post-university-of-maryland-22897	Washington Post/University of Maryland	2015-10-08	2015-10-11		Registered Voters - Democrat	490	5.0	Live Phone	Nonpartisan	None
+43.0	23.0	17.0	2.0	2.0	0.0			12.0	1.0	goucher-college-22850	Goucher College	2015-09-26	2015-10-01		Likely Voters - Democrat	300	5.7	Live Phone	Nonpartisan	None
+63.0	9.0	3.0	3.0			6.0	2.0	7.0		washington-post-university-of-maryland-20737	Washington Post/University of Maryland	2014-10-02	2014-10-05		Registered Voters - Democrat			Live Phone	Nonpartisan	None
+72.0	9.0		6.0			3.0	2.0	7.0		washington-post-18870	Washington Post	2014-02-13	2014-02-16		Likely Voters - Democrat	538	5.0	Live Phone	Nonpartisan	None
+59.0	14.0		6.0					17.0	4.0	baltimore-sun-opinionworks-18867	Baltimore Sun/OpinionWorks	2014-02-08	2014-02-12		Likely Voters - Democrat	500	4.4	Live Phone	Nonpartisan	None
