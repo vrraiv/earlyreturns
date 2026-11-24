@@ -4429,7 +4429,8 @@ No flag is not evidence the model is right.
 
 The states' coverage is reported and is not a flag. It was left out of the flags in the draft the user confirmed,
 on the mistaken ground that EC-6 had read it (see "How blind this is"); no flag is added after that confirmation
-without the user's word, and none was asked for before the run.
+without the user's word. The user was not asked about one before the run: the mistake was found and corrected
+between their confirmation and the run, and they were told with the results.
 
 **The code.** A new `src/model/pres_backtest.py`. It takes any outputs file of A6's shape, so the rival (EC-10) is
 scored by the same code. `pres_sim.py` and `pres_sim_asof.json` are not touched.
@@ -4559,8 +4560,11 @@ passing). Everything is in `data/processed/pres_backtest.json`, with one row per
 - The popular vote is inside its 80% range in all four, with a mean absolute error of 2.4 points (B1 4.3, B2 2.8).
   With EC-6's finding that this range is too wide, four of four says little.
 - The count's median misses by 25, 37, 80 and 29 votes (mean 43; B1 79, B2 55). B2 is closer in 2008 (12) and B1
-  in 2012 (27). In 2016 the result sat two votes inside the bottom of the 80% range.
-- The model favoured the winner in three of four and gave the 2016 winner 1 in 4.
+  in 2012 (27). In 2016 the result sat two votes inside the bottom of the 80% range, which is within what another
+  seed can move the count's percentiles (EC-6 found the median moving by up to five votes), so flag 1's count of
+  zero for 2016 is not secure. The flag needs three of four either way.
+- The model favoured the winner in three of four and gave the 2016 winner 1 in 4. The Monte Carlo error on these
+  probabilities is about 0.006 (EC-6).
 - The gap's mean absolute error is 1.4 points (B1 1.7, B2 1.7). The forecast gap was near zero in 2008 and 2012,
   when the realized gap favoured the Democrat, and less than half the realized gap in 2016.
 - The actual tipping point was always among the twelve listed and never the forecast's first. B1's point margins
@@ -4578,7 +4582,9 @@ passing). Everything is in `data/processed/pres_backtest.json`, with one row per
 | Count, mean absolute error | 46 | 49 | 43 | 49 |
 | Winner's mean log loss | 0.66 | 0.68 | 0.60 | 0.65 |
 
-With 2008, the 30-day figures over four elections are: state error 5.50 (B1 8.68, B2 6.60), Brier 0.048, coverage
+The popular vote, count, winner and B2 figures at 30 and 7 days in this table are means over the three
+elections' cells in the results file, which stores the four-election pooling only. With 2008, the 30-day figures
+over four elections are: state error 5.50 (B1 8.68, B2 6.60), Brier 0.048, coverage
 70% and 94%, popular vote 2.3, count 44, winner's log loss 0.54. B2's rungs are in the amendments above and in the
 results file for every cell.
 
@@ -4588,13 +4594,21 @@ inside an 80% range four times in four is what a range that is too wide also giv
 
 **To the design freeze (EC-9), all suggested by these results.**
 
-- **The centre does not get closer as the election nears** on 2012 to 2020: the state error is 5.6 at 100 days and
-  5.7 at 7, and the popular vote's error is larger at 7 days than at 100. The Brier score still improves because
-  the ranges narrow.
-- **The ranges are too wide early:** 85% and 99% coverage at 100 days for ranges named 50% and 80%. This agrees with
-  EC-6's hand-off on the days term.
+- **The centre does not get closer as the election nears** on 2012 to 2020 pooled: the state error is 5.6 at 100
+  days and 5.7 at 7, and the popular vote's error is larger at 7 days than at 100. The Brier score still improves
+  because the ranges narrow. The elections differ: from 30 to 7 days 2016 improves a little (6.9 to 6.8, from 7.7
+  at 100), 2012 is flat (4.6 to 4.7) and 2020 worsens (3.9 to 5.3). The cause is not established.
+- **The whole-margin ranges are too wide early:** 85% and 99% coverage at 100 days for ranges named 50% and 80%.
+  EC-6 found the states' part alone covering 57% and 86% at 100 days, so most of the excess is not the states' part;
+  that points at the national draw, which EC-6 also found too wide. Which part carries how much is not established.
+- **At 7 days two errors may offset** (an inference from two numbers, not a test): the states' part covered 42% and
+  73% at EC-6 and the whole margin covers 51% and 83% here. A narrow state part under a wide national draw would
+  give that. If so, correcting one alone at the freeze would unbalance the other.
 - **The gap is forecast too close to zero.** It was outside its 80% range twice and one election short of the flag.
 - **Recent polls alone are worse than last time's result at 7 days in 2020** (7.7 against 4.7), and the model sits
-  between them (5.3). Its signed miss is −3.6 and −4.0 in 2016 and 2020 and positive in 2008 and 2012.
+  between them (5.3). Its signed miss is −3.6 and −4.0 in 2016 and 2020 and positive in 2008 and 2012. B2 itself
+  worsens from 5.7 at 30 days to 7.7 at 7 in 2020, the date at which every state has ten or more polls in the
+  window while 19 contests still have fewer than three firms there. One firm's 50-state releases entering through
+  the second rung would do that; the cause is not established, and no split by rung was run.
 - **The winner's log loss at 100 and 60 days (0.66, 0.68) is close to a coin's,** on three elections, one of them 2016.
 - **2024** is scored once by this recipe, unchanged, at the freeze.
