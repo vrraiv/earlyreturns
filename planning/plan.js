@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-24d",
+  version: "2026-11-24e",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -714,7 +714,10 @@ window.PLAN = {
             "Backtest published on the site.",
             "Parameters frozen for the season.",
             "Before the freeze, the design is checked against the 2026 lessons list (moved here from EC-1).",
-            "From EC-4 (2026-11-21), to be scored once on 2024: the fixed weight on a state's polls, adopted provisionally, and a version of it with no pull in close states (prior within 10 points), which EC-4's results suggested. Each one's exact fit is written down before 2024 is opened (`ELECTORAL_COLLEGE.md`, section 13)."
+            "From EC-4 (2026-11-21), to be scored once on 2024: the fixed weight on a state's polls, adopted provisionally, and a version of it with no pull in close states (prior within 10 points), which EC-4's results suggested. Each one's exact fit is written down before 2024 is opened (`ELECTORAL_COLLEGE.md`, section 13).",
+            "From EC-7 (2026-11-24): 2024 is scored here, once, by the recipe EC-7 fixed and used on 2008 to 2020 (section 16 of the note), unchanged: the same scores, the same two benchmarks, the same six signs of a plainly wrong model, run by `src/model/pres_backtest.py`.",
+            "From EC-7's results, each suggested by them and so declared with anything built on it: the forecast's centre is no closer a week out than 100 days out on 2012 to 2020; the ranges are too wide early, and most of the excess looks like the national part; a week out the states' part looks too narrow and the national part too wide, so correcting one alone could unbalance the other; the gap between the tipping-point state and the popular vote is forecast too close to zero.",
+            "From EC-7's diagnostic (2026-11-24): in the last weeks of 2020, one firm's repeated releases were the only recent polls in many thinly polled states, and both the recent-polls benchmark and the model got worse there. How the average treats one firm polling alone and often is a question for the freeze."
           ],
           checklist: [
             { id: "a", text: "Design checked against the lessons list" }
