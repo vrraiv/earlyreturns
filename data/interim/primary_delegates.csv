@@ -295,7 +295,7 @@ cycle,party,state,candidate_name,delegates,green_papers_page,archive_capture,lin
 2012,R,AL,Mitt Romney,12.0,http://www.thegreenpapers.com/P12/AL-R,20121115002416,candidate,mitt-romney
 2012,R,AL,Uncommitted,3.0,http://www.thegreenpapers.com/P12/AL-R,20121115002416,uncommitted,
 2012,D,AR,Barack Obama,28.0,http://www.thegreenpapers.com/P12/AR-D,20121115051541,candidate,barack-obama
-2012,D,AR,"John, Wolfe",19.0,http://www.thegreenpapers.com/P12/AR-D,20121115051541,candidate,
+2012,D,AR,John Wolfe,19.0,http://www.thegreenpapers.com/P12/AR-D,20121115051541,candidate,
 2012,D,AR,Uncommitted,8.0,http://www.thegreenpapers.com/P12/AR-D,20121115051541,uncommitted,
 2012,R,AR,Mitt Romney,33.0,http://www.thegreenpapers.com/P12/AR-R,20121115054355,candidate,mitt-romney
 2012,R,AR,Uncommitted,3.0,http://www.thegreenpapers.com/P12/AR-R,20121115054355,uncommitted,
@@ -367,7 +367,7 @@ cycle,party,state,candidate_name,delegates,green_papers_page,archive_capture,lin
 2012,D,KY,Uncommitted,36.0,http://www.thegreenpapers.com/P12/KY-D,20121115014257,uncommitted,
 2012,R,KY,Mitt Romney,45.0,http://www.thegreenpapers.com/P12/KY-R,20121115024653,candidate,mitt-romney
 2012,D,LA,Barack Obama,60.0,http://www.thegreenpapers.com/P12/LA-D,20121115043448,candidate,barack-obama
-2012,D,LA,"John, Wolfe",4.0,http://www.thegreenpapers.com/P12/LA-D,20121115043448,candidate,
+2012,D,LA,John Wolfe,4.0,http://www.thegreenpapers.com/P12/LA-D,20121115043448,candidate,
 2012,D,LA,Uncommitted,8.0,http://www.thegreenpapers.com/P12/LA-D,20121115043448,uncommitted,
 2012,R,LA,Rick Santorum,10.0,http://www.thegreenpapers.com/P12/LA-R,20121115040217,candidate,rick-santorum
 2012,R,LA,Mitt Romney,5.0,http://www.thegreenpapers.com/P12/LA-R,20121115040217,candidate,mitt-romney

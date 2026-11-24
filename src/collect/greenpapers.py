@@ -10,6 +10,10 @@ Pages: one per state and party per cycle (e.g. /P24/IA-R), and each party's allo
 missing, checked 2026-11-24), so those come from the Internet Archive: for each page, its last capture before the
 end of the cycle's year.
 
+The 2008 and 2012 pages also carry a first-stage count before the delegate columns (the popular vote, or caucus-goers'
+delegates); it is written to primary_greenpapers_counts.csv under the page's own heading, and primary_results.py checks
+the results against it.
+
 Run:  python src/collect/greenpapers.py fetch     (polite: one request every 3 seconds; cached pages are skipped)
       python src/collect/greenpapers.py           (parse the stored pages and write the tables)
 """
@@ -196,6 +200,52 @@ def delegates_table(soup):
     return out, total
 
 
+# first-stage column headings (2008 and 2012 pages only) -> measure; mapped only where the heading is unambiguous
+FIRST_STAGE_MEASURE = {
+    "Popular Vote": "votes", "Caucus Popular Vote": "votes", "Precinct Popular Vote": "votes",
+    "Popular Vote (Supporters)": "votes",
+    "State Convention Delegates Selected": "state delegates", "State Delegates": "state delegates",
+    "County Convention Delegates Elected": "county delegates", "County Delegates": "county delegates",
+    "Precinct Delegates Selected": "precinct delegates",
+    "Delegates to the District Convention": "district convention delegates",
+    "Percentage Vote": "unclear",   # Washington Republicans: counts under a heading that doesn't say what they count
+}
+
+
+def first_stage(soup):
+    """(heading, candidate, count, listed share) for each column before 'Delegate Votes' in the delegate table (the
+    popular vote, or caucus-goers' delegates), and {heading: the column's Total}. Cells read '2,079  59.43%': the
+    count is the leading number, the share the one before '%'."""
+    t = next((x for x in soup.find_all("table") if "Hard Total" in x.get_text() and x.find("table") is None), None)
+    if t is None:
+        return [], {}
+    trs = t.find_all("tr")
+    heads, col = [], 0
+    for c in trs[0].find_all(["td", "th"]):
+        h = re.sub(r"\s+", " ", c.get_text(" ", strip=True))
+        if h == "Delegate Votes":
+            break
+        if col > 0:
+            heads.append((col, h))
+        col += int(re.sub(r"\D", "", c.get("colspan", "1")) or 1)
+    out, totals = [], {}
+    for tr in trs[2:]:
+        r = [c.get_text(" ", strip=True).replace("\xa0", " ") for c in tr.find_all(["td", "th"])]
+        for i, h in heads:
+            if len(r) <= i:
+                continue
+            m = re.match(r"([\d,]+(?:\.\d+)?)", r[i])
+            if not m:
+                continue
+            n = float(m.group(1).replace(",", ""))
+            s = re.search(r"([\d.]+)%", r[i][m.end():])
+            if r[0] == "Total":
+                totals[h] = n
+            else:
+                out.append((h, r[0], n, float(s.group(1)) / 100 if s else None))
+    return out, totals
+
+
 def events(t, cycle):
     """(event, first day) for each line of the 'Presidential Nominating Process' list."""
     i = t.find("Presidential Nominating Process")
@@ -240,6 +290,7 @@ def parse_page(path):
     thr = sorted({int(x) for p in THRESHOLD for x in re.findall(p, rules_txt, re.I) if 5 <= int(x) <= 50})
     wta = re.search(WTA_TRIGGER, rules_txt, re.I)
     dels, dtotal = delegates_table(soup)
+    fs, fs_tot = first_stage(soup)
     ev = events(t, cycle)
     rule = {
         "cycle": cycle, "party": party, "state": st,
@@ -255,22 +306,26 @@ def parse_page(path):
         "first_event": ev[0][0] if ev else None, "first_event_date": ev[0][1] if ev else None,
         "delegates_listed": sum(v for _, v in dels) if dels else None, "delegates_table_total": dtotal,
     }
+    counts = [{"cycle": cycle, "party": party, "state": st, "heading": h, "measure": FIRST_STAGE_MEASURE.get(h, "unclear"),
+               "candidate_name": n, "count": v, "share_listed": s, "column_total": fs_tot.get(h)} for h, n, v, s in fs]
     return rule, [{"cycle": cycle, "party": party, "state": st, "candidate_name": n, "delegates": v} for n, v in dels], \
-        [{"cycle": cycle, "party": party, "state": st, "event": e, "date": d} for e, d in ev]
+        [{"cycle": cycle, "party": party, "state": st, "event": e, "date": d} for e, d in ev], counts
 
 
 def parse():
-    rules, dels, evs = [], [], []
+    rules, dels, evs, cnts = [], [], [], []
+    man_all = json.loads((LINKED / "manifest.json").read_text(encoding="utf-8"))[SOURCE]
     for p in sorted((LINKED / SOURCE).glob("*/P*_??-?.html")):
-        a, b, c = parse_page(p)
-        man = json.loads((LINKED / "manifest.json").read_text(encoding="utf-8"))[SOURCE].get(f"{p.parent.name}/{p.name}", {})
-        for x in [a] + b + c:
+        a, b, c, f = parse_page(p)
+        man = man_all.get(f"{p.parent.name}/{p.name}", {})
+        for x in [a] + b + c + f:
             x["green_papers_page"] = man.get("page")
             x["archive_capture"] = man.get("archive_capture")
         rules.append(a)
         dels += b
         evs += c
-    return pd.DataFrame(rules), pd.DataFrame(dels), pd.DataFrame(evs)
+        cnts += f
+    return pd.DataFrame(rules), pd.DataFrame(dels), pd.DataFrame(evs), pd.DataFrame(cnts)
 
 
 def gp_name(n):
@@ -279,7 +334,7 @@ def gp_name(n):
         return n
     last, rest = [x.strip() for x in n.split(",", 1)]
     nick = re.search(r'"([^"]+)"?', rest)
-    first = nick.group(1) if nick else rest.split()[0] if rest.split() else ""
+    first = nick.group(1) if nick else rest.split()[0].rstrip(",") if rest.split() else ""
     return f"{first} {last}".strip()
 
 
@@ -303,17 +358,20 @@ def main():
     from common import ROOT
     from primary_polls import match_keys
     out = ROOT / "data" / "interim"
-    r, d, e = parse()
-    d["candidate_name"] = d.candidate_name.map(gp_name)
-    d["line"] = ["uncommitted" if re.search(r"uncommit", n, re.I) else
-                 "available" if re.search(r"available", n, re.I) else "candidate" for n in d.candidate_name]
+    r, d, e, f = parse()
     cands = pd.read_csv(out / "primary_candidates.csv")
-    keys = match_keys(d[d.line == "candidate"], cands)
-    d["candidate_key"] = [keys.get((y, p, n)) if ln == "candidate" else None
-                          for y, p, n, ln in zip(d.cycle, d.party, d.candidate_name, d.line)]
-    d["candidate_key"] = d.candidate_key.where(~d.candidate_key.astype(str).str.startswith("AMBIGUOUS"))
+    for x in (d, f):
+        x["candidate_name"] = x.candidate_name.map(gp_name)
+        x["line"] = ["uncommitted" if re.search(r"uncommit", n, re.I) else
+                     "available" if re.search(r"available", n, re.I) else
+                     "other" if re.match(r"others?$|\(|not announced", n, re.I) else "candidate" for n in x.candidate_name]
+        keys = match_keys(x[x.line == "candidate"], cands)
+        x["candidate_key"] = [keys.get((y, p, n)) if ln == "candidate" else None
+                              for y, p, n, ln in zip(x.cycle, x.party, x.candidate_name, x.line)]
+        x["candidate_key"] = x.candidate_key.where(~x.candidate_key.astype(str).str.startswith("AMBIGUOUS"))
     r.to_csv(out / "primary_delegate_rules.csv", index=False)
     d.to_csv(out / "primary_delegates.csv", index=False)
+    f.to_csv(out / "primary_greenpapers_counts.csv", index=False)
     e.to_csv(out / "primary_delegate_events.csv", index=False)
     c = calendar_check(e)
     c.to_csv(out / "primary_calendar_check.csv", index=False)
@@ -334,6 +392,13 @@ def main():
     print("Democratic thresholds other than 15% (a likely parse error):", odd[["cycle", "state", "threshold_pct"]].values.tolist() or "none")
     um = d[(d.line == "candidate") & d.candidate_key.isna()].groupby(["cycle", "party", "candidate_name"]).delegates.sum()
     print("Candidates with delegates not matched to the timeline:", um[um > 0].sort_values(ascending=False).head(10).to_dict())
+    g = f.groupby(["cycle", "party", "state", "heading"]).agg(listed=("count", "sum"), total=("column_total", "first"))
+    print("First-stage columns (popular vote or caucus delegates) by cycle and heading:")
+    print(f.groupby(["cycle", "heading"]).state.nunique().to_string())
+    bad = g[(g.listed - g.total).abs() > 0.51]
+    print("First-stage columns whose rows don't sum to their Total:", len(bad), "of", len(g))
+    if len(bad):
+        print(bad.to_string())
     print("Calendar dates not among the page's event dates:", int((~c.green_papers_has_date).sum()), "of", len(c))
     print(c[~c.green_papers_has_date][["cycle", "party", "state", "contest", "date"]].to_string(index=False))
 

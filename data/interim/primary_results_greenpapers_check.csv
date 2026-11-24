@@ -1,0 +1,1133 @@
+cycle,party,state,contest,candidate_name,source_kind,measure,votes,green_papers_count,green_papers_heading,green_papers_measure,difference
+2008,D,IA,caucus,Barack Obama,wikipedia,state delegate equivalents,940.0,940.0,County Convention Delegates Elected,county delegates,0.0
+2008,D,IA,caucus,John Edwards,wikipedia,state delegate equivalents,744.0,744.0,County Convention Delegates Elected,county delegates,0.0
+2008,D,IA,caucus,Hillary Clinton,wikipedia,state delegate equivalents,737.0,737.0,County Convention Delegates Elected,county delegates,0.0
+2008,D,IA,caucus,Bill Richardson,wikipedia,state delegate equivalents,53.0,53.0,County Convention Delegates Elected,county delegates,0.0
+2008,D,IA,caucus,Joe Biden,wikipedia,state delegate equivalents,23.0,23.0,County Convention Delegates Elected,county delegates,0.0
+2008,D,IA,caucus,Uncommitted,wikipedia,state delegate equivalents,3.0,3.0,County Convention Delegates Elected,county delegates,0.0
+2008,D,IA,caucus,Christopher Dodd,wikipedia,state delegate equivalents,1.0,1.0,County Convention Delegates Elected,county delegates,0.0
+2008,D,NH,primary,Hillary Clinton,fec,votes,112404.0,112404.0,Popular Vote,votes,0.0
+2008,D,NH,primary,Barack Obama,fec,votes,104815.0,104815.0,Popular Vote,votes,0.0
+2008,D,NH,primary,John Edwards,fec,votes,48699.0,48699.0,Popular Vote,votes,0.0
+2008,D,NH,primary,Bill Richardson,fec,votes,13269.0,13269.0,Popular Vote,votes,0.0
+2008,D,NH,primary,Dennis J. Kucinich,fec,votes,3891.0,3891.0,Popular Vote,votes,0.0
+2008,D,NH,primary,Joe Biden,fec,votes,638.0,638.0,Popular Vote,votes,0.0
+2008,D,NH,primary,Mike Gravel,fec,votes,404.0,404.0,Popular Vote,votes,0.0
+2008,D,NH,primary,Chris Dodd,fec,votes,205.0,205.0,Popular Vote,votes,0.0
+2008,D,NH,primary,D. R. Hunter,fec,votes,95.0,95.0,Popular Vote,votes,0.0
+2008,D,NH,primary,Randy Crow,fec,votes,37.0,37.0,Popular Vote,votes,0.0
+2008,D,NH,primary,O. Savior,fec,votes,30.0,30.0,Popular Vote,votes,0.0
+2008,D,NH,primary,William C. Hughes,fec,votes,16.0,16.0,Popular Vote,votes,0.0
+2008,D,NH,primary,Dal LaMagna,fec,votes,8.0,8.0,Popular Vote,votes,0.0
+2008,D,MI,primary,Hillary Clinton,fec,votes,328309.0,328309.0,Popular Vote,votes,0.0
+2008,D,MI,primary,Uncommitted,fec,votes,238168.0,238168.0,Popular Vote,votes,0.0
+2008,D,MI,primary,Dennis Kucinich,fec,votes,21715.0,21715.0,Popular Vote,votes,0.0
+2008,D,MI,primary,Chris Dodd,fec,votes,3845.0,3845.0,Popular Vote,votes,0.0
+2008,D,MI,primary,Mike Gravel,fec,votes,2361.0,2361.0,Popular Vote,votes,0.0
+2008,D,NV,caucus,Hillary Clinton,wikipedia,county delegates,5459.0,5407.0,County Delegates,county delegates,52.0
+2008,D,NV,caucus,Barack Obama,wikipedia,county delegates,4844.0,4805.0,County Delegates,county delegates,39.0
+2008,D,NV,caucus,John Edwards,wikipedia,county delegates,399.0,398.0,County Delegates,county delegates,1.0
+2008,D,NV,caucus,Uncommitted,wikipedia,county delegates,34.0,33.0,County Delegates,county delegates,1.0
+2008,D,NV,caucus,Dennis Kucinich,wikipedia,county delegates,5.0,5.0,County Delegates,county delegates,0.0
+2008,D,NV,caucus,Mike Gravel,wikipedia,county delegates,0.0,,,,
+2008,D,SC,primary,Barack Obama,fec,votes,294898.0,294898.0,Popular Vote,votes,0.0
+2008,D,SC,primary,Hillary Clinton,fec,votes,140990.0,140990.0,Popular Vote,votes,0.0
+2008,D,SC,primary,John Edwards,fec,votes,93801.0,93801.0,Popular Vote,votes,0.0
+2008,D,SC,primary,Bill Richardson,fec,votes,726.0,726.0,Popular Vote,votes,0.0
+2008,D,SC,primary,Joe Biden,fec,votes,693.0,693.0,Popular Vote,votes,0.0
+2008,D,SC,primary,Dennis Kucinich,fec,votes,551.0,551.0,Popular Vote,votes,0.0
+2008,D,SC,primary,Chris Dodd,fec,votes,247.0,247.0,Popular Vote,votes,0.0
+2008,D,SC,primary,Mike Gravel,fec,votes,245.0,245.0,Popular Vote,votes,0.0
+2008,D,FL,primary,Hillary Clinton,fec,votes,870986.0,870986.0,Popular Vote,votes,0.0
+2008,D,FL,primary,Barack Obama,fec,votes,576214.0,576214.0,Popular Vote,votes,0.0
+2008,D,FL,primary,John Edwards,fec,votes,251562.0,251562.0,Popular Vote,votes,0.0
+2008,D,FL,primary,"Joseph R., Jr. Biden",fec,votes,15704.0,,,,
+2008,D,FL,primary,William Bill Richardson,fec,votes,14999.0,14999.0,Popular Vote,votes,0.0
+2008,D,FL,primary,Dennis J. Kucinich,fec,votes,9703.0,9703.0,Popular Vote,votes,0.0
+2008,D,FL,primary,Christopher J. Dodd,fec,votes,5477.0,5477.0,Popular Vote,votes,0.0
+2008,D,FL,primary,Mike Gravel,fec,votes,5275.0,5275.0,Popular Vote,votes,0.0
+2008,D,AK,caucus,Barack Obama,wikipedia,votes,6674.0,6674.0,Popular Vote (Supporters),votes,0.0
+2008,D,AK,caucus,Hillary Clinton,wikipedia,votes,2194.0,2194.0,Popular Vote (Supporters),votes,0.0
+2008,D,AK,caucus,Uncommitted,wikipedia,votes,12.0,12.0,Popular Vote (Supporters),votes,0.0
+2008,D,AL,primary,Barack Obama,fec,votes,300319.0,300319.0,Popular Vote,votes,0.0
+2008,D,AL,primary,Hillary Clinton,fec,votes,223089.0,223089.0,Popular Vote,votes,0.0
+2008,D,AL,primary,John Edwards,fec,votes,7841.0,7841.0,Popular Vote,votes,0.0
+2008,D,AL,primary,Uncommitted,fec,votes,2663.0,2663.0,Popular Vote,votes,0.0
+2008,D,AL,primary,Joe Biden,fec,votes,1174.0,1174.0,Popular Vote,votes,0.0
+2008,D,AL,primary,Bill Richardson,fec,votes,1017.0,1017.0,Popular Vote,votes,0.0
+2008,D,AL,primary,Christopher J. Dodd,fec,votes,523.0,523.0,Popular Vote,votes,0.0
+2008,D,AR,primary,Hillary Clinton,fec,votes,220136.0,220136.0,Popular Vote,votes,0.0
+2008,D,AR,primary,Barack Obama,fec,votes,82476.0,82476.0,Popular Vote,votes,0.0
+2008,D,AR,primary,John Edwards,fec,votes,5873.0,5873.0,Popular Vote,votes,0.0
+2008,D,AR,primary,Uncommitted,fec,votes,3398.0,3398.0,Popular Vote,votes,0.0
+2008,D,AR,primary,Bill Richardson,fec,votes,810.0,810.0,Popular Vote,votes,0.0
+2008,D,AR,primary,Joe Biden,fec,votes,515.0,515.0,Popular Vote,votes,0.0
+2008,D,AR,primary,Dennis J. Kucinich,fec,votes,393.0,393.0,Popular Vote,votes,0.0
+2008,D,AR,primary,Mike Gravel,fec,votes,325.0,325.0,Popular Vote,votes,0.0
+2008,D,AR,primary,Christopher J. Dodd,fec,votes,308.0,308.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,Hillary Clinton,fec,votes,229501.0,229501.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,Barack Obama,fec,votes,193126.0,193126.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,John Edwards,fec,votes,23621.0,23621.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,Bill Richardson,fec,votes,2842.0,2842.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,Dennis J. Kucinich,fec,votes,1973.0,1973.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,Christopher J. Dodd,fec,votes,484.0,484.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,Mike Gravel,fec,votes,340.0,340.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,Karl Krueger,fec,votes,291.0,291.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,Frank Lynch,fec,votes,248.0,248.0,Popular Vote,votes,0.0
+2008,D,AZ,primary,Evelyn L. Vitullo,fec,votes,132.0,132.0,Popular Vote,votes,0.0
+2008,D,CA,primary,Hillary Clinton,fec,votes,2608184.0,2608184.0,Popular Vote,votes,0.0
+2008,D,CA,primary,Barack Obama,fec,votes,2186662.0,2186662.0,Popular Vote,votes,0.0
+2008,D,CA,primary,John Edwards,fec,votes,193617.0,193617.0,Popular Vote,votes,0.0
+2008,D,CA,primary,Dennis Kucinich,fec,votes,24126.0,24126.0,Popular Vote,votes,0.0
+2008,D,CA,primary,Bill Richardson,fec,votes,19939.0,19939.0,Popular Vote,votes,0.0
+2008,D,CA,primary,Joe Biden,fec,votes,18261.0,18261.0,Popular Vote,votes,0.0
+2008,D,CA,primary,Mike Gravel,fec,votes,8184.0,8184.0,Popular Vote,votes,0.0
+2008,D,CA,primary,Chris Dodd,fec,votes,8005.0,8005.0,Popular Vote,votes,0.0
+2008,D,CO,caucus,Barack Obama,wikipedia,votes,80113.0,80113.0,Popular Vote,votes,0.0
+2008,D,CO,caucus,Hillary Clinton,wikipedia,votes,38839.0,38839.0,Popular Vote,votes,0.0
+2008,D,CO,caucus,Uncommitted,wikipedia,votes,1260.0,1260.0,Popular Vote,votes,0.0
+2008,D,CO,caucus,John Edwards,wikipedia,votes,102.0,102.0,Popular Vote,votes,0.0
+2008,D,CO,caucus,Dennis Kucinich,wikipedia,votes,58.0,58.0,Popular Vote,votes,0.0
+2008,D,CO,caucus,Mike Gravel,wikipedia,votes,18.0,18.0,Popular Vote,votes,0.0
+2008,D,CO,caucus,Bill Richardson,wikipedia,votes,17.0,17.0,Popular Vote,votes,0.0
+2008,D,CO,caucus,Joe Biden,wikipedia,votes,4.0,4.0,Popular Vote,votes,0.0
+2008,D,CO,caucus,Christopher Dodd,wikipedia,votes,0.0,0.0,Popular Vote,votes,0.0
+2008,D,CT,primary,Barack Obama,fec,votes,179742.0,179742.0,Popular Vote,votes,0.0
+2008,D,CT,primary,Hillary Clinton,fec,votes,165426.0,165426.0,Popular Vote,votes,0.0
+2008,D,CT,primary,John Edwards,fec,votes,3424.0,3424.0,Popular Vote,votes,0.0
+2008,D,CT,primary,Uncommitted,fec,votes,3038.0,3038.0,Popular Vote,votes,0.0
+2008,D,CT,primary,Chris Dodd,fec,votes,912.0,912.0,Popular Vote,votes,0.0
+2008,D,CT,primary,Dennis Kucinich,fec,votes,846.0,846.0,Popular Vote,votes,0.0
+2008,D,CT,primary,Joe Biden,fec,votes,440.0,440.0,Popular Vote,votes,0.0
+2008,D,CT,primary,Bill Richardson,fec,votes,436.0,436.0,Popular Vote,votes,0.0
+2008,D,CT,primary,Mike Gravel,fec,votes,275.0,275.0,Popular Vote,votes,0.0
+2008,D,DE,primary,Barack Obama,fec,votes,51148.0,51148.0,Popular Vote,votes,0.0
+2008,D,DE,primary,Hillary Clinton,fec,votes,40760.0,40760.0,Popular Vote,votes,0.0
+2008,D,DE,primary,"Joseph R., Jr. Biden",fec,votes,2863.0,,,,
+2008,D,DE,primary,John Edwards,fec,votes,1241.0,1241.0,Popular Vote,votes,0.0
+2008,D,DE,primary,Dennis J. Kucinich,fec,votes,192.0,192.0,Popular Vote,votes,0.0
+2008,D,DE,primary,Christopher J. Dodd,fec,votes,170.0,170.0,Popular Vote,votes,0.0
+2008,D,GA,primary,Barack Obama,fec,votes,704247.0,704247.0,Popular Vote,votes,0.0
+2008,D,GA,primary,Hillary Clinton,fec,votes,330026.0,330026.0,Popular Vote,votes,0.0
+2008,D,GA,primary,John Edwards,fec,votes,18209.0,18209.0,Popular Vote,votes,0.0
+2008,D,GA,primary,Joe Biden,fec,votes,2538.0,2538.0,Popular Vote,votes,0.0
+2008,D,GA,primary,Dennis J. Kucinich,fec,votes,2096.0,2096.0,Popular Vote,votes,0.0
+2008,D,GA,primary,Bill Richardson,fec,votes,1879.0,1879.0,Popular Vote,votes,0.0
+2008,D,GA,primary,Mike Gravel,fec,votes,952.0,952.0,Popular Vote,votes,0.0
+2008,D,GA,primary,Chris Dodd,fec,votes,904.0,904.0,Popular Vote,votes,0.0
+2008,D,ID,caucus,Barack Obama,wikipedia,votes,16880.0,16880.0,State Convention Delegates Selected,state delegates,0.0
+2008,D,ID,caucus,Hillary Clinton,wikipedia,votes,3652.0,3655.0,State Convention Delegates Selected,state delegates,-3.0
+2008,D,ID,caucus,Uncommitted,wikipedia,votes,552.0,552.0,State Convention Delegates Selected,state delegates,0.0
+2008,D,ID,caucus,John Edwards,wikipedia,votes,137.0,137.0,State Convention Delegates Selected,state delegates,0.0
+2008,D,IL,primary,Barack Obama,fec,votes,1318234.0,1318234.0,Popular Vote,votes,0.0
+2008,D,IL,primary,Hillary Clinton,fec,votes,667930.0,667930.0,Popular Vote,votes,0.0
+2008,D,IL,primary,John Edwards,fec,votes,39719.0,39719.0,Popular Vote,votes,0.0
+2008,D,IL,primary,Dennis J. Kucinich,fec,votes,4234.0,4234.0,Popular Vote,votes,0.0
+2008,D,IL,primary,Joe Biden,fec,votes,3788.0,3788.0,Popular Vote,votes,0.0
+2008,D,IL,primary,"William Bill B., III Richardson",fec,votes,3538.0,,,,
+2008,D,IL,primary,Christopher John Dodd,fec,votes,1171.0,1171.0,Popular Vote,votes,0.0
+2008,D,KS,caucus,Barack Obama,wikipedia,votes,27172.0,27172.0,Popular Vote,votes,0.0
+2008,D,KS,caucus,Hillary Clinton,wikipedia,votes,9462.0,9462.0,Popular Vote,votes,0.0
+2008,D,KS,caucus,John Edwards,wikipedia,votes,53.0,53.0,Popular Vote,votes,0.0
+2008,D,KS,caucus,Dennis Kucinich,wikipedia,votes,35.0,35.0,Popular Vote,votes,0.0
+2008,D,KS,caucus,Bill Richardson,wikipedia,votes,1.0,1.0,Popular Vote,votes,0.0
+2008,D,MA,primary,Hillary Clinton,fec,votes,705185.0,705185.0,Popular Vote,votes,0.0
+2008,D,MA,primary,Barack Obama,fec,votes,511680.0,511680.0,Popular Vote,votes,0.0
+2008,D,MA,primary,John R. Edwards,fec,votes,20101.0,20101.0,Popular Vote,votes,0.0
+2008,D,MA,primary,"Joseph R., Jr. Biden",fec,votes,3216.0,,,,
+2008,D,MA,primary,Dennis J. Kucinich,fec,votes,2992.0,2992.0,Popular Vote,votes,0.0
+2008,D,MA,primary,Bill Richardson,fec,votes,1846.0,1846.0,Popular Vote,votes,0.0
+2008,D,MA,primary,Mike Gravel,fec,votes,1463.0,1463.0,Popular Vote,votes,0.0
+2008,D,MA,primary,Christopher J. Dodd,fec,votes,1120.0,1120.0,Popular Vote,votes,0.0
+2008,D,MN,caucus,Barack Obama,wikipedia,votes,142109.0,142109.0,Popular Vote,votes,0.0
+2008,D,MN,caucus,Hillary Clinton,wikipedia,votes,68994.0,68994.0,Popular Vote,votes,0.0
+2008,D,MN,caucus,Uncommitted,wikipedia,votes,1312.0,1312.0,Popular Vote,votes,0.0
+2008,D,MN,caucus,John Edwards,wikipedia,votes,985.0,985.0,Popular Vote,votes,0.0
+2008,D,MN,caucus,Dennis Kucinich,wikipedia,votes,361.0,361.0,Popular Vote,votes,0.0
+2008,D,MN,caucus,Joe Biden,wikipedia,votes,129.0,129.0,Popular Vote,votes,0.0
+2008,D,MN,caucus,Bill Richardson,wikipedia,votes,82.0,82.0,Popular Vote,votes,0.0
+2008,D,MN,caucus,Christopher Dodd,wikipedia,votes,77.0,77.0,Popular Vote,votes,0.0
+2008,D,MN,caucus,Frank Lynch,wikipedia,votes,17.0,17.0,Popular Vote,votes,0.0
+2008,D,MO,primary,Barack Obama,fec,votes,406917.0,406917.0,Popular Vote,votes,0.0
+2008,D,MO,primary,Hillary Clinton,fec,votes,395185.0,395185.0,Popular Vote,votes,0.0
+2008,D,MO,primary,John Edwards,fec,votes,16763.0,16763.0,Popular Vote,votes,0.0
+2008,D,MO,primary,Uncommitted,fec,votes,3142.0,3142.0,Popular Vote,votes,0.0
+2008,D,MO,primary,Dennis J. Kucinich,fec,votes,820.0,820.0,Popular Vote,votes,0.0
+2008,D,MO,primary,Bill Richardson,fec,votes,689.0,689.0,Popular Vote,votes,0.0
+2008,D,MO,primary,Joe Biden,fec,votes,626.0,626.0,Popular Vote,votes,0.0
+2008,D,MO,primary,Mike Gravel,fec,votes,438.0,438.0,Popular Vote,votes,0.0
+2008,D,MO,primary,Christopher J. Dodd,fec,votes,250.0,250.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,Barack Obama,wikipedia,votes,11625.0,11625.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,Hillary Clinton,wikipedia,votes,6948.0,6948.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,John Edwards,wikipedia,votes,283.0,283.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,Dennis Kucinich,wikipedia,votes,72.0,72.0,Popular Vote,votes,0.0
+2008,D,ND,caucus,Mike Gravel,wikipedia,votes,31.0,31.0,Popular Vote,votes,0.0
+2008,D,NJ,primary,Hillary Clinton,fec,votes,613500.0,613500.0,Popular Vote,votes,0.0
+2008,D,NJ,primary,Barack Obama,fec,votes,501372.0,501372.0,Popular Vote,votes,0.0
+2008,D,NJ,primary,John Edwards,fec,votes,15728.0,15728.0,Popular Vote,votes,0.0
+2008,D,NJ,primary,Joe Biden,fec,votes,4081.0,4081.0,Popular Vote,votes,0.0
+2008,D,NJ,primary,Bill Richardson,fec,votes,3366.0,3366.0,Popular Vote,votes,0.0
+2008,D,NJ,primary,Dennis Kucinich,fec,votes,3152.0,3152.0,Popular Vote,votes,0.0
+2008,D,NM,caucus,Hillary Clinton,wikipedia,votes,73105.0,73105.0,Popular Vote,votes,0.0
+2008,D,NM,caucus,Barack Obama,wikipedia,votes,71396.0,71396.0,Popular Vote,votes,0.0
+2008,D,NM,caucus,John Edwards,wikipedia,votes,2157.0,2157.0,Popular Vote,votes,0.0
+2008,D,NM,caucus,Bill Richardson,wikipedia,votes,1305.0,1305.0,Popular Vote,votes,0.0
+2008,D,NM,caucus,Dennis Kucinich,wikipedia,votes,574.0,574.0,Popular Vote,votes,0.0
+2008,D,NM,caucus,Uncommitted,wikipedia,votes,441.0,441.0,Popular Vote,votes,0.0
+2008,D,NM,caucus,Joe Biden,wikipedia,votes,122.0,122.0,Popular Vote,votes,0.0
+2008,D,NM,caucus,Chris Dodd,wikipedia,votes,81.0,81.0,Popular Vote,votes,0.0
+2008,D,NY,primary,Hillary Clinton,fec,votes,1068496.0,1068496.0,Popular Vote,votes,0.0
+2008,D,NY,primary,Barack Obama,fec,votes,751019.0,751019.0,Popular Vote,votes,0.0
+2008,D,NY,primary,John Edwards,fec,votes,21924.0,21924.0,Popular Vote,votes,0.0
+2008,D,NY,primary,Dennis J. Kucinich,fec,votes,8458.0,8458.0,Popular Vote,votes,0.0
+2008,D,NY,primary,Bill Richardson,fec,votes,8227.0,8227.0,Popular Vote,votes,0.0
+2008,D,NY,primary,Joe Biden,fec,votes,4321.0,4321.0,Popular Vote,votes,0.0
+2008,D,OK,primary,Hillary Clinton,fec,votes,228480.0,228425.0,Popular Vote,votes,55.0
+2008,D,OK,primary,Barack Obama,fec,votes,130130.0,130087.0,Popular Vote,votes,43.0
+2008,D,OK,primary,John Edwards,fec,votes,42725.0,42718.0,Popular Vote,votes,7.0
+2008,D,OK,primary,Bill Richardson,fec,votes,7078.0,7076.0,Popular Vote,votes,2.0
+2008,D,OK,primary,Jim Rogers,fec,votes,3905.0,3902.0,Popular Vote,votes,3.0
+2008,D,OK,primary,Christopher J. Dodd,fec,votes,2511.0,2511.0,Popular Vote,votes,0.0
+2008,D,OK,primary,Dennis J. Kucinich,fec,votes,2378.0,2377.0,Popular Vote,votes,1.0
+2008,D,TN,primary,Hillary Clinton,fec,votes,336245.0,336245.0,Popular Vote,votes,0.0
+2008,D,TN,primary,Barack Obama,fec,votes,252874.0,252874.0,Popular Vote,votes,0.0
+2008,D,TN,primary,John Edwards,fec,votes,27820.0,27820.0,Popular Vote,votes,0.0
+2008,D,TN,primary,Uncommitted,fec,votes,3158.0,3158.0,Popular Vote,votes,0.0
+2008,D,TN,primary,Joe Biden,fec,votes,1531.0,1531.0,Popular Vote,votes,0.0
+2008,D,TN,primary,Bill Richardson,fec,votes,1178.0,1178.0,Popular Vote,votes,0.0
+2008,D,TN,primary,Dennis Kucinich,fec,votes,971.0,971.0,Popular Vote,votes,0.0
+2008,D,TN,primary,Chris Dodd,fec,votes,526.0,526.0,Popular Vote,votes,0.0
+2008,D,TN,primary,Mike Gravel,fec,votes,461.0,461.0,Popular Vote,votes,0.0
+2008,D,UT,primary,Barack Obama,fec,votes,74538.0,74538.0,Popular Vote,votes,0.0
+2008,D,UT,primary,Hillary Clinton,fec,votes,51333.0,51333.0,Popular Vote,votes,0.0
+2008,D,UT,primary,John Edwards,fec,votes,3758.0,3758.0,Popular Vote,votes,0.0
+2008,D,UT,primary,Bill Richardson,fec,votes,549.0,549.0,Popular Vote,votes,0.0
+2008,D,UT,primary,Joe Biden,fec,votes,462.0,462.0,Popular Vote,votes,0.0
+2008,D,UT,primary,Dennis Kucinich,fec,votes,408.0,408.0,Popular Vote,votes,0.0
+2008,D,UT,primary,Mike Gravel,fec,votes,166.0,166.0,Popular Vote,votes,0.0
+2008,D,UT,primary,Christopher J. Dodd,fec,votes,117.0,117.0,Popular Vote,votes,0.0
+2008,D,UT,primary,Frank Lynch,fec,votes,72.0,72.0,Popular Vote,votes,0.0
+2008,D,LA,primary,Barack Obama,fec,votes,220632.0,220632.0,Popular Vote,votes,0.0
+2008,D,LA,primary,Hillary Clinton,fec,votes,136925.0,136925.0,Popular Vote,votes,0.0
+2008,D,LA,primary,John Edwards,fec,votes,13026.0,13026.0,Popular Vote,votes,0.0
+2008,D,LA,primary,Joe Biden,fec,votes,6178.0,6178.0,Popular Vote,votes,0.0
+2008,D,LA,primary,William Bill Richardson,fec,votes,4257.0,4257.0,Popular Vote,votes,0.0
+2008,D,LA,primary,Christopher J. Dodd,fec,votes,1924.0,1924.0,Popular Vote,votes,0.0
+2008,D,LA,primary,Dennis J. Kucinich,fec,votes,1404.0,1404.0,Popular Vote,votes,0.0
+2008,D,NE,caucus,Barack Obama,wikipedia,votes,26126.0,25986.0,Caucus Popular Vote,votes,140.0
+2008,D,NE,caucus,Hillary Clinton,wikipedia,votes,12445.0,12396.0,Caucus Popular Vote,votes,49.0
+2008,D,NE,caucus,Uncommitted,wikipedia,votes,99.0,99.0,Caucus Popular Vote,votes,0.0
+2008,D,WA,caucus,Barack Obama,wikipedia,precinct delegates,21768.0,21768.0,Precinct Delegates Selected,precinct delegates,0.0
+2008,D,WA,caucus,Hillary Clinton,wikipedia,precinct delegates,10038.0,10038.0,Precinct Delegates Selected,precinct delegates,0.0
+2008,D,WA,caucus,Uncommitted,wikipedia,precinct delegates,364.0,364.0,Precinct Delegates Selected,precinct delegates,0.0
+2008,D,ME,caucus,Barack Obama,wikipedia,state delegates,2079.0,2079.0,State Convention Delegates Selected,state delegates,0.0
+2008,D,ME,caucus,Hillary Clinton,wikipedia,state delegates,1397.0,1397.0,State Convention Delegates Selected,state delegates,0.0
+2008,D,ME,caucus,Uncommitted,wikipedia,state delegates,27.0,18.0,State Convention Delegates Selected,state delegates,9.0
+2008,D,DC,primary,Barack Obama,fec,votes,93386.0,93386.0,Popular Vote,votes,0.0
+2008,D,DC,primary,Hillary Clinton,fec,votes,29470.0,29470.0,Popular Vote,votes,0.0
+2008,D,DC,primary,John Edwards,fec,votes,347.0,347.0,Popular Vote,votes,0.0
+2008,D,DC,primary,Uncommitted,fec,votes,339.0,339.0,Popular Vote,votes,0.0
+2008,D,DC,primary,Dennis J. Kucinich,fec,votes,193.0,193.0,Popular Vote,votes,0.0
+2008,D,DC,primary,Bill Richardson,fec,votes,145.0,145.0,Popular Vote,votes,0.0
+2008,D,MD,primary,Barack Obama,fec,votes,532665.0,532665.0,Popular Vote,votes,0.0
+2008,D,MD,primary,Hillary Clinton,fec,votes,314211.0,314211.0,Popular Vote,votes,0.0
+2008,D,MD,primary,Uncommitted,fec,votes,11417.0,11417.0,Popular Vote,votes,0.0
+2008,D,MD,primary,John Edwards,fec,votes,10506.0,10506.0,Popular Vote,votes,0.0
+2008,D,MD,primary,Joe Biden,fec,votes,3776.0,3776.0,Popular Vote,votes,0.0
+2008,D,MD,primary,Bill Richardson,fec,votes,2098.0,2098.0,Popular Vote,votes,0.0
+2008,D,MD,primary,Dennis J. Kucinich,fec,votes,1909.0,1909.0,Popular Vote,votes,0.0
+2008,D,MD,primary,Mike Gravel,fec,votes,804.0,804.0,Popular Vote,votes,0.0
+2008,D,MD,primary,Christopher J. Dodd,fec,votes,788.0,788.0,Popular Vote,votes,0.0
+2008,D,VA,primary,Barack Obama,fec,votes,627820.0,627820.0,Popular Vote,votes,0.0
+2008,D,VA,primary,Hillary Clinton,fec,votes,349766.0,349766.0,Popular Vote,votes,0.0
+2008,D,VA,primary,John Edwards,fec,votes,5206.0,5206.0,Popular Vote,votes,0.0
+2008,D,VA,primary,Dennis J. Kucinich,fec,votes,1625.0,1625.0,Popular Vote,votes,0.0
+2008,D,VA,primary,Bill Richardson,fec,votes,991.0,991.0,Popular Vote,votes,0.0
+2008,D,VA,primary,Joe Biden,fec,votes,795.0,795.0,Popular Vote,votes,0.0
+2008,D,HI,caucus,Barack Obama,wikipedia,votes,28472.0,28472.0,Popular Vote,votes,0.0
+2008,D,HI,caucus,Hillary Clinton,wikipedia,votes,8846.0,8846.0,Popular Vote,votes,0.0
+2008,D,HI,caucus,Dennis Kucinich,wikipedia,votes,138.0,138.0,Popular Vote,votes,0.0
+2008,D,HI,caucus,Uncommitted,wikipedia,votes,67.0,65.0,Popular Vote,votes,2.0
+2008,D,HI,caucus,John Edwards,wikipedia,votes,41.0,41.0,Popular Vote,votes,0.0
+2008,D,WA,primary,Barack Obama,fec,votes,354112.0,21768.0,Precinct Delegates Selected,precinct delegates,332344.0
+2008,D,WA,primary,Hillary Clinton,fec,votes,315744.0,10038.0,Precinct Delegates Selected,precinct delegates,305706.0
+2008,D,WA,primary,John Edwards,fec,votes,11892.0,,,,
+2008,D,WA,primary,Dennis J. Kucinich,fec,votes,4021.0,,,,
+2008,D,WA,primary,Bill Richardson,fec,votes,2040.0,,,,
+2008,D,WA,primary,Joe Biden,fec,votes,1883.0,,,,
+2008,D,WA,primary,Mike Gravel,fec,votes,1071.0,,,,
+2008,D,WA,primary,Christopher J. Dodd,fec,votes,618.0,,,,
+2008,D,WI,primary,Barack Obama,fec,votes,646851.0,646851.0,Popular Vote,votes,0.0
+2008,D,WI,primary,Hillary Clinton,fec,votes,453954.0,453954.0,Popular Vote,votes,0.0
+2008,D,WI,primary,John Edwards,fec,votes,6693.0,6693.0,Popular Vote,votes,0.0
+2008,D,WI,primary,Dennis Kucinich,fec,votes,2625.0,2625.0,Popular Vote,votes,0.0
+2008,D,WI,primary,Joe Biden,fec,votes,755.0,755.0,Popular Vote,votes,0.0
+2008,D,WI,primary,Bill Richardson,fec,votes,528.0,528.0,Popular Vote,votes,0.0
+2008,D,WI,primary,Mike Gravel,fec,votes,517.0,517.0,Popular Vote,votes,0.0
+2008,D,WI,primary,Chris Dodd,fec,votes,501.0,501.0,Popular Vote,votes,0.0
+2008,D,OH,primary,Hillary Clinton,fec,votes,1259620.0,1259620.0,Popular Vote,votes,0.0
+2008,D,OH,primary,Barack Obama,fec,votes,1055769.0,1055769.0,Popular Vote,votes,0.0
+2008,D,OH,primary,John Edwards,fec,votes,39332.0,39332.0,Popular Vote,votes,0.0
+2008,D,RI,primary,Hillary Clinton,fec,votes,108949.0,108949.0,Popular Vote,votes,0.0
+2008,D,RI,primary,Barack Obama,fec,votes,75316.0,75316.0,Popular Vote,votes,0.0
+2008,D,RI,primary,John Edwards,fec,votes,1133.0,1133.0,Popular Vote,votes,0.0
+2008,D,RI,primary,Uncommitted,fec,votes,1041.0,1041.0,Popular Vote,votes,0.0
+2008,D,TX,primary,Hillary Clinton,fec,votes,1462734.0,1462734.0,Popular Vote,votes,0.0
+2008,D,TX,primary,Barack Obama,fec,votes,1362476.0,1362476.0,Popular Vote,votes,0.0
+2008,D,TX,primary,John Edwards,fec,votes,29936.0,29936.0,Popular Vote,votes,0.0
+2008,D,TX,primary,Bill Richardson,fec,votes,10773.0,10773.0,Popular Vote,votes,0.0
+2008,D,TX,primary,Joe Biden,fec,votes,5290.0,5290.0,Popular Vote,votes,0.0
+2008,D,TX,primary,Christopher J. Dodd,fec,votes,3777.0,3777.0,Popular Vote,votes,0.0
+2008,D,VT,primary,Barack Obama,fec,votes,91901.0,91901.0,Popular Vote,votes,0.0
+2008,D,VT,primary,Hillary Clinton,fec,votes,59806.0,59806.0,Popular Vote,votes,0.0
+2008,D,VT,primary,John Edwards,fec,votes,1936.0,1936.0,Popular Vote,votes,0.0
+2008,D,VT,primary,Dennis J. Kucinich,fec,votes,1010.0,1010.0,Popular Vote,votes,0.0
+2008,D,WY,caucus,Barack Obama,wikipedia,votes,5378.0,5378.0,Popular Vote,votes,0.0
+2008,D,WY,caucus,Hillary Clinton,wikipedia,votes,3311.0,3311.0,Popular Vote,votes,0.0
+2008,D,MS,primary,Barack Obama,fec,votes,265370.0,265502.0,Popular Vote,votes,-132.0
+2008,D,MS,primary,Hillary Clinton,fec,votes,159273.0,159221.0,Popular Vote,votes,52.0
+2008,D,MS,primary,John Edwards,fec,votes,3933.0,3933.0,Popular Vote,votes,0.0
+2008,D,MS,primary,Joseph Biden,fec,votes,1815.0,1816.0,Popular Vote,votes,-1.0
+2008,D,MS,primary,Bill Richardson,fec,votes,1396.0,1396.0,Popular Vote,votes,0.0
+2008,D,MS,primary,Dennis Kucinich,fec,votes,912.0,912.0,Popular Vote,votes,0.0
+2008,D,MS,primary,Chris Dodd,fec,votes,739.0,739.0,Popular Vote,votes,0.0
+2008,D,MS,primary,Mike Gravel,fec,votes,591.0,591.0,Popular Vote,votes,0.0
+2008,D,PA,primary,Hillary Clinton,fec,votes,1275039.0,1275039.0,Popular Vote,votes,0.0
+2008,D,PA,primary,Barack Obama,fec,votes,1061441.0,1061441.0,Popular Vote,votes,0.0
+2008,D,IN,primary,Hillary Clinton,fec,votes,646282.0,646253.0,Popular Vote,votes,29.0
+2008,D,IN,primary,Barack Obama,fec,votes,632073.0,632061.0,Popular Vote,votes,12.0
+2008,D,NC,primary,Barack Obama,fec,votes,887391.0,887391.0,Popular Vote,votes,0.0
+2008,D,NC,primary,Hillary Clinton,fec,votes,657669.0,657669.0,Popular Vote,votes,0.0
+2008,D,NC,primary,Mike Gravel,fec,votes,12452.0,12452.0,Popular Vote,votes,0.0
+2008,D,NE,primary,Barack Obama,fec,votes,46670.0,25986.0,Caucus Popular Vote,votes,20684.0
+2008,D,NE,primary,Hillary Clinton,fec,votes,43979.0,12396.0,Caucus Popular Vote,votes,31583.0
+2008,D,NE,primary,Mike Gravel,fec,votes,3886.0,,,,
+2008,D,WV,primary,Hillary Clinton,fec,votes,240890.0,240890.0,Popular Vote,votes,0.0
+2008,D,WV,primary,Barack Obama,fec,votes,92736.0,92736.0,Popular Vote,votes,0.0
+2008,D,WV,primary,John Edwards,fec,votes,26284.0,26284.0,Popular Vote,votes,0.0
+2008,D,KY,primary,Hillary Clinton,fec,votes,459511.0,459511.0,Popular Vote,votes,0.0
+2008,D,KY,primary,Barack Obama,fec,votes,209954.0,209954.0,Popular Vote,votes,0.0
+2008,D,KY,primary,Uncommitted,fec,votes,18091.0,18091.0,Popular Vote,votes,0.0
+2008,D,KY,primary,John Edwards,fec,votes,14212.0,14212.0,Popular Vote,votes,0.0
+2008,D,OR,primary,Barack Obama,fec,votes,375385.0,375311.0,Popular Vote,votes,74.0
+2008,D,OR,primary,Hillary Clinton,fec,votes,259825.0,259782.0,Popular Vote,votes,43.0
+2008,D,ID,primary,Barack Obama,fec,votes,23980.0,16880.0,State Convention Delegates Selected,state delegates,7100.0
+2008,D,ID,primary,Hillary Clinton,fec,votes,16122.0,3655.0,State Convention Delegates Selected,state delegates,12467.0
+2008,D,ID,primary,Keith Russell Judd,fec,votes,734.0,,,,
+2008,D,PR,primary,Hillary Clinton,fec,votes,263865.0,263120.0,Popular Vote,votes,745.0
+2008,D,PR,primary,Barack Obama,fec,votes,123085.0,121458.0,Popular Vote,votes,1627.0
+2008,D,MT,primary,Barack Obama,fec,votes,103174.0,103174.0,Popular Vote,votes,0.0
+2008,D,MT,primary,Hillary Clinton,fec,votes,74889.0,74889.0,Popular Vote,votes,0.0
+2008,D,SD,primary,Hillary Clinton,fec,votes,54128.0,54128.0,Popular Vote,votes,0.0
+2008,D,SD,primary,Barack Obama,fec,votes,43669.0,43669.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Mike Huckabee,wikipedia,votes,40954.0,40954.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Mitt Romney,wikipedia,votes,30021.0,30021.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Fred Thompson,wikipedia,votes,15960.0,15960.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,John McCain,wikipedia,votes,15536.0,15536.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Ron Paul,wikipedia,votes,11841.0,11841.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Rudy Giuliani,wikipedia,votes,4099.0,4099.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Duncan Hunter,wikipedia,votes,506.0,506.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Alan Keyes,wikipedia,votes,247.0,247.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Uncommitted,wikipedia,votes,37.0,,,,
+2008,R,IA,caucus,John H. Cox,wikipedia,votes,10.0,10.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Hugh Cort,wikipedia,votes,5.0,5.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Tom Tancredo,wikipedia,votes,5.0,5.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Vern Wuensche,wikipedia,votes,2.0,2.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Sam Brownback,wikipedia,votes,1.0,1.0,Popular Vote,votes,0.0
+2008,R,IA,caucus,Cap Fendig,wikipedia,votes,1.0,1.0,Popular Vote,votes,0.0
+2008,R,NH,primary,John McCain,fec,votes,88713.0,88571.0,Popular Vote,votes,142.0
+2008,R,NH,primary,Mitt Romney,fec,votes,75675.0,75546.0,Popular Vote,votes,129.0
+2008,R,NH,primary,Mike Huckabee,fec,votes,26916.0,26859.0,Popular Vote,votes,57.0
+2008,R,NH,primary,Rudolph W. Giuliani,fec,votes,20344.0,20439.0,Popular Vote,votes,-95.0
+2008,R,NH,primary,Ron Paul,fec,votes,18346.0,18308.0,Popular Vote,votes,38.0
+2008,R,NH,primary,Fred Thompson,fec,votes,2956.0,2894.0,Popular Vote,votes,62.0
+2008,R,NH,primary,Duncan Hunter,fec,votes,1192.0,1225.0,Popular Vote,votes,-33.0
+2008,R,NH,primary,Alan Keyes,fec,votes,205.0,203.0,Popular Vote,votes,2.0
+2008,R,NH,primary,Thomas G. Tancredo,fec,votes,63.0,80.0,Popular Vote,votes,-17.0
+2008,R,NH,primary,Albert Howard,fec,votes,43.0,44.0,Popular Vote,votes,-1.0
+2008,R,NH,primary,John Cox,fec,votes,39.0,39.0,Popular Vote,votes,0.0
+2008,R,NH,primary,Vern Wuensche,fec,votes,36.0,44.0,Popular Vote,votes,-8.0
+2008,R,NH,primary,Hugh Cort,fec,votes,35.0,53.0,Popular Vote,votes,-18.0
+2008,R,NH,primary,Daniel Gilbert,fec,votes,35.0,33.0,Popular Vote,votes,2.0
+2008,R,NH,primary,Jack Shepard,fec,votes,28.0,27.0,Popular Vote,votes,1.0
+2008,R,NH,primary,"James Creighton, Jr. Mitchell",fec,votes,26.0,,,,
+2008,R,NH,primary,Mark Klein,fec,votes,16.0,19.0,Popular Vote,votes,-3.0
+2008,R,NH,primary,"H. Neal, Jr. Fendig",fec,votes,13.0,,,,
+2008,R,MI,primary,Mitt Romney,fec,votes,338316.0,338316.0,Popular Vote,votes,0.0
+2008,R,MI,primary,John McCain,fec,votes,257985.0,257985.0,Popular Vote,votes,0.0
+2008,R,MI,primary,Mike Huckabee,fec,votes,139764.0,139764.0,Popular Vote,votes,0.0
+2008,R,MI,primary,Ron Paul,fec,votes,54475.0,54475.0,Popular Vote,votes,0.0
+2008,R,MI,primary,Fred Thompson,fec,votes,32159.0,32159.0,Popular Vote,votes,0.0
+2008,R,MI,primary,Rudy Giuliani,fec,votes,24725.0,24725.0,Popular Vote,votes,0.0
+2008,R,MI,primary,Uncommitted,fec,votes,18118.0,18118.0,Popular Vote,votes,0.0
+2008,R,MI,primary,Duncan Hunter,fec,votes,2819.0,2819.0,Popular Vote,votes,0.0
+2008,R,MI,primary,Tom Tancredo,fec,votes,457.0,457.0,Popular Vote,votes,0.0
+2008,R,MI,primary,Sam Brownback,fec,votes,351.0,351.0,Popular Vote,votes,0.0
+2008,R,NV,caucus,Mitt Romney,wikipedia,votes,22646.0,22646.0,Popular Vote,votes,0.0
+2008,R,NV,caucus,Ron Paul,wikipedia,votes,6084.0,6084.0,Popular Vote,votes,0.0
+2008,R,NV,caucus,John McCain,wikipedia,votes,5650.0,5650.0,Popular Vote,votes,0.0
+2008,R,NV,caucus,Mike Huckabee,wikipedia,votes,3616.0,3616.0,Popular Vote,votes,0.0
+2008,R,NV,caucus,Fred Thompson,wikipedia,votes,3519.0,3519.0,Popular Vote,votes,0.0
+2008,R,NV,caucus,Rudy Giuliani,wikipedia,votes,1910.0,1910.0,Popular Vote,votes,0.0
+2008,R,NV,caucus,Duncan Hunter,wikipedia,votes,890.0,890.0,Popular Vote,votes,0.0
+2008,R,NV,caucus,Uncommitted,wikipedia,votes,31.0,,,,
+2008,R,NV,caucus,Tom Tancredo,wikipedia,votes,0.0,,,,
+2008,R,SC,primary,John McCain,fec,votes,147686.0,147686.0,Popular Vote,votes,0.0
+2008,R,SC,primary,Mike Huckabee,fec,votes,132943.0,132943.0,Popular Vote,votes,0.0
+2008,R,SC,primary,Fred Thompson,fec,votes,69651.0,69651.0,Popular Vote,votes,0.0
+2008,R,SC,primary,Mitt Romney,fec,votes,68142.0,68142.0,Popular Vote,votes,0.0
+2008,R,SC,primary,Ron Paul,fec,votes,16154.0,16154.0,Popular Vote,votes,0.0
+2008,R,SC,primary,Rudy Giuliani,fec,votes,9557.0,9557.0,Popular Vote,votes,0.0
+2008,R,SC,primary,Duncan Hunter,fec,votes,1051.0,1051.0,Popular Vote,votes,0.0
+2008,R,SC,primary,Tom Tancredo,fec,votes,121.0,121.0,Popular Vote,votes,0.0
+2008,R,SC,primary,Hugh Cort,fec,votes,88.0,88.0,Popular Vote,votes,0.0
+2008,R,SC,primary,John Cox,fec,votes,83.0,83.0,Popular Vote,votes,0.0
+2008,R,SC,primary,Cap Fendig,fec,votes,23.0,23.0,Popular Vote,votes,0.0
+2008,R,FL,primary,John McCain,fec,votes,701761.0,701761.0,Popular Vote,votes,0.0
+2008,R,FL,primary,Mitt Romney,fec,votes,604932.0,604932.0,Popular Vote,votes,0.0
+2008,R,FL,primary,Rudy Giuliani,fec,votes,286089.0,286089.0,Popular Vote,votes,0.0
+2008,R,FL,primary,Mike Huckabee,fec,votes,262681.0,262681.0,Popular Vote,votes,0.0
+2008,R,FL,primary,Ron Paul,fec,votes,62887.0,62887.0,Popular Vote,votes,0.0
+2008,R,FL,primary,Fred Thompson,fec,votes,22668.0,22668.0,Popular Vote,votes,0.0
+2008,R,FL,primary,Alan Keyes,fec,votes,4060.0,4060.0,Popular Vote,votes,0.0
+2008,R,FL,primary,Duncan Hunter,fec,votes,2847.0,2847.0,Popular Vote,votes,0.0
+2008,R,FL,primary,Tom Tancredo,fec,votes,1573.0,1573.0,Popular Vote,votes,0.0
+2008,R,ME,caucus,Mitt Romney,wikipedia,votes,2837.0,2826.0,State Delegates,state delegates,11.0
+2008,R,ME,caucus,John McCain,wikipedia,votes,1176.0,1144.0,State Delegates,state delegates,32.0
+2008,R,ME,caucus,Ron Paul,wikipedia,votes,1002.0,997.0,State Delegates,state delegates,5.0
+2008,R,ME,caucus,Mike Huckabee,wikipedia,votes,318.0,312.0,State Delegates,state delegates,6.0
+2008,R,ME,caucus,Uncommitted,wikipedia,votes,136.0,132.0,State Delegates,state delegates,4.0
+2008,R,ME,caucus,Fred Thompson,wikipedia,votes,8.0,7.0,State Delegates,state delegates,1.0
+2008,R,ME,caucus,Rudy Giuliani,wikipedia,votes,3.0,3.0,State Delegates,state delegates,0.0
+2008,R,ME,caucus,Alan Keyes,wikipedia,votes,1.0,1.0,State Delegates,state delegates,0.0
+2008,R,ME,caucus,Duncan Hunter,wikipedia,votes,1.0,0.0,State Delegates,state delegates,1.0
+2008,R,ME,caucus,John H. Cox,wikipedia,votes,0.0,0.0,State Delegates,state delegates,0.0
+2008,R,AK,primary,Mitt Romney,wikipedia,votes,5988.0,5988.0,Popular Vote,votes,0.0
+2008,R,AK,primary,Mike Huckabee,wikipedia,votes,2996.0,2996.0,Popular Vote,votes,0.0
+2008,R,AK,primary,Ron Paul,wikipedia,votes,2363.0,2363.0,Popular Vote,votes,0.0
+2008,R,AK,primary,John McCain,wikipedia,votes,2132.0,2132.0,Popular Vote,votes,0.0
+2008,R,AK,primary,Uncommitted,wikipedia,votes,224.0,,,,
+2008,R,AL,primary,Mike Huckabee,fec,votes,227766.0,227766.0,Popular Vote,votes,0.0
+2008,R,AL,primary,John McCain,fec,votes,204867.0,204867.0,Popular Vote,votes,0.0
+2008,R,AL,primary,Mitt Romney,fec,votes,98019.0,98019.0,Popular Vote,votes,0.0
+2008,R,AL,primary,Ron Paul,fec,votes,14810.0,14810.0,Popular Vote,votes,0.0
+2008,R,AL,primary,Rudy Giuliani,fec,votes,2134.0,2134.0,Popular Vote,votes,0.0
+2008,R,AL,primary,Fred Thompson,fec,votes,1835.0,1835.0,Popular Vote,votes,0.0
+2008,R,AL,primary,Uncommitted,fec,votes,1234.0,1234.0,Popular Vote,votes,0.0
+2008,R,AL,primary,Alan Keyes,fec,votes,778.0,778.0,Popular Vote,votes,0.0
+2008,R,AL,primary,Duncan Hunter,fec,votes,391.0,391.0,Popular Vote,votes,0.0
+2008,R,AL,primary,Dr. Hugh Cort,fec,votes,228.0,228.0,Popular Vote,votes,0.0
+2008,R,AL,primary,Tom Tancredo,fec,votes,93.0,93.0,Popular Vote,votes,0.0
+2008,R,AR,primary,Mike Huckabee,fec,votes,138557.0,138557.0,Popular Vote,votes,0.0
+2008,R,AR,primary,John McCain,fec,votes,46343.0,46343.0,Popular Vote,votes,0.0
+2008,R,AR,primary,Mitt Romney,fec,votes,30997.0,30997.0,Popular Vote,votes,0.0
+2008,R,AR,primary,Ron Paul,fec,votes,10983.0,10983.0,Popular Vote,votes,0.0
+2008,R,AR,primary,Uncommitted,fec,votes,987.0,987.0,Popular Vote,votes,0.0
+2008,R,AR,primary,Rudy Giuliani,fec,votes,658.0,658.0,Popular Vote,votes,0.0
+2008,R,AR,primary,Fred Thompson,fec,votes,628.0,628.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,John McCain,fec,votes,255197.0,255197.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Mitt Romney,fec,votes,186838.0,186838.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Mike Huckabee,fec,votes,48849.0,48849.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Ron Paul,fec,votes,22692.0,22692.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Rudy Giuliani,fec,votes,13658.0,13658.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Fred Thompson,fec,votes,9492.0,9492.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Duncan Hunter,fec,votes,1082.0,1082.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Alan Keyes,fec,votes,970.0,970.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Frank McEnulty,fec,votes,333.0,333.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,"James Creighton Mitchell, Jr.",fec,votes,193.0,193.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Jerry Curry,fec,votes,98.0,98.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Jack Shepard,fec,votes,78.0,78.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Bob Forthan,fec,votes,75.0,75.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Michael P. Shaw,fec,votes,62.0,62.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Hugh Cort,fec,votes,58.0,58.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Daniel Gilbert,fec,votes,53.0,53.0,Popular Vote,votes,0.0
+2008,R,AZ,primary,Rhett R. Smith,fec,votes,44.0,44.0,Popular Vote,votes,0.0
+2008,R,CA,primary,John McCain,fec,votes,1238988.0,1238988.0,Popular Vote,votes,0.0
+2008,R,CA,primary,Mitt Romney,fec,votes,1013471.0,1013471.0,Popular Vote,votes,0.0
+2008,R,CA,primary,Mike Huckabee,fec,votes,340669.0,340669.0,Popular Vote,votes,0.0
+2008,R,CA,primary,Rudy Giuliani,fec,votes,128681.0,128681.0,Popular Vote,votes,0.0
+2008,R,CA,primary,Ron Paul,fec,votes,125365.0,125365.0,Popular Vote,votes,0.0
+2008,R,CA,primary,Fred Thompson,fec,votes,50275.0,50275.0,Popular Vote,votes,0.0
+2008,R,CA,primary,Duncan Hunter,fec,votes,14021.0,14021.0,Popular Vote,votes,0.0
+2008,R,CA,primary,Alan Keyes,fec,votes,11742.0,11742.0,Popular Vote,votes,0.0
+2008,R,CA,primary,Tom Tancredo,fec,votes,3884.0,3884.0,Popular Vote,votes,0.0
+2008,R,CA,primary,John H. Cox,fec,votes,3219.0,3219.0,Popular Vote,votes,0.0
+2008,R,CA,primary,Sam Brownback,fec,votes,2486.0,2486.0,Popular Vote,votes,0.0
+2008,R,CO,caucus,Mitt Romney,wikipedia,state delegates,42218.0,33288.0,Popular Vote,votes,8930.0
+2008,R,CO,caucus,John McCain,wikipedia,state delegates,12918.0,10621.0,Popular Vote,votes,2297.0
+2008,R,CO,caucus,Mike Huckabee,wikipedia,state delegates,8960.0,7266.0,Popular Vote,votes,1694.0
+2008,R,CO,caucus,Ron Paul,wikipedia,state delegates,5910.0,4670.0,Popular Vote,votes,1240.0
+2008,R,CO,caucus,Alan Keyes,wikipedia,state delegates,67.0,,,,
+2008,R,CO,caucus,Fred Thompson,wikipedia,state delegates,63.0,,,,
+2008,R,CO,caucus,Rudy Giuliani,wikipedia,state delegates,58.0,,,,
+2008,R,CO,caucus,Uncommitted,wikipedia,state delegates,43.0,,,,
+2008,R,CO,caucus,Duncan Hunter,wikipedia,state delegates,25.0,,,,
+2008,R,CO,caucus,Tom Tancredo,wikipedia,state delegates,10.0,,,,
+2008,R,CT,primary,John McCain,fec,votes,78836.0,78836.0,Popular Vote,votes,0.0
+2008,R,CT,primary,Mitt Romney,fec,votes,49891.0,49891.0,Popular Vote,votes,0.0
+2008,R,CT,primary,Mike Huckabee,fec,votes,10607.0,10607.0,Popular Vote,votes,0.0
+2008,R,CT,primary,Ron Paul,fec,votes,6287.0,6287.0,Popular Vote,votes,0.0
+2008,R,CT,primary,Rudolph Giuliani,fec,votes,2470.0,2470.0,Popular Vote,votes,0.0
+2008,R,CT,primary,Uncommitted,fec,votes,2462.0,2462.0,Popular Vote,votes,0.0
+2008,R,CT,primary,Fred Thompson,fec,votes,538.0,538.0,Popular Vote,votes,0.0
+2008,R,CT,primary,Alan Keyes,fec,votes,376.0,376.0,Popular Vote,votes,0.0
+2008,R,CT,primary,Duncan Hunter,fec,votes,137.0,137.0,Popular Vote,votes,0.0
+2008,R,DE,primary,John McCain,fec,votes,22628.0,22628.0,Popular Vote,votes,0.0
+2008,R,DE,primary,Mitt Romney,fec,votes,16344.0,16344.0,Popular Vote,votes,0.0
+2008,R,DE,primary,Michael D. Huckabee,fec,votes,7706.0,7706.0,Popular Vote,votes,0.0
+2008,R,DE,primary,Ron Paul,fec,votes,2131.0,2131.0,Popular Vote,votes,0.0
+2008,R,DE,primary,Rudy Giuliani,fec,votes,1255.0,1255.0,Popular Vote,votes,0.0
+2008,R,DE,primary,Tom Tancredo,fec,votes,175.0,175.0,Popular Vote,votes,0.0
+2008,R,GA,primary,Mike Huckabee,fec,votes,326874.0,326874.0,Popular Vote,votes,0.0
+2008,R,GA,primary,John McCain,fec,votes,304751.0,304751.0,Popular Vote,votes,0.0
+2008,R,GA,primary,Mitt Romney,fec,votes,290707.0,290707.0,Popular Vote,votes,0.0
+2008,R,GA,primary,Ron Paul,fec,votes,28096.0,28096.0,Popular Vote,votes,0.0
+2008,R,GA,primary,Rudy Giuliani,fec,votes,7162.0,7162.0,Popular Vote,votes,0.0
+2008,R,GA,primary,Fred Thompson,fec,votes,3414.0,3414.0,Popular Vote,votes,0.0
+2008,R,GA,primary,Alan Keyes,fec,votes,1458.0,1458.0,Popular Vote,votes,0.0
+2008,R,GA,primary,Duncan Hunter,fec,votes,755.0,755.0,Popular Vote,votes,0.0
+2008,R,GA,primary,Tom Tancredo,fec,votes,324.0,324.0,Popular Vote,votes,0.0
+2008,R,IL,primary,John McCain,fec,votes,426777.0,426777.0,Popular Vote,votes,0.0
+2008,R,IL,primary,Mitt Romney,fec,votes,257265.0,257265.0,Popular Vote,votes,0.0
+2008,R,IL,primary,Mike Huckabee,fec,votes,148053.0,148053.0,Popular Vote,votes,0.0
+2008,R,IL,primary,Ron Paul,fec,votes,45055.0,45055.0,Popular Vote,votes,0.0
+2008,R,IL,primary,Rudy Giuliani,fec,votes,11837.0,11837.0,Popular Vote,votes,0.0
+2008,R,IL,primary,Fred Thompson,fec,votes,7259.0,7259.0,Popular Vote,votes,0.0
+2008,R,IL,primary,Alan Keyes,fec,votes,2318.0,2318.0,Popular Vote,votes,0.0
+2008,R,IL,primary,"James Creighton, Jr. Mitchell",fec,votes,483.0,,,,
+2008,R,IL,primary,Tom Tancredo,fec,votes,375.0,375.0,Popular Vote,votes,0.0
+2008,R,MA,primary,Mitt Romney,fec,votes,255892.0,255892.0,Popular Vote,votes,0.0
+2008,R,MA,primary,John McCain,fec,votes,204779.0,204779.0,Popular Vote,votes,0.0
+2008,R,MA,primary,Mike Huckabee,fec,votes,19103.0,19103.0,Popular Vote,votes,0.0
+2008,R,MA,primary,Ron Paul,fec,votes,13251.0,13251.0,Popular Vote,votes,0.0
+2008,R,MA,primary,Rudy Giuliani,fec,votes,2707.0,2707.0,Popular Vote,votes,0.0
+2008,R,MA,primary,Fred Thompson,fec,votes,916.0,916.0,Popular Vote,votes,0.0
+2008,R,MA,primary,Duncan Hunter,fec,votes,258.0,258.0,Popular Vote,votes,0.0
+2008,R,MA,primary,Tom Tancredo,fec,votes,153.0,153.0,Popular Vote,votes,0.0
+2008,R,MN,caucus,Mitt Romney,wikipedia,votes,25990.0,25990.0,Popular Vote,votes,0.0
+2008,R,MN,caucus,John McCain,wikipedia,votes,13826.0,13826.0,Popular Vote,votes,0.0
+2008,R,MN,caucus,Mike Huckabee,wikipedia,votes,12493.0,12493.0,Popular Vote,votes,0.0
+2008,R,MN,caucus,Ron Paul,wikipedia,votes,9852.0,9852.0,Popular Vote,votes,0.0
+2008,R,MN,caucus,Alan Keyes,wikipedia,votes,368.0,368.0,Popular Vote,votes,0.0
+2008,R,MN,caucus,Uncommitted,wikipedia,votes,38.0,,,,
+2008,R,MO,primary,John McCain,fec,votes,194053.0,194053.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Mike Huckabee,fec,votes,185642.0,185642.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Mitt Romney,fec,votes,172329.0,172329.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Ron Paul,fec,votes,26464.0,26464.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Rudy Giuliani,fec,votes,3593.0,3593.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Fred Thompson,fec,votes,3102.0,3102.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Uncommitted,fec,votes,2097.0,2097.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Alan Keyes,fec,votes,892.0,892.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Duncan Hunter,fec,votes,307.0,307.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Virgil L.R. Wiles,fec,votes,124.0,124.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Thomas Tancredo,fec,votes,107.0,107.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Daniel Gilbert,fec,votes,88.0,88.0,Popular Vote,votes,0.0
+2008,R,MO,primary,Hugh Cort,fec,votes,46.0,46.0,Popular Vote,votes,0.0
+2008,R,ND,caucus,Mitt Romney,wikipedia,votes,3490.0,3490.0,Popular Vote,votes,0.0
+2008,R,ND,caucus,John McCain,wikipedia,votes,2224.0,2224.0,Popular Vote,votes,0.0
+2008,R,ND,caucus,Ron Paul,wikipedia,votes,2082.0,2082.0,Popular Vote,votes,0.0
+2008,R,ND,caucus,Mike Huckabee,wikipedia,votes,1947.0,1947.0,Popular Vote,votes,0.0
+2008,R,ND,caucus,Alan Keyes,wikipedia,votes,42.0,,,,
+2008,R,NJ,primary,John McCain,fec,votes,313459.0,313459.0,Popular Vote,votes,0.0
+2008,R,NJ,primary,Mitt Romney,fec,votes,160388.0,160388.0,Popular Vote,votes,0.0
+2008,R,NJ,primary,Mike Huckabee,fec,votes,46284.0,46284.0,Popular Vote,votes,0.0
+2008,R,NJ,primary,Ron Paul,fec,votes,27301.0,27301.0,Popular Vote,votes,0.0
+2008,R,NJ,primary,Rudy Giuliani,fec,votes,15516.0,15516.0,Popular Vote,votes,0.0
+2008,R,NJ,primary,Fred Thompson,fec,votes,3253.0,3253.0,Popular Vote,votes,0.0
+2008,R,NY,primary,John McCain,fec,votes,333001.0,362001.0,Popular Vote,votes,-29000.0
+2008,R,NY,primary,Mitt Romney,fec,votes,178043.0,178043.0,Popular Vote,votes,0.0
+2008,R,NY,primary,Mike Huckabee,fec,votes,68477.0,68477.0,Popular Vote,votes,0.0
+2008,R,NY,primary,Ron Paul,fec,votes,40113.0,40113.0,Popular Vote,votes,0.0
+2008,R,NY,primary,Rudy Giuliani,fec,votes,23260.0,23260.0,Popular Vote,votes,0.0
+2008,R,OK,primary,John McCain,fec,votes,122772.0,122772.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Mike Huckabee,fec,votes,111899.0,111899.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Mitt Romney,fec,votes,83030.0,83030.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Ron Paul,fec,votes,11183.0,11183.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Rudy Giuliani,fec,votes,2412.0,2412.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Fred Thompson,fec,votes,1924.0,1924.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Alan L. Keyes,fec,votes,817.0,817.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Jerry R. Curry,fec,votes,387.0,387.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Duncan Hunter,fec,votes,317.0,317.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Tom Tancredo,fec,votes,189.0,189.0,Popular Vote,votes,0.0
+2008,R,OK,primary,Daniel Gilbert,fec,votes,124.0,124.0,Popular Vote,votes,0.0
+2008,R,TN,primary,Mike Huckabee,fec,votes,190904.0,190904.0,Popular Vote,votes,0.0
+2008,R,TN,primary,John McCain,fec,votes,176091.0,176091.0,Popular Vote,votes,0.0
+2008,R,TN,primary,Mitt Romney,fec,votes,130632.0,130632.0,Popular Vote,votes,0.0
+2008,R,TN,primary,Ron Paul,fec,votes,31026.0,31026.0,Popular Vote,votes,0.0
+2008,R,TN,primary,Fred Thompson,fec,votes,16263.0,16263.0,Popular Vote,votes,0.0
+2008,R,TN,primary,Rudy Giuliani,fec,votes,5159.0,5159.0,Popular Vote,votes,0.0
+2008,R,TN,primary,Uncommitted,fec,votes,1830.0,1830.0,Popular Vote,votes,0.0
+2008,R,TN,primary,Alan Keyes,fec,votes,978.0,978.0,Popular Vote,votes,0.0
+2008,R,TN,primary,Duncan Hunter,fec,votes,738.0,738.0,Popular Vote,votes,0.0
+2008,R,TN,primary,Tom Tancredo,fec,votes,194.0,194.0,Popular Vote,votes,0.0
+2008,R,UT,primary,Mitt Romney,fec,votes,264956.0,264956.0,Popular Vote,votes,0.0
+2008,R,UT,primary,John McCain,fec,votes,15931.0,15931.0,Popular Vote,votes,0.0
+2008,R,UT,primary,Ron Paul,fec,votes,8846.0,8846.0,Popular Vote,votes,0.0
+2008,R,UT,primary,Mike Huckabee,fec,votes,4252.0,4252.0,Popular Vote,votes,0.0
+2008,R,UT,primary,Rudy Giuliani,fec,votes,988.0,988.0,Popular Vote,votes,0.0
+2008,R,UT,primary,Fred Thompson,fec,votes,613.0,613.0,Popular Vote,votes,0.0
+2008,R,UT,primary,Alan Keyes,fec,votes,261.0,261.0,Popular Vote,votes,0.0
+2008,R,UT,primary,Duncan Hunter,fec,votes,211.0,211.0,Popular Vote,votes,0.0
+2008,R,UT,primary,Tom Tancredo,fec,votes,3.0,3.0,Popular Vote,votes,0.0
+2008,R,KS,caucus,Mike Huckabee,wikipedia,votes,11627.0,11627.0,Popular Vote,votes,0.0
+2008,R,KS,caucus,John McCain,wikipedia,votes,4587.0,4587.0,Popular Vote,votes,0.0
+2008,R,KS,caucus,Ron Paul,wikipedia,votes,2182.0,2182.0,Popular Vote,votes,0.0
+2008,R,KS,caucus,Mitt Romney,wikipedia,votes,653.0,653.0,Popular Vote,votes,0.0
+2008,R,KS,caucus,Alan Keyes,wikipedia,votes,288.0,288.0,Popular Vote,votes,0.0
+2008,R,KS,caucus,Uncommitted,wikipedia,votes,84.0,84.0,Popular Vote,votes,0.0
+2008,R,KS,caucus,Fred Thompson,wikipedia,votes,61.0,61.0,Popular Vote,votes,0.0
+2008,R,KS,caucus,Rudy Giuliani,wikipedia,votes,34.0,34.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Mike Huckabee,fec,votes,69594.0,69594.0,Popular Vote,votes,0.0
+2008,R,LA,primary,John McCain,fec,votes,67551.0,67551.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Mitt Romney,fec,votes,10222.0,10222.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Ron Paul,fec,votes,8590.0,8590.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Fred Thompson,fec,votes,1603.0,1603.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Rudolph W. Giuliani,fec,votes,1593.0,1593.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Alan Keyes,fec,votes,837.0,837.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Jerry Curry,fec,votes,521.0,521.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Duncan Hunter,fec,votes,368.0,368.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Daniel Gilbert,fec,votes,183.0,183.0,Popular Vote,votes,0.0
+2008,R,LA,primary,Tom Tancredo,fec,votes,107.0,107.0,Popular Vote,votes,0.0
+2008,R,WA,caucus,John McCain,wikipedia,votes,3468.0,3468.0,Percentage Vote,unclear,0.0
+2008,R,WA,caucus,Mike Huckabee,wikipedia,votes,3226.0,3226.0,Percentage Vote,unclear,0.0
+2008,R,WA,caucus,Ron Paul,wikipedia,votes,2799.0,2799.0,Percentage Vote,unclear,0.0
+2008,R,WA,caucus,Mitt Romney,wikipedia,votes,2253.0,2253.0,Percentage Vote,unclear,0.0
+2008,R,WA,caucus,Uncommitted,wikipedia,votes,1729.0,1729.0,Percentage Vote,unclear,0.0
+2008,R,DC,primary,John McCain,fec,votes,4198.0,4198.0,Popular Vote,votes,0.0
+2008,R,DC,primary,Mike Huckabee,fec,votes,1020.0,1020.0,Popular Vote,votes,0.0
+2008,R,DC,primary,Ron Paul,fec,votes,494.0,494.0,Popular Vote,votes,0.0
+2008,R,DC,primary,Mitt Romney,fec,votes,398.0,398.0,Popular Vote,votes,0.0
+2008,R,DC,primary,Rudy Giuliani,fec,votes,101.0,101.0,Popular Vote,votes,0.0
+2008,R,MD,primary,John McCain,fec,votes,176046.0,176046.0,Popular Vote,votes,0.0
+2008,R,MD,primary,Mike Huckabee,fec,votes,91608.0,91608.0,Popular Vote,votes,0.0
+2008,R,MD,primary,Mitt Romney,fec,votes,22426.0,22426.0,Popular Vote,votes,0.0
+2008,R,MD,primary,Ron Paul,fec,votes,19196.0,19196.0,Popular Vote,votes,0.0
+2008,R,MD,primary,Rudy Giuliani,fec,votes,4548.0,4548.0,Popular Vote,votes,0.0
+2008,R,MD,primary,Alan Keyes,fec,votes,3386.0,3386.0,Popular Vote,votes,0.0
+2008,R,MD,primary,Fred Thompson,fec,votes,2901.0,2901.0,Popular Vote,votes,0.0
+2008,R,MD,primary,Duncan Hunter,fec,votes,522.0,522.0,Popular Vote,votes,0.0
+2008,R,MD,primary,Tom Tancredo,fec,votes,356.0,356.0,Popular Vote,votes,0.0
+2008,R,VA,primary,John McCain,fec,votes,244829.0,244829.0,Popular Vote,votes,0.0
+2008,R,VA,primary,Mike Huckabee,fec,votes,199003.0,199003.0,Popular Vote,votes,0.0
+2008,R,VA,primary,Ron Paul,fec,votes,21999.0,21999.0,Popular Vote,votes,0.0
+2008,R,VA,primary,Mitt Romney,fec,votes,18002.0,18002.0,Popular Vote,votes,0.0
+2008,R,VA,primary,Fred D. Thompson,fec,votes,3395.0,3395.0,Popular Vote,votes,0.0
+2008,R,VA,primary,Rudy Giuliani,fec,votes,2024.0,2024.0,Popular Vote,votes,0.0
+2008,R,WA,primary,John McCain,fec,votes,262304.0,3468.0,Percentage Vote,unclear,258836.0
+2008,R,WA,primary,Mike Huckabee,fec,votes,127657.0,3226.0,Percentage Vote,unclear,124431.0
+2008,R,WA,primary,Mitt Romney,fec,votes,86140.0,2253.0,Percentage Vote,unclear,83887.0
+2008,R,WA,primary,Ron Paul,fec,votes,40539.0,2799.0,Percentage Vote,unclear,37740.0
+2008,R,WA,primary,Rudy Giuliani,fec,votes,5145.0,,,,
+2008,R,WA,primary,Fred Thompson,fec,votes,4865.0,,,,
+2008,R,WA,primary,Alan Keyes,fec,votes,2226.0,,,,
+2008,R,WA,primary,Duncan Hunter,fec,votes,1056.0,,,,
+2008,R,WI,primary,John McCain,fec,votes,224755.0,224755.0,Popular Vote,votes,0.0
+2008,R,WI,primary,Mike Huckabee,fec,votes,151707.0,151707.0,Popular Vote,votes,0.0
+2008,R,WI,primary,Ron Paul,fec,votes,19090.0,19090.0,Popular Vote,votes,0.0
+2008,R,WI,primary,Mitt Romney,fec,votes,8080.0,8080.0,Popular Vote,votes,0.0
+2008,R,WI,primary,Fred Thompson,fec,votes,2709.0,2709.0,Popular Vote,votes,0.0
+2008,R,WI,primary,Rudy Giuliani,fec,votes,1935.0,1935.0,Popular Vote,votes,0.0
+2008,R,WI,primary,Duncan Hunter,fec,votes,799.0,799.0,Popular Vote,votes,0.0
+2008,R,WI,primary,Tom Tancredo,fec,votes,185.0,185.0,Popular Vote,votes,0.0
+2008,R,PR,caucus,John McCain,wikipedia,votes,188.0,188.0,Popular Vote,votes,0.0
+2008,R,PR,caucus,Mike Huckabee,wikipedia,votes,10.0,10.0,Popular Vote,votes,0.0
+2008,R,PR,caucus,Ron Paul,wikipedia,votes,9.0,9.0,Popular Vote,votes,0.0
+2008,R,OH,primary,John McCain,fec,votes,570453.0,656687.0,Popular Vote,votes,-86234.0
+2008,R,OH,primary,Mike Huckabee,fec,votes,338838.0,335356.0,Popular Vote,votes,3482.0
+2008,R,OH,primary,Ron Paul,fec,votes,55690.0,49027.0,Popular Vote,votes,6663.0
+2008,R,OH,primary,Mitt Romney,fec,votes,54540.0,36031.0,Popular Vote,votes,18509.0
+2008,R,OH,primary,Fred Thompson,fec,votes,26103.0,16879.0,Popular Vote,votes,9224.0
+2008,R,RI,primary,John McCain,fec,votes,17480.0,17480.0,Popular Vote,votes,0.0
+2008,R,RI,primary,Mike Huckabee,fec,votes,5847.0,5847.0,Popular Vote,votes,0.0
+2008,R,RI,primary,Ron Paul,fec,votes,1777.0,1777.0,Popular Vote,votes,0.0
+2008,R,RI,primary,Mitt Romney,fec,votes,1181.0,1181.0,Popular Vote,votes,0.0
+2008,R,RI,primary,Uncommitted,fec,votes,570.0,570.0,Popular Vote,votes,0.0
+2008,R,RI,primary,Alan Keyes,fec,votes,117.0,117.0,Popular Vote,votes,0.0
+2008,R,RI,primary,Hugh Cort,fec,votes,24.0,24.0,Popular Vote,votes,0.0
+2008,R,TX,primary,John McCain,fec,votes,697767.0,697767.0,Popular Vote,votes,0.0
+2008,R,TX,primary,Mike Huckabee,fec,votes,518002.0,518002.0,Popular Vote,votes,0.0
+2008,R,TX,primary,Ron Paul,fec,votes,66360.0,66360.0,Popular Vote,votes,0.0
+2008,R,TX,primary,Mitt Romney,fec,votes,27264.0,27264.0,Popular Vote,votes,0.0
+2008,R,TX,primary,Uncommitted,fec,votes,17574.0,17574.0,Popular Vote,votes,0.0
+2008,R,TX,primary,Fred Thompson,fec,votes,11503.0,11503.0,Popular Vote,votes,0.0
+2008,R,TX,primary,Alan Keyes,fec,votes,8260.0,8260.0,Popular Vote,votes,0.0
+2008,R,TX,primary,Duncan Hunter,fec,votes,8222.0,8222.0,Popular Vote,votes,0.0
+2008,R,TX,primary,Rudy Giuliani,fec,votes,6038.0,6038.0,Popular Vote,votes,0.0
+2008,R,TX,primary,Hugh Cort,fec,votes,728.0,728.0,Popular Vote,votes,0.0
+2008,R,VT,primary,John McCain,fec,votes,28417.0,28417.0,Popular Vote,votes,0.0
+2008,R,VT,primary,Mike Huckabee,fec,votes,5698.0,5698.0,Popular Vote,votes,0.0
+2008,R,VT,primary,Ron Paul,fec,votes,2635.0,2635.0,Popular Vote,votes,0.0
+2008,R,VT,primary,Mitt Romney,fec,votes,1809.0,1809.0,Popular Vote,votes,0.0
+2008,R,VT,primary,Rudy Giuliani,fec,votes,931.0,931.0,Popular Vote,votes,0.0
+2008,R,MS,primary,John McCain,fec,votes,113074.0,113074.0,Popular Vote,votes,0.0
+2008,R,MS,primary,Mike Huckabee,fec,votes,17943.0,17943.0,Popular Vote,votes,0.0
+2008,R,MS,primary,Ron Paul,fec,votes,5510.0,5510.0,Popular Vote,votes,0.0
+2008,R,MS,primary,Mitt Romney,fec,votes,2177.0,2177.0,Popular Vote,votes,0.0
+2008,R,MS,primary,Fred Thompson,fec,votes,2160.0,2160.0,Popular Vote,votes,0.0
+2008,R,MS,primary,Rudy Giuliani,fec,votes,945.0,945.0,Popular Vote,votes,0.0
+2008,R,MS,primary,Alan Keyes,fec,votes,842.0,842.0,Popular Vote,votes,0.0
+2008,R,MS,primary,Duncan Hunter,fec,votes,414.0,414.0,Popular Vote,votes,0.0
+2008,R,MS,primary,Tom Tancredo,fec,votes,221.0,221.0,Popular Vote,votes,0.0
+2008,R,PA,primary,John McCain,fec,votes,595175.0,595175.0,Popular Vote,votes,0.0
+2008,R,PA,primary,Ron Paul,fec,votes,129323.0,129323.0,Popular Vote,votes,0.0
+2008,R,PA,primary,Mike Huckabee,fec,votes,92430.0,92430.0,Popular Vote,votes,0.0
+2008,R,IN,primary,John McCain,fec,votes,320318.0,320308.0,Popular Vote,votes,10.0
+2008,R,IN,primary,Mike Huckabee,fec,votes,41173.0,41173.0,Popular Vote,votes,0.0
+2008,R,IN,primary,Ron Paul,fec,votes,31612.0,31611.0,Popular Vote,votes,1.0
+2008,R,IN,primary,Mitt Romney,fec,votes,19581.0,19581.0,Popular Vote,votes,0.0
+2008,R,NC,primary,John McCain,fec,votes,383085.0,383085.0,Popular Vote,votes,0.0
+2008,R,NC,primary,Mike Huckabee,fec,votes,63018.0,63018.0,Popular Vote,votes,0.0
+2008,R,NC,primary,Ron Paul,fec,votes,37260.0,37260.0,Popular Vote,votes,0.0
+2008,R,NC,primary,Alan Keyes,fec,votes,13596.0,13596.0,Popular Vote,votes,0.0
+2008,R,NE,primary,John McCain,fec,votes,118876.0,118065.0,Popular Vote,votes,811.0
+2008,R,NE,primary,Ron Paul,fec,votes,17772.0,17647.0,Popular Vote,votes,125.0
+2008,R,WV,convention,Mike Huckabee,wikipedia,state delegates,567.0,12260.0,Popular Vote,votes,-11693.0
+2008,R,WV,convention,Mitt Romney,wikipedia,state delegates,521.0,5242.0,Popular Vote,votes,-4721.0
+2008,R,WV,convention,John McCain,wikipedia,state delegates,12.0,90469.0,Popular Vote,votes,-90457.0
+2008,R,WV,primary,John McCain,fec,votes,90469.0,90469.0,Popular Vote,votes,0.0
+2008,R,WV,primary,Mikke Huckabee,fec,votes,12260.0,12260.0,Popular Vote,votes,0.0
+2008,R,WV,primary,Ron Paul,fec,votes,6000.0,6000.0,Popular Vote,votes,0.0
+2008,R,WV,primary,Mitt Romney,fec,votes,5242.0,5242.0,Popular Vote,votes,0.0
+2008,R,WV,primary,Rudy Giuliani,fec,votes,2875.0,2875.0,Popular Vote,votes,0.0
+2008,R,WV,primary,Alan L. Keyes,fec,votes,1441.0,1441.0,Popular Vote,votes,0.0
+2008,R,WV,primary,Jerry Curry,fec,votes,728.0,728.0,Popular Vote,votes,0.0
+2008,R,KY,primary,John McCain,fec,votes,142918.0,142918.0,Popular Vote,votes,0.0
+2008,R,KY,primary,Mike Huckabee,fec,votes,16388.0,16388.0,Popular Vote,votes,0.0
+2008,R,KY,primary,Ron Paul,fec,votes,13427.0,13427.0,Popular Vote,votes,0.0
+2008,R,KY,primary,Uncommitted,fec,votes,10755.0,10755.0,Popular Vote,votes,0.0
+2008,R,KY,primary,Mitt Romney,fec,votes,9206.0,9206.0,Popular Vote,votes,0.0
+2008,R,KY,primary,Rudolph W. Giuliani,fec,votes,3055.0,3055.0,Popular Vote,votes,0.0
+2008,R,KY,primary,Alan Keyes,fec,votes,2044.0,2044.0,Popular Vote,votes,0.0
+2008,R,OR,primary,John McCain,fec,votes,285881.0,285861.0,Popular Vote,votes,20.0
+2008,R,OR,primary,Ron Paul,fec,votes,51100.0,51099.0,Popular Vote,votes,1.0
+2008,R,ID,primary,John McCain,fec,votes,87460.0,87367.0,Popular Vote,votes,93.0
+2008,R,ID,primary,Ron Paul,fec,votes,29785.0,29749.0,Popular Vote,votes,36.0
+2008,R,MT,caucus,Mitt Romney,wikipedia,state delegates,625.0,625.0,State Delegates,state delegates,0.0
+2008,R,MT,caucus,Ron Paul,wikipedia,state delegates,400.0,400.0,State Delegates,state delegates,0.0
+2008,R,MT,caucus,John McCain,wikipedia,state delegates,358.0,358.0,State Delegates,state delegates,0.0
+2008,R,MT,caucus,Mike Huckabee,wikipedia,state delegates,245.0,245.0,State Delegates,state delegates,0.0
+2008,R,MT,caucus,Alan Keyes,wikipedia,state delegates,2.0,,,,
+2008,R,MT,primary,John McCain,fec,votes,72791.0,358.0,State Delegates,state delegates,72433.0
+2008,R,MT,primary,Ron Paul,fec,votes,20606.0,400.0,State Delegates,state delegates,20206.0
+2008,R,NM,primary,John McCain,fec,votes,95378.0,95378.0,Popular Vote,votes,0.0
+2008,R,NM,primary,Ron Paul,fec,votes,15561.0,15561.0,Popular Vote,votes,0.0
+2008,R,SD,primary,John McCain,fec,votes,42788.0,42788.0,Popular Vote,votes,0.0
+2008,R,SD,primary,Ron Paul,fec,votes,10072.0,10072.0,Popular Vote,votes,0.0
+2008,R,SD,primary,Mike Huckabee,fec,votes,4328.0,4328.0,Popular Vote,votes,0.0
+2008,R,SD,primary,Mitt Romney,fec,votes,1990.0,1990.0,Popular Vote,votes,0.0
+2008,R,SD,primary,to be Uncommitted,fec,votes,1786.0,1786.0,Popular Vote,votes,0.0
+2008,R,MP,caucus,John McCain,wikipedia,votes,105.0,105.0,Popular Vote,votes,0.0
+2008,R,MP,caucus,Mike Huckabee,wikipedia,votes,5.0,5.0,Popular Vote,votes,0.0
+2008,R,MP,caucus,Ron Paul,wikipedia,votes,5.0,5.0,Popular Vote,votes,0.0
+2012,D,NH,primary,Barack Obama,fec,votes,49080.0,49080.0,Popular Vote,votes,0.0
+2012,D,NH,primary,Randall Terry,fec,votes,442.0,442.0,Popular Vote,votes,0.0
+2012,D,NH,primary,John D. Haywood,fec,votes,423.0,423.0,Popular Vote,votes,0.0
+2012,D,NH,primary,Bob Ely,fec,votes,287.0,,,,
+2012,D,NH,primary,Darcy G. Richardson,fec,votes,264.0,264.0,Popular Vote,votes,0.0
+2012,D,NH,primary,"John, Jr. Wolfe",fec,votes,245.0,,,,
+2012,D,NH,primary,"Edward T., Jr. O'Donnell",fec,votes,222.0,,,,
+2012,D,NH,primary,Bob Greene,fec,votes,213.0,213.0,Popular Vote,votes,0.0
+2012,D,NH,primary,Robert B. Jordan,fec,votes,155.0,155.0,Popular Vote,votes,0.0
+2012,D,NH,primary,Aldous C. Tyler,fec,votes,106.0,106.0,Popular Vote,votes,0.0
+2012,D,SC,primary,Barack Obama,fec,votes,,,,,
+2012,D,FL,primary,Barack Obama,fec,votes,,,,,
+2012,D,MO,primary,Barack Obama,fec,votes,64435.0,64435.0,Popular Vote,votes,0.0
+2012,D,MO,primary,Uncommitted,fec,votes,4582.0,4582.0,Popular Vote,votes,0.0
+2012,D,MO,primary,Randall Terry,fec,votes,1998.0,1998.0,Popular Vote,votes,0.0
+2012,D,MO,primary,John Wolfe,fec,votes,1000.0,1000.0,Popular Vote,votes,0.0
+2012,D,MO,primary,Darcy G. Richardson,fec,votes,873.0,873.0,Popular Vote,votes,0.0
+2012,D,MI,primary,Barack Obama,fec,votes,174054.0,174220.0,Popular Vote,votes,-166.0
+2012,D,MI,primary,Uncommitted,fec,votes,20833.0,20855.0,Popular Vote,votes,-22.0
+2012,D,GA,primary,Barack Obama,fec,votes,139273.0,139273.0,Popular Vote,votes,0.0
+2012,D,MA,primary,Barack Obama,fec,votes,127909.0,127909.0,Popular Vote,votes,0.0
+2012,D,OH,primary,Barack Obama,fec,votes,542086.0,547588.0,Popular Vote,votes,-5502.0
+2012,D,OK,primary,Barack Obama,fec,votes,64389.0,64259.0,Popular Vote,votes,130.0
+2012,D,OK,primary,Randall Terry,fec,votes,20312.0,20294.0,Popular Vote,votes,18.0
+2012,D,OK,primary,Jim Rogers,fec,votes,15546.0,15535.0,Popular Vote,votes,11.0
+2012,D,OK,primary,Darcy G. Richardson,fec,votes,7201.0,7192.0,Popular Vote,votes,9.0
+2012,D,OK,primary,Bob Ely,fec,votes,5323.0,,,,
+2012,D,TN,primary,Barack Obama,fec,votes,80705.0,80357.0,Popular Vote,votes,348.0
+2012,D,TN,primary,Uncommitted,fec,votes,10497.0,10413.0,Popular Vote,votes,84.0
+2012,D,VA,primary,Barack Obama,fec,votes,,,,,
+2012,D,VT,primary,Barack Obama,fec,votes,40247.0,30954.0,Popular Vote,votes,9293.0
+2012,D,AL,primary,Barack Obama,fec,votes,241276.0,166430.0,Popular Vote,votes,74846.0
+2012,D,AL,primary,Uncommitted,fec,votes,45615.0,39498.0,Popular Vote,votes,6117.0
+2012,D,MS,primary,Barack Obama,fec,votes,97304.0,97304.0,Popular Vote,votes,0.0
+2012,D,IL,primary,Barack Obama,fec,votes,652583.0,,,,
+2012,D,LA,primary,Barack Obama,fec,votes,115150.0,115150.0,Popular Vote,votes,0.0
+2012,D,LA,primary,John Wolfe,fec,votes,17804.0,17804.0,Popular Vote,votes,0.0
+2012,D,LA,primary,Bob Ely,fec,votes,9897.0,,,,
+2012,D,LA,primary,Darcy G. Richardson,fec,votes,7750.0,7750.0,Popular Vote,votes,0.0
+2012,D,DC,primary,Barack Obama,fec,votes,56503.0,56503.0,Popular Vote,votes,0.0
+2012,D,DC,primary,Uncommitted,fec,votes,1100.0,1100.0,Popular Vote,votes,0.0
+2012,D,MD,primary,Barack Obama,fec,votes,288766.0,275825.0,Popular Vote,votes,12941.0
+2012,D,MD,primary,Uncommitted To Any Presidential Candidate,fec,votes,37704.0,,,,
+2012,D,WI,primary,Barack Obama,fec,votes,293914.0,293029.0,Popular Vote,votes,885.0
+2012,D,CT,primary,Barack Obama,fec,votes,,,,,
+2012,D,NY,primary,Barack Obama,fec,votes,,,,,
+2012,D,PA,primary,Barack Obama,fec,votes,616102.0,610401.0,Popular Vote,votes,5701.0
+2012,D,RI,primary,Barack Obama,fec,votes,6759.0,6759.0,Popular Vote,votes,0.0
+2012,D,RI,primary,Uncommitted,fec,votes,1133.0,1133.0,Popular Vote,votes,0.0
+2012,D,IN,primary,Barack Obama,fec,votes,221466.0,218837.0,Popular Vote,votes,2629.0
+2012,D,NC,primary,Barack Obama,fec,votes,766077.0,766079.0,Popular Vote,votes,-2.0
+2012,D,WV,primary,Barack Obama,fec,votes,106770.0,106770.0,Popular Vote,votes,0.0
+2012,D,WV,primary,Keith Judd,fec,votes,73138.0,73138.0,Popular Vote,votes,0.0
+2012,D,NE,primary,Barack Obama,fec,votes,63881.0,,,,
+2012,D,OR,primary,Barack Obama,fec,votes,309358.0,267382.0,Popular Vote,votes,41976.0
+2012,D,AR,primary,Barack Obama,fec,votes,94936.0,95382.0,Popular Vote,votes,-446.0
+2012,D,AR,primary,John Wolfe,fec,votes,67711.0,68105.0,Popular Vote,votes,-394.0
+2012,D,KY,primary,Barack Obama,fec,votes,119293.0,119280.0,Popular Vote,votes,13.0
+2012,D,KY,primary,Uncommitted,fec,votes,86925.0,86853.0,Popular Vote,votes,72.0
+2012,D,TX,primary,Barack Obama,fec,votes,520410.0,520410.0,Popular Vote,votes,0.0
+2012,D,TX,primary,John Wolfe,fec,votes,29879.0,29879.0,Popular Vote,votes,0.0
+2012,D,TX,primary,Darcy G. Richardson,fec,votes,25430.0,25430.0,Popular Vote,votes,0.0
+2012,D,TX,primary,Bob Ely,fec,votes,14445.0,,,,
+2012,D,CA,primary,Barack Obama,fec,votes,2075905.0,2075905.0,Popular Vote,votes,0.0
+2012,D,MT,primary,Barack Obama,fec,votes,79932.0,79537.0,Popular Vote,votes,395.0
+2012,D,NJ,primary,Barack Obama,fec,votes,283673.0,,,,
+2012,D,NM,primary,Barack Obama,fec,votes,122958.0,121769.0,Popular Vote,votes,1189.0
+2012,D,SD,primary,Barack Obama,fec,votes,,,,,
+2012,R,IA,caucus,Rick Santorum,wikipedia,votes,29839.0,29839.0,Popular Vote,votes,0.0
+2012,R,IA,caucus,Mitt Romney,wikipedia,votes,29805.0,29805.0,Popular Vote,votes,0.0
+2012,R,IA,caucus,Ron Paul,wikipedia,votes,26036.0,26036.0,Popular Vote,votes,0.0
+2012,R,IA,caucus,Newt Gingrich,wikipedia,votes,16163.0,16163.0,Popular Vote,votes,0.0
+2012,R,IA,caucus,Rick Perry,wikipedia,votes,12557.0,12557.0,Popular Vote,votes,0.0
+2012,R,IA,caucus,Michele Bachmann,wikipedia,votes,6046.0,6046.0,Popular Vote,votes,0.0
+2012,R,IA,caucus,Jon Huntsman,wikipedia,votes,739.0,739.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Mitt Romney,fec,votes,97591.0,97591.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Ron Paul,fec,votes,56872.0,56872.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Jon Huntsman,fec,votes,41964.0,41964.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Rick Santorum,fec,votes,23432.0,23432.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Newt Gingrich,fec,votes,23421.0,23421.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Rick Perry,fec,votes,1764.0,1764.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Buddy Roemer,fec,votes,950.0,950.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Michele Bachmann,fec,votes,350.0,350.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Fred Karger,fec,votes,345.0,345.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Gary Johnson,fec,votes,181.0,181.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Herman Cain,fec,votes,161.0,161.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Jeff Lawman,fec,votes,119.0,119.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Christopher V. Hill,fec,votes,108.0,108.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Keith Drummond,fec,votes,42.0,42.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Joe Story,fec,votes,42.0,42.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Stewart J. Greenleaf,fec,votes,24.0,24.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Mark Callahan,fec,votes,20.0,20.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Andy Martin,fec,votes,19.0,19.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Vern Wuensche,fec,votes,15.0,15.0,Popular Vote,votes,0.0
+2012,R,NH,primary,"L. John, Jr. Davis",fec,votes,14.0,,,,
+2012,R,NH,primary,Randy Crow,fec,votes,12.0,12.0,Popular Vote,votes,0.0
+2012,R,NH,primary,Hugh Cort,fec,votes,3.0,3.0,Popular Vote,votes,0.0
+2012,R,SC,primary,Newt Gingrich,fec,votes,244065.0,244065.0,Popular Vote,votes,0.0
+2012,R,SC,primary,Mitt Romney,fec,votes,168123.0,168123.0,Popular Vote,votes,0.0
+2012,R,SC,primary,Rick Santorum,fec,votes,102475.0,102475.0,Popular Vote,votes,0.0
+2012,R,SC,primary,Ron Paul,fec,votes,78360.0,78360.0,Popular Vote,votes,0.0
+2012,R,SC,primary,Herman Cain,fec,votes,6338.0,6338.0,Popular Vote,votes,0.0
+2012,R,SC,primary,Rick Perry,fec,votes,2534.0,2534.0,Popular Vote,votes,0.0
+2012,R,SC,primary,Jon Huntsman,fec,votes,1173.0,1173.0,Popular Vote,votes,0.0
+2012,R,SC,primary,Michele Bachmann,fec,votes,491.0,491.0,Popular Vote,votes,0.0
+2012,R,SC,primary,Gary Johnson,fec,votes,211.0,211.0,Popular Vote,votes,0.0
+2012,R,FL,primary,Mitt Romney,fec,votes,776159.0,776159.0,Popular Vote,votes,0.0
+2012,R,FL,primary,Newt Gingrich,fec,votes,534121.0,534121.0,Popular Vote,votes,0.0
+2012,R,FL,primary,Rick Santorum,fec,votes,223249.0,223249.0,Popular Vote,votes,0.0
+2012,R,FL,primary,Ron Paul,fec,votes,117461.0,117461.0,Popular Vote,votes,0.0
+2012,R,FL,primary,Rick Perry,fec,votes,6775.0,6775.0,Popular Vote,votes,0.0
+2012,R,FL,primary,Jon Huntsman,fec,votes,6204.0,6204.0,Popular Vote,votes,0.0
+2012,R,FL,primary,Michele Bachmann,fec,votes,3967.0,3967.0,Popular Vote,votes,0.0
+2012,R,FL,primary,Herman Cain,fec,votes,3503.0,3503.0,Popular Vote,votes,0.0
+2012,R,FL,primary,Gary Johnson,fec,votes,1195.0,1195.0,Popular Vote,votes,0.0
+2012,R,ME,caucus,Mitt Romney,wikipedia,votes,2373.0,2373.0,State Delegates,state delegates,0.0
+2012,R,ME,caucus,Ron Paul,wikipedia,votes,2258.0,2258.0,State Delegates,state delegates,0.0
+2012,R,ME,caucus,Rick Santorum,wikipedia,votes,1136.0,1136.0,State Delegates,state delegates,0.0
+2012,R,ME,caucus,Newt Gingrich,wikipedia,votes,405.0,405.0,State Delegates,state delegates,0.0
+2012,R,NV,caucus,Mitt Romney,wikipedia,votes,16486.0,16486.0,Popular Vote,votes,0.0
+2012,R,NV,caucus,Newt Gingrich,wikipedia,votes,6956.0,6956.0,Popular Vote,votes,0.0
+2012,R,NV,caucus,Ron Paul,wikipedia,votes,6175.0,6175.0,Popular Vote,votes,0.0
+2012,R,NV,caucus,Rick Santorum,wikipedia,votes,3277.0,3277.0,Popular Vote,votes,0.0
+2012,R,CO,caucus,Rick Santorum,wikipedia,votes,26614.0,26614.0,Precinct Popular Vote,votes,0.0
+2012,R,CO,caucus,Mitt Romney,wikipedia,votes,23012.0,23012.0,Precinct Popular Vote,votes,0.0
+2012,R,CO,caucus,Newt Gingrich,wikipedia,votes,8445.0,8445.0,Precinct Popular Vote,votes,0.0
+2012,R,CO,caucus,Ron Paul,wikipedia,votes,7759.0,7759.0,Precinct Popular Vote,votes,0.0
+2012,R,CO,caucus,Rick Perry,wikipedia,votes,52.0,52.0,Precinct Popular Vote,votes,0.0
+2012,R,CO,caucus,Jon Huntsman,wikipedia,votes,46.0,46.0,Precinct Popular Vote,votes,0.0
+2012,R,CO,caucus,Michele Bachmann,wikipedia,votes,28.0,28.0,Precinct Popular Vote,votes,0.0
+2012,R,MN,caucus,Rick Santorum,wikipedia,votes,21988.0,21932.0,Popular Vote,votes,56.0
+2012,R,MN,caucus,Ron Paul,wikipedia,votes,13282.0,13228.0,Popular Vote,votes,54.0
+2012,R,MN,caucus,Mitt Romney,wikipedia,votes,8240.0,8222.0,Popular Vote,votes,18.0
+2012,R,MN,caucus,Newt Gingrich,wikipedia,votes,5263.0,5272.0,Popular Vote,votes,-9.0
+2012,R,MO,primary,Rick Santorum,fec,votes,139272.0,139272.0,Popular Vote,votes,0.0
+2012,R,MO,primary,Mitt Romney,fec,votes,63882.0,63882.0,Popular Vote,votes,0.0
+2012,R,MO,primary,Ron Paul,fec,votes,30647.0,30647.0,Popular Vote,votes,0.0
+2012,R,MO,primary,Uncommitted,fec,votes,9853.0,9853.0,Popular Vote,votes,0.0
+2012,R,MO,primary,Rick Perry,fec,votes,2456.0,2456.0,Popular Vote,votes,0.0
+2012,R,MO,primary,Herman Cain,fec,votes,2306.0,2306.0,Popular Vote,votes,0.0
+2012,R,MO,primary,Michele Bachmann,fec,votes,1680.0,1680.0,Popular Vote,votes,0.0
+2012,R,MO,primary,Jon Huntsman,fec,votes,1044.0,1044.0,Popular Vote,votes,0.0
+2012,R,MO,primary,Gary Johnson,fec,votes,536.0,547.0,Popular Vote,votes,-11.0
+2012,R,MO,primary,Keith Drummond,fec,votes,153.0,153.0,Popular Vote,votes,0.0
+2012,R,AZ,primary,Mitt Romney,fec,votes,239167.0,238516.0,Popular Vote,votes,651.0
+2012,R,AZ,primary,Rick Santorum,fec,votes,138031.0,137128.0,Popular Vote,votes,903.0
+2012,R,AZ,primary,Newt Gingrich,fec,votes,81748.0,81384.0,Popular Vote,votes,364.0
+2012,R,AZ,primary,Ron Paul,fec,votes,43952.0,43794.0,Popular Vote,votes,158.0
+2012,R,AZ,primary,Rick Perry,fec,votes,2023.0,2014.0,Popular Vote,votes,9.0
+2012,R,AZ,primary,Buddy Roemer,fec,votes,692.0,691.0,Popular Vote,votes,1.0
+2012,R,AZ,primary,Paul Sims,fec,votes,530.0,529.0,Popular Vote,votes,1.0
+2012,R,AZ,primary,Cesar Cisneros,fec,votes,418.0,416.0,Popular Vote,votes,2.0
+2012,R,AZ,primary,Mark Callahan,fec,votes,358.0,358.0,Popular Vote,votes,0.0
+2012,R,AZ,primary,Al Dick Perry,fec,votes,310.0,2014.0,Popular Vote,votes,-1704.0
+2012,R,AZ,primary,Michael Levinson,fec,votes,217.0,216.0,Popular Vote,votes,1.0
+2012,R,AZ,primary,Christopher Hill,fec,votes,139.0,139.0,Popular Vote,votes,0.0
+2012,R,AZ,primary,Frank Lynch,fec,votes,110.0,110.0,Popular Vote,votes,0.0
+2012,R,AZ,primary,Raymond Scott Perkins,fec,votes,90.0,90.0,Popular Vote,votes,0.0
+2012,R,MI,primary,Mitt Romney,fec,votes,409522.0,409120.0,Popular Vote,votes,402.0
+2012,R,MI,primary,Rick Santorum,fec,votes,377372.0,377144.0,Popular Vote,votes,228.0
+2012,R,MI,primary,Ron Paul,fec,votes,115911.0,115778.0,Popular Vote,votes,133.0
+2012,R,MI,primary,Newt Gingrich,fec,votes,65027.0,65002.0,Popular Vote,votes,25.0
+2012,R,MI,primary,Uncommitted,fec,votes,18809.0,18843.0,Popular Vote,votes,-34.0
+2012,R,MI,primary,Rick Perry,fec,votes,1816.0,1906.0,Popular Vote,votes,-90.0
+2012,R,MI,primary,Buddy Roemer,fec,votes,1784.0,1874.0,Popular Vote,votes,-90.0
+2012,R,MI,primary,Michele Bachmann,fec,votes,1735.0,1766.0,Popular Vote,votes,-31.0
+2012,R,MI,primary,Jon Huntsman,fec,votes,1674.0,1712.0,Popular Vote,votes,-38.0
+2012,R,MI,primary,Herman Cain,fec,votes,1211.0,1237.0,Popular Vote,votes,-26.0
+2012,R,MI,primary,Fred Karger,fec,votes,1180.0,1225.0,Popular Vote,votes,-45.0
+2012,R,MI,primary,Gary Johnson,fec,votes,458.0,519.0,Popular Vote,votes,-61.0
+2012,R,WA,caucus,Mitt Romney,wikipedia,votes,19111.0,19111.0,Percentage Vote,unclear,0.0
+2012,R,WA,caucus,Ron Paul,wikipedia,votes,12594.0,12594.0,Percentage Vote,unclear,0.0
+2012,R,WA,caucus,Rick Santorum,wikipedia,votes,12089.0,12089.0,Percentage Vote,unclear,0.0
+2012,R,WA,caucus,Newt Gingrich,wikipedia,votes,5221.0,5221.0,Percentage Vote,unclear,0.0
+2012,R,WA,caucus,Uncommitted,wikipedia,votes,1656.0,1656.0,Percentage Vote,unclear,0.0
+2012,R,AK,caucus,Mitt Romney,wikipedia,votes,4285.0,4554.0,Popular Vote,votes,-269.0
+2012,R,AK,caucus,Rick Santorum,wikipedia,votes,3860.0,4254.0,Popular Vote,votes,-394.0
+2012,R,AK,caucus,Ron Paul,wikipedia,votes,3175.0,3410.0,Popular Vote,votes,-235.0
+2012,R,AK,caucus,Newt Gingrich,wikipedia,votes,1865.0,1878.0,Popular Vote,votes,-13.0
+2012,R,AK,caucus,Uncommitted,wikipedia,votes,34.0,36.0,Popular Vote,votes,-2.0
+2012,R,GA,primary,Newt Gingrich,fec,votes,425395.0,425395.0,Popular Vote,votes,0.0
+2012,R,GA,primary,Mitt Romney,fec,votes,233611.0,233611.0,Popular Vote,votes,0.0
+2012,R,GA,primary,Rick Santorum,fec,votes,176259.0,176259.0,Popular Vote,votes,0.0
+2012,R,GA,primary,Ron Paul,fec,votes,59100.0,59100.0,Popular Vote,votes,0.0
+2012,R,GA,primary,Jon Huntsman,fec,votes,1813.0,1813.0,Popular Vote,votes,0.0
+2012,R,GA,primary,Michele Bachmann,fec,votes,1714.0,1714.0,Popular Vote,votes,0.0
+2012,R,GA,primary,Rick Perry,fec,votes,1696.0,1696.0,Popular Vote,votes,0.0
+2012,R,GA,primary,Buddy Roemer,fec,votes,1142.0,1142.0,Popular Vote,votes,0.0
+2012,R,GA,primary,Gary Johnson,fec,votes,740.0,740.0,Popular Vote,votes,0.0
+2012,R,ID,caucus,Mitt Romney,wikipedia,votes,27514.0,27513.0,Popular Vote,votes,1.0
+2012,R,ID,caucus,Rick Santorum,wikipedia,votes,8115.0,8113.0,Popular Vote,votes,2.0
+2012,R,ID,caucus,Ron Paul,wikipedia,votes,8086.0,8087.0,Popular Vote,votes,-1.0
+2012,R,ID,caucus,Newt Gingrich,wikipedia,votes,940.0,938.0,Popular Vote,votes,2.0
+2012,R,MA,primary,Mitt Romney,fec,votes,266313.0,266313.0,Popular Vote,votes,0.0
+2012,R,MA,primary,Rick Santorum,fec,votes,44564.0,44564.0,Popular Vote,votes,0.0
+2012,R,MA,primary,Ron Paul,fec,votes,35219.0,35219.0,Popular Vote,votes,0.0
+2012,R,MA,primary,Newt Gingrich,fec,votes,16991.0,16991.0,Popular Vote,votes,0.0
+2012,R,MA,primary,Jon Huntsman,fec,votes,2268.0,2268.0,Popular Vote,votes,0.0
+2012,R,MA,primary,Rick Perry,fec,votes,991.0,991.0,Popular Vote,votes,0.0
+2012,R,MA,primary,Michele Bachmann,fec,votes,865.0,865.0,Popular Vote,votes,0.0
+2012,R,ND,caucus,Rick Santorum,wikipedia,votes,4510.0,4510.0,Popular Vote,votes,0.0
+2012,R,ND,caucus,Ron Paul,wikipedia,votes,3186.0,3186.0,Popular Vote,votes,0.0
+2012,R,ND,caucus,Mitt Romney,wikipedia,votes,2691.0,2691.0,Popular Vote,votes,0.0
+2012,R,ND,caucus,Newt Gingrich,wikipedia,votes,962.0,962.0,Popular Vote,votes,0.0
+2012,R,OH,primary,Mitt Romney,fec,votes,460831.0,456512.0,Popular Vote,votes,4319.0
+2012,R,OH,primary,Rick Santorum,fec,votes,448580.0,446223.0,Popular Vote,votes,2357.0
+2012,R,OH,primary,Newt Gingrich,fec,votes,177183.0,175552.0,Popular Vote,votes,1631.0
+2012,R,OH,primary,Ron Paul,fec,votes,113256.0,111239.0,Popular Vote,votes,2017.0
+2012,R,OH,primary,Rick Perry,fec,votes,7539.0,7446.0,Popular Vote,votes,93.0
+2012,R,OH,primary,Jon Huntsman,fec,votes,6490.0,6431.0,Popular Vote,votes,59.0
+2012,R,OK,primary,Rick Santorum,fec,votes,96849.0,96757.0,Popular Vote,votes,92.0
+2012,R,OK,primary,Mitt Romney,fec,votes,80356.0,80290.0,Popular Vote,votes,66.0
+2012,R,OK,primary,Newt Gingrich,fec,votes,78730.0,78684.0,Popular Vote,votes,46.0
+2012,R,OK,primary,Ron Paul,fec,votes,27596.0,27573.0,Popular Vote,votes,23.0
+2012,R,OK,primary,Rick Perry,fec,votes,1291.0,1291.0,Popular Vote,votes,0.0
+2012,R,OK,primary,Michele Bachmann,fec,votes,951.0,954.0,Popular Vote,votes,-3.0
+2012,R,OK,primary,Jon Huntsman,fec,votes,750.0,752.0,Popular Vote,votes,-2.0
+2012,R,TN,primary,Rick Santorum,fec,votes,205809.0,205010.0,Popular Vote,votes,799.0
+2012,R,TN,primary,Mitt Romney,fec,votes,155630.0,154910.0,Popular Vote,votes,720.0
+2012,R,TN,primary,Newt Gingrich,fec,votes,132889.0,132070.0,Popular Vote,votes,819.0
+2012,R,TN,primary,Ron Paul,fec,votes,50156.0,49802.0,Popular Vote,votes,354.0
+2012,R,TN,primary,Uncommitted,fec,votes,3536.0,3494.0,Popular Vote,votes,42.0
+2012,R,TN,primary,Rick Perry,fec,votes,1966.0,1954.0,Popular Vote,votes,12.0
+2012,R,TN,primary,Michele Bachmann,fec,votes,1895.0,1877.0,Popular Vote,votes,18.0
+2012,R,TN,primary,Jon Huntsman,fec,votes,1239.0,1233.0,Popular Vote,votes,6.0
+2012,R,TN,primary,Charles Buddy Roemer,fec,votes,881.0,876.0,Popular Vote,votes,5.0
+2012,R,TN,primary,Gary Johnson,fec,votes,572.0,571.0,Popular Vote,votes,1.0
+2012,R,VA,primary,Mitt Romney,fec,votes,158119.0,158050.0,Popular Vote,votes,69.0
+2012,R,VA,primary,Ron Paul,fec,votes,107451.0,107471.0,Popular Vote,votes,-20.0
+2012,R,VT,primary,Mitt Romney,fec,votes,24008.0,23964.0,Popular Vote,votes,44.0
+2012,R,VT,primary,Ron Paul,fec,votes,15391.0,15370.0,Popular Vote,votes,21.0
+2012,R,VT,primary,Rick Santorum,fec,votes,14368.0,14271.0,Popular Vote,votes,97.0
+2012,R,VT,primary,Newt Gingrich,fec,votes,4949.0,4942.0,Popular Vote,votes,7.0
+2012,R,VT,primary,Jon Huntsman,fec,votes,1198.0,1213.0,Popular Vote,votes,-15.0
+2012,R,VT,primary,Rick Perry,fec,votes,544.0,544.0,Popular Vote,votes,0.0
+2012,R,WY,caucus,Mitt Romney,wikipedia,votes,822.0,822.0,Popular Vote,votes,0.0
+2012,R,WY,caucus,Rick Santorum,wikipedia,votes,673.0,673.0,Popular Vote,votes,0.0
+2012,R,WY,caucus,Ron Paul,wikipedia,votes,439.0,439.0,Popular Vote,votes,0.0
+2012,R,WY,caucus,Newt Gingrich,wikipedia,votes,165.0,165.0,Popular Vote,votes,0.0
+2012,R,KS,caucus,Rick Santorum,wikipedia,votes,15290.0,15521.0,Popular Vote,votes,-231.0
+2012,R,KS,caucus,Mitt Romney,wikipedia,votes,6250.0,6346.0,Popular Vote,votes,-96.0
+2012,R,KS,caucus,Newt Gingrich,wikipedia,votes,4298.0,4358.0,Popular Vote,votes,-60.0
+2012,R,KS,caucus,Ron Paul,wikipedia,votes,3767.0,3900.0,Popular Vote,votes,-133.0
+2012,R,KS,caucus,Uncommitted,wikipedia,votes,122.0,122.0,Popular Vote,votes,0.0
+2012,R,KS,caucus,Herman Cain,wikipedia,votes,39.0,39.0,Popular Vote,votes,0.0
+2012,R,KS,caucus,Jon Huntsman,wikipedia,votes,38.0,36.0,Popular Vote,votes,2.0
+2012,R,KS,caucus,Rick Perry,wikipedia,votes,37.0,37.0,Popular Vote,votes,0.0
+2012,R,KS,caucus,Michele Bachmann,wikipedia,votes,16.0,16.0,Popular Vote,votes,0.0
+2012,R,AL,primary,Rick Santorum,fec,votes,214628.0,214543.0,Popular Vote,votes,85.0
+2012,R,AL,primary,Newt Gingrich,fec,votes,182292.0,182195.0,Popular Vote,votes,97.0
+2012,R,AL,primary,Mitt Romney,fec,votes,180336.0,180249.0,Popular Vote,votes,87.0
+2012,R,AL,primary,Ron Paul,fec,votes,30950.0,30893.0,Popular Vote,votes,57.0
+2012,R,AL,primary,Uncommitted,fec,votes,9259.0,9255.0,Popular Vote,votes,4.0
+2012,R,AL,primary,Rick Perry,fec,votes,1869.0,1867.0,Popular Vote,votes,2.0
+2012,R,AL,primary,Michele Bachmann,fec,votes,1701.0,1698.0,Popular Vote,votes,3.0
+2012,R,AL,primary,Jon Huntsman,fec,votes,1049.0,1047.0,Popular Vote,votes,2.0
+2012,R,HI,caucus,Mitt Romney,wikipedia,votes,4548.0,4513.0,Popular Vote,votes,35.0
+2012,R,HI,caucus,Rick Santorum,wikipedia,votes,2589.0,2555.0,Popular Vote,votes,34.0
+2012,R,HI,caucus,Ron Paul,wikipedia,votes,1975.0,1902.0,Popular Vote,votes,73.0
+2012,R,HI,caucus,Newt Gingrich,wikipedia,votes,1116.0,1096.0,Popular Vote,votes,20.0
+2012,R,MS,primary,Rick Santorum,fec,votes,96258.0,96258.0,Popular Vote,votes,0.0
+2012,R,MS,primary,Newt Gingrich,fec,votes,91612.0,91612.0,Popular Vote,votes,0.0
+2012,R,MS,primary,Mitt Romney,fec,votes,90161.0,90161.0,Popular Vote,votes,0.0
+2012,R,MS,primary,Ron Paul,fec,votes,12955.0,12955.0,Popular Vote,votes,0.0
+2012,R,MS,primary,Rick Perry,fec,votes,1350.0,1350.0,Popular Vote,votes,0.0
+2012,R,MS,primary,Michele Bachmann,fec,votes,971.0,971.0,Popular Vote,votes,0.0
+2012,R,MS,primary,Jon Huntsman,fec,votes,413.0,413.0,Popular Vote,votes,0.0
+2012,R,MS,primary,Gary Johnson,fec,votes,392.0,392.0,Popular Vote,votes,0.0
+2012,R,PR,primary,Mitt Romney,fec,votes,106133.0,106431.0,Popular Vote,votes,-298.0
+2012,R,PR,primary,Rick Santorum,fec,votes,10455.0,10574.0,Popular Vote,votes,-119.0
+2012,R,PR,primary,Newt Gingrich,fec,votes,2528.0,2702.0,Popular Vote,votes,-174.0
+2012,R,PR,primary,Buddy Roemer,fec,votes,2515.0,2880.0,Popular Vote,votes,-365.0
+2012,R,PR,primary,Fred Karger,fec,votes,1825.0,1893.0,Popular Vote,votes,-68.0
+2012,R,PR,primary,Ron Paul,fec,votes,1568.0,1595.0,Popular Vote,votes,-27.0
+2012,R,IL,primary,Mitt Romney,fec,votes,435859.0,433695.0,Popular Vote,votes,2164.0
+2012,R,IL,primary,Rick Santorum,fec,votes,326778.0,325482.0,Popular Vote,votes,1296.0
+2012,R,IL,primary,Ron Paul,fec,votes,87044.0,86602.0,Popular Vote,votes,442.0
+2012,R,IL,primary,Newt Gingrich,fec,votes,74482.0,73999.0,Popular Vote,votes,483.0
+2012,R,IL,primary,Rick Perry,fec,votes,5568.0,5538.0,Popular Vote,votes,30.0
+2012,R,IL,primary,Charles Buddy Roemer,fec,votes,3723.0,3699.0,Popular Vote,votes,24.0
+2012,R,LA,primary,Rick Santorum,fec,votes,91321.0,91321.0,Popular Vote,votes,0.0
+2012,R,LA,primary,Mitt Romney,fec,votes,49758.0,49758.0,Popular Vote,votes,0.0
+2012,R,LA,primary,Newt Gingrich,fec,votes,29656.0,29656.0,Popular Vote,votes,0.0
+2012,R,LA,primary,Ron Paul,fec,votes,11467.0,11467.0,Popular Vote,votes,0.0
+2012,R,LA,primary,Charles Buddy Roemer,fec,votes,2203.0,2203.0,Popular Vote,votes,0.0
+2012,R,LA,primary,Rick Perry,fec,votes,955.0,955.0,Popular Vote,votes,0.0
+2012,R,LA,primary,Michele Bachmann,fec,votes,622.0,622.0,Popular Vote,votes,0.0
+2012,R,LA,primary,Jon Huntsman,fec,votes,242.0,242.0,Popular Vote,votes,0.0
+2012,R,LA,primary,Randy Crow,fec,votes,186.0,186.0,Popular Vote,votes,0.0
+2012,R,DC,primary,Mitt Romney,fec,votes,3577.0,3577.0,Popular Vote,votes,0.0
+2012,R,DC,primary,Ron Paul,fec,votes,621.0,621.0,Popular Vote,votes,0.0
+2012,R,DC,primary,Newt Gingrich,fec,votes,558.0,558.0,Popular Vote,votes,0.0
+2012,R,DC,primary,Jon Huntsman,fec,votes,348.0,348.0,Popular Vote,votes,0.0
+2012,R,MD,primary,Mitt Romney,fec,votes,122400.0,117526.0,Popular Vote,votes,4874.0
+2012,R,MD,primary,Rick Santorum,fec,votes,71349.0,69018.0,Popular Vote,votes,2331.0
+2012,R,MD,primary,Newt Gingrich,fec,votes,27240.0,26086.0,Popular Vote,votes,1154.0
+2012,R,MD,primary,Ron Paul,fec,votes,23609.0,22699.0,Popular Vote,votes,910.0
+2012,R,MD,primary,Jon Huntsman,fec,votes,1484.0,1409.0,Popular Vote,votes,75.0
+2012,R,MD,primary,Rick Perry,fec,votes,1108.0,1042.0,Popular Vote,votes,66.0
+2012,R,MD,primary,Buddy Roemer,fec,votes,901.0,857.0,Popular Vote,votes,44.0
+2012,R,MD,primary,Fred Karger,fec,votes,377.0,349.0,Popular Vote,votes,28.0
+2012,R,WI,primary,Mitt Romney,fec,votes,346876.0,346278.0,Popular Vote,votes,598.0
+2012,R,WI,primary,Rick Santorum,fec,votes,290139.0,289646.0,Popular Vote,votes,493.0
+2012,R,WI,primary,Ron Paul,fec,votes,87858.0,87897.0,Popular Vote,votes,-39.0
+2012,R,WI,primary,Newt Gingrich,fec,votes,45978.0,45942.0,Popular Vote,votes,36.0
+2012,R,WI,primary,Michele Bachmann,fec,votes,6045.0,6057.0,Popular Vote,votes,-12.0
+2012,R,WI,primary,Jon Huntsman,fec,votes,5083.0,5136.0,Popular Vote,votes,-53.0
+2012,R,CT,primary,Mitt Romney,fec,votes,40171.0,40267.0,Popular Vote,votes,-96.0
+2012,R,CT,primary,Ron Paul,fec,votes,8032.0,8018.0,Popular Vote,votes,14.0
+2012,R,CT,primary,Newt Gingrich,fec,votes,6135.0,6132.0,Popular Vote,votes,3.0
+2012,R,CT,primary,Rick Santorum,fec,votes,4072.0,4079.0,Popular Vote,votes,-7.0
+2012,R,CT,primary,Uncommitted,fec,votes,1168.0,1167.0,Popular Vote,votes,1.0
+2012,R,DE,primary,Mitt Romney,fec,votes,16143.0,16145.0,Popular Vote,votes,-2.0
+2012,R,DE,primary,Newt Gingrich,fec,votes,7742.0,7738.0,Popular Vote,votes,4.0
+2012,R,DE,primary,Ronald E. Paul,fec,votes,3017.0,3021.0,Popular Vote,votes,-4.0
+2012,R,DE,primary,Rick Santorum,fec,votes,1690.0,1691.0,Popular Vote,votes,-1.0
+2012,R,NY,primary,Mitt Romney,fec,votes,118912.0,118912.0,Popular Vote,votes,0.0
+2012,R,NY,primary,Ron Paul,fec,votes,27699.0,27699.0,Popular Vote,votes,0.0
+2012,R,NY,primary,Newt Gingrich,fec,votes,23990.0,23990.0,Popular Vote,votes,0.0
+2012,R,NY,primary,Rick Santorum,fec,votes,18997.0,18997.0,Popular Vote,votes,0.0
+2012,R,PA,primary,Mitt Romney,fec,votes,468374.0,464745.0,Popular Vote,votes,3629.0
+2012,R,PA,primary,Rick Santorum,fec,votes,149056.0,147102.0,Popular Vote,votes,1954.0
+2012,R,PA,primary,Ron Paul,fec,votes,106148.0,105529.0,Popular Vote,votes,619.0
+2012,R,PA,primary,Newt Gingrich,fec,votes,84537.0,83908.0,Popular Vote,votes,629.0
+2012,R,RI,primary,Mitt Romney,fec,votes,9178.0,9178.0,Popular Vote,votes,0.0
+2012,R,RI,primary,Ron Paul,fec,votes,3473.0,3473.0,Popular Vote,votes,0.0
+2012,R,RI,primary,Newt Gingrich,fec,votes,880.0,880.0,Popular Vote,votes,0.0
+2012,R,RI,primary,Rick Santorum,fec,votes,825.0,825.0,Popular Vote,votes,0.0
+2012,R,RI,primary,Uncommitted,fec,votes,131.0,131.0,Popular Vote,votes,0.0
+2012,R,RI,primary,Buddy Roemer,fec,votes,40.0,40.0,Popular Vote,votes,0.0
+2012,R,IN,primary,Mitt Romney,fec,votes,410635.0,402914.0,Popular Vote,votes,7721.0
+2012,R,IN,primary,Ron Paul,fec,votes,98487.0,96697.0,Popular Vote,votes,1790.0
+2012,R,IN,primary,Rick Santorum,fec,votes,85332.0,83799.0,Popular Vote,votes,1533.0
+2012,R,IN,primary,Newt Gingrich,fec,votes,41135.0,40361.0,Popular Vote,votes,774.0
+2012,R,NC,primary,Mitt Romney,fec,votes,638601.0,638601.0,Popular Vote,votes,0.0
+2012,R,NC,primary,Ron Paul,fec,votes,108217.0,108217.0,Popular Vote,votes,0.0
+2012,R,NC,primary,Rick Santorum,fec,votes,101093.0,101093.0,Popular Vote,votes,0.0
+2012,R,NC,primary,Newt Gingrich,fec,votes,74367.0,74367.0,Popular Vote,votes,0.0
+2012,R,WV,primary,Mitt Romney,fec,votes,78197.0,77479.0,Popular Vote,votes,718.0
+2012,R,WV,primary,Rick Santorum,fec,votes,13590.0,13409.0,Popular Vote,votes,181.0
+2012,R,WV,primary,Ron Paul,fec,votes,12412.0,12267.0,Popular Vote,votes,145.0
+2012,R,WV,primary,Newt Gingrich,fec,votes,7076.0,6983.0,Popular Vote,votes,93.0
+2012,R,WV,primary,Charles Buddy Roemer,fec,votes,1141.0,1131.0,Popular Vote,votes,10.0
+2012,R,NE,primary,Mitt Romney,fec,votes,131436.0,129545.0,Popular Vote,votes,1891.0
+2012,R,NE,primary,Rick Santorum,fec,votes,25830.0,25534.0,Popular Vote,votes,296.0
+2012,R,NE,primary,Ron Paul,fec,votes,18508.0,18194.0,Popular Vote,votes,314.0
+2012,R,NE,primary,Newt Gingrich,fec,votes,9628.0,9519.0,Popular Vote,votes,109.0
+2012,R,OR,primary,Mitt Romney,fec,votes,204176.0,194124.0,Popular Vote,votes,10052.0
+2012,R,OR,primary,Ron Paul,fec,votes,36810.0,34227.0,Popular Vote,votes,2583.0
+2012,R,OR,primary,Rick Santorum,fec,votes,27042.0,25602.0,Popular Vote,votes,1440.0
+2012,R,OR,primary,Newt Gingrich,fec,votes,15451.0,14691.0,Popular Vote,votes,760.0
+2012,R,AR,primary,Mitt Romney,fec,votes,104200.0,103166.0,Popular Vote,votes,1034.0
+2012,R,AR,primary,Ron Paul,fec,votes,20399.0,20271.0,Popular Vote,votes,128.0
+2012,R,AR,primary,Rick Santorum,fec,votes,20308.0,20138.0,Popular Vote,votes,170.0
+2012,R,AR,primary,Newt Gingrich,fec,votes,7453.0,7445.0,Popular Vote,votes,8.0
+2012,R,KY,primary,Mitt Romney,fec,votes,117621.0,117601.0,Popular Vote,votes,20.0
+2012,R,KY,primary,Ron Paul,fec,votes,22074.0,22048.0,Popular Vote,votes,26.0
+2012,R,KY,primary,Rick Santorum,fec,votes,15629.0,15655.0,Popular Vote,votes,-26.0
+2012,R,KY,primary,Newt Gingrich,fec,votes,10479.0,10442.0,Popular Vote,votes,37.0
+2012,R,KY,primary,Uncommitted,fec,votes,10357.0,10339.0,Popular Vote,votes,18.0
+2012,R,TX,primary,Mitt Romney,fec,votes,1001387.0,1001387.0,Popular Vote,votes,0.0
+2012,R,TX,primary,Ron Paul,fec,votes,174207.0,174207.0,Popular Vote,votes,0.0
+2012,R,TX,primary,Rick Santorum,fec,votes,115584.0,115584.0,Popular Vote,votes,0.0
+2012,R,TX,primary,Newt Gingrich,fec,votes,68247.0,68247.0,Popular Vote,votes,0.0
+2012,R,TX,primary,Uncommitted,fec,votes,60659.0,60659.0,Popular Vote,votes,0.0
+2012,R,TX,primary,Michele Bachmann,fec,votes,12097.0,12097.0,Popular Vote,votes,0.0
+2012,R,TX,primary,Jon Huntsman,fec,votes,8695.0,8695.0,Popular Vote,votes,0.0
+2012,R,TX,primary,Charles Buddy Roemer,fec,votes,4714.0,4714.0,Popular Vote,votes,0.0
+2012,R,TX,primary,John Davis,fec,votes,3887.0,3887.0,Popular Vote,votes,0.0
+2012,R,CA,primary,Mitt Romney,fec,votes,1530513.0,1530513.0,Popular Vote,votes,0.0
+2012,R,CA,primary,Ron Paul,fec,votes,199246.0,199246.0,Popular Vote,votes,0.0
+2012,R,CA,primary,Rick Santorum,fec,votes,102258.0,102258.0,Popular Vote,votes,0.0
+2012,R,CA,primary,Newt Gingrich,fec,votes,72022.0,72022.0,Popular Vote,votes,0.0
+2012,R,CA,primary,"Charles E. Buddy, III Roemer",fec,votes,12520.0,,,,
+2012,R,CA,primary,Fred Karger,fec,votes,8393.0,8393.0,Popular Vote,votes,0.0
+2012,R,MT,primary,Mitt Romney,fec,votes,96121.0,95692.0,State Delegates,state delegates,429.0
+2012,R,MT,primary,Ron Paul,fec,votes,20227.0,20123.0,State Delegates,state delegates,104.0
+2012,R,MT,primary,Rick Santorum,fec,votes,12546.0,12483.0,State Delegates,state delegates,63.0
+2012,R,MT,primary,Newt Gingrich,fec,votes,6107.0,6077.0,State Delegates,state delegates,30.0
+2012,R,NJ,primary,Mitt Romney,fec,votes,188121.0,184734.0,Popular Vote,votes,3387.0
+2012,R,NJ,primary,Ron Paul,fec,votes,24017.0,23616.0,Popular Vote,votes,401.0
+2012,R,NJ,primary,Rick Santorum,fec,votes,12115.0,11893.0,Popular Vote,votes,222.0
+2012,R,NJ,primary,Newt Gingrich,fec,votes,7212.0,7091.0,Popular Vote,votes,121.0
+2012,R,NM,primary,Mitt Romney,fec,votes,65935.0,65475.0,Popular Vote,votes,460.0
+2012,R,NM,primary,Rick Santorum,fec,votes,9517.0,9446.0,Popular Vote,votes,71.0
+2012,R,NM,primary,Ron Paul,fec,votes,9363.0,9284.0,Popular Vote,votes,79.0
+2012,R,NM,primary,Newt Gingrich,fec,votes,5298.0,5255.0,Popular Vote,votes,43.0
+2012,R,SD,primary,Mitt Romney,fec,votes,33872.0,34035.0,Popular Vote,votes,-163.0
+2012,R,SD,primary,Ron Paul,fec,votes,6657.0,6708.0,Popular Vote,votes,-51.0
+2012,R,SD,primary,Rick Santorum,fec,votes,5844.0,5917.0,Popular Vote,votes,-73.0
+2012,R,SD,primary,To Be Uncommitted,fec,votes,2771.0,2796.0,Popular Vote,votes,-25.0
+2012,R,SD,primary,Newt Gingrich,fec,votes,2001.0,2071.0,Popular Vote,votes,-70.0
+2012,R,UT,primary,Mitt Romney,fec,votes,225428.0,205611.0,Popular Vote,votes,19817.0
+2012,R,UT,primary,Ron Paul,fec,votes,11520.0,10388.0,Popular Vote,votes,1132.0
+2012,R,UT,primary,Rick Santorum,fec,votes,3594.0,3349.0,Popular Vote,votes,245.0
+2012,R,UT,primary,Newt Gingrich,fec,votes,1146.0,1071.0,Popular Vote,votes,75.0
+2012,R,UT,primary,Fred Karger,fec,votes,584.0,546.0,Popular Vote,votes,38.0
+2012,R,AS,caucus,Mitt Romney,wikipedia,unclear,6.0,,,,
+2012,R,AS,caucus,Ron Paul,wikipedia,unclear,0.0,,,,
+2012,R,AS,caucus,Rick Santorum,wikipedia,unclear,0.0,,,,
+2012,R,AS,caucus,Newt Gingrich,wikipedia,unclear,0.0,,,,
+2012,R,GU,caucus,Mitt Romney,wikipedia,votes,207.0,207.0,Popular Vote,votes,0.0
+2012,R,GU,caucus,Uncommitted,wikipedia,votes,8.0,,,,
+2012,R,MP,caucus,Mitt Romney,wikipedia,votes,740.0,740.0,Popular Vote,votes,0.0
+2012,R,MP,caucus,Rick Santorum,wikipedia,votes,53.0,53.0,Popular Vote,votes,0.0
+2012,R,MP,caucus,Ron Paul,wikipedia,votes,28.0,28.0,Popular Vote,votes,0.0
+2012,R,MP,caucus,Newt Gingrich,wikipedia,votes,27.0,27.0,Popular Vote,votes,0.0
+2012,R,VI,caucus,Uncommitted,wikipedia,votes,132.0,130.0,Popular Vote,votes,2.0
+2012,R,VI,caucus,Ron Paul,wikipedia,votes,112.0,112.0,Popular Vote,votes,0.0
+2012,R,VI,caucus,Mitt Romney,wikipedia,votes,104.0,101.0,Popular Vote,votes,3.0
+2012,R,VI,caucus,Rick Santorum,wikipedia,votes,23.0,23.0,Popular Vote,votes,0.0
+2012,R,VI,caucus,Newt Gingrich,wikipedia,votes,19.0,18.0,Popular Vote,votes,1.0
