@@ -26,6 +26,8 @@ Share-alike is required because many tables are adapted from Wikipedia (CC BY-SA
   under [CC BY-NC-SA 3.0](https://creativecommons.org/licenses/by-nc-sa/3.0/). That file, and anything derived
   from it poll by poll, is under the same licence: non-commercial use only, with credit to HuffPost Pollster
   and to this project.
+- **State election offices' 2024 presidential primary files** in `data/raw/state_primary/` are public records kept
+  as published, not this project's to license; the Missouri Democratic Party's results sheet there is the party's.
 - **University of Michigan consumer sentiment** (in the raw FRED folder) is copyrighted and not used in any output.
 
 ## Sources to credit

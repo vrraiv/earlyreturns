@@ -1,0 +1,13 @@
+{
+  "CT_REP_pres_2024_contest35850.csv": {
+    "url": "https://ct.elstats.civera.com/api/download_contest/35850_table.csv?split_party=false",
+    "retrieved": "2026-11-24",
+    "bytes": 49808,
+    "note": "SOS historical database"
+  },
+  "CT_DEM_pres_2024_contest35851.csv": {
+    "url": "https://ct.elstats.civera.com/api/download_contest/35851_table.csv?split_party=false",
+    "retrieved": "2026-11-24",
+    "bytes": 50335
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ME_REP_presidential_primary_2024-03-05.xlsx": {
+    "url": "https://www1.maine.gov/sos/sites/maine.gov.sos/files/content/assets/REP-20Presidential-20Primary-203.5.2024.xlsx",
+    "retrieved": "2026-11-24",
+    "bytes": 51530,
+    "note": "from www1.maine.gov; www.maine.gov refuses scripted requests"
+  },
+  "ME_DEM_presidential_primary_2024-03-05.xlsx": {
+    "url": "https://www1.maine.gov/sos/sites/maine.gov.sos/files/content/assets/DEM-20Presidential-20Primary-203.5.2024.xlsx",
+    "retrieved": "2026-11-24",
+    "bytes": 45352,
+    "note": "from www1.maine.gov; www.maine.gov refuses scripted requests"
+  }
+}

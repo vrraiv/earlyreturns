@@ -1,0 +1,14 @@
+{
+  "IL_GP2024Tot.xlsx": {
+    "url": "https://www.elections.il.gov/ElectionOperations/DownloadVoteTotals.aspx",
+    "retrieved": "2026-11-24",
+    "bytes": 72407,
+    "note": "GP2024Tot.xlsx, reached by the page's postback (ddlCurrent=2024); the download link is tokenised"
+  },
+  "IL_2024GPOfficialVote.pdf": {
+    "url": "https://www.elections.il.gov/ElectionOperations/DownloadVoteTotals.aspx",
+    "retrieved": "2026-11-24",
+    "bytes": 2283613,
+    "note": "2024GPOfficialVote.pdf, the official canvass, same postback"
+  }
+}

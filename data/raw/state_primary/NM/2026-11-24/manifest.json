@@ -1,0 +1,13 @@
+{
+  "NM_REP_president_contest_14424.csv": {
+    "url": "https://nm.elstats.civera.com/api/download_contest/14424_table.csv?split_party=false",
+    "retrieved": "2026-11-24",
+    "bytes": 66164,
+    "note": "SOS results database; state canvass certified 2024-06-25"
+  },
+  "NM_DEM_president_contest_14425.csv": {
+    "url": "https://nm.elstats.civera.com/api/download_contest/14425_table.csv?split_party=false",
+    "retrieved": "2026-11-24",
+    "bytes": 58483
+  }
+}

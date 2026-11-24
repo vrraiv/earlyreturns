@@ -1,0 +1,14 @@
+{
+  "AR_2024_preferential_primary_FullDataFile.json.gz": {
+    "url": "https://results.tally-enr.com/results/arkansas/1845/FullDataFile.json",
+    "retrieved": "2026-11-24",
+    "bytes": 15082701,
+    "note": "stored gzipped"
+  },
+  "AR_2024_preferential_primary_GetElectionInfo.json": {
+    "url": "https://enr-results-api.totalresults.com/Election/GetElectionInfo?cId=arkansas&electionID=1845",
+    "retrieved": "2026-11-24",
+    "bytes": 321244,
+    "note": "isOfficial: true"
+  }
+}

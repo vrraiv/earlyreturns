@@ -1,0 +1,7 @@
+{
+  "statewide.json": {
+    "url": "https://rigov.s3.amazonaws.com/election/results/2024/presidential_preference_primary/statewide.json",
+    "retrieved": "2026-11-24",
+    "bytes": 8312
+  }
+}

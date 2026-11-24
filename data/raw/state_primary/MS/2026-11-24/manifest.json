@@ -1,0 +1,13 @@
+{
+  "MS_Statewide_Republican_Results24.pdf": {
+    "url": "https://www.sos.ms.gov/elections/electionResults/Statewide%20Republican%20Results24.pdf",
+    "retrieved": "2026-11-24",
+    "bytes": 348516,
+    "note": "official recapitulation"
+  },
+  "MS_Statewide_Democratic_Recap24.pdf": {
+    "url": "https://www.sos.ms.gov/elections/electionResults/Statewide%20Democratic%20Recap24.pdf",
+    "retrieved": "2026-11-24",
+    "bytes": 1490416
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "GA_2024MarPPP_TotalVotesResults.xlsx": {
+    "url": "https://results.sos.ga.gov/cdn/results/09378a07-e6cf-4f66-be7c-ca4aa534f99a/Total%20Votes%20Results_332ef1c8-3b90-4708-973e-8af417d6112a.xlsx",
+    "retrieved": "2026-11-24",
+    "bytes": 81645
+  },
+  "GA_2024MarPPP_election_api.json": {
+    "url": "https://results.sos.ga.gov/results/public/api/elections/Georgia/2024MarPPP",
+    "retrieved": "2026-11-24",
+    "bytes": 2085,
+    "note": "isOfficialResults: true"
+  }
+}

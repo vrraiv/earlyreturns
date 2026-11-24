@@ -1,0 +1,13 @@
+{
+  "electionreturns_2024_primary_precinctreturns.txt.gz": {
+    "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/electionreturns_2024_primary_precinctreturns.txt",
+    "retrieved": "2026-11-24",
+    "bytes": 63882614,
+    "note": "stored gzipped; extracted 2024-07-23"
+  },
+  "electionreturns_2024_primary_readme.txt": {
+    "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/electionreturns_2024_primary_readme.txt",
+    "retrieved": "2026-11-24",
+    "bytes": 5316
+  }
+}

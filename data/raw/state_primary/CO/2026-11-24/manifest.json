@@ -1,0 +1,13 @@
+{
+  "CO_REP_pres_2024_contest25994.csv": {
+    "url": "https://co.elstats.civera.com/api/download_contest/25994_table.csv?split_party=false",
+    "retrieved": "2026-11-24",
+    "bytes": 3361,
+    "note": "SOS historical database; cites the 2023-2024 Abstract of Votes Cast"
+  },
+  "CO_DEM_pres_2024_contest25993.csv": {
+    "url": "https://co.elstats.civera.com/api/download_contest/25993_table.csv?split_party=false",
+    "retrieved": "2026-11-24",
+    "bytes": 3688
+  }
+}
