@@ -4608,7 +4608,7 @@ inside an 80% range four times in four is what a range that is too wide also giv
 - **Recent polls alone are worse than last time's result at 7 days in 2020** (7.7 against 4.7), and the model sits
   between them (5.3). Its signed miss is −3.6 and −4.0 in 2016 and 2020 and positive in 2008 and 2012. B2 itself
   worsens from 5.7 at 30 days to 7.7 at 7 in 2020, the date at which every state has ten or more polls in the
-  window while 19 contests still have fewer than three firms there. One firm's 50-state releases entering through
+  window while 21 of the 56 contests still have fewer than three firms there (19 of them on the second rung). One firm's 50-state releases entering through
   the second rung would do that; the cause is not established, and no split by rung was run.
 - **The winner's log loss at 100 and 60 days (0.66, 0.68) is close to a coin's,** on three elections, one of them 2016.
 - **2024** is scored once by this recipe, unchanged, at the freeze.
