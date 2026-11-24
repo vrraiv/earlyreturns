@@ -818,7 +818,7 @@ cycle,party,state,date,date_source,results_sheet_date,candidate_name,candidate_k
 2012,R,TN,2012-03-06,calendar,2012-03-06,Rick Perry,rick-perry,P20003281,candidate,1966.0,0.0035450698104667914,0.0035450698104667914,554573.0,False,False,,,FEC Federal Elections 2012
 2012,R,TN,2012-03-06,calendar,2012-03-06,Michele Bachmann,michele-bachmann,P20002978,candidate,1895.0,0.003417043382927045,0.003417043382927045,554573.0,False,False,,,FEC Federal Elections 2012
 2012,R,TN,2012-03-06,calendar,2012-03-06,Jon Huntsman,jon-huntsman-jr,P20003067,candidate,1239.0,0.0022341513200245956,0.0022341513200245956,554573.0,False,False,,,FEC Federal Elections 2012
-2012,R,TN,2012-03-06,calendar,2012-03-06,Charles Buddy Roemer,,P20002523,candidate,881.0,0.0015886096149650272,0.0015886096149650272,554573.0,False,False,,,FEC Federal Elections 2012
+2012,R,TN,2012-03-06,calendar,2012-03-06,Charles Buddy Roemer,buddy-roemer,P20002523,candidate,881.0,0.0015886096149650272,0.0015886096149650272,554573.0,False,False,,,FEC Federal Elections 2012
 2012,R,TN,2012-03-06,calendar,2012-03-06,Gary Johnson,gary-johnson,P20002671,candidate,572.0,0.0010314241767990868,0.0010314241767990868,554573.0,False,False,,,FEC Federal Elections 2012
 2012,R,VA,2012-03-06,calendar,2012-03-06,Mitt Romney,mitt-romney,P80003353,candidate,158119.0,0.5953948111608992,0.5953948111608992,265570.0,False,False,,,FEC Federal Elections 2012
 2012,R,VA,2012-03-06,calendar,2012-03-06,Ron Paul,ron-paul,P80000748,candidate,107451.0,0.4046051888391008,0.4046051888391008,265570.0,False,False,,,FEC Federal Elections 2012
@@ -855,12 +855,12 @@ cycle,party,state,date,date_source,results_sheet_date,candidate_name,candidate_k
 2012,R,IL,2012-03-20,calendar,2012-03-20,Ron Paul,ron-paul,P80000748,candidate,87044.0,0.09324937275966465,0.09324937275966465,933454.0,False,False,,,FEC Federal Elections 2012
 2012,R,IL,2012-03-20,calendar,2012-03-20,Newt Gingrich,newt-gingrich,P60003654,candidate,74482.0,0.07979182691380614,0.07979182691380614,933454.0,False,False,,,FEC Federal Elections 2012
 2012,R,IL,2012-03-20,calendar,2012-03-20,Rick Perry,rick-perry,P20003281,candidate,5568.0,0.00596494310378444,0.00596494310378444,933454.0,False,False,,,FEC Federal Elections 2012
-2012,R,IL,2012-03-20,calendar,2012-03-20,Charles Buddy Roemer,,P20002523,candidate,3723.0,0.003988412926614488,0.003988412926614488,933454.0,False,False,,,FEC Federal Elections 2012
+2012,R,IL,2012-03-20,calendar,2012-03-20,Charles Buddy Roemer,buddy-roemer,P20002523,candidate,3723.0,0.003988412926614488,0.003988412926614488,933454.0,False,False,,,FEC Federal Elections 2012
 2012,R,LA,2012-03-24,calendar,2012-03-24,Rick Santorum,rick-santorum,P20002721,candidate,91321.0,0.4898932460704898,0.4898932460704898,186410.0,False,False,,,FEC Federal Elections 2012
 2012,R,LA,2012-03-24,calendar,2012-03-24,Mitt Romney,mitt-romney,P80003353,candidate,49758.0,0.26692773992811547,0.26692773992811547,186410.0,False,False,,,FEC Federal Elections 2012
 2012,R,LA,2012-03-24,calendar,2012-03-24,Newt Gingrich,newt-gingrich,P60003654,candidate,29656.0,0.15909017756558125,0.15909017756558125,186410.0,False,False,,,FEC Federal Elections 2012
 2012,R,LA,2012-03-24,calendar,2012-03-24,Ron Paul,ron-paul,P80000748,candidate,11467.0,0.06151494018561236,0.06151494018561236,186410.0,False,False,,,FEC Federal Elections 2012
-2012,R,LA,2012-03-24,calendar,2012-03-24,Charles Buddy Roemer,,P20002523,candidate,2203.0,0.011818035513116248,0.011818035513116248,186410.0,False,False,,,FEC Federal Elections 2012
+2012,R,LA,2012-03-24,calendar,2012-03-24,Charles Buddy Roemer,buddy-roemer,P20002523,candidate,2203.0,0.011818035513116248,0.011818035513116248,186410.0,False,False,,,FEC Federal Elections 2012
 2012,R,LA,2012-03-24,calendar,2012-03-24,Rick Perry,rick-perry,P20003281,candidate,955.0,0.005123115712676358,0.005123115712676358,186410.0,False,False,,,FEC Federal Elections 2012
 2012,R,LA,2012-03-24,calendar,2012-03-24,Michele Bachmann,michele-bachmann,P20002978,candidate,622.0,0.003336730862078215,0.003336730862078215,186410.0,False,False,,,FEC Federal Elections 2012
 2012,R,LA,2012-03-24,calendar,2012-03-24,Jon Huntsman,jon-huntsman-jr,P20003067,candidate,242.0,0.0012982136151494018,0.0012982136151494018,186410.0,False,False,,,FEC Federal Elections 2012
@@ -920,7 +920,7 @@ cycle,party,state,date,date_source,results_sheet_date,candidate_name,candidate_k
 2012,R,WV,2012-05-08,calendar,2012-05-08,Rick Santorum,rick-santorum,P20002721,candidate,13590.0,0.12089026473099915,0.12089026473099915,112416.0,False,False,,,FEC Federal Elections 2012
 2012,R,WV,2012-05-08,calendar,2012-05-08,Ron Paul,ron-paul,P80000748,candidate,12412.0,0.1104113293481355,0.1104113293481355,112416.0,False,False,,,FEC Federal Elections 2012
 2012,R,WV,2012-05-08,calendar,2012-05-08,Newt Gingrich,newt-gingrich,P60003654,candidate,7076.0,0.06294477654426416,0.06294477654426416,112416.0,False,False,,,FEC Federal Elections 2012
-2012,R,WV,2012-05-08,calendar,2012-05-08,Charles Buddy Roemer,,P20002523,candidate,1141.0,0.01014980074010817,0.01014980074010817,112416.0,False,False,,,FEC Federal Elections 2012
+2012,R,WV,2012-05-08,calendar,2012-05-08,Charles Buddy Roemer,buddy-roemer,P20002523,candidate,1141.0,0.01014980074010817,0.01014980074010817,112416.0,False,False,,,FEC Federal Elections 2012
 2012,R,NE,2012-05-15,calendar,2012-05-15,Mitt Romney,mitt-romney,P80003353,candidate,131436.0,0.7089243913226394,0.7089243913226394,185402.0,False,False,,,FEC Federal Elections 2012
 2012,R,NE,2012-05-15,calendar,2012-05-15,Rick Santorum,rick-santorum,P20002721,candidate,25830.0,0.1393188854489164,0.1393188854489164,185402.0,False,False,,,FEC Federal Elections 2012
 2012,R,NE,2012-05-15,calendar,2012-05-15,Ron Paul,ron-paul,P80000748,candidate,18508.0,0.09982632334063278,0.09982632334063278,185402.0,False,False,,,FEC Federal Elections 2012
@@ -945,13 +945,13 @@ cycle,party,state,date,date_source,results_sheet_date,candidate_name,candidate_k
 2012,R,TX,2012-05-29,calendar,2012-04-03,Uncommitted,,,uncommitted,60659.0,0.041848887564273185,0.041848887564273185,1449477.0,False,False,,,FEC Federal Elections 2012
 2012,R,TX,2012-05-29,calendar,2012-04-03,Michele Bachmann,michele-bachmann,P20002978,candidate,12097.0,0.008345768853179458,0.008345768853179458,1449477.0,False,False,,,FEC Federal Elections 2012
 2012,R,TX,2012-05-29,calendar,2012-04-03,Jon Huntsman,jon-huntsman-jr,P20003067,candidate,8695.0,0.005998715398726575,0.005998715398726575,1449477.0,False,False,,,FEC Federal Elections 2012
-2012,R,TX,2012-05-29,calendar,2012-04-03,Charles Buddy Roemer,,P20002523,candidate,4714.0,0.0032522075203676912,0.0032522075203676912,1449477.0,False,False,,,FEC Federal Elections 2012
+2012,R,TX,2012-05-29,calendar,2012-04-03,Charles Buddy Roemer,buddy-roemer,P20002523,candidate,4714.0,0.0032522075203676912,0.0032522075203676912,1449477.0,False,False,,,FEC Federal Elections 2012
 2012,R,TX,2012-05-29,calendar,2012-04-03,John Davis,,P20002325,candidate,3887.0,0.0026816569010753534,0.0026816569010753534,1449477.0,False,False,,,FEC Federal Elections 2012
 2012,R,CA,2012-06-05,calendar,2012-06-05,Mitt Romney,mitt-romney,P80003353,candidate,1530513.0,0.7950840792324037,0.7950915139702185,1924952.0,False,False,,,FEC Federal Elections 2012
 2012,R,CA,2012-06-05,calendar,2012-06-05,Ron Paul,ron-paul,P80000748,candidate,199246.0,0.10350602866538179,0.10350699653809549,1924952.0,False,False,,,FEC Federal Elections 2012
 2012,R,CA,2012-06-05,calendar,2012-06-05,Rick Santorum,rick-santorum,P20002721,candidate,102258.0,0.05312186683428833,0.053122363570624095,1924952.0,False,False,,,FEC Federal Elections 2012
 2012,R,CA,2012-06-05,calendar,2012-06-05,Newt Gingrich,newt-gingrich,P60003654,candidate,72022.0,0.037414609058842474,0.03741495891845615,1924952.0,False,False,,,FEC Federal Elections 2012
-2012,R,CA,2012-06-05,calendar,2012-06-05,"Charles E. Buddy, III Roemer",,P20002523,candidate,12520.0,0.006503997464895557,0.006504058283011732,1924952.0,False,False,,,FEC Federal Elections 2012
+2012,R,CA,2012-06-05,calendar,2012-06-05,"Charles E. Buddy, III Roemer",buddy-roemer,P20002523,candidate,12520.0,0.006503997464895557,0.006504058283011732,1924952.0,False,False,,,FEC Federal Elections 2012
 2012,R,CA,2012-06-05,calendar,2012-06-05,Fred Karger,fred-karger,P20002564,candidate,8393.0,0.004360067949110895,0.004360108719594047,1924952.0,False,False,,,FEC Federal Elections 2012
 2012,R,MT,2012-06-05,calendar,2012-06-05,Mitt Romney,mitt-romney,P80003353,candidate,96121.0,0.6843446748827043,0.6843446748827043,140457.0,False,False,,,FEC Federal Elections 2012
 2012,R,MT,2012-06-05,calendar,2012-06-05,Ron Paul,ron-paul,P80000748,candidate,20227.0,0.14400848658308238,0.14400848658308238,140457.0,False,False,,,FEC Federal Elections 2012

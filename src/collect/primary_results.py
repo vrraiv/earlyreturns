@@ -7,7 +7,8 @@ FEC has not published a 2024 workbook (checked 2026-11-23); 2024 comes from else
 
 Outputs (data/interim/):
   primary_results.csv    one row per state, party and ballot line: date, candidate, FEC id, votes, share of the
-                         party's total, the party's total, the line's kind (candidate, uncommitted, other) and the
+                         party's total, the party's total, the line's kind (candidate: has an FEC candidate id; uncommitted; other: no preference,
+                         none of the names, scattered, and a few minor candidates listed without an id) and the
                          FEC's note. Primaries only: caucuses are not in the FEC's results (their figures mix votes,
                          delegate equivalents and delegates, and come from the parties). Ranked-choice primaries
                          (2020) keep the first round, flagged. candidate_key matches primary_candidates.csv where

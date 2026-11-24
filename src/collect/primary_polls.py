@@ -71,7 +71,8 @@ DATE = re.compile(r"(January|February|March|April|May|June|July|August|September
                   r"\s+(?:(\d{1,2}),\s*)?(\d{4})")
 NICK = {("william", "bill"), ("robert", "bob"), ("joseph", "joe"), ("richard", "dick"), ("michael", "mike"),
         ("james", "jim"), ("lawrence", "larry"), ("thomas", "tom"), ("benjamin", "ben"), ("christopher", "chris"),
-        ("edward", "ed"), ("frederick", "fred"), ("newton", "newt"), ("willard", "mitt"), ("rafael", "ted")}
+        ("edward", "ed"), ("frederick", "fred"), ("newton", "newt"), ("willard", "mitt"), ("rafael", "ted"),
+        ("charles", "buddy")}
 SUFFIX = {"jr", "jr.", "sr", "sr.", "ii", "iii", "iv"}
 # dates the candidate tables leave out, entered by hand with their source
 OVERRIDES = {(2008, "D", "hillary-clinton"): {"suspended": "2008-06-07", "note": "suspended date from the page's text "
@@ -260,9 +261,11 @@ def match_keys(polls, cands):
         first, sur = name_parts(name)
         hits = idx.get((cycle, party, sur), [])
         hit = None
-        if len(fold(name).split()) == 1:          # surname only (HuffPost's columns): only an unambiguous match
-            hit = hits[0].candidate_key if len(hits) == 1 else None
-        for r in hits if hit is None else []:
+        if len(fold(name).split()) == 1:          # surname only: unambiguous, or every candidate of that surname
+            out[(cycle, party, name)] = hits[0].candidate_key if len(hits) == 1 else \
+                ("AMBIGUOUS:" + "|".join(r.candidate_key for r in hits) if hits else None)
+            continue
+        for r in hits:
             f2 = name_parts(r.candidate)[0]
             if f2[:1] == first[:1] or (first, f2) in NICK or (f2, first) in NICK:
                 hit = r.candidate_key
@@ -292,6 +295,13 @@ def add_status(a, cands):
     keys = match_keys(a, cands)
     a["candidate_key"] = [keys[k] for k in zip(a.cycle, a.party, a.candidate_name)]
     cinfo = {(r["cycle"], r["party"], r["candidate_key"]): r for r in cands.to_dict("records")}
+    # a bare surname shared by two candidates (2008 "Thompson": Fred or Tommy): the one running on the end date,
+    # else left unmatched
+    amb = a.candidate_key.astype(str).str.startswith("AMBIGUOUS:")
+    for i in a.index[amb]:
+        opts = a.at[i, "candidate_key"].split(":", 1)[1].split("|")
+        live = [k for k in opts if status(a.at[i, "end_date"], cinfo[(a.at[i, "cycle"], a.at[i, "party"], k)]) == "running"]
+        a.at[i, "candidate_key"] = live[0] if len(live) == 1 else None
     a["cand_status"] = [status(e, cinfo.get((c, p, k)) if k else None)
                         for e, c, p, k in zip(a.end_date, a.cycle, a.party, a.candidate_key)]
     a["candidate_key"] = a.candidate_key.fillna(a.candidate_name.map(slug))
@@ -332,14 +342,26 @@ def polls_538(cands):
 WIKI_NATIONAL_2008 = {"D": "Nationwide opinion polling for the 2008 Democratic Party presidential primaries",
                       "R": "Nationwide opinion polling for the 2008 Republican Party presidential primaries"}
 WIKI_SKIP = re.compile(r"accept|qualit|ideolog|other polls|see also|notes|references|statewide|state primary", re.I)
-WIKI_NOT_CAND = re.compile(r"poll|date|moe|margin|sample|other|undecided|none|lead|question|^%|candidate$|"
-                           r"no opinion|unsure|someone|wouldn|n/a", re.I)
+WIKI_NOT_CAND = re.compile(r"poll|date|moe|margin|sample|other|undeci|undeclared|none|lead|question|^%|candidate$|"
+                           r"no opinion|unsure|someone|wouldn|n/a|don.?t know|^know$|not sure|refused|not applicable|"
+                           r"no one|not voting|will not vote|miscellaneous|too early|undisclosed|neither|uncommit", re.I)
+# misspellings in the 2008 tables
+WIKI_SPELLING = {"Sam Browback": "Sam Brownback", "Dennis Kucicinich": "Dennis Kucinich", "Dennis Kucincih": "Dennis Kucinich",
+                 "Mike Huckbee": "Mike Huckabee", "Sandford": "Sanford"}
+
+
+def wiki_name(x):
+    x = re.sub(r"^VOL-\s*", "", str(x)).strip()
+    return WIKI_SPELLING.get(x, x)
 
 
 def wiki_dates(text, year):
     """Wikipedia's date cells, with the section's year where the cell has none ("Aug. 30 - Sep. 5")."""
     from wiki_polls import parse_dates
     t = str(text).replace("\xa0", " ")
+    # day first ("4 January -7, 2007", "29 January - 4 February 2007") to month first
+    t = re.sub(r"\b(\d{1,2})\s+(January|February|March|April|May|June|July|August|September|October|November|"
+               r"December)\b", r"\2 \1", t)
     if not re.search(r"\d{4}", t) and year:
         t = f"{t}, {year}"
     a, b = parse_dates(t)
@@ -408,7 +430,8 @@ def polls_wiki_2008_national():
                 else:
                     section = section.split(" / ")[0] + " / " + head
                 y = re.findall(r"(19|20)(\d\d)", head)
-                year = int("".join(y[-1])) if y else (2006 if head.startswith("Before") else year)
+                # "Before 2007" names no year of its own; sections without one keep their cells' years only
+                year = None if head.startswith("Before") or not y else int("".join(y[-1]))
                 continue
             if "wikitable" not in " ".join(el.get("class", [])) or WIKI_SKIP.search(section):
                 continue
@@ -440,7 +463,8 @@ def polls_wiki_2008_national():
                     named = [(h, wiki_pct(c)) for h, c in zip(hdr, cells) if not WIKI_NOT_CAND.search(h)]
                 ss = next((cells[i] for i, h in enumerate(hdr) if "sample" in h.lower()), None)
                 for name, v in named:
-                    if v is not None and name:
+                    name = wiki_name(name)
+                    if v is not None and name and not WIKI_NOT_CAND.search(name):
                         rows.append({"cycle": 2008, "party": party, "geo": "US", "poll_id": qid, "question_id": qid,
                                      "pollster": cells[0], "sample_size": ss, "start_date": start, "end_date": end,
                                      "notes": section, "candidate_name": name, "pct": v,
@@ -461,7 +485,8 @@ HIGHLIGHT = re.compile(r"([A-Z][A-Za-z.'\- ]+?)\s+(\d+(?:\.\d+)?)\s*%")
 def polls_wiki_2008_states():
     """One question per poll row: the "Highlights" cell read as name-and-percent pairs. The first row of each state
     is the actual result: kept apart (returned second) to test the parser against the FEC's results."""
-    rows, results = [], []
+    from collections import Counter
+    rows, results, dropped = [], [], Counter()
     for party, (title, oldid) in WIKI_STATES_2008.items():
         name = title + (f" (revision {oldid})" if oldid else "")
         html, rev = get_page(title, oldid=oldid, cache_name=name if oldid else None)
@@ -485,12 +510,13 @@ def polls_wiki_2008_states():
                     continue
                 src = cells[si]
                 start, end = wiki_dates(cells[di].replace(" ,", ","), None)
-                pairs = [(m.group(1).strip(" ,"), float(m.group(2))) for m in HIGHLIGHT.finditer(cells[hi])]
-                pairs = [(a, v) for a, v in pairs if not WIKI_NOT_CAND.search(a) and not re.search(r"uncommit", a, re.I)]
+                pairs = [(wiki_name(m.group(1).strip(" ,")), float(m.group(2))) for m in HIGHLIGHT.finditer(cells[hi])]
+                pairs = [(a, v) for a, v in pairs if not WIKI_NOT_CAND.search(a)]
                 if re.search(r"result", src, re.I):
                     results += [{"party": party, "geo": state, "candidate_name": a, "pct": v} for a, v in pairs]
                     continue
                 if end is None or not pairs:
+                    dropped[(party, "no date" if end is None else "no name-and-percent pairs")] += 1
                     continue
                 n += 1
                 qid = f"wk-08-{state}-{party}-{n}"
@@ -501,6 +527,7 @@ def polls_wiki_2008_states():
                                  "pollster": pollster, "sample_size": ss.group(1).replace(",", "") if ss else None,
                                  "start_date": start, "end_date": end, "notes": "", "candidate_name": a, "pct": v,
                                  "source": f"Wikipedia, {title}, revision {rev}"})
+    print("2008 state poll rows skipped:", dict(dropped))
     return pd.DataFrame(rows), pd.DataFrame(results)
 
 
@@ -527,8 +554,11 @@ def contest_dates(df):
     lack them; national rows have no contest date."""
     from primary_results import calendar, snapshot     # primary_results imports this module: import here
     cal = calendar(snapshot())
-    first = cal.sort_values("date").drop_duplicates(["cycle", "party", "state"])
-    key = first.set_index(["cycle", "party", "state"])
+    # where a party held two contests in a state (West Virginia Republicans 2008: a convention in February and a
+    # primary in May), no single contest date is given: election_date is blank and stage names both
+    g = cal.sort_values("date").groupby(["cycle", "party", "state"])
+    key = pd.DataFrame({"date": g.date.first().where(g.size() == 1),
+                        "contest": g.contest.agg(lambda x: "/".join(x))})
     df = df.copy()
     idx = list(zip(df.cycle, df.party, df.geo))
     df["election_date"] = [key.date.get(i) for i in idx]
@@ -547,6 +577,11 @@ def polls_2008(cands):
     a["end_date"] = pd.to_datetime(a.end_date).dt.date
     a = add_status(a, cands)
     a = contest_dates(a)
+    a["hypothetical_538"] = None
+    check_2008_states(a)
+    if not (INTERIM / "primary_results.csv").exists():
+        print("\n2008 parser test skipped: run src/collect/primary_results.py, then this script again")
+        return a
     print("\n2008 parser test: each state's 'actual result' row against the FEC results (share points, abs diff)")
     fec = pd.read_csv(INTERIM / "primary_results.csv")
     fec = fec[(fec.cycle == 2008) & (fec.line == "candidate")].copy()
@@ -558,8 +593,6 @@ def polls_2008(cands):
           f"within 1 point: {(m['diff'] <= 1).mean():.0%}; largest gaps:")
     print(m.sort_values("diff", ascending=False).head(6)[["party", "geo", "candidate_name", "pct", "share"]]
           .to_string(index=False))
-    a["hypothetical_538"] = None
-    check_2008_states(a)
     return a
 
 
