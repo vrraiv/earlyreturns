@@ -2062,7 +2062,7 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,D,AR,Dean Phillips,state,2357.0,2346.0,11.0
 2024,D,AR,"Joseph R. Biden, Jr.",state,72183.0,71978.0,205.0
 2024,D,AR,Frankie Lozada,state,789.0,786.0,3.0
-2024,D,AR,Armando 'Mando' Perez-Serrato,state,879.0,879.0,0.0
+2024,D,AR,Armando Perez-Serrato,state,879.0,879.0,0.0
 2024,D,AR,Stephen P. Lyons,state,1443.0,1442.0,1.0
 2024,D,AR,Marianne Williamson,state,3898.0,3883.0,15.0
 2024,D,CA,Joseph R Biden Jr,state,3207687.0,3207687.0,0.0
@@ -2070,7 +2070,7 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,D,CA,Eban Cambridge,state,12758.0,12758.0,0.0
 2024,D,CA,Gabriel Cornejo,state,41390.0,41390.0,0.0
 2024,D,CA,Stephen P Lyons,state,21062.0,21062.0,0.0
-2024,D,CA,"Armando ""Mando"" Perez-Serrato",state,43105.0,43105.0,0.0
+2024,D,CA,Armando Perez-Serrato,state,43105.0,43105.0,0.0
 2024,D,CA,Dean Phillips,state,100284.0,100284.0,0.0
 2024,D,CA,Marianne Williamson,state,146356.0,146356.0,0.0
 2024,D,CA,Willie Felix Carter,state,9.0,,
@@ -2099,12 +2099,11 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,R,CO,Ryan L Binkley,state,2220.0,2220.0,0.0
 2024,R,CO,Asa Hutchinson,state,1269.0,1269.0,0.0
 2024,D,CO,Joseph R Biden Jr,state,477365.0,477365.0,0.0
-2024,D,CO,Noncommitted delegate,state,52122.0,52122.0,0.0
 2024,D,CO,Dean Phillips,state,17936.0,17936.0,0.0
 2024,D,CO,Marianne Williamson,state,16761.0,16761.0,0.0
 2024,D,CO,Gabriel Cornejo,state,4313.0,4313.0,0.0
 2024,D,CO,Jason Michael Palmer,state,3986.0,3986.0,0.0
-2024,D,CO,Armando ''Mando'' Perez-Serrato,state,2591.0,2591.0,0.0
+2024,D,CO,Armando Perez-Serrato,state,2591.0,2591.0,0.0
 2024,D,CO,Frankie Lozada,state,2402.0,2402.0,0.0
 2024,D,CO,Stephen P Lyons,state,1481.0,1481.0,0.0
 2024,R,CT,Donald J. Trump,state,34750.0,34750.0,0.0
@@ -2144,7 +2143,7 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,D,IL,Marianne Williamson,state,28777.0,28777.0,0.0
 2024,R,IL,Ryan L Binkley,state,3114.0,3114.0,0.0
 2024,R,IL,Chris Christie,state,9758.0,9758.0,0.0
-2024,D,IL,"Frank ""Frankie"" Lozada",state,14513.0,14513.0,0.0
+2024,D,IL,Frank Lozada,state,14513.0,14513.0,0.0
 2024,R,IN,Donald J. Trump,state,461987.0,461678.0,309.0
 2024,D,IN,Joseph R Biden Jr.,state,178253.0,178253.0,0.0
 2024,R,IN,Nikki R. Haley,state,128270.0,128170.0,100.0
@@ -2166,21 +2165,21 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,D,KY,Marianne Williamson,state,11190.0,11190.0,0.0
 2024,D,KY,Dean Phillips,state,8744.0,8744.0,0.0
 2024,D,LA,"Joseph R. Biden, Jr.",state,143380.0,143380.0,0.0
-2024,D,LA,"""Bob"" Ely",state,2652.0,2652.0,0.0
-2024,D,LA,"""Frankie"" Lozada",state,2245.0,2245.0,0.0
+2024,D,LA,Bob Ely,state,2652.0,2652.0,0.0
+2024,D,LA,Frankie Lozada,state,2245.0,2245.0,0.0
 2024,D,LA,Stephen P. Lyons,state,3770.0,3770.0,0.0
-2024,D,LA,"Armando ""Mando"" Perez-Serrato",state,1200.0,1200.0,0.0
+2024,D,LA,Armando Perez-Serrato,state,1200.0,1200.0,0.0
 2024,D,LA,Dean Phillips,state,4351.0,4351.0,0.0
 2024,D,LA,Cenk Uygur,state,1114.0,1114.0,0.0
 2024,D,LA,Marianne Williamson,state,7898.0,7898.0,0.0
 2024,R,LA,Ryan L. Binkley,state,580.0,580.0,0.0
-2024,R,LA,"""Chris"" Christie",state,1281.0,1281.0,0.0
-2024,R,LA,"""Ron"" DeSantis",state,3022.0,3022.0,0.0
+2024,R,LA,Chris Christie,state,1281.0,1281.0,0.0
+2024,R,LA,Ron DeSantis,state,3022.0,3022.0,0.0
 2024,R,LA,Nikki Haley,state,13123.0,13123.0,0.0
 2024,R,LA,Asa Hutchinson,state,519.0,519.0,0.0
 2024,R,LA,Vivek Ramaswamy,state,595.0,595.0,0.0
 2024,R,LA,David Stuckenberg,state,210.0,210.0,0.0
-2024,R,LA,"Rachel Hannah ""MoHawk"" Swift",state,335.0,335.0,0.0
+2024,R,LA,Rachel Hannah Swift,state,335.0,335.0,0.0
 2024,R,LA,Donald J. Trump,state,172503.0,172503.0,0.0
 2024,R,MA,Donald J. Trump,state,343189.0,343189.0,0.0
 2024,R,MA,Nikki Haley,state,211440.0,211440.0,0.0
@@ -2198,23 +2197,23 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,D,MD,Joe Biden,state,591523.0,591523.0,0.0
 2024,D,MD,Dean Phillips,state,8188.0,8188.0,0.0
 2024,D,MD,Marianne Williamson,state,12935.0,12935.0,0.0
-2024,R,ME,"Binkley, Ryan L.",state,299.0,299.0,0.0
-2024,R,ME,"DeSantis, Ron",state,1191.0,1191.0,0.0
-2024,R,ME,"Haley, Nikki R.",state,27912.0,27912.0,0.0
-2024,R,ME,"Ramaswamy, Vivek G.",state,440.0,440.0,0.0
-2024,R,ME,"Trump, Donald J.",state,79034.0,79034.0,0.0
-2024,D,ME,"Biden, Joseph R., Jr.",state,60018.0,60018.0,0.0
-2024,D,ME,"Phillips, Dean B.",state,4623.0,4623.0,0.0
-2024,D,MI,"BIDEN JR., JOSEPH R.",state,625221.0,625221.0,0.0
-2024,D,MI,"PHILLIPS, DEAN",state,20684.0,20684.0,0.0
-2024,D,MI,"WILLIAMSON, MARIANNE",state,22865.0,22865.0,0.0
-2024,R,MI,"BINKLEY, RYAN L",state,2348.0,2348.0,0.0
-2024,R,MI,"CHRISTIE, CHRIS",state,4794.0,4794.0,0.0
-2024,R,MI,"DESANTIS, RON",state,13456.0,13456.0,0.0
-2024,R,MI,"HALEY, NIKKI",state,297124.0,297124.0,0.0
-2024,R,MI,"HUTCHINSON, ASA",state,1077.0,1077.0,0.0
-2024,R,MI,"RAMASWAMY, VIVEK",state,3702.0,3702.0,0.0
-2024,R,MI,"TRUMP, DONALD J.",state,761163.0,761163.0,0.0
+2024,R,ME,Ryan L. Binkley,state,299.0,299.0,0.0
+2024,R,ME,Ron DeSantis,state,1191.0,1191.0,0.0
+2024,R,ME,Nikki R. Haley,state,27912.0,27912.0,0.0
+2024,R,ME,Vivek G. Ramaswamy,state,440.0,440.0,0.0
+2024,R,ME,Donald J. Trump,state,79034.0,79034.0,0.0
+2024,D,ME,Joseph R. Biden Jr.,state,60018.0,60018.0,0.0
+2024,D,ME,Dean B. Phillips,state,4623.0,4623.0,0.0
+2024,D,MI,Joseph R. Biden Jr.,state,625221.0,625221.0,0.0
+2024,D,MI,Dean Phillips,state,20684.0,20684.0,0.0
+2024,D,MI,Marianne Williamson,state,22865.0,22865.0,0.0
+2024,R,MI,Ryan L Binkley,state,2348.0,2348.0,0.0
+2024,R,MI,Chris Christie,state,4794.0,4794.0,0.0
+2024,R,MI,Ron DeSantis,state,13456.0,13456.0,0.0
+2024,R,MI,Nikki Haley,state,297124.0,297124.0,0.0
+2024,R,MI,Asa Hutchinson,state,1077.0,1077.0,0.0
+2024,R,MI,Vivek Ramaswamy,state,3702.0,3702.0,0.0
+2024,R,MI,Donald J. Trump,state,761163.0,761163.0,0.0
 2024,R,MN,Ron DeSantis,state,4085.0,4085.0,0.0
 2024,R,MN,Nikki Haley,state,97182.0,97182.0,0.0
 2024,R,MN,Vivek Ramaswamy,state,1470.0,1470.0,0.0
@@ -2225,7 +2224,7 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,D,MN,Gabriel Cornejo,state,323.0,323.0,0.0
 2024,D,MN,Frankie Lozada,state,290.0,290.0,0.0
 2024,D,MN,Jason Palmer,state,758.0,758.0,0.0
-2024,D,MN,"Armando ""Mando"" Perez-Serrato",state,372.0,372.0,0.0
+2024,D,MN,Armando Perez-Serrato,state,372.0,372.0,0.0
 2024,D,MN,Dean Phillips,state,18960.0,18960.0,0.0
 2024,D,MN,Cenk Uygur,state,692.0,692.0,0.0
 2024,D,MN,Marianne Williamson,state,3459.0,3459.0,0.0
@@ -2240,8 +2239,8 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,R,MS,Vivek Ramaswamy,state,1096.0,1096.0,0.0
 2024,R,MS,Donald J. Trump,state,229198.0,229198.0,0.0
 2024,D,MS,Joseph R. Biden Jr.,state,91053.0,91053.0,0.0
-2024,D,MT,JOSEPH R BIDEN JR,state,94587.0,94587.0,0.0
-2024,R,MT,DONALD J. TRUMP,state,165678.0,165678.0,0.0
+2024,D,MT,Joseph R Biden Jr,state,94587.0,94587.0,0.0
+2024,R,MT,Donald J. Trump,state,165678.0,165678.0,0.0
 2024,R,NC,Vivek Ramaswamy,state,3418.0,3418.0,0.0
 2024,R,NC,Ron DeSantis,state,14740.0,14740.0,0.0
 2024,R,NC,Donald J. Trump,state,793978.0,793978.0,0.0
@@ -2255,29 +2254,29 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,R,NE,Donald J. Trump,state,167968.0,167968.0,0.0
 2024,D,NE,Joseph R. Biden Jr.,state,84677.0,84677.0,0.0
 2024,D,NE,Dean Phillips,state,9199.0,9199.0,0.0
-2024,D,NJ,JOSEPH R. BIDEN JR.,state,458281.0,458281.0,0.0
-2024,R,NJ,DONALD J. TRUMP,state,303002.0,294658.0,8344.0
-2024,D,NJ,TERRISA BUKOVINAC,state,14179.0,14179.0,0.0
+2024,D,NJ,Joseph R. Biden Jr.,state,458281.0,458281.0,0.0
+2024,R,NJ,Donald J. Trump,state,303002.0,294658.0,8344.0
+2024,D,NJ,Terrisa Bukovinac,state,14179.0,14179.0,0.0
 2024,R,NM,Donald J. Trump,state,78999.0,78999.0,0.0
 2024,R,NM,Nikki Haley,state,8054.0,8054.0,0.0
 2024,R,NM,Chris Christie,state,2428.0,2428.0,0.0
 2024,R,NM,Vivek Ramaswamy,state,886.0,886.0,0.0
 2024,D,NM,Joseph R. Biden,state,111049.0,111049.0,0.0
 2024,D,NM,Marianne D Williamson,state,8935.0,8935.0,0.0
-2024,R,OK,ASA HUTCHINSON,state,431.0,431.0,0.0
-2024,R,OK,VIVEK RAMASWAMY,state,1022.0,1022.0,0.0
+2024,R,OK,Asa Hutchinson,state,431.0,431.0,0.0
+2024,R,OK,Vivek Ramaswamy,state,1022.0,1022.0,0.0
 2024,R,OK,RON DeSANTIS,state,3946.0,3946.0,0.0
-2024,R,OK,RYAN L. BINKLEY,state,303.0,303.0,0.0
-2024,R,OK,DAVID STUCKENBERG,state,397.0,397.0,0.0
-2024,R,OK,DONALD J. TRUMP,state,254928.0,254928.0,0.0
-2024,R,OK,NIKKI HALEY,state,49406.0,49406.0,0.0
-2024,R,OK,CHRIS CHRISTIE,state,1095.0,1095.0,0.0
-2024,D,OK,JOSEPH R BIDEN JR,state,66882.0,66882.0,0.0
-2024,D,OK,MARIANNE WILLIAMSON,state,8356.0,8356.0,0.0
-2024,D,OK,CENK UYGUR,state,1974.0,1974.0,0.0
-2024,D,OK,STEPHEN LYONS,state,4441.0,4441.0,0.0
-2024,D,OK,ARMANDO MANDO PEREZ-SERRATO,state,1809.0,1809.0,0.0
-2024,D,OK,DEAN PHILLIPS,state,8182.0,8182.0,0.0
+2024,R,OK,Ryan L. Binkley,state,303.0,303.0,0.0
+2024,R,OK,David Stuckenberg,state,397.0,397.0,0.0
+2024,R,OK,Donald J. Trump,state,254928.0,254928.0,0.0
+2024,R,OK,Nikki Haley,state,49406.0,49406.0,0.0
+2024,R,OK,Chris Christie,state,1095.0,1095.0,0.0
+2024,D,OK,Joseph R Biden Jr,state,66882.0,66882.0,0.0
+2024,D,OK,Marianne Williamson,state,8356.0,8356.0,0.0
+2024,D,OK,Cenk Uygur,state,1974.0,1974.0,0.0
+2024,D,OK,Stephen Lyons,state,4441.0,4441.0,0.0
+2024,D,OK,Armando Mando Perez-Serrato,state,1809.0,1809.0,0.0
+2024,D,OK,Dean Phillips,state,8182.0,8182.0,0.0
 2024,D,OR,Joseph R. Biden Jr,state,397702.0,397702.0,0.0
 2024,D,OR,Marianne Williamson,state,33603.0,33603.0,0.0
 2024,R,OR,Donald J. Trump,state,297299.0,,
@@ -2309,11 +2308,11 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,D,SD,Joseph R Biden Jr,state,13372.0,13372.0,0.0
 2024,D,SD,Dean Phillips,state,1723.0,1723.0,0.0
 2024,D,SD,Armando Perez-Serrato,state,763.0,763.0,0.0
-2024,D,UT,JOSEPH R BIDEN JR,state,59235.0,59235.0,0.0
-2024,D,UT,GABRIEL CORNEJO,state,1517.0,1517.0,0.0
-2024,D,UT,MARIANNE DEBORAH WILLIAMSON,state,3562.0,3562.0,0.0
-2024,D,UT,FRANK LOZADA,state,868.0,868.0,0.0
-2024,D,UT,DEAN BENSON PHILLIPS,state,3065.0,3065.0,0.0
+2024,D,UT,Joseph R Biden Jr,state,59235.0,59235.0,0.0
+2024,D,UT,Gabriel Cornejo,state,1517.0,1517.0,0.0
+2024,D,UT,Marianne Deborah Williamson,state,3562.0,3562.0,0.0
+2024,D,UT,Frank Lozada,state,868.0,868.0,0.0
+2024,D,UT,Dean Benson Phillips,state,3065.0,3065.0,0.0
 2024,R,VA,Donald J. Trump,state,440416.0,440416.0,0.0
 2024,R,VA,Nikki R. Haley,state,244586.0,244586.0,0.0
 2024,R,VA,Ron D. Desantis,state,7494.0,7494.0,0.0
@@ -2321,8 +2320,8 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,R,VA,Vivek Ramaswamy,state,2503.0,2503.0,0.0
 2024,R,VA,Ryan L. Binkley,state,853.0,853.0,0.0
 2024,D,VA,"Joseph R. Biden, Jr",state,317329.0,317329.0,0.0
-2024,D,VA,Marianne D. Williamson,state,28599.0,7.98,28591.02
-2024,D,VA,Dean Benson Phillips,state,12586.0,3.51,12582.49
+2024,D,VA,Marianne D. Williamson,state,28599.0,28599.0,0.0
+2024,D,VA,Dean Benson Phillips,state,12586.0,12586.0,0.0
 2024,R,VT,Nikki Haley,state,36241.0,36241.0,0.0
 2024,R,VT,Donald J. Trump,state,33162.0,33162.0,0.0
 2024,R,VT,Chris Christie,state,1020.0,1020.0,0.0
@@ -2350,13 +2349,13 @@ cycle,party,state,candidate_name,source_kind,votes,wikipedia_votes,difference
 2024,R,WI,Donald Trump,state,477103.0,477103.0,0.0
 2024,D,WI,Joe Biden,state,512379.0,512379.0,0.0
 2024,D,WI,Dean Phillips,state,17730.0,17730.0,0.0
-2024,R,WV,DONALD J. TRUMP,state,199521.0,199497.0,24.0
-2024,R,WV,NIKKI R. HALEY,state,21232.0,21231.0,1.0
+2024,R,WV,Donald J. Trump,state,199521.0,199497.0,24.0
+2024,R,WV,Nikki R. Haley,state,21232.0,21231.0,1.0
 2024,R,WV,RACHEL HANNA MoHAWK SWIFT,state,2326.0,2326.0,0.0
-2024,R,WV,RYAN L. BINKLEY,state,1481.0,1481.0,0.0
-2024,R,WV,DAVID STUCKENBERG,state,1168.0,1168.0,0.0
-2024,D,WV,JOSEPH R. BIDEN JR,state,68165.0,68165.0,0.0
-2024,D,WV,JASON MICHAEL PALMER,state,11079.0,11079.0,0.0
-2024,D,WV,STEPHEN P LYONS,state,7372.0,7372.0,0.0
-2024,D,WV,DEAN PHILLIPS,state,7223.0,7223.0,0.0
-2024,D,WV,ARMANDO 'MANDO' PEREZ-SERRATO,state,2787.0,2787.0,0.0
+2024,R,WV,Ryan L. Binkley,state,1481.0,1481.0,0.0
+2024,R,WV,David Stuckenberg,state,1168.0,1168.0,0.0
+2024,D,WV,Joseph R. Biden Jr,state,68165.0,68165.0,0.0
+2024,D,WV,Jason Michael Palmer,state,11079.0,11079.0,0.0
+2024,D,WV,Stephen P Lyons,state,7372.0,7372.0,0.0
+2024,D,WV,Dean Phillips,state,7223.0,7223.0,0.0
+2024,D,WV,Armando Perez-Serrato,state,2787.0,2787.0,0.0

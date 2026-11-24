@@ -537,5 +537,7 @@ cycle,state,party,contest,date,fec_text,source,party_run
 2024,MT,R,primary,2024-06-04,Montana primary,"Wikipedia, 2024 Republican Party presidential primaries (revision 1387288917)",False
 2024,NJ,R,primary,2024-06-04,New Jersey primary,"Wikipedia, 2024 Republican Party presidential primaries (revision 1387288917)",False
 2024,NM,R,primary,2024-06-04,New Mexico primary,"Wikipedia, 2024 Republican Party presidential primaries (revision 1387288917)",False
-2024,DE,R,primary,2024-06-04,Delaware primary,"Wikipedia, 2024 Republican Party presidential primaries (revision 1387288917)",False
-2024,SD,R,primary,2024-06-04,South Dakota primary,"Wikipedia, 2024 Republican Party presidential primaries (revision 1387288917)",False
+2024,DE,R,cancelled,,Delaware primary,"Wikipedia, 2024 Republican Party presidential primaries (revision 1387288917)",False
+2024,SD,R,cancelled,,South Dakota primary,"Wikipedia, 2024 Republican Party presidential primaries (revision 1387288917)",False
+2024,DE,D,cancelled,,,"Delaware Department of Elections public notice, 2024-03-19 (primary_results_states.py)",False
+2024,FL,D,cancelled,,,Florida's official results extract has no Democratic presidential contest,False

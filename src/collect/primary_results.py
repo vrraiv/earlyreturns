@@ -354,6 +354,12 @@ def main():
         ["cycle", "party", "state", "contest"])[["cycle", "party", "state", "contest", "measure"]].values.tolist())
     print("Contests without a date:", r[r.date.isna()].drop_duplicates(["cycle", "party", "state", "contest"])[
         ["cycle", "party", "state", "contest"]].values.tolist())
+    # every 2024 primary taken from Wikipedia is a blocked state office, a party-run contest or a territory
+    from primary_results_states import BLOCKED, NO_STATE_CONTEST
+    blocked = {(s, p) for (s, who) in BLOCKED for p in (["D", "R"] if who == "both" else [who])}
+    w24 = set(zip(*[wk.loc[(wk.cycle == 2024) & (wk.contest == "primary"), k] for k in ("state", "party")]))
+    odd = sorted(k for k in w24 if k not in blocked and k not in NO_STATE_CONTEST and k[0] not in ("AS", "GU", "MP", "VI"))
+    print("\n2024 primaries from Wikipedia that are neither blocked nor party-run:", odd or "none")
     crosscheck(fec, st, c)
 
 

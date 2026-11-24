@@ -86,7 +86,8 @@ SOURCES = {
                note="state canvass; direct file link (sosmt.gov pages show a browser check)")],
     "NC": [src("results_pct_20240305.zip", "https://s3.amazonaws.com/dl.ncsbe.gov/ENRS/2024_03_05/results_pct_20240305.zip", note="precinct file dated 2024-04-01, after the canvass")],
     "NE": [src("NE_2024_Primary_Canvass_Book.pdf", "https://sos.nebraska.gov/sites/default/files/doc/elections/2024/2024%20Primary%20Canvass%20Book.pdf", note="Board of State Canvassers official report")],
-    "NJ": [src("NJ_2024_official_primary_results_president.pdf", "https://www.nj.gov/state/elections/assets/pdf/election-results/2024/2024-official-primary-results-president.pdf")],
+    "NJ": [src("NJ_2024_official_primary_results_president.pdf", "https://www.nj.gov/state/elections/assets/pdf/election-results/2024/2024-official-primary-results-president.pdf",
+               note="INCOMPLETE: lists named candidates only, no uncommitted or write-in lines, so shares are of the named candidates' votes")],
     "NM": [src("NM_REP_president_contest_14424.csv", "https://nm.elstats.civera.com/api/download_contest/14424_table.csv?split_party=false", note="SOS results database; state canvass certified 2024-06-25"),
            src("NM_DEM_president_contest_14425.csv", "https://nm.elstats.civera.com/api/download_contest/14425_table.csv?split_party=false")],
     "OK": [src("2024-ppp-cd-results.pdf", "https://oklahoma.gov/content/dam/ok/en/elections/candidate-filing-archives/2024-candidate-filing-archives/2024-ppp-cd-results.pdf",
@@ -94,7 +95,7 @@ SOURCES = {
     "OR": [src("2024-primary-bluebook.pdf", "https://sos.oregon.gov/blue-book/government/Documents/2024-primary.pdf",
                note="Oregon Blue Book, citing the SOS abstract of votes (the abstract itself returned 404)")],
     "PA": [src("electionreturns_2024_primary_precinctreturns.txt.gz", "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/electionreturns_2024_primary_precinctreturns.txt",
-               scratch="electionreturns_2024_primary_precinctreturns.txt", note="stored gzipped; extracted 2024-07-23"),
+               scratch="electionreturns_2024_primary_precinctreturns.txt", note="stored gzipped; extracted 2024-07-23. INCOMPLETE: no write-in lines, so shares are of the named candidates' votes"),
            src("electionreturns_2024_primary_readme.txt", "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/electionreturns_2024_primary_readme.txt")],
     "PR": [src("PRESIDENTE_Resumen.xml", "https://democrata2024.ceepur.org/ESCRUTINIO_117/data/PRESIDENTE_Resumen.xml",
                note="Democratic party-run primary counted by the CEE; general canvass")],
@@ -162,15 +163,33 @@ def toint(x):
 
 def line_kind(name):
     n = str(name).lower()
-    if "uncommit" in n or "uninstructed" in n:
+    if "uncommit" in n or "uninstructed" in n or "noncommit" in n:
         return "uncommitted"
     if re.search(r"write|scatter|no preference|none of|blank|other|miscellaneous|no comprometido", n):
         return "other"
     return "candidate"
 
 
+SUFFIX = re.compile(r"^(jr|sr|ii|iii|iv)\.?$", re.I)
+
+
+def clean_name(n):
+    """'BIDEN JR., JOSEPH R.' / 'Haley, Nikki R.' -> first names first; all-capitals -> title case."""
+    n = re.sub(r"\s+", " ", str(n)).strip()
+    n = re.sub(r"^[\"']+([^\"']+)[\"']+\s", r"\1 ", n)               # '"Ron" DeSantis' -> 'Ron DeSantis'
+    n = re.sub(r"\s[\"']+[^\"']+[\"']+\s", " ", n)                   # 'Armando "Mando" Perez-Serrato'
+    parts = [p.strip() for p in n.split(",")]
+    if len(parts) >= 2 and parts[1] and not SUFFIX.match(parts[1]):
+        rest = [p for p in parts[2:] if p]
+        n = " ".join([parts[1], parts[0]] + rest)
+    if n.isupper():
+        n = " ".join(w if SUFFIX.match(w) is None else w.title() for w in n.title().split())
+        n = re.sub(r"\bDesantis\b", "DeSantis", n)
+    return n
+
+
 def rows(st, party, pairs, note=None):
-    return [{"state": st, "party": party, "candidate_name": re.sub(r"\s+", " ", str(n)).strip(), "votes": int(v),
+    return [{"state": st, "party": party, "candidate_name": clean_name(n), "votes": int(v),
              "line": line_kind(n), "parse_note": note} for n, v in pairs]
 
 

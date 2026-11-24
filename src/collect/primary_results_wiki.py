@@ -34,7 +34,8 @@ STATE = {**{k.lower(): v for k, v in ABBR.items()}, "washington d.c.": "DC", "wa
          "district of columbia": "DC", "puerto rico": "PR", "us virgin islands": "VI", "u.s. virgin islands": "VI",
          "virgin islands": "VI", "guam": "GU", "american samoa": "AS", "northern mariana islands": "MP",
          "northern marianas": "MP"}
-NOT_CAND = re.compile(r"^total|^uncommitted|uncommit|^other|write|scatter|none of|no preference|blank|void|"
+NOT_CAND = re.compile(r"^total|^uncommitted|uncommit|noncommit|^other|write|scatter|none of|no preference|blank|void|"
+                      r"inactive|invalid|"
                       r"undecided|^unprojected|^not on|^over|^under", re.I)
 
 
@@ -43,9 +44,11 @@ def title(cycle, party):
 
 
 def num(x):
-    x = re.sub(r"\[[^\]]*\]", "", str(x)).replace(",", "").replace("%", "").strip()
+    # footnotes, thousands commas, percent signs and invisible formatting marks (U+2066 in the 2024 Virginia table)
+    x = re.sub(r"\[[^\]]*\]", "", str(x))
+    x = re.sub(r"[^\d.\-]", "", x.replace(",", ""))
     try:
-        return float(x)
+        return float(x) if re.search(r"\d", x) else None
     except ValueError:
         return None
 
@@ -97,28 +100,34 @@ def tables(cycle, party):
 def rows_of(t):
     """Candidate rows of one per-state table: name, value (votes or delegates), percentage, line kind."""
     hdr = t["header"]
+    # Iowa and Nevada Democrats 2020 report a first and a final alignment, then delegate equivalents: the first
+    # column, the first alignment, is read
     measure = "state delegates" if re.search(r"State delegates", hdr) and "Votes" not in hdr else \
+        "first alignment" if re.search(r"(Initial|First) alignment", hdr) else \
         "popular vote" if "Popular vote" in hdr else "votes"
     out = []
     for tr in t["table"].find_all("tr"):
         cells = [c.get_text(" ", strip=True) for c in tr.find_all(["td", "th"])]
-        if len(cells) < 3 or cells[0] in ("Candidate", "") or tr.find("th") and not tr.find("td"):
-            continue
-        # some tables put a colour swatch cell before the name
-        if cells[0] == "" or len(cells[0]) <= 1:
+        # some tables put a colour swatch cell before the name (2016 Minnesota Republicans)
+        if cells and len(cells[0]) <= 1:
             cells = cells[1:]
-        name = re.sub(r"\[[^\]]*\]", "", cells[0])
-        name = re.sub(r"\s*\((withdrawn|withdrew|suspended)[^)]*\)", "", name, flags=re.I).strip(" *")
-        nums = [num(c) for c in cells[1:]]
-        pcts = [num(c) for c in cells[1:] if "%" in c]
-        value = next((v for v, c in zip(nums, cells[1:]) if v is not None and "%" not in c), None)
-        if value is None or not name:
+        if len(cells) < 3 or cells[0] == "Candidate" or tr.find("th") and not tr.find("td"):
             continue
+        name = re.sub(r"\[[^\]]*\]", "", cells[0])
+        name = re.sub(r"\s*\(\s*(withdrawn|withdrew|suspended|incumbent)[^)]*\)", "", name, flags=re.I).strip(" *")
+        nums = [num(c) for c in cells[1:]]
+        # the value is the first number not printed as a percentage; the percentage is the cell after it (printed
+        # with or without a % sign)
+        vi = next((i for i, (v, c) in enumerate(zip(nums, cells[1:])) if v is not None and "%" not in c), None)
+        if vi is None or not name:
+            continue
+        value = nums[vi]
+        pcts = [nums[vi + 1]] if vi + 1 < len(nums) and nums[vi + 1] is not None and nums[vi + 1] <= 100 else []
         if re.match(r"^total", name, re.I):
             out.append({"candidate_name": name, "value": value, "pct": pcts[0] if pcts else None, "line": "total",
                         "measure": measure})
             continue
-        line = "uncommitted" if re.search("uncommit", name, re.I) else "other" if NOT_CAND.search(name) else "candidate"
+        line = "uncommitted" if re.search("uncommit|noncommit|uninstructed", name, re.I) else "other" if NOT_CAND.search(name) else "candidate"
         out.append({"candidate_name": name, "value": value, "pct": pcts[0] if pcts else None, "line": line,
                     "measure": measure})
     return out
@@ -131,7 +140,17 @@ def wiki_results():
             for r in rows_of(t):
                 rows.append({**{k: t[k] for k in ("cycle", "party", "state", "contest", "heading", "page", "revision")},
                              "table_no": i, **r})
-    return pd.DataFrame(rows)
+    w = pd.DataFrame(rows)
+    # check: each table's values against its own percentages. Where shares computed from the values miss the
+    # table's percentages by more than 5 points the values are not what the header says (delegate counts in the
+    # American Samoa 2012, Wyoming 2016 and Guam 2024 tables), and the measure is marked unclear
+    k = ["cycle", "party", "table_no"]
+    lines = w.line != "total"
+    calc = 100 * w.value / w[lines].groupby(k).value.transform("sum")
+    gap = (calc - w.pct).abs().where(lines)
+    worst = gap.groupby([w.cycle, w.party, w.table_no]).transform("max")
+    w.loc[worst > 5, "measure"] = "unclear"
+    return w
 
 
 def calendar_2024():
@@ -144,23 +163,34 @@ def calendar_2024():
         soup = BeautifulSoup(html, "html.parser")
         tab = next(x for x in soup.find_all("table") if "Total delegates" in re.sub(r"\s+", " ", x.get_text(" "))
                    and "caucus" in x.get_text())
-        date = None
+        date, cancelled = None, False
         for tr in tab.find_all("tr")[1:]:
             cells = [re.sub(r"\[[^\]]*\]", "", c.get_text(" ", strip=True)).strip() for c in tr.find_all(["td", "th"])]
             if not cells:
                 continue
             m = re.match(r"(January|February|March|April|May|June|July|August)\s+(\d{1,2})", cells[0])
             if m:
-                date = pd.Timestamp(f"{m.group(1)} {m.group(2)} 2024").date()
+                date, cancelled = pd.Timestamp(f"{m.group(1)} {m.group(2)} 2024").date(), False
+            elif len(cells) >= 3:
+                # a row of its own whose date cell is not a date ('Cancelled', 'None'): no date, and not the
+                # previous row's (rows continuing a spanned date have only two cells)
+                date, cancelled = None, bool(re.search(r"cancel|none", cells[0], re.I))
             text = cells[-1]
             st = state_in(re.sub(r"\s*(primary|primaries|caucus(es)?|convention|\(.*?\)).*$", "", text, flags=re.I))
-            kind = kind_in(text)
+            kind = "cancelled" if cancelled else kind_in(text)
             if st is None or kind is None:
                 continue
             out.append({"cycle": 2024, "state": st, "party": party, "contest": kind, "date": date,
                         "party_run": "party-run" in text.lower(), "fec_text": text,
                         "source": f"Wikipedia, {t} (revision {rev})"})
     c = pd.DataFrame(out)
+    # cancelled Democratic primaries the delegate table leaves out (Biden the only candidate to file)
+    add = [{"cycle": 2024, "state": st, "party": "D", "contest": "cancelled", "date": None, "party_run": False,
+            "fec_text": None, "source": why} for st, why in
+           (("DE", "Delaware Department of Elections public notice, 2024-03-19 (primary_results_states.py)"),
+            ("FL", "Florida's official results extract has no Democratic presidential contest"))
+           if not ((c.state == st) & (c.party == "D")).any()]
+    c = pd.concat([c, pd.DataFrame(add)], ignore_index=True)
     for (st, party), (kind, party_run, why) in CAL_2024_FIX.items():
         i = c.index[(c.state == st) & (c.party == party)]
         c.loc[i, "contest"], c.loc[i, "party_run"] = kind, party_run
