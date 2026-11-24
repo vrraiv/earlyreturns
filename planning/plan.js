@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-24f",
+  version: "2026-11-24h",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -712,14 +712,18 @@ window.PLAN = {
             "Options: nothing until there are nominees, a generic party matchup, or the leading candidates' matchups.",
             "Mostly answered at EC-2 on 2026-11-20: there is no forecast until both nominees are presumptive. Still open: what the page shows in the meantime."
           ] },
-        { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8", "SC-4"],
+        { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8", "EC-10", "SC-4"],
           why: "After this the model only takes in new polls.",
           details: [
             "Backtest published on the site.",
             "Parameters frozen for the season.",
             "Before the freeze, the design is checked against the 2026 lessons list (moved here from EC-1).",
             "From EC-4 (2026-11-21), to be scored once on 2024: the fixed weight on a state's polls, adopted provisionally, and a version of it with no pull in close states (prior within 10 points), which EC-4's results suggested. Each one's exact fit is written down before 2024 is opened (`ELECTORAL_COLLEGE.md`, section 13).",
+            "Decided 2026-11-24: the joint Bayesian rival (EC-10) comes before the freeze. Both models meet 2024 at the same time, so neither is built after the other's 2024 score is known.",
             "From EC-7 (2026-11-24): 2024 is scored here, once, by the recipe EC-7 fixed and used on 2008 to 2020 (section 16 of the note), unchanged: the same scores, the same two benchmarks, the same six signs of a plainly wrong model, run by `src/model/pres_backtest.py`.",
+            "Decided 2026-11-24, what happens after 2024 is scored (section 7 of the note), for this model and the rival alike. The first score is the holdout score: recorded and published as the only out-of-sample number, with every later score on 2024 labelled as made after seeing it. The tests already parked here belong to that first opening.",
+            "Changes after that are limited, to avoid fitting the design to the holdout. A round of changes opens only if one of EC-7's six signs fires on 2024 or a provisional adoption fails. At most two rounds and three changes in all, each written down before it is run. Removing a piece or widening a range needs less than adding one; an addition needs the project owner's sign-off. If the budget is spent and nothing passes, the design that earned the first score is frozen. Refitting the frozen design's numbers on every election including 2024 is not a round.",
+            "Each change is declared general or recent. A general change must not be worse on 2008 to 2020. A recent change names the election its effect began at and must not be worse on the elections from then up to 2020; earlier elections are reported and decide nothing. This lets a change capture new behaviour of voters, polls or candidates. A change that helps 2024 and is worse on the elections just before it is fitting 2024, under either label.",
             "From EC-7's results, each suggested by them and so declared with anything built on it: the forecast's centre is no closer a week out than 100 days out on 2012 to 2020; the ranges are too wide early, and most of the excess looks like the national part; a week out the states' part looks too narrow and the national part too wide, so correcting one alone could unbalance the other (decided 2026-11-24: this may be evaluated after the 2024 holdout is scored, not before); the gap between the tipping-point state and the popular vote is forecast too close to zero.",
             "From EC-7's diagnostic (2026-11-24): in the last weeks of 2020, one firm's repeated releases were the only recent polls in many thinly polled states, and both the recent-polls benchmark and the model got worse there. How the average treats one firm polling alone and often is a question for the freeze."
           ],

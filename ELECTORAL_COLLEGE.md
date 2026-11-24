@@ -136,6 +136,32 @@ goes. What the holdout does not cover: everyone knows roughly how the 2024 polls
 `president_poll_coverage.csv` already lists 2024 results beside poll counts; and 2024 Senate and governor races
 are already scored in the backtest. The only test nobody has seen is 2028.
 
+**After the holdout is scored (decided 2026-11-24, confirmed by the user; amends "once" above).** The
+paragraph above says what happens to 2024 and nothing about what happens to the design afterwards. These rules are
+fixed before 2024 is opened, for the assembled model and for the rival (EC-10) alike.
+
+1. **The first score is the holdout score.** It is computed once by section 16's recipe, recorded and published as
+   the only out-of-sample number. Every later score on 2024 is labelled "after seeing 2024".
+2. **The tests already parked at the freeze are part of that first opening,** each with its rule written before it:
+   they are not rounds.
+3. **A round is triggered, not granted.** A round of changes opens only if one of section 16's flags fires on 2024
+   or a provisional adoption fails its test. If neither happens, the design is frozen as it stands.
+4. **The budget:** at most two rounds and at most three changes in all. Each round's changes are written down before
+   the round is run.
+5. **Each change is declared general or recent** (revised at the user's objection, 2026-11-24: a first version
+   required every change to hold on 2008 to 2020, which would reject anything meant to capture new behaviour of
+   voters, polls or candidates).
+   - A **general** change claims to hold throughout. It is scored on 2008 to 2020 and must not be worse there.
+   - A **recent** change claims something that began at a stated election. It is scored on the elections from that
+     one on, 2024 included, and must not be worse on those before 2024. Its score on the earlier elections is
+     reported and decides nothing.
+   - A change that helps 2024 and is worse on the elections just before it is fitting 2024, under either label.
+6. **Removing a piece or widening a range needs less than adding one.** An addition prompted by 2024 needs the
+   user's sign-off each time. Where behaviour seems to be shifting, a wider range is considered beside any new term.
+7. **The fallback.** If the budget is spent and nothing passes, the design that earned the first score is frozen.
+8. **Refitting is not a round.** The frozen design's numbers are refitted on every election including 2024. That
+   adds data and selects nothing.
+
 **How state errors move together.** A state's miss is its result minus its 7-day forecast. For each scored
 election, each structure is fitted on earlier elections and gives a joint distribution for that election's 56
 misses; the score is the log of the density it gives the misses that happened. This can show a structure is
