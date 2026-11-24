@@ -4505,3 +4505,96 @@ confirmed. Questions 2 and 4 to 8: confirmed as proposed.
 - **A fault in a planted input, fixed:** the planted failure listed twelve tipping-point shares all above 1 in 56,
   so flag 5 was undetermined and did not fire. The plant now has small shares, and a check was added that an
   unlisted tipping point with a twelfth share above 1 in 56 is reported as undetermined.
+
+### EC-7: results (run 2026-11-24, once). No flag fires.
+
+`python src/model/pres_backtest.py run`, after commits f34d827 (this plan) and 318c92c (the scorer, 19 checks
+passing). Everything is in `data/processed/pres_backtest.json`, with one row per contest and date in
+`pres_backtest_contests.csv`. Nothing was fitted, and nothing here changes the model.
+
+**The six flags, at 7 days.**
+
+| Flag | What it counted | Fires |
+|---|---|---|
+| 1. The count | outside the 80% range in 0 of 4 | no |
+| 2. The winner | mean log loss 0.526, against a coin's 0.693 | no |
+| 3. The popular vote | outside the 80% range in 0 of 4 | no |
+| 4. The gap | outside the 80% range in 2 of 4 (2008, 2016); wrong sign in 1 (2012) | no (one short) |
+| 5. The tipping point | under 1 in 56 in 0 of 4; none undetermined | no |
+| 6. The benchmarks | each has a smaller state error in 1 of 4 and a smaller count error in 1 of 4 | no |
+
+**The states, at 7 days** (56 contests an election; error is root mean square, in points).
+
+| Election | Model | B1 last time | B2 recent polls | Mean signed miss | Brier | Log loss | Called wrong | In the 50% range | In the 80% range |
+|---|---|---|---|---|---|---|---|---|---|
+| 2008 | 5.22 | 12.84 | 5.31 | +2.4 | 0.040 | 0.131 | 3 | 55% | 82% |
+| 2012 | 4.69 | 6.25 | 4.52 | +1.4 | 0.032 | 0.119 | 3 | 66% | 96% |
+| 2016 | 6.78 | 8.67 | 9.19 | −3.6 | 0.070 | 0.231 | 4 | 45% | 75% |
+| 2020 | 5.33 | 4.71 | 7.66 | −4.0 | 0.033 | 0.109 | 4 | 39% | 79% |
+| Pooled | 5.56 | 8.68 | 6.93 | −1.0 | 0.044 | 0.148 | 14 of 224 | 51% | 83% |
+
+- B2 beats the model in 2012 and B1 (2016 repeated) beats it in 2020. Called wrong, pooled: 14 for the model, 26
+  for B1, 15 for B2.
+- Without 2008 the pooled error is 5.67, the Brier 0.045, and the coverage 50% and 83%.
+- **The whole-margin ranges cover 51% and 83% at 7 days,** close to their names. This is the coverage nobody had
+  read. EC-6's 42% and 73% are of the misses with the national miss taken out, and stand as they were.
+- Competitive contests (67 of the 224): error 4.88, Brier 0.132, log loss 0.422, 13 called wrong, coverage 49% and
+  85%. The 51 states alone: error 5.53, Brier 0.041. The five districts (20): error 5.86, Brier 0.074, 3 called
+  wrong, coverage 50% and 85%.
+- 73 probabilities were clipped at 7 days; none was clipped and wrong at any date.
+- Calibration at 7 days (the 224 are not independent): given under 5%, 0 of 82 won; 5% to 25% (mean 14%), 2 of 17;
+  25% to 75% (mean 52%), 12 of 25; 75% to 95% (mean 86%), 23 of 25; over 95%, 74 of 75.
+
+**The top line, at 7 days.**
+
+| | 2008 | 2012 | 2016 | 2020 |
+|---|---|---|---|---|
+| Popular vote: result, forecast median | +7.4, +4.7 | +3.9, +1.9 | +2.2, +4.0 | +4.5, +7.9 |
+| Democratic count: result, median (80% range) | 365, 340 (264 to 387) | 332, 295 (210 to 360) | 232, 312 (230 to 369) | 306, 335 (254 to 413) |
+| Where the result fell in the count | 0.72 | 0.70 | 0.10 | 0.32 |
+| Probability given to the winner | 0.86 | 0.67 | 0.25 | 0.86 |
+| The gap: realized, forecast median | +1.7, +0.3 (outside) | +1.5, −0.0 (inside, wrong sign) | −3.0, −1.2 (outside) | −3.9, −3.2 (inside) |
+| Tipping point: actual, its share and rank; the forecast's first | CO, 21%, 3rd; OH | PA, 4%, 7th; OH | WI, 5%, 8th; FL | WI, 10%, 4th; PA |
+
+- The popular vote is inside its 80% range in all four, with a mean absolute error of 2.4 points (B1 4.3, B2 2.8).
+  With EC-6's finding that this range is too wide, four of four says little.
+- The count's median misses by 25, 37, 80 and 29 votes (mean 43; B1 79, B2 55). B2 is closer in 2008 (12) and B1
+  in 2012 (27). In 2016 the result sat two votes inside the bottom of the 80% range.
+- The model favoured the winner in three of four and gave the 2016 winner 1 in 4.
+- The gap's mean absolute error is 1.4 points (B1 1.7, B2 1.7). The forecast gap was near zero in 2008 and 2012,
+  when the realized gap favoured the Democrat, and less than half the realized gap in 2016.
+- The actual tipping point was always among the twelve listed and never the forecast's first. B1's point margins
+  name it once (2020) and B2's never.
+
+**By date, on 2012 to 2020** (the three elections scored at every date; 2008 is left out so the dates compare).
+
+| | 100 days | 60 days | 30 days | 7 days |
+|---|---|---|---|---|
+| State error, model | 5.63 | 5.50 | 5.30 | 5.67 |
+| State error, B2 (B1 is 6.74 throughout) | 6.52 | 6.50 | 6.33 | 7.38 |
+| Brier | 0.061 | 0.054 | 0.047 | 0.045 |
+| In the 50% and 80% ranges | 85%, 99% | 81%, 98% | 75%, 95% | 50%, 83% |
+| Popular vote, mean absolute error | 1.7 | 1.9 | 1.8 | 2.4 |
+| Count, mean absolute error | 46 | 49 | 43 | 49 |
+| Winner's mean log loss | 0.66 | 0.68 | 0.60 | 0.65 |
+
+With 2008, the 30-day figures over four elections are: state error 5.50 (B1 8.68, B2 6.60), Brier 0.048, coverage
+70% and 94%, popular vote 2.3, count 44, winner's log loss 0.54. B2's rungs are in the amendments above and in the
+results file for every cell.
+
+**What this can and cannot say.** Four elections: the model missed toward the Republican in two (2008, 2012) and toward the Democrat in two (2016, 2020). No flag
+fired, so the backtest does not show the model plainly wrong on any target. It does not show it right: a count
+inside an 80% range four times in four is what a range that is too wide also gives.
+
+**To the design freeze (EC-9), all suggested by these results.**
+
+- **The centre does not get closer as the election nears** on 2012 to 2020: the state error is 5.6 at 100 days and
+  5.7 at 7, and the popular vote's error is larger at 7 days than at 100. The Brier score still improves because
+  the ranges narrow.
+- **The ranges are too wide early:** 85% and 99% coverage at 100 days for ranges named 50% and 80%. This agrees with
+  EC-6's hand-off on the days term.
+- **The gap is forecast too close to zero.** It was outside its 80% range twice and one election short of the flag.
+- **Recent polls alone are worse than last time's result at 7 days in 2020** (7.7 against 4.7), and the model sits
+  between them (5.3). Its signed miss is −3.6 and −4.0 in 2016 and 2020 and positive in 2008 and 2012.
+- **The winner's log loss at 100 and 60 days (0.66, 0.68) is close to a coin's,** on three elections, one of them 2016.
+- **2024** is scored once by this recipe, unchanged, at the freeze.
