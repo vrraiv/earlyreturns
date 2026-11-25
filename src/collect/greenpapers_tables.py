@@ -14,7 +14,7 @@ webmaster pointed us to by email on 2026-11-24, with leave to use the data attri
      (`greyed`); what grey means is not stated. -> primary_delegate_units.csv
      Slate tables (delegate candidates elected by name: Colorado, Illinois, Pennsylvania, West Virginia and Virgin
      Islands Republicans) are not read: they list individual delegate candidates, and the hard totals already cover
-     them. Nor is South Dakota Republicans' 2016 estimate, laid out differently.
+     them.
 2. The download pages (/P16/download.phtml, /P20/, /P24/), which link a Dropbox folder per cycle of .xls files.
    Each folder is stored as a zip (data/linked/greenpapers_downloads/<date>/P16.zip ...). Read: the delegate count
    (soft pledged, soft unpledged, hard total, first and last floor votes), the Democratic and Republican delegate
@@ -24,11 +24,11 @@ webmaster pointed us to by email on 2026-11-24, with leave to use the data attri
       primary_greenpapers_events.csv
 3. The 2016 computation tables: a directory the webmaster pointed us to that is not a public page. Its "-1" files
    are the delegate tables above with every candidate; only those are fetched (the "-0" files are the pages' version,
-   and the tally files are on the pages too). Its address is read from .env (greenpapers_results_url) and is never
+   and the tally files are on the pages too). Its address is read from .env (greenpapers_2016full_url) and is never
    written to the repo: the manifest records each file's name, size and checksum without a URL, and the derived rows
    cite the public state page. Where a -1 file exists it replaces the page's table in primary_delegate_units.csv
    (`candidates_listed` = "all"); the shared candidates are checked equal to the page's. Files with no table on the
-   page (six: earlier tiers and the like) are added, citing the state page.
+   page (six) are stored but not read: the webmaster said the directory holds unused data.
 
 Raw copies stay in the git-ignored store and are backed up off-repo by src/backup_offrepo.py; only the derived
 tables are committed, attributed to TheGreenPapers.com and linked to its pages.
@@ -57,7 +57,7 @@ CYCLES = (2016, 2020, 2024)
 PAUSE = 3.0
 PAGES = "greenpapers"
 DOWNLOADS = "greenpapers_downloads"
-RESULTS = "greenpapers_results"
+RESULTS = "greenpapers_2016full"
 INTERIM = ROOT / "data" / "interim"
 
 
@@ -83,9 +83,9 @@ def fetch_downloads():
 
 def fetch_results():
     """The 2016 "-1" delegate tables from the directory in .env. Manifest entries carry no URL (see the docstring)."""
-    base = env_key("greenpapers_results_url")
+    base = env_key("greenpapers_2016full_url")
     if not base:
-        raise SystemExit("greenpapers_results_url is not set in .env; the 2016 computation tables are skipped")
+        raise SystemExit("greenpapers_2016full_url is not set in .env; the 2016 computation tables are skipped")
     base = base.rstrip("/") + "/"
     d = LINKED / RESULTS / TODAY
     d.mkdir(parents=True, exist_ok=True)
@@ -306,21 +306,14 @@ def parse_pages():
         for r in rows:
             units.append({**key, **cap, **r, "candidates_listed": version, "table_source": src,
                           "green_papers_page": page})
-    # 2016 files with no table on the page (earlier tiers or superseded counts): kept, citing the state page
-    man = json.loads((LINKED / "manifest.json").read_text(encoding="utf-8"))[PAGES]
-    pages = {k.split("/")[-1]: v.get("page") for k, v in man.items()}
+    # 2016 files with no table on the page (five, with no status or retrieved date; New Hampshire Republicans' second
+    # primary table gives other delegate counts than the page): the webmaster said the directory holds unused data, so
+    # they are stored but not read
     done = {u["table_source"] for u in units}
     for (st, party, kind), (t1, fname) in sorted(full.items()):
-        if fname in done:
-            continue
-        key = {"cycle": 2016, "party": party, "state": st, "table": kind}
-        rows, problem = parse_grid(t1)
-        if problem or not rows:
-            skipped.append({**key, "problem": problem or "no rows"})
-            continue
-        for r in rows:
-            units.append({**key, **caption(t1), **r, "candidates_listed": "all", "table_source": fname,
-                          "green_papers_page": pages.get(f"P16_{st}-{party}.html")})
+        if fname not in done and (st, party, kind) not in {(s["state"], s["party"], s["table"]) for s in skipped}:
+            skipped.append({"cycle": 2016, "party": party, "state": st, "table": kind,
+                            "problem": "2016 file with no table on the page (not read)"})
     return pd.DataFrame(tallies), pd.DataFrame(units), pd.DataFrame(skipped), compare
 
 
