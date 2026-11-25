@@ -999,3 +999,36 @@ Headline forecasts of the four races, the race left out and then the year left o
 **Put to the owner, not acted on:** whether to use the declared round (rule 6), and on what. Candidates the report
 suggests, each of which would be declared as suggested by this test: the spread of shares (the ranges), the top of
 the chance scale, and the dates beyond 30 days.
+
+### The declared round: the share ranges (the owner's choice, 2026-11-25, after the report above)
+
+The owner chose to use the round of rule 6, on the share ranges. Run 1's forecasts, values and scores stay in the repo
+as they are; anything a change produces goes under its own label, so the verdict can be rebuilt.
+
+**A diagnostic first** (written 2026-11-25 before it ran; run once, all of it reported). No change is proposed
+before it: one total spread per forecast sets both the share ranges and the winner's chance, the chances are close
+to what happened, and coverage on the day is 79%, so the shortfall is in the 30-day and 7-day forecasts. Those carry
+more candidates (4.9 a forecast at 30 days against 3.2 on the day). The diagnostic asks whether the misses are
+candidates who had left by the vote, the whole field moving together, or surviving leaders missing both ways. It
+reads results already scored, so whatever follows from it is suggested by this test.
+
+On the headline candidate rows of the first reading, for the model and the baseline, at 30 days, 7 days and the day:
+
+- **D1.** The share of results below the 10th percentile, within the range, and above the 90th.
+- **D2.** D1 split by whether the candidate was still in the field on the morning of the vote (section 3, S9) or had
+  left it; and, of those who had left, how many have no line in the result.
+- **D3.** D1 for candidates still in on the morning of the vote, split by the top two by expected share and the rest.
+- **D4.** The other share: per forecast, 100 less the summed results of the forecast's field, set against the other
+  share the forecast used. The mean and median difference, and the share of forecasts where it is more than 5 points
+  either way.
+- **D5.** The calibration table of rule 7 on the 30-day forecasts alone.
+
+**What each outcome would mean** (written before the run):
+
+- Mostly candidates who had left, scored at or near 0, with those still in above the 90th: no spread value mends
+  this. It is the simulated withdrawals of PP-7. The proposal to the owner would be no change to the model, coverage
+  among candidates still in at the vote as an added measure, and a reworded line on PP-7.
+- The whole field off one way together: letting the other share vary in the draws would widen the ranges without
+  moving the chances of winning.
+- Candidates still in missing both ways: a change to the spread by horizon is defensible, at a cost to the winner's
+  chance that would be put to the owner.
