@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-24l",
+  version: "2026-11-24m",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -779,9 +779,11 @@ window.PLAN = {
           why: "The first useful output, and the base for everything else.",
           details: [
             "National and state averages per candidate, with the same pollster handling as the general-election averages.",
-            "Many candidates, and a field that changes as candidates enter and withdraw."
+            "Many candidates, and a field that changes as candidates enter and withdraw.",
+            "Rules decided 2026-11-24, before any average was computed (PRIMARIES.md, section 1). Every question counts, with any candidate it names; where a poll asks more than one, the one with the most declared candidates is used. Raw shares, undecided kept. Weights as in the general-election averages, with no sponsor shift: internal polls are left out, and overlapping tracking releases thinned. Half-lives of 30 days before the first contest and 7 days from it. A line ends at withdrawal, or at the first contest for a candidate not yet declared by then. A candidate is shown at 100 / (2n + 1) points or more, n being the candidates with a live average in that place. No lag on poll dates; each average carries the spread of its polls. Nothing is tuned against results.",
+            "Deferred 2026-11-24: no collector for 2028 primary polls is built in this card. The sources may change before they are needed, 2028 polls are not needed until after the design freeze, and Wikipedia's page history lets the poll list be rebuilt as of any date later."
           ],
-          refs: ["src/model/pollavg.py"] },
+          refs: ["PRIMARIES.md", "src/model/pollavg.py"] },
         { id: "PP-4", title: "Calendar and rules as inputs", kind: "story", phase: "p3", needs: ["PP-2"],
           why: "The 2028 order of states is not set.",
           details: [
@@ -814,6 +816,7 @@ window.PLAN = {
           details: [
             "Averages first, then state odds and delegates as each level is built.",
             "At `/2028/primaries/` (SI-1). Poll averages can go up as soon as polls are collected; odds wait for the frozen model.",
+            "From PP-3 (2026-11-24): the 2028 poll collector was deferred, so the averages go up only once one is built, after the design freeze.",
             "From EC-8 (2026-11-24): once the primaries pages are live, the board before the nominees on `/2028/` links to them (its words are `previews.2028.board` in `src/site/site.json`)."
           ] },
         { id: "PP-9", title: "First version", kind: "milestone", phase: "p3", due: "May 2027", needs: ["PP-3", "PP-6"],
