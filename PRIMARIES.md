@@ -519,3 +519,112 @@ own-average exclusion, a floor on the log loss).
   caucuses) suggests they differ. Left open.
 - **Judgments that could be fitted instead:** rule 9's half weight, rule 10's region penalty, and rule 13's caucus
   multiplier. Fitting any of them takes the list past six.
+
+### Readings and grids for the build (PP-12, 2026-11-25)
+
+Written before any forecast was compared with a result. Three things were computed first, none of which reads a
+result: the kernel (rule 10) for each cycle, the summed kernel weight W a state gets from 1, 5, 15 and 30 other states,
+and the number of polls in each last average (already in `primary_avg_last.csv`). They set the scale of the κ and λ
+grids. The PP-10 report (section 1) had been seen: its 9-point average miss on the top two's margin is why the σ grids
+run as wide as they do.
+
+**Put to the owner as questions and agreed, 2026-11-25, before any run** (each agreed as proposed):
+
+S1. **A live candidate with no line in a voted state's result** (rule 9 is silent; Obama in Michigan 2008, most of the
+    field in Virginia 2012): no observation for that candidate from that state. Rule 7's floor would otherwise give
+    r = log(1 / national share), a very large negative number, to the level of every later state. The other
+    candidates' results there still count. The forecast and the scoring are unchanged (rules 5 and 16: forecast all
+    the same, scored as 0).
+S2. **Rule 11's n** is the candidate's own `n_polls` in the state's average (polls that name them), as the rule's
+    wording has it, so w differs by candidate within a state. The alternative was the place's poll count, the same
+    for every candidate.
+S3. **Keeping the draws** (rule 17). Draws are not stored: 10,000 draws for every contest, candidate and forecast
+    date is several gigabytes. A function rebuilds them from a fixed seed, identically each time, and a check
+    confirms it. Committed: the summary table of rule 17.
+S4. **The grids**, below.
+
+**Grids (rule 16).** Point values, searched jointly (11 × 9 × 9 = 891 points):
+
+| Value | Grid | Corners |
+|---|---|---|
+| β | 0, 0.1, 0.2, … 1.0 | 0: the level is ignored; 1: taken in full |
+| κ | 0, 0.5, 1, 2, 4, 8, 16, 32, ∞ | 0: the pattern in full; ∞: no pattern |
+| λ | 0, 0.5, 1, 2, 4, 8, 16, 32, ∞ | 0: a polled state is its own average; ∞: its own polls are ignored |
+
+W is about 0.6 per observed state (the median kernel value between two states is 0.61 in every cycle, m = 3.1): about
+3 with five states observed, 9 with fifteen, 18 with thirty. A last average has a median of 5 polls per candidate
+(a tenth have 1, a tenth 26 or more).
+
+Spread values, on the log scale, searched jointly after the point values are fixed (8 × 8 × 8 = 512 points):
+
+| Value | Grid |
+|---|---|
+| τ (at 30 days) | 0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6 |
+| σ_p | 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6, 0.8 |
+| σ_u | 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0, 1.5 |
+
+- **Ties** go to the first point in grid order (β slowest, then κ, then λ; τ, then σ_p, then σ_u; each ascending).
+- **An edge.** A fitted value on the end of its grid is reported as such. No grid is extended or refined without the
+  owner, and any such change is declared as suggested by the results.
+- **Seed.** 2028, combined with the cycle, party and forecast date, so any forecast's draws can be rebuilt alone.
+- **The spread fit** uses the same 10,000 standard draws for a forecast at every grid point. Scored one contest at a
+  time, the winner's chance depends only on that contest's total SD (the candidates' shocks have the same SD, and
+  re-normalising does not change who is top), so the kernel correlation plays no part in the fit.
+- **The baseline** (rule 18) is the same code at β = 0, κ = ∞, λ = 0; only its three spread values are fitted.
+
+**Readings not put as questions**
+
+*Dates and the calendar*
+
+S5. The 30-day and 7-day dates are counted back from the date the contest was held. The forecast made that day uses
+    the calendar as known that day, so the days to the contest in rule 13 are to its date as then known. A contest
+    with no date known that day, or known as cancelled, has no forecast that day and that date is not scored (the
+    contest's other dates keep equal weight among themselves).
+S6. A voting day (rule 3) is a day with any vote, main or non-binding, as held. A state has voted once its main
+    contest's date is before the forecast date; contests on the forecast date itself are not evidence for each other.
+S7. A state between its non-binding vote and its main contest has no current average (section 1, rule 12), so it is
+    not half-weight evidence. Its last average still serves as its own (rule 11), set against the national average
+    of the day of the first vote.
+S8. A caucus, for rule 13's multiplier, is a main contest the calendar calls a caucus or a convention.
+
+*Shares*
+
+S9. The field (rule 5) is the candidates whose national line is live on the forecast date (section 1, rule 10 and
+    R8) and who have a national average that day.
+S10. The other share (rule 6) is averaged over the main contests of the 50 states and DC held before the forecast
+    date, those with a result. In each it is 100 less the summed shares of the field as it stood on the morning of
+    that vote.
+S11. The result scale: the field's averages are multiplied by one factor so that they sum to 100 less the other
+    share. A state's average is scaled by its own factor, over the field candidates it names.
+S12. A voted state's observation sets its result against the national average on the morning it voted, on the result
+    scale as it stood that morning (that morning's field and other share). Only candidates in today's field are
+    observed.
+S13. A field candidate missing from a state's average takes the prior alone (w = 0) in that state, and that state's
+    average is no observation for them elsewhere.
+S14. With no observation at all, the prior r is 0 (the national average). W and the kernel-weighted mean leave out
+    the state itself; the level leaves out only the state's own average (rule 11), so it is the same for every
+    state that is not itself an observation.
+S15. A polled state, for σ_p, is one with an average of its own that day (S7's included); every other is unpolled.
+
+*Draws*
+
+S16. Each candidate gets one standard national draw per forecast date, scaled by each contest's own horizon (τ ×
+    √(days / 30)), so the national shock is perfectly correlated across contests of different dates. A path over time
+    (independent increments) is the alternative, and matters only jointly: flagged for PP-7.
+S17. State shocks are drawn per candidate, independently between candidates, with correlation across the 50 states
+    and DC equal to the kernel. Territories and Democrats Abroad get independent shocks at σ_u (× 1.5 in a caucus).
+S18. The other share is fixed within a forecast's draws. The expected share (rule 17) is rule 12's value, not the mean
+    of the draws; the percentiles and the chance of winning come from the draws. A tie for top is split.
+S19. The winner is the top candidate line in the result. A winner outside the field gets rule 16's floor.
+
+*Fitting and outputs*
+
+S20. A main contest with no result row is forecast but neither scored nor used as evidence; the count is reported.
+S21. The committed forecasts of each open contest use the values fitted with that contest left out; the incumbents'
+    contests use the values fitted on all seven. Every row names the values it used. The all-seven values, for 2028,
+    are reported beside them.
+S22. Outputs for 2012 and 2016 derive from the HuffPost file and carry its terms (`LICENSE-DATA.md`).
+S23. **Checks.** A forecast is unchanged when every later poll, result, withdrawal and date change is deleted; changing
+    a left-out contest's results leaves that fold's fitted values unchanged; the kernel has no negative eigenvalue;
+    a hand-worked case for rule 10; the baseline corner returns the state average or the national one; the seed
+    rebuilds the same draws.
