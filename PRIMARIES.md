@@ -572,7 +572,8 @@ Spread values, on the log scale, searched jointly after the point values are fix
   re-normalising does not change who is top), so the kernel correlation plays no part in the fit.
 - **The baseline** (rule 18) is the same code at β = 0, κ = ∞, λ = 0; only its three spread values are fitted.
 
-**Readings not put as questions**
+**Readings not put as questions before the run.** After run 1 the owner was asked about the ones that move numbers
+(S10, S11, S13, S24, S26) and agreed them as written; S9 was changed, as it says.
 
 *Dates and the calendar*
 
@@ -590,7 +591,9 @@ S8. A caucus, for rule 13's multiplier, is a main contest the calendar calls a c
 *Shares*
 
 S9. The field (rule 5) is the candidates whose national line is live on the forecast date (section 1, rule 10 and
-    R8) and who have a national average that day.
+    R8) and who have a national average that day. **Changed after run 1** (the owner's call; see "What was built"):
+    and who are in the candidate timeline and had announced, or were exploring, by that date. A candidate in the
+    timeline with no date counts as announced, as in section 1.
 S10. The other share (rule 6) is averaged over the main contests of the 50 states and DC held before the forecast
     date, those with a result. In each it is 100 less the summed shares of the field as it stood on the morning of
     that vote.
@@ -647,8 +650,9 @@ S27. The spread fit and the committed chances use the same draws: a forecast dat
 `src/model/primary_state.py` builds the model as the rules and readings above set them out. `Race(cycle,
 party).forecast(as_of, values)` gives rule 17's table for any date, `.draws()` the 10,000 draws behind it, contests in
 calendar order (S3), and `fit()` the values. Outputs in `data/processed/`: `primary_state_values.csv` and
-`primary_state_forecasts.csv` (described in `DATA.md`; 44,384 rows, 4.9 MB, every forecast date of rule 3 for the model
-and the baseline). `src/check_primary_state.py` runs S23's checks.
+`primary_state_forecasts.csv` (described in `DATA.md`; 42,232 rows, 4.7 MB, every forecast date of rule 3 for the model
+and the baseline). `src/check_primary_state.py` runs S23's checks, and passes. The owner agreed to commit the whole table and to the line in
+`LICENSE-DATA.md` for its 2012 and 2016 rows.
 
 **One change to S23 as written.** "Every later date change is deleted" could not be done as such: the calendar file
 holds each contest's date as held, so deleting its later changes does not give the date as known earlier. The check
@@ -657,33 +661,63 @@ the forecast date (whose own check is `src/check_primary_calendar.py`). Writing 
 run: as first coded, a contest was dropped once its known date had passed only if it was never held, which needs the
 future to tell.
 
-**The run.** The fit was run once, on the grids as written, and nothing was changed after it. (The check script
-also runs the fit twice on 300 draws, to compare a fold before and after its left-out contest's results are shuffled.)
+**The runs.** The fit was run twice, both times on the grids as written.
+
+*Run 1* used S9 as first written. A listing of its field then showed people who were polled nationally but never
+ran, kept by the averages until the first contest (section 1, rule 10): Gore (15 points) in 2008 D, Gingrich (8) in
+2008 R, Giuliani (10) in 2012 R, Biden, Warren, Cuomo and Gillibrand (15, 6, 2 and 1) in 2016 D, Hillary Clinton and
+Kerry (9 and 6) in 2020 D, and nine names at 2 points or less in 2024 R. They were in 62 of the 987 fitted forecasts,
+all on the 30-day and 7-day dates of early states, took share in rule 6's scale-up and were scored against 0. Rule 4
+says the field is announced candidacies. The owner chose the announced field and a rerun. The change was made with
+run 1's losses already seen; it was found from the listing of the field, not from the losses.
+
+*Run 2* is the model as it stands, and what the outputs hold. The point values are the same as run 1's in every
+fold. Three spread values moved by one grid step (σ_u from 0.4 to 0.6 with 2012 R left out, τ from 0.3 to 0.4 with
+2016 R left out and from 0.3 to 0.2 with 2024 R left out), and three of the baseline's.
+
+Run 2:
+
+| Left out | β | κ | λ | τ | σ_p | σ_u | Squared error (fit) | Log loss (fit) | Baseline τ | σ_p | σ_u | Squared error | Log loss |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| 2008 D | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 158.4 | 0.527 | 0.4 | 0.3 | 0.4 | 164.7 | 0.544 |
+| 2008 R | 0.7 | 0 | 0.5 | 0.2 | 0.3 | 0.4 | 159.1 | 0.484 | 0.3 | 0.3 | 0.4 | 166.6 | 0.494 |
+| 2012 R | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.6 | 168.6 | 0.520 | 0.3 | 0.3 | 0.6 | 174.6 | 0.528 |
+| 2016 D | 0.6 | 0 | 0 | 0.4 | 0.3 | 0.4 | 150.7 | 0.527 | 0.4 | 0.3 | 0.4 | 154.0 | 0.538 |
+| 2016 R | 0.9 | 0 | 0.5 | 0.4 | 0.3 | 0.4 | 160.0 | 0.538 | 0.4 | 0.3 | 0.6 | 169.8 | 0.557 |
+| 2020 D | 0.7 | 0 | 0.5 | 0.4 | 0.3 | 0.4 | 161.6 | 0.550 | 0.3 | 0.3 | 0.6 | 169.2 | 0.561 |
+| 2024 R | 0.6 | 0 | 0.5 | 0.2 | 0.3 | 0.4 | 166.0 | 0.592 | 0.3 | 0.3 | 0.4 | 174.3 | 0.609 |
+| none (for 2028) | 0.7 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 160.7 | 0.534 | 0.4 | 0.3 | 0.4 | 167.6 | 0.548 |
+
+Run 1 (superseded):
 
 | Left out | β | κ | λ | τ | σ_p | σ_u | Squared error (fit) | Log loss (fit) | Baseline τ | σ_p | σ_u | Squared error | Log loss |
 |---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
 | 2008 D | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 157.7 | 0.528 | 0.4 | 0.3 | 0.4 | 163.8 | 0.545 |
 | 2008 R | 0.7 | 0 | 0.5 | 0.2 | 0.3 | 0.4 | 158.8 | 0.485 | 0.3 | 0.3 | 0.4 | 166.0 | 0.495 |
 | 2012 R | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 168.0 | 0.522 | 0.3 | 0.3 | 0.6 | 173.7 | 0.530 |
-| 2016 D | 0.6 | 0 | 0 | 0.4 | 0.3 | 0.4 | 150.7 | 0.528 | 0.4 | 0.3 | 0.4 | 154.0 | 0.539 |
+| 2016 D | 0.6 | 0 | 0 | 0.4 | 0.3 | 0.4 | 150.7 | 0.527 | 0.4 | 0.3 | 0.4 | 154.0 | 0.539 |
 | 2016 R | 0.9 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 159.4 | 0.539 | 0.4 | 0.3 | 0.4 | 169.0 | 0.560 |
 | 2020 D | 0.7 | 0 | 0.5 | 0.4 | 0.3 | 0.4 | 160.8 | 0.551 | 0.4 | 0.3 | 0.4 | 168.1 | 0.562 |
 | 2024 R | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 165.6 | 0.593 | 0.3 | 0.3 | 0.4 | 173.6 | 0.611 |
-| none (for 2028) | 0.7 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 160.3 | 0.536 | 0.4 | 0.3 | 0.4 | 166.9 | 0.550 |
+| none (for 2028) | 0.7 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 160.3 | 0.535 | 0.4 | 0.3 | 0.4 | 166.9 | 0.550 |
 
 Both losses are on the contests each row was fitted on, not on the one left out: they say how the fit went, and are no
-test. Scoring each contest on values not fitted to it is PP-6.
+test. Scoring each contest on values not fitted to it is PP-6. (The check script also runs the fit twice on 300
+draws, to compare a fold before and after its left-out contest's results are shuffled.)
 
-- **On an end of its grid:** κ, at 0, in every fold (the pattern is taken in full, with no shrinkage; 0 is the
-  lowest value κ can take), and λ, at 0, with 2016 D left out. Reported as S4 requires; no grid was changed.
-- **How flat the fit is** (all seven; squared error): 160.3 at the fitted point. β from 0.5 to 0.9 stays within 0.3
-  of it; β = 0 gives 162.7 and β = 1 gives 160.9. κ = ∞ (no pattern) gives 164.5. λ = 2 gives 163.2 and λ = ∞ (own
-  polls ignored) 190.0. Everything at the national average gives 199.8. Seven contests do not pin β down.
-- **By date and by whether the state was polled** (all-seven values; squared error, model against baseline): on the
-  day, 71.6 against 70.9 in polled states (201 forecasts) and 251.2 against 282.5 in unpolled ones (124); 7 days
-  before, 100.6 against 101.0 (188) and 233.6 against 250.0 (139); 30 days before, 121.6 against 127.0 (135) and
-  226.9 against 225.6 (200). What the model adds on these fitted contests is in the unpolled states, close to the
-  vote. A description on the fitted contests, not a test.
+- **On an end of its grid:** κ, at 0, in every fold of both runs (the pattern is taken in full, with no shrinkage; 0
+  is the lowest value κ can take), and λ, at 0, with 2016 D left out. Reported as S4 requires; no grid was changed.
+- **How flat the fit is** (run 2, all seven; squared error): 160.7 at the fitted point. β from 0.5 to 0.9 stays
+  within 0.3 of it; β = 0 gives 163.2 and β = 1 gives 161.3. κ = ∞ (no pattern) gives 165.2. λ = 2 gives 163.6 and
+  λ = ∞ (own polls ignored) 191.1. Everything at the national average gives 200.9. Seven contests do not pin β down.
+- **By date and by whether the state was polled** (run 2, all-seven values; squared error, model against baseline):
+  on the day, 71.6 against 70.9 in polled states (201 forecasts) and 251.2 against 282.5 in unpolled ones (124); 7
+  days before, 100.0 against 100.4 (188) and 233.6 against 250.0 (139); 30 days before, 123.0 against 129.1 (135)
+  and 228.8 against 228.4 (200). What the model adds on these fitted contests is in the unpolled states, close to
+  the vote. A description on the fitted contests, not a test.
+- **In the averages:** 123 of the 987 forecasts have a field of one candidate, which no fitted value moves. In no
+  forecast was the winner outside the field or at the floor of rule 16.
+- **S27 holds:** the fitted chance of each winner equals the chance in the committed table (291 forecasts compared).
 
 **What was scored.** 345 main contests in the 50 states and DC have a usable result; 335 are fitted, on 987 forecasts.
 

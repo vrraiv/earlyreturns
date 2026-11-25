@@ -121,6 +121,20 @@ class Race:
             self._avg[k] = {c: (v, n) for c, v, n in zip(a["candidate_key"], a["avg"], a["n_polls"])} if len(a) else {}
         return self._avg[k]
 
+    def field(self, as_of):
+        """Rules 4 and 5, S9 as changed after run 1: the candidates with a live national line that day who are in
+        the candidate timeline and had announced, or were exploring, by then (no date counts as announced)."""
+        out = {}
+        timeline = pa._timeline(self.cycle, self.party)
+        for c, v in self.avg("US", as_of).items():
+            t = timeline.get(c)
+            if t is None:
+                continue
+            dates = [d for d in t[:2] if pd.notna(d)]
+            if not dates or min(dates) <= as_of:
+                out[c] = v
+        return out
+
     def known(self, as_of):
         """The main contests as known on a date: {state: (date, cancelled, kind)}."""
         if as_of not in self._known:
@@ -157,7 +171,7 @@ class Race:
         if as_of not in self._other:
             x = []
             for s in self.voted(as_of):
-                field = self.avg("US", self.held[s])
+                field = self.field(self.held[s])
                 if field:
                     shares = self.result(s)[0]
                     x.append(100 - sum(shares.get(c, 0.0) for c in field))
@@ -166,7 +180,7 @@ class Race:
 
     def scaled(self, place, as_of):
         """S9, S11: a place's average on the result scale, over the field candidates it names."""
-        field = self.avg("US", as_of)
+        field = self.field(as_of)
         a = {c: v for c, (v, _) in self.avg(place, as_of).items() if c in field}
         total = sum(a.values())
         if not a or total <= 0:
@@ -196,7 +210,7 @@ class Race:
         average that have not voted at a half."""
         if as_of in self._obs:
             return self._obs[as_of]
-        field = self.avg("US", as_of)
+        field = self.field(as_of)
         voted, obs = set(self.voted(as_of)), {}
         for s in STATES:
             if s in voted:
@@ -221,7 +235,7 @@ class Race:
         """One row per contest still to come (as known on the date) and field candidate: the national share on the
         result scale, the level, W, the kernel-weighted mean of the pattern, the state's own r and n."""
         as_of = pd.Timestamp(as_of)
-        field = sorted(self.avg("US", as_of))
+        field = sorted(self.field(as_of))
         if not field:
             return pd.DataFrame()
         nat, other, obs = self.scaled("US", as_of), self.other(as_of), self.observations(as_of)
@@ -508,7 +522,9 @@ def build():
                     out.append(fc.assign(model=model, values=v["left_out"]))
         race.save_cache()
     out = pd.concat(out, ignore_index=True)
-    out.to_csv(OUT / "primary_state_forecasts.csv", float_format="%.2f", **fmt)
+    for col, places in (("W", 2), ("other", 2), ("share", 2), ("p10", 2), ("p90", 2), ("win", 4)):
+        out[col] = out[col].astype(float).round(places)
+    out.to_csv(OUT / "primary_state_forecasts.csv", **fmt)
     print(len(out), "forecast rows")
 
 

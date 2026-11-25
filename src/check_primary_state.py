@@ -9,6 +9,7 @@
 4. The baseline corner (beta 0, kappa inf, lambda 0) returns the state average where there is one and the national
    average otherwise, on the result scale (S25: where every share is at least 1 point).
 5. The seed rebuilds the same draws, and a contest's draws do not depend on what else is forecast.
+   The field holds only candidates in the timeline who had announced by the date (S9 as changed after run 1).
 6. Changing a left-out contest's results leaves that fold's fitted values unchanged (run on 300 draws).
 
 Exits non-zero on any failure. `--quick` skips 6.
@@ -143,6 +144,9 @@ class Toy(ps.Race):
             return {"NH": {"a": (30.0, 3), "b": (50.0, 3)}, "OH": {"a": (48.0, 6), "b": (32.0, 2)}}.get(place, {})
         return {}
 
+    def field(self, as_of):
+        return self.avg("US", as_of)
+
     def known(self, as_of):
         return {s: (d, False, self.kind[s]) for s, d in self.held.items()}
 
@@ -254,12 +258,23 @@ def fold_case():
     check(moved and other, "left-out contest: the shuffle did change the results, and the other folds' losses")
 
 
+def field_case(races):
+    bad = []
+    for (cycle, party), day in (((2008, "D"), "2007-12-04"), ((2016, "D"), "2016-01-25"), ((2020, "D"), "2020-01-04")):
+        f = set(races[(cycle, party)].field(pd.Timestamp(day)))
+        bad += sorted(f & {"al-gore", "biden", "warren", "hillary-rodham-clinton", "john-kerry"})
+        if not f:
+            bad.append(f"empty field {cycle} {party}")
+    check(not bad, "field: no polled non-candidate before the first contest (Gore 2008, Biden 2016, Clinton 2020)")
+
+
 if __name__ == "__main__":
     pa._timeline_real = pa._timeline
     kernel_case()
     hand_case()
     races = truncation()
     baseline_case(races)
+    field_case(races)
     draws_case(races)
     if "--quick" not in sys.argv:
         fold_case()
