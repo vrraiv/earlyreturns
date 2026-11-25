@@ -3,7 +3,7 @@
 The Green Papers (thegreenpapers.com) gave leave on 2026-11-24 to use its data, with credit. Its pages are a linked
 source (DATA.md): raw copies live in the git-ignored store data/linked/greenpapers/<date>/, each fetch recorded in
 data/linked/manifest.json with its URL, the Green Papers page it copies and a checksum; only the tables derived here
-are committed, and they credit and link The Green Papers. Back the store up with src/backup_offrepo.py.
+are committed, and they attribute the source as TheGreenPapers.com (the site's own wording) and link it. Back the store up with src/backup_offrepo.py.
 
 Pages: one per state and party per cycle (e.g. /P24/IA-R), and each party's allocation page (/P24/R-Alloc.phtml).
 2016, 2020 and 2024 are read from the live site. The live 2008 and 2012 pages no longer load (their scripts are

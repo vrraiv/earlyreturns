@@ -378,12 +378,22 @@ def main():
     greenpapers_check(r)
 
 
+# 2016-2024 tally headings -> measure, as primary_results.csv names it; only where the heading is unambiguous
+TALLY_MEASURE = {"Popular Vote": "votes", "State Delegate Equivalents": "state delegate equivalents",
+                 "County Delegates": "county delegates", "State Convention delegates": "state delegates",
+                 "State Convention Delegates": "state delegates",
+                 "State Convention Delegates elected at County Caucuses": "state delegates",
+                 "Legislative District Delegates": "legislative district delegates"}
+
+
 def greenpapers_check(r):
-    """Every 2008 and 2012 candidate line against The Green Papers' first-stage count for the same state, party and
-    surname (data/interim/primary_greenpapers_counts.csv, committed, so this runs without the off-repo pages):
-    data/interim/primary_results_greenpapers_check.csv. The Green Papers give one count per state and party, so where
-    a state held both a primary and caucuses the two may count different contests; the heading says which. Wikipedia
-    draws partly on The Green Papers, so agreement between those two is not independent."""
+    """Every candidate line against The Green Papers' count for the same state, party and surname, from the committed
+    tables, so this runs without the off-repo pages: 2008 and 2012 from the first-stage count
+    (primary_greenpapers_counts.csv), 2016-2024 from the statewide tally table (primary_greenpapers_tallies.csv, the
+    table anchored STATEWIDE). Written to data/interim/primary_results_greenpapers_check.csv. The Green Papers give one
+    such count per state and party, so where a state held both a primary and caucuses the two may count different
+    contests; the heading (and from 2016 the table's caption) says which. Wikipedia draws partly on The Green Papers,
+    so agreement between those two is not independent."""
     p = INTERIM / "primary_greenpapers_counts.csv"
     if not p.exists():
         print("\nGreen Papers check skipped: run src/collect/greenpapers.py first")
@@ -392,26 +402,42 @@ def greenpapers_check(r):
         t = re.sub(r",.*$|\(.*?\)|\bjr\.?$", "", str(n).lower()).split()
         return re.sub(r"[^a-z]", "", t[-1]) if t else ""
     g = pd.read_csv(p)
+    g["caption"] = None
+    tp = INTERIM / "primary_greenpapers_tallies.csv"
+    if tp.exists():   # 2016-2024: the statewide tally; its heading names the measure only where it is unambiguous
+        t = pd.read_csv(tp)
+        t = t[t.table.eq("STATEWIDE")].copy()
+        t["heading"] = t.heading.replace({"Pop Vote": "Popular Vote"})
+        t["measure"] = t.heading.map(TALLY_MEASURE).fillna("unclear")
+        t["caption"] = t.contest_caption
+        g = pd.concat([g, t[["cycle", "party", "state", "heading", "measure", "candidate_name", "count", "caption"]]],
+                      ignore_index=True)
     g["sur"] = g.candidate_name.map(sur)
     g = g.groupby(["cycle", "party", "state", "sur"]).agg(green_papers_count=("count", "first"),
                                                          green_papers_heading=("heading", "first"),
-                                                         green_papers_measure=("measure", "first"))
-    a = r[r.cycle.isin([2008, 2012]) & r.line.isin(["candidate", "uncommitted"])].copy()
+                                                         green_papers_measure=("measure", "first"),
+                                                         green_papers_contest=("caption", "first"))
+    a = r[r.line.isin(["candidate", "uncommitted"])].copy()
     a["sur"] = a.candidate_name.map(sur)
     a = a.join(g, on=["cycle", "party", "state", "sur"])
     a["difference"] = a.votes - a.green_papers_count
     out = a[["cycle", "party", "state", "contest", "candidate_name", "source_kind", "measure", "votes",
-             "green_papers_count", "green_papers_heading", "green_papers_measure", "difference"]].reset_index(drop=True)
+             "green_papers_count", "green_papers_heading", "green_papers_measure", "green_papers_contest",
+             "difference"]].reset_index(drop=True)
     out.to_csv(INTERIM / "primary_results_greenpapers_check.csv", index=False)
     lab = pd.cut(out.difference.abs().fillna(-1), [-2, -0.5, 0.5, 100, 1e12],
                  labels=["no Green Papers line", "exact", "within 100", "differs"])
-    print("\nCross-check, 2008 and 2012 lines against The Green Papers' first-stage counts:")
+    print("\nCross-check, every line against The Green Papers' statewide count (2008 and 2012: first-stage count):")
     print(pd.crosstab([out.cycle, out.source_kind], lab).to_string())
-    same = out.green_papers_measure.eq(out.measure) | out.green_papers_measure.isna()
+    same = (out.green_papers_measure.eq(out.measure) | out.green_papers_measure.isna()
+            | (out.green_papers_measure.eq("votes") & out.measure.eq("popular vote")))   # one measure, two labels
     print("Contests where The Green Papers' heading names a different measure:")
     print(out[~same].drop_duplicates(["cycle", "party", "state", "contest"])[
         ["cycle", "party", "state", "contest", "source_kind", "measure", "green_papers_heading"]].to_string(index=False))
 
 
 if __name__ == "__main__":
-    main()
+    if sys.argv[1:] == ["check-greenpapers"]:     # rerun only the Green Papers check, from the committed results table
+        greenpapers_check(pd.read_csv(INTERIM / "primary_results.csv"))
+    else:
+        main()
