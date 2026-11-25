@@ -451,15 +451,18 @@ def _edges(point, spread):
     return " ".join(n for n, g, v in fitted if v in (g[0], g[-1]))
 
 
-def fit(races=None, results=None):
+def fit(races=None, results=None, extra=None):
     """Rule 16. Returns (values, scored set): one row per model (state model, baseline) and fold (each open contest
-    left out, and all seven)."""
+    left out, and all seven). `extra` adds folds that leave out several open contests together, {label: [contests]}
+    (section 4, rule 10: the year left out); the other folds are unchanged by it."""
     races = races or {k: Race(*k, results=results) for k in OPEN}
+    extra = extra or {}
     sc, no_result = scored_set(races)
     pgrid, (contests, ploss) = point_losses(sc)
-    folds = [k for k in OPEN] + ["all"]
-    keep = {k: ~((contests["cycle"] == k[0]) & (contests["party"] == k[1])).to_numpy() if k != "all"
-            else np.ones(len(contests), bool) for k in folds}
+    folds = [k for k in OPEN] + ["all"] + list(extra)
+    race_of = list(zip(contests["cycle"], contests["party"]))
+    keep = {k: np.ones(len(contests), bool) if k == "all"
+            else np.array([r not in extra.get(k, [k]) for r in race_of]) for k in folds}
     fitted = {k: _argmin(ploss, keep[k]) for k in folds}
     points = sorted({pgrid[j] for j, _ in fitted.values()} | {BASELINE_POINT})
     f, chance = win_chances(races, sc, points)
@@ -472,7 +475,7 @@ def fit(races=None, results=None):
                 mse = float(ploss[keep[k], pgrid.index(BASELINE_POINT)].mean())
             sgrid, (_, sloss) = spread_losses(f, chance[point])
             js, ll = _argmin(sloss, keep[k])
-            rows.append(dict(model=model, left_out="all" if k == "all" else f"{k[0]} {k[1]}",
+            rows.append(dict(model=model, left_out=k if isinstance(k, str) else f"{k[0]} {k[1]}",
                              beta=point[0], kappa=point[1], **{"lambda": point[2]}, tau=sgrid[js][0],
                              sigma_p=sgrid[js][1], sigma_u=sgrid[js][2], fit_mse=mse, fit_log_loss=ll,
                              contests_fitted=int(keep[k].sum()),
