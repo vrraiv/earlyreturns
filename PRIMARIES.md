@@ -225,7 +225,7 @@ dates (Iowa, New Hampshire, Nevada, South Carolina; 10 September 2026), and the 
 the DNC's date and state law differ (New Mexico and Virginia Democrats), the DNC's date is used under rule 10's last
 sentence.
 
-**Pending the owner's agreement (2026-11-25).** Choices made while building, not yet agreed:
+**Agreed with the owner (2026-11-25).** Choices made while building, put to the owner afterwards and agreed:
 
 1. A national party's date over state law where they differ (New Mexico and Virginia Democrats).
 2. A 2028 stand-in date keeps the 2024 date's weekday and week of the month (Tuesday 5 March 2024 becomes Tuesday
@@ -233,5 +233,10 @@ sentence.
 3. Date changes collected for the seven open contests only, though rule 5 says every cycle.
 4. The `convention` and `not_held` labels for calendar rows that are not votes of ordinary voters.
 5. Matching a change to a calendar row by the date its last change produced, where the kinds differ.
-6. 2028 Democratic rules: adopted and published (August 2026), so rule 11 says they replace the 2024 stand-ins; not
-   yet loaded.
+6. 2028 Democratic rules: adopted and published (August 2026), so under rule 11 they replace the 2024 stand-ins.
+   Loaded from Appendix B of the adopted Call (`data/supplement/primary_rules_2028_d.csv`): 3,774 pledged and 744
+   automatic delegate votes, 4,518 in all, matching the Call's own totals. The automatic delegates follow
+   office-holders and may change. Republican 2028 rules stay assumed.
+
+PP-4's place before PP-10 (PP-10 takes its dates from this loader) is understood but not written into the plan, by
+the owner's call.

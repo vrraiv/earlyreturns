@@ -205,9 +205,19 @@ def _rules_for(cycle, party):
         out = r[(r["cycle"] == cycle) & (r["party"] == party)].copy()
         out["rules_status"] = "adopted"
         return out
-    out = r[(r["cycle"] == STANDIN_CYCLE) & (r["party"] == party)].copy()   # rule 11
+    out = r[(r["cycle"] == STANDIN_CYCLE) & (r["party"] == party)].copy()   # rule 11: 2024 stand-ins
     out["cycle"] = cycle
     out["rules_status"] = "assumed"
+    adopted = SUPP / f"primary_rules_{cycle}_{party.lower()}.csv"            # the party's adopted rules, once published
+    if adopted.exists():
+        a = pd.read_csv(adopted)
+        cols = ["total_delegates", "pledged", "unpledged", "threshold_pct", "allocation_class"]
+        out = out.drop(columns=cols).merge(a[["state"] + cols + ["source"]], on="state", how="outer")
+        out["party"], out["cycle"] = party, cycle
+        out["selection"] = out["selection"].where(out["source"].isna(), None)
+        out["green_papers_page"] = out["green_papers_page"].where(out["source"].isna(), None)
+        out["rules_status"] = out["source"].notna().map({True: "adopted", False: "assumed"})
+        out = out.drop(columns="source")
     return out
 
 
