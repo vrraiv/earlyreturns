@@ -87,7 +87,11 @@ def _rows():
 def polls(cycle, party):
     """One question per poll, one row per candidate. A poll is one pollster, place, party and pair of field dates (R1,
     R3); rule 2's ladder picks the question. Internal polls (rule 4) and independents-only samples (rule 5) are out."""
-    d = _rows()
+    return select_questions(_rows(), cycle, party)
+
+
+def select_questions(d, cycle, party):
+    """Rules 1-5 on raw rows (any subset of _rows(), such as the rows that ended by a date, for the checks)."""
     d = d[(d["cycle"] == cycle) & (d["party"] == party) & ~d["internal"] & d["pop"].notna()].copy()
     q = d.groupby("question_id").agg(geo=("geo", "first"), pollster=("pollster", "first"), start=("start", "first"),
                                      end=("end", "first"), declared=("declared", "first"),
@@ -101,12 +105,6 @@ def polls(cycle, party):
     out = out.drop_duplicates(["poll", "candidate_key"])
     return out[["cycle", "party", "geo", "poll", "question_id", "poll_id", "pollster", "pop", "n", "start", "end",
                 "candidate_key", "candidate_name", "pct", "file", "file_rule"]].reset_index(drop=True)
-
-
-@lru_cache(None)
-def _poll_table(cycle, party):
-    p = polls(cycle, party)
-    return p.drop_duplicates("poll")[["poll", "geo", "pollster", "pop", "n", "start", "end"]].reset_index(drop=True)
 
 
 # ---------------------------------------------------------------- thinning (rule 6)
@@ -338,6 +336,34 @@ def coverage(cycle, party, last):
     return out
 
 
+def report(last, cov):
+    """Rule 15's description, by cycle and party (no pass mark). The winner is the top candidate in the results file for
+    the vote beside the average (R12), whether or not they have a line; the leader is the top line in the average."""
+    rows = []
+    for (cycle, party, place), g in last.groupby(["cycle", "party", "place"]):
+        g = g.sort_values("avg", ascending=False)
+        res = _result(cycle, party, place, voting_day(cycle, party, place))
+        winner = res.loc[res["share"].idxmax(), "candidate_key"] if len(res) else None
+        top = g.head(2)
+        miss = None
+        if len(top) == 2 and top["share"].notna().all():
+            miss = abs((top["share"].iat[0] - top["share"].iat[1]) - (top["avg"].iat[0] - top["avg"].iat[1]))
+        has = g["share"].notna()
+        inside = (g.loc[has, "share"] >= g.loc[has, "band_lo"]) & (g.loc[has, "share"] <= g.loc[has, "band_hi"])
+        rows.append(dict(cycle=cycle, party=party, leader_won=g["candidate_key"].iat[0] == winner, miss=miss,
+                         inside=int(inside.sum()), lines=int(has.sum())))
+    r = pd.DataFrame(rows).groupby(["cycle", "party"]).agg(
+        contests=("leader_won", "size"), leader_won=("leader_won", "sum"), top_two_margin_miss=("miss", "mean"),
+        lines_inside_spread=("inside", "sum"), lines_with_result=("lines", "sum"))
+    st = cov[cov["place"].ne("US")]
+    c = st.groupby(["cycle", "party"]).agg(open_contest=("open_contest", "first"),
+                                           states_with_polls=("polls", lambda x: int((x > 0).sum())),
+                                           states_with_last_average=("last_average", "sum"), state_polls=("polls", "sum"),
+                                           huffpost_file_may_predate=("huffpost_file_may_predate", "sum"))
+    c["national_polls"] = cov[cov["place"].eq("US")].set_index(["cycle", "party"])["polls"]
+    return c.join(r).reset_index()
+
+
 def build():
     out = ROOT / "data/processed"
     nat, last, cov = [], [], []
@@ -354,8 +380,14 @@ def build():
     nat = pd.concat(nat, ignore_index=True)
     nat[["cycle", "party", "as_of", "candidate_key", "avg", "band_lo", "band_hi", "n_polls", "n_pollsters", "latest",
          "shown", "polls_in_place"]].to_csv(out / "primary_avg_national.csv", **fmt)
-    pd.concat(last, ignore_index=True).to_csv(out / "primary_avg_last.csv", **fmt)
-    pd.concat(cov, ignore_index=True).to_csv(out / "primary_avg_coverage.csv", **fmt)
+    last, cov = pd.concat(last, ignore_index=True), pd.concat(cov, ignore_index=True)
+    last.to_csv(out / "primary_avg_last.csv", **fmt)
+    cov.to_csv(out / "primary_avg_coverage.csv", **fmt)
+    rep = report(last, cov)
+    rep.to_csv(out / "primary_avg_report.csv", **fmt)
+    print(rep.to_string(index=False))
+    o = rep[rep["open_contest"]]
+    print(f"leader won {rep.leader_won.sum()} of {rep.contests.sum()} (open: {o.leader_won.sum()} of {o.contests.sum()})")
 
 
 if __name__ == "__main__":

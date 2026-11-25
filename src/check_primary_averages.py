@@ -1,7 +1,8 @@
 """Checks on the primary polling averages (PP-10; PRIMARIES.md section 1, reading R15).
 
-1. Truncation: an average rebuilt with every poll that ended after its date deleted is the same number (thinning, k,
-   n and the window worked out as of the date).
+1. Truncation: an average rebuilt from the raw poll rows with every row that ended after its date deleted, put
+   through the question ladder and merging again, is the same number (thinning, k, n and the window worked out as of
+   the date). A sanity case confirms the comparison can fail.
 2. Hand-worked cases: the weights (rule 7), the thinning chain (rule 6), the question ladder (rule 2), the switch to a
    7-day half-life and 42-day window (rules 8-9), a line's last day (rule 10, R8).
 
@@ -113,13 +114,21 @@ def truncation_case(n=60, seed=20261125):
             continue
         d = lo + pd.Timedelta(days=rng.randrange((hi - lo).days + 1))
         full = pa.average(cycle, party, place, d)
-        cut = pa.average(cycle, party, place, d, poll_rows=p[p["end"] <= d])
+        raw = pa._rows()
+        cut = pa.average(cycle, party, place, d, poll_rows=pa.select_questions(raw[raw["end"] <= d], cycle, party))
         same = (full.empty and cut.empty) or (len(full) == len(cut) and np.allclose(full["avg"], cut["avg"]) and
                                               (full["shown"].values == cut["shown"].values).all())
         if not same:
             bad += 1
             print(f"     differs: {cycle} {party} {place} {d:%Y-%m-%d}")
     check(bad == 0, f"truncation: {n} random averages unchanged with later polls deleted")
+    # sanity: the same comparison does fail when polls the average should see are removed
+    raw, d = pa._rows(), pd.Timestamp("2016-01-15")
+    short = pa.average(2016, "R", "US", d, poll_rows=pa.select_questions(raw[raw["end"] <= d - pd.Timedelta(days=7)],
+                                                                         2016, "R"))
+    full = pa.average(2016, "R", "US", d)
+    check(len(full) != len(short) or not np.allclose(full["avg"], short["avg"]),
+          "truncation sanity: deleting the last week's polls does change the 15 January 2016 national average")
 
 
 def data_notes():

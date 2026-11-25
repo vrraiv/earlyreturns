@@ -78,10 +78,13 @@ timeline with no announcement date (Keyes and Cox in 2008, minor 2024 candidates
     result, as a description. Neither feeds any choice above. A value changed after results have been seen is
     declared as suggested by them.
 
-### Readings for the build (PP-10; agreed with the owner 2026-11-25, before any average was computed)
+### Readings for the build (PP-10, 2026-11-25)
 
-Section 1 is silent or slightly wrong on the points below. Each reading was settled before any average was computed or
-any result joined. The data checks behind them are listed after the readings.
+Section 1 is silent or slightly wrong on the points below. All fifteen readings were written into this note before any
+average was computed. The owner agreed R2, R3, R8 and R12 then. R4 to R7 and R9 to R11 were agreed later the same day,
+after the first build and with the comparison of last averages and results already computed, and are unchanged from
+what was written before it. R13 was changed at that point, for file size only. R1, R14 and R15 were not put as
+questions. The data checks behind the readings are in "What was built" below.
 
 **Polls and pollsters**
 
@@ -138,8 +141,9 @@ R15. **Checks.** Rebuilding an average with every later poll deleted gives the s
 
 `src/model/primary_avg.py` builds every average as the rules and readings above set them out; `average(cycle, party,
 place, as_of)` rebuilds any one as of any date, for PP-6. Outputs in `data/processed/`: `primary_avg_national.csv`,
-`primary_avg_last.csv`, `primary_avg_coverage.csv` (described in `DATA.md`). `src/check_primary_averages.py` passes:
-60 random averages are unchanged with every later poll deleted, and hand-worked cases agree for the weights, the band,
+`primary_avg_last.csv`, `primary_avg_coverage.csv`, `primary_avg_report.csv` (described in `DATA.md`). `src/check_primary_averages.py` passes:
+60 random averages are unchanged when rebuilt from the raw rows with every later row deleted (a sanity case confirms
+the comparison can fail), and hand-worked cases agree for the weights, the band,
 the thinning chain, the ladder (two 2012 polls), the half-life switch and window, a line's last day and a state's last
 day.
 
@@ -147,6 +151,14 @@ Data notes from the build:
 
 - Pollster keys (R2): 2008's 406 raw names come down to 115 keys, 2012's 103 to 86 and 2016's 220 to 151; 2020 and
   2024 keep 538's names.
+- Merges in the pollster keys that rest on who conducted a poll rather than on its name: Concord Monitor, the two Reno
+  Gazette-Journal names and a bare "2000" to Research 2000; bare CNN and "CNN Poll" to Opinion Research Corporation;
+  bare Fox News to Opinion Dynamics; CNN/WMUR to the University of New Hampshire; Cook Political Report to RT
+  Strategies; the Keystone Poll names (WTAE/Pittsburgh Tribune-Review among them) to Franklin & Marshall; Des Moines
+  Register to Selzer; Whit Ayres to Ayres McHenry; and Reuters/Zogby/ARG (three national polls, late 2007) to Zogby,
+  the least certain of these.
+- FiveThirtyEight's late 2008 polls (Democratic state polls after 7 February, top two only) are dated by their middle
+  day, not their last, so they enter an average a day or two before they ended.
 - One 2008 poll (American Research Group, Iowa Republicans) has its start after its end in the file; its dates are
   taken in order.
 - Kept under the rules as written, and listed here for the owner rather than acted on: 2008's Wikipedia lists include
@@ -157,10 +169,12 @@ Data notes from the build:
 - 2020 Republicans in Nevada and South Carolina have polls but no vote and no date-change rows (date changes were
   collected for the open contests only), so they never have an average.
 
-**Report (rule 15; a description, no pass mark, and nothing above was changed after it).** By cycle and party: states
+**Report (rule 15; a description, no pass mark).** Of the readings above, R4 to R7 and R9 to R11 were agreed with
+this comparison already computed, and are as written before it; R13 changed after it, for file size. Nothing else
+changed. Written by `primary_avg.py` to `primary_avg_report.csv`. By cycle and party: states
 with any poll; states with a last average (a poll in the 60 days before the vote); polls (after the question ladder,
 before thinning); HuffPost places whose only file may predate the contest; and, for the places with a last average,
-how often the leader in it won, the mean absolute miss on the top two's margin, and the share of candidate lines whose
+how often the leader in it won (the winner being the top candidate in the results file for that vote), the mean absolute miss on the top two's margin, and the share of candidate lines whose
 result fell inside the poll spread.
 
 | Cycle | Party | Open | States with polls | With a last average | State polls | National polls | HuffPost file may predate | Leader won | Top-two margin miss (points) | Result inside poll spread |
@@ -168,14 +182,14 @@ result fell inside the poll spread.
 | 2008 | D | yes | 45 | 40 | 816 | 242 | | 32 of 40 | 8.5 | 38% |
 | 2008 | R | yes | 40 | 27 | 630 | 219 | | 23 of 27 | 6.4 | 50% |
 | 2012 | R | yes | 21 | 18 | 438 | 353 | 0 | 15 of 18 | 7.8 | 52% |
-| 2016 | D | yes | 38 | 33 | 555 | 360 | 6 | 29 of 33 | 12.4 | 35% |
+| 2016 | D | yes | 38 | 33 | 555 | 360 | 6 | 28 of 33 | 12.4 | 35% |
 | 2016 | R | yes | 44 | 34 | 695 | 363 | 15 | 29 of 34 | 9.2 | 49% |
 | 2020 | D | yes | 42 | 28 | 578 | 514 | | 23 of 28 | 10.1 | 60% |
 | 2020 | R | no | 23 | 8 | 74 | 115 | | 8 of 8 | 4.4 | 12% |
 | 2024 | D | no | 23 | 12 | 100 | 307 | | 12 of 12 | 8.9 | 31% |
 | 2024 | R | yes | 41 | 22 | 797 | 979 | | 20 of 22 | 11.0 | 32% |
 
-In all, the leader in the last average won 191 of 222 contests (171 of 202 in the open contests), and the top two's
+In all, the leader in the last average won 190 of 222 contests (170 of 202 in the open contests), and the top two's
 margin was missed by 9.2 points on average. Since undecided voters stay in each poll's share (rule 3), winners usually
 finish above their averages, and the poll spread is not a range for the result (rule 14): calibrated ranges are PP-5's.
 Where the first vote was non-binding (Nevada Republicans 2024, among others), the result beside the average is that
