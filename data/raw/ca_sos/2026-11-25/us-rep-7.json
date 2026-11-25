@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 7 - Districtwide Results",
+  "Reporting": "100% (414 of 414) precincts reporting",
+  "ReportingTime": "November 25, 2026, 10:01 a.m.",
+  "candidates": [
+    {
+      "Name": "Doris Matsui",
+      "Party": "Dem",
+      "Votes": "133,161",
+      "Percent": "52.3",
+      "incumbent": false
+    },
+    {
+      "Name": "Mai Vang",
+      "Party": "Dem",
+      "Votes": "121,583",
+      "Percent": "47.7",
+      "incumbent": false
+    }
+  ]
+}

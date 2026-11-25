@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 33 - Districtwide Results",
+  "Reporting": "100% (491 of 491) precincts reporting",
+  "ReportingTime": "November 25, 2026, 10:01 a.m.",
+  "candidates": [
+    {
+      "Name": "Pete Aguilar",
+      "Party": "Dem",
+      "Votes": "141,537",
+      "Percent": "69.1",
+      "incumbent": false
+    },
+    {
+      "Name": "Stephanie M. Vargas",
+      "Party": "Rep",
+      "Votes": "63,431",
+      "Percent": "30.9",
+      "incumbent": false
+    }
+  ]
+}
