@@ -12,8 +12,9 @@ webmaster pointed us to by email on 2026-11-24, with leave to use the data attri
      unit's vote, its qualifying vote, its delegates, and for each candidate the vote, listed share and delegates. The
      pages list only candidates who won delegates somewhere in the state. Cells the site greys are kept as a flag
      (`greyed`); what grey means is not stated. -> primary_delegate_units.csv
-     Slate tables (delegate candidates elected by name: Illinois, Colorado, West Virginia and Virgin Islands
-     Republicans) are not read: they list individual delegate candidates, and the hard totals already cover them.
+     Slate tables (delegate candidates elected by name: Colorado, Illinois, Pennsylvania, West Virginia and Virgin
+     Islands Republicans) are not read: they list individual delegate candidates, and the hard totals already cover
+     them. Nor is South Dakota Republicans' 2016 estimate, laid out differently.
 2. The download pages (/P16/download.phtml, /P20/, /P24/), which link a Dropbox folder per cycle of .xls files.
    Each folder is stored as a zip (data/linked/greenpapers_downloads/<date>/P16.zip ...). Read: the delegate count
    (soft pledged, soft unpledged, hard total, first and last floor votes), the Democratic and Republican delegate
@@ -26,7 +27,8 @@ webmaster pointed us to by email on 2026-11-24, with leave to use the data attri
    and the tally files are on the pages too). Its address is read from .env (greenpapers_results_url) and is never
    written to the repo: the manifest records each file's name, size and checksum without a URL, and the derived rows
    cite the public state page. Where a -1 file exists it replaces the page's table in primary_delegate_units.csv
-   (`candidates_listed` = "all"); the shared candidates are checked equal to the page's.
+   (`candidates_listed` = "all"); the shared candidates are checked equal to the page's. Files with no table on the
+   page (six: earlier tiers and the like) are added, citing the state page.
 
 Raw copies stay in the git-ignored store and are backed up off-repo by src/backup_offrepo.py; only the derived
 tables are committed, attributed to TheGreenPapers.com and linked to its pages.
