@@ -1,0 +1,27 @@
+party,selection,cycle,state,class,note
+D,*,,,proportional,"Every Democratic contest since 1992 is proportional with a 15% threshold (DNC rules), whatever the page's wording"
+R,Proportional Primary,,,proportional,
+R,Proportional Caucus/Convention,,,proportional,
+R,Combined Selection [,,,proportional,"Text cut short in the file; the pages (ID 2008, LA 2008 and 2012) read Proportional Primary with Caucus/Convention: the primary's delegates in proportion, the rest chosen by convention"
+R,Winner-Take-All,,,winner_take_all,
+R,Winner-Take-All Primary,,,winner_take_all,
+R,Winner-Take-All Caucus/Convention,,,winner_take_all,
+R,Winner-Take-All (by district and statewide),,,winner_take_most,Winner-take-all in each district and statewide: most or all to the leader
+R,Winner-Take-All (district and statewide) Primary,,,winner_take_most,Winner-take-all in each district and statewide: most or all to the leader
+R,Winner-Take-Most Primary,,,winner_take_most,
+R,Winner-Take-Most Caucus/Convention,,,winner_take_most,
+R,"Combined Selection Statewide: Proportional , District: Winner-Take-Most Primary",,,winner_take_most,
+R,District: Winner-Take-All or top two; Statewide: Proportional,,,winner_take_most,
+R,"District: Winner-Take-All Primary , Statewide: if winner receives a majority Winner-Take-All Primary otherwise",,,winner_take_most,
+R,If winner receives a majority Winner-Take-All Primary otherwise,,,winner_take_most,
+R,In each district and statewide - if winner receives a majority Winner-Take-All Primary otherwise,,,winner_take_most,
+R,Combined Selection [ Winner-Take-All Primary by CD,,,winner_take_most,"WA 2008: one delegate per district to the district winner, 10 at-large in proportion (20% threshold)"
+R,Combined Selection [ Winner-Take-All Primary for District Delegates with Caucus/Convention ],,,winner_take_most,District delegates winner-take-all; the rest chosen by convention
+R,Loophole Primary,,IL,winner_take_most,Voters elect district delegates by name; each is listed with a candidate
+R,Loophole Primary,,PA,unbound,Voters elect district delegates by name; they go unbound
+R,"Combined Selection Statewide: Winner-Take-All , District: Loophole Primary",,IL,winner_take_most,Statewide delegates winner-take-all; district delegates elected by name with a candidate listed
+R,"Combined Selection Statewide: Winner-Take-All , District: Loophole Primary",,PA,unbound,"Statewide delegates winner-take-all, but most delegates (the district ones) go unbound"
+R,Caucus/Convention,,,unbound,Delegates chosen by conventions with no formal tie to the caucus vote (2008 and 2012)
+R,Delegate Selection Caucus/Convention,,,unbound,Delegates elected at conventions with no tie to a vote of ordinary voters
+R,Delegate Selection Primary,,,unbound,Voters elect delegates by name; they go unbound
+R,Advisory Primary,,,unbound,The vote of ordinary voters is advisory; delegates are chosen by conventions
