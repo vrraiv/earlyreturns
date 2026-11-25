@@ -628,3 +628,15 @@ S23. **Checks.** A forecast is unchanged when every later poll, result, withdraw
     a left-out contest's results leaves that fold's fitted values unchanged; the kernel has no negative eigenvalue;
     a hand-worked case for rule 10; the baseline corner returns the state average or the national one; the seed
     rebuilds the same draws.
+
+*Added while the code was written, still before any forecast was compared with a result; not put as questions*
+
+S24. **The squared error of a forecast** (rule 16) is the mean over the field candidates, so a contest counts the
+    same whatever the size of its field. A contest's loss is the mean over its scored dates, and a fit's loss the
+    mean over its contests.
+S25. **The floor and the baseline.** Rule 7's 1-point floor sits inside r, so at the baseline's corner a candidate
+    below 1 point in a state's average or nationally is not returned exactly at their state average. The check in
+    S23 is made where every share is at least 1 point.
+S26. A contest that was never held is forecast only until its date as then known has passed.
+S27. The spread fit and the committed chances use the same draws: a forecast date's standard draws are fixed by the
+    seed whatever is forecast from them, so a fitted chance is the chance the table shows at those values.
