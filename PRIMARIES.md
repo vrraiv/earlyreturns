@@ -1073,3 +1073,16 @@ figures; the baseline's are within two points of them everywhere.
 0, with those still in above the 90th. No spread value mends that; it is the future withdrawals the state model does
 not simulate, which are PP-7's. What is left once they are set aside is smaller: 67% to 79% for candidates still in,
 and 75% to 84% for the top two.
+
+**The owner's decision (2026-11-25): no change to the model.** The round is closed with the diagnostic as its
+result. There is no second run, so the first run is the only one and its verdict stands: the mark is met, and PP-9
+publishes the model's chances.
+
+- **An added measure, declared as suggested by this test:** coverage among candidates still in the field on the
+  morning of the vote. 79% on the day, 73% at 7 days, 67% at 30 days (D2), against 79%, 63% and 46% for every
+  candidate forecast.
+- **Handed to PP-7:** the shortfall in the share ranges is future withdrawals, which PP-7 simulates. A smaller one is
+  left among candidates behind the top two (57% to 69% within their range, D3), and is PP-7's to weigh when it reads
+  viability thresholds from the draws.
+- **Not taken up:** a wider spread by horizon (it would flatten chances that are close to what happened) and a wider
+  range for trailing candidates. 2016 R, the top chance bin and the dates beyond 30 days were not looked into.
