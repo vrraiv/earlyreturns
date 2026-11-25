@@ -8,7 +8,8 @@
 
 The first reading reads only `primary_state_forecasts.csv` and the results (through the model's own functions); it
 refits nothing. Both write `data/processed/primary_backtest.csv`, one row per scored forecast, model and reading.
-Set PRIMARY_STATE_CACHE for the second reading: it rebuilds the averages otherwise.
+Set PRIMARY_STATE_CACHE for the second reading: it rebuilds the averages otherwise. Run the first reading before
+the second: the first writes the table afresh, without the second's rows, and the second adds its own.
 """
 import sys
 from pathlib import Path

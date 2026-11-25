@@ -775,7 +775,8 @@ Four questions were put as options. The options chosen:
 ### Rules (written 2026-11-25 before any score was computed)
 
 Rules 1, 4, 6 and 10 carry the owner's four choices. The rest are judgments, put to the owner as a whole before the
-run.
+run. (Corrected 2026-11-25, after the run: the choice on a field of one is rule 3, not rule 1, as rule 3 itself says.
+The four are rules 3, 4, 6 and 10.)
 
 **What is scored**
 
@@ -959,11 +960,12 @@ Headline forecasts of the four races, the race left out and then the year left o
   deficit grows from 0.040 to 0.059. On this reading the model is below the baseline in two of the four races, not
   three. The mark is read on the first reading (rules 4 and 10); had it been read with the year left out, the count
   would be 4 of 7, a miss. 2008 D decides it, on a difference of a thousandth either way.
-- **The deciding margin is within the noise of the draws.** 2008 D's difference is −0.0014 on the first reading and
-  +0.0010 on the second, each a mean over 150 forecasts whose own differences have a standard deviation of 0.11.
-  The chances come from 10,000 draws, and forecasts made on one date share their national draw, so a different
-  seed could plausibly turn the sign. The verdict stands as registered, because rule 1 scores the committed table;
-  a run on another seed would be a new diagnostic, and none was made.
+- **The deciding margin cannot be told from zero.** 2008 D's difference is −0.0014 on the first reading and
+  +0.0010 on the second, each a mean over 150 forecasts whose own differences have a standard deviation of 0.107.
+  Were the 150 independent, that mean would have a standard error near 0.009, six times the margin; they are not
+  independent, which makes it larger. How much the 10,000 draws add was not measured (model and baseline share
+  their standard draws on a date, so it is less than it would be otherwise), and no run on another seed was made.
+  The verdict stands as registered, because rule 1 scores the committed table.
 - **Calibration on the second reading** (the four races, every field candidate, all three dates; model, then
   baseline):
 
@@ -979,7 +981,15 @@ Headline forecasts of the four races, the race left out and then the year left o
   | 95 to 100% | 22 | 98% | 100% | 35 | 98% | 97% |
 - **The other measures** (the four pooled, race out then year out, model against baseline): Brier 0.400 against
   0.402, then 0.399 against 0.399; the favourite won in 69% against 67%, then 69% against 67% (2016 D's falls from
-  73% to 70%); coverage 60% against 62%, then 60% against 61%.
+  73% to 70%); coverage 60% against 62%, then 60% against 61%. By race, with the year left out (the race-left-out
+  figures are in the first table):
+
+  | Race | Brier | | Favourite won | | In the 10th-90th range | |
+  |---|--:|--:|--:|--:|--:|--:|
+  | 2008 D | 0.381 | 0.380 | 64% | 59% | 58% | 60% |
+  | 2008 R | 0.491 | 0.504 | 64% | 63% | 52% | 54% |
+  | 2016 D | 0.400 | 0.421 | 70% | 67% | 80% | 77% |
+  | 2016 R | 0.332 | 0.290 | 76% | 81% | 58% | 61% |
 
 **What the test does and does not show**
 
@@ -1034,7 +1044,8 @@ On the headline candidate rows of the first reading, for the model and the basel
   chance that would be put to the owner.
 
 **The diagnostic, run once** (`primary_backtest.py --ranges`; 3,418 candidate rows in 864 forecasts). The model's
-figures; the baseline's are within two points of them everywhere.
+figures. The baseline's are within two points of them, except for trailing candidates still in, where more of the
+baseline's fall within the range (72% against 69% on the day, 61% against 57% at 30 days).
 
 | | Candidates | Below the 10th | Within | Above the 90th |
 |---|--:|--:|--:|--:|
@@ -1055,7 +1066,8 @@ figures; the baseline's are within two points of them everywhere.
 - **D2: most of the shortfall is candidates who had left.** At 30 days, 558 of the 1,472 candidates forecast (38%)
   were out of the field by the morning of the vote, and 85% of them finished below their range: forecast at 8.4
   points on average, they got 2.3 (99 have no line in the result at all). At 7 days it is 155 of 1,054, at 10.6
-  points forecast and 2.5 got. Among candidates still in, coverage is 67% at 30 days, 73% at 7 days and 79% on the
+  points forecast and 2.5 got. (Eight of the 558 are in contests with no national average on the day of the vote, so
+  no field that morning: everyone forecast there counts as having left.) Among candidates still in, coverage is 67% at 30 days, 73% at 7 days and 79% on the
   day, and the misses at 30 days lean above the range (22% against 11%): those who stayed took up the support of
   those who left.
 - **D3: the leaders' ranges are close to right.** For the top two still in, coverage is 84% on the day, 78% at 7 days
@@ -1075,8 +1087,8 @@ not simulate, which are PP-7's. What is left once they are set aside is smaller:
 and 75% to 84% for the top two.
 
 **The owner's decision (2026-11-25): no change to the model.** The round is closed with the diagnostic as its
-result. There is no second run, so the first run is the only one and its verdict stands: the mark is met, and PP-9
-publishes the model's chances.
+result. There is no second run, so the first run is the only one and its verdict stands: the mark is met. Under
+rules 4 and 5 that leaves PP-9 with the model's chances; the owner was not asked about PP-9 again.
 
 - **An added measure, declared as suggested by this test:** coverage among candidates still in the field on the
   morning of the vote. 79% on the day, 73% at 7 days, 67% at 30 days (D2), against 79%, 63% and 46% for every
