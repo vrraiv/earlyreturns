@@ -1,12 +1,9 @@
 severity,kind,cycle,party,state,detail
 note,no vote of ordinary voters,2008,D,VI,delegates chosen by a convention only (rule 4)
 note,no vote of ordinary voters,2012,D,VI,delegates chosen by a convention only (rule 4)
-note,no vote of ordinary voters,2012,R,MP,delegates chosen by a convention only (rule 4)
-note,no vote of ordinary voters,2016,D,MP,delegates chosen by a convention only (rule 4)
 note,no vote of ordinary voters,2016,R,CO,delegates chosen by a convention only (rule 4)
-note,no vote of ordinary voters,2016,R,MP,delegates chosen by a convention only (rule 4)
 note,no vote of ordinary voters,2016,R,ND,delegates chosen by a convention only (rule 4)
-note,no vote of ordinary voters,2020,D,MP,delegates chosen by a convention only (rule 4)
+note,no vote of ordinary voters,2016,R,WY,delegates chosen by a convention only (rule 4)
 note,no main contest,2020,R,MP,"delegates in the rules, no contest in the calendar (as held)"
 note,no main contest,2020,R,NV,"delegates in the rules, no contest in the calendar (as held)"
 note,no vote of ordinary voters,2020,R,SC,delegates chosen by a convention only (rule 4)

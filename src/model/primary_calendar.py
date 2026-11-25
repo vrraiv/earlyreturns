@@ -174,8 +174,10 @@ def _known_date(row, as_of):
 
 def events(cycle, party, as_of=None):
     """Every calendar row for a past cycle and party, with its date as known on `as_of` (None: as held)."""
-    if cycle not in PAST:
+    if cycle == 2028:
         return _events_2028(party)
+    if cycle not in PAST:
+        raise ValueError(f"no calendar for {cycle}")
     as_of = _ts(as_of)
     c = _calendar()
     c = c[(c["cycle"] == cycle) & (c["party"] == party)].copy()

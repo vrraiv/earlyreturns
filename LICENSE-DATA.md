@@ -33,7 +33,8 @@ Share-alike is required because many tables are adapted from Wikipedia (CC BY-SA
   `primary_delegates.csv`, `primary_delegate_events.csv`, `primary_calendar_check.csv`, `primary_greenpapers_counts.csv`,
   `primary_results_greenpapers_check.csv`, `primary_greenpapers_tallies.csv`, `primary_delegate_units.csv`,
   `primary_delegate_count.csv`, `primary_delegate_allocation_d.csv`, `primary_delegate_allocation_r.csv`,
-  `primary_greenpapers_events.csv`) are covered above, attributed to
+  `primary_greenpapers_events.csv`, and the hand-entered `data/supplement/primary_calendar_additions.csv`,
+  `primary_contest_flags.csv` and `primary_allocation_classes.csv`, which draw on its pages) are covered above, attributed to
   TheGreenPapers.com, as the site asked, with a link to [thegreenpapers.com](https://www.thegreenpapers.com/); the site gave leave to use its data.
 - **University of Michigan consumer sentiment** (in the raw FRED folder) is copyrighted and not used in any output.
 

@@ -86,6 +86,23 @@ def main():
         add("date change for a contest not in the calendar", r.cycle, r.party, r.state,
             f"{r.contest} {r.old_date} -> {r.new_date} ({r.announced:%Y-%m-%d})", "note")
 
+    # rule 14, dates as of any date: on the eve of each main contest its known date is the held one; and on the day
+    # of the first contest, list the places with no date yet known (expected where a date was set late)
+    for cycle, party in OPEN:
+        held = pc.contests(cycle, party)
+        for r in held[held["date_known"].notna()].itertuples():
+            eve = pc.contests(cycle, party, r.date_known - pd.Timedelta(days=1))
+            k = eve.loc[eve["state"].eq(r.state), "date_known"]
+            if not len(k) or k.iloc[0] != r.date_known:
+                add("date on the eve of the contest is not the held date", cycle, party, r.state,
+                    f"held {r.date_known:%Y-%m-%d}; known the day before: {k.iloc[0] if len(k) else 'none'}")
+        first = pc.first_contest(cycle, party)
+        c = pc.contests(cycle, party, first)
+        live = c[c["date_known"].isna() & ~c["cancelled_known"].fillna(False).astype(bool)]
+        conv = set(pc.events(cycle, party).query("flag == 'convention'")["state"])
+        for st in sorted(set(live["state"]) - conv):
+            add("no date known at the first contest", cycle, party, st, f"as of {first:%Y-%m-%d}", "note")
+
     # rule 4 for 2024: hand flags beside the Green Papers' "major delegate selection event" column
     gp = pd.read_csv(ROOT / "data/interim/primary_greenpapers_events.csv", dtype=str)
     gp = gp[gp["major_delegate_selection_event"].eq("1") & gp["state"].notna()]

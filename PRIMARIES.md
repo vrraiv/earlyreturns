@@ -175,13 +175,21 @@ attributed and linked). This card adds a loader, `src/model/primary_calendar.py`
   18 who went unpledged); New Hampshire Democrats 2024 (the party-run primary of 27 April; the unsanctioned state
   primary of 23 January is non-binding but stays the first contest under section 1, rule 8).
 - Not votes of ordinary voters, so not contests: Nebraska Republicans' 2012 "caucus" (the state convention),
-  Washington Republicans' 2016 precinct caucuses, Michigan Republicans' 2024 convention, and Colorado and North
-  Dakota Republicans 2016 (preference votes cancelled), labelled `convention`. Calendar rows for contests that were
+  Washington Republicans' 2016 precinct caucuses, Michigan Republicans' 2024 convention, Colorado and North Dakota
+  Republicans 2016 (preference votes cancelled) and Wyoming Republicans 2016 (the state convention; the precinct
+  caucuses tallied no preference vote), labelled `convention`. The test is whether a vote of ordinary voters was held
+  and counted, not what the Green Papers call the event: Northern Mariana contests they call conventions (Republicans
+  2012 and 2016, Democrats 2016 and 2020) have candidate vote counts in `primary_results.csv` and are contests.
+  Wyoming Republicans' other cycles were not examined this way. Calendar rows for contests that were
   never held for that party (Utah Democrats' 2012 primary, Idaho Democrats' 2016 primary, DC and Kentucky
   Republicans' 2016 primaries) are labelled `not_held`.
 - Added from the Green Papers' event lists (the owner's call, 2026-11-25): the territories and Democrats Abroad, which
-  the FEC calendar never listed (`primary_calendar_additions.csv`). Seven places list only a convention and so have
-  delegates but no contest.
+  the FEC calendar never listed (`primary_calendar_additions.csv`). Three of them have only a convention and no vote
+  counts (Virgin Islands Democrats 2008 and 2012, South Carolina Republicans 2020) and so have delegates but no
+  contest. Northern Mariana and Nevada Republicans 2020 (not an open contest) are left as gaps.
+- The flags are as held, not as known: where a party switched which vote binds during the cycle (Missouri Republicans
+  2012, Nevada Republicans 2024), the switch is in the date changes, but a forecast made before it still sees the
+  final main contest.
 
 **Allocation classes (rule 8).** In `data/supplement/primary_allocation_classes.csv`. Every Democratic contest is
 proportional (15% threshold). Republican wording: "Proportional" and "Combined Selection [ Proportional Primary with
@@ -189,11 +197,26 @@ Caucus/Convention ]" are proportional; "Winner-Take-All" in a primary or caucus 
 district and statewide, winner-take-most, and the majority-trigger rules are winner-take-most or mixed; "Caucus/
 Convention" (2008 and 2012), "Delegate Selection" caucuses and primaries and "Advisory Primary" are unbound. The
 loophole primaries are mapped by state: Illinois winner-take-most (delegates listed with a candidate), Pennsylvania
-unbound. A cancelled contest is "no contest".
+unbound. A cancelled contest is "no contest". Checked against the rules file's thresholds and triggers and, for
+2016-2024, the hard delegate totals; the stored pages then moved four to winner-take-most or mixed: North Dakota
+Republicans 2008 and Kansas Republicans 2012 (caucuses that allocated every delegate from the vote) and West Virginia
+Republicans 2012 and 2016 (delegates elected by name with a candidate listed, as in Illinois). Iowa and Nevada
+Republicans 2008 stay unbound: their "5%" is the Green Papers' own estimate. A Democratic place with no vote keeps
+"proportional", which then applies at the convention.
 
 **Dates as known (rule 5).** 105 changes in `data/supplement/primary_date_changes.csv`, scoped to the seven open
 contests. A blank earlier date means no date was set before the change; the loader then shows the contest with no
-date until it was announced. Where sources disagree on a date, the note names both; the one used is stated.
+date until it was announced. Where sources disagree on a date, the note names both; the one used is stated. A change
+whose sources name another kind of contest than the calendar does (Hawaii Democrats 2020: a party-run primary the
+calendar calls a caucus) is matched to the row whose held date its last change produced. Checked: every change
+reads back; on the eve of every main contest the known date is the held one.
+
+Not found, so a missing row does not mean no change: decision dates for 2008 Kansas (both parties), North Dakota,
+New Mexico Democrats, West Virginia, Alaska and Maine Republicans; the 2008 and 2012 territories and Democrats Abroad;
+2024 DC Republicans' switch to a party-run primary and Montana, Oregon and South Dakota Republicans' switch to
+conventions. Two changes concern contests not in the calendar (Montana Republicans' 2008 caucus, Idaho Republicans'
+2012 primary) and are listed by the check. Changes before each window were collected too but are not entered: rule 5
+counts them as known from its start.
 
 **2028 (rules 9 to 11).** `data/supplement/primary_calendar_2028.csv`, as known on 2026-11-25: the DNC's early window
 (South Carolina 22 January, Nevada 1 February, New Hampshire 8 February, New Mexico 15 February, Michigan 22 February,
@@ -201,3 +224,14 @@ Virginia 29 February; the Rules and Bylaws Committee on 24 July 2026, the full D
 dates (Iowa, New Hampshire, Nevada, South Carolina; 10 September 2026), and the dates that follow from state law. Where
 the DNC's date and state law differ (New Mexico and Virginia Democrats), the DNC's date is used under rule 10's last
 sentence.
+
+**Pending the owner's agreement (2026-11-25).** Choices made while building, not yet agreed:
+
+1. A national party's date over state law where they differ (New Mexico and Virginia Democrats).
+2. A 2028 stand-in date keeps the 2024 date's weekday and week of the month (Tuesday 5 March 2024 becomes Tuesday
+   7 March 2028), not its day of the month.
+3. Date changes collected for the seven open contests only, though rule 5 says every cycle.
+4. The `convention` and `not_held` labels for calendar rows that are not votes of ordinary voters.
+5. Matching a change to a calendar row by the date its last change produced, where the kinds differ.
+6. 2028 Democratic rules: adopted and published (August 2026), so rule 11 says they replace the 2024 stand-ins; not
+   yet loaded.

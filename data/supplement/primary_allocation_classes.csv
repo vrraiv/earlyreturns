@@ -1,4 +1,7 @@
 party,selection,cycle,state,class,note
+R,Caucus/Convention,2008,ND,winner_take_most,"Page read 2026-11-25: all 26 delegates allocated from the caucus vote in proportion, all to a candidate above two-thirds"
+R,Caucus/Convention,2012,KS,winner_take_most,"Page read 2026-11-25: all 40 allocated from the caucus vote; district delegates by the district vote, 25 at-large in proportion (20% threshold), party leaders to the statewide winner"
+R,Delegate Selection Primary,,WV,winner_take_most,"Page read 2026-11-25: delegates elected by name, each listed with a presidential preference (2016: all 34 bound)"
 D,*,,,proportional,"Every Democratic contest since 1992 is proportional with a 15% threshold (DNC rules), whatever the page's wording"
 R,Proportional Primary,,,proportional,
 R,Proportional Caucus/Convention,,,proportional,
@@ -23,5 +26,4 @@ R,"Combined Selection Statewide: Winner-Take-All , District: Loophole Primary",,
 R,"Combined Selection Statewide: Winner-Take-All , District: Loophole Primary",,PA,unbound,"Statewide delegates winner-take-all, but most delegates (the district ones) go unbound"
 R,Caucus/Convention,,,unbound,Delegates chosen by conventions with no formal tie to the caucus vote (2008 and 2012)
 R,Delegate Selection Caucus/Convention,,,unbound,Delegates elected at conventions with no tie to a vote of ordinary voters
-R,Delegate Selection Primary,,,unbound,Voters elect delegates by name; they go unbound
 R,Advisory Primary,,,unbound,The vote of ordinary voters is advisory; delegates are chosen by conventions
