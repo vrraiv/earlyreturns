@@ -775,7 +775,8 @@ Four questions were put as options. The options chosen:
 ### Rules (written 2026-11-25 before any score was computed)
 
 Rules 1, 4, 6 and 10 carry the owner's four choices. The rest are judgments, put to the owner as a whole before the
-run.
+run. (Corrected 2026-11-25, after the run: the choice on a field of one is rule 3, not rule 1, as rule 3 itself says.
+The four are rules 3, 4, 6 and 10.)
 
 **What is scored**
 
@@ -959,11 +960,12 @@ Headline forecasts of the four races, the race left out and then the year left o
   deficit grows from 0.040 to 0.059. On this reading the model is below the baseline in two of the four races, not
   three. The mark is read on the first reading (rules 4 and 10); had it been read with the year left out, the count
   would be 4 of 7, a miss. 2008 D decides it, on a difference of a thousandth either way.
-- **The deciding margin is within the noise of the draws.** 2008 D's difference is −0.0014 on the first reading and
-  +0.0010 on the second, each a mean over 150 forecasts whose own differences have a standard deviation of 0.11.
-  The chances come from 10,000 draws, and forecasts made on one date share their national draw, so a different
-  seed could plausibly turn the sign. The verdict stands as registered, because rule 1 scores the committed table;
-  a run on another seed would be a new diagnostic, and none was made.
+- **The deciding margin cannot be told from zero.** 2008 D's difference is −0.0014 on the first reading and
+  +0.0010 on the second, each a mean over 150 forecasts whose own differences have a standard deviation of 0.107.
+  Were the 150 independent, that mean would have a standard error near 0.009, six times the margin; they are not
+  independent, which makes it larger. How much the 10,000 draws add was not measured (model and baseline share
+  their standard draws on a date, so it is less than it would be otherwise), and no run on another seed was made.
+  The verdict stands as registered, because rule 1 scores the committed table.
 - **Calibration on the second reading** (the four races, every field candidate, all three dates; model, then
   baseline):
 
@@ -979,7 +981,15 @@ Headline forecasts of the four races, the race left out and then the year left o
   | 95 to 100% | 22 | 98% | 100% | 35 | 98% | 97% |
 - **The other measures** (the four pooled, race out then year out, model against baseline): Brier 0.400 against
   0.402, then 0.399 against 0.399; the favourite won in 69% against 67%, then 69% against 67% (2016 D's falls from
-  73% to 70%); coverage 60% against 62%, then 60% against 61%.
+  73% to 70%); coverage 60% against 62%, then 60% against 61%. By race, with the year left out (the race-left-out
+  figures are in the first table):
+
+  | Race | Brier | | Favourite won | | In the 10th-90th range | |
+  |---|--:|--:|--:|--:|--:|--:|
+  | 2008 D | 0.381 | 0.380 | 64% | 59% | 58% | 60% |
+  | 2008 R | 0.491 | 0.504 | 64% | 63% | 52% | 54% |
+  | 2016 D | 0.400 | 0.421 | 70% | 67% | 80% | 77% |
+  | 2016 R | 0.332 | 0.290 | 76% | 81% | 58% | 61% |
 
 **What the test does and does not show**
 
@@ -999,3 +1009,92 @@ Headline forecasts of the four races, the race left out and then the year left o
 **Put to the owner, not acted on:** whether to use the declared round (rule 6), and on what. Candidates the report
 suggests, each of which would be declared as suggested by this test: the spread of shares (the ranges), the top of
 the chance scale, and the dates beyond 30 days.
+
+### The declared round: the share ranges (the owner's choice, 2026-11-25, after the report above)
+
+The owner chose to use the round of rule 6, on the share ranges. Run 1's forecasts, values and scores stay in the repo
+as they are; anything a change produces goes under its own label, so the verdict can be rebuilt.
+
+**A diagnostic first** (written 2026-11-25 before it ran; run once, all of it reported). No change is proposed
+before it: one total spread per forecast sets both the share ranges and the winner's chance, the chances are close
+to what happened, and coverage on the day is 79%, so the shortfall is in the 30-day and 7-day forecasts. Those carry
+more candidates (4.9 a forecast at 30 days against 3.2 on the day). The diagnostic asks whether the misses are
+candidates who had left by the vote, the whole field moving together, or surviving leaders missing both ways. It
+reads results already scored, so whatever follows from it is suggested by this test.
+
+On the headline candidate rows of the first reading, for the model and the baseline, at 30 days, 7 days and the day:
+
+- **D1.** The share of results below the 10th percentile, within the range, and above the 90th.
+- **D2.** D1 split by whether the candidate was still in the field on the morning of the vote (section 3, S9) or had
+  left it; and, of those who had left, how many have no line in the result.
+- **D3.** D1 for candidates still in on the morning of the vote, split by the top two by expected share and the rest.
+- **D4.** The other share: per forecast, 100 less the summed results of the forecast's field, set against the other
+  share the forecast used. The mean and median difference, and the share of forecasts where it is more than 5 points
+  either way.
+- **D5.** The calibration table of rule 7 on the 30-day forecasts alone.
+
+**What each outcome would mean** (written before the run):
+
+- Mostly candidates who had left, scored at or near 0, with those still in above the 90th: no spread value mends
+  this. It is the simulated withdrawals of PP-7. The proposal to the owner would be no change to the model, coverage
+  among candidates still in at the vote as an added measure, and a reworded line on PP-7.
+- The whole field off one way together: letting the other share vary in the draws would widen the ranges without
+  moving the chances of winning.
+- Candidates still in missing both ways: a change to the spread by horizon is defensible, at a cost to the winner's
+  chance that would be put to the owner.
+
+**The diagnostic, run once** (`primary_backtest.py --ranges`; 3,418 candidate rows in 864 forecasts). The model's
+figures. The baseline's are within two points of them, except for trailing candidates still in, where more of the
+baseline's fall within the range (72% against 69% on the day, 61% against 57% at 30 days).
+
+| | Candidates | Below the 10th | Within | Above the 90th |
+|---|--:|--:|--:|--:|
+| **D1.** The day | 892 | 14% | 79% | 8% |
+| 7 days | 1,054 | 25% | 63% | 12% |
+| 30 days | 1,472 | 39% | 46% | 15% |
+| **D2.** 7 days, had left by the vote | 155 | 93% | 7% | 1% |
+| 7 days, still in | 899 | 13% | 73% | 14% |
+| 30 days, had left by the vote | 558 | 85% | 12% | 3% |
+| 30 days, still in | 914 | 11% | 67% | 22% |
+| **D3.** Still in, top two: the day | 554 | 7% | 84% | 9% |
+| 7 days | 548 | 7% | 78% | 15% |
+| 30 days | 534 | 8% | 75% | 18% |
+| Still in, the rest: the day | 338 | 24% | 69% | 7% |
+| 7 days | 351 | 23% | 65% | 12% |
+| 30 days | 380 | 15% | 57% | 28% |
+
+- **D2: most of the shortfall is candidates who had left.** At 30 days, 558 of the 1,472 candidates forecast (38%)
+  were out of the field by the morning of the vote, and 85% of them finished below their range: forecast at 8.4
+  points on average, they got 2.3 (99 have no line in the result at all). At 7 days it is 155 of 1,054, at 10.6
+  points forecast and 2.5 got. (Eight of the 558 are in contests with no national average on the day of the vote, so
+  no field that morning: everyone forecast there counts as having left.) Among candidates still in, coverage is 67% at 30 days, 73% at 7 days and 79% on the
+  day, and the misses at 30 days lean above the range (22% against 11%): those who stayed took up the support of
+  those who left.
+- **D3: the leaders' ranges are close to right.** For the top two still in, coverage is 84% on the day, 78% at 7 days
+  and 75% at 30 days. The candidates behind them do worse: on the day and at 7 days about a quarter finish below
+  their range (minor candidates fade), and at 30 days 28% finish above it.
+- **D4: the field does not move together.** The other share in the result is within a point of the one the forecast
+  used on average (mean difference 1.3 points on the day, 0.5 at 7 days, 0.7 at 30; medians within 0.3), and more
+  than 5 points off in about a fifth of forecasts on the day and a tenth at 30 days.
+- **D5: the chances at 30 days** (model; count, mean chance, won): 0 to 5%, 704, 0.6%, 1.3%; 5 to 15%, 191, 10%, 8%;
+  15 to 30%, 157, 22%, 15%; 30 to 50%, 173, 39%, 42%; 50 to 70%, 135, 59%, 60%; 70 to 85%, 50, 77%, 84%; 85 to 95%,
+  24, 91%, 92%; 95 to 100%, 38, 99%, 95%. Much as on all three dates; a wider spread at 30 days is not called for by
+  the chances.
+
+**Reading, against the outcomes written beforehand.** It is the first: candidates who had left, scored at or near
+0, with those still in above the 90th. No spread value mends that; it is the future withdrawals the state model does
+not simulate, which are PP-7's. What is left once they are set aside is smaller: 67% to 79% for candidates still in,
+and 75% to 84% for the top two.
+
+**The owner's decision (2026-11-25): no change to the model.** The round is closed with the diagnostic as its
+result. There is no second run, so the first run is the only one and its verdict stands: the mark is met. Under
+rules 4 and 5 that leaves PP-9 with the model's chances; the owner was not asked about PP-9 again.
+
+- **An added measure, declared as suggested by this test:** coverage among candidates still in the field on the
+  morning of the vote. 79% on the day, 73% at 7 days, 67% at 30 days (D2), against 79%, 63% and 46% for every
+  candidate forecast.
+- **Handed to PP-7:** the shortfall in the share ranges is future withdrawals, which PP-7 simulates. A smaller one is
+  left among candidates behind the top two (57% to 69% within their range, D3), and is PP-7's to weigh when it reads
+  viability thresholds from the draws.
+- **Not taken up:** a wider spread by horizon (it would flatten chances that are close to what happened) and a wider
+  range for trailing candidates. 2016 R, the top chance bin and the dates beyond 30 days were not looked into.

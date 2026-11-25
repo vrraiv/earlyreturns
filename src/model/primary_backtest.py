@@ -3,10 +3,13 @@
     python src/model/primary_backtest.py           first reading: scores the committed left-out-race forecasts
     python src/model/primary_backtest.py --year    second reading (rule 10): refits with both parties of 2008, and of
                                                    2016, left out together, and scores those four races again
+    python src/model/primary_backtest.py --ranges  the declared round's diagnostic of the share ranges (D1 to D5);
+                                                   prints only
 
 The first reading reads only `primary_state_forecasts.csv` and the results (through the model's own functions); it
 refits nothing. Both write `data/processed/primary_backtest.csv`, one row per scored forecast, model and reading.
-Set PRIMARY_STATE_CACHE for the second reading: it rebuilds the averages otherwise.
+Set PRIMARY_STATE_CACHE for the second reading: it rebuilds the averages otherwise. Run the first reading before
+the second: the first writes the table afresh, without the second's rows, and the second adds its own.
 """
 import sys
 from pathlib import Path
@@ -333,5 +336,50 @@ def second():
     write(pd.concat([out[out["reading"] != SECOND], table(f2, SECOND)], ignore_index=True))
 
 
+# ---------------------------------------------------------------- the declared round: a diagnostic of the ranges
+
+def split(c, by):
+    """D1: the share of results below the 10th percentile, within the range and above the 90th."""
+    g = c.groupby(["model"] + by, sort=True)["pos"].value_counts(normalize=True).unstack(fill_value=0.0)
+    g = g.reindex(columns=["below", "within", "above"], fill_value=0.0)
+    return g.assign(candidates=c.groupby(["model"] + by, sort=True).size())
+
+
+def ranges():
+    races = {k: ps.Race(*k) for k in ps.OPEN}
+    t, actual = truth(races)
+    fc = pd.read_csv(FORECASTS, parse_dates=["as_of", "date_known"])
+    sfc = fc.merge(scored_keys(t)[FKEY], on=FKEY).merge(t.loc[t["why"].eq(""), CKEY], on=CKEY)
+    f, c = score(sfc, t, actual, races)
+    head = f[f["field"] >= 2]
+    c = c.merge(head[["model"] + FKEY + ["horizon"]], on=["model"] + FKEY)
+    print(f"headline candidate rows: {(c['model'] == MODELS[0]).sum()} (the model), "
+          f"{(head['model'] == MODELS[0]).sum()} forecasts")
+    c["pos"] = np.where(c["actual"] < c["p10"], "below", np.where(c["actual"] > c["p90"], "above", "within"))
+    still = {k: set(races[k[:2]].field(d)) for k, d in zip(zip(t["cycle"], t["party"], t["state"]), t["held"])
+             if k in actual and k[:2] in races}
+    key = list(zip(c["cycle"], c["party"], c["state"]))
+    c["still_in"] = [cand in still[k] for k, cand in zip(key, c["candidate_key"])]
+    c["no_line"] = [cand not in actual[k] for k, cand in zip(key, c["candidate_key"])]
+    c["rank"] = c.groupby(["model"] + FKEY)["share"].rank(ascending=False, method="first")
+    c["top_two"] = c["rank"] <= 2
+    show("D1: results against the 10th-90th range", split(c, ["horizon"]))
+    show("D2: by whether the candidate was still in the field on the morning of the vote", split(c, ["horizon", "still_in"]))
+    left = c[~c["still_in"]]
+    show("D2: candidates who had left, and those of them with no line in the result",
+         left.groupby(["model", "horizon"]).agg(left=("no_line", "size"), no_line=("no_line", "sum"),
+                                                mean_expected=("share", "mean"), mean_result=("actual", "mean")), 2)
+    show("D3: candidates still in, the top two by expected share and the rest",
+         split(c[c["still_in"]], ["horizon", "top_two"]))
+    o = c.groupby(["model"] + FKEY + ["horizon"]).agg(result=("actual", "sum"), other=("other", "first")).reset_index()
+    o["diff"] = (100 - o["result"]) - o["other"]
+    show("D4: the other share in the result less the one the forecast used, in points",
+         o.groupby(["model", "horizon"])["diff"].agg(forecasts="size", mean="mean", median="median",
+                                                      over_5=lambda x: (x > 5).mean(),
+                                                      under_5=lambda x: (x < -5).mean()), 2)
+    show("D5: calibration, headline, 30 days", calibration(c[c["horizon"] == 30]))
+
+
 if __name__ == "__main__":
-    second() if "--year" in sys.argv[1:] else first()
+    args = sys.argv[1:]
+    ranges() if "--ranges" in args else second() if "--year" in args else first()
