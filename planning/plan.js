@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-24o",
+  version: "2026-11-25a",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -806,8 +806,12 @@ window.PLAN = {
           why: "The 2028 order of states is not set.",
           details: [
             "The model takes the calendar and each party's delegate rules as data, so it can be rerun when they change.",
-            "Track announcements from each party."
-          ] },
+            "Track announcements from each party.",
+            "Rules decided 2026-11-25, before anything was built (PRIMARIES.md, section 2). One loader serves past cycles and 2028 alike, so the backtest runs on calendars the model was not fitted on; PP-10 takes its first contest and voting days from it. A place's contest is the vote of ordinary voters that feeds delegate selection; where there are two, the other is non-binding. Past contests are read with their dates as known on any day, from the date changes announced within each open contest's window. Delegate rules are carried as data, with a five-way allocation class; no allocation is built here (PP-7).",
+            "Built 2026-11-25. Main and non-binding contests flagged by hand for the 17 places with two a cycle; territories and Democrats Abroad added from TheGreenPapers.com; 105 past date changes and cancellations entered with sources (the 2020 postponements among them); a check script confirms every change reads back. Research gaps are listed in the note.",
+            "2028 as known on 2026-11-25: the DNC's early window (South Carolina 22 January, Nevada 1 February, New Hampshire 8 February, New Mexico 15 February, Michigan 22 February, Virginia 29 February; approved August 2026) and its adopted delegate allocation; the RNC's order (Iowa, New Hampshire, Nevada, South Carolina; no dates); and the dates in state law. Unset dates and the Republican rules stand in from 2024, and every 2028 forecast says how many. Changes are logged as they are seen; a scheduled check is optional."
+          ],
+          refs: ["PRIMARIES.md", "src/model/primary_calendar.py", "src/check_primary_calendar.py", "data/supplement/primary_calendar_2028.csv"] },
         { id: "PP-5", title: "State model and momentum", kind: "story", phase: "p3", needs: ["PP-10", "PP-4"],
           why: "Primaries are sequential, and early results move later states.",
           details: [
