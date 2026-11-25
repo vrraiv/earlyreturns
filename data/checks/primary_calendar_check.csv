@@ -3,11 +3,15 @@ note,no vote of ordinary voters,2008,D,VI,delegates chosen by a convention only 
 note,no vote of ordinary voters,2012,D,VI,delegates chosen by a convention only (rule 4)
 note,no vote of ordinary voters,2012,R,MP,delegates chosen by a convention only (rule 4)
 note,no vote of ordinary voters,2016,D,MP,delegates chosen by a convention only (rule 4)
+note,no vote of ordinary voters,2016,R,CO,delegates chosen by a convention only (rule 4)
 note,no vote of ordinary voters,2016,R,MP,delegates chosen by a convention only (rule 4)
+note,no vote of ordinary voters,2016,R,ND,delegates chosen by a convention only (rule 4)
 note,no vote of ordinary voters,2020,D,MP,delegates chosen by a convention only (rule 4)
 note,no main contest,2020,R,MP,"delegates in the rules, no contest in the calendar (as held)"
 note,no main contest,2020,R,NV,"delegates in the rules, no contest in the calendar (as held)"
 note,no vote of ordinary voters,2020,R,SC,delegates chosen by a convention only (rule 4)
+note,date change for a contest not in the calendar,2008,R,MT,caucus 2008-06-03 -> 2008-02-05 (2007-08-25)
+note,date change for a contest not in the calendar,2012,R,ID,primary 2012-05-15 -> cancelled (2012-03-01)
 check,2024 main contest is not the Green Papers' major event,2024,D,MP,main caucus 2024-03-12; major event(s) 2024-03-05
 check,2024 main contest is not the Green Papers' major event,2024,R,MO,main caucus 2024-03-02; major event(s) 2024-05-04
 check,2024 main contest is not the Green Papers' major event,2024,R,OR,main primary 2024-05-21; major event(s) 2024-05-25

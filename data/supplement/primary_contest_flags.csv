@@ -33,3 +33,5 @@ cycle,party,state,contest,date,flag,source,note
 2024,R,MI,caucus,2024-03-02,convention,TheGreenPapers.com P24 MI-R,"The state convention, which allocates the other 39 delegates: a vote of party delegates, not of ordinary voters"
 2024,R,NV,primary,2024-02-06,non_binding,TheGreenPapers.com P24 NV-R,Listed as a non-binding state-run advisory primary
 2024,R,NV,caucus,2024-02-08,main,TheGreenPapers.com P24 NV-R,Precinct caucuses allocate the delegates
+2016,R,CO,caucus,2016-03-01,convention,TheGreenPapers.com P16 CO-R; CBS Colorado 2015-08-25,"The presidential preference poll was cancelled (announced 2015-08-25); the caucuses chose convention delegates only, and delegates were elected at conventions"
+2016,R,ND,caucus,2016-04-02,convention,TheGreenPapers.com P16 ND-R,"No presidential caucus or straw poll (state committee, 2015-08-13); the date is the state convention, which chose unbound delegates"

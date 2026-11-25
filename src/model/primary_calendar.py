@@ -78,7 +78,7 @@ def _changes():
         return pd.DataFrame(columns=["cycle", "party", "state", "contest", "old_date", "new_date", "announced"])
     ch["cycle"] = ch["cycle"].astype(int)
     ch["announced"] = pd.to_datetime(ch["announced"])
-    return ch.sort_values("announced")
+    return ch.sort_values("announced", kind="stable")   # same-day changes keep file order (Wisconsin 2020)
 
 
 @lru_cache(None)
@@ -133,14 +133,34 @@ def _rules():
 
 # ---------------------------------------------------------------- dates as known (rule 5)
 
+def _changes_for(row):
+    """The changes that belong to one calendar row. A chain of changes (same place and contest kind) belongs to
+    the row of that kind; failing that, to the row whose held date (or cancellation) its last change produced,
+    since sources sometimes name the kind differently (Hawaii Democrats 2020: a party-run primary the calendar
+    calls a caucus)."""
+    ch = _changes()
+    ch = ch[(ch["cycle"] == row["cycle"]) & (ch["party"] == row["party"]) & (ch["state"] == row["state"])]
+    if ch.empty:
+        return ch
+    out = []
+    for kind, g in ch.groupby("contest", sort=False):
+        last = str(g.iloc[-1]["new_date"])
+        same_kind = kind == row["contest"]
+        if row["cancelled"]:
+            ends_here = last.lower() == "cancelled"
+        else:
+            ends_here = pd.notna(row["date"]) and last == f"{row['date']:%Y-%m-%d}"
+        if same_kind or ends_here:
+            out.append(g)
+    return pd.concat(out).sort_values("announced", kind="stable") if out else ch.iloc[0:0]
+
+
 def _known_date(row, as_of):
     """The date (or cancellation) of one calendar row as it stood on `as_of`."""
     held = row["date"]
     if as_of is None:
         return held, bool(row["cancelled"])
-    ch = _changes()
-    ch = ch[(ch["cycle"] == row["cycle"]) & (ch["party"] == row["party"]) & (ch["state"] == row["state"])
-            & (ch["contest"] == row["contest"] if not row["cancelled"] else True)]
+    ch = _changes_for(row)
     if ch.empty:
         return held, bool(row["cancelled"])
     seen = ch[ch["announced"] <= as_of]

@@ -62,16 +62,29 @@ def main():
                 add("no delegate total", cycle, party, st, label, sev)
 
     # rule 5: each date change reads back as the old date the day before it was announced
+    # every change must belong to a calendar row, and each row must read back its earlier date the day before
+    # its first change and its held date (or cancellation) after its last
     ch = pc._changes()
-    for r in ch.itertuples():
-        ev = pc.events(r.cycle, r.party, r.announced - pd.Timedelta(days=1))
-        g = ev[ev["state"].eq(r.state)]
-        if not len(g):
-            add("date change with no calendar row", r.cycle, r.party, r.state, f"{r.contest} {r.old_date} -> {r.new_date}")
-        elif not (g["date_known"] == pd.Timestamp(r.old_date)).any():
-            add("date change does not read back", r.cycle, r.party, r.state,
-                f"expected {r.old_date} the day before {r.announced:%Y-%m-%d}; got "
-                + ", ".join(str(d)[:10] for d in g["date_known"]))
+    used = set()
+    for _, row in cal[cal["cycle"].isin(pc.PAST)].iterrows():
+        mine = pc._changes_for(row)
+        if mine.empty:
+            continue
+        used.update(mine.index)
+        first, last = mine.iloc[0], mine.iloc[-1]
+        before, _ = pc._known_date(row, first["announced"] - pd.Timedelta(days=1))
+        want = pd.Timestamp(first["old_date"]) if pd.notna(first["old_date"]) else pd.NaT
+        if not (before == want or (pd.isna(before) and pd.isna(want))):
+            add("date change does not read back", row["cycle"], row["party"], row["state"],
+                f"{row['contest']}: expected {first['old_date']} the day before {first['announced']:%Y-%m-%d}, got {before}")
+        after, canc = pc._known_date(row, last["announced"])
+        # a cancelled vote can leave a meeting behind: fine when the row is flagged as a convention (rule 4)
+        if not ((canc and (row["cancelled"] or row["flag"] == "convention")) or after == row["date"]):
+            add("last change is not the held date", row["cycle"], row["party"], row["state"],
+                f"{row['contest']}: after {last['announced']:%Y-%m-%d} reads {after}, held {row['date']}")
+    for r in ch.loc[~ch.index.isin(used)].itertuples():
+        add("date change for a contest not in the calendar", r.cycle, r.party, r.state,
+            f"{r.contest} {r.old_date} -> {r.new_date} ({r.announced:%Y-%m-%d})", "note")
 
     # rule 4 for 2024: hand flags beside the Green Papers' "major delegate selection event" column
     gp = pd.read_csv(ROOT / "data/interim/primary_greenpapers_events.csv", dtype=str)
