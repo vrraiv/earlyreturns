@@ -18,7 +18,8 @@
      --d-likely ... --r-likely   the map's rating steps between --dem and --rep, with --toss in the middle; neighbours
                      are kept apart for colour-blind readers, and each tile's label is white or --on-fill-dark,
                      whichever reads better on its fill (onFill in the forecast template)
-   Font: IBM Plex Sans (SIL Open Font License 1.1, assets/fonts/LICENSE.txt), IBM's files unmodified. */
+   Font: IBM Plex Sans, and IBM Plex Mono for the landing page's terminal (SIL Open Font License 1.1,
+   assets/fonts/LICENSE.txt), IBM's files unmodified. */
 
 @font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-style: normal; font-display: swap; src: url(fonts/IBMPlexSans-Regular.woff2) format("woff2"); }
 @font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-style: italic; font-display: swap; src: url(fonts/IBMPlexSans-Italic.woff2) format("woff2"); }
@@ -290,6 +291,35 @@ td .none { color: var(--text-3); font-size: .8rem; }
 .maplegend i.ring { background: transparent; border: 2px solid var(--ochre); }
 @media (max-width: 1000px) { .hasmap .seatlines { grid-template-columns: 4.5em 1fr; gap: 2px 14px; } .hasmap .seatline .fc { grid-column: 2; margin-bottom: 6px; } }
 @media (max-width: 760px) { .sec.hasmap { display: block; } .senmap { max-width: 380px; margin-top: 14px; } }
+/* ---------- the visit's intro: the terminal on the landing page, the site name's typing elsewhere (src/site/shell.py) ---------- */
+@font-face { font-family: "IBM Plex Mono"; font-weight: 400; font-style: normal; font-display: swap; src: url(fonts/IBMPlexMono-Regular.woff2) format("woff2"); }
+.ret { width: 1em; height: 1em; vertical-align: -0.14em; margin-left: .45em; color: var(--ink); }
+.ret.pop { animation: ret-in .32s ease-out; }
+.sitename .ret { color: var(--text-2); margin-left: .1em; }
+.sitename .cur, .term .cur { display: inline-block; width: 0; height: 1.05em; vertical-align: text-bottom; border-left: .55em solid var(--ink); margin-right: -.55em; opacity: .75; animation: cur-blink 1s steps(1) infinite; }
+.sitename .nm .cur { border-left-width: 2px; margin-right: -2px; height: 1.1em; }
+.sitename .ghost { visibility: hidden; }
+/* held back until the script starts, so the name is not seen whole and then typed again */
+:root[data-intro] body:not(.front) .sitename .nm, :root[data-intro] body:not(.front) .sitename .ret, :root[data-typing] .sitename .ret, :root[data-intro] .term .ln { visibility: hidden; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 350px); gap: 14px 28px; align-items: start; }
+.hero h1 { margin-bottom: 6px; }
+.hero .lede { margin-bottom: 0; }
+/* five lines high, always: the lines scroll inside it and nothing below moves. Amber stays out (the party colours are here). */
+.term { font: 400 .8rem/1.55 "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace; background: var(--inset); border: 1px solid var(--border); border-radius: 6px; padding: 10px 14px; color: var(--text); font-variant-numeric: tabular-nums; }
+.term .lines { height: calc(5 * 1.55em); overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; }
+.term.live { cursor: pointer; }
+.term.live .lines { display: block; }
+.term .ln { white-space: pre-wrap; overflow-wrap: anywhere; min-height: 1.55em; flex: none; }
+.term .ps, .term .dim { color: var(--text-3); }
+.term .st { color: var(--text-2); }
+.term .kw { color: var(--head); }
+.term .dem { color: var(--dem); } .term .rep { color: var(--rep); } .term .ind { color: var(--text-2); }
+.term b { font-weight: 400; color: var(--ink); }
+@keyframes cur-blink { 50% { opacity: 0; } }
+@keyframes ret-in { from { opacity: 0; transform: translateX(.5em); } to { opacity: 1; transform: none; } }
+@media (max-width: 760px) { .hero { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: reduce) { .sitename .cur, .term .cur, .ret.pop { animation: none; } }
+
 /* the 2028 board before the nominees (EC-8) */
 .board { margin: 20px 0 8px; }
 .boardhead { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; align-items: center; max-width: 720px; }

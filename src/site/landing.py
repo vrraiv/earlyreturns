@@ -64,12 +64,12 @@ def og(title, desc, image, path):
             '<meta name="twitter:card" content="summary_large_image">\n')
 
 
-def foot():
+def foot(extra=""):
     return f"""<footer><div class="wrap">
 {shell.footer()}
 </div></footer>
 {shell.script()}
-</body>
+{extra}</body>
 </html>
 """
 
@@ -80,6 +80,17 @@ def card(c, cls="sec", inner=""):
             f'<p>{E(c["text"])}</p>{inner}</a>')
 
 
+def seat_result(sc, ch):
+    """(a chamber's seats in words, the number of its races uncalled), as the scorecard tab words them."""
+    s = sc[ch]["seats"]
+    lo = s["dem_seats_called"]
+    hi = s.get("dem_seats_max", lo + s.get("n_pending", 0))
+    pend = len(s.get("pending", [])) if ch == "senate" else s.get("n_pending", 0)
+    if hi - lo > 25:      # too many races uncalled for a range to say anything (the scorecard tab's rule)
+        return f'{lo} D, {s["rep_seats_called"]} R called so far', pend
+    return f'{lo if lo == hi else f"{lo}–{hi}"} Democratic seats{"" if lo == hi else " so far"}', pend
+
+
 def seat_lines(sc, version):
     """The scorecard's seat cards in two lines, as the scorecard tab words them (seatCard in template.html)."""
     if not sc:
@@ -87,13 +98,7 @@ def seat_lines(sc, version):
     rows = []
     for ch, lab in (("senate", "Senate"), ("house", "House")):
         s = sc[ch]["seats"]
-        lo = s["dem_seats_called"]
-        hi = s.get("dem_seats_max", lo + s.get("n_pending", 0))
-        pend = len(s.get("pending", [])) if ch == "senate" else s.get("n_pending", 0)
-        if hi - lo > 25:      # too many races uncalled for a range to say anything (the scorecard tab's rule)
-            res = f'{lo} D, {s["rep_seats_called"]} R called so far'
-        else:
-            res = f'{lo if lo == hi else f"{lo}–{hi}"} Democratic seats{"" if lo == hi else " so far"}'
+        res, pend = seat_result(sc, ch)
         if pend:
             res += f' ({pend} uncalled)'
         v = s["versions"][version]
@@ -279,21 +284,93 @@ def senate_map(sc, version):
             f'<svg viewBox="0 0 {W} {H}" role="img" aria-label="{E(summary)}">{"".join(tiles)}</svg>{legend}</figure>')
 
 
+# The landing page's terminal (the visit's intro, shell.py): a short script "prints" the Senate races one by one, then
+# the seat totals, then the site's name and a return key. Every figure in it comes from the scorecard, like the seat
+# lines and the map beside it; the two lines of Python are for show and are not the repository's code. The page carries
+# the last frame as plain HTML, which is all a reader without scripts or with reduced motion sees; PLAY replays the
+# steps over it once per visit, and a click on it or Escape skips to the last frame.
+TERM_CODE = ['<span class="kw">for</span> race <span class="kw">in</span> senate_2026:',
+             '    print(race.winner, forecast[race])']
+PLAY = """<script>(function(){var r=document.documentElement,box=document.getElementById("term"),el=box&&box.firstChild;
+if(!el||!r.hasAttribute("data-intro"))return;
+try{sessionStorage.setItem("intro","1")}catch(e){}
+var steps=__STEPS__,ret=__RET__,rest=el.innerHTML,on=1;
+function sleep(ms){return new Promise(function(f){setTimeout(f,ms)})}
+function line(h){var d=document.createElement("div");d.className="ln";d.innerHTML=h||"&nbsp;";el.appendChild(d);el.scrollTop=el.scrollHeight;return d}
+function done(){on=0;box.classList.remove("live");box.removeEventListener("click",skip);document.removeEventListener("keydown",key)}
+function skip(){if(on){done();el.innerHTML=rest}}
+function key(e){if(e.key==="Escape")skip()}
+async function play(){r.removeAttribute("data-intro");if(!on)return;el.innerHTML="";box.classList.add("live");
+for(var k=0;k<steps.length;k++){if(!on)return;var s=steps[k];
+if(s.c){var d=line('<span class="ps">$</span> <span class="typed"></span><i class="cur"></i>'),t=d.firstChild.nextSibling.nextSibling;
+await sleep(200);for(var i=0;i<s.c.length;i++){if(!on)return;t.textContent+=s.c[i];await sleep(18+Math.random()*24)}
+await sleep(120);if(!on)return;d.removeChild(d.lastChild);
+if(s.f){d.insertAdjacentHTML("beforeend",ret);d.lastChild.classList.add("pop")}}
+else for(var j=0;j<s.o.length;j++){if(!on)return;line(s.o[j]);await sleep(s.g)}}
+if(on)done()}
+box.addEventListener("click",skip);document.addEventListener("keydown",key);
+var f=document.fonts&&document.fonts.load?Promise.race([document.fonts.load('13px "IBM Plex Mono"'),sleep(500)]):sleep(0);
+f.then(play,play)})();</script>
+"""
+
+
+def terminal(sc, version):
+    """The terminal block and its script, or ("", "") if the scorecard lacks what the Senate map needs too."""
+    if not sc:
+        return "", ""
+    races = {}
+    for r in sc.get("senate", {}).get("races", []):
+        st = r["race_key"].split("|")[1]
+        if st in races:
+            return "", ""
+        races[st] = r
+    called = [(st, races[st]) for st in TILES if st in races and races[st].get("called")]      # the map's order
+    if not called or any(version not in r or r["winner_party"] not in PARTY for _, r in called):
+        return "", ""
+    rows = []
+    for st, r in called:
+        pw = 1 - r[version] if r["winner_party"] == "R" else r[version]
+        chance = "<1%" if pw < 0.005 else ">99%" if pw > 0.995 else f"{pw:.0%}"
+        rows.append((st, r["winner"].split()[-1], r["winner_party"], chance, pw < 0.5))
+    wide = max(len(x[1]) for x in rows) + 1
+    lines = [f'<span class="st">{st}</span>  {E(name.ljust(wide))}<span class="{PARTY[p][0]}">({p})</span> {E(chance.rjust(4))}'
+             + ('  <b>upset</b>' if upset else '') for st, name, p, chance, upset in rows]
+    sen, _ = seat_result(sc, "senate")
+    v = sc["senate"]["seats"]["versions"][version]
+    fc = f'forecast {v["mean"]:.1f}, 80% range {v["p10"]:.0f}–{v["p90"]:.0f}'
+    hres, hpend = seat_result(sc, "house")
+    third = f'race condition: {hpend} House race{"" if hpend == 1 else "s"} uncalled' if hpend else f'House: {hres}'
+    last = ["", f'Senate: <b>{E(sen)}</b>', f'<span class="dim">{E(fc)}</span>', f'<span class="dim">{E(third)}</span>']
+    name = S["name"].lower()
+    steps = [{"c": "cat score.py"}, {"o": TERM_CODE, "g": 80}, {"c": "python score.py"}, {"o": lines, "g": 24},
+             {"o": last, "g": 100}, {"c": name, "f": 1}]
+    still = "".join(f'<div class="ln">{h or "&nbsp;"}</div>' for h in last) + \
+        f'<div class="ln"><span class="ps">$</span> {E(name)}{shell.RETURN}</div>'
+    label = (f"A terminal. A short script prints the 2026 Senate results race by race, then: Senate: {sen}; {fc}; "
+             f"{third}. The last line reads: {name}, followed by a return key.")
+    js = lambda x: json.dumps(x, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
+    return (f'<div class="term" id="term" role="img" aria-label="{E(label)}"><div class="lines">{still}</div></div>',
+            PLAY.replace("__STEPS__", js(steps)).replace("__RET__", js(shell.RETURN)))
+
+
 def landing(sc):
     F = S["featured"]
     inner = seat_lines(sc, F["scorecard"]) if F.get("scorecard") else ""
     smap = senate_map(sc, F["scorecard"]) if inner else ""
     callout = f'<p class="note">{S["callout"]["text"]}</p>\n' if S.get("callout") else ""
+    term, play = terminal(sc, F["scorecard"]) if smap else ("", "")
+    top = f'<h1>{E(S["name"])}</h1>\n<p class="lede">{E(S["intro"])}</p>'
+    if term:      # "front" tells the stylesheet this page's intro is the terminal, not the site name's typing
+        top = f'<div class="hero"><div>\n{top}\n</div>{term}</div>'
     return head(S["name"], S["description"], "", og(S["name"], S["description"], "og-home.png", "") + FORWARD + "\n") + \
-        f"""<body class="home">
+        f"""<body class="home{" front" if term else ""}">
 {shell.header("", "home")}
 <main class="wrap">
-<h1>{E(S["name"])}</h1>
-<p class="lede">{E(S["intro"])}</p>
+{top}
 {callout}<div class="sections featured">{card(F, "sec hasmap" if smap else "sec", inner + smap)}</div>
 <div class="sections">{"".join(card(c) for c in S["sections"])}</div>
 </main>
-""" + foot()
+""" + foot(play)
 
 
 def preview(key):
