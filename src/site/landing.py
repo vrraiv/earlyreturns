@@ -300,8 +300,8 @@ function line(h){var d=document.createElement("div");d.className="ln";d.innerHTM
 function done(){on=0;box.classList.remove("live");box.removeEventListener("click",skip);document.removeEventListener("keydown",key)}
 function skip(){if(on){done();el.innerHTML=rest}}
 function key(e){if(e.key==="Escape")skip()}
-async function play(){el.innerHTML="";box.classList.add("live");r.removeAttribute("data-intro");
-for(var k=0;k<steps.length;k++){var s=steps[k];
+async function play(){r.removeAttribute("data-intro");if(!on)return;el.innerHTML="";box.classList.add("live");
+for(var k=0;k<steps.length;k++){if(!on)return;var s=steps[k];
 if(s.c){var d=line('<span class="ps">$</span> <span class="typed"></span><i class="cur"></i>'),t=d.firstChild.nextSibling.nextSibling;
 await sleep(200);for(var i=0;i<s.c.length;i++){if(!on)return;t.textContent+=s.c[i];await sleep(18+Math.random()*24)}
 await sleep(120);if(!on)return;d.removeChild(d.lastChild);

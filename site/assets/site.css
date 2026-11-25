@@ -296,9 +296,9 @@ td .none { color: var(--text-3); font-size: .8rem; }
 .ret { width: 1em; height: 1em; vertical-align: -0.14em; margin-left: .45em; color: var(--ink); }
 .ret.pop { animation: ret-in .32s ease-out; }
 .sitename .ret { color: var(--text-2); margin-left: .1em; }
-.cur { display: inline-block; width: 0; height: 1.05em; vertical-align: text-bottom; border-left: .55em solid var(--ink); margin-right: -.55em; opacity: .75; animation: cur-blink 1s steps(1) infinite; }
-.sitename .cur { border-left-width: 2px; margin-right: -2px; height: 1.1em; }
-.ghost { visibility: hidden; }
+.sitename .cur, .term .cur { display: inline-block; width: 0; height: 1.05em; vertical-align: text-bottom; border-left: .55em solid var(--ink); margin-right: -.55em; opacity: .75; animation: cur-blink 1s steps(1) infinite; }
+.sitename .nm .cur { border-left-width: 2px; margin-right: -2px; height: 1.1em; }
+.sitename .ghost { visibility: hidden; }
 /* held back until the script starts, so the name is not seen whole and then typed again */
 :root[data-intro] body:not(.front) .sitename .nm, :root[data-intro] body:not(.front) .sitename .ret, :root[data-typing] .sitename .ret, :root[data-intro] .term .ln { visibility: hidden; }
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 350px); gap: 14px 28px; align-items: start; }
@@ -318,7 +318,7 @@ td .none { color: var(--text-3); font-size: .8rem; }
 @keyframes cur-blink { 50% { opacity: 0; } }
 @keyframes ret-in { from { opacity: 0; transform: translateX(.5em); } to { opacity: 1; transform: none; } }
 @media (max-width: 760px) { .hero { grid-template-columns: minmax(0, 1fr); } }
-@media (prefers-reduced-motion: reduce) { .cur, .ret.pop { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .sitename .cur, .term .cur, .ret.pop { animation: none; } }
 
 /* the 2028 board before the nominees (EC-8) */
 .board { margin: 20px 0 8px; }
