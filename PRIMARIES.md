@@ -78,6 +78,124 @@ timeline with no announcement date (Keyes and Cox in 2008, minor 2024 candidates
     result, as a description. Neither feeds any choice above. A value changed after results have been seen is
     declared as suggested by them.
 
+### Readings for the build (PP-10, 2026-11-25)
+
+Section 1 is silent or slightly wrong on the points below. All fifteen readings were written into this note before any
+average was computed. The owner agreed R2, R3, R8 and R12 then. R4 to R7 and R9 to R11 were agreed later the same day,
+after the first build and with the comparison of last averages and results already computed, and are unchanged from
+what was written before it. R13 was changed at that point, for file size only. R1, R14 and R15 were not put as
+questions. The data checks behind the readings are in "What was built" below.
+
+**Polls and pollsters**
+
+R1. **A poll** is (cycle, party, `poll_id`). 538 and HuffPost give one `poll_id` to a poll that asked both parties'
+    voters; that is two polls here, one per party.
+R2. **Pollster names.** One pollster key per name within a cycle, from a hand-kept file,
+    `data/supplement/primary_pollster_names.csv` (raw name, key), built by a mechanical clean-up checked by hand. k
+    (rule 7) and tracking (rule 6) use the key. Mainly 2008: Wikipedia gives 406 raw names, among them variants of one
+    pollster ("Rasmussen Reports", "Rasmussen Reports Poll", "Scott Rasmussen (Rasmussen Reports)") and citation text.
+R3. **One poll entered as several.** Rows with the same pollster key, place, party and field dates are one poll with
+    several questions, and rule 2's ladder chooses among them. Wikipedia 2008 lists ABC/Washington Post's Iowa poll
+    three ways; HuffPost 2012 lists one Fairleigh Dickinson question twice. Rule 2's "in 2020 and 2024 only" is wrong:
+    HuffPost 2012 has four polls with more than one question.
+R4. **Population.** HuffPost's "Likely Voters - Republican" and the like are read as likely voters, registered voters
+    or adults; 538's `v` (six polls) as likely voters, as in `pollavg.py`.
+
+**The average**
+
+R5. A candidate's average is over the polls in the window that name them. A poll that does not name them does not
+    count as zero for them.
+R6. k is counted per place: the pollster's polls in that place's window after thinning, the same for every candidate.
+R7. **Band.** The weighted 10th and 90th percentiles of the readings, by the inverted CDF: the smallest reading at
+    which the cumulative share of weight reaches 10% (or 90%).
+
+**Lines and places**
+
+R8. A line's last day is the withdrawal date itself, and for rule 10's cut the day of the first contest, so the first
+    contest's last average still has every candidate.
+R9. The national average runs to the last vote held for that party in the cycle.
+R10. A place with polls but no vote (2016 Republicans in Colorado, 2020 Republicans in Nevada and South Carolina, 2024
+    Democrats in Florida and Republicans in South Dakota) has its average stop on the day the cancellation was known
+    (the loader's dates as known); no result is set beside it.
+R11. **Cycles.** Every cycle and party in the poll files is built, the incumbents' parties too (2020 Republicans, 2024
+    Democrats). Reports mark the seven open contests, which are the ones PP-6 uses.
+
+**The report (rule 15)**
+
+R12. The result beside a place's last average is that of the vote on its voting day, where the average stops (section
+    2, rule 7). Where that vote is non-binding, the main contest's result is shown too. The share is the results file's
+    (one measure per contest: votes, or delegate equivalents for some caucuses), in points. Ranked-choice contests use
+    the first round, since polls ask first preferences (Alaska and Kansas Democrats 2020).
+
+**Outputs**
+
+R13. Committed: the national average day by day from the start of the window (180 days before the first contest) to
+    the last vote; each place's last average beside its result; the coverage table. Any other date is rebuilt by the
+    function. (The owner's call, 2026-11-25, on file size: every day from the first national poll came to 14 MB.) Averages for 2012 and 2016 come from the HuffPost file: they credit HuffPost
+    Pollster and are non-commercial, as `LICENSE-DATA.md` says for anything derived from it.
+R14. The coverage table flags HuffPost contests whose only archived file may predate the contest (`file_rule` 3).
+R15. **Checks.** Rebuilding an average with every later poll deleted gives the same number (thinning, k and n as of the
+    date); small hand-worked cases for the weights, the ladder, the thinning chain and the switch to a 7-day half-life.
+
+### What was built (PP-10, 2026-11-25)
+
+`src/model/primary_avg.py` builds every average as the rules and readings above set them out; `average(cycle, party,
+place, as_of)` rebuilds any one as of any date, for PP-6. Outputs in `data/processed/`: `primary_avg_national.csv`,
+`primary_avg_last.csv`, `primary_avg_coverage.csv`, `primary_avg_report.csv` (described in `DATA.md`). `src/check_primary_averages.py` passes:
+60 random averages are unchanged when rebuilt from the raw rows with every later row deleted (a sanity case confirms
+the comparison can fail), and hand-worked cases agree for the weights, the band,
+the thinning chain, the ladder (two 2012 polls), the half-life switch and window, a line's last day and a state's last
+day.
+
+Data notes from the build:
+
+- Pollster keys (R2): 2008's 406 raw names come down to 115 keys, 2012's 103 to 86 and 2016's 220 to 151; 2020 and
+  2024 keep 538's names.
+- Merges in the pollster keys that rest on who conducted a poll rather than on its name: Concord Monitor, the two Reno
+  Gazette-Journal names and a bare "2000" to Research 2000; bare CNN and "CNN Poll" to Opinion Research Corporation;
+  bare Fox News to Opinion Dynamics; CNN/WMUR to the University of New Hampshire; Cook Political Report to RT
+  Strategies; the Keystone Poll names (WTAE/Pittsburgh Tribune-Review among them) to Franklin & Marshall; Des Moines
+  Register to Selzer; Whit Ayres to Ayres McHenry; and Reuters/Zogby/ARG (three national polls, late 2007) to Zogby,
+  the least certain of these.
+- FiveThirtyEight's late 2008 polls (Democratic state polls after 7 February, top two only) are dated by their middle
+  day, not their last, so they enter an average a day or two before they ended.
+- One 2008 poll (American Research Group, Iowa Republicans) has its start after its end in the file; its dates are
+  taken in order.
+- Kept under the rules as written, and listed here for the owner rather than acted on: 2008's Wikipedia lists include
+  campaign polls the file has no flag for (Global Strategy Group for Edwards, Harstad for Obama, Fairbank, Maslin for
+  Richardson), which rule 4 keeps because 2008 carries no internal flag; and 94 polls by Strategic Vision (53 Democratic, 41 Republican), which AAPOR
+  censured in 2009 for not disclosing its methods and which was then suspected of fabricating results. Leaving either
+  out would be a new rule.
+- 2020 Republicans in Nevada and South Carolina have polls but no vote and no date-change rows (date changes were
+  collected for the open contests only), so they never have an average.
+
+**Report (rule 15; a description, no pass mark).** Of the readings above, R4 to R7 and R9 to R11 were agreed with
+this comparison already computed, and are as written before it; R13 changed after it, for file size. Nothing else
+changed. Written by `primary_avg.py` to `primary_avg_report.csv`. By cycle and party: states
+with any poll; states with a last average (a poll in the 60 days before the vote); polls (after the question ladder,
+before thinning); HuffPost places whose only file may predate the contest; and, for the places with a last average,
+how often the leader in it won (the winner being the top candidate in the results file for that vote), the mean absolute miss on the top two's margin, and the share of candidate lines whose
+result fell inside the poll spread.
+
+| Cycle | Party | Open | States with polls | With a last average | State polls | National polls | HuffPost file may predate | Leader won | Top-two margin miss (points) | Result inside poll spread |
+|---|---|---|--:|--:|--:|--:|--:|--:|--:|--:|
+| 2008 | D | yes | 45 | 40 | 816 | 242 | | 32 of 40 | 8.5 | 38% |
+| 2008 | R | yes | 40 | 27 | 630 | 219 | | 23 of 27 | 6.4 | 50% |
+| 2012 | R | yes | 21 | 18 | 438 | 353 | 0 | 15 of 18 | 7.8 | 52% |
+| 2016 | D | yes | 38 | 33 | 555 | 360 | 6 | 28 of 33 | 12.4 | 35% |
+| 2016 | R | yes | 44 | 34 | 695 | 363 | 15 | 29 of 34 | 9.2 | 49% |
+| 2020 | D | yes | 42 | 28 | 578 | 514 | | 23 of 28 | 10.1 | 60% |
+| 2020 | R | no | 23 | 8 | 74 | 115 | | 8 of 8 | 4.4 | 12% |
+| 2024 | D | no | 23 | 12 | 100 | 307 | | 12 of 12 | 8.9 | 31% |
+| 2024 | R | yes | 41 | 22 | 797 | 979 | | 20 of 22 | 11.0 | 32% |
+
+In all, the leader in the last average won 190 of 222 contests (170 of 202 in the open contests), and the top two's
+margin was missed by 9.2 points on average. Since undecided voters stay in each poll's share (rule 3), winners usually
+finish above their averages, and the poll spread is not a range for the result (rule 14): calibrated ranges are PP-5's.
+Where the first vote was non-binding (Nevada Republicans 2024, among others), the result beside the average is that
+vote's, with the main contest's next to it (R12).
+
+
 **Not in PP-3**
 
 - **2028 polls.** No collector is built now: the sources (Wikipedia first, VoteHub as the cross-check, decided at DA-6)

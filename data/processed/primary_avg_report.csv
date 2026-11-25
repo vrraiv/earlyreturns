@@ -1,0 +1,10 @@
+cycle,party,open_contest,states_with_polls,states_with_last_average,state_polls,huffpost_file_may_predate,national_polls,contests,leader_won,top_two_margin_miss,lines_inside_spread,lines_with_result
+2008,D,True,45,40,816,0,242,40,32,8.47,36,96
+2008,R,True,40,27,630,0,219,27,23,6.42,61,122
+2012,R,True,21,18,438,0,353,18,15,7.81,37,71
+2016,D,True,38,33,555,6,360,33,28,12.40,23,66
+2016,R,True,44,34,695,15,363,34,29,9.16,68,140
+2020,D,True,42,28,578,0,514,28,23,10.09,80,133
+2020,R,False,23,8,74,0,115,8,8,4.37,2,17
+2024,D,False,23,12,100,0,307,12,12,8.86,8,26
+2024,R,True,41,22,797,0,979,22,20,11.00,14,44

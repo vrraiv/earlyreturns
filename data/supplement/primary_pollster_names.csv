@@ -1,0 +1,1022 @@
+cycle,raw_name,pollster,how
+2008,ABC / Washington Post,ABC News/Washington Post,pattern abc|washington ?post
+2008,ABC / Washington Post Margin of Error: ± 3.0%,ABC News/Washington Post,pattern abc|washington ?post
+2008,ABC News / Wash Post,ABC News/Washington Post,pattern abc|washington ?post
+2008,ABC News / Washington Post,ABC News/Washington Post,pattern abc|washington ?post
+2008,ABC News / Washington Post Poll,ABC News/Washington Post,pattern abc|washington ?post
+2008,ABC News/The Washington Post,ABC News/Washington Post,pattern abc|washington ?post
+2008,ABC News/Washington Post,ABC News/Washington Post,pattern abc|washington ?post
+2008,"ABC/Washington Post (""absolutely certain"" caucus-goers)",ABC News/Washington Post,pattern abc|washington ?post
+2008,ABC/Washington Post (all caucus-goers),ABC News/Washington Post,pattern abc|washington ?post
+2008,ABC/Washington Post (reallocating support for non-viable candidates),ABC News/Washington Post,pattern abc|washington ?post
+2008,Washington Post,ABC News/Washington Post,pattern abc|washington ?post
+2008,Washington Post / ABC News,ABC News/Washington Post,pattern abc|washington ?post
+2008,WashingtonPost,ABC News/Washington Post,pattern abc|washington ?post
+2008,Abt Associates,Abt Associates,clean-up
+2008,Advantage/Florida Chamber of Commerce,Advantage/Florida Chamber of Commerce,clean-up
+2008,American Research Group,American Research Group,pattern american research group
+2008,American Research Group Poll,American Research Group,pattern american research group
+2008,ASU / KNXV TV Poll,Arizona State University,pattern asu|arizona state
+2008,Arizona State,Arizona State University,pattern asu|arizona state
+2008,Arizona State University,Arizona State University,pattern asu|arizona state
+2008,"Ayers, McHenry & Associates",Ayres McHenry,pattern ayers|ayres
+2008,WIS-TV / Ayres McHenry (R),Ayres McHenry,pattern ayers|ayres
+2008,Whit Ayres,Ayres McHenry,pattern ayers|ayres
+2008,Baltimore Sun,Baltimore Sun,clean-up
+2008,Baselice & Associates,Baselice & Associates,pattern baselice
+2008,Battleground Poll,Battleground,clean-up
+2008,Behavior Research Center,Behavior Research Center,pattern behavior research|rocky mountain poll
+2008,Behavior Research Center/Rocky Mountain Poll,Behavior Research Center,pattern behavior research|rocky mountain poll
+2008,Rocky Mountain Poll,Behavior Research Center,pattern behavior research|rocky mountain poll
+2008,Big Village,Big Village,clean-up
+2008,Braun Research,Braun Research,clean-up
+2008,Brown University A. Alfred Taubman Center for American Politics and Policy,Brown University,pattern brown university
+2008,Brown University Poll,Brown University,pattern brown university
+2008,CBS / NYT Poll,CBS News/New York Times,pattern cbs
+2008,CBS / New York Times,CBS News/New York Times,pattern cbs
+2008,CBS / New York Times Poll,CBS News/New York Times,pattern cbs
+2008,CBS News,CBS News/New York Times,pattern cbs
+2008,CBS News / New York City Poll,CBS News/New York Times,pattern cbs
+2008,CBS News / New York Times,CBS News/New York Times,pattern cbs
+2008,CBS News / New York Times Poll,CBS News/New York Times,pattern cbs
+2008,CBS News / New York Times*,CBS News/New York Times,pattern cbs
+2008,CBS News / The New York Times Poll,CBS News/New York Times,pattern cbs
+2008,CBS News Poll,CBS News/New York Times,pattern cbs
+2008,CBS/New York Times,CBS News/New York Times,pattern cbs
+2008,Capital Survey Research Center,Capital Survey Research Center,pattern capital survey
+2008,Capital Survey Research Center Poll,Capital Survey Research Center,pattern capital survey
+2008,Capitol Fax / Ask Illinois,Capitol Fax / Ask Illinois,clean-up
+2008,Chicago Tribune,Chicago Tribune,pattern chicago tribune
+2008,Chicago Tribune / WGN TV,Chicago Tribune,pattern chicago tribune
+2008,Chicago Tribune/WGN-TV,Chicago Tribune,pattern chicago tribune
+2008,Ciruli Associates Poll,Ciruli Associates,pattern ciruli
+2008,Ciruli Associates for the Economic Development Council Of Colorado,Ciruli Associates,pattern ciruli
+2008,Civitas Institute,Civitas Institute,pattern civitas
+2008,Civitas Institute poll conducted by Tel Opinion Research (R),Civitas Institute,pattern civitas
+2008,Clemson University,Clemson University,pattern clemson
+2008,Clemson University Palmetto Poll,Clemson University,pattern clemson
+2008,Columbus Dispatch,Columbus Dispatch,clean-up
+2008,"WSMV / Crawford, Johnson and Northcott","Crawford, Johnson & Northcott",pattern crawford
+2008,"WSMV-TV / Crawford, Johnson and Northcott","Crawford, Johnson & Northcott",pattern crawford
+2008,WSMV/Crawford Johnson & Northcott,"Crawford, Johnson & Northcott",pattern crawford
+2008,"WSMV/Crawford, Johnson & Northcott","Crawford, Johnson & Northcott",pattern crawford
+2008,Critical Insights,Critical Insights,clean-up
+2008,Cronkite / Eight Poll,Cronkite/Eight (ASU),pattern cronkite
+2008,Cronkite/Eight Poll,Cronkite/Eight (ASU),pattern cronkite
+2008,DHM Research,DHM Research,clean-up
+2008,Datamar,Datamar,pattern datamar
+2008,Datamar Inc.,Datamar,pattern datamar
+2008,Decision Analyst,Decision Analyst,clean-up
+2008,Deseret Morning News / KSL-TV,Deseret Morning News/KSL,pattern deseret
+2008,Deseret Morning News/KSL-TV,Deseret Morning News/KSL,pattern deseret
+2008,Detroit Free Press,Detroit Free Press,pattern detroit free press
+2008,Detroit Free Press-Local 4 Michigan Poll,Detroit Free Press,pattern detroit free press
+2008,Detroit News,Detroit News,pattern detroit news
+2008,Detroit News / WXYZ,Detroit News,pattern detroit news
+2008,Detroit News / WXYZ-TV,Detroit News,pattern detroit news
+2008,Detroit News/WXYZ,Detroit News,pattern detroit news
+2008,Detroit News/WXYZ-TV,Detroit News,pattern detroit news
+2008,"""Diageo/Hotline"" (PDF) . Archived from the original (PDF) on February 8, 2008 . Retrieved January 17, 2008 . (55.8 KiB )",Diageo/Hotline (FD),pattern diageo|hotline
+2008,Diageo / Hotline,Diageo/Hotline (FD),pattern diageo|hotline
+2008,Diageo / Hotline Poll,Diageo/Hotline (FD),pattern diageo|hotline
+2008,Diageo / Hotline Sample Size: 266,Diageo/Hotline (FD),pattern diageo|hotline
+2008,Diageo/The Hotline/FD,Diageo/Hotline (FD),pattern diageo|hotline
+2008,EPIC-MRA,EPIC-MRA,clean-up
+2008,Elon University,Elon University,pattern elon
+2008,Elon University Polling,Elon University,pattern elon
+2008,"Fabrizio, McLaughlin & Associates (R)","Fabrizio, McLaughlin & Associates",pattern fabrizio
+2008,"Fabrizio, McLaughlin & Associates Poll (R)","Fabrizio, McLaughlin & Associates",pattern fabrizio
+2008,"Fairbank, Maslin, Maullin and Associates (Richardson) (LIKELIEST Caucus Goers)","Fairbank, Maslin, Maullin & Associates",pattern ^fairbank
+2008,Fairleigh Dickinson University,Fairleigh Dickinson University,pattern fairleigh
+2008,Field,Field Poll,pattern field
+2008,Field Research,Field Poll,pattern field
+2008,Field Research Corp.,Field Poll,pattern field
+2008,Field Research Corporation,Field Poll,pattern field
+2008,The Field,Field Poll,pattern field
+2008,The Field (announced candidates),Field Poll,pattern field
+2008,The Field (prospective candidates),Field Poll,pattern field
+2008,The Field (with Gore),Field Poll,pattern field
+2008,The Field (without Gore),Field Poll,pattern field
+2008,The Field Poll,Field Poll,pattern field
+2008,Fleming & Associates,Fleming & Associates,clean-up
+2008,Franklin & Marshall College Center for Opinion Research,Franklin & Marshall College,pattern keystone|franklin (&|and) marshall
+2008,Franklin and Marshall College,Franklin & Marshall College,pattern keystone|franklin (&|and) marshall
+2008,Keystone Poll,Franklin & Marshall College,pattern keystone|franklin (&|and) marshall
+2008,Pennsylvania Keystone Poll,Franklin & Marshall College,pattern keystone|franklin (&|and) marshall
+2008,WTAE / Pittsburgh Tribune-Review Keystone,Franklin & Marshall College,pattern keystone|franklin (&|and) marshall
+2008,WTAE/Pittsburgh Tribune-Review Keystone,Franklin & Marshall College,pattern keystone|franklin (&|and) marshall
+2008,Franklin Pierce,Franklin Pierce,pattern franklin pierce
+2008,Franklin Pierce College / WBZ-TV,Franklin Pierce,pattern franklin pierce
+2008,Franklin Pierce College/WBZ,Franklin Pierce,pattern franklin pierce
+2008,Franklin Pierce College/WBZ (without Gore),Franklin Pierce,pattern franklin pierce
+2008,Franklin Pierce University / WBZ,Franklin Pierce,pattern franklin pierce
+2008,Franklin Pierce University / WBZ Poll,Franklin Pierce,pattern franklin pierce
+2008,Franklin Pierce University/WBZ,Franklin Pierce,pattern franklin pierce
+2008,GQR,GQR,pattern greenberg|gqr
+2008,"Greenberg, Quinlan, Rosner Research Inc.",GQR,pattern greenberg|gqr
+2008,CNN / USA Today / Gallup,Gallup,pattern usa today|gallup
+2008,CNN / USA Today / Gallup Poll,Gallup,pattern usa today|gallup
+2008,Gallup,Gallup,pattern usa today|gallup
+2008,Gallup *,Gallup,pattern usa today|gallup
+2008,Gallup Poll,Gallup,pattern usa today|gallup
+2008,USA Today / Gallup,Gallup,pattern usa today|gallup
+2008,USA Today / Gallup Margin of Error: ± 3.0%,Gallup,pattern usa today|gallup
+2008,USA Today / Gallup Poll,Gallup,pattern usa today|gallup
+2008,USA Today / Gallup Poll (''without Gingrich''),Gallup,pattern usa today|gallup
+2008,USA Today / Gallup ‡,Gallup,pattern usa today|gallup
+2008,USA Today / Gallup*,Gallup,pattern usa today|gallup
+2008,USA Today / Galup,Gallup,pattern usa today|gallup
+2008,USA Today/Gallup,Gallup,pattern usa today|gallup
+2008,USA Today/Gallup Poll,Gallup,pattern usa today|gallup
+2008,WIS-TV/Garin-Hart-Yang (With Lean),Garin-Hart-Yang,pattern garin-hart
+2008,WIS-TV/Garin-Hart-Yang (Without Lean),Garin-Hart-Yang,pattern garin-hart
+2008,Global Strategy Group,Global Strategy Group,pattern global strategy
+2008,Global Strategy Group/Edwards Campaign Internal Poll,Global Strategy Group,pattern global strategy
+2008,Greg Smith & Associates,Greg Smith & Associates,clean-up
+2008,Hamilton Beattie (D) / Ayres McHenry (R),Hamilton Beattie/Ayres McHenry,pattern hamilton beattie
+2008,Hamilton Beattie (D)/Ayers McHenry (R),Hamilton Beattie/Ayres McHenry,pattern hamilton beattie
+2008,Harris Interactive,Harris Interactive,pattern harris
+2008,Harris Interactive Poll,Harris Interactive,pattern harris
+2008,Harris Interactivel,Harris Interactive,pattern harris
+2008,Harstad Research (Obama),Harstad Research (Obama),clean-up
+2008,Hart (D)/McLaughlin (R),Hart/McLaughlin,pattern hart.*mclaughlin
+2008,Hart-McLaughlin,Hart/McLaughlin,pattern hart.*mclaughlin
+2008,Howey Politics/DePauw University,Howey Politics/DePauw University,clean-up
+2008,IVR Polls,IVR Polls,clean-up
+2008,Insider Advantage,InsiderAdvantage,pattern insider ?advantage
+2008,Insider Advantage (R),InsiderAdvantage,pattern insider ?advantage
+2008,Insider Advantage (with Gore),InsiderAdvantage,pattern insider ?advantage
+2008,Insider Advantage (without Gore),InsiderAdvantage,pattern insider ?advantage
+2008,Insider Advantage / Majority Opinion,InsiderAdvantage,pattern insider ?advantage
+2008,Insider Advantage Poll,InsiderAdvantage,pattern insider ?advantage
+2008,InsiderAdvantage,InsiderAdvantage,pattern insider ?advantage
+2008,InsiderAdvantage (highly likely voters),InsiderAdvantage,pattern insider ?advantage
+2008,InsiderAdvantage (likely voters),InsiderAdvantage,pattern insider ?advantage
+2008,AP - Ipsos,Ipsos,pattern ipsos
+2008,AP / Ipsos,Ipsos,pattern ipsos
+2008,Associated Press - Ipsos,Ipsos,pattern ipsos
+2008,Associated Press / Ipsos,Ipsos,pattern ipsos
+2008,Associated Press / Ipsos Public Affairs Poll,Ipsos,pattern ipsos
+2008,Associated Press-Ipsos poll,Ipsos,pattern ipsos
+2008,Ipsos Public Affairs,Ipsos,pattern ipsos
+2008,Ipsos-Public Affairs Poll,Ipsos,pattern ipsos
+2008,KCCI Des Moines,KCCI,pattern kcci
+2008,KCCI-TV,KCCI,pattern kcci
+2008,KWTV/TVPoll.com,KWTV/TVPoll.com,clean-up
+2008,Lee's Newspaper,Lee's Newspaper,clean-up
+2008,LA Times / Bloomberg,Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,LA Times/Bloomberg (Likely Caucus Goers),Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,LA Times/Bloomberg (Likely Voters),Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,LA Times/Bloomberg (registered voters),Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,Los Angeles Times,Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,Los Angeles Times / Bloomberg,Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,Los Angeles Times / Bloomberg Poll,Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,Los Angeles Times/Bloomberg,Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,Los Angeles Times/Bloomberg (Democrats only),Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,Los Angeles Times/Bloomberg (Liberal Democrats),Los Angeles Times/Bloomberg,pattern la times|los angeles times
+2008,Minn. Pub. Radio,MPR/Humphrey Institute,pattern minn\. pub|minnesota public radio
+2008,Minnesota Public Radio and Humphrey Institute Poll,MPR/Humphrey Institute,pattern minn\. pub|minnesota public radio
+2008,Marist College,Marist College,pattern marist
+2008,Marist College Institute for Public Opinion,Marist College,pattern marist
+2008,Marist College Institute for Public Opinion (Likely Voters),Marist College,pattern marist
+2008,Marist College Institute for Public Opinion (likely voters),Marist College,pattern marist
+2008,Marist College Institute for Public Opinion (likely w/ leaners),Marist College,pattern marist
+2008,Marist College Poll,Marist College,pattern marist
+2008,WNBC / Marist,Marist College,pattern marist
+2008,WNBC / Marist College,Marist College,pattern marist
+2008,WNBC / Marist Poll,Marist College,pattern marist
+2008,WNBC/Marist,Marist College,pattern marist
+2008,WNBC/Marist College,Marist College,pattern marist
+2008,Marketing Resource Group,Marketing Resource Group,clean-up
+2008,MSNBC / Mason Dixon / McClatchy,Mason-Dixon,pattern mason.?dixon
+2008,MSNBC / Mason-Dixon,Mason-Dixon,pattern mason.?dixon
+2008,MSNBC / McClatchy / Mason Dixon,Mason-Dixon,pattern mason.?dixon
+2008,MSNBC/Mason-Dixon,Mason-Dixon,pattern mason.?dixon
+2008,"MSNBC/Mason-Dixon(Second Choice, cumulative)",Mason-Dixon,pattern mason.?dixon
+2008,MSNBC/McClatchy/Mason Dixon,Mason-Dixon,pattern mason.?dixon
+2008,Mason Dixon,Mason-Dixon,pattern mason.?dixon
+2008,Mason Dixon / AJC,Mason-Dixon,pattern mason.?dixon
+2008,Mason Dixon/AJC,Mason-Dixon,pattern mason.?dixon
+2008,Mason-Dixon,Mason-Dixon,pattern mason.?dixon
+2008,Mason-Dixon Poll,Mason-Dixon,pattern mason.?dixon
+2008,Mason-Dixon Polling & Strategy,Mason-Dixon,pattern mason.?dixon
+2008,Mason-Dixon/McClatchy/MSNBC/Miami Herald Poll,Mason-Dixon,pattern mason.?dixon
+2008,McClatchy / MSNBC / Mason Dixon,Mason-Dixon,pattern mason.?dixon
+2008,Richmond Times-Dispatch / Mason Dixon,Mason-Dixon,pattern mason.?dixon
+2008,McLaughlin & Associates,McLaughlin & Associates,pattern mclaughlin
+2008,McLaughlin & Associates (R),McLaughlin & Associates,pattern mclaughlin
+2008,McLaughlin & Associates Poll (R),McLaughlin & Associates,pattern mclaughlin
+2008,McLaughlin and Associates (Gingrich Excluded),McLaughlin & Associates,pattern mclaughlin
+2008,Mitchell Interactive,Mitchell Interactive,clean-up
+2008,Monmouth University,Monmouth University,pattern monmouth
+2008,Monmouth University / Gannett,Monmouth University,pattern monmouth
+2008,Monmouth University / Gannett New Jersey Poll,Monmouth University,pattern monmouth
+2008,Monmouth University/Gannett,Monmouth University,pattern monmouth
+2008,Monmouth University/Gannett New Jersey Poll,Monmouth University,pattern monmouth
+2008,Monmouth/Gannett,Monmouth University,pattern monmouth
+2008,Muhlenberg College Institute of Public Opinion,Muhlenberg College Institute of Public Opinion,clean-up
+2008,NBC / WSJ Poll,NBC News/Wall Street Journal,pattern nbc
+2008,NBC News / WSJ,NBC News/Wall Street Journal,pattern nbc
+2008,NBC News / WSJ Margin of Error: ± 3.1%,NBC News/Wall Street Journal,pattern nbc
+2008,NBC News / Wall Street Journal,NBC News/Wall Street Journal,pattern nbc
+2008,NBC News / Wall Street Journal Poll,NBC News/Wall Street Journal,pattern nbc
+2008,NY1,NY1,clean-up
+2008,New Mexico State University,New Mexico State University,clean-up
+2008,Newsweek,Newsweek,pattern newsweek
+2008,Newsweek (All Democratic voters),Newsweek,pattern newsweek
+2008,Newsweek (All Republican voters),Newsweek,pattern newsweek
+2008,Newsweek (Likely caucus-goers),Newsweek,pattern newsweek
+2008,Newsweek Poll,Newsweek,pattern newsweek
+2008,Newsweek †,Newsweek,pattern newsweek
+2008,FOX News / Opinion Dynamics,Opinion Dynamics,pattern fox news|opinion dynamics
+2008,FOX News / Opinion Dynamics Poll,Opinion Dynamics,pattern fox news|opinion dynamics
+2008,FOX News / Opinion Dynamics Poll ''(without Gingrich)'',Opinion Dynamics,pattern fox news|opinion dynamics
+2008,Fox News,Opinion Dynamics,pattern fox news|opinion dynamics
+2008,Fox News / Opinion,Opinion Dynamics,pattern fox news|opinion dynamics
+2008,Fox News / Opinion Dynamics,Opinion Dynamics,pattern fox news|opinion dynamics
+2008,Fox News Poll,Opinion Dynamics,pattern fox news|opinion dynamics
+2008,Fox News/Opinion Dynamics,Opinion Dynamics,pattern fox news|opinion dynamics
+2008,Opinion Dynamics,Opinion Dynamics,pattern fox news|opinion dynamics
+2008,CNN,Opinion Research Corporation,pattern ^cnn
+2008,CNN / Opinion Research,Opinion Research Corporation,pattern ^cnn
+2008,CNN / Opinion Research (Without Gingrich),Opinion Research Corporation,pattern ^cnn
+2008,CNN / Opinion Research Corp.,Opinion Research Corporation,pattern ^cnn
+2008,CNN / Opinion Research Corporation,Opinion Research Corporation,pattern ^cnn
+2008,CNN / Opinion Research Corporation Poll,Opinion Research Corporation,pattern ^cnn
+2008,CNN / Opinion Research*,Opinion Research Corporation,pattern ^cnn
+2008,CNN Poll,Opinion Research Corporation,pattern ^cnn
+2008,CNN/Opinion Research,Opinion Research Corporation,pattern ^cnn
+2008,CNN/Opinion Research With Gore,Opinion Research Corporation,pattern ^cnn
+2008,CNN/Opinion Research Without Gore,Opinion Research Corporation,pattern ^cnn
+2008,Baltimore Sun / Opinion Works,OpinionWorks,pattern opinionworks|opinion works
+2008,OpinionWorks,OpinionWorks,pattern opinionworks|opinion works
+2008,Orion Strategies,Orion Strategies,clean-up
+2008,PPIC,PPIC,pattern public policy institute|ppic
+2008,Public Policy Institute of California,PPIC,pattern public policy institute|ppic
+2008,Pew Research,Pew Research Center,pattern pew
+2008,Pew Research Center,Pew Research Center,pattern pew
+2008,Pew Research Center Poll,Pew Research Center,pattern pew
+2008,Politico / CNN / Los Angeles Times,Politico/CNN/Los Angeles Times,pattern politico
+2008,Politico/CNN/Los Angeles Times,Politico/CNN/Los Angeles Times,pattern politico
+2008,Texas Credit Union League / Public Opinion Strategies,Public Opinion Strategies,pattern public opinion strategies
+2008,Public Opinion Strategies/Hamilton Campaigns,Public Opinion Strategies/Hamilton Campaigns,pattern public opinion strategies/hamilton
+2008,Public Policy Polling,Public Policy Polling,pattern public policy polling
+2008,Public Policy Polling (D),Public Policy Polling,pattern public policy polling
+2008,Public Policy Polling (R),Public Policy Polling,pattern public policy polling
+2008,Public Strategies Inc.,Public Strategies Inc.,clean-up
+2008,Quinnipiac,Quinnipiac University,pattern quinnipiac
+2008,Quinnipiac (with Gore),Quinnipiac University,pattern quinnipiac
+2008,Quinnipiac (without Gore),Quinnipiac University,pattern quinnipiac
+2008,Quinnipiac University,Quinnipiac University,pattern quinnipiac
+2008,Quinnipiac University (with Gore),Quinnipiac University,pattern quinnipiac
+2008,Quinnipiac University (without Gore),Quinnipiac University,pattern quinnipiac
+2008,Quinnipiac University College,Quinnipiac University,pattern quinnipiac
+2008,Quinnipiac University Poll,Quinnipiac University,pattern quinnipiac
+2008,Constituent Dynamics/RT Strategies,RT Strategies,pattern rt strateg
+2008,Cook Political Report,RT Strategies,pattern ^cook political report$
+2008,Cook Political Report / RT Strategie,RT Strategies,pattern rt strateg
+2008,Cook Political Report / RT Strategies,RT Strategies,pattern rt strateg
+2008,Cook Political Report / RT Strategies Poll,RT Strategies,pattern rt strateg
+2008,Cook Political Report / RT Strategies*,RT Strategies,pattern rt strateg
+2008,Political Report / RT Strategies,RT Strategies,pattern rt strateg
+2008,Rasmussen,Rasmussen Reports,pattern ras+m
+2008,Rasmussen (Likely Primary Voters),Rasmussen Reports,pattern ras+m
+2008,Rasmussen Reports,Rasmussen Reports,pattern ras+m
+2008,Rasmussen Reports *,Rasmussen Reports,pattern ras+m
+2008,Rasmussen Reports Daily Poll,Rasmussen Reports,pattern ras+m
+2008,Rasmussen Reports Poll,Rasmussen Reports,pattern ras+m
+2008,Rassmusen,Rasmussen Reports,pattern ras+m
+2008,Scott Rasmussen (Rasmussen Reports),Rasmussen Reports,pattern ras+m
+2008,Reichle Firm,Reichle Firm,clean-up
+2008,2000,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Concord Monitor,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Concord Monitor / Research 2000,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Concord Monitor/Research 2000,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Gazette-Journal Poll,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Reno Gazette-Journal,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000 / Reno Gazette-Journal,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000 / The Record,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000 / WISC-TV Madison,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000 Gore Excluded,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000 Gore Included,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000/Quad City Times,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000/Reno Gazette-Journal,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000/Sioux City Journal,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Research 2000/The Record,Research 2000,pattern ^2000$|research 2000|concord monitor|reno gazette|gazette-journal
+2008,Riley Research,Riley Research,pattern riley
+2008,Riley Research Poll,Riley Research,pattern riley
+2008,Rossman Group,Rossman Group,pattern rossman
+2008,Rossman Group/MIRS/Denno-Noor,Rossman Group,pattern rossman
+2008,The Rossman Group,Rossman Group,pattern rossman
+2008,Rutgers-Eagleton,Rutgers-Eagleton,clean-up
+2008,San Jose State California Primary,San Jose State SPRI,pattern san jose|survey (&|and) policy
+2008,Survey & Policy Research Institute,San Jose State SPRI,pattern san jose|survey (&|and) policy
+2008,Survey and Policy Research Institute at San Jose State University,San Jose State SPRI,pattern san jose|survey (&|and) policy
+2008,Des Moines Register,Selzer & Co.,pattern des moines register|selzer
+2008,Des Moines Register (likely Caucus-goers),Selzer & Co.,pattern des moines register|selzer
+2008,Des Moines Register Poll,Selzer & Co.,pattern des moines register|selzer
+2008,Selzer & Co.,Selzer & Co.,pattern des moines register|selzer
+2008,Siena College,Siena College,pattern siena
+2008,Siena College (Frontrunners),Siena College,pattern siena
+2008,Times Union / Siena College Poll,Siena College,pattern siena
+2008,St. Petersburg Times,St. Petersburg Times,clean-up
+2008,Star Tribune GOP,Star Tribune Minnesota Poll,pattern star tribune
+2008,Star Tribune Minnesota Poll,Star Tribune Minnesota Poll,pattern star tribune
+2008,State House News,State House News,clean-up
+2008,Stragetic Vision (R),Strategic Vision,pattern str[a]?[t]?[e]?g[e]?[t]?ic vision|stragetic
+2008,Strategic Vision,Strategic Vision,pattern str[a]?[t]?[e]?g[e]?[t]?ic vision|stragetic
+2008,Strategic Vision (R),Strategic Vision,pattern str[a]?[t]?[e]?g[e]?[t]?ic vision|stragetic
+2008,Strategic Vision (note),Strategic Vision,pattern str[a]?[t]?[e]?g[e]?[t]?ic vision|stragetic
+2008,Strategic Vision Political,Strategic Vision,pattern str[a]?[t]?[e]?g[e]?[t]?ic vision|stragetic
+2008,Suffolk / WHDH 7,Suffolk University,pattern suffolk
+2008,Suffolk University,Suffolk University,pattern suffolk
+2008,Suffolk University / WHDH,Suffolk University,pattern suffolk
+2008,Suffolk University / WHDH 7,Suffolk University,pattern suffolk
+2008,Suffolk University/WHDH 7,Suffolk University,pattern suffolk
+2008,KFOR/Survey USA,SurveyUSA,pattern survey ?usa
+2008,Survey USA,SurveyUSA,pattern survey ?usa
+2008,Survey USA Poll,SurveyUSA,pattern survey ?usa
+2008,SurveyUSA,SurveyUSA,pattern survey ?usa
+2008,Susquehanna Polling & Research Inc.,Susquehanna Polling & Research Inc.,clean-up
+2008,TeleResearch Corporation,TeleResearch Corporation,clean-up
+2008,Temple University Institute for Survey Research,Temple University Institute for Survey Research,clean-up
+2008,Lyceum Polls,Texas Lyceum,pattern lyceum
+2008,Texas Lyceum,Texas Lyceum,pattern lyceum
+2008,The Tyson Group,The Tyson Group,clean-up
+2008,TIME,Time,pattern ^time
+2008,Time,Time,pattern ^time
+2008,Time Poll,Time,pattern ^time
+2008,Tulsa World / KOTV,Tulsa World/KOTV,pattern tulsa
+2008,Tulsa World / KOTV Oklahoma Poll,Tulsa World/KOTV,pattern tulsa
+2008,Tulsa-World/KOTV/Sooner Poll,Tulsa World/KOTV,pattern tulsa
+2008,CSRA,UConn CSRA,pattern csra
+2008,The Courant / CSRA,UConn CSRA,pattern csra
+2008,University of Cincinnati (Ohio Poll),University of Cincinnati (Ohio Poll),clean-up
+2008,University of Iowa,University of Iowa,pattern university of iowa
+2008,University of Iowa (Likely Caucus Goers),University of Iowa,pattern university of iowa
+2008,University of Iowa (Most Likely Caucus Goers),University of Iowa,pattern university of iowa
+2008,University of Iowa (all caucus goers),University of Iowa,pattern university of iowa
+2008,University of Iowa (all voters - volunteered response),University of Iowa,pattern university of iowa
+2008,University of Iowa (most likely caucus goers only),University of Iowa,pattern university of iowa
+2008,University of Iowa (self-identified Democrats - volunteered response),University of Iowa,pattern university of iowa
+2008,University of Iowa Hawkeye Poll,University of Iowa,pattern university of iowa
+2008,Boston Globe (UNH),University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,Boston Globe/NH University,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN / University of New Hampshire,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN / WMUR,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN / WMUR / UNH,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN / WMUR / UNH (Gingrich Excluded),University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN/University of New Hampshire,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN/WMUR,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN/WMUR Poll (Gore excl.),University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN/WMUR Poll (Gore incl.),University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN/WMUR/UNH Gore Excluded,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN/WMUR/UNH Gore Included,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,CNN/WMUR/University of New Hampshire Poll,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,University of New Hampshire,University of New Hampshire,pattern unh|new hampshire|nh university|wmur
+2008,Mobile Register-University of South Alabama,University of South Alabama,pattern south alabama
+2008,Press Register/University of South Alabama,University of South Alabama,pattern south alabama
+2008,Press-Register / University of South Alabama,University of South Alabama,pattern south alabama
+2008,University of South Alabama / Press Register,University of South Alabama,pattern south alabama
+2008,Voter / Consumer Research (R),Voter / Consumer Research,clean-up
+2008,Western New England College,Western New England College,clean-up
+2008,Winthrop / ETV,Winthrop University,pattern winthrop
+2008,Winthrop / ETV Poll,Winthrop University,pattern winthrop
+2008,Winthrop/ETV,Winthrop University,pattern winthrop
+2008,Winthrop/ETV Poll,Winthrop University,pattern winthrop
+2008,Wisconsin Policy Research Institute,Wisconsin Policy Research Institute,clean-up
+2008,Working Californians,Working Californians,clean-up
+2008,News Channel 15/Zogby,Zogby,pattern zogby
+2008,NewsChannel 15-Zogby,Zogby,pattern zogby
+2008,Reuters / C-SPAN / Zogby,Zogby,pattern zogby
+2008,Reuters / C-SPAN / Zogby Tracking,Zogby,pattern zogby
+2008,Reuters / C–SPAN / Zogby,Zogby,pattern zogby
+2008,Reuters / Zogby,Zogby,pattern zogby
+2008,Reuters / Zogby / ARG,Zogby,pattern zogby
+2008,Reuters / Zogby Poll,Zogby,pattern zogby
+2008,Reuters/C-SPAN/Zogby,Zogby,pattern zogby
+2008,Reuters/C-SPAN/Zogby Poll,Zogby,pattern zogby
+2008,Reuters/Zogby,Zogby,pattern zogby
+2008,Zogby,Zogby,pattern zogby
+2008,Zogby America,Zogby,pattern zogby
+2008,Zogby America Poll,Zogby,pattern zogby
+2008,Zogby Analytics,Zogby,pattern zogby
+2008,Zogby International,Zogby,pattern zogby
+2008,Zogby Poll,Zogby,pattern zogby
+2008,"Zogby Poll (''without Rice, Bush, Cheney'')",Zogby,pattern zogby
+2012,AARP/GS Strategies,AARP/GS Strategies,clean-up
+2012,ABC/Post,ABC/Post,clean-up
+2012,AP-GfK,AP-GfK,clean-up
+2012,ARG,ARG,clean-up
+2012,Baydoun/Foster (D),Baydoun/Foster,clean-up
+2012,Behavior Research Center,Behavior Research Center,clean-up
+2012,Bloomberg,Bloomberg,clean-up
+2012,CBS,CBS,clean-up
+2012,CBS/Times,CBS/Times,clean-up
+2012,CNN,CNN,clean-up
+2012,CNN/Time,CNN/Time,clean-up
+2012,Chicago Tribune,Chicago Tribune,clean-up
+2012,Christopher Newport /Times Dispatch,Christopher Newport /Times Dispatch,clean-up
+2012,Clarus,Clarus,clean-up
+2012,Clemson,Clemson,clean-up
+2012,"Denno-Noor/Lambert, Edwards & Associates","Denno-Noor/Lambert, Edwards & Associates",clean-up
+2012,Des Moines Register/Selzer,Des Moines Register/Selzer,clean-up
+2012,Dixie Strategies (R)/First Coast News,Dixie Strategies/First Coast News,clean-up
+2012,EPIC-MRA,EPIC-MRA,clean-up
+2012,FL Chamber of Commerce,FL Chamber of Commerce,clean-up
+2012,FOX,FOX,clean-up
+2012,Fairleigh Dickinson,Fairleigh Dickinson,clean-up
+2012,Field,Field,clean-up
+2012,Franklin and Marshall College,Franklin and Marshall College,clean-up
+2012,GCR/WWL-TV,GCR/WWL-TV,clean-up
+2012,Gallup,Gallup,pattern gallup
+2012,USA Today/ Gallup,Gallup,pattern gallup
+2012,USA Today/Gallup,Gallup,pattern gallup
+2012,Harvard/St Anselm,Harvard/St Anselm,clean-up
+2012,High Point University,High Point University,clean-up
+2012,Fox 5 Atlanta/InsiderAdvantage,InsiderAdvantage,pattern insideradvantage
+2012,InsiderAdvantage,InsiderAdvantage,pattern insideradvantage
+2012,NewsMax/InsiderAdvantage,InsiderAdvantage,pattern insideradvantage
+2012,Times-Union/InsiderAdvantage,InsiderAdvantage,pattern insideradvantage
+2012,WSB-TV/InsiderAdvantage,InsiderAdvantage,pattern insideradvantage
+2012,Iowa State,Iowa State,clean-up
+2012,Ipsos/Reuters,Ipsos,pattern ^ipsos
+2012,Ipsos/Reuters (Internet),Ipsos,pattern ^ipsos
+2012,Landmark/Rosetta Stone,Landmark Communications,pattern ^landmark
+2012,Las Vegas Review-Journal/UNLV,Las Vegas Review-Journal/UNLV,clean-up
+2012,MIRS,MIRS,clean-up
+2012,MIRS/Mitchell,MIRS/Mitchell,clean-up
+2012,MIRS/Mitchell/Rosetta Stone,MIRS/Mitchell/Rosetta Stone,clean-up
+2012,MTSU,MTSU,clean-up
+2012,Magellan (R),Magellan Strategies,pattern ^magellan
+2012,Magellan Research (R),Magellan Strategies,pattern ^magellan
+2012,Make US Great Again/Wilson (R),Make US Great Again/Wilson,clean-up
+2012,Marist,Marist College,pattern marist
+2012,Marist College,Marist College,pattern marist
+2012,Marist/McClatchy,Marist College,pattern marist
+2012,NBC/Marist,Marist College,pattern marist
+2012,Market Research Group (R),Marketing Resource Group,pattern ^market(ing)? res
+2012,Marketing Resource Group (R),Marketing Resource Group,pattern ^market(ing)? res
+2012,Marquette Law School,Marquette Law School,clean-up
+2012,Mason-Dixon,Mason-Dixon,pattern mason-dixon
+2012,Mason-Dixon/Every Child Matters,Mason-Dixon,pattern mason-dixon
+2012,McLaughlin (R)/AIF,McLaughlin/AIF,clean-up
+2012,Merriman,Merriman,clean-up
+2012,NBC/WSJ,NBC/WSJ,clean-up
+2012,Neighborhood (R),Neighborhood,clean-up
+2012,Newsweek/Daily Beast,Newsweek/Daily Beast,clean-up
+2012,PPIC,PPIC,clean-up
+2012,PPP (D),PPP,clean-up
+2012,Pew,Pew,clean-up
+2012,Politico (Tarrance),Politico (Tarrance),clean-up
+2012,Politico/GWU/Battleground,Politico/GWU/Battleground,clean-up
+2012,Poll Position,Poll Position,clean-up
+2012,Pulse Opinion Research,Pulse Opinion Research,clean-up
+2012,Quinnipiac,Quinnipiac,clean-up
+2012,Rasmussen,Rasmussen,clean-up
+2012,Reason/Rupe,Reason/Rupe,clean-up
+2012,Roanoke College,Roanoke College,clean-up
+2012,Siena,Siena,clean-up
+2012,Suffolk,Suffolk,clean-up
+2012,Sunshine State News/VSS,Sunshine State News/VSS,clean-up
+2012,Monmouth/SurveyUSA,SurveyUSA,pattern surveyusa
+2012,SurveyUSA,SurveyUSA,pattern surveyusa
+2012,Susquehanna (R),Susquehanna,clean-up
+2012,Tel Opinion (R),Tel Opinion,clean-up
+2012,The Iowa Republican/VCR (R),The Iowa Republican/VCR,clean-up
+2012,The Ohio Poll/University of Cincinnati,The Ohio Poll/University of Cincinnati,clean-up
+2012,The Polling Company (R),The Polling Company,clean-up
+2012,U of Iowa,U of Iowa,clean-up
+2012,USC/LATimes,USC/LATimes,clean-up
+2012,UNH,University of New Hampshire,pattern unh|wmur
+2012,UNH/Boston Globe,University of New Hampshire,pattern unh|wmur
+2012,UNH/WMUR,University of New Hampshire,pattern unh|wmur
+2012,UNH/WMUR/CNN,University of New Hampshire,pattern unh|wmur
+2012,VCR (R),VCR,clean-up
+2012,Vanderbit/PSRA,Vanderbit/PSRA,clean-up
+2012,WDIV/Detroit News,WDIV/Detroit News,clean-up
+2012,WPA,WPA,clean-up
+2012,War Room Logistics,War Room Logistics,clean-up
+2012,Washington Post,Washington Post,clean-up
+2012,Washington Post/Bloomberg,Washington Post/Bloomberg,clean-up
+2012,Washington Times/JZ Analytics,Washington Times/JZ Analytics,clean-up
+2012,We Ask America,We Ask America,clean-up
+2012,We Ask America/Fox Chicago,We Ask America/Fox Chicago,clean-up
+2012,Winthrop University,Winthrop University,clean-up
+2012,YouGov,YouGov,clean-up
+2012,YouGov/Economist,YouGov/Economist,clean-up
+2012,YouGov/Polimetrix,YouGov/Polimetrix,clean-up
+2012,Zogby (Internet),Zogby,pattern ^zogby
+2016,0ptimus (R),0ptimus,clean-up
+2016,ABC/Post,ABC/Post,clean-up
+2016,ARG,ARG,clean-up
+2016,Adrian Gray Consulting (R),Adrian Gray Consulting,clean-up
+2016,Advantage Inc.,Advantage Inc.,clean-up
+2016,Albuquerque Journal/Research & Polling,Albuquerque Journal/Research & Polling,clean-up
+2016,Associated Industries of Florida (R),Associated Industries of Florida,clean-up
+2016,Baldwin Wallace University,Baldwin Wallace University,clean-up
+2016,Baruch College/New York 1,Baruch College/New York 1,clean-up
+2016,Basswood (R)/ Free Beacon,Basswood Research,pattern ^basswood
+2016,Basswood (R-Club for Growth Action),Basswood Research,pattern ^basswood
+2016,Behavior Research Center,Behavior Research Center,clean-up
+2016,Bellwether (R),Bellwether,clean-up
+2016,Bloomberg/Selzer,Bloomberg/Selzer,clean-up
+2016,Brown University,Brown University,clean-up
+2016,Burning Glass (R)/Partnership for a New American Economy,Burning Glass/Partnership for a New American Economy,clean-up
+2016,CBS,CBS,clean-up
+2016,CBS/Times,CBS/Times,clean-up
+2016,CNN,CNN,clean-up
+2016,Castleton University/VPR,Castleton University/VPR,clean-up
+2016,Cherry (R-Florida Chamber of Commerce),Cherry,clean-up
+2016,Chicago Tribune/Research America,Chicago Tribune/Research America,clean-up
+2016,Christopher Newport,Christopher Newport,clean-up
+2016,Civis Analytics (D),Civis Analytics,clean-up
+2016,Civitas (R),Civitas,clean-up
+2016,Clarus/WWL-TV/The Advocate,Clarus/WWL-TV/The Advocate,clean-up
+2016,Clemson,Clemson,clean-up
+2016,Clout Research (R),Clout Research,clean-up
+2016,Cole Hargrave Snodgrass (R)/The Oklahoman,Cole Hargrave Snodgrass/The Oklahoman,clean-up
+2016,Compass Consulting (R),Compass Consulting,clean-up
+2016,Dan Jones & Associates/Deseret News/KSL,Dan Jones & Associates,pattern ^dan jones
+2016,Dan Jones & Associates/IdahoPoliticsWeekly.com,Dan Jones & Associates,pattern ^dan jones
+2016,Dan Jones & Associates/UtahPolicy.com,Dan Jones & Associates,pattern ^dan jones
+2016,Data AL (R-America Leads/Christie),Data AL,clean-up
+2016,Des Moines Register/Bloomberg/Selzer,Des Moines Register/Bloomberg/Selzer,clean-up
+2016,Dixie Strategies (R)/KTVT-CBS 11,Dixie Strategies/KTVT-CBS 11,clean-up
+2016,EPIC-MRA/Detroit Free Press/WXYZ-TV,EPIC-MRA/Detroit Free Press/WXYZ-TV,clean-up
+2016,EPIC-MRA/Detroit Free Press/WXYZ-TV ,EPIC-MRA/Detroit Free Press/WXYZ-TV,clean-up
+2016,Elon,Elon,clean-up
+2016,Emerson College Polling Society,Emerson College Polling Society,clean-up
+2016,FOX,FOX,clean-up
+2016,Fairleigh Dickinson,Fairleigh Dickinson,clean-up
+2016,Field,Field,clean-up
+2016,Florida Atlantic University,Florida Atlantic University,clean-up
+2016,Florida Southern College Center,Florida Southern College Center,clean-up
+2016,Fort Hays State University,Fort Hays State University,clean-up
+2016,Fox News,Fox News,clean-up
+2016,Franklin Pierce/RKM/Boston Herald,Franklin Pierce,pattern ^franklin pierce
+2016,Franklin and Marshall College,Franklin and Marshall College,clean-up
+2016,Glengariff/Detroit News/WDIV,Glengariff/Detroit News/WDIV,clean-up
+2016,Gonzales Research,Gonzales Research,clean-up
+2016,Goucher College,Goucher College,clean-up
+2016,Gravis Marketing,Gravis Marketing,pattern gravis
+2016,Gravis Marketing/Howie Carr,Gravis Marketing,pattern gravis
+2016,Gravis Marketing/Human Events (R),Gravis Marketing,pattern gravis
+2016,Gravis Marketing/OANN,Gravis Marketing,pattern gravis
+2016,Gravis Marketing/One America News,Gravis Marketing,pattern gravis
+2016,Gravis Marketing/One America News ,Gravis Marketing,pattern gravis
+2016,Gravis Marketing/TownHall.com,Gravis Marketing,pattern gravis
+2016,HPM/University of Houston,HPM/University of Houston,clean-up
+2016,Harper (R),Harper Polling,pattern ^harper
+2016,Harper (R-Conservative Intelligence Briefing),Harper Polling,pattern ^harper
+2016,Hendrix College/Talk Business,Hendrix College/Talk Business,clean-up
+2016,High Point University,High Point University,clean-up
+2016,Hoffman Research (R),Hoffman Research,clean-up
+2016,IBD/TIPP,IBD/TIPP,clean-up
+2016,IPFW,IPFW,clean-up
+2016,Iowa State/WHO-HD,Iowa State/WHO-HD,clean-up
+2016,Ipsos/Reuters,Ipsos,pattern ^ipsos
+2016,Ivan Moore,Ivan Moore,clean-up
+2016,Kean/Pulse,Kean/Pulse,clean-up
+2016,Landmark (R),Landmark Communications,pattern ^landmark
+2016,Landmark (R)/Rosetta Stone,Landmark Communications,pattern ^landmark
+2016,Landmark (R)/Rosetta Stone/WSB-TV,Landmark Communications,pattern ^landmark
+2016,Liberty Opinion (R),Liberty Opinion,clean-up
+2016,Lincoln Park Strategies (D),Lincoln Park Strategies,clean-up
+2016,Loras College,Loras College,clean-up
+2016,MBQF (R),MBQF,clean-up
+2016,Magellan (R),Magellan Strategies,pattern ^magellan
+2016,Magellan (R)/Y'all Politics ,Magellan Strategies,pattern ^magellan
+2016,Magellan (R-Liberty Foundation of America),Magellan Strategies,pattern ^magellan
+2016,McClatchy/Marist,Marist College,pattern marist
+2016,NBC/Marist,Marist College,pattern marist
+2016,NBC/WSJ/Marist,Marist College,pattern marist
+2016,NBC4/Marist,Marist College,pattern marist
+2016,WSJ/NBC New York/Marist,Marist College,pattern marist
+2016,Marketing Resource Group (R),Marketing Resource Group,pattern ^market(ing)? res
+2016,Marquette Law School,Marquette Law School,clean-up
+2016,Mason-Dixon,Mason-Dixon,pattern mason-dixon
+2016,Mason-Dixon/AARP,Mason-Dixon,pattern mason-dixon
+2016,Mason-Dixon/Ledger/WTSP,Mason-Dixon,pattern mason-dixon
+2016,Mason-Dixon/Star Tribune,Mason-Dixon,pattern mason-dixon
+2016,MassINC/WBUR,MassINC/WBUR,clean-up
+2016,Master Image Inc. (R),Master Image Inc.,clean-up
+2016,McKeon & Associates,McKeon & Associates,pattern ^mckeon
+2016,McKeon & Associates (D-Harris),McKeon & Associates,pattern ^mckeon
+2016,McLaughlin (R),McLaughlin,clean-up
+2016,Mercyhurst University,Mercyhurst University,clean-up
+2016,Merrill/WestGroup,Merrill/WestGroup,clean-up
+2016,Michigan State University,Michigan State University,clean-up
+2016,Mitchell Research (R)/Fox 2 Detroit,Mitchell Research,pattern ^mitchell research
+2016,Mitchell Research/Fox 2 Detroit,Mitchell Research,pattern ^mitchell research
+2016,Monmouth College/KBUR/Douglas Fulmer & Associates,Monmouth College/KBUR/Douglas Fulmer & Associates,clean-up
+2016,Monmouth University,Monmouth University,clean-up
+2016,Morning Consult,Morning Consult,pattern ^morning consult
+2016,Morning Consult/Campaign for Sustainable Rx Pricing,Morning Consult,pattern ^morning consult
+2016,Morning Consult/Campaign for Sustainable Rx Pricing ,Morning Consult,pattern ^morning consult
+2016,Muhlenberg/Morning Call,Muhlenberg/Morning Call,clean-up
+2016,NBC/WSJ,NBC/WSJ,clean-up
+2016,NSON (R-Landslide Communications),NSON,clean-up
+2016,National Research (R),National Research,clean-up
+2016,New England College,New England College,clean-up
+2016,Opinion Savvy,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/ Southern Political Report,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Augusta Chronicle,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Fox 10,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Fox 13/ Florida Times-Union,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Fox 13/ Florida Times-Union/Fox 35,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Fox 13/ Fox35,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Fox 13/ Fox35/Florida Times-Union,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Fox 29,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Fox 46 Charlote,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Fox 5 Atlanta,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Fox 5 Atlanta/Morris News,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Log Cabin Democrat,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Morris News/Augusta Chronicle,Opinion Savvy,pattern opinion savvy
+2016,Opinion Savvy/Southern Political Report,Opinion Savvy,pattern opinion savvy
+2016,Baltimore Sun/OpinionWorks,OpinionWorks,pattern opinionworks
+2016,Baltimore Sun/University of Baltimore/OpinionWorks,OpinionWorks,pattern opinionworks
+2016,Orion,Orion,clean-up
+2016,POS (R)/HPI/WTHR,POS/HPI/WTHR,clean-up
+2016,PPIC,PPIC,clean-up
+2016,PPP (D),PPP,clean-up
+2016,PPP (D-American Family Voices),PPP,clean-up
+2016,PPP (D-Christian Ulvert) ,PPP,clean-up
+2016,PPP (D-Ohio Democratic Party),PPP,clean-up
+2016,PPP (D-Progress Iowa),PPP,clean-up
+2016,PPP (D-VoteVets Action Fund),PPP,clean-up
+2016,Public Religion Research Institute ,PRRI,pattern public religion research
+2016,Public Religion Research Institute/The Atlantic,PRRI,pattern public religion research
+2016,Pew,Pew,clean-up
+2016,Bloomberg/Purple Strategies,Purple Strategies,pattern purple strategies
+2016,Bloomberg/Saint Anselm/Purple Strategies,Purple Strategies,pattern purple strategies
+2016,Purple Strategies,Purple Strategies,pattern purple strategies
+2016,Quinnipiac,Quinnipiac,clean-up
+2016,R.L. Repass & Partners,R.L. Repass & Partners,pattern repass
+2016,R.L. Repass & Partners/MetroNews,R.L. Repass & Partners,pattern repass
+2016,Rasmussen,Rasmussen,clean-up
+2016,Reason/Rupe,Reason/Rupe,clean-up
+2016,ResearchNow/WABE ,ResearchNow/WABE,clean-up
+2016,Roanoke College,Roanoke College,clean-up
+2016,Robert Morris University,Robert Morris University,clean-up
+2016,Rutgers-Eagleton,Rutgers-Eagleton,clean-up
+2016,Saint Leo University,Saint Leo University,clean-up
+2016,Sextant (D)/Capitol Weekly,Sextant Strategies & Research,pattern ^sextant
+2016,Sextant Strategies & Research (D)/Capitol Weekly,Sextant Strategies & Research,pattern ^sextant
+2016,Siena,Siena,clean-up
+2016,SmithJohnson Research,SmithJohnson Research,clean-up
+2016,SoonerPoll,SoonerPoll,clean-up
+2016,SoonerPoll.com/News on 6/News 9,SoonerPoll.com/News on 6/News 9,clean-up
+2016,Southern Illinois University,Southern Illinois University,clean-up
+2016,St Norbert/WPR/WPTV,St Norbert/WPR/WPTV,clean-up
+2016,StPetePolls.org,StPetePolls.org,clean-up
+2016,Suffolk,Suffolk,clean-up
+2016,Suffolk/Boston Globe,Suffolk/Boston Globe,clean-up
+2016,Suffolk/Boston Herald,Suffolk/Boston Herald,clean-up
+2016,Suffolk/USA Today,Suffolk/USA Today,clean-up
+2016,NBC/SurveyMonkey,SurveyMonkey,pattern ^nbc/surveymonkey$
+2016,SurveyMonkey,SurveyMonkey,clean-up
+2016,SurveyUSA,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/11Alive,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/Bay News 9/News 13,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/Courier-Journal/Herald-Leader/WHAS/WKYT,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/High Point University,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/KABC/SCNG,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/Salt Lake Tribune,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/TEGNA,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/TEGNA/11Alive,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/TWC News North Carolina,SurveyUSA,pattern surveyusa
+2016,SurveyUSA/WRAL News,SurveyUSA,pattern surveyusa
+2016,Target-Insyght/MIRS/IMP,Target-Insyght/MIRS/IMP,clean-up
+2016,TargetPoint (R)/Washington Free Beacon,TargetPoint,pattern ^targetpoint
+2016,TargetPoint (R-Citizens for Responsible Energy Solutions),TargetPoint,pattern ^targetpoint
+2016,Tarrance (R-Our Principles PAC),Tarrance,clean-up
+2016,Tarrance/Bendixen & Amandi/Washington Post/Univision,Tarrance/Bendixen & Amandi/Washington Post/Univision,clean-up
+2016,Texas Lyceum,Texas Lyceum,clean-up
+2016,Texas Pulse/Austin American-Statesman,Texas Pulse/Austin American-Statesman,clean-up
+2016,Thirty-Ninth Street Strategies (D-West Virginia Veterans),Thirty-Ninth Street Strategies,clean-up
+2016,Trafalgar Group (R),Trafalgar Group,clean-up
+2016,UMass Amherst/WBZ-TV/YouGov,UMass Amherst/WBZ-TV/YouGov,clean-up
+2016,UMass Lowell/7 News,UMass Lowell/7 News,clean-up
+2016,UNF,UNF,clean-up
+2016,USC/LA Times,USC/LA Times,pattern ^usc/la times
+2016,USC/LA Times/SurveyMonkey,USC/LA Times,pattern ^usc/la times
+2016,University of Mary Washington/PSRAI,University of Mary Washington/PSRAI,clean-up
+2016,CNN/UNH/WMUR,University of New Hampshire,pattern unh|wmur
+2016,UNH/WMUR,University of New Hampshire,pattern unh|wmur
+2016,UNH/WMUR/CNN,University of New Hampshire,pattern unh|wmur
+2016,University of New Orleans ,University of New Orleans,clean-up
+2016,Vanderbit/PSRA,Vanderbit/PSRA,clean-up
+2016,Victory Research,Victory Research,clean-up
+2016,Viewpoint Florida,Viewpoint Florida,clean-up
+2016,Vox Populi (R),Vox Populi,clean-up
+2016,Vox Populi (R)/Daily Caller,Vox Populi/Daily Caller,clean-up
+2016,Washington Post,Washington Post,clean-up
+2016,Washington Post/University of Maryland,Washington Post/University of Maryland,clean-up
+2016,We Ask America,We Ask America,clean-up
+2016,We Ask America/Monmouth College/KBUR,We Ask America/Monmouth College/KBUR,clean-up
+2016,Western Kentucky University,Western Kentucky University,clean-up
+2016,Wilson Perkins Allen Opinion Research (R),Wilson Perkins Allen Opinion Research,pattern wilson perkins
+2016,Wilson Perkins Allen Opinion Research (R-Cruz),Wilson Perkins Allen Opinion Research,pattern wilson perkins
+2016,Winthrop University,Winthrop University,clean-up
+2016,Y2 Analytics (R),Y2 Analytics,clean-up
+2016,CBS/YouGov,YouGov,pattern ^cbs/yougov$
+2016,YouGov,YouGov,clean-up
+2016,YouGov/Economist,YouGov/Economist,clean-up
+2016,YouGov/Hoover Institution,YouGov/Hoover Institution,clean-up
+2016,YouGov/U of Texas/Texas Tribune,YouGov/U of Texas/Texas Tribune,clean-up
+2016,Zogby (Internet),Zogby,pattern ^zogby
+2016,Zogby (Internet)/ University of Akron,Zogby,pattern ^zogby
+2020,ABC/Washington Post,ABC/Washington Post,538's name
+2020,ARG,ARG,538's name
+2020,Americana Analytics,Americana Analytics,538's name
+2020,AtlasIntel,AtlasIntel,538's name
+2020,Avalanche Strategy,Avalanche Strategy,538's name
+2020,Baldwin Wallace University/Oakland University/Ohio Northern University,Baldwin Wallace University/Oakland University/Ohio Northern University,538's name
+2020,Beacon Research,Beacon Research,538's name
+2020,Beacon/Shaw,Beacon/Shaw,538's name
+2020,Bendixen & Amandi International,Bendixen & Amandi International,538's name
+2020,Benenson,Benenson,538's name
+2020,Bold Blue Campaigns,Bold Blue Campaigns,538's name
+2020,Braun,Braun,538's name
+2020,CNN/SSRS,CNN/SSRS,538's name
+2020,Capitol Weekly,Capitol Weekly,538's name
+2020,Change Research,Change Research,538's name
+2020,Chism Strategies,Chism Strategies,538's name
+2020,Christopher Newport U.,Christopher Newport U.,538's name
+2020,Civiqs,Civiqs,538's name
+2020,Civis Analytics,Civis Analytics,538's name
+2020,Claster Consulting,Claster Consulting,538's name
+2020,Clemson,Clemson,538's name
+2020,Climate Nexus,Climate Nexus,538's name
+2020,Colby College,Colby College,538's name
+2020,Cole Hargrave,Cole Hargrave,538's name
+2020,Concord Public Opinion Partners,Concord Public Opinion Partners,538's name
+2020,Crantford & Associates,Crantford & Associates,538's name
+2020,D-CYFOR,D-CYFOR,538's name
+2020,Data for Progress,Data for Progress,538's name
+2020,David Binder Research,David Binder Research,538's name
+2020,Denno Research,Denno Research,538's name
+2020,EPIC/MRA,EPIC/MRA,538's name
+2020,East Carolina University,East Carolina University,538's name
+2020,Echelon Insights,Echelon Insights,538's name
+2020,Elucd,Elucd,538's name
+2020,Elway,Elway,538's name
+2020,Emerson,Emerson,538's name
+2020,Evan Falchuk and Lou DiNatale,Evan Falchuk and Lou DiNatale,538's name
+2020,Fairleigh Dickinson,Fairleigh Dickinson,538's name
+2020,Florida Atlantic University,Florida Atlantic University,538's name
+2020,Florida Southern College,Florida Southern College,538's name
+2020,Franklin and Marshall College,Franklin and Marshall College,538's name
+2020,GBAO,GBAO,538's name
+2020,GQR,GQR,538's name
+2020,Glengariff Group Inc.,Glengariff Group Inc.,538's name
+2020,Gonzales Research & Media Services,Gonzales Research & Media Services,538's name
+2020,Goucher College,Goucher College,538's name
+2020,Gravis Marketing (2020 and earlier),Gravis Marketing (2020 and earlier),538's name
+2020,GreatBlue Research,GreatBlue Research,538's name
+2020,Greenberg Quinlan Rosner,Greenberg Quinlan Rosner,538's name
+2020,Hampton University,Hampton University,538's name
+2020,Harris Poll,Harris Poll,538's name
+2020,HarrisX,HarrisX,538's name
+2020,Hart/POS,Hart/POS,538's name
+2020,Hendrix College,Hendrix College,538's name
+2020,High Point University,High Point University,538's name
+2020,Ipsos,Ipsos,538's name
+2020,KG Polling,KG Polling,538's name
+2020,Kaiser Family Foundation,Kaiser Family Foundation,538's name
+2020,Landmark Communications,Landmark Communications,538's name
+2020,Latino Decisions,Latino Decisions,538's name
+2020,Lord Ashcroft Polls,Lord Ashcroft Polls,538's name
+2020,MSU - Billings,MSU - Billings,538's name
+2020,Magellan,Magellan,538's name
+2020,Maine People's Resource Center,Maine People's Resource Center,538's name
+2020,Marist College,Marist College,538's name
+2020,Marquette Law School,Marquette Law School,538's name
+2020,Mason-Dixon,Mason-Dixon,538's name
+2020,MassINC Polling Group,MassINC Polling Group,538's name
+2020,McLaughlin,McLaughlin,538's name
+2020,Mellman,Mellman,538's name
+2020,Meredith College,Meredith College,538's name
+2020,Mitchell,Mitchell,538's name
+2020,Monmouth,Monmouth,538's name
+2020,Morning Consult,Morning Consult,538's name
+2020,Morningside U.,Morningside U.,538's name
+2020,Muhlenberg,Muhlenberg,538's name
+2020,Myers Research/Strategic Services,Myers Research/Strategic Services,538's name
+2020,Neighborhood Research,Neighborhood Research,538's name
+2020,OH Predictive Insights / MBQF,OH Predictive Insights / MBQF,538's name
+2020,Ogden & Fry,Ogden & Fry,538's name
+2020,OurProgress (The Progress Campaign),OurProgress (The Progress Campaign),538's name
+2020,PPIC,PPIC,538's name
+2020,PPP,PPP,538's name
+2020,PRRI,PRRI,538's name
+2020,Park Street Strategies,Park Street Strategies,538's name
+2020,Patinkin Research Strategies,Patinkin Research Strategies,538's name
+2020,Pew,Pew,538's name
+2020,Point Blank Political,Point Blank Political,538's name
+2020,Praecones Analytica,Praecones Analytica,538's name
+2020,Quinnipiac,Quinnipiac,538's name
+2020,RKM Research,RKM Research,538's name
+2020,RMG Research,RMG Research,538's name
+2020,ROI Rocket,ROI Rocket,538's name
+2020,Ragnar Research Partners,Ragnar Research Partners,538's name
+2020,RealClear Opinion Research,RealClear Opinion Research,538's name
+2020,Remington,Remington,538's name
+2020,Research America,Research America,538's name
+2020,Saint Leo U.,Saint Leo U.,538's name
+2020,Selzer,Selzer,538's name
+2020,Show Me Victories,Show Me Victories,538's name
+2020,Siena,Siena,538's name
+2020,Siena/NYT,Siena/NYT,538's name
+2020,SoonerPoll.com,SoonerPoll.com,538's name
+2020,Southern Illinois University,Southern Illinois University,538's name
+2020,Spry Strategies,Spry Strategies,538's name
+2020,St. Anselm,St. Anselm,538's name
+2020,St. Cloud State,St. Cloud State,538's name
+2020,St. Pete Polls,St. Pete Polls,538's name
+2020,Starboard Communications,Starboard Communications,538's name
+2020,Suffolk,Suffolk,538's name
+2020,SurveyMonkey,SurveyMonkey,538's name
+2020,SurveyUSA,SurveyUSA,538's name
+2020,Susquehanna,Susquehanna,538's name
+2020,Swayable,Swayable,538's name
+2020,TIPP,TIPP,538's name
+2020,Target Insyght,Target Insyght,538's name
+2020,TargetPoint/Greenberg Quinlan Rosner,TargetPoint/Greenberg Quinlan Rosner,538's name
+2020,Tel Opinion Research,Tel Opinion Research,538's name
+2020,Texas Lyceum,Texas Lyceum,538's name
+2020,The Political Matrix/The Listener Group,The Political Matrix/The Listener Group,538's name
+2020,The Tyson Group,The Tyson Group,538's name
+2020,Trafalgar Group,Trafalgar Group,538's name
+2020,Tulchin Research,Tulchin Research,538's name
+2020,U. Georgia SPIA,U. Georgia SPIA,538's name
+2020,U. Houston,U. Houston,538's name
+2020,U. Iowa,U. Iowa,538's name
+2020,U. Massachusetts - Lowell,U. Massachusetts - Lowell,538's name
+2020,U. New Hampshire,U. New Hampshire,538's name
+2020,U. North Florida,U. North Florida,538's name
+2020,U. Texas,U. Texas,538's name
+2020,UC Berkeley,UC Berkeley,538's name
+2020,UMass Amherst/YouGov,UMass Amherst/YouGov,538's name
+2020,USC Dornsife,USC Dornsife,538's name
+2020,USC Schwarzenegger Institute/YouGov,USC Schwarzenegger Institute/YouGov,538's name
+2020,University of Texas at Tyler,University of Texas at Tyler,538's name
+2020,University of Wisconsin Elections Research Center/YouGov,University of Wisconsin Elections Research Center/YouGov,538's name
+2020,Univision/University of Houston/Latino Decisions,Univision/University of Houston/Latino Decisions,538's name
+2020,Univision/University of Houston/Latino Decisions/North Star Opinion Research,Univision/University of Houston/Latino Decisions/North Star Opinion Research,538's name
+2020,Victory Research,Victory Research,538's name
+2020,WPAi,WPAi,538's name
+2020,We Ask America,We Ask America,538's name
+2020,Winston,Winston,538's name
+2020,Winthrop U.,Winthrop U.,538's name
+2020,YouGov,YouGov,538's name
+2020,YouGov Blue/Data for Progress,YouGov Blue/Data for Progress,538's name
+2020,Zogby,Zogby,538's name
+2020,Øptimus,Øptimus,538's name
+2024,"20/20 Insight, LLC","20/20 Insight, LLC",538's name
+2024,3D Strategic Research,3D Strategic Research,538's name
+2024,ABC/Washington Post,ABC/Washington Post,538's name
+2024,ARG,ARG,538's name
+2024,ActiVote,ActiVote,538's name
+2024,Advantage Inc.,Advantage Inc.,538's name
+2024,Alvarado Strategies,Alvarado Strategies,538's name
+2024,Amber Integrated,Amber Integrated,538's name
+2024,American Pulse,American Pulse,538's name
+2024,Americans for Prosperity,Americans for Prosperity,538's name
+2024,Angus Reid,Angus Reid,538's name
+2024,Arc Insights,Arc Insights,538's name
+2024,Atlantic Polling Strategies,Atlantic Polling Strategies,538's name
+2024,Beacon/Shaw,Beacon/Shaw,538's name
+2024,Bellwether,Bellwether,538's name
+2024,Big Data Poll,Big Data Poll,538's name
+2024,Big Village,Big Village,538's name
+2024,Blueprint Polling,Blueprint Polling,538's name
+2024,CNN/SSRS,CNN/SSRS,538's name
+2024,CWS Research,CWS Research,538's name
+2024,Capen Analytics,Capen Analytics,538's name
+2024,Causeway Solutions,Causeway Solutions,538's name
+2024,Change Research,Change Research,538's name
+2024,Civiqs,Civiqs,538's name
+2024,Clarity,Clarity,538's name
+2024,Cole Hargrave,Cole Hargrave,538's name
+2024,Communication Concepts,Communication Concepts,538's name
+2024,Cor Strategies,Cor Strategies,538's name
+2024,Cornell University Collaborative Midterm Survey,Cornell University Collaborative Midterm Survey,538's name
+2024,Cygnal,Cygnal,538's name
+2024,Dan Jones,Dan Jones,538's name
+2024,Data Viewpoint,Data Viewpoint,538's name
+2024,Data for Progress,Data for Progress,538's name
+2024,Differentiators,Differentiators,538's name
+2024,Digital Research,Digital Research,538's name
+2024,East Carolina University,East Carolina University,538's name
+2024,Echelon Insights,Echelon Insights,538's name
+2024,Embold Research,Embold Research,538's name
+2024,Emerson,Emerson,538's name
+2024,Fabrizio,Fabrizio,538's name
+2024,Fabrizio/GBAO,Fabrizio/GBAO,538's name
+2024,Fabrizio/Impact,Fabrizio/Impact,538's name
+2024,Fairleigh Dickinson,Fairleigh Dickinson,538's name
+2024,Florida Atlantic University/Mainstreet Research,Florida Atlantic University/Mainstreet Research,538's name
+2024,Franklin and Marshall College,Franklin and Marshall College,538's name
+2024,Glengariff Group Inc.,Glengariff Group Inc.,538's name
+2024,Gonzales Research & Media Services,Gonzales Research & Media Services,538's name
+2024,Harris Poll,Harris Poll,538's name
+2024,HarrisX,HarrisX,538's name
+2024,HarrisX/Harris Poll,HarrisX/Harris Poll,538's name
+2024,Hart/POS,Hart/POS,538's name
+2024,High Point University,High Point University,538's name
+2024,InsiderAdvantage,InsiderAdvantage,538's name
+2024,Ipsos,Ipsos,538's name
+2024,J.L. Partners,J.L. Partners,538's name
+2024,JMC Analytics,JMC Analytics,538's name
+2024,John Zogby Strategies,John Zogby Strategies,538's name
+2024,Kaplan Strategies,Kaplan Strategies,538's name
+2024,Landmark Communications,Landmark Communications,538's name
+2024,Leger,Leger,538's name
+2024,Lord Ashcroft Polls,Lord Ashcroft Polls,538's name
+2024,Manhattan Institute,Manhattan Institute,538's name
+2024,Marist College,Marist College,538's name
+2024,Marquette Law School,Marquette Law School,538's name
+2024,Mason-Dixon,Mason-Dixon,538's name
+2024,McLaughlin,McLaughlin,538's name
+2024,Meredith College,Meredith College,538's name
+2024,Mitchell,Mitchell,538's name
+2024,Monmouth,Monmouth,538's name
+2024,Monmouth/WaPo,Monmouth/WaPo,538's name
+2024,Moore Information,Moore Information,538's name
+2024,Morning Consult,Morning Consult,538's name
+2024,NMB Research,NMB Research,538's name
+2024,NORC,NORC,538's name
+2024,National Public Affairs,National Public Affairs,538's name
+2024,National Research,National Research,538's name
+2024,Navigator,Navigator,538's name
+2024,Neighborhood Research,Neighborhood Research,538's name
+2024,NewsNation/Decision Desk HQ,NewsNation/Decision Desk HQ,538's name
+2024,Noble Predictive Insights,Noble Predictive Insights,538's name
+2024,North Star Opinion Research,North Star Opinion Research,538's name
+2024,OH Predictive Insights / MBQF,OH Predictive Insights / MBQF,538's name
+2024,Ohio Northern University Institute for Civics and Public Policy,Ohio Northern University Institute for Civics and Public Policy,538's name
+2024,OnMessage Inc.,OnMessage Inc.,538's name
+2024,Opinion Diagnostics,Opinion Diagnostics,538's name
+2024,Opinion Works,Opinion Works,538's name
+2024,PEM Management Corporation,PEM Management Corporation,538's name
+2024,PPIC,PPIC,538's name
+2024,PPP,PPP,538's name
+2024,PRRI,PRRI,538's name
+2024,Pan Atlantic Research,Pan Atlantic Research,538's name
+2024,Patriot Polling,Patriot Polling,538's name
+2024,Pew,Pew,538's name
+2024,Phillips Academy,Phillips Academy,538's name
+2024,Praecones Analytica,Praecones Analytica,538's name
+2024,Premise,Premise,538's name
+2024,Public Opinion Strategies,Public Opinion Strategies,538's name
+2024,Quinnipiac,Quinnipiac,538's name
+2024,RMG Research,RMG Research,538's name
+2024,Rasmussen,Rasmussen,538's name
+2024,Redfield & Wilton Strategies,Redfield & Wilton Strategies,538's name
+2024,Remington,Remington,538's name
+2024,Roanoke College,Roanoke College,538's name
+2024,SSRS,SSRS,538's name
+2024,Sachs Media,Sachs Media,538's name
+2024,Schoen Cooperman,Schoen Cooperman,538's name
+2024,Selzer,Selzer,538's name
+2024,Seven Letter Insight,Seven Letter Insight,538's name
+2024,Siena,Siena,538's name
+2024,Siena/NYT,Siena/NYT,538's name
+2024,Spry Strategies,Spry Strategies,538's name
+2024,St. Anselm,St. Anselm,538's name
+2024,Suffolk,Suffolk,538's name
+2024,Survey Center on American Life,Survey Center on American Life,538's name
+2024,SurveyUSA,SurveyUSA,538's name
+2024,Susquehanna,Susquehanna,538's name
+2024,TIPP,TIPP,538's name
+2024,Target Insyght,Target Insyght,538's name
+2024,Targoz Market Research,Targoz Market Research,538's name
+2024,Tarrance,Tarrance,538's name
+2024,Texas Hispanic Policy Foundation,Texas Hispanic Policy Foundation,538's name
+2024,The Citadel,The Citadel,538's name
+2024,The Tyson Group,The Tyson Group,538's name
+2024,Trafalgar Group,Trafalgar Group,538's name
+2024,Trafalgar Group/InsiderAdvantage,Trafalgar Group/InsiderAdvantage,538's name
+2024,U. Georgia SPIA,U. Georgia SPIA,538's name
+2024,U. Houston,U. Houston,538's name
+2024,U. New Hampshire,U. New Hampshire,538's name
+2024,U. North Florida,U. North Florida,538's name
+2024,U. Texas,U. Texas,538's name
+2024,UC Berkeley,UC Berkeley,538's name
+2024,UMass Amherst/YouGov,UMass Amherst/YouGov,538's name
+2024,USC Dornsife/CSU Long Beach/Cal Poly Pomona,USC Dornsife/CSU Long Beach/Cal Poly Pomona,538's name
+2024,University of Houston/Texas Southern University,University of Houston/Texas Southern University,538's name
+2024,University of Massachusetts Lowell/YouGov,University of Massachusetts Lowell/YouGov,538's name
+2024,University of Nevada Las Vegas Lee Business School,University of Nevada Las Vegas Lee Business School,538's name
+2024,University of Texas at Tyler,University of Texas at Tyler,538's name
+2024,Victory Insights,Victory Insights,538's name
+2024,VoteTXT,VoteTXT,538's name
+2024,WPAi,WPAi,538's name
+2024,Winthrop U.,Winthrop U.,538's name
+2024,YouGov,YouGov,538's name
+2024,YouGov Blue,YouGov Blue,538's name
+2024,Zogby,Zogby,538's name
+2024,co/efficient,co/efficient,538's name
