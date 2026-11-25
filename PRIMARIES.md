@@ -740,3 +740,110 @@ draws, to compare a fold before and after its left-out contest's results are shu
 - **Late contests with no national polls** have no forecast at all (above). A rule for them (carry the last
   national average forward, say) would be new.
 - **S16** (one national draw scaled by horizon) and rule 14 are untested here and are PP-7's to check.
+
+## 4. Backtest on past contests (PP-6)
+
+### Scope (the owner's choices, 2026-11-25, made before any left-out forecast was scored)
+
+Four questions were put as options. The options chosen:
+
+- **Pass mark.** One mark, on the winner's log loss (rule 4 below); everything else is reported with no mark. A miss
+  means the first version (PP-9) publishes the baseline's odds, not the model's.
+- **A calendar not fitted on.** The test is the left-out-race forecasts already committed. A second reading refits
+  with both parties of 2008, and of 2016, left out together, and scores those four races again beside the first.
+- **A field of one candidate.** Out of the headline; the all-forecasts figures are reported beside it. (The question
+  as put said these forecasts "score perfectly" for model and baseline. That holds for the winner's chance. Their
+  squared error is not zero, only the same for both.)
+- **If the test suggests a change.** One declared round: after the report the owner may choose one set of changes,
+  written into this note before the rerun, and both runs are reported side by side.
+
+### What had been seen when this was written
+
+- **The fit's losses** (section 3, run 1 and run 2): the model's and the baseline's squared error and log loss on the
+  contests each fold was fitted on, and on all seven. The model is below the baseline on both in every fold. The point
+  values barely move between folds, so each left-out race's squared error is roughly implied by its fold's loss set
+  against the all-seven loss, and much the same for the log loss. **The pass mark is therefore suggested by numbers
+  already seen**, and is declared as such. No left-out score had been computed.
+- **Section 3's descriptions on the fitted contests:** how flat the fit is, and the squared error by date and by
+  polled or unpolled.
+- **The PP-10 report** (section 1).
+- **Choices settled with all seven races in view:** the grids, S9 as changed after run 1, and readings S10, S11, S13,
+  S24 and S26, agreed after run 1. Leaving a race out removes it from the six fitted values, not from these.
+- **Not seen:** calibration, the coverage of the 10th-to-90th range, the Brier score, any score by race on left-out
+  values, and anything on the forecast dates that were not fitted.
+
+### Rules (written 2026-11-25 before any score was computed)
+
+Rules 1, 4, 6 and 10 carry the owner's four choices. The rest are judgments, put to the owner as a whole before the
+run.
+
+**What is scored**
+
+1. **The forecasts.** The rows of `primary_state_forecasts.csv` as committed (PP-12, run 2): each open contest's
+   rows use the values fitted with that race left out (S21). Nothing is refitted for the headline. Before any score is
+   printed the script confirms that every scored row's `values` names its own race, and that the scored set comes to
+   335 contests and 987 forecasts, as in section 3.
+2. **The scored set** is PP-12's (rule 16 of section 3; `scored_set()`): main contests of the seven open contests in
+   the 50 states and DC with a usable result, on the days 30 and 7 before each and on its own day. The winner is S19's.
+   Results are read through the model's own functions, not derived again.
+3. **A field of one.** A forecast whose field has one candidate is out of the headline (the owner's call). A contest
+   with no other scored forecast drops out of the headline with it. Every table also gives the all-forecasts figure,
+   and the counts of each.
+
+**The mark**
+
+4. **Winner's log loss** (the owner's call; suggested by the fit's losses, as above). The loss of a forecast is −log
+   of the chance given to the winner, floored at one draw in 20,000. A contest's loss is the mean over its scored
+   dates in the headline; a race's is the mean over its contests; the pooled figure is the mean over all contests, each
+   weighted equally (as S24). **The model passes if its loss is below the baseline's in at least 5 of the 7 races and
+   in the pooled figure.** Equal is not below. A miss on either part is a miss.
+5. **A miss** means PP-9 publishes the baseline's odds. No other figure in the report rescues a miss, and none turns
+   a pass into a miss; the owner may still act on what the report shows, and says so if they do.
+6. **The rerun** (the owner's call: one declared round). The mark is read on the first run. If the owner chooses a set
+   of changes afterwards, it is written here before the rerun, the second run is reported beside the first, and its
+   figures are described as following a change suggested by this test. A second run is no longer a test of anything it
+   changed, and it does not turn a first-run miss into a pass (judgment; the standing rule that a diagnostic never
+   rescues a fail). What PP-9 publishes after a rerun is the owner's call, written here.
+
+**What is reported, with no mark**
+
+Each for the model and the baseline, pooled and by race, and at 30 days, 7 days and the day; pooled figures also by
+whether the state was polled (S15).
+
+7. **Measures.**
+   - **Winner's log loss,** as rule 4.
+   - **Brier score:** the sum over the field's candidates of (chance of winning − 1 if they won, else 0)², weighted as
+     rule 4.
+   - **Squared error of shares,** as S24.
+   - **Winner called:** the share of forecasts in which the candidate with the highest chance won.
+   - **Coverage:** the share of field candidates whose result (0 if absent) lies from the 10th to the 90th percentile,
+     ends included. 80% is the nominal figure. One count per candidate per forecast.
+   - **Calibration:** every field candidate's chance of winning, in bins with edges at 0, 5, 15, 30, 50, 70, 85, 95 and
+     100% (a chance on an edge goes to the upper bin; 100% to the last). For each bin: the count, the mean chance and
+     the share who won. One count per candidate per forecast, pooled over races and dates, and once more on the day's
+     forecasts alone. Candidates in one forecast are not independent, and no test is made.
+8. **How the comparison is read.** As seven paired differences, one per race. The contests of a race share candidates
+   and a national shock, so they are not separate tests, and seven are too few for a significance test. None is made;
+   the seven differences are listed.
+9. **By place in the calendar** (the card's question, described on the left-out forecasts). The headline's log loss
+   and squared error by how many of the 50 states and DC had voted before the forecast date (S6): none, 1 to 4, 5 to
+   19, 20 or more.
+10. **The year left out** (the owner's call; second reading). `fit()` gains two folds: 2008 D and R left out together,
+    and 2016 D and R together. Their fitted values are reported with any on a grid's end. The four races are forecast
+    again on their scored dates at those values, model and baseline, and every measure of rule 7 is given beside the
+    first reading's for those races. No mark. 2012 R, 2020 D and 2024 R are alone in their years and are unchanged.
+11. **The other forecast dates.** Every row of the table for the 50 states and DC (rule 3 of section 3: every voting
+    day, every contest still to come), with a field of two or more, by days to the contest as then known: 0, 1 to 7,
+    8 to 14, 15 to 30, 31 to 60, 61 or more. Log loss and squared error, model against baseline, each row counted
+    once. A description: these dates were not fitted, and a contest far ahead has many rows.
+12. **Territories and Democrats Abroad.** Their forecasts on the day, where the results file has a usable result:
+    log loss and squared error, counted apart from everything above. They sit at the national average in model and
+    baseline alike, so the two differ only in their spread values.
+13. **Not scored,** and listed as such: the 48 contest-dates with no forecast (late contests of settled races, so not
+    a random gap), the two contests with an unclear measure and the five with no result row (section 3).
+
+**Outputs**
+
+14. `src/model/primary_backtest.py` writes one row per scored forecast and model to
+    `data/processed/primary_backtest.csv` (the winner, the chance given to them, the losses, the reading) and prints
+    the tables. It is run once for the first reading and once for the second; every run is reported here.
