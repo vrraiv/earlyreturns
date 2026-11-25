@@ -519,3 +519,224 @@ own-average exclusion, a floor on the log loss).
   caucuses) suggests they differ. Left open.
 - **Judgments that could be fitted instead:** rule 9's half weight, rule 10's region penalty, and rule 13's caucus
   multiplier. Fitting any of them takes the list past six.
+
+### Readings and grids for the build (PP-12, 2026-11-25)
+
+Written before any forecast was compared with a result. Three things were computed first, none of which reads a
+result: the kernel (rule 10) for each cycle, the summed kernel weight W a state gets from 1, 5, 15 and 30 other states,
+and the number of polls in each last average (already in `primary_avg_last.csv`). They set the scale of the κ and λ
+grids. The PP-10 report (section 1) had been seen: its 9-point average miss on the top two's margin is why the σ grids
+run as wide as they do.
+
+**Put to the owner as questions and agreed, 2026-11-25, before any run** (each agreed as proposed):
+
+S1. **A live candidate with no line in a voted state's result** (rule 9 is silent; Obama in Michigan 2008, most of the
+    field in Virginia 2012): no observation for that candidate from that state. Rule 7's floor would otherwise give
+    r = log(1 / national share), a very large negative number, to the level of every later state. The other
+    candidates' results there still count. The forecast and the scoring are unchanged (rules 5 and 16: forecast all
+    the same, scored as 0).
+S2. **Rule 11's n** is the candidate's own `n_polls` in the state's average (polls that name them), as the rule's
+    wording has it, so w differs by candidate within a state. The alternative was the place's poll count, the same
+    for every candidate.
+S3. **Keeping the draws** (rule 17). Draws are not stored: 10,000 draws for every contest, candidate and forecast
+    date is several gigabytes. A function rebuilds them from a fixed seed, identically each time, and a check
+    confirms it. Committed: the summary table of rule 17.
+S4. **The grids**, below.
+
+**Grids (rule 16).** Point values, searched jointly (11 × 9 × 9 = 891 points):
+
+| Value | Grid | Corners |
+|---|---|---|
+| β | 0, 0.1, 0.2, … 1.0 | 0: the level is ignored; 1: taken in full |
+| κ | 0, 0.5, 1, 2, 4, 8, 16, 32, ∞ | 0: the pattern in full; ∞: no pattern |
+| λ | 0, 0.5, 1, 2, 4, 8, 16, 32, ∞ | 0: a polled state is its own average; ∞: its own polls are ignored |
+
+W is about 0.6 per observed state (the median kernel value between two states is 0.61 in every cycle, m = 3.1): about
+3 with five states observed, 9 with fifteen, 18 with thirty. A last average has a median of 5 polls per candidate
+(a tenth have 1, a tenth 26 or more).
+
+Spread values, on the log scale, searched jointly after the point values are fixed (8 × 8 × 8 = 512 points):
+
+| Value | Grid |
+|---|---|
+| τ (at 30 days) | 0, 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6 |
+| σ_p | 0.05, 0.1, 0.15, 0.2, 0.3, 0.4, 0.6, 0.8 |
+| σ_u | 0.1, 0.2, 0.3, 0.4, 0.6, 0.8, 1.0, 1.5 |
+
+- **Ties** go to the first point in grid order (β slowest, then κ, then λ; τ, then σ_p, then σ_u; each ascending).
+- **An edge.** A fitted value on the end of its grid is reported as such. No grid is extended or refined without the
+  owner, and any such change is declared as suggested by the results.
+- **Seed.** 2028, combined with the cycle, party and forecast date, so any forecast's draws can be rebuilt alone.
+- **The spread fit** uses the same 10,000 standard draws for a forecast at every grid point. Scored one contest at a
+  time, the winner's chance depends only on that contest's total SD (the candidates' shocks have the same SD, and
+  re-normalising does not change who is top), so the kernel correlation plays no part in the fit.
+- **The baseline** (rule 18) is the same code at β = 0, κ = ∞, λ = 0; only its three spread values are fitted.
+
+**Readings not put as questions before the run.** After run 1 the owner was asked about the ones that move numbers
+(S10, S11, S13, S24, S26) and agreed them as written; S9 was changed, as it says.
+
+*Dates and the calendar*
+
+S5. The 30-day and 7-day dates are counted back from the date the contest was held. The forecast made that day uses
+    the calendar as known that day, so the days to the contest in rule 13 are to its date as then known. A contest
+    with no date known that day, or known as cancelled, has no forecast that day and that date is not scored (the
+    contest's other dates keep equal weight among themselves).
+S6. A voting day (rule 3) is a day with any vote, main or non-binding, as held. A state has voted once its main
+    contest's date is before the forecast date; contests on the forecast date itself are not evidence for each other.
+S7. A state between its non-binding vote and its main contest has no current average (section 1, rule 12), so it is
+    not half-weight evidence. Its last average still serves as its own (rule 11), set against the national average
+    of the day of the first vote.
+S8. A caucus, for rule 13's multiplier, is a main contest the calendar calls a caucus or a convention.
+
+*Shares*
+
+S9. The field (rule 5) is the candidates whose national line is live on the forecast date (section 1, rule 10 and
+    R8) and who have a national average that day. **Changed after run 1** (the owner's call; see "What was built"):
+    and who are in the candidate timeline and had announced, or were exploring, by that date. A candidate in the
+    timeline with no date counts as announced, as in section 1.
+S10. The other share (rule 6) is averaged over the main contests of the 50 states and DC held before the forecast
+    date, those with a result. In each it is 100 less the summed shares of the field as it stood on the morning of
+    that vote.
+S11. The result scale: the field's averages are multiplied by one factor so that they sum to 100 less the other
+    share. A state's average is scaled by its own factor, over the field candidates it names.
+S12. A voted state's observation sets its result against the national average on the morning it voted, on the result
+    scale as it stood that morning (that morning's field and other share). Only candidates in today's field are
+    observed.
+S13. A field candidate missing from a state's average takes the prior alone (w = 0) in that state, and that state's
+    average is no observation for them elsewhere.
+S14. With no observation at all, the prior r is 0 (the national average). W and the kernel-weighted mean leave out
+    the state itself; the level leaves out only the state's own average (rule 11), so it is the same for every
+    state that is not itself an observation.
+S15. A polled state, for σ_p, is one with an average of its own that day (S7's included); every other is unpolled.
+
+*Draws*
+
+S16. Each candidate gets one standard national draw per forecast date, scaled by each contest's own horizon (τ ×
+    √(days / 30)), so the national shock is perfectly correlated across contests of different dates. A path over time
+    (independent increments) is the alternative, and matters only jointly: flagged for PP-7.
+S17. State shocks are drawn per candidate, independently between candidates, with correlation across the 50 states
+    and DC equal to the kernel. Territories and Democrats Abroad get independent shocks at σ_u (× 1.5 in a caucus).
+S18. The other share is fixed within a forecast's draws. The expected share (rule 17) is rule 12's value, not the mean
+    of the draws; the percentiles and the chance of winning come from the draws. A tie for top is split.
+S19. The winner is the top candidate line in the result. A winner outside the field gets rule 16's floor.
+
+*Fitting and outputs*
+
+S20. A main contest with no result row is forecast but neither scored nor used as evidence; the count is reported.
+S21. The committed forecasts of each open contest use the values fitted with that contest left out; the incumbents'
+    contests use the values fitted on all seven. Every row names the values it used. The all-seven values, for 2028,
+    are reported beside them.
+S22. Outputs for 2012 and 2016 derive from the HuffPost file and carry its terms (`LICENSE-DATA.md`).
+S23. **Checks.** A forecast is unchanged when every later poll, result, withdrawal and date change is deleted; changing
+    a left-out contest's results leaves that fold's fitted values unchanged; the kernel has no negative eigenvalue;
+    a hand-worked case for rule 10; the baseline corner returns the state average or the national one; the seed
+    rebuilds the same draws.
+
+*Added while the code was written, still before any forecast was compared with a result; not put as questions*
+
+S24. **The squared error of a forecast** (rule 16) is the mean over the field candidates, so a contest counts the
+    same whatever the size of its field. A contest's loss is the mean over its scored dates, and a fit's loss the
+    mean over its contests.
+S25. **The floor and the baseline.** Rule 7's 1-point floor sits inside r, so at the baseline's corner a candidate
+    below 1 point in a state's average or nationally is not returned exactly at their state average. The check in
+    S23 is made where every share is at least 1 point.
+S26. A contest is forecast only until its date as then known has passed (reworded before any run; see "What was
+    built").
+S27. The spread fit and the committed chances use the same draws: a forecast date's standard draws are fixed by the
+    seed whatever is forecast from them, so a fitted chance is the chance the table shows at those values.
+
+### What was built (PP-12, 2026-11-25)
+
+`src/model/primary_state.py` builds the model as the rules and readings above set them out. `Race(cycle,
+party).forecast(as_of, values)` gives rule 17's table for any date, `.draws()` the 10,000 draws behind it, contests in
+calendar order (S3), and `fit()` the values. Outputs in `data/processed/`: `primary_state_values.csv` and
+`primary_state_forecasts.csv` (described in `DATA.md`; 42,232 rows, 4.7 MB, every forecast date of rule 3 for the model
+and the baseline). `src/check_primary_state.py` runs S23's checks, and passes. The owner agreed to commit the whole table and to the line in
+`LICENSE-DATA.md` for its 2012 and 2016 rows.
+
+**One change to S23 as written.** "Every later date change is deleted" could not be done as such: the calendar file
+holds each contest's date as held, so deleting its later changes does not give the date as known earlier. The check
+instead hides from the model every contest not yet held, so that it can reach a date only through the loader as of
+the forecast date (whose own check is `src/check_primary_calendar.py`). Writing that check changed S26 before any
+run: as first coded, a contest was dropped once its known date had passed only if it was never held, which needs the
+future to tell.
+
+**The runs.** The fit was run twice, both times on the grids as written.
+
+*Run 1* used S9 as first written. A listing of its field then showed people who were polled nationally but never
+ran, kept by the averages until the first contest (section 1, rule 10): Gore (15 points) in 2008 D, Gingrich (8) in
+2008 R, Giuliani (10) in 2012 R, Biden, Warren, Cuomo and Gillibrand (15, 6, 2 and 1) in 2016 D, Hillary Clinton and
+Kerry (9 and 6) in 2020 D, and nine names at 2 points or less in 2024 R. They were in 62 of the 987 fitted forecasts,
+all on the 30-day and 7-day dates of early states, took share in rule 6's scale-up and were scored against 0. Rule 4
+says the field is announced candidacies. The owner chose the announced field and a rerun. The change was made with
+run 1's losses already seen; it was found from the listing of the field, not from the losses.
+
+*Run 2* is the model as it stands, and what the outputs hold. The point values are the same as run 1's in every
+fold. Three spread values moved by one grid step (σ_u from 0.4 to 0.6 with 2012 R left out, τ from 0.3 to 0.4 with
+2016 R left out and from 0.3 to 0.2 with 2024 R left out), and three of the baseline's.
+
+Run 2:
+
+| Left out | β | κ | λ | τ | σ_p | σ_u | Squared error (fit) | Log loss (fit) | Baseline τ | σ_p | σ_u | Squared error | Log loss |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| 2008 D | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 158.4 | 0.527 | 0.4 | 0.3 | 0.4 | 164.7 | 0.544 |
+| 2008 R | 0.7 | 0 | 0.5 | 0.2 | 0.3 | 0.4 | 159.1 | 0.484 | 0.3 | 0.3 | 0.4 | 166.6 | 0.494 |
+| 2012 R | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.6 | 168.6 | 0.520 | 0.3 | 0.3 | 0.6 | 174.6 | 0.528 |
+| 2016 D | 0.6 | 0 | 0 | 0.4 | 0.3 | 0.4 | 150.7 | 0.527 | 0.4 | 0.3 | 0.4 | 154.0 | 0.538 |
+| 2016 R | 0.9 | 0 | 0.5 | 0.4 | 0.3 | 0.4 | 160.0 | 0.538 | 0.4 | 0.3 | 0.6 | 169.8 | 0.557 |
+| 2020 D | 0.7 | 0 | 0.5 | 0.4 | 0.3 | 0.4 | 161.6 | 0.550 | 0.3 | 0.3 | 0.6 | 169.2 | 0.561 |
+| 2024 R | 0.6 | 0 | 0.5 | 0.2 | 0.3 | 0.4 | 166.0 | 0.592 | 0.3 | 0.3 | 0.4 | 174.3 | 0.609 |
+| none (for 2028) | 0.7 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 160.7 | 0.534 | 0.4 | 0.3 | 0.4 | 167.6 | 0.548 |
+
+Run 1 (superseded):
+
+| Left out | β | κ | λ | τ | σ_p | σ_u | Squared error (fit) | Log loss (fit) | Baseline τ | σ_p | σ_u | Squared error | Log loss |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| 2008 D | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 157.7 | 0.528 | 0.4 | 0.3 | 0.4 | 163.8 | 0.545 |
+| 2008 R | 0.7 | 0 | 0.5 | 0.2 | 0.3 | 0.4 | 158.8 | 0.485 | 0.3 | 0.3 | 0.4 | 166.0 | 0.495 |
+| 2012 R | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 168.0 | 0.522 | 0.3 | 0.3 | 0.6 | 173.7 | 0.530 |
+| 2016 D | 0.6 | 0 | 0 | 0.4 | 0.3 | 0.4 | 150.7 | 0.527 | 0.4 | 0.3 | 0.4 | 154.0 | 0.539 |
+| 2016 R | 0.9 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 159.4 | 0.539 | 0.4 | 0.3 | 0.4 | 169.0 | 0.560 |
+| 2020 D | 0.7 | 0 | 0.5 | 0.4 | 0.3 | 0.4 | 160.8 | 0.551 | 0.4 | 0.3 | 0.4 | 168.1 | 0.562 |
+| 2024 R | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 165.6 | 0.593 | 0.3 | 0.3 | 0.4 | 173.6 | 0.611 |
+| none (for 2028) | 0.7 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 160.3 | 0.535 | 0.4 | 0.3 | 0.4 | 166.9 | 0.550 |
+
+Both losses are on the contests each row was fitted on, not on the one left out: they say how the fit went, and are no
+test. Scoring each contest on values not fitted to it is PP-6. (The check script also runs the fit twice on 300
+draws, to compare a fold before and after its left-out contest's results are shuffled.)
+
+- **On an end of its grid:** κ, at 0, in every fold of both runs (the pattern is taken in full, with no shrinkage; 0
+  is the lowest value κ can take), and λ, at 0, with 2016 D left out. Reported as S4 requires; no grid was changed.
+- **How flat the fit is** (run 2, all seven; squared error): 160.7 at the fitted point. β from 0.5 to 0.9 stays
+  within 0.3 of it; β = 0 gives 163.2 and β = 1 gives 161.3. κ = ∞ (no pattern) gives 165.2. λ = 2 gives 163.6 and
+  λ = ∞ (own polls ignored) 191.1. Everything at the national average gives 200.9. Seven contests do not pin β down.
+- **By date and by whether the state was polled** (run 2, all-seven values; squared error, model against baseline):
+  on the day, 71.6 against 70.9 in polled states (201 forecasts) and 251.2 against 282.5 in unpolled ones (124); 7
+  days before, 100.0 against 100.4 (188) and 233.6 against 250.0 (139); 30 days before, 123.0 against 129.1 (135)
+  and 228.8 against 228.4 (200). What the model adds on these fitted contests is in the unpolled states, close to
+  the vote. A description on the fitted contests, not a test.
+- **In the averages:** 123 of the 987 forecasts have a field of one candidate, which no fitted value moves. In no
+  forecast was the winner outside the field or at the floor of rule 16.
+- **S27 holds:** the fitted chance of each winner equals the chance in the committed table (291 forecasts compared).
+
+**What was scored.** 345 main contests in the 50 states and DC have a usable result; 335 are fitted, on 987 forecasts.
+
+- **No national average, so no field (rule 5):** 48 contest-dates, among them all three dates of 10 contests. These
+  are late contests of races already settled, where no national poll fell in the 42-day window. All three dates:
+  eight Republican contests of May and June 2008 (Idaho, Kentucky, Montana, Nebraska, New Mexico, Oregon, South
+  Dakota, West Virginia) and the Democrats' Connecticut and Louisiana in 2020. The last two dates: Indiana, North
+  Carolina and Pennsylvania R 2008, Utah R 2012, and Delaware, Kentucky, New Jersey and New York D 2020. The day
+  itself: Kentucky and Oregon R 2024. The model makes no forecast there.
+- **Measure unclear (rule 1):** North Dakota D 2008, Maine D 2016.
+- **No result row (S20):** Hawaii and Wyoming R 2008, Missouri R 2012 (the caucuses after its non-binding primary),
+  Wyoming R 2024, and DC R 2016, whose convention result is in the file with no date. Forecast, not scored, not
+  evidence. Collecting them would be a data card's work.
+
+**Flagged for the owner, not acted on**
+
+- **The other share is large after an odd contest.** On 5 February 2008 the Democratic other share is 8.6 points,
+  mostly from Michigan (Obama and Edwards off the ballot, 40% uncommitted). Rule 6 as written; every later forecast
+  that cycle carries it.
+- **Late contests with no national polls** have no forecast at all (above). A rule for them (carry the last
+  national average forward, say) would be new.
+- **S16** (one national draw scaled by horizon) and rule 14 are untested here and are PP-7's to check.

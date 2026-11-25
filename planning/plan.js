@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-25e",
+  version: "2026-11-25f",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -830,9 +830,11 @@ window.PLAN = {
             "Added 2026-11-25, after PP-5 closed with its rules written but nothing built.",
             "Build the state model exactly as PRIMARIES.md section 3 sets it out, as of any past date, with the fitting grids written into the note before any run.",
             "Fit the six values with each open contest left out in turn, report every fitted value, and keep the draws in calendar order for PP-7.",
-            "Fit the baseline's error sizes the same way, for PP-6's comparison."
+            "Fit the baseline's error sizes the same way, for PP-6's comparison.",
+            "Built 2026-11-25. Readings and grids written into the note before any run; four agreed then (a candidate with no line in a state's result is no evidence from it; the weight on a state's polls counts the polls naming the candidate; the draws are rebuilt from a seed, not stored; the grids) and five agreed after the first run, unchanged. The fit ran twice: after the first, the field was limited to announced candidates (polled non-candidates had been in 62 of 987 forecasts before the first contest), and the second run is reported beside the first. The point values did not move.",
+            "Fitted on all seven: momentum 0.7, no shrinkage of the pattern (the end of its grid, in every fold), half a poll's weight against a state's own polls, and error sizes 0.3, 0.3 and 0.4 on the log scale. 335 contests fitted on 987 forecasts. Late contests of settled races have no national polls and so no forecast (48 contest-dates). The losses in the note are on the fitted contests; the test is PP-6."
           ],
-          refs: ["PRIMARIES.md"] },
+          refs: ["PRIMARIES.md", "src/model/primary_state.py", "src/check_primary_state.py", "data/processed/primary_state_values.csv"] },
         { id: "PP-6", title: "Backtest on past contests", kind: "story", phase: "p3", needs: ["PP-12"],
           why: "The order differed in every past cycle, which is the property to test.",
           details: [
