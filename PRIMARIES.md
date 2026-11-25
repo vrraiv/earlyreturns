@@ -1032,3 +1032,44 @@ On the headline candidate rows of the first reading, for the model and the basel
   moving the chances of winning.
 - Candidates still in missing both ways: a change to the spread by horizon is defensible, at a cost to the winner's
   chance that would be put to the owner.
+
+**The diagnostic, run once** (`primary_backtest.py --ranges`; 3,418 candidate rows in 864 forecasts). The model's
+figures; the baseline's are within two points of them everywhere.
+
+| | Candidates | Below the 10th | Within | Above the 90th |
+|---|--:|--:|--:|--:|
+| **D1.** The day | 892 | 14% | 79% | 8% |
+| 7 days | 1,054 | 25% | 63% | 12% |
+| 30 days | 1,472 | 39% | 46% | 15% |
+| **D2.** 7 days, had left by the vote | 155 | 93% | 7% | 1% |
+| 7 days, still in | 899 | 13% | 73% | 14% |
+| 30 days, had left by the vote | 558 | 85% | 12% | 3% |
+| 30 days, still in | 914 | 11% | 67% | 22% |
+| **D3.** Still in, top two: the day | 554 | 7% | 84% | 9% |
+| 7 days | 548 | 7% | 78% | 15% |
+| 30 days | 534 | 8% | 75% | 18% |
+| Still in, the rest: the day | 338 | 24% | 69% | 7% |
+| 7 days | 351 | 23% | 65% | 12% |
+| 30 days | 380 | 15% | 57% | 28% |
+
+- **D2: most of the shortfall is candidates who had left.** At 30 days, 558 of the 1,472 candidates forecast (38%)
+  were out of the field by the morning of the vote, and 85% of them finished below their range: forecast at 8.4
+  points on average, they got 2.3 (99 have no line in the result at all). At 7 days it is 155 of 1,054, at 10.6
+  points forecast and 2.5 got. Among candidates still in, coverage is 67% at 30 days, 73% at 7 days and 79% on the
+  day, and the misses at 30 days lean above the range (22% against 11%): those who stayed took up the support of
+  those who left.
+- **D3: the leaders' ranges are close to right.** For the top two still in, coverage is 84% on the day, 78% at 7 days
+  and 75% at 30 days. The candidates behind them do worse: on the day and at 7 days about a quarter finish below
+  their range (minor candidates fade), and at 30 days 28% finish above it.
+- **D4: the field does not move together.** The other share in the result is within a point of the one the forecast
+  used on average (mean difference 1.3 points on the day, 0.5 at 7 days, 0.7 at 30; medians within 0.3), and more
+  than 5 points off in about a fifth of forecasts on the day and a tenth at 30 days.
+- **D5: the chances at 30 days** (model; count, mean chance, won): 0 to 5%, 704, 0.6%, 1.3%; 5 to 15%, 191, 10%, 8%;
+  15 to 30%, 157, 22%, 15%; 30 to 50%, 173, 39%, 42%; 50 to 70%, 135, 59%, 60%; 70 to 85%, 50, 77%, 84%; 85 to 95%,
+  24, 91%, 92%; 95 to 100%, 38, 99%, 95%. Much as on all three dates; a wider spread at 30 days is not called for by
+  the chances.
+
+**Reading, against the outcomes written beforehand.** It is the first: candidates who had left, scored at or near
+0, with those still in above the 90th. No spread value mends that; it is the future withdrawals the state model does
+not simulate, which are PP-7's. What is left once they are set aside is smaller: 67% to 79% for candidates still in,
+and 75% to 84% for the top two.
