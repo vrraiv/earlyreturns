@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-25b",
+  version: "2026-11-25c",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -791,7 +791,7 @@ window.PLAN = {
             "Build the averages exactly as PRIMARIES.md section 1 sets them out, on the past poll files (2008 to 2024), able to rebuild any average as of any past date, which PP-6 needs.",
             "Report what section 1 lists, with no pass mark: coverage by cycle, party and place, and each contest's last average beside its result. A rule changed after results are seen is declared as suggested by them.",
             "Not here: the 2028 poll collector, deferred at PP-3 until after the design freeze (PP-11).",
-            "Built 2026-11-25. Fifteen readings of section 1 agreed with the owner before any average was computed: pollster names keyed by hand (2008's 406 Wikipedia names to 115), one poll entered as several merged and put through the question ladder, a line's last day inclusive, and the result beside each average taken from the vote where it stops. A check script confirms an average is unchanged when later polls are deleted. Rule 15's report is in the note: the leader in the last average won 191 of 222 contests."
+            "Built 2026-11-25. Fifteen readings of section 1 written into the note before any average was computed, four of them agreed then (pollster names keyed by hand, 2008's 406 Wikipedia names to 115; one poll entered as several merged and put through the question ladder; a line's last day inclusive; the result beside each average from the vote where it stops) and the rest agreed after the first build, unchanged except the committed national file, cut to the window for size. A check script confirms an average is unchanged when later polls are deleted. Rule 15's report is in the note: the leader in the last average won 190 of 222 contests."
           ],
           refs: ["PRIMARIES.md", "src/model/primary_avg.py", "src/check_primary_averages.py", "data/supplement/primary_pollster_names.csv"] },
         { id: "PP-11", title: "2028 primary poll collector", kind: "story", phase: "p4", needs: ["PP-9", "DA-6"],
