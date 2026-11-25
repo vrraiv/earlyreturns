@@ -398,6 +398,14 @@ def add_keys(df, name_col):
     return df
 
 
+# Known errors in the site's tables, flagged and left as published: (cycle, state, party, table, candidate) -> note
+UNIT_NOTES = {
+    (y, "AL", "R", "DEL_PRIMARY", "Trump"):
+        "the site's Total row gives 29 (the at-large row alone); its units, its hard total and its delegate count "
+        "all give 50"
+    for y in (2020, 2024)}
+
+
 # ---------------- main ----------------
 def main():
     sys.stdout.reconfigure(encoding="utf-8")
@@ -408,6 +416,12 @@ def main():
                                     for y, i, h in zip(uni.cycle, uni.gp_id, uni.candidate_header)]
     tal = add_keys(tal, "candidate_name_listed")
     uni = add_keys(uni, "candidate_name_listed")
+    uni["note"] = None
+    for (y, st, party, table, cand), text_ in UNIT_NOTES.items():
+        m = (uni.cycle.eq(y) & uni.state.eq(st) & uni.party.eq(party) & uni.table.eq(table)
+             & uni.candidate_header.eq(cand) & uni.unit.str.startswith("Total"))
+        assert m.sum() == 1, (y, st, party, table, cand)
+        uni.loc[m, "note"] = text_
     for x in (tal, uni):
         x["gp_id"] = x.gp_id.astype("Int64")
     cnt, ad, ar, ev = parse_downloads()
@@ -453,8 +467,10 @@ def checks(tal, uni, skipped, compare, cnt, ad, ar, ev):
     a = body.groupby(k, dropna=False).delegates.sum(min_count=1)
     b = tot.groupby(k, dropna=False).delegates.sum(min_count=1)
     j = pd.concat([a.rename("units"), b.rename("total")], axis=1).dropna(subset=["total"])
-    off = j[(j.units.fillna(0) - j.total).abs() > 0.51]
-    print("Candidate columns whose units don't sum to the table's Total Delegates row:", len(off), "of", len(j))
+    noted = set(tot[tot.note.notna()].set_index(k).index)
+    off = j[((j.units.fillna(0) - j.total).abs() > 0.51) & ~j.index.isin(noted)]
+    print("Candidate columns whose units don't sum to the table's Total Delegates row:", len(off), "of", len(j),
+          f"(besides {len(noted)} known and noted)")
     if len(off):
         print(off.head(15).to_string())
     # 2016 -1 files against the page tables, candidate by candidate and unit by unit
