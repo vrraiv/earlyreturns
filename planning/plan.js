@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-25f",
+  version: "2026-11-25g",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -840,15 +840,22 @@ window.PLAN = {
           details: [
             "Past open contests in both parties, forecast in order with what was known before each state voted.",
             "Check that the model handles a calendar it was not fitted on.",
-            "Scope decided at PP-2 (2026-11-23): state win probabilities in every open contest from 2008 to 2024. No holdout. The delegate model's check on the extended contests belongs to PP-7, after the first version, so it does not hold this card up."
-          ] },
+            "Scope decided at PP-2 (2026-11-23): state win probabilities in every open contest from 2008 to 2024. No holdout. The delegate model's check on the extended contests belongs to PP-7, after the first version, so it does not hold this card up.",
+            "Rules written and agreed 2026-11-25, before any left-out forecast was scored (PRIMARIES.md, section 4). Each race is scored on the values fitted without it, in the 50 states and DC, 30 days and 7 days before each contest and on its day, against the plain baseline. One pass mark: the winner's log loss below the baseline's in at least 5 of the 7 races and pooled, on forecasts with two or more candidates. The mark was suggested by the fit's losses, already seen, and is declared as such. A miss would mean the first version publishes the baseline's odds. Everything else is reported with no mark.",
+            "Run once, 2026-11-25. The mark is met, narrowly: 5 of 7 races, pooled 0.613 against 0.625 (303 contests, 864 forecasts). The fifth race, 2008 D, is ahead by 0.0014, within the noise of the draws. The model is worse than the baseline in 2016 R on every measure, and slightly in 2024 R. Its gain is in states with no polls, close to the vote, once five or more states have voted; in polled states, at 30 days and before five states have voted it is level with the baseline.",
+            "Chances of winning are close to what happened, apart from the top bin (99% stated, 94% won). The share ranges are too narrow: a result falls from the 10th to the 90th percentile 60% of the time against a nominal 80% (79% on the day, 46% at 30 days), in model and baseline alike.",
+            "Second reading, a calendar from a year not fitted on: refitted with both parties of 2008, and of 2016, left out together. The model's own scores barely move. The baseline's improve, and on that reading the count would be 4 of 7, a miss; the mark is read on the first reading, as registered.",
+            "Open: the owner chose one declared round of changes, on the share ranges. Under the rules a rerun is reported beside the first run and cannot change the verdict."
+          ],
+          refs: ["PRIMARIES.md", "src/model/primary_backtest.py", "data/processed/primary_backtest.csv"] },
         { id: "PP-7", title: "Delegate simulation", kind: "milestone", phase: "p4", due: "September 2027", needs: ["PP-12"],
           why: "Nominations are won on delegates, not states.",
           details: [
             "Allocation rules by state and party, including viability thresholds, through to the nomination.",
             "Decided at PP-2 (2026-11-23): built, after the first version and ideally by September 2027. Nomination odds are published only once the field is down to three candidates; what counts as a candidate still in the race is fixed before any backtest runs.",
             "Checked on the extended contests from 2008 to 2024 and reported, with no pass threshold: there are too few to test against one.",
-            "From PP-5 (2026-11-25): simulating future withdrawals moved here, since the state model uses only announced ones. Built on PP-12's draws, which are kept in calendar order."
+            "From PP-5 (2026-11-25): simulating future withdrawals moved here, since the state model uses only announced ones. Built on PP-12's draws, which are kept in calendar order.",
+            "From PP-6 (2026-11-25): the share ranges in the draws are too narrow. A result falls from the 10th to the 90th percentile 60% of the time against a nominal 80%, and 46% at 30 days. Viability thresholds are read from these draws, so this is to be dealt with before they are."
           ] },
         { id: "PP-8", title: "Primaries pages on the site", kind: "story", phase: "p3", needs: ["PP-10", "PP-11", "SI-6"],
           why: "The track is only useful once it is published.",
