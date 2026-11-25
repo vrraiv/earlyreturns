@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-25g",
+  version: "2026-11-25h",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -845,7 +845,7 @@ window.PLAN = {
             "Run once, 2026-11-25. The mark is met, narrowly: 5 of 7 races, pooled 0.613 against 0.625 (303 contests, 864 forecasts). The fifth race, 2008 D, is ahead by 0.0014, within the noise of the draws. The model is worse than the baseline in 2016 R on every measure, and slightly in 2024 R. Its gain is in states with no polls, close to the vote, once five or more states have voted; in polled states, at 30 days and before five states have voted it is level with the baseline.",
             "Chances of winning are close to what happened, apart from the top bin (99% stated, 94% won). The share ranges are too narrow: a result falls from the 10th to the 90th percentile 60% of the time against a nominal 80% (79% on the day, 46% at 30 days), in model and baseline alike.",
             "Second reading, a calendar from a year not fitted on: refitted with both parties of 2008, and of 2016, left out together. The model's own scores barely move. The baseline's improve, and on that reading the count would be 4 of 7, a miss; the mark is read on the first reading, as registered.",
-            "Open: the owner chose one declared round of changes, on the share ranges. Under the rules a rerun is reported beside the first run and cannot change the verdict."
+            "The owner chose one declared round of changes, on the share ranges. A diagnostic, written down before it ran, found most of the shortfall is candidates who left the race between the forecast and the vote: at 30 days 38% of the candidates forecast had left by voting day, and 85% of those finished below their range. Among candidates still in, a result falls within the range 79% of the time on the day, 73% at 7 days and 67% at 30 days; for the top two, 84%, 78% and 75%. The owner's decision: no change to the model and no rerun, so the first run's verdict stands. Future withdrawals are PP-7's."
           ],
           refs: ["PRIMARIES.md", "src/model/primary_backtest.py", "data/processed/primary_backtest.csv"] },
         { id: "PP-7", title: "Delegate simulation", kind: "milestone", phase: "p4", due: "September 2027", needs: ["PP-12"],
@@ -855,7 +855,7 @@ window.PLAN = {
             "Decided at PP-2 (2026-11-23): built, after the first version and ideally by September 2027. Nomination odds are published only once the field is down to three candidates; what counts as a candidate still in the race is fixed before any backtest runs.",
             "Checked on the extended contests from 2008 to 2024 and reported, with no pass threshold: there are too few to test against one.",
             "From PP-5 (2026-11-25): simulating future withdrawals moved here, since the state model uses only announced ones. Built on PP-12's draws, which are kept in calendar order.",
-            "From PP-6 (2026-11-25): the share ranges in the draws are too narrow. A result falls from the 10th to the 90th percentile 60% of the time against a nominal 80%, and 46% at 30 days. Viability thresholds are read from these draws, so this is to be dealt with before they are."
+            "From PP-6 (2026-11-25): the share ranges in the draws are too narrow away from the vote. A result falls from the 10th to the 90th percentile 60% of the time against a nominal 80%, and 46% at 30 days. Most of the shortfall is candidates who withdrew between the forecast and the vote, which the simulated withdrawals here should mend. A smaller one is left among candidates behind the top two (57% to 69% within their range). Viability thresholds are read from these draws, so check coverage again once withdrawals are simulated."
           ] },
         { id: "PP-8", title: "Primaries pages on the site", kind: "story", phase: "p3", needs: ["PP-10", "PP-11", "SI-6"],
           why: "The track is only useful once it is published.",
