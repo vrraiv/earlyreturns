@@ -28,9 +28,12 @@ Share-alike is required because many tables are adapted from Wikipedia (CC BY-SA
   and to this project.
 - **State election offices' 2024 presidential primary files** in `data/raw/state_primary/` are public records kept
   as published, not this project's to license; the Missouri Democratic Party's results sheet there is the party's.
-- **The Green Papers**' pages are kept in the git-ignored store only. The tables derived from them (`primary_delegate_rules.csv`,
+- **TheGreenPapers.com**'s pages, its downloaded spreadsheets and the 2016 computation tables its webmaster sent us to
+  are kept in the git-ignored store only. The tables derived from them (`primary_delegate_rules.csv`,
   `primary_delegates.csv`, `primary_delegate_events.csv`, `primary_calendar_check.csv`, `primary_greenpapers_counts.csv`,
-  `primary_results_greenpapers_check.csv`) are covered above, attributed to
+  `primary_results_greenpapers_check.csv`, `primary_greenpapers_tallies.csv`, `primary_delegate_units.csv`,
+  `primary_delegate_count.csv`, `primary_delegate_allocation_d.csv`, `primary_delegate_allocation_r.csv`,
+  `primary_greenpapers_events.csv`) are covered above, attributed to
   TheGreenPapers.com, as the site asked, with a link to [thegreenpapers.com](https://www.thegreenpapers.com/); the site gave leave to use its data.
 - **University of Michigan consumer sentiment** (in the raw FRED folder) is copyrighted and not used in any output.
 

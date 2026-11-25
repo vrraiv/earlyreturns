@@ -5511,5 +5511,1009 @@
       "bytes": 42673,
       "sha256": "add951aa0085d2af51a9d505d0c9842004eb94adbfb7e6096fbc9832e6a2ff55"
     }
+  },
+  "greenpapers_downloads": {
+    "2026-11-24/P16.zip": {
+      "url": "https://www.dropbox.com/sh/56bivg1qh8n2uun/AAB6mFM_aPgQtuRnTW2cl6Qqa?dl=1",
+      "page": "https://www.thegreenpapers.com/P16/download.phtml",
+      "cycle": 2016,
+      "retrieved": "2026-11-24T19:41:25",
+      "bytes": 2025358,
+      "sha256": "2879d5e4bc6591546550e9b05973c477af41ef48b9874ea05f1a5a671efdd89b"
+    },
+    "2026-11-24/P20.zip": {
+      "url": "https://www.dropbox.com/sh/x2himhed7sirjt2/AAA6ZHvYPdG0xHTiPISTIjE9a?dl=1",
+      "page": "https://www.thegreenpapers.com/P20/download.phtml",
+      "cycle": 2020,
+      "retrieved": "2026-11-24T19:41:28",
+      "bytes": 2071950,
+      "sha256": "2f475ff008a75353abbc2974a118e971bf59042c76d3884d5850c6a3efa8e557"
+    },
+    "2026-11-24/P24.zip": {
+      "url": "https://www.dropbox.com/sh/88nb9bl5z1wgox3/AACaD0sIwwnwWGBDywPO-PGYa?dl=1",
+      "page": "https://www.thegreenpapers.com/P24/download.phtml",
+      "cycle": 2024,
+      "retrieved": "2026-11-24T19:41:34",
+      "bytes": 2096148,
+      "sha256": "7291e40ad56f6dc451c2da7778eb6e2e3ea6a05274cdeb39e31eb714f2964372"
+    }
+  },
+  "greenpapers_results": {
+    "2026-11-24/AK-D-DEL_DISTRICT-1.html": {
+      "file": "AK-D-DEL_DISTRICT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:41:43",
+      "bytes": 2803,
+      "sha256": "6b281d77e27454eea414bb1c887bb04f7d775577dac9dd16702b7640cbe27505"
+    },
+    "2026-11-24/AK-D-DEL_STATE-1.html": {
+      "file": "AK-D-DEL_STATE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:41:46",
+      "bytes": 1850,
+      "sha256": "4c2ca5c4afe2022b4e0ef6cfe0fec2f83c077d154cd3b3fe31e8813f6f7b8709"
+    },
+    "2026-11-24/AK-R-DEL_PRIMARY-1.html": {
+      "file": "AK-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:41:49",
+      "bytes": 2963,
+      "sha256": "ed8cb1efae6c2df6fa830a690852d99bb950af6a29506e6e8db579de24cfa738"
+    },
+    "2026-11-24/AL-D-DEL_PRIMARY-1.html": {
+      "file": "AL-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:41:52",
+      "bytes": 5832,
+      "sha256": "d653e49403ac75e940f9d5bd0f8cccf8167dc099a330667ede38fc887d6c6506"
+    },
+    "2026-11-24/AL-R-DEL_PRIMARY-1.html": {
+      "file": "AL-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:41:55",
+      "bytes": 12367,
+      "sha256": "871bb9380ae97d4d59ccf9d9575dfa1ffb9caead0a16666adcbe2371ad10123b"
+    },
+    "2026-11-24/AR-D-DEL_PRIMARY-1.html": {
+      "file": "AR-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:41:58",
+      "bytes": 5294,
+      "sha256": "e8e6dafabe2bab175afea2bd80a13c9a9d6478f2aa042e151651b51f77fc6595"
+    },
+    "2026-11-24/AR-R-DEL_PRIMARY-1.html": {
+      "file": "AR-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:01",
+      "bytes": 9208,
+      "sha256": "79e5a7a0c3a0d1aef1e336db2ca92e2e75b0f92822cb6269d0ad503a156cbf14"
+    },
+    "2026-11-24/AS-D-DEL_CAUCUS-1.html": {
+      "file": "AS-D-DEL_CAUCUS-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:05",
+      "bytes": 1695,
+      "sha256": "0980f61aa6bcd51a9fcf744ebdfa24448287b4efd3799e3b4065daf7f12df905"
+    },
+    "2026-11-24/AZ-D-DEL_PRIMARY-1.html": {
+      "file": "AZ-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:08",
+      "bytes": 8041,
+      "sha256": "7a69b68e57f58c047ce9ea18436666523265593051863282d9b2890191ab3b01"
+    },
+    "2026-11-24/CA-D-DEL_PRIMARY-1.html": {
+      "file": "CA-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:11",
+      "bytes": 34993,
+      "sha256": "4fc0412a67a8ea6ab3238bfc0ff042ff12570cba3f2eff5f7a9f621b986e50c2"
+    },
+    "2026-11-24/CA-R-DEL_PRIMARY-1.html": {
+      "file": "CA-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:14",
+      "bytes": 25408,
+      "sha256": "8abb28a81964392080aabb8b4184efae54e904599d5b2d4110396ce021ab74a0"
+    },
+    "2026-11-24/CO-D-DEL_DISTRICT-1.html": {
+      "file": "CO-D-DEL_DISTRICT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:17",
+      "bytes": 2661,
+      "sha256": "36e466563ca48d78a09fd0bda2a11619aeb2c0f1292f12700174900101722470"
+    },
+    "2026-11-24/CO-D-DEL_PRECINCT-1.html": {
+      "file": "CO-D-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:20",
+      "bytes": 5017,
+      "sha256": "3ece8b902d0878de7c34e7bf494f655f9e8139ad916dd7b50d9c45fd6b1d82e8"
+    },
+    "2026-11-24/CO-D-DEL_STATEWIDE-1.html": {
+      "file": "CO-D-DEL_STATEWIDE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:23",
+      "bytes": 1593,
+      "sha256": "2d387de318d0a6c06f0267d289803cdbf03ffba067ab2006d4c1ddb4345b8ad5"
+    },
+    "2026-11-24/CO-R-DEL_DISTRICT-1.html": {
+      "file": "CO-R-DEL_DISTRICT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:26",
+      "bytes": 7855,
+      "sha256": "c5b9a28da11f0a660fe2f79e129d8219b432826c94278cdbe76ff40498f08075"
+    },
+    "2026-11-24/CO-R-DEL_STATEWIDE-1.html": {
+      "file": "CO-R-DEL_STATEWIDE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:29",
+      "bytes": 5753,
+      "sha256": "df83c7c2f1cf2e5984a41567b20a66a7bad44ea748465bbab9d53354c3e6a9dd"
+    },
+    "2026-11-24/CT-D-DEL_PRIMARY-1.html": {
+      "file": "CT-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:32",
+      "bytes": 4233,
+      "sha256": "ec8da0aedcb86aab3bca94112aa75ba9b3bbc17b1d873ddaac757f720a50e857"
+    },
+    "2026-11-24/CT-R-DEL_PRIMARY-1.html": {
+      "file": "CT-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:35",
+      "bytes": 4906,
+      "sha256": "103c96a8de37f7f72db3c95f63e87929191a572605443623761dfabee2a0b0a2"
+    },
+    "2026-11-24/DA-D-DEL_PRIMARY-1.html": {
+      "file": "DA-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:38",
+      "bytes": 2813,
+      "sha256": "74f0201f2bdd70fd25fe6582d7d0d8726ba9c8a4d36a064b633c8447c221a76e"
+    },
+    "2026-11-24/DC-D-DEL_PRIMARY-1.html": {
+      "file": "DC-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:41",
+      "bytes": 4107,
+      "sha256": "ab765299a7e1ae607ecc89000e2151bc83adaf914b7f90c85f1f46bae816c75c"
+    },
+    "2026-11-24/DC-R-DEL_PRIMARY-1.html": {
+      "file": "DC-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:44",
+      "bytes": 3356,
+      "sha256": "242bd20fd2599f1e5b343053bf4b41116687ec5f7c3ab559a533a865546325e4"
+    },
+    "2026-11-24/DE-D-DEL_PRIMARY-1.html": {
+      "file": "DE-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:47",
+      "bytes": 3328,
+      "sha256": "da792410013b2a930e49b2d0cb0f3621fd9ae246fe2e7410c312d67f298195e8"
+    },
+    "2026-11-24/FL-D-DEL_PRIMARY-1.html": {
+      "file": "FL-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:51",
+      "bytes": 10260,
+      "sha256": "2548a385dbea13685eff074482c5633dea097b82d3fc9eb86363200f8e95372d"
+    },
+    "2026-11-24/GA-D-DEL_PRIMARY-1.html": {
+      "file": "GA-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:54",
+      "bytes": 7675,
+      "sha256": "2b6415e4734c755ff2d2a19fd95926f87513e5b91a9447c72991829b692f28c0"
+    },
+    "2026-11-24/GA-R-DEL_PRIMARY-1.html": {
+      "file": "GA-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:42:57",
+      "bytes": 20131,
+      "sha256": "56e5a01da198ef7a46fd19f9645d8f11f085965bf09c1a68ad28fd397092ce57"
+    },
+    "2026-11-24/GU-D-DEL_CONVENTION-1.html": {
+      "file": "GU-D-DEL_CONVENTION-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:43:00",
+      "bytes": 1421,
+      "sha256": "fecce50073fe4414f90545e7c072bb0e8c1af6e33764a14eecc3d0f0fdeef9ba"
+    },
+    "2026-11-24/HI-D-DEL_PRECINCT-1.html": {
+      "file": "HI-D-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:43:03",
+      "bytes": 4575,
+      "sha256": "48e153f8e546920b311ee0416263dcabda1b2cedf771ffa84564f784c6b65edb"
+    },
+    "2026-11-24/HI-D-DEL_STATE-1.html": {
+      "file": "HI-D-DEL_STATE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:44:59",
+      "bytes": 588,
+      "sha256": "455f69bb4da360a7df3d92477c4e0a03fd1bfbf9d5ff840ad084f389d4ecc29b"
+    },
+    "2026-11-24/HI-R-DEL_PRECINCT-1.html": {
+      "file": "HI-R-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:03",
+      "bytes": 6305,
+      "sha256": "95b33446a99257ff32d2c3b43c6832be7db1be758f04a28dcc7f6ab64c6e84b3"
+    },
+    "2026-11-24/IA-D-DEL_COUNTY-1.html": {
+      "file": "IA-D-DEL_COUNTY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:06",
+      "bytes": 4056,
+      "sha256": "3a30f014664abd6916aecb23dc30e6bfd70983f13eba9f4fabc40e20e9baa74e"
+    },
+    "2026-11-24/IA-D-DEL_DISTRICT-1.html": {
+      "file": "IA-D-DEL_DISTRICT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:09",
+      "bytes": 2644,
+      "sha256": "8801171a97dfc98164664eb79ae80fbcd1f1a433050c86a670880bb7db16bcc1"
+    },
+    "2026-11-24/IA-D-DEL_PRECINCT-1.html": {
+      "file": "IA-D-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:12",
+      "bytes": 3943,
+      "sha256": "00a30d4f246f836a9357a6ed13fa33b0286272a84c1df4e14cbce384ef4b5eb2"
+    },
+    "2026-11-24/IA-D-DEL_STATE-1.html": {
+      "file": "IA-D-DEL_STATE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:15",
+      "bytes": 1762,
+      "sha256": "dab9f4c3801ef30b3e17276c4ef8d5f8c99f5674e2eae83eec8e6454453295f3"
+    },
+    "2026-11-24/IA-R-DEL_PRECINCT-1.html": {
+      "file": "IA-R-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:18",
+      "bytes": 5989,
+      "sha256": "b1604c6fb3360c3cfdcb39e042413dda3a776b4010afc1f5729d290b665af559"
+    },
+    "2026-11-24/ID-D-DEL_CONVENTION-1.html": {
+      "file": "ID-D-DEL_CONVENTION-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:21",
+      "bytes": 610,
+      "sha256": "ffafca1ed676a14a79051dfa8f278a2918f90358ab87046028407c10c52f8df7"
+    },
+    "2026-11-24/ID-D-DEL_DISTRICT-1.html": {
+      "file": "ID-D-DEL_DISTRICT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:24",
+      "bytes": 3131,
+      "sha256": "ad7458d7967da8d3e9e39786e084e72f1d4deff47ab3d0c816f8223def69605d"
+    },
+    "2026-11-24/ID-R-DEL_PRIMARY-1.html": {
+      "file": "ID-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:27",
+      "bytes": 5476,
+      "sha256": "09855dd4ecf7fab7a74f8e47d9426c3131f521d35532cb8da6d5a01726137064"
+    },
+    "2026-11-24/IL-D-DEL_PRIMARY-1.html": {
+      "file": "IL-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:30",
+      "bytes": 12646,
+      "sha256": "1da61a3710456e33571e621ffd49216c9896faf4f97d490683f800a34cc2dae9"
+    },
+    "2026-11-24/IL-R-DEL_PRIMARY-1.html": {
+      "file": "IL-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:33",
+      "bytes": 116881,
+      "sha256": "36547b718c1381a691037b74d3fc6da7af73a7baf91e4f122eb46a3c72fd630e"
+    },
+    "2026-11-24/IN-D-DEL_PRIMARY-1.html": {
+      "file": "IN-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:36",
+      "bytes": 3574,
+      "sha256": "9e16f9a924be1c3911d0fcf7d4815bc5df923f2b9f41b1a3a2c2915e9ac3643f"
+    },
+    "2026-11-24/IN-R-DEL_PRIMARY-1.html": {
+      "file": "IN-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:39",
+      "bytes": 10082,
+      "sha256": "f0d787df85066889701ad573a4605920fed675ad90fdfcad5af327f5b46bc25e"
+    },
+    "2026-11-24/KS-D-DEL_LOCALUNIT-1.html": {
+      "file": "KS-D-DEL_LOCALUNIT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:42",
+      "bytes": 2496,
+      "sha256": "a7a46264d9029a8bbc11e97e7b161fcb2c99a40832216bd81bddd50bf8be65b2"
+    },
+    "2026-11-24/KS-R-DEL_PRECINCT-1.html": {
+      "file": "KS-R-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:46",
+      "bytes": 5113,
+      "sha256": "06bbcc0b543070179c9c57994a9e5562332fb19e91f735c65b548d38670c6607"
+    },
+    "2026-11-24/KY-D-DEL_PRIMARY-1.html": {
+      "file": "KY-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:49",
+      "bytes": 5352,
+      "sha256": "c3c69becda4990801d7acf8175ee4270ad6b364a82b85f18a599f9827fd2518f"
+    },
+    "2026-11-24/KY-R-DEL_PRECINCT-1.html": {
+      "file": "KY-R-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:52",
+      "bytes": 5142,
+      "sha256": "9389bfae85b1813e3fc7e77ddbf6fadf8e53b5cfa348ac94239741edcda455ad"
+    },
+    "2026-11-24/LA-D-DEL_PRIMARY-1.html": {
+      "file": "LA-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:55",
+      "bytes": 9811,
+      "sha256": "c5c96556ba0d7b1839bccb9e0dc598524b1b063d7b69c266bd712e31735b0791"
+    },
+    "2026-11-24/LA-R-DEL_PRIMARY-1.html": {
+      "file": "LA-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:45:58",
+      "bytes": 14555,
+      "sha256": "df8656a28a155d914b245ae68402fce7250844ee435959692be158c8238d51e7"
+    },
+    "2026-11-24/MA-D-DEL_PRIMARY-1.html": {
+      "file": "MA-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:01",
+      "bytes": 8868,
+      "sha256": "ba89dc92ce899655761ac463320b29ac8cc4b0ab3c27df08fe95d738b1ced0ee"
+    },
+    "2026-11-24/MA-R-DEL_PRIMARY-1.html": {
+      "file": "MA-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:04",
+      "bytes": 6386,
+      "sha256": "6b41bef6deff960a9155a72a0b23debdb6d1fa9fa98550dd9eaebb59c8643956"
+    },
+    "2026-11-24/MD-D-DEL_PRIMARY-1.html": {
+      "file": "MD-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:07",
+      "bytes": 5413,
+      "sha256": "c90639d3f59eb7ce6a129b5449efff3b12e84e491f383d75c4f69e26bc3c3664"
+    },
+    "2026-11-24/MD-R-DEL_PRIMARY-1.html": {
+      "file": "MD-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:10",
+      "bytes": 11382,
+      "sha256": "dc083a2df1a328e4e85710e69bf1a82a2ecaf5265a15ef2e4d8aa5f17ccf380e"
+    },
+    "2026-11-24/ME-D-DEL_MUNICIPAL-1.html": {
+      "file": "ME-D-DEL_MUNICIPAL-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:13",
+      "bytes": 3201,
+      "sha256": "cbf50f74e04810ae3a5daf5b9130151d44262fd7b803e882e6a0ceff9904a135"
+    },
+    "2026-11-24/ME-D-DEL_STATE-1.html": {
+      "file": "ME-D-DEL_STATE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:16",
+      "bytes": 2076,
+      "sha256": "530588508dcf9ae111f2ac85b87ed81a804ef63f61786f2a3c04cd0ad61ed285"
+    },
+    "2026-11-24/ME-R-DEL_MUNICIPAL-1.html": {
+      "file": "ME-R-DEL_MUNICIPAL-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:19",
+      "bytes": 4755,
+      "sha256": "98fb2d8b5650136b768b2f3d44bd91b838b002466cc3db3117e6497a41e0364e"
+    },
+    "2026-11-24/MI-D-DEL_PRIMARY-1.html": {
+      "file": "MI-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:22",
+      "bytes": 9054,
+      "sha256": "fec715c324c7bc7f2281c3b907c439d9895c5a65e9ddf9a1a5261e3c21a412e6"
+    },
+    "2026-11-24/MI-R-DEL_PRIMARY-1.html": {
+      "file": "MI-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:25",
+      "bytes": 5757,
+      "sha256": "66b9629f50e52eb30bf0000e183ccda5949decf11acc203a1f7610d6d0a05065"
+    },
+    "2026-11-24/MN-D-DEL_PRECINCT-1.html": {
+      "file": "MN-D-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:28",
+      "bytes": 3438,
+      "sha256": "62b2392bb53167fd9ce6bc1952c3b76dd733124c2985caf9d9812b08fa79da50"
+    },
+    "2026-11-24/MN-R-DEL_PRECINCT-1.html": {
+      "file": "MN-R-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:31",
+      "bytes": 7183,
+      "sha256": "f8bcccc1c31c82fd6b34433b6f96d906460bd33efd86a6f19ebcacad368d350a"
+    },
+    "2026-11-24/MO-D-DEL_PRIMARY-1.html": {
+      "file": "MO-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:35",
+      "bytes": 11266,
+      "sha256": "723cf0829a0b06f150c36cb7c3d9ba227a1817a43bc66183b8db4ccd18ebcd3f"
+    },
+    "2026-11-24/MO-R-DEL_PRIMARY-1.html": {
+      "file": "MO-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:38",
+      "bytes": 13450,
+      "sha256": "6c8fab9427f368b4a94fad830ce6e235e1f97cb30135e201f24a099dd5842b66"
+    },
+    "2026-11-24/MP-D-DEL_CAUCUS-1.html": {
+      "file": "MP-D-DEL_CAUCUS-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:41",
+      "bytes": 1632,
+      "sha256": "7431022fe83adf7dbbbf7da1a14e770324ec1ec249f9bd26ada69087cd1dc0f4"
+    },
+    "2026-11-24/MS-D-DEL_PRIMARY-1.html": {
+      "file": "MS-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:44",
+      "bytes": 5281,
+      "sha256": "5c6f434d7c3f8420894798e8d0c5fb56d278aad168719de0582e59e5be1ea8aa"
+    },
+    "2026-11-24/MS-R-DEL_PRIMARY-1.html": {
+      "file": "MS-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:47",
+      "bytes": 9558,
+      "sha256": "65154b6e79cf17deda632c71c07e1d17a9f0469a2483e9d0c4d988202b73c359"
+    },
+    "2026-11-24/MT-D-DEL_PRIMARY-1.html": {
+      "file": "MT-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:50",
+      "bytes": 2554,
+      "sha256": "88312fa918385c273e0b56ad7fbc4afd5b4c9c5ecce04dc55bba3752e6921f1d"
+    },
+    "2026-11-24/NC-D-DEL_PRIMARY-1.html": {
+      "file": "NC-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:53",
+      "bytes": 8454,
+      "sha256": "c482ef66d71749e48f96ccdf7cad734916cfe6a0f782c911491b2afc5f9084c9"
+    },
+    "2026-11-24/NC-R-DEL_PRIMARY-1.html": {
+      "file": "NC-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:56",
+      "bytes": 5025,
+      "sha256": "bb90551c17ad21e3eaefb43d805681368c765ec4c2222d77fb148b0fa24fcc9f"
+    },
+    "2026-11-24/ND-D-DEL_CAUCUS-1.html": {
+      "file": "ND-D-DEL_CAUCUS-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:46:59",
+      "bytes": 2379,
+      "sha256": "d7c41e3495b697fcb3d42ca2a29e88dabf4c94fe8a44dc3930690544ddf060e1"
+    },
+    "2026-11-24/NE-D-DEL_PRECINCT-1.html": {
+      "file": "NE-D-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:02",
+      "bytes": 2250,
+      "sha256": "9386fe72c4cedc049a967e053f9b474fcc6df0a3d2f8df1eb6e765561a8146d1"
+    },
+    "2026-11-24/NH-D-DEL_PRIMARY-1.html": {
+      "file": "NH-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:05",
+      "bytes": 16697,
+      "sha256": "2fccda3ef1623e1b3a53fe43e31f22e8cf17b69b8ef44c059afad30feeeb45b5"
+    },
+    "2026-11-24/NH-R-DEL_PRIMARY-1.html": {
+      "file": "NH-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:08",
+      "bytes": 11628,
+      "sha256": "c6a5d68cbb8379ac57aa477291205e4702ab54672e8482e7c3caff49eb92f2a0"
+    },
+    "2026-11-24/NH-R-DEL_PRIMARY2-1.html": {
+      "file": "NH-R-DEL_PRIMARY2-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:11",
+      "bytes": 11557,
+      "sha256": "25cdecbac0bb377b5c32500d418cede330ac68314ad5f7f51a7775f9dcc3b408"
+    },
+    "2026-11-24/NJ-D-DEL_PRIMARY-1.html": {
+      "file": "NJ-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:14",
+      "bytes": 6502,
+      "sha256": "93ce097ce0e1f42ea89098bc38fd48b6fd1b7c965a0920fd33a24e1855997a35"
+    },
+    "2026-11-24/NM-D-DEL_PRIMARY-1.html": {
+      "file": "NM-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:17",
+      "bytes": 2208,
+      "sha256": "61f8c67c621771c6ec08f862e446288ce5bac71aaa90f0f5be2ec2b3ae68a2ca"
+    },
+    "2026-11-24/NM-R-DEL_PRIMARY-1.html": {
+      "file": "NM-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:21",
+      "bytes": 2892,
+      "sha256": "b3015e13bbd124e3a779c5df87a83c93a2838f6ea2f111745714308fca2be886"
+    },
+    "2026-11-24/NV-D-DEL_COUNTY-1.html": {
+      "file": "NV-D-DEL_COUNTY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:24",
+      "bytes": 2088,
+      "sha256": "89f8cf69741f0341334f5246f787aaad79e37404691cd831b095396201d4c550"
+    },
+    "2026-11-24/NV-D-DEL_PRECINCT-1.html": {
+      "file": "NV-D-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:27",
+      "bytes": 3185,
+      "sha256": "c42d0e40de81557dfe9e9c0b4caeec1b1e8a8ce76ee3d5a6ab2203c5931855a3"
+    },
+    "2026-11-24/NV-D-DEL_STATE-1.html": {
+      "file": "NV-D-DEL_STATE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:30",
+      "bytes": 1682,
+      "sha256": "edd7a36411af6fd2a933305aa2423ea2f4b379dffe6e2cae456173fb346ac1f6"
+    },
+    "2026-11-24/NV-R-DEL_PRECINCT-1.html": {
+      "file": "NV-R-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:33",
+      "bytes": 5463,
+      "sha256": "c1c55f7a71226f3a148c4e3cde14f5c89e57c996c6bc560fe38ce328ee5a5066"
+    },
+    "2026-11-24/NV-R-DEL_STATE-1.html": {
+      "file": "NV-R-DEL_STATE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:36",
+      "bytes": 506,
+      "sha256": "5b55b22c29fabef5398389a5a620136a5b2e83fd2804ebda7d8da087e168d34f"
+    },
+    "2026-11-24/NY-D-DEL_PRIMARY-1.html": {
+      "file": "NY-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:39",
+      "bytes": 12315,
+      "sha256": "23b36415dd1fb0d40a8053f2830e72c6b554d766af5ddec3b79dc95df706d38d"
+    },
+    "2026-11-24/NY-R-DEL_PRIMARY-1.html": {
+      "file": "NY-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:42",
+      "bytes": 13797,
+      "sha256": "6a2c5eadc313956dd0e9720c2db03520e30d06403980717b734e5cedaf8920c0"
+    },
+    "2026-11-24/OH-D-DEL_PRIMARY-1.html": {
+      "file": "OH-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:45",
+      "bytes": 6882,
+      "sha256": "df07688de322af6f14f9c29cc0f25ca0f909def81d66f65335bdb8c84e7ed7b6"
+    },
+    "2026-11-24/OK-D-DEL_PRIMARY-1.html": {
+      "file": "OK-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:48",
+      "bytes": 6709,
+      "sha256": "313a1d13a6796bcb6dcee001e6f866e17ab8d44e4d0196f9f905f24c0bd5ed85"
+    },
+    "2026-11-24/OK-R-DEL_PRIMARY-1.html": {
+      "file": "OK-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:51",
+      "bytes": 10582,
+      "sha256": "8895cf657450d2a524e88d012985f2d8e072fddd37d47e9c8116d7c15aff42cc"
+    },
+    "2026-11-24/OR-D-DEL_PRIMARY-1.html": {
+      "file": "OR-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:54",
+      "bytes": 2948,
+      "sha256": "9535d48522e5cf66c01ef02bb00e06b0483f757fe7525ba159ccc3f805fb6bb2"
+    },
+    "2026-11-24/OR-R-DEL_PRIMARY-1.html": {
+      "file": "OR-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:47:57",
+      "bytes": 2473,
+      "sha256": "ef40f522315a20346d1b22f3003f970a79c7c38da22029513cbe9ea4b0d647f6"
+    },
+    "2026-11-24/PA-D-DEL_PRIMARY-1.html": {
+      "file": "PA-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:00",
+      "bytes": 5663,
+      "sha256": "a9149993b6953802889eeb079d281065d98b4a97b62907c527cc0b25e5ddfb50"
+    },
+    "2026-11-24/PA-R-DEL_PRIMARY-1.html": {
+      "file": "PA-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:03",
+      "bytes": 26381,
+      "sha256": "779a7c520b9c5c0e64d4d865a079f44ee512945e8969653054bc46ee57892ab1"
+    },
+    "2026-11-24/PA-R-DEL_PRIMARY_BY_CD-1.html": {
+      "file": "PA-R-DEL_PRIMARY_BY_CD-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:06",
+      "bytes": 7794,
+      "sha256": "2c36d43ae0a12aa342b2cd7a9cd6ef72e67f419ea5847c9ce667811dba7383aa"
+    },
+    "2026-11-24/PR-D-DEL_DISTRICT-1.html": {
+      "file": "PR-D-DEL_DISTRICT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:09",
+      "bytes": 1469,
+      "sha256": "b9c3dd7486d232efcf87020969581cfc2b319d589db9f73a03b2686b6958c0cc"
+    },
+    "2026-11-24/PR-D-DEL_PRIMARY-1.html": {
+      "file": "PR-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:13",
+      "bytes": 5488,
+      "sha256": "2738b908e04978f1eaa9f01628f98e40ba444850eb4d7bcb6c903565faae7a1e"
+    },
+    "2026-11-24/PR-R-DEL_PRIMARY-1.html": {
+      "file": "PR-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:16",
+      "bytes": 6010,
+      "sha256": "925db9de5eb7b602f742ad5ef5b95ea22a81265925f5849c190785b8e5d88653"
+    },
+    "2026-11-24/RI-D-DEL_PRIMARY-1.html": {
+      "file": "RI-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:19",
+      "bytes": 5041,
+      "sha256": "741689a21b13e405e80290be2022336b77fbe7c808954e95de59be2bfbdc7481"
+    },
+    "2026-11-24/RI-R-DEL_PRIMARY-1.html": {
+      "file": "RI-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:22",
+      "bytes": 4884,
+      "sha256": "a7943de360e60619b931cc4293b7b6687b94d564e07b57ec01e47b0c93bc4d78"
+    },
+    "2026-11-24/SC-D-DEL_PRIMARY-1.html": {
+      "file": "SC-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:25",
+      "bytes": 4987,
+      "sha256": "315db19a7d6a50c8fe56f88d2b539e0a93e4d301a430bd57df59d5da105bad10"
+    },
+    "2026-11-24/SC-R-DEL_PRIMARY-1.html": {
+      "file": "SC-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:28",
+      "bytes": 11298,
+      "sha256": "73c1599ee0f212a8b6cf13031e9d0038c9dac91100835947b75443741e471a42"
+    },
+    "2026-11-24/SD-D-DEL_PRIMARY-1.html": {
+      "file": "SD-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:31",
+      "bytes": 1853,
+      "sha256": "c6e312cd2b01b12f1bcb528ea8d2f739657f3e247e7e5d4b63705bc6dc13e239"
+    },
+    "2026-11-24/SD-R-DEL_PRIMARY-1.html": {
+      "file": "SD-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:34",
+      "bytes": 472,
+      "sha256": "24ddaf2d3aacb19674cb3bf9328e7eae47d242b7d78ab6baf0764751895fe49f"
+    },
+    "2026-11-24/TN-D-DEL_PRIMARY-1.html": {
+      "file": "TN-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:37",
+      "bytes": 5707,
+      "sha256": "6a19c2c38691f02d9aedba5f40fd8a2890042ba58b5c692ef7e6b98db6a6c066"
+    },
+    "2026-11-24/TN-R-DEL_PRIMARY-1.html": {
+      "file": "TN-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:40",
+      "bytes": 16645,
+      "sha256": "56e18003f19b70e66818c0342790512ac22c11a4c7bcb31a72f29b9e6b53d21d"
+    },
+    "2026-11-24/TX-D-DEL_PRIMARY-1.html": {
+      "file": "TX-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:43",
+      "bytes": 24507,
+      "sha256": "107a76857a1d631e7a5530c57420f3cde2a4d1ab73b2b6ce179f6e6d8450a502"
+    },
+    "2026-11-24/TX-R-DEL_PRIMARY-1.html": {
+      "file": "TX-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:46",
+      "bytes": 45339,
+      "sha256": "091758a2011cabea3c6494cf944a1e52b9652039e79d96a0c25ab089b53f7306"
+    },
+    "2026-11-24/UT-D-DEL_CAUCUS-1.html": {
+      "file": "UT-D-DEL_CAUCUS-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:49",
+      "bytes": 5151,
+      "sha256": "9ce47f22d97ec8a2efd297704c725dbb5ead0e50f327a85093ca1f006121ec09"
+    },
+    "2026-11-24/UT-R-DEL_CAUCUS-1.html": {
+      "file": "UT-R-DEL_CAUCUS-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:52",
+      "bytes": 1698,
+      "sha256": "ae91019dedc4557e2c8d31e15a3a15ed3c7092a8b24d300f2a530c402e17f8fb"
+    },
+    "2026-11-24/VA-D-DEL_PRIMARY-1.html": {
+      "file": "VA-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:56",
+      "bytes": 5408,
+      "sha256": "13056a5e4e986df802d848e819f0d06a15361917b2aa9342687f3d7c78982ec1"
+    },
+    "2026-11-24/VA-R-DEL_PRIMARY-1.html": {
+      "file": "VA-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:48:59",
+      "bytes": 5704,
+      "sha256": "1d5d4b35eb3719697ebeff8f94fff25954b8ef3759725f8801968bcc5f78cbba"
+    },
+    "2026-11-24/VI-D-DEL_CONVENTION-1.html": {
+      "file": "VI-D-DEL_CONVENTION-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:02",
+      "bytes": 1320,
+      "sha256": "700e2e87cfe87610c45c9ae015c44141c0ea1c8227f6f942fa2d21fc5be814a2"
+    },
+    "2026-11-24/VI-D-DEL_PRIMARY-1.html": {
+      "file": "VI-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:05",
+      "bytes": 600,
+      "sha256": "b9742a88e5660b159ec5e828cfec74ab3e40b5b13b706a4f45a3268a8b2ed09a"
+    },
+    "2026-11-24/VI-R-DEL_CONVENTION-1.html": {
+      "file": "VI-R-DEL_CONVENTION-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:08",
+      "bytes": 8911,
+      "sha256": "a75c5db45131ce48e9a32c86298467602374ba510f118c61cba2395a02254c14"
+    },
+    "2026-11-24/VT-D-DEL_PRIMARY-1.html": {
+      "file": "VT-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:11",
+      "bytes": 4515,
+      "sha256": "4d228609364cc83a6248591ecbd801ecbfc33bf06683788fa2f850947658adfe"
+    },
+    "2026-11-24/VT-R-DEL_PRIMARY-1.html": {
+      "file": "VT-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:14",
+      "bytes": 5162,
+      "sha256": "4f064b5c6588c3787976078b75e401cdc47b46b0b30b1c1cc3d67bfb2c7e7dbf"
+    },
+    "2026-11-24/WA-D-DEL_DISTRICT-1.html": {
+      "file": "WA-D-DEL_DISTRICT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:17",
+      "bytes": 1610,
+      "sha256": "105444622cebf1ed692cabe1ccf6fb178233e827f9799522f0301152627bfeed"
+    },
+    "2026-11-24/WA-D-DEL_PRECINCT-1.html": {
+      "file": "WA-D-DEL_PRECINCT-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:20",
+      "bytes": 6038,
+      "sha256": "0ff08ed6136e92a47c7750081c3d280da1e76bc6cb84ddf6836549f5b96cfe52"
+    },
+    "2026-11-24/WA-D-DEL_STATE-1.html": {
+      "file": "WA-D-DEL_STATE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:23",
+      "bytes": 609,
+      "sha256": "c2ddd3ce2473f41d4160bdec98ee2917a590fe2a42367ee4433edbbe47da96c6"
+    },
+    "2026-11-24/WA-R-DEL_PRIMARY-1.html": {
+      "file": "WA-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:26",
+      "bytes": 7268,
+      "sha256": "06a60033592dde74820be9bf4513417d6482ba137204bbfadd37cdc22e796775"
+    },
+    "2026-11-24/WI-D-DEL_PRIMARY-1.html": {
+      "file": "WI-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:29",
+      "bytes": 7318,
+      "sha256": "d59c6026977da5f50518bcf0e7b0c4cc16c26214bbe9379a62ec012c0aa92e1f"
+    },
+    "2026-11-24/WI-R-DEL_PRIMARY-1.html": {
+      "file": "WI-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:32",
+      "bytes": 14925,
+      "sha256": "a8bff8b0b23ec48a86c6174a5fc23535e3fd17f8ea52eacf4ed225e59209f7aa"
+    },
+    "2026-11-24/WV-D-DEL_PRIMARY-1.html": {
+      "file": "WV-D-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:35",
+      "bytes": 4810,
+      "sha256": "5231151620c0b68b8bfdf1b38ba7ee71190a9db6d34979cd320d6fe5d7e27500"
+    },
+    "2026-11-24/WV-R-DEL_PRIMARY-1.html": {
+      "file": "WV-R-DEL_PRIMARY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:39",
+      "bytes": 94683,
+      "sha256": "1e78fb22cd894a52eab5bdc0a3193c67afafcd1ea99e534ac6d80f0129855125"
+    },
+    "2026-11-24/WY-D-DEL_COUNTY-1.html": {
+      "file": "WY-D-DEL_COUNTY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:42",
+      "bytes": 1831,
+      "sha256": "1c034adf7817256b5aabaa8478a17b8b269f6ccff7491b2392b9571f95b22a25"
+    },
+    "2026-11-24/WY-R-DEL_COUNTY-1.html": {
+      "file": "WY-R-DEL_COUNTY-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:45",
+      "bytes": 5773,
+      "sha256": "93e28ea891622883dc9c4a285357e96616f1e38a713980e4787d06d274786a4a"
+    },
+    "2026-11-24/WY-R-DEL_STATE-1.html": {
+      "file": "WY-R-DEL_STATE-1",
+      "cycle": 2016,
+      "source": "TheGreenPapers.com 2016 computation tables, a directory its webmaster pointed us to by email (2026-11-24); not a public page, so its address is kept out of the repo",
+      "retrieved": "2026-11-24T19:49:48",
+      "bytes": 1038,
+      "sha256": "6e95507b0ac51584ac4726a7f0ddc505c870397f4c1ef72b180d3c12ee26c004"
+    }
   }
 }
