@@ -1,10 +1,11 @@
 race_key,party,party_code,candidate,pct_first,votes_first,votes_final
-2026|AL|S|regular,Republican,R,Barry Moore,54.71,917338.0,917338.0
-2026|AL|S|regular,Democratic,D,Everett Wess,45.29,759321.0,759321.0
-2026|AK|S|regular,Democratic,D,Mary Peltola,50.13,144486.0,144486.0
-2026|AK|S|regular,Republican,R,Dan S. Sullivan,45.79,131965.0,131965.0
-2026|AK|S|regular,Republican,R,Gerald L. Heikes,2.12,6105.0,6105.0
-2026|AK|S|regular,No party listed,O,Daniel J. Sullivan Jr.,1.65,4765.0,4765.0
+2026|AL|S|regular,Republican,R,Barry Moore,54.68,918207.0,918207.0
+2026|AL|S|regular,Democratic,D,Everett Wess,45.2,759018.0,759018.0
+2026|AL|S|regular,Write-in,O,Write-in,0.12,2042.0,2042.0
+2026|AK|S|regular,Democratic,D,Mary Peltola,50.14,144583.0,144583.0
+2026|AK|S|regular,Republican,R,Dan S. Sullivan,45.78,132022.0,132022.0
+2026|AK|S|regular,Republican,R,Gerald L. Heikes,2.12,6107.0,6107.0
+2026|AK|S|regular,No party listed,O,Daniel J. Sullivan Jr.,1.65,4767.0,4767.0
 2026|AK|S|regular,Write-in,O,Write-in,0.31,886.0,886.0
 2026|AR|S|regular,Republican,R,Tom Cotton,54.21,481495.0,481495.0
 2026|AR|S|regular,Democratic,D,Hallie Shoffner,42.46,377108.0,377108.0
@@ -29,9 +30,10 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|IL|S|regular,Democratic,D,Juliana Stratton,62.07,2620386.0,2620386.0
 2026|IL|S|regular,Republican,R,Don Tracy,36.34,1534193.0,1534193.0
 2026|IL|S|regular,American Center,O,Whitfield Harrington Jr.,1.6,67369.0,67369.0
-2026|IA|S|regular,Democratic,D,Josh Turek,50.55,688741.0,688741.0
-2026|IA|S|regular,Republican,R,Ashley Hinson,46.36,631481.0,631481.0
-2026|IA|S|regular,Libertarian,O,Thomas Laehn,3.09,42109.0,42109.0
+2026|IA|S|regular,Democratic,D,Josh Turek,50.51,688613.0,688613.0
+2026|IA|S|regular,Republican,R,Ashley Hinson,46.3,631276.0,631276.0
+2026|IA|S|regular,Libertarian,O,Thomas Laehn,3.07,41829.0,41829.0
+2026|IA|S|regular,Write-in,O,Write-in,0.12,1653.0,1653.0
 2026|KS|S|regular,Democratic,D,Adam Hamilton,51.18,571573.0,571573.0
 2026|KS|S|regular,Republican,R,Roger Marshall,45.79,511360.0,511360.0
 2026|KS|S|regular,Libertarian,O,David Graham,3.03,33848.0,33848.0
@@ -81,8 +83,8 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|NJ|S|regular,Republican,R,Justin Murphy,34.73,1038585.0,1038585.0
 2026|NJ|S|regular,End the Corruption!,O,Veronica Fernandez,1.68,50185.0,50185.0
 2026|NJ|S|regular,Socialist Workers,O,Joanne Kuniansky,0.95,28484.0,28484.0
-2026|NM|S|regular,Democratic,D,Ben Ray Luján,63.26,458756.0,458756.0
-2026|NM|S|regular,Republican,R,Larry Marker,36.74,266434.0,266434.0
+2026|NM|S|regular,Democratic,D,Ben Ray Luján,63.27,459052.0,459052.0
+2026|NM|S|regular,Republican,R,Larry Marker,36.73,266524.0,266524.0
 2026|NC|S|regular,Democratic,D,Roy Cooper,58.75,2480645.0,2480645.0
 2026|NC|S|regular,Republican,R,Michael Whatley,39.05,1648860.0,1648860.0
 2026|NC|S|regular,Libertarian,O,Shannon W. Bray,1.33,56085.0,56085.0
@@ -135,8 +137,8 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|FL|S|special,Republican,R,Ashley Moody,50.86,4211733.0,4211733.0
 2026|FL|S|special,Democratic,D,Angie Nixon,48.0,3975375.0,3975375.0
 2026|FL|S|special,Independent,I,Neil J. Gillespie,1.14,94681.0,94681.0
-2026|OH|S|special,Democratic,D,Sherrod Brown,50.09,2323001.0,2323001.0
-2026|OH|S|special,Republican,R,Jon Husted,45.07,2090390.0,2090390.0
-2026|OH|S|special,Libertarian,O,Bill Redpath,2.79,129435.0,129435.0
-2026|OH|S|special,Independent,I,Greg Levy,2.05,94857.0,94857.0
+2026|OH|S|special,Democratic,D,Sherrod Brown,50.16,2334442.0,2334442.0
+2026|OH|S|special,Republican,R,Jon Husted,45.0,2094366.0,2094366.0
+2026|OH|S|special,Libertarian,O,Bill Redpath,2.79,129906.0,129906.0
+2026|OH|S|special,Independent,I,Greg Levy,2.05,95468.0,95468.0
 2026|OH|S|special,Write-in,O,Write-in,,,

@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 22 - Districtwide Results",
+  "Reporting": "100% (575 of 575) precincts reporting",
+  "ReportingTime": "November 25, 2026, 10:01 a.m.",
+  "candidates": [
+    {
+      "Name": "Randy Villegas",
+      "Party": "Dem",
+      "Votes": "103,553",
+      "Percent": "68.2",
+      "incumbent": false
+    },
+    {
+      "Name": "David G. Valadao",
+      "Party": "Rep",
+      "Votes": "48,348",
+      "Percent": "31.8",
+      "incumbent": false
+    }
+  ]
+}
