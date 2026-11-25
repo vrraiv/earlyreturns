@@ -1,0 +1,38 @@
+severity,kind,cycle,party,state,detail
+note,no vote of ordinary voters,2008,D,VI,delegates chosen by a convention only (rule 4)
+note,no vote of ordinary voters,2012,D,VI,delegates chosen by a convention only (rule 4)
+note,no vote of ordinary voters,2016,R,CO,delegates chosen by a convention only (rule 4)
+note,no vote of ordinary voters,2016,R,ND,delegates chosen by a convention only (rule 4)
+note,no vote of ordinary voters,2016,R,WY,delegates chosen by a convention only (rule 4)
+note,no main contest,2020,R,MP,"delegates in the rules, no contest in the calendar (as held)"
+note,no main contest,2020,R,NV,"delegates in the rules, no contest in the calendar (as held)"
+note,no vote of ordinary voters,2020,R,SC,delegates chosen by a convention only (rule 4)
+note,date change for a contest not in the calendar,2008,R,MT,caucus 2008-06-03 -> 2008-02-05 (2007-08-25)
+note,date change for a contest not in the calendar,2012,R,ID,primary 2012-05-15 -> cancelled (2012-03-01)
+check,2024 main contest is not the Green Papers' major event,2024,D,MP,main caucus 2024-03-12; major event(s) 2024-03-05
+check,2024 main contest is not the Green Papers' major event,2024,R,MO,main caucus 2024-03-02; major event(s) 2024-05-04
+check,2024 main contest is not the Green Papers' major event,2024,R,OR,main primary 2024-05-21; major event(s) 2024-05-25
+check,2024 main contest is not the Green Papers' major event,2024,R,MT,main primary 2024-06-04; major event(s) 2024-05-18
+check,2024 main contest is not the Green Papers' major event,2024,R,NM,main primary 2024-06-04; major event(s) 2024-04-27
+known,known: date not among the Green Papers' events,2012,R,ME,caucus 2012-02-04
+known,known: date not among the Green Papers' events,2012,D,ME,caucus 2012-03-11
+known,known: date not among the Green Papers' events,2012,R,MO,caucus 2012-03-17
+known,known: date not among the Green Papers' events,2012,D,AK,caucus 2012-04-09
+known,known: date not among the Green Papers' events,2012,D,UT,primary 2012-06-26
+known,known: date not among the Green Papers' events,2016,R,ND,caucus 2016-04-02
+known,known: date not among the Green Papers' events,2016,R,WY,caucus 2016-04-16
+known,known: date not among the Green Papers' events,2016,R,KY,primary 2016-05-17
+known,known: date not among the Green Papers' events,2016,R,DC,primary 2016-06-14
+known,known: date not among the Green Papers' events,2020,R,HI,caucus 2020-03-10
+known,known: date not among the Green Papers' events,2020,R,ND,caucus 2020-03-10
+known,known: date not among the Green Papers' events,2020,R,AZ,primary 2020-03-17
+known,known: date not among the Green Papers' events,2020,D,AK,primary 2020-04-10
+known,known: date not among the Green Papers' events,2020,R,AK,primary 2020-04-10
+known,known: date not among the Green Papers' events,2020,D,WY,caucus 2020-04-17
+known,known: date not among the Green Papers' events,2020,R,KS,primary 2020-05-02
+known,known: date not among the Green Papers' events,2020,R,WY,caucus 2020-05-09
+known,known: date not among the Green Papers' events,2020,D,HI,caucus 2020-05-22
+known,known: date not among the Green Papers' events,2020,R,VA,caucus 2020-08-15
+known,known: date not among the Green Papers' events,2024,D,MP,caucus 2024-03-12
+note,2028: assumed,2028,D,,16 of 57 dates assumed; 0 rules assumed
+note,2028: assumed,2028,R,,17 of 56 dates assumed; 56 rules assumed

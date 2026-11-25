@@ -1,0 +1,37 @@
+cycle,state,party,contest,date,party_run,flag,source,note
+2008,AS,D,caucus,2008-02-05,True,main,TheGreenPapers.com P08 AS-D,Territorial caucus
+2008,DA,D,primary,2008-02-05,True,main,TheGreenPapers.com P08 DA-D,"Local caucuses / primary, the first of three tiers (regional caucuses 15 March, global convention 12 April)"
+2008,GU,D,primary,2008-05-03,True,main,TheGreenPapers.com P08 GU-D,Territorial caucus (party-run primary)
+2008,VI,D,convention,2008-02-09,True,convention,TheGreenPapers.com P08 VI-D,The only event listed is a territorial convention
+2008,AS,R,caucus,2008-02-23,True,main,TheGreenPapers.com P08 AS-R,Territorial caucus
+2008,GU,R,caucus,2008-03-08,True,main,TheGreenPapers.com P08 GU-R,Territorial caucus
+2008,MP,R,caucus,2008-02-05,True,main,TheGreenPapers.com P08 MP-R,Precinct caucuses (commonwealth convention 23 February)
+2008,VI,R,caucus,2008-04-05,True,main,TheGreenPapers.com P08 VI-R,Territorial caucus
+2012,AS,D,caucus,2012-03-06,True,main,TheGreenPapers.com P12 AS-D,Territorial caucus
+2012,DA,D,primary,2012-05-01,True,main,TheGreenPapers.com P12 DA-D,Global primary (global convention 19 May)
+2012,GU,D,primary,2012-05-05,True,main,TheGreenPapers.com P12 GU-D,Territorial caucus (party-run primary)
+2012,VI,D,convention,2012-06-02,True,convention,TheGreenPapers.com P12 VI-D,The only event listed is a territorial convention
+2012,AS,R,caucus,2012-03-13,True,main,TheGreenPapers.com P12 AS-R,Territorial caucus
+2012,GU,R,caucus,2012-03-10,True,main,TheGreenPapers.com P12 GU-R,Territorial caucus
+2012,MP,R,caucus,2012-03-10,True,main,TheGreenPapers.com P12 MP-R,"The Green Papers call it a convention, but primary_results.csv holds candidate vote counts from it, so under rule 4 it is the contest"
+2012,VI,R,caucus,2012-03-10,True,main,TheGreenPapers.com P12 VI-R,Territorial caucus
+2016,AS,D,caucus,2016-03-01,True,main,TheGreenPapers.com P16 AS-D,Territorial caucus
+2016,DA,D,primary,2016-03-01,True,main,TheGreenPapers.com P16 DA-D,"Global party-run primary (1 to 8 March; later tiers: caucuses, regional caucuses, global convention 14 May)"
+2016,GU,D,caucus,2016-05-07,True,main,TheGreenPapers.com P16 GU-D,Caucus
+2016,MP,D,caucus,2016-03-12,True,main,TheGreenPapers.com P16 MP-D,"The Green Papers call it a convention, but primary_results.csv holds candidate vote counts from it, so under rule 4 it is the contest"
+2016,VI,D,caucus,2016-06-04,True,main,TheGreenPapers.com P16 VI-D,District caucuses
+2016,AS,R,caucus,2016-03-22,True,main,TheGreenPapers.com P16 AS-R,Territorial caucus (delegates elected by name)
+2016,GU,R,caucus,2016-03-12,True,main,TheGreenPapers.com P16 GU-R,Territorial caucus (delegates elected by name)
+2016,MP,R,caucus,2016-03-15,True,main,TheGreenPapers.com P16 MP-R,"The Green Papers call it a convention, but primary_results.csv holds candidate vote counts from it, so under rule 4 it is the contest"
+2016,VI,R,caucus,2016-03-10,True,main,TheGreenPapers.com P16 VI-R,Territorial caucus (delegates elected by name)
+2020,AS,D,caucus,2020-03-03,True,main,TheGreenPapers.com P20 AS-D,Territorial caucus
+2020,DA,D,primary,2020-03-03,True,main,TheGreenPapers.com P20 DA-D,"Global party-run primary (regional conventions 14 April, global convention 16 May)"
+2020,GU,D,caucus,2020-06-06,True,main,TheGreenPapers.com P20 GU-D,Caucus
+2020,MP,D,caucus,2020-03-14,True,main,TheGreenPapers.com P20 MP-D,"The Green Papers call it a convention, but primary_results.csv holds candidate vote counts from it, so under rule 4 it is the contest"
+2020,VI,D,caucus,2020-06-06,True,main,TheGreenPapers.com P20 VI-D,District caucuses
+2020,AS,R,caucus,2020-03-18,True,main,TheGreenPapers.com P20 AS-R,Territorial caucus (not an open contest)
+2020,GU,R,caucus,2020-03-14,True,main,TheGreenPapers.com P20 GU-R,Territorial caucus (not an open contest)
+2020,PR,R,caucus,2020-06-05,True,main,TheGreenPapers.com P20 PR-R,Caucus (not an open contest)
+2020,SC,R,convention,2020-05-02,True,convention,TheGreenPapers.com P20 SC-R,The only event listed is the state convention (not an open contest)
+2020,VI,R,caucus,2020-05-30,True,main,TheGreenPapers.com P20 VI-R,Territorial caucus (not an open contest)
+2024,DA,D,primary,2024-03-05,True,main,TheGreenPapers.com P24 DA-D,"Global party-run primary (regional conventions 18 April, global convention 31 May)"

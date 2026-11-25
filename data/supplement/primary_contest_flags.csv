@@ -1,0 +1,38 @@
+cycle,party,state,contest,date,flag,source,note
+2008,D,ID,caucus,2008-02-05,main,TheGreenPapers.com P08 ID-D,County caucuses start delegate selection
+2008,D,ID,primary,2008-05-27,non_binding,TheGreenPapers.com P08 ID-D,Listed as a non-binding primary
+2008,D,NE,caucus,2008-02-09,main,TheGreenPapers.com P08 NE-D,Precinct caucuses start delegate selection
+2008,D,NE,primary,2008-05-13,non_binding,TheGreenPapers.com P08 NE-D,Listed as an advisory primary
+2008,D,WA,caucus,2008-02-09,main,TheGreenPapers.com P08 WA-D,Precinct caucuses start delegate selection
+2008,D,WA,primary,2008-02-19,non_binding,TheGreenPapers.com P08 WA-D,Listed as a non-binding primary
+2008,R,WA,caucus,2008-02-09,non_binding,TheGreenPapers.com P08 WA-R,"Both votes feed delegates: the caucuses start the election of 18 delegates who go unpledged, so the vote does not decide them"
+2008,R,WA,primary,2008-02-19,main,TheGreenPapers.com P08 WA-R,"Allocates 19 delegates (one per congressional district, winner-take-all, and 10 at-large in proportion, 20% threshold)"
+2012,D,NE,caucus,2012-04-14,main,TheGreenPapers.com P12 NE-D,Precinct caucuses start delegate selection
+2012,D,NE,primary,2012-05-15,non_binding,TheGreenPapers.com P12 NE-D,Listed as an advisory primary
+2012,D,UT,caucus,2012-03-13,main,TheGreenPapers.com P12 UT-D,Caucuses start delegate selection
+2012,D,UT,primary,2012-06-26,not_held,TheGreenPapers.com P12 UT-D,"No Democratic presidential primary among the page's events and no results; the date is Utah's primary for other offices"
+2012,R,MO,primary,2012-02-07,non_binding,TheGreenPapers.com P12 MO-R,Listed as a non-binding primary
+2012,R,MO,caucus,2012-03-17,main,TheGreenPapers.com P12 MO-R,County caucuses (15 to 24 March) start delegate selection
+2012,R,NE,primary,2012-05-15,main,TheGreenPapers.com P12 NE-R,"Advisory primary, the only vote of ordinary voters; delegates are chosen at conventions and go unbound"
+2012,R,NE,caucus,2012-07-14,convention,TheGreenPapers.com P12 NE-R,The state convention: no vote of ordinary voters
+2016,D,ID,primary,2016-03-08,not_held,TheGreenPapers.com P16 ID-D,"No Democratic presidential primary; 8 March was the Republican primary (the page lists it as such) and there are no Democratic results"
+2016,D,ID,caucus,2016-03-22,main,TheGreenPapers.com P16 ID-D,County caucuses start delegate selection
+2016,D,NE,caucus,2016-03-05,main,TheGreenPapers.com P16 NE-D,Precinct caucuses start delegate selection
+2016,D,NE,primary,2016-05-10,non_binding,TheGreenPapers.com P16 NE-D,Listed as an advisory primary
+2016,D,WA,caucus,2016-03-26,main,TheGreenPapers.com P16 WA-D,Precinct caucuses start delegate selection
+2016,D,WA,primary,2016-05-24,non_binding,TheGreenPapers.com P16 WA-D,Listed as an advisory primary
+2016,R,DC,caucus,2016-03-12,main,TheGreenPapers.com P16 DC-R,"The DC Republican convention of 12 March, a vote of registered Republicans"
+2016,R,DC,primary,2016-06-14,not_held,TheGreenPapers.com P16 DC-R,"No Republican presidential primary among the page's events and no results; 14 June was the Democratic primary"
+2016,R,KY,caucus,2016-03-05,main,TheGreenPapers.com P16 KY-R,Presidential caucuses allocate the delegates
+2016,R,KY,primary,2016-05-17,not_held,TheGreenPapers.com P16 KY-R,"No Republican presidential line: the caucuses replaced it; no results"
+2016,R,WA,caucus,2016-02-20,convention,TheGreenPapers.com P16 WA-R,Precinct caucuses choose convention delegates with no preference vote that decides national delegates
+2016,R,WA,primary,2016-05-24,main,TheGreenPapers.com P16 WA-R,The primary allocates the delegates
+2024,D,NH,primary,2024-01-23,non_binding,TheGreenPapers.com P24 NH-D,Listed as a non-binding advisory primary (not sanctioned by the DNC); still the party's first contest under section 1 rule 8
+2024,D,NH,primary,2024-04-27,main,TheGreenPapers.com P24 NH-D,Party-run delegate selection primary
+2024,R,MI,primary,2024-02-27,main,TheGreenPapers.com P24 MI-R,"State-run primary, the only vote of ordinary voters; allocates 16 delegates"
+2024,R,MI,caucus,2024-03-02,convention,TheGreenPapers.com P24 MI-R,"The state convention, which allocates the other 39 delegates: a vote of party delegates, not of ordinary voters"
+2024,R,NV,primary,2024-02-06,non_binding,TheGreenPapers.com P24 NV-R,Listed as a non-binding state-run advisory primary
+2024,R,NV,caucus,2024-02-08,main,TheGreenPapers.com P24 NV-R,Precinct caucuses allocate the delegates
+2016,R,CO,caucus,2016-03-01,convention,TheGreenPapers.com P16 CO-R; CBS Colorado 2015-08-25,"The presidential preference poll was cancelled (announced 2015-08-25); the caucuses chose convention delegates only, and delegates were elected at conventions"
+2016,R,ND,caucus,2016-04-02,convention,TheGreenPapers.com P16 ND-R,"No presidential caucus or straw poll (state committee, 2015-08-13); the date is the state convention, which chose unbound delegates"
+2016,R,WY,caucus,2016-04-16,convention,TheGreenPapers.com P16 WY-R,"The state convention (14-16 April); the precinct caucuses (16 February to 1 March) had candidates for county delegate declare a preference, with no tallied vote of ordinary voters"
