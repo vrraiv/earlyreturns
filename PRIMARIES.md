@@ -390,10 +390,12 @@ voted had no state average. Rule 6 is marked as suggested by that report.
 
 ### Rules (written 2026-11-25 before anything was built or run; agreed with the owner the same day)
 
-Agreed by the owner on four questions put after the draft: the two departures above; the dates scored (rule 16);
-leaving out one contest, not one year (rule 16); and a proportional undecided split (rule 6). The other defaults
-(non-binding votes, a main contest after a non-binding vote, territories, ballot access, early votes) were shown
-with the draft and not objected to.
+The owner agreed four questions put after the draft: the two departures above; the dates scored (rule 16);
+leaving out one contest, not one year (rule 16); and a proportional undecided split (rule 6). Everything else was
+written as a judgment and not put as a question, except three put to the owner in a third round the same day and agreed (rules 9, 11 and 16, marked).
+After an advisor review the same day, before anything was built or run, rules 3, 6, 10, 11 and 16 were tightened
+(each contest's own 30-day and 7-day dates, a flat other share before any result, the region term in d², the
+own-average exclusion, a floor on the log loss).
 
 **What is forecast**
 
@@ -404,8 +406,9 @@ with the draft and not objected to.
 2. **Measure and winner.** Each candidate's share by the contest's own measure (votes, or delegate equivalents for some
    caucuses), as in R12. The winner is the top candidate by that measure.
 3. **Forecast dates.** On every voting day of the cycle, as of the morning (results of that day unknown, polls that
-   ended that day included, as in section 1, rule 13), every contest still to come is forecast. Also on the day 30
-   days before the first contest. The eve-of-contest forecast is the one made on its own voting day.
+   ended that day included, as in section 1, rule 13), every contest still to come is forecast. Also, for each
+   contest, on the days 30 and 7 days before it (only that contest is forecast on those days, unless they are
+   voting days). The eve-of-contest forecast is the one made on its own voting day.
 4. **As known.** The calendar as known on the forecast date (section 2, rule 5), the field as known (announced
    candidacies and withdrawals, `primary_candidates.csv`), results of contests already held, and polls that had ended.
    Main-contest flags are as held (section 2, "What was entered").
@@ -426,9 +429,8 @@ with the draft and not objected to.
      vote. It therefore includes uncommitted, write-ins, minor candidates and votes for withdrawn candidates still on
      the ballot.
    - **The forecast uses** the mean other share over the cycle's voted states so far, each weighted equally.
-   - **Before any result**, it uses the same party's previous open contest, over all its states: 2012 R and 2016 R
-     from 2008 R and 2012 R, 2016 D from 2008 D, 2020 D from 2016 D, 2024 R from 2016 R. 2008 has no earlier contest
-     in the files and uses 2 points (judgment).
+      - **Before any result** it is 2 points in every cycle (judgment). A previous contest's other share was rejected
+     as the default: late states with one live candidate count every other vote as other, which inflates it.
 7. **Scale.** A candidate's standing in a state is r = log(state share / national share), both on the result scale.
    Shares are floored at 1 point before the log.
 
@@ -441,8 +443,8 @@ with the draft and not objected to.
    - each state with a current average (section 1, rule 12) that has not yet voted, at weight ½ (judgment): that
      average against the national average on the forecast date.
    Only the 50 states and DC count as evidence. Territories and Democrats Abroad have no demographics, and small
-   electorates move a lot.    Non-binding votes are not evidence: their fields often differ, as in Nevada's 2024
-   Republican primary. This settles the question section 2, rule 4 left to PP-5.
+   electorates move a lot. Non-binding votes are not evidence: their fields often differ, as in Nevada's 2024
+   Republican primary. Section 2, rule 4 left this to PP-5; the owner's call.
 10. **Level and pattern.** The level is the weighted mean of r_t over all observations, by rule 9's weights: does the
     candidate run above or below their national polls everywhere? The pattern is each observation's gap from the level.
     A state s gets:
@@ -451,8 +453,8 @@ with the draft and not objected to.
 
     where W is the summed kernel weight (kernel × rule 9 weight) over the observations.
     - **The kernel** has the same form as EC-5's similarity, exp(−d² / 2m²), m the median distance between states.
-      d is the distance on six standardized measures, plus 1 (judgment) where the two states are in different census
-      regions. This is the region term. The measures are degree share, log median income, and the white, Black and
+      d² is the squared distance on six standardized measures, plus 1 (judgment) where the two states are in
+      different census regions; this is the region term, and m is computed with it included. The measures are degree share, log median income, and the white, Black and
       Latino shares from `state_demographics.csv` (the year before the election, per
       `state_demographics_vintages.csv`), with the rural share from `state_rural_share.csv` (the census in force).
       These are DA-11's tables, not the seven Downballot measures in `state_similarity()`.
@@ -461,10 +463,10 @@ with the draft and not objected to.
     - **Territories and Democrats Abroad** take r = 0: the national average, as chosen.
 11. **A polled state.** A state with its own current average blends it with its prior on the log scale: r_s = w ×
     own-average r + (1 − w) × prior r_s, where w = n / (n + λ) and n is the polls in that average (section 1's
-    `n_polls`). Its own average does not enter its own prior.
+    `n_polls`). Its own average does not enter its own prior, neither the level nor the pattern.
     - **A main contest held after a non-binding vote** (Nevada R 2024, Missouri R 2012, and the rest in section 2): the
       state's average stopped on the first vote (section 2, rule 7). That last average is used as its own, as of the
-      first vote.
+      first vote. The owner's call.
 12. **Expected shares.** National share × exp(r_s) for each live candidate, rescaled to sum to 100 less the other share.
 
 **Uncertainty and draws**
@@ -493,7 +495,11 @@ with the draft and not objected to.
     - **Point values** are fitted by the mean squared error of candidate shares, in points. Every candidate live on
       the forecast date is scored against their share in the result, 0 if absent; a withdrawal before the vote is a
       real miss.
-    - **Spread values** are fitted next, by the log loss of the winner.
+        - **Spread values** are fitted next, by the log loss of the winner, with the winner's chance floored at one
+      draw in 20,000.
+    - **Which places are fitted and scored** (the owner's call): the 50 states and DC only. Territories and Democrats Abroad
+      are forecast with the fitted errors but neither fitted nor scored: they sit at the national average and would
+      pull σ_u and τ toward their misses.
     - **Reporting.** The fitted values for each left-out contest are all reported. The 2028 values are fitted on all
       seven.
 
