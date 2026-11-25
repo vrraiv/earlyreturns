@@ -14,6 +14,12 @@ Light and dark. Light is the default. MODE below runs in the head, before anythi
 <html data-theme> from the reader's saved choice or, without one, from the device's setting. SWITCH runs at the end of
 the page: the button in the top row flips the mode, saves the choice, and fires a "themechange" event on window, which
 the page scripts that draw charts listen for (they read their colours from the stylesheet's variables).
+
+The intro. Once per visit (a sessionStorage flag, "intro"), the first page a reader opens plays one short animation:
+the landing page plays its terminal (landing.py), any other page types the site name in the top row (TYPE below).
+MODE marks the page for it (<html data-intro>) before anything is drawn, so the stylesheet can hold the name back
+until the typing starts; readers who ask for reduced motion, and browsers without sessionStorage, never get the mark
+and see the still page. The return-key mark beside the name (RETURN) is on every page, still.
 """
 import html
 import json
@@ -29,7 +35,9 @@ SETTINGS = json.loads(Path(__file__).with_name("site.json").read_text(encoding="
 THEME_COLOR = {"light": "#FAF8F4", "dark": "#131519"}   # --bg in site.css, for the browser's own bars
 MODE = ('<script>(function(){var t;try{t=localStorage.getItem("theme")}catch(e){}'
         'if(t!=="light"&&t!=="dark")t=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";'
-        'document.documentElement.setAttribute("data-theme",t)})();</script>')
+        'document.documentElement.setAttribute("data-theme",t);'
+        'try{if(!sessionStorage.getItem("intro")&&!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches))'
+        'document.documentElement.setAttribute("data-intro","")}catch(e){}})();</script>')
 SWITCH = ('<script>(function(){var r=document.documentElement,q=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)");'
           'function set(t){r.setAttribute("data-theme",t);window.dispatchEvent(new Event("themechange"))}'
           'var b=document.getElementById("modeswitch");'
@@ -37,6 +45,22 @@ SWITCH = ('<script>(function(){var r=document.documentElement,q=window.matchMedi
           'try{localStorage.setItem("theme",t)}catch(e){}set(t)});'
           'if(q&&q.addEventListener)q.addEventListener("change",function(e){var s;try{s=localStorage.getItem("theme")}catch(x){}'
           'if(s!=="light"&&s!=="dark")set(e.matches?"dark":"light")})})();</script>')
+
+RETURN = ('<svg class="ret" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13 3v5a2 2 0 0 1-2 2H4M7 7l-3 3 3 3" '
+          'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+# Types the site name, then shows the return mark. Skipped where the landing page's terminal plays (#term) and on a
+# page that only forwards (a past election's stub), so the visit's one intro is not spent there.
+TYPE = ('<script>(function(){var r=document.documentElement;if(!r.hasAttribute("data-intro")||document.getElementById("term")'
+        '||document.querySelector("meta[http-equiv=refresh]"))return;'
+        'var n=document.querySelector(".sitename .nm");if(!n){r.removeAttribute("data-intro");return}'
+        'try{sessionStorage.setItem("intro","1")}catch(e){}'
+        'var s=n.textContent,i=0;n.innerHTML="<span class=typed></span><i class=cur></i><span class=ghost></span>";'
+        'var t=n.firstChild,g=n.lastChild;g.textContent=s;r.setAttribute("data-typing","");r.removeAttribute("data-intro");'
+        'function step(){i++;t.textContent=s.slice(0,i);g.textContent=s.slice(i);'
+        'if(i<s.length)setTimeout(step,55+Math.random()*55);'
+        'else setTimeout(function(){n.textContent=s;r.removeAttribute("data-typing");'
+        'var k=n.parentNode.querySelector(".ret");if(k)k.classList.add("pop")},260)}'
+        'setTimeout(step,450)})();</script>')
 
 
 def head(prefix):
@@ -70,7 +94,7 @@ def header(prefix, active=None):
     row += ('<button type="button" class="modeswitch" id="modeswitch" aria-label="Switch between light and dark mode">'
             '<span class="ml">Light</span><span class="md">Dark</span></button>')
     home = prefix or "./"
-    return (f'<div class="sitebar"><div class="wrap"><a class="sitename" href="{home}">{brand.mark_inline(22)}<span>{html.escape(SETTINGS["name"])}</span></a>'
+    return (f'<div class="sitebar"><div class="wrap"><a class="sitename" href="{home}" aria-label="{html.escape(SETTINGS["name"])}">{brand.mark_inline(22)}<span><span class="nm">{html.escape(SETTINGS["name"])}</span>{RETURN}</span></a>'
             f'<nav aria-label="Site">{row}</nav></div></div>')
 
 
@@ -83,5 +107,5 @@ def footer():
 
 
 def script():
-    """The mode switch's script; goes at the end of <body>, before a page's own scripts."""
-    return SWITCH
+    """The mode switch's script and the site name's typing; goes at the end of <body>, before a page's own scripts."""
+    return SWITCH + TYPE

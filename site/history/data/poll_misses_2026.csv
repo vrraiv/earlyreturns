@@ -1,52 +1,53 @@
 race_key,race,chamber,region,poll,n_polls,result,miss,after_chamber_miss
-2026|TX|H|15,TX-15,house,South,7.37,1,24.64,17.27,12.79
-2026|TX|H|9,TX-9,house,South,-1.05,1,15.1,16.16,11.67
-2026|TX|H|28,TX-28,house,South,22.73,1,37.87,15.14,10.66
-2026|NV|H|3,NV-3,house,West,7.69,1,22.13,14.43,9.95
-2026|MI|H|10,MI-10,house,Midwest,-5.62,1,7.37,12.98,8.5
-2026|TX|H|35,TX-35,house,South,1.04,3,10.85,9.81,5.33
-2026|TX|H|34,TX-34,house,South,7.53,1,16.8,9.27,4.79
-2026|TX|S|regular,Texas Senate,senate,South,3.29,28,12.33,9.05,5.6
-2026|TN|S|regular,Tennessee Senate,senate,South,-21.28,1,-12.42,8.86,5.41
-2026|NC|S|regular,North Carolina Senate,senate,South,11.35,8,20.14,8.79,5.35
-2026|GA|S|regular,Georgia Senate,senate,South,9.63,6,18.06,8.43,4.98
-2026|AL|S|regular,Alabama Senate,senate,South,-16.6,3,-9.42,7.18,3.73
-2026|NC|H|9,NC-9,house,South,-4.55,1,2.3,6.84,2.35
-2026|IN|H|5,IN-5,house,Midwest,-3.45,1,3.31,6.76,2.27
-2026|RI|S|regular,Rhode Island Senate,senate,Northeast,32.63,1,39.07,6.44,2.99
-2026|NC|H|11,NC-11,house,South,9.76,2,16.08,6.32,1.83
-2026|NM|S|regular,New Mexico Senate,senate,West,20.43,1,26.52,6.09,2.64
-2026|NH|S|regular,New Hampshire Senate,senate,Northeast,8.14,6,14.03,5.89,2.44
-2026|SC|S|regular,South Carolina Senate,senate,South,-1.07,10,4.6,5.67,2.22
-2026|CO|S|regular,Colorado Senate,senate,West,21.59,3,26.73,5.14,1.69
-2026|MI|H|4,MI-4,house,Midwest,-3.3,1,1.81,5.11,0.62
-2026|MN|S|regular,Minnesota Senate,senate,Midwest,5.98,9,10.46,4.48,1.03
-2026|MS|S|regular,Mississippi Senate,senate,South,-3.61,1,0.84,4.46,1.01
-2026|IA|S|regular,Iowa Senate,senate,Midwest,-0.11,11,4.34,4.46,1.01
-2026|OH|H|1,OH-1,house,Midwest,7.98,2,11.75,3.77,-0.72
-2026|FL|S|special,Florida Senate (special),senate,South,-6.38,17,-2.89,3.49,0.05
-2026|KY|H|6,KY-6,house,South,6.82,1,9.79,2.97,-1.52
-2026|OH|S|special,Ohio Senate (special),senate,Midwest,2.61,21,5.27,2.66,-0.79
-2026|MO|H|2,MO-2,house,Midwest,2.42,3,5.07,2.65,-1.84
-2026|CT|H|2,CT-2,house,Northeast,22.35,1,24.9,2.55,-1.94
-2026|NC|H|1,NC-1,house,South,1.12,1,3.55,2.43,-2.06
-2026|SD|H|0,SD-AL,house,Midwest,-30.43,1,-28.01,2.43,-2.06
-2026|ME|S|regular,Maine Senate,senate,Northeast,3.93,14,6.2,2.28,-1.17
-2026|AR|H|2,AR-2,house,South,-4.0,1,-1.74,2.26,-2.23
-2026|MI|S|regular,Michigan Senate,senate,Midwest,5.17,20,7.26,2.09,-1.36
-2026|MI|H|13,MI-13,house,Midwest,56.82,1,58.84,2.02,-2.47
-2026|KS|S|regular,Kansas Senate,senate,Midwest,3.85,9,5.56,1.71,-1.74
-2026|AR|S|regular,Arkansas Senate,senate,South,-13.46,2,-12.16,1.3,-2.15
-2026|IA|H|2,IA-2,house,Midwest,3.09,1,4.19,1.1,-3.39
-2026|MN|H|8,MN-8,house,Midwest,-6.52,1,-6.19,0.33,-4.16
-2026|OH|H|9,OH-9,house,Midwest,6.52,1,5.45,-1.07,-5.56
-2026|SC|H|1,SC-1,house,South,2.17,1,1.04,-1.13,-5.62
-2026|MT|H|1,MT-1,house,West,5.25,5,3.95,-1.3,-5.78
-2026|OH|H|10,OH-10,house,Midwest,3.3,1,1.68,-1.61,-6.1
-2026|LA|S|regular,Louisiana Senate,senate,South,0.0,2,-1.77,-1.77,-5.22
-2026|NE|H|1,NE-1,house,Midwest,-1.1,1,-3.01,-1.91,-6.4
-2026|NE|S|regular,Nebraska Senate,senate,Midwest,-1.52,9,-6.05,-4.53,-7.98
-2026|MI|H|7,MI-7,house,Midwest,8.16,1,3.39,-4.77,-9.26
-2026|MT|H|2,MT-2,house,West,-23.4,1,-28.59,-5.19,-9.67
-2026|ID|S|regular,Idaho Senate,senate,West,-19.93,2,-25.46,-5.53,-8.98
-2026|SD|S|regular,South Dakota Senate,senate,Midwest,-13.67,5,-21.0,-7.33,-10.78
+2026|TX|H|15,TX-15,house,South,7.37,1,24.64,17.27,13.1
+2026|TX|H|9,TX-9,house,South,-1.05,1,15.1,16.16,11.98
+2026|TX|H|28,TX-28,house,South,22.73,1,37.87,15.14,10.97
+2026|NV|H|3,NV-3,house,West,7.69,1,22.13,14.43,10.26
+2026|MI|H|10,MI-10,house,Midwest,-5.62,1,7.37,12.98,8.81
+2026|TX|H|35,TX-35,house,South,1.04,3,10.85,9.81,5.64
+2026|TX|H|34,TX-34,house,South,7.53,1,16.8,9.27,5.1
+2026|TX|S|regular,Texas Senate,senate,South,3.29,28,12.33,9.05,5.55
+2026|TN|S|regular,Tennessee Senate,senate,South,-21.28,1,-12.42,8.86,5.36
+2026|NC|S|regular,North Carolina Senate,senate,South,11.35,8,20.14,8.79,5.29
+2026|GA|S|regular,Georgia Senate,senate,South,9.63,6,18.06,8.43,4.92
+2026|AL|S|regular,Alabama Senate,senate,South,-16.6,3,-9.42,7.18,3.68
+2026|NC|H|9,NC-9,house,South,-4.55,1,2.3,6.84,2.67
+2026|IN|H|5,IN-5,house,Midwest,-3.45,1,3.31,6.76,2.59
+2026|RI|S|regular,Rhode Island Senate,senate,Northeast,32.63,1,39.07,6.44,2.94
+2026|NC|H|11,NC-11,house,South,9.76,2,16.08,6.32,2.15
+2026|NM|S|regular,New Mexico Senate,senate,West,20.43,1,26.52,6.09,2.59
+2026|NH|S|regular,New Hampshire Senate,senate,Northeast,8.14,6,14.03,5.89,2.39
+2026|SC|S|regular,South Carolina Senate,senate,South,-1.07,10,4.6,5.67,2.17
+2026|CO|S|regular,Colorado Senate,senate,West,21.59,3,26.73,5.14,1.64
+2026|MI|H|4,MI-4,house,Midwest,-3.3,1,1.81,5.11,0.93
+2026|MN|S|regular,Minnesota Senate,senate,Midwest,5.98,9,10.46,4.48,0.98
+2026|MS|S|regular,Mississippi Senate,senate,South,-3.61,1,0.84,4.46,0.96
+2026|IA|S|regular,Iowa Senate,senate,Midwest,-0.11,11,4.34,4.46,0.96
+2026|OH|H|1,OH-1,house,Midwest,7.98,2,11.75,3.77,-0.4
+2026|FL|S|special,Florida Senate (special),senate,South,-6.38,17,-2.89,3.49,-0.01
+2026|KY|H|6,KY-6,house,South,6.82,1,9.79,2.97,-1.2
+2026|OH|S|special,Ohio Senate (special),senate,Midwest,2.61,21,5.27,2.66,-0.84
+2026|MO|H|2,MO-2,house,Midwest,2.42,3,5.07,2.65,-1.53
+2026|CT|H|2,CT-2,house,Northeast,22.35,1,24.9,2.55,-1.62
+2026|NC|H|1,NC-1,house,South,1.12,1,3.55,2.43,-1.75
+2026|SD|H|0,SD-AL,house,Midwest,-30.43,1,-28.01,2.43,-1.75
+2026|AR|H|2,AR-2,house,South,-4.0,1,-1.74,2.26,-1.91
+2026|MI|S|regular,Michigan Senate,senate,Midwest,5.17,20,7.26,2.09,-1.41
+2026|MI|H|13,MI-13,house,Midwest,56.82,1,58.84,2.02,-2.15
+2026|KS|S|regular,Kansas Senate,senate,Midwest,3.85,9,5.56,1.71,-1.79
+2026|AR|S|regular,Arkansas Senate,senate,South,-13.46,2,-12.16,1.3,-2.2
+2026|IA|H|2,IA-2,house,Midwest,3.09,1,4.19,1.1,-3.08
+2026|MN|H|8,MN-8,house,Midwest,-6.52,1,-6.19,0.33,-3.85
+2026|MN|H|1,MN-1,house,Midwest,0.0,1,0.1,0.1,-4.07
+2026|FL|H|7,FL-7,house,South,0.0,1,-0.5,-0.5,-4.68
+2026|OH|H|9,OH-9,house,Midwest,6.52,1,5.45,-1.07,-5.24
+2026|SC|H|1,SC-1,house,South,2.17,1,1.04,-1.13,-5.3
+2026|MT|H|1,MT-1,house,West,5.25,5,3.95,-1.3,-5.47
+2026|OH|H|10,OH-10,house,Midwest,3.3,1,1.68,-1.61,-5.79
+2026|LA|S|regular,Louisiana Senate,senate,South,0.0,2,-1.77,-1.77,-5.27
+2026|NE|H|1,NE-1,house,Midwest,-1.1,1,-3.01,-1.91,-6.09
+2026|NE|S|regular,Nebraska Senate,senate,Midwest,-1.52,9,-6.05,-4.53,-8.03
+2026|MI|H|7,MI-7,house,Midwest,8.16,1,3.39,-4.77,-8.95
+2026|MT|H|2,MT-2,house,West,-23.4,1,-28.59,-5.19,-9.36
+2026|ID|S|regular,Idaho Senate,senate,West,-19.93,2,-25.46,-5.53,-9.03
+2026|SD|S|regular,South Dakota Senate,senate,Midwest,-13.67,5,-21.0,-7.33,-10.83
