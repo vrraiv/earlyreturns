@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-25c",
+  version: "2026-11-25d",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -818,16 +818,29 @@ window.PLAN = {
           details: [
             "From national standing to state results.",
             "How early results shift later states.",
-            "Withdrawals, and where a candidate's support goes."
-          ] },
-        { id: "PP-6", title: "Backtest on past contests", kind: "story", phase: "p3", needs: ["PP-5"],
+            "Withdrawals, and where a candidate's support goes.",
+            "Rules decided 2026-11-25, before anything was built or run (PRIMARIES.md, section 3). Each candidate's state share starts from the national average, with undecided voters shared out in proportion. Standing relative to national is borrowed from states that have voted or been polled: a level, discounted for momentum, and a pattern carried by similarity in demographics and region. A state's own polls are blended in. Territories and Democrats Abroad use the national average. Only announced withdrawals are used; simulating future ones moves to PP-7.",
+            "Six values are fitted (momentum, shrinkage, the weight on a state's own polls and three error sizes), each with the contest being forecast left out, on forecasts made 30 days and 7 days before each contest and on its voting day. Everything else is a judgment written down first. Plain baseline for PP-6: the state average where there is one, the national average otherwise.",
+            "The build is PP-12."
+          ],
+          refs: ["PRIMARIES.md"] },
+        { id: "PP-12", title: "Build the state model", kind: "story", phase: "p3", needs: ["PP-5", "PP-10", "PP-4"],
+          why: "PP-5 fixed the rules; the model itself is still to be built and fitted.",
+          details: [
+            "Added 2026-11-25, after PP-5 closed with its rules written but nothing built.",
+            "Build the state model exactly as PRIMARIES.md section 3 sets it out, as of any past date, with the fitting grids written into the note before any run.",
+            "Fit the six values with each open contest left out in turn, report every fitted value, and keep the draws in calendar order for PP-7.",
+            "Fit the baseline's error sizes the same way, for PP-6's comparison."
+          ],
+          refs: ["PRIMARIES.md"] },
+        { id: "PP-6", title: "Backtest on past contests", kind: "story", phase: "p3", needs: ["PP-12"],
           why: "The order differed in every past cycle, which is the property to test.",
           details: [
             "Past open contests in both parties, forecast in order with what was known before each state voted.",
             "Check that the model handles a calendar it was not fitted on.",
             "Scope decided at PP-2 (2026-11-23): state win probabilities in every open contest from 2008 to 2024. No holdout. The delegate model's check on the extended contests belongs to PP-7, after the first version, so it does not hold this card up."
           ] },
-        { id: "PP-7", title: "Delegate simulation", kind: "milestone", phase: "p4", due: "September 2027", needs: ["PP-5"],
+        { id: "PP-7", title: "Delegate simulation", kind: "milestone", phase: "p4", due: "September 2027", needs: ["PP-12"],
           why: "Nominations are won on delegates, not states.",
           details: [
             "Allocation rules by state and party, including viability thresholds, through to the nomination.",
