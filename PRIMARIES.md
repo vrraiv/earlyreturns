@@ -637,6 +637,72 @@ S24. **The squared error of a forecast** (rule 16) is the mean over the field ca
 S25. **The floor and the baseline.** Rule 7's 1-point floor sits inside r, so at the baseline's corner a candidate
     below 1 point in a state's average or nationally is not returned exactly at their state average. The check in
     S23 is made where every share is at least 1 point.
-S26. A contest that was never held is forecast only until its date as then known has passed.
+S26. A contest is forecast only until its date as then known has passed (reworded before any run; see "What was
+    built").
 S27. The spread fit and the committed chances use the same draws: a forecast date's standard draws are fixed by the
     seed whatever is forecast from them, so a fitted chance is the chance the table shows at those values.
+
+### What was built (PP-12, 2026-11-25)
+
+`src/model/primary_state.py` builds the model as the rules and readings above set them out. `Race(cycle,
+party).forecast(as_of, values)` gives rule 17's table for any date, `.draws()` the 10,000 draws behind it, contests in
+calendar order (S3), and `fit()` the values. Outputs in `data/processed/`: `primary_state_values.csv` and
+`primary_state_forecasts.csv` (described in `DATA.md`; 44,384 rows, 4.9 MB, every forecast date of rule 3 for the model
+and the baseline). `src/check_primary_state.py` runs S23's checks.
+
+**One change to S23 as written.** "Every later date change is deleted" could not be done as such: the calendar file
+holds each contest's date as held, so deleting its later changes does not give the date as known earlier. The check
+instead hides from the model every contest not yet held, so that it can reach a date only through the loader as of
+the forecast date (whose own check is `src/check_primary_calendar.py`). Writing that check changed S26 before any
+run: as first coded, a contest was dropped once its known date had passed only if it was never held, which needs the
+future to tell.
+
+**The run.** The fit was run once, on the grids as written, and nothing was changed after it. (The check script
+also runs the fit twice on 300 draws, to compare a fold before and after its left-out contest's results are shuffled.)
+
+| Left out | β | κ | λ | τ | σ_p | σ_u | Squared error (fit) | Log loss (fit) | Baseline τ | σ_p | σ_u | Squared error | Log loss |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| 2008 D | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 157.7 | 0.528 | 0.4 | 0.3 | 0.4 | 163.8 | 0.545 |
+| 2008 R | 0.7 | 0 | 0.5 | 0.2 | 0.3 | 0.4 | 158.8 | 0.485 | 0.3 | 0.3 | 0.4 | 166.0 | 0.495 |
+| 2012 R | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 168.0 | 0.522 | 0.3 | 0.3 | 0.6 | 173.7 | 0.530 |
+| 2016 D | 0.6 | 0 | 0 | 0.4 | 0.3 | 0.4 | 150.7 | 0.528 | 0.4 | 0.3 | 0.4 | 154.0 | 0.539 |
+| 2016 R | 0.9 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 159.4 | 0.539 | 0.4 | 0.3 | 0.4 | 169.0 | 0.560 |
+| 2020 D | 0.7 | 0 | 0.5 | 0.4 | 0.3 | 0.4 | 160.8 | 0.551 | 0.4 | 0.3 | 0.4 | 168.1 | 0.562 |
+| 2024 R | 0.6 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 165.6 | 0.593 | 0.3 | 0.3 | 0.4 | 173.6 | 0.611 |
+| none (for 2028) | 0.7 | 0 | 0.5 | 0.3 | 0.3 | 0.4 | 160.3 | 0.536 | 0.4 | 0.3 | 0.4 | 166.9 | 0.550 |
+
+Both losses are on the contests each row was fitted on, not on the one left out: they say how the fit went, and are no
+test. Scoring each contest on values not fitted to it is PP-6.
+
+- **On an end of its grid:** κ, at 0, in every fold (the pattern is taken in full, with no shrinkage; 0 is the
+  lowest value κ can take), and λ, at 0, with 2016 D left out. Reported as S4 requires; no grid was changed.
+- **How flat the fit is** (all seven; squared error): 160.3 at the fitted point. β from 0.5 to 0.9 stays within 0.3
+  of it; β = 0 gives 162.7 and β = 1 gives 160.9. κ = ∞ (no pattern) gives 164.5. λ = 2 gives 163.2 and λ = ∞ (own
+  polls ignored) 190.0. Everything at the national average gives 199.8. Seven contests do not pin β down.
+- **By date and by whether the state was polled** (all-seven values; squared error, model against baseline): on the
+  day, 71.6 against 70.9 in polled states (201 forecasts) and 251.2 against 282.5 in unpolled ones (124); 7 days
+  before, 100.6 against 101.0 (188) and 233.6 against 250.0 (139); 30 days before, 121.6 against 127.0 (135) and
+  226.9 against 225.6 (200). What the model adds on these fitted contests is in the unpolled states, close to the
+  vote. A description on the fitted contests, not a test.
+
+**What was scored.** 345 main contests in the 50 states and DC have a usable result; 335 are fitted, on 987 forecasts.
+
+- **No national average, so no field (rule 5):** 48 contest-dates, among them all three dates of 10 contests. These
+  are late contests of races already settled, where no national poll fell in the 42-day window. All three dates:
+  eight Republican contests of May and June 2008 (Idaho, Kentucky, Montana, Nebraska, New Mexico, Oregon, South
+  Dakota, West Virginia) and the Democrats' Connecticut and Louisiana in 2020. The last two dates: Indiana, North
+  Carolina and Pennsylvania R 2008, Utah R 2012, and Delaware, Kentucky, New Jersey and New York D 2020. The day
+  itself: Kentucky and Oregon R 2024. The model makes no forecast there.
+- **Measure unclear (rule 1):** North Dakota D 2008, Maine D 2016.
+- **No result row (S20):** Hawaii and Wyoming R 2008, Missouri R 2012 (the caucuses after its non-binding primary),
+  Wyoming R 2024, and DC R 2016, whose convention result is in the file with no date. Forecast, not scored, not
+  evidence. Collecting them would be a data card's work.
+
+**Flagged for the owner, not acted on**
+
+- **The other share is large after an odd contest.** On 5 February 2008 the Democratic other share is 8.6 points,
+  mostly from Michigan (Obama and Edwards off the ballot, 40% uncommitted). Rule 6 as written; every later forecast
+  that cycle carries it.
+- **Late contests with no national polls** have no forecast at all (above). A rule for them (carry the last
+  national average forward, say) would be new.
+- **S16** (one national draw scaled by horizon) and rule 14 are untested here and are PP-7's to check.
