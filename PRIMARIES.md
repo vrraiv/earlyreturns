@@ -898,7 +898,7 @@ First reading, headline, each race on the values fitted without it (model, then 
   | 85 to 95% | 141 | 91% | 96% | 144 | 90% | 93% |
   | 95 to 100% | 108 | 99% | 94% | 114 | 99% | 96% |
 
-  Below 30% candidates win a little less often than stated, and from 50 to 95% a little more: the middle of the
+  From 5 to 50% candidates win a little less often than stated, and from 50 to 95% a little more: the middle of the
   scale is slightly underconfident. The top bin is the exception, 94% won at a stated 99% (six misses in 108; the
   baseline four in 114). On the day's forecasts alone the pattern is the same, on a third of the counts (the 30 to 50%
   bin: 41% stated, 34% won; the top bin 95% won at 98.5%). No test is made (rule 7).
@@ -938,8 +938,8 @@ folds came out unchanged. The rebuilt forecasts of the four races match the comm
 | 2016 D and R | 0.9 | 0 | 0.5 | 0.4 | 0.3 | 0.4 | 0.4 | 0.3 | 0.4 |
 
 κ is on the end of its grid, as in every fold. Against the race-left-out values, 2008 D's τ moves from 0.3 to 0.2
-(baseline 0.4 to 0.3); 2008 R's values are the same; 2016 D's β moves from 0.6 to 0.9 and its λ from 0 to 0.5; 2016
-R's are the same, and its baseline's σ_u moves from 0.6 to 0.4.
+(baseline 0.4 to 0.3); 2008 R's β moves from 0.7 to 0.6; 2016 D's β moves from 0.6 to 0.9 and its λ from 0 to 0.5;
+2016 R's are the same, and its baseline's σ_u moves from 0.6 to 0.4.
 
 Headline forecasts of the four races, the race left out and then the year left out (model, baseline):
 
@@ -959,6 +959,24 @@ Headline forecasts of the four races, the race left out and then the year left o
   deficit grows from 0.040 to 0.059. On this reading the model is below the baseline in two of the four races, not
   three. The mark is read on the first reading (rules 4 and 10); had it been read with the year left out, the count
   would be 4 of 7, a miss. 2008 D decides it, on a difference of a thousandth either way.
+- **The deciding margin is within the noise of the draws.** 2008 D's difference is −0.0014 on the first reading and
+  +0.0010 on the second, each a mean over 150 forecasts whose own differences have a standard deviation of 0.11.
+  The chances come from 10,000 draws, and forecasts made on one date share their national draw, so a different
+  seed could plausibly turn the sign. The verdict stands as registered, because rule 1 scores the committed table;
+  a run on another seed would be a new diagnostic, and none was made.
+- **Calibration on the second reading** (the four races, every field candidate, all three dates; model, then
+  baseline):
+
+  | Chance | Count | Mean chance | Won | Count | Mean chance | Won |
+  |---|--:|--:|--:|--:|--:|--:|
+  | 0 to 5% | 738 | 0.7% | 0.8% | 745 | 0.8% | 0.8% |
+  | 5 to 15% | 218 | 10% | 10% | 248 | 10% | 10% |
+  | 15 to 30% | 232 | 22% | 19% | 207 | 22% | 19% |
+  | 30 to 50% | 286 | 40% | 40% | 277 | 40% | 44% |
+  | 50 to 70% | 270 | 59% | 59% | 248 | 60% | 54% |
+  | 70 to 85% | 126 | 77% | 80% | 132 | 77% | 82% |
+  | 85 to 95% | 74 | 90% | 96% | 74 | 90% | 92% |
+  | 95 to 100% | 22 | 98% | 100% | 35 | 98% | 97% |
 - **The other measures** (the four pooled, race out then year out, model against baseline): Brier 0.400 against
   0.402, then 0.399 against 0.399; the favourite won in 69% against 67%, then 69% against 67% (2016 D's falls from
   73% to 70%); coverage 60% against 62%, then 60% against 61%.
@@ -974,8 +992,9 @@ Headline forecasts of the four races, the race left out and then the year left o
   owner's one declared round).
 - The share ranges are too narrow in model and baseline alike, most of all far from the vote. The chances of
   winning are much closer to what happened than the ranges are, apart from the top bin.
-- A warning the fit prints (a log of zero in `win_chances`, where a grid point gives a candidate an expected share
-  of zero) is in PP-12's code as built and is left alone: that candidate wins no draw.
+- A warning the fit prints (a log of zero in `win_chances`, so some candidate has an expected share of zero at
+  some point) is in PP-12's code as built and is left alone. Which candidate was not looked up; with a log of minus
+  infinity that candidate wins no draw.
 
 **Put to the owner, not acted on:** whether to use the declared round (rule 6), and on what. Candidates the report
 suggests, each of which would be declared as suggested by this test: the spread of shares (the ranges), the top of
