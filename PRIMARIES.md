@@ -1,6 +1,6 @@
 # Presidential primaries: design note
 
-The note for the primaries track (work plan cards PP-1 to PP-11 in `planning/plan.js`). Started 2026-11-24 with PP-3.
+The note for the primaries track (work plan cards PP-1 to PP-12 in `planning/plan.js`). Started 2026-11-24 with PP-3.
 Rules are written here before anything they govern is built or run, agreed with the project owner, and every run is
 reported. PP-2 kept no holdout (too few open contests), so nothing is tuned against results unless it is declared as
 such.
@@ -358,3 +358,164 @@ sentence.
 
 PP-4's place before PP-10 (PP-10 takes its dates from this loader) is understood but not written into the plan, by
 the owner's call.
+
+## 3. State model (PP-5)
+
+### Scope (the owner's choices, 2026-11-25, made before any rule below was drafted)
+
+The four questions were put as options. These are the options chosen, as worded then:
+
+- **Fitting.** "A short pre-registered list of fitted values (e.g. undecided split, error size, momentum strength),
+  each fitted with the cycle being forecast left out, so PP-6 scores each cycle on values not fitted to it.
+  Everything else fixed by judgment."
+- **Withdrawals.** "Each forecast uses the field as known that day; a withdrawn candidate's support is shared out
+  among those left. Simulated future withdrawals move to PP-7, which needs them for delegates."
+- **Split.** "This session writes section 3 of PRIMARIES.md (the rules, pre-registered) and adds a new build card
+  (PP-12) to plan.js. PP-6 would then need PP-12."
+- **States with no polls.** "Each candidate's share relative to national, predicted from state demographics and
+  region, then updated with how they did in states that have already voted (similar states weigh more). Also handles
+  momentum. Territories and Democrats Abroad stay on the national average." PP-6 compares the method against a plain
+  baseline: the state average where there is one, the national average otherwise.
+
+**Where the rules depart from the last choice (agreed by the owner 2026-11-25):**
+
+- There is no separate demographic prediction. Demographics and region enter only through similarity: a state's
+  standing is borrowed from similar states that have voted or been polled (rule 10). Before any state has voted or
+  been polled, every unpolled state sits at the national average. A fitted regression on demographics per candidate
+  would need values fitted within each cycle, from very few states.
+- States polled but not yet voted count as evidence too, at half the weight of a result (rule 9).
+
+**Already seen:** the PP-10 report (section 1). In each open contest, between a third and two-thirds of the places that
+voted had no state average. Rule 6 is marked as suggested by that report.
+
+### Rules (written 2026-11-25 before anything was built or run; agreed with the owner the same day)
+
+The owner agreed four questions put after the draft: the two departures above; the dates scored (rule 16);
+leaving out one contest, not one year (rule 16); and a proportional undecided split (rule 6). Everything else was
+written as a judgment and not put as a question, except three put to the owner in a third round the same day and agreed (rules 9, 11 and 16, marked).
+After an advisor review the same day, before anything was built or run, rules 3, 6, 10, 11 and 16 were tightened
+(each contest's own 30-day and 7-day dates, a flat other share before any result, the region term in d², the
+own-average exclusion, a floor on the log loss).
+
+**What is forecast**
+
+1. **Contests.** Every main contest (section 2, rule 4) of the seven open contests, 2008 to 2024. Incumbent-party
+   contests (2020 R, 2024 D) are built but neither fitted nor scored. The four contests whose results measure is
+   "unclear" (North Dakota D 2008, American Samoa R 2012, Maine D 2016, Guam D 2024) are forecast but neither fitted,
+   scored nor used as evidence. A contest with no date as known on the forecast date is not forecast that day.
+2. **Measure and winner.** Each candidate's share by the contest's own measure (votes, or delegate equivalents for some
+   caucuses), as in R12. The winner is the top candidate by that measure.
+3. **Forecast dates.** On every voting day of the cycle, as of the morning (results of that day unknown, polls that
+   ended that day included, as in section 1, rule 13), every contest still to come is forecast. Also, for each
+   contest, on the days 30 and 7 days before it (only that contest is forecast on those days, unless they are
+   voting days). The eve-of-contest forecast is the one made on its own voting day.
+4. **As known.** The calendar as known on the forecast date (section 2, rule 5), the field as known (announced
+   candidacies and withdrawals, `primary_candidates.csv`), results of contests already held, and polls that had ended.
+   Main-contest flags are as held (section 2, "What was entered").
+
+**From polls to a result share**
+
+5. **Field.** The live candidates on the forecast date who have a national average. A candidate who withdraws is
+   dropped from every later forecast; their support goes to the others by rule 6. Ballot access is not modelled: a
+   candidate absent from a state's ballot (Clinton alone in Michigan's 2008 Democratic primary, Romney and Paul alone
+   in Virginia's 2012 Republican primary) is forecast there all the same. Votes cast before a withdrawal (early and
+   absentee ballots) are not modelled either.
+6. **Undecided and other.** On the poll scale the live candidates' averages sum to less than 100. Each is scaled up
+   proportionally, so that the live candidates sum to 100 less an "other" share. *Suggested by the PP-10 report*
+   (winners finish above their averages). Proportional is a judgment: EC-2 adopted the raw margin for the general
+   election, which splits the undecided evenly between two candidates, and an even split in points was the
+   alternative, and the owner chose proportional.
+   - **The other share** in a voted state is 100 less the summed shares of the candidates live on the morning of its
+     vote. It therefore includes uncommitted, write-ins, minor candidates and votes for withdrawn candidates still on
+     the ballot.
+   - **The forecast uses** the mean other share over the cycle's voted states so far, each weighted equally.
+      - **Before any result** it is 2 points in every cycle (judgment). A previous contest's other share was rejected
+     as the default: late states with one live candidate count every other vote as other, which inflates it.
+7. **Scale.** A candidate's standing in a state is r = log(state share / national share), both on the result scale.
+   Shares are floored at 1 point before the log.
+
+**A state's expected share**
+
+8. **National standing.** The national average on the forecast date (section 1), on the result scale (rule 6).
+9. **Evidence from other states.** For each live candidate there are two kinds of observation r_t, both on the result
+   scale:
+   - each state already voted, at weight 1: its result against the national average on the morning it voted;
+   - each state with a current average (section 1, rule 12) that has not yet voted, at weight ½ (judgment): that
+     average against the national average on the forecast date.
+   Only the 50 states and DC count as evidence. Territories and Democrats Abroad have no demographics, and small
+   electorates move a lot. Non-binding votes are not evidence: their fields often differ, as in Nevada's 2024
+   Republican primary. Section 2, rule 4 left this to PP-5; the owner's call.
+10. **Level and pattern.** The level is the weighted mean of r_t over all observations, by rule 9's weights: does the
+    candidate run above or below their national polls everywhere? The pattern is each observation's gap from the level.
+    A state s gets:
+
+        prior r_s = β × level + (W / (W + κ)) × the kernel-weighted mean of the pattern,
+
+    where W is the summed kernel weight (kernel × rule 9 weight) over the observations.
+    - **The kernel** has the same form as EC-5's similarity, exp(−d² / 2m²), m the median distance between states.
+      d² is the squared distance on six standardized measures, plus 1 (judgment) where the two states are in
+      different census regions; this is the region term, and m is computed with it included. The measures are degree share, log median income, and the white, Black and
+      Latino shares from `state_demographics.csv` (the year before the election, per
+      `state_demographics_vintages.csv`), with the rural share from `state_rural_share.csv` (the census in force).
+      These are DA-11's tables, not the seven Downballot measures in `state_similarity()`.
+    - **β carries momentum.** After a candidate beats their polls in early states, national polls move too, so β
+      below 1 avoids counting it twice.
+    - **Territories and Democrats Abroad** take r = 0: the national average, as chosen.
+11. **A polled state.** A state with its own current average blends it with its prior on the log scale: r_s = w ×
+    own-average r + (1 − w) × prior r_s, where w = n / (n + λ) and n is the polls in that average (section 1's
+    `n_polls`). Its own average does not enter its own prior, neither the level nor the pattern.
+    - **A main contest held after a non-binding vote** (Nevada R 2024, Missouri R 2012, and the rest in section 2): the
+      state's average stopped on the first vote (section 2, rule 7). That last average is used as its own, as of the
+      first vote. The owner's call.
+12. **Expected shares.** National share × exp(r_s) for each live candidate, rescaled to sum to 100 less the other share.
+
+**Uncertainty and draws**
+
+13. **Error.** In each draw, on the log scale:
+    - **National shock.** Each candidate gets one national shock, the same in every state. Its SD is τ × √(days to the
+      contest / 30), with days floored at 1.
+    - **State shock.** Each candidate also gets one shock per contest: SD σ_p in a polled state and σ_u in an unpolled
+      one, × 1.5 in a caucus (judgment). The state shocks are correlated across states by the kernel (rule 10).
+    - **Totals.** Shares are re-normalised after the shocks. There are 10,000 draws.
+14. **No updating within a draw.** A simulated early result does not move later states within that draw. The shared
+    national shock and the correlated state shocks are what link them. (Judgment, for the first version.) Rule 16 scores
+    contests one at a time, so this joint structure is never tested here. It is a judgment, checked at PP-7, which
+    depends on it.
+
+**Fitted values, and how**
+
+15. **The list.** Point values β, κ, λ; spread values τ, σ_p, σ_u. Six in all, nothing else fitted.
+16. **How.** Each open contest is left out in turn and the values are fitted on the other six by grid search, on grids
+    written down before the run. Leaving out 2008 D still fits on 2008 R, the same year (the owner's call, over
+    leaving out the whole year).
+        - **Dates scored** (the owner's call): each contest's forecasts made 30 days and 7 days before it and on its own
+      voting day, each taken as the latest forecast date on or before that day. Each contest is weighted equally, and
+      each of its three dates equally within it. Far-ahead dates are not fitted: announced-only withdrawals leave a
+      field there that later shrinks, and those misses would dominate the loss.
+    - **Point values** are fitted by the mean squared error of candidate shares, in points. Every candidate live on
+      the forecast date is scored against their share in the result, 0 if absent; a withdrawal before the vote is a
+      real miss.
+        - **Spread values** are fitted next, by the log loss of the winner, with the winner's chance floored at one
+      draw in 20,000.
+    - **Which places are fitted and scored** (the owner's call): the 50 states and DC only. Territories and Democrats Abroad
+      are forecast with the fitted errors but neither fitted nor scored: they sit at the national average and would
+      pull σ_u and τ toward their misses.
+    - **Reporting.** The fitted values for each left-out contest are all reported. The 2028 values are fitted on all
+      seven.
+
+**Output**
+
+17. **For every forecast date and contest:** each live candidate's expected share, 10th and 90th percentiles, and
+    chance of winning; whether the contest was polled; and W. The draws are kept for PP-7's thresholds: shares per
+    candidate per contest, in calendar order, with the national shocks shared.
+18. **Baseline (for PP-6).** The state average where there is one, otherwise the national average, both on the result
+    scale (rule 6). It gets its own τ, σ_p and σ_u, fitted the same way (rule 16).
+
+**Known gaps and open questions**
+
+- **Home states** are not in the first version. A candidate's home state is almost always polled, so rule 11
+  covers it. A home-state bonus would need a hand-entered home state per candidate.
+- **Caucus results as evidence for primaries,** and the reverse, are treated alike. 2008 D (Obama far stronger in
+  caucuses) suggests they differ. Left open.
+- **Judgments that could be fitted instead:** rule 9's half weight, rule 10's region penalty, and rule 13's caucus
+  multiplier. Fitting any of them takes the list past six.
