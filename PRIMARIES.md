@@ -164,3 +164,40 @@ attributed and linked). This card adds a loader, `src/model/primary_calendar.py`
 14. **Checks.** A script confirms that every place the model uses has a main contest, a date or a cancelled status,
     a delegate total and an allocation class, as of any date. Known disagreements (such as the 20 of 538 dates that
     are not among the Green Papers' events) are listed, not fixed. The gaps DA-6 closed as unresolved are not reopened.
+
+### What was entered (2026-11-25)
+
+**Main and non-binding contests (rule 4).** In `data/supplement/primary_contest_flags.csv`, each with its reason.
+
+- Main contest the caucus, primary non-binding: Democrats in Idaho 2008, Nebraska 2008, 2012 and 2016, Washington
+  2008 and 2016; Missouri Republicans 2012 (the February primary was a beauty contest); Nevada Republicans 2024.
+- Main contest the primary: Washington Republicans 2008 (it bound 19 delegates; the caucuses started the election of
+  18 who went unpledged); New Hampshire Democrats 2024 (the party-run primary of 27 April; the unsanctioned state
+  primary of 23 January is non-binding but stays the first contest under section 1, rule 8).
+- Not votes of ordinary voters, so not contests: Nebraska Republicans' 2012 "caucus" (the state convention),
+  Washington Republicans' 2016 precinct caucuses, Michigan Republicans' 2024 convention, and Colorado and North
+  Dakota Republicans 2016 (preference votes cancelled), labelled `convention`. Calendar rows for contests that were
+  never held for that party (Utah Democrats' 2012 primary, Idaho Democrats' 2016 primary, DC and Kentucky
+  Republicans' 2016 primaries) are labelled `not_held`.
+- Added from the Green Papers' event lists (the owner's call, 2026-11-25): the territories and Democrats Abroad, which
+  the FEC calendar never listed (`primary_calendar_additions.csv`). Seven places list only a convention and so have
+  delegates but no contest.
+
+**Allocation classes (rule 8).** In `data/supplement/primary_allocation_classes.csv`. Every Democratic contest is
+proportional (15% threshold). Republican wording: "Proportional" and "Combined Selection [ Proportional Primary with
+Caucus/Convention ]" are proportional; "Winner-Take-All" in a primary or caucus is winner-take-all; winner-take-all by
+district and statewide, winner-take-most, and the majority-trigger rules are winner-take-most or mixed; "Caucus/
+Convention" (2008 and 2012), "Delegate Selection" caucuses and primaries and "Advisory Primary" are unbound. The
+loophole primaries are mapped by state: Illinois winner-take-most (delegates listed with a candidate), Pennsylvania
+unbound. A cancelled contest is "no contest".
+
+**Dates as known (rule 5).** 105 changes in `data/supplement/primary_date_changes.csv`, scoped to the seven open
+contests. A blank earlier date means no date was set before the change; the loader then shows the contest with no
+date until it was announced. Where sources disagree on a date, the note names both; the one used is stated.
+
+**2028 (rules 9 to 11).** `data/supplement/primary_calendar_2028.csv`, as known on 2026-11-25: the DNC's early window
+(South Carolina 22 January, Nevada 1 February, New Hampshire 8 February, New Mexico 15 February, Michigan 22 February,
+Virginia 29 February; the Rules and Bylaws Committee on 24 July 2026, the full DNC in August), the RNC's order with no
+dates (Iowa, New Hampshire, Nevada, South Carolina; 10 September 2026), and the dates that follow from state law. Where
+the DNC's date and state law differ (New Mexico and Virginia Democrats), the DNC's date is used under rule 10's last
+sentence.
