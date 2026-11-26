@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-26b",
+  version: "2026-11-26c",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -455,6 +455,22 @@ window.PLAN = {
             { id: "b", text: "Collector written" },
             { id: "c", text: "State table by election year built, and checked against the 2015-19 snapshot" },
             { id: "d", text: "DATA.md updated" }
+          ] },
+        { id: "DA-12", title: "2026 House vote, national and by district", kind: "story", phase: "p1",
+          why: "After the 2026 general the single-race paths have no 2026 House vote to use: House specials and off-cycle governors fall back to 2024's, and the Senate branch stops. The Minnesota Senate special on November 2, 2027 needs it.",
+          details: [
+            "Added 2026-11-26 after SP-3.",
+            "Add the 2026 national House vote to `data/interim/house_national_vote.csv` once the counts are certified (usually December), not before.",
+            "Add the 2026 district results, with vote counts if a source has them, for a state's House-vote lean after a midterm (SP-3's lean). Report uncontested seats beside each state's figure.",
+            "Keep 2026 out of the environment estimator's training (`fundamentals_dataset.csv`, `environment.py`) until it is decided on its own. Adding 2026 there refits every off-cycle forecast.",
+            "Check every script that reads the national vote file (`backtest_asof.py`, `bias_confidence.py`, `house_structure.py`, `fundamentals.py`) for anything that would pick up 2026 when rerun. `check_frozen.py` must still pass.",
+            "When done, the single-race paths use the 2026 vote after November 3, 2026, and the House paths' fallback to 2024 goes away."
+          ],
+          checklist: [
+            { id: "a", text: "2026 national House vote added from certified counts" },
+            { id: "b", text: "2026 district results added, with uncontested seats marked" },
+            { id: "c", text: "2026 kept out of the estimator's training; every reader of the file checked" },
+            { id: "d", text: "Single-race paths run on a date after November 2026; DATA.md updated" }
           ] }
       ]
     },
