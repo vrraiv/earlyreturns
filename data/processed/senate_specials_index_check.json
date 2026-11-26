@@ -1,0 +1,134 @@
+{
+ "n_index_specials": 666,
+ "by_kind": {
+  "US House": 79
+ },
+ "years": [
+  1989,
+  2022
+ ],
+ "m_all_house_specials": {
+  "0": 1.2813965235750688,
+  "1": -0.18601820365452718
+ },
+ "residual_mean": -1.7934653771428213,
+ "residual_sd": 22.42153593209685,
+ "comparison_2008_2022": {
+  "months": 173,
+  "corr": 0.20198748314221984,
+  "mean_index": 0.16170829763876865,
+  "mean_house": -1.5395509145077948,
+  "mean_diff_index_minus_house": 1.701259212146563,
+  "sd_index": 5.882093094385434,
+  "sd_house": 5.444788749814088,
+  "by_year": [
+   {
+    "y": 2008,
+    "index_term": -3.52,
+    "house_term": -5.38
+   },
+   {
+    "y": 2009,
+    "index_term": -5.9,
+    "house_term": 3.75
+   },
+   {
+    "y": 2010,
+    "index_term": -8.23,
+    "house_term": -2.85
+   },
+   {
+    "y": 2011,
+    "index_term": -5.99,
+    "house_term": -0.48
+   },
+   {
+    "y": 2012,
+    "index_term": 2.42,
+    "house_term": -5.59
+   },
+   {
+    "y": 2013,
+    "index_term": 2.03,
+    "house_term": 2.8
+   },
+   {
+    "y": 2014,
+    "index_term": 0.87,
+    "house_term": -0.14
+   },
+   {
+    "y": 2015,
+    "index_term": 0.7,
+    "house_term": -6.07
+   },
+   {
+    "y": 2016,
+    "index_term": -1.87,
+    "house_term": -9.88
+   },
+   {
+    "y": 2017,
+    "index_term": 0.29,
+    "house_term": -1.82
+   },
+   {
+    "y": 2018,
+    "index_term": 0.2,
+    "house_term": 4.09
+   },
+   {
+    "y": 2019,
+    "index_term": -2.74,
+    "house_term": -1.56
+   },
+   {
+    "y": 2020,
+    "index_term": 3.41,
+    "house_term": -4.24
+   },
+   {
+    "y": 2021,
+    "index_term": 11.63,
+    "house_term": -0.6
+   },
+   {
+    "y": 2022,
+    "index_term": 10.31,
+    "house_term": 5.3
+   }
+  ]
+ },
+ "senate_dates": {
+  "PA1991": {
+   "date": "1991-11-05",
+   "index_term": -1.8193556245028917,
+   "n": 11
+  },
+  "ND1992": {
+   "date": "1992-12-04",
+   "index_term": 3.1231256711297393,
+   "n": 8
+  },
+  "TX1993": {
+   "date": "1993-06-05",
+   "index_term": -8.725177206991301,
+   "n": 6
+  },
+  "OR1996": {
+   "date": "1996-01-30",
+   "index_term": 7.54214358792249,
+   "n": 15
+  },
+  "GA1992": {
+   "date": "1992-11-24",
+   "index_term": 3.1231256711297393,
+   "n": 8
+  },
+  "LA2002": {
+   "date": "2002-12-07",
+   "index_term": -13.586108623281644,
+   "n": 22
+  }
+ }
+}
