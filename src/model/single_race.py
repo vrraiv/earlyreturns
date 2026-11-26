@@ -15,8 +15,8 @@ Senate special (off the general-election day; SP-3, decided 2026-11-26, SPECIALS
   environment  the off-cycle fundamentals estimate on the date at m = 1 (F1).
   prior        lean + environment + 2 x incumbency (+1 a sitting senator from the state runs as a Democrat, -1 as a
                Republican), the frozen Senate prior's form. No polls (SP-4).
-  error        normal, SD 18: measured on the 13 Senate specials 1972-2021 (F1, RMSE 17.9), so chosen from the same
-               results it is checked on.
+  error        t (3.9 df), SD 18: measured on the 13 Senate specials 1972-2021 (F1, RMSE 17.9), so chosen from the
+               same results it is checked on.
 Governor (off-cycle): the governor model's prior, poll weight and national factors (src/model/governor_model.py),
 fitted on races before the date; environment from the same estimator with the governor term-year m.
 
@@ -169,8 +169,8 @@ def senate_forecast(state, date, inc=0, lean=None):
     s = SD_SENATE_SPECIAL
     return {"date": str(date.date()), "lean": lean, "lean_year": info["lean_year"], "lean_kind": info["lean_kind"], "inc": inc,
             "environment": {"env": env, "m": 1.0, "term_year": SM.term_year(date), **einfo}, "prior": mu, "poll_avg": None,
-            "n_polls": 0, "poll_weight": 0.0, "mu": mu, "sd": s, "p_dem": p_win(mu, s, None), "interval_80": interval(mu, s, 0.8, None),
-            "error_shape": "normal"}
+            "n_polls": 0, "poll_weight": 0.0, "mu": mu, "sd": s, "p_dem": p_win(mu, s, DF_T), "interval_80": interval(mu, s, 0.8, DF_T),
+            "error_shape": f"t({DF_T})"}
 
 
 # ---------------- governor (off-cycle) ----------------

@@ -343,10 +343,10 @@ GA 2022's midterm lean is from district margins at equal weight (no 2022 vote co
 - **The owner's decision: F1, with an error SD of 18.** The Senate branch of the single-race path is margin = lean +
   F1 + 2 x incumbency (`python src/model/single_race.py senate --state GA --date 2021-01-05 --inc -1`; checklist c).
 - **SD 18** replaces the borrowed 10.7. It is the one change from what was tested, suggested by the step 3 results
-  (F1 with L1: margin RMSE 17.9 on the 13 specials). Checked on the same 13, so not a test: 50% / 80% / 95% normal
-  intervals hold 7 / 10 / 12. ND 1992 alone pulls the SD up a good deal.
-- **Defaults pending the owner's confirmation**: lean L1 (rule 5's headline lean, and F1's best lean in step 3) and a
-  normal error shape (SP-2's choice for House specials; t(3.9) covered the same in step 3).
+  (F1 with L1: margin RMSE 17.9 on the 13 specials). ND 1992 alone pulls the SD up a good deal.
+- **Lean L1 and error shape t(3.9)**, both confirmed by the owner the same day (the shape is the forecast's race error,
+  `poll_settings.json`). Checked on the same 13, so not a test: at SD 18, 50% / 80% / 95% intervals hold 7 / 7 / 12
+  under t(3.9) (7 / 10 / 12 under a normal); the t's narrower middle leaves out three races near the 80% edge.
 - Not used: H, H+R, N and G as the environment. A contested-seats-only midterm lean was not run.
 - The Minnesota special on November 2, 2027 cannot be forecast until the 2026 national and state House votes are in
   the repo: the command refuses rather than use the 2024 House vote in the environment, and asks for `--lean` when
