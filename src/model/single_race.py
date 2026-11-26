@@ -9,11 +9,20 @@ House special (open seat):
   polls        optional: two-party average, SD sqrt(8.06^2 + max(spread, 4)^2 / n) (district-poll error estimated in
                house_structure.py), precision-weighted against the prior.
   error        t (3.9 df) with SD = the RMS of earlier specials' own prospective forecast errors.
+Senate special (off the general-election day; SP-3, decided 2026-11-26, SPECIALS.md section 1):
+  lean         the state's lean in the last federal general election before the date (presidential margin minus the
+               nation's, or after a midterm the state's House vote margin minus the national House margin).
+  environment  the off-cycle fundamentals estimate on the date at m = 1 (F1).
+  prior        lean + environment + 2 x incumbency (+1 a sitting senator from the state runs as a Democrat, -1 as a
+               Republican), the frozen Senate prior's form. No polls (SP-4).
+  error        t (3.9 df), SD 18: measured on the 13 Senate specials 1972-2021 (F1, RMSE 17.9), so chosen from the
+               same results it is checked on.
 Governor (off-cycle): the governor model's prior, poll weight and national factors (src/model/governor_model.py),
 fitted on races before the date; environment from the same estimator with the governor term-year m.
 
 Run:
   python src/model/single_race.py house --state TN --district 7 --date 2025-12-02 [--poll 45,52 ...] [--pvi -10]
+  python src/model/single_race.py senate --state MN --date 2027-11-02 [--inc 0] [--lean -2.5]
   python src/model/single_race.py governor --state VA --date 2025-11-04 [--inc 0] [--poll 52,46 ...] [--votehub]
   python src/model/single_race.py backtest     every House special 2007-2026 in date order, strictly prospective
 Writes data/processed/single_race_backtest.json (backtest) and prints the forecast otherwise.
@@ -125,6 +134,43 @@ def house_sd(date):
     r = pd.DataFrame(json.loads(p.read_text())["races"])
     e = r[pd.to_datetime(r.date) < pd.Timestamp(date)].err
     return float(np.sqrt((e ** 2).mean())) if len(e) >= MIN_SD_N else SD_FALLBACK
+
+
+# ---------------- Senate special (off-cycle) ----------------
+SD_SENATE_SPECIAL = 18.0
+
+
+def senate_lean(state, date):
+    """L1: the state's lean in the last federal general election before the date (src/collect/senate_specials.py)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("collect_senate_specials", HERE.parent / "collect" / "senate_specials.py")
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    try:
+        out = mod.lean_for(state, pd.Timestamp(date))
+    except (KeyError, IndexError):
+        raise SystemExit(f"no lean for {state} before {pd.Timestamp(date).date()}: the last election's results are not in the repo's files; pass --lean")
+    if out["lean"] is None or not np.isfinite(out["lean"]):
+        raise SystemExit(f"no lean for {state} from the {out['lean_year']} election in the repo's files; pass --lean")
+    return out
+
+
+def senate_forecast(state, date, inc=0, lean=None):
+    date = pd.Timestamp(date)
+    info = {"lean_year": None, "lean_kind": "given"} if lean is not None else senate_lean(state, date)
+    lean = float(lean) if lean is not None else float(info["lean"])
+    model = E.fit(E.training())
+    env, einfo = E.env_on(date, "fund", 1.0, model)
+    if not np.isfinite(env):
+        raise SystemExit(f"no environment estimate on {date.date()} (approval or the last House vote not in the repo yet)")
+    last_even = max(y for y in range(1946, date.year + 1, 2) if pd.Timestamp(f"{y}-11-01") < date)
+    if einfo.get("prev_year") is not None and einfo["prev_year"] < last_even:
+        raise SystemExit(f"the environment would use the {einfo['prev_year']} House vote, but the {last_even} vote is not in the repo yet")
+    mu = lean + env + 2 * inc
+    s = SD_SENATE_SPECIAL
+    return {"date": str(date.date()), "lean": lean, "lean_year": info["lean_year"], "lean_kind": info["lean_kind"], "inc": inc,
+            "environment": {"env": env, "m": 1.0, "term_year": SM.term_year(date), **einfo}, "prior": mu, "poll_avg": None,
+            "n_polls": 0, "poll_weight": 0.0, "mu": mu, "sd": s, "p_dem": p_win(mu, s, DF_T), "interval_80": interval(mu, s, 0.8, DF_T),
+            "error_shape": f"t({DF_T})"}
 
 
 # ---------------- governor (off-cycle) ----------------
@@ -256,10 +302,11 @@ def show(f, actual=None):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("kind", choices=["house", "governor", "backtest"])
+    ap.add_argument("kind", choices=["house", "senate", "governor", "backtest"])
     ap.add_argument("--state"); ap.add_argument("--district", type=int, default=0); ap.add_argument("--date")
     ap.add_argument("--pvi", type=float, help="Cook PVI (D positive); default: looked up for the lines in force")
     ap.add_argument("--inc", type=int, default=0, help="+1 Democratic incumbent running, -1 Republican, 0 open")
+    ap.add_argument("--lean", type=float, help="Senate: state lean as a D-R margin; default: the last federal election")
     ap.add_argument("--poll", action="append", default=[], help="'D,R' percentages; repeat for each poll")
     ap.add_argument("--dem"); ap.add_argument("--rep"); ap.add_argument("--votehub", action="store_true")
     a = ap.parse_args()
@@ -272,6 +319,13 @@ def main():
         sp = specials()
         hit = sp[(sp.state == a.state) & (sp.district == a.district) & (sp.date == pd.Timestamp(a.date))]
         print(f"{a.state}-{a.district} special, {a.date}: lean {lean2:+.0f} (PVI {lean2 / 2:+.0f})")
+        show(f, float(hit.margin_2p.iloc[0]) if len(hit) else None)
+    elif a.kind == "senate":
+        f = senate_forecast(a.state, a.date, a.inc, a.lean)
+        sen = pd.read_csv(ROOT / "data/interim/senate_specials.csv", parse_dates=["date"])
+        hit = sen[(sen.state == a.state) & (sen.date == pd.Timestamp(a.date))]
+        src = "given" if f["lean_year"] is None else f"{f['lean_kind']}, {f['lean_year']}"
+        print(f"{a.state} Senate special, {a.date}: lean {f['lean']:+.1f} ({src}), incumbent {a.inc:+d}")
         show(f, float(hit.margin_2p.iloc[0]) if len(hit) else None)
     else:
         f = governor_forecast(a.state, a.date, a.inc, polls, a.dem, a.rep, a.votehub)

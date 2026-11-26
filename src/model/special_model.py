@@ -31,7 +31,8 @@ import environment as E  # noqa: E402
 
 OUT = ROOT / "data" / "processed"
 HS = json.loads((ROOT / "data/final/house_structure.json").read_text())["chosen"]
-INAUGURATIONS = [pd.Timestamp(f"{y}-01-20") for y in (2005, 2009, 2013, 2017, 2021, 2025)]
+# 1969-2001 added for SP-3 (Senate specials from 1972); dates from 2005 on are unchanged. Ford counts in Nixon's second term.
+INAUGURATIONS = [pd.Timestamp(f"{y}-01-20") for y in range(1969, 2026, 4)]
 
 
 def term_year(date):
