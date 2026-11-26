@@ -454,7 +454,7 @@ and whether it is in it).
 
 | Polls in window | Races | Polls | Partisan |
 |---|---|---|---|
-| House specials in the backtest (2008-2026) | 37 of 68 | 87 | 22 |
+| House specials from 2008 (31 of the backtest's 68 after the amendment below) | 37 | 87 | 22 |
 | Senate specials | 6 | 71 | 12 |
 | Senate runoffs (diagnostic) | 6 | 48 | 9 |
 
@@ -478,6 +478,11 @@ different things, and full-field margins cannot be rebuilt from the file:
 - **HI-1 2010**: two Democrats (Hanabusa, Case) against one Republican (Djou); the polls give Hanabusa against Djou.
 - **AK-0 2022**: ranked-choice, two Republicans (Palin, Begich); a two-candidate poll and the deciding round can be
   different rounds.
-Both keep the prior alone in every candidate and are listed in the report, leaving **35 polled House specials** in the
-backtest. NY-23 2009 stays as the rules have it (the Republican, Scozzafava, withdrew days before; polls and result
-both pair her with Owens) and is flagged in the report.
+Both keep the prior alone in every candidate and are listed in the report.
+
+**Correction to the counts (found by the plumbing check, before the run).** The 37 House races above are those from
+2008, not those in the backtest. The backtest (`special_model.load()`) leaves out multi-candidate races, NY-23 2009
+among them, and starts scoring only once 8 earlier specials exist, so IL-14, IN-7 and LA-6 (early 2008) are not
+scored. **31 polled House specials are scored** (33 before the amendment). P4 learns its poll error from earlier
+polled specials in the backtest's own universe: the scored ones before the date plus MA-5 and OH-5 2007 and IL-14,
+IN-7 and LA-6 2008; never NY-23 2009 or the two amended races. NY-23 is therefore not in the test at all.
