@@ -550,5 +550,6 @@ The polls carry 0.79 to 0.93 of the weight. MA 2010 (prior D+21, result R+5) and
 are where the prior alone fails. The three poll versions differ in calls only on MA 2010 (S1 has Brown losing narrowly)
 and otherwise by fractions of a point. Race by race: `data/processed/special_polls_senate.csv`.
 
-**Rule 9**: the Senate `--poll` option gets the House result's poll set: all polls, unshifted, with the frozen
-statewide SD.
+**Rule 9, done**: `single_race.py senate --poll D,R ...` uses the House result's poll set (all polls, unshifted) and
+the frozen statewide SD, weighted against 18. Checked on MA 2010 with its 13 polls: D+0.3, SD 5.1, weight 0.92, the
+same as S1 in the run.

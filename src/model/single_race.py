@@ -14,7 +14,10 @@ Senate special (off the general-election day; SP-3, decided 2026-11-26, SPECIALS
                nation's, or after a midterm the state's House vote margin minus the national House margin).
   environment  the off-cycle fundamentals estimate on the date at m = 1 (F1).
   prior        lean + environment + 2 x incumbency (+1 a sitting senator from the state runs as a Democrat, -1 as a
-               Republican), the frozen Senate prior's form. No polls (SP-4).
+               Republican), the frozen Senate prior's form.
+  polls        optional (SP-4, SPECIALS.md section 2, rule 9): all polls, unshifted, two-party average with the frozen
+               forecast's statewide SD sqrt(a^2 + b^2 / n) (data/final/calibration.json pollavg_sd_by_n, n the plain
+               count), precision-weighted against 18. The House test settled on all polls unshifted (P1).
   error        t (3.9 df), SD 18: measured on the 13 Senate specials 1972-2021 (F1, RMSE 17.9), so chosen from the
                same results it is checked on.
 Governor (off-cycle): the governor model's prior, poll weight and national factors (src/model/governor_model.py),
@@ -22,7 +25,7 @@ fitted on races before the date; environment from the same estimator with the go
 
 Run:
   python src/model/single_race.py house --state TN --district 7 --date 2025-12-02 [--poll 45,52 ...] [--pvi -10]
-  python src/model/single_race.py senate --state MN --date 2027-11-02 [--inc 0] [--lean -2.5]
+  python src/model/single_race.py senate --state MN --date 2027-11-02 [--inc 0] [--lean -2.5] [--poll 48,45 ...]
   python src/model/single_race.py governor --state VA --date 2025-11-04 [--inc 0] [--poll 52,46 ...] [--votehub]
   python src/model/single_race.py backtest     every House special 2007-2026 in date order, strictly prospective
 Writes data/processed/single_race_backtest.json (backtest) and prints the forecast otherwise.
@@ -138,6 +141,8 @@ def house_sd(date):
 
 # ---------------- Senate special (off-cycle) ----------------
 SD_SENATE_SPECIAL = 18.0
+_CAL = json.loads((ROOT / "data/final/calibration.json").read_text())["pollavg_sd_by_n"]
+SD_STATE_A, SD_STATE_B = float(_CAL["a"]), float(_CAL["b"])
 
 
 def senate_lean(state, date):
@@ -154,7 +159,7 @@ def senate_lean(state, date):
     return out
 
 
-def senate_forecast(state, date, inc=0, lean=None):
+def senate_forecast(state, date, inc=0, lean=None, polls=()):
     date = pd.Timestamp(date)
     info = {"lean_year": None, "lean_kind": "given"} if lean is not None else senate_lean(state, date)
     lean = float(lean) if lean is not None else float(info["lean"])
@@ -165,11 +170,19 @@ def senate_forecast(state, date, inc=0, lean=None):
     last_even = max(y for y in range(1946, date.year + 1, 2) if pd.Timestamp(f"{y}-11-01") < date)
     if einfo.get("prev_year") is not None and einfo["prev_year"] < last_even:
         raise SystemExit(f"the environment would use the {einfo['prev_year']} House vote, but the {last_even} vote is not in the repo yet")
-    mu = lean + env + 2 * inc
-    s = SD_SENATE_SPECIAL
+    prior = lean + env + 2 * inc
+    sp = SD_SENATE_SPECIAL
+    pl = list(polls)
+    if pl:
+        pa, n = float(np.mean([100 * (d - r) / (d + r) for d, r in pl])), len(pl)
+        sdp = float(np.sqrt(SD_STATE_A ** 2 + SD_STATE_B ** 2 / n))
+        w = sp ** 2 / (sp ** 2 + sdp ** 2)
+        mu, s = w * pa + (1 - w) * prior, float(1 / np.sqrt(1 / sdp ** 2 + 1 / sp ** 2))
+    else:
+        pa, n, w, mu, s = None, 0, 0.0, prior, sp
     return {"date": str(date.date()), "lean": lean, "lean_year": info["lean_year"], "lean_kind": info["lean_kind"], "inc": inc,
-            "environment": {"env": env, "m": 1.0, "term_year": SM.term_year(date), **einfo}, "prior": mu, "poll_avg": None,
-            "n_polls": 0, "poll_weight": 0.0, "mu": mu, "sd": s, "p_dem": p_win(mu, s, DF_T), "interval_80": interval(mu, s, 0.8, DF_T),
+            "environment": {"env": env, "m": 1.0, "term_year": SM.term_year(date), **einfo}, "prior": prior, "poll_avg": pa,
+            "n_polls": n, "poll_weight": w, "mu": mu, "sd": s, "p_dem": p_win(mu, s, DF_T), "interval_80": interval(mu, s, 0.8, DF_T),
             "error_shape": f"t({DF_T})"}
 
 
@@ -321,7 +334,7 @@ def main():
         print(f"{a.state}-{a.district} special, {a.date}: lean {lean2:+.0f} (PVI {lean2 / 2:+.0f})")
         show(f, float(hit.margin_2p.iloc[0]) if len(hit) else None)
     elif a.kind == "senate":
-        f = senate_forecast(a.state, a.date, a.inc, a.lean)
+        f = senate_forecast(a.state, a.date, a.inc, a.lean, polls)
         sen = pd.read_csv(ROOT / "data/interim/senate_specials.csv", parse_dates=["date"])
         hit = sen[(sen.state == a.state) & (sen.date == pd.Timestamp(a.date))]
         src = "given" if f["lean_year"] is None else f"{f['lean_kind']}, {f['lean_year']}"
