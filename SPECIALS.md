@@ -492,3 +492,63 @@ IN-7 and LA-6 2008; never NY-23 2009 or the two amended races. NY-23 is therefor
   apply to single specials; it was named when the pass mark was chosen, but rule 6 as written is what decides.
 - In the Senate report (rule 8), n in the poll-average SD is the plain number of polls. The frozen forecast counts
   older polls at half weight; the report does not. Nothing is chosen from the report.
+
+### Step report: the scoring run (2026-11-26, run once)
+
+`python src/model/special_polls.py score` -> `data/processed/special_polls_scores.json`, `special_polls_house.csv`,
+`special_polls_senate.csv`. The script refuses to run again once the scores file exists.
+
+**House, the 31 polled specials** (margin in points, Democrat minus Republican; error = forecast minus result)
+
+| | RMSE | MAE | Mean error | Log score | 50% | 80% | 95% | Winners |
+|---|---|---|---|---|---|---|---|---|
+| P0 prior alone | 10.77 | 8.55 | +1.68 | -3.798 | 52% | 90% | 100% | 25 |
+| **P1 all polls (code)** | **7.66** | **6.01** | +0.34 | **-3.451** | 55% | 71% | 97% | 26 |
+| P2 nonpartisan only | 9.05 | 6.84 | +0.28 | -3.439 | 55% | 74% | 100% | 26 |
+| P3 partisan shifted 6.4 | 8.38 | 6.53 | +1.24 | -3.554 | 52% | 71% | 94% | 26 |
+| P4 specials poll error | 7.78 | 6.08 | +0.24 | -3.648 | 48% | 65% | 81% | 27 |
+| P1w60 (diagnostic) | 8.09 | 6.56 | +1.05 | -3.509 | 48% | 71% | 97% | 24 |
+| Polls alone (diagnostic) | 8.18 | 6.45 | | | | | | 25 |
+
+**The adoption rule (rule 6)**
+
+| | RMSE change | Log score change | RMSE change 2008-16 / 2017-26 | 80% coverage | Result |
+|---|---|---|---|---|---|
+| P1 against P0 | -3.11 | +0.347 | -7.86 / -0.60 | 90% -> 71% | **passes** |
+| P2 against P1 | +1.39 | +0.012 | +4.35 / +0.03 | 71% -> 74% | fails (RMSE, periods) |
+| P3 against P1 | +0.73 | -0.103 | +1.13 / +0.59 | 71% -> 71% | fails (RMSE, log, periods) |
+| P4 against P1 | +0.12 | -0.197 | +0.07 / +0.14 | 71% -> 65% | fails (all four) |
+
+P5 was not run (P4 failed). So the House path's poll weighting stands as it is in the code: all polls, partisan ones
+unshifted, the district poll SD 8.06.
+
+**Reported, deciding nothing (rule 7)**
+- **Most of P1's gain comes from 2008-2016.** RMSE falls 7.9 points there and 0.6 in 2017-2026. P1's 80% coverage
+  (71%) is just inside the 70-90% band.
+- **Mean poll error**: results were 0.2 points more Republican than the poll average (n = 31). This is no sign of
+  a lean in either direction.
+- **P4's own poll error** ended at 7.05 (36 earlier polled specials), against 8.06. Early on it was much lower (2.5 to
+  4.2 in 2011-2017), which made P4's ranges too narrow (81% at 95%).
+- **Weight on polls**: P1 0.62 to 0.77; P4 0.66 to 0.94.
+- **The six Wikipedia races (2023-2026)**: the prior alone did best, RMSE 5.89 against P1's 8.71 (P2 8.42, P3 9.11,
+  P4 9.15). All four candidates picked every winner. Six races cannot decide anything. Three single polls or pairs
+  missed by 14 to 16 points: RI-1 (polls too Republican), UT-2 and FL-6 (polls too Democratic).
+- **All 68 specials** (unpolled races keep the prior): RMSE P0 11.51, P1 10.31, P2 10.81, P3 10.57, P4 10.35.
+- **Excluded by the amendment**: HI-1 2010 and AK-0 2022 keep the prior in every candidate.
+- Race by race: `data/processed/special_polls_house.csv`.
+
+**Senate (rule 8, report only)**, SP-3's branch with SD 18 against the prior plus polls (statewide poll SD, plain n)
+
+| | Specials with polls (6): RMSE | MAE | Winners | In 80% | Runoffs with polls (6): RMSE | MAE | Winners |
+|---|---|---|---|---|---|---|---|
+| S0 prior alone | 14.67 | 10.50 | 4 | 4 | 21.71 | 18.27 | 3 |
+| S1 all polls | 3.48 | 2.62 | 4 | 5 | 6.19 | 4.35 | 6 |
+| S2 nonpartisan only | 3.27 | 2.56 | 5 | 5 | 6.06 | 4.28 | 6 |
+| S3 partisan shifted 4.4 | 3.29 | 2.50 | 5 | 5 | 5.91 | 3.99 | 6 |
+
+The polls carry 0.79 to 0.93 of the weight. MA 2010 (prior D+21, result R+5) and AL 2017 (prior R+22, result D+2)
+are where the prior alone fails. The three poll versions differ in calls only on MA 2010 (S1 has Brown losing narrowly)
+and otherwise by fractions of a point. Race by race: `data/processed/special_polls_senate.csv`.
+
+**Rule 9**: the Senate `--poll` option gets the House result's poll set: all polls, unshifted, with the frozen
+statewide SD.
