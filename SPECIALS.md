@@ -486,3 +486,9 @@ among them, and starts scoring only once 8 earlier specials exist, so IL-14, IN-
 scored. **31 polled House specials are scored** (33 before the amendment). P4 learns its poll error from earlier
 polled specials in the backtest's own universe: the scored ones before the date plus MA-5 and OH-5 2007 and IL-14,
 IN-7 and LA-6 2008; never NY-23 2009 or the two amended races. NY-23 is therefore not in the test at all.
+
+**Two clarifications (agreed 2026-11-26, with the correction above, before the run).**
+- Rule 6 is this card's own adoption rule. `BACKTEST.md`'s rule is built on whole cycles and log loss and does not
+  apply to single specials; it was named when the pass mark was chosen, but rule 6 as written is what decides.
+- In the Senate report (rule 8), n in the poll-average SD is the plain number of polls. The frozen forecast counts
+  older polls at half weight; the report does not. Nothing is chosen from the report.
