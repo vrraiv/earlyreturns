@@ -182,3 +182,21 @@ only derived table) and `senate_specials_index_check.json`.
 - Under rule 7 the index term is used in step 3 as written (House and legislative rows).
 - Housekeeping: `special_model.term_year` now runs from 1969; the House backtest is unchanged (68 specials, RMSE
   11.51, output identical); `check_frozen.py` passes.
+
+### Step 2b report: G's half-life on House specials (2026-11-26, no Senate result used)
+
+`python src/model/senate_specials.py halflife` -> `data/processed/senate_specials_halflife.json`. The 68 House
+specials of `single_race.py backtest`, G replacing the whole House environment at the House prior's coefficient.
+
+| Half-life (days) | 7 | 14 | 30 | 60 | 90 | 182 | flat |
+|---|---|---|---|---|---|---|---|
+| Margin RMSE | 12.56 | 12.64 | 12.73 | 12.77 | 12.79 | 12.80 | 12.81 |
+| MAE | 10.36 | 10.46 | 10.59 | 10.67 | 10.70 | 10.73 | 10.75 |
+
+- The shortest half-life does best, but by 0.25 points, under the 0.3 the rule asks for: **G is the flat six-month
+  mean.**
+- For reference on the same 68: the House path as built (H plus the recent-specials term, fitted in date order) RMSE
+  11.51; the last House vote 13.75. G sits between them.
+- Five House specials had less than the full six months of polls behind them (the poll file starts in late 2016, and
+  one 2021 date): KS-4, MT-AL, SC-5 and GA-6 in 2017 (121 to 158 days), NM-1 in 2021 (170). None of G's Senate races
+  is affected.

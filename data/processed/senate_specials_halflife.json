@@ -1,0 +1,78 @@
+{
+ "n": 68,
+ "grid": {
+  "7": {
+   "rmse": 12.557371064651619,
+   "mae": 10.357799958434951,
+   "mean_err": -0.31101723129663733
+  },
+  "14": {
+   "rmse": 12.639709951750808,
+   "mae": 10.46294388665411,
+   "mean_err": -0.3265970791547515
+  },
+  "30": {
+   "rmse": 12.727472108637274,
+   "mae": 10.588516302074453,
+   "mean_err": -0.291589172814574
+  },
+  "60": {
+   "rmse": 12.773171538302702,
+   "mae": 10.66910494123114,
+   "mean_err": -0.2541933953095339
+  },
+  "90": {
+   "rmse": 12.787566801908175,
+   "mae": 10.697974206278852,
+   "mean_err": -0.23838593718872256
+  },
+  "182": {
+   "rmse": 12.800981173766433,
+   "mae": 10.726753100386736,
+   "mean_err": -0.22036936765661927
+  },
+  "flat": {
+   "rmse": 12.812647814477227,
+   "mae": 10.753447379429945,
+   "mean_err": -0.20075602259493477
+  }
+ },
+ "best_half_life": "7",
+ "chosen": "flat",
+ "rule": "flat unless a half-life beats it by 0.3 RMSE",
+ "reference_house_backtest_rmse": 11.510297741655139,
+ "reference_last_house_vote_rmse": 13.754864695432534,
+ "specials_with_short_window": [
+  {
+   "date": "2017-04-11",
+   "race": "KS-4",
+   "n_g": 23,
+   "oldest_day": 158
+  },
+  {
+   "date": "2017-05-25",
+   "race": "MT-0",
+   "n_g": 38,
+   "oldest_day": 121
+  },
+  {
+   "date": "2017-06-20",
+   "race": "SC-5",
+   "n_g": 74,
+   "oldest_day": 147
+  },
+  {
+   "date": "2017-06-20",
+   "race": "GA-6",
+   "n_g": 74,
+   "oldest_day": 147
+  },
+  {
+   "date": "2021-06-01",
+   "race": "NM-1",
+   "n_g": 155,
+   "oldest_day": 170
+  }
+ ],
+ "note": "G replaces the whole House environment (no recent-specials term) at the House prior's coefficient; all House specials 2007-2026"
+}
