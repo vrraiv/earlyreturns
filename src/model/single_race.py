@@ -162,6 +162,9 @@ def senate_forecast(state, date, inc=0, lean=None):
     env, einfo = E.env_on(date, "fund", 1.0, model)
     if not np.isfinite(env):
         raise SystemExit(f"no environment estimate on {date.date()} (approval or the last House vote not in the repo yet)")
+    last_even = max(y for y in range(1946, date.year + 1, 2) if pd.Timestamp(f"{y}-11-01") < date)
+    if einfo.get("prev_year") is not None and einfo["prev_year"] < last_even:
+        raise SystemExit(f"the environment would use the {einfo['prev_year']} House vote, but the {last_even} vote is not in the repo yet")
     mu = lean + env + 2 * inc
     s = SD_SENATE_SPECIAL
     return {"date": str(date.date()), "lean": lean, "lean_year": info["lean_year"], "lean_kind": info["lean_kind"], "inc": inc,

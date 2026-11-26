@@ -338,16 +338,17 @@ GA 2022's midterm lean is from district margins at equal weight (no 2022 vote co
 
 **No decision** (rule 9). What the Senate branch of the single-race path uses (checklist c) is the owner's call.
 
-### Decision (2026-11-26, the owner, after the step 3 report)
+### Decision (2026-11-26, after the step 3 report)
 
-- **The Senate branch of the single-race path uses F1 with lean L1**: margin = L1 + F1 + 2 x incumbency, as scored
-  in step 3 (`python src/model/single_race.py senate --state GA --date 2021-01-05 --inc -1`; checklist c).
-- **Error: normal, SD 18**, in place of the borrowed 10.7. This is the one change from what was tested, and it was
-  suggested by the step 3 results: F1 with L1 had margin RMSE 17.9 on the 13 specials. Checked on the same 13 (so not
-  a test): 50% / 80% / 95% intervals hold 7 / 10 / 12. ND 1992 alone pulls the SD up a good deal.
-- Not adopted: H, H+R (their pre-2008 m is fitted out of time order and they did not beat F1), N, G, LP, LB. A
-  contested-seats-only midterm lean was not run.
-- The Minnesota special on November 2, 2027 cannot be forecast until the 2026 House vote (for its lean and the
-  environment's last House vote) and approval for 2027 are in the repo; the command says so, and `--lean` overrides
-  the lean. `src/collect/senate_specials.py`'s lean lookup now runs to the date's year (it stopped at 2024); the race
-  table is unchanged.
+- **The owner's decision: F1, with an error SD of 18.** The Senate branch of the single-race path is margin = lean +
+  F1 + 2 x incumbency (`python src/model/single_race.py senate --state GA --date 2021-01-05 --inc -1`; checklist c).
+- **SD 18** replaces the borrowed 10.7. It is the one change from what was tested, suggested by the step 3 results
+  (F1 with L1: margin RMSE 17.9 on the 13 specials). Checked on the same 13, so not a test: 50% / 80% / 95% normal
+  intervals hold 7 / 10 / 12. ND 1992 alone pulls the SD up a good deal.
+- **Defaults pending the owner's confirmation**: lean L1 (rule 5's headline lean, and F1's best lean in step 3) and a
+  normal error shape (SP-2's choice for House specials; t(3.9) covered the same in step 3).
+- Not used: H, H+R, N and G as the environment. A contested-seats-only midterm lean was not run.
+- The Minnesota special on November 2, 2027 cannot be forecast until the 2026 national and state House votes are in
+  the repo: the command refuses rather than use the 2024 House vote in the environment, and asks for `--lean` when
+  the lean's election is missing. `src/collect/senate_specials.py`'s lean lookup now runs to the date's year (it
+  stopped at 2024); rerun, the race table is unchanged.
