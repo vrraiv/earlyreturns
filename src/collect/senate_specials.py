@@ -138,7 +138,7 @@ def house_midterm_lean(year, st):
 
 def lean_for(st, date):
     """Lean in the last federal general election before the date."""
-    years = [y for y in range(1968, 2026, 2) if pd.Timestamp(f"{y}-11-01") < date]
+    years = [y for y in range(1968, date.year + 1, 2) if pd.Timestamp(f"{y}-11-01") < date]
     y = max(years)
     nat = pd.read_csv(ROOT / "data/interim/house_national_vote.csv").set_index("year").two_party_margin_D
     if y in PRES_YEARS:
