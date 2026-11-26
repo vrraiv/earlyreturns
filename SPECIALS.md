@@ -498,7 +498,8 @@ IN-7 and LA-6 2008; never NY-23 2009 or the two amended races. NY-23 is therefor
 `python src/model/special_polls.py score` -> `data/processed/special_polls_scores.json`, `special_polls_house.csv`,
 `special_polls_senate.csv`. The script refuses to run again once the scores file exists.
 
-**House, the 31 polled specials** (margin in points, Democrat minus Republican; error = forecast minus result)
+**House, the 31 polled specials** (margin in points, Democrat minus Republican; error = result minus forecast, positive = Democrats beat the
+forecast)
 
 | | RMSE | MAE | Mean error | Log score | 50% | 80% | 95% | Winners |
 |---|---|---|---|---|---|---|---|---|
@@ -539,12 +540,12 @@ unshifted, the district poll SD 8.06.
 
 **Senate (rule 8, report only)**, SP-3's branch with SD 18 against the prior plus polls (statewide poll SD, plain n)
 
-| | Specials with polls (6): RMSE | MAE | Winners | In 80% | Runoffs with polls (6): RMSE | MAE | Winners |
-|---|---|---|---|---|---|---|---|
-| S0 prior alone | 14.67 | 10.50 | 4 | 4 | 21.71 | 18.27 | 3 |
-| S1 all polls | 3.48 | 2.62 | 4 | 5 | 6.19 | 4.35 | 6 |
-| S2 nonpartisan only | 3.27 | 2.56 | 5 | 5 | 6.06 | 4.28 | 6 |
-| S3 partisan shifted 4.4 | 3.29 | 2.50 | 5 | 5 | 5.91 | 3.99 | 6 |
+| | Specials with polls (6): RMSE | MAE | Mean error | Winners | In 80% | Runoffs with polls (6): RMSE | MAE | Mean error | Winners |
+|---|---|---|---|---|---|---|---|---|---|
+| S0 prior alone | 14.67 | 10.50 | -1.19 | 4 | 4 | 21.71 | 18.27 | +10.54 | 3 |
+| S1 all polls | 3.48 | 2.62 | -0.29 | 4 | 5 | 6.19 | 4.35 | +0.45 | 6 |
+| S2 nonpartisan only | 3.27 | 2.56 | -0.55 | 5 | 5 | 6.06 | 4.28 | +0.46 | 6 |
+| S3 partisan shifted 4.4 | 3.29 | 2.50 | -0.66 | 5 | 5 | 5.91 | 3.99 | +0.07 | 6 |
 
 The polls carry 0.79 to 0.93 of the weight. MA 2010 (prior D+21, result R+5) and AL 2017 (prior R+22, result D+2)
 are where the prior alone fails. The three poll versions differ in calls only on MA 2010 (S1 has Brown losing narrowly)
