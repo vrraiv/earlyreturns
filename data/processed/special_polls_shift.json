@@ -1,0 +1,79 @@
+{
+ "frozen": {
+  "statewide": {
+   "shift": 4.3202190321398115,
+   "se": 0.31481478474982255,
+   "n_polls": 823,
+   "n_races": 281,
+   "by_party": {
+    "DEM": {
+     "shift": 4.252463161554219,
+     "n": 449
+    },
+    "REP": {
+     "shift": 4.401562309928398,
+     "n": 374
+    }
+   }
+  },
+  "house_district": {
+   "shift": 6.267232023337111,
+   "se": 0.33555349035750204,
+   "n_polls": 671,
+   "n_races": 354,
+   "by_party": {
+    "DEM": {
+     "shift": 6.3756060397483845,
+     "n": 421
+    },
+    "REP": {
+     "shift": 6.084730179700526,
+     "n": 250
+    }
+   }
+  }
+ },
+ "without_specials": {
+  "statewide": {
+   "shift": 4.365920794883749,
+   "se": 0.3169889101964522,
+   "n_polls": 799,
+   "n_races": 273,
+   "by_party": {
+    "DEM": {
+     "shift": 4.253543552036061,
+     "n": 443
+    },
+    "REP": {
+     "shift": 4.505761015618371,
+     "n": 356
+    }
+   }
+  },
+  "house_district": {
+   "shift": 6.437072095162489,
+   "se": 0.3426230762048696,
+   "n_polls": 640,
+   "n_races": 342,
+   "by_party": {
+    "DEM": {
+     "shift": 6.576412249253103,
+     "n": 399
+    },
+    "REP": {
+     "shift": 6.206380304780105,
+     "n": 241
+    }
+   }
+  }
+ },
+ "dropped": {
+  "rows": 202,
+  "races": 35
+ },
+ "chosen": {
+  "partisan_shift_house": 6.4,
+  "partisan_shift_statewide": 4.4
+ },
+ "note": "poll_settings.sponsor_shift on FiveThirtyEight raw_polls 1998-2022, House and Senate races off the even-year general-election day removed (SP-4 rule 5, P3)"
+}

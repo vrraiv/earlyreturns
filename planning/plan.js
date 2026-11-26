@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-26c",
+  version: "2026-11-26d",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -927,8 +927,10 @@ window.PLAN = {
           why: "No historical special-election polls are collected, so the backtest uses the prior alone.",
           details: [
             "Collect polls for past specials.",
-            "Estimate how much weight they deserve against the prior."
-          ] },
+            "Estimate how much weight they deserve against the prior.",
+            "Done 2026-11-26 (SPECIALS.md, section 2): rules agreed before any poll was compared with a result, then one scoring run on the 31 polled House specials 2008 to 2026 (FiveThirtyEight's poll file and the 2023 to 2026 Wikipedia pages). The code's poll weighting passes against the prior alone (RMSE 10.8 to 7.7), mostly on 2008 to 2016 races; nonpartisan polls only, a shift for sponsored polls and a specials-specific poll error each fail. On the six 2023 to 2026 races the prior alone did best. Senate specials were reported only; single_race.py senate now takes --poll, with all polls unshifted."
+          ],
+          refs: ["SPECIALS.md", "src/model/special_polls.py", "src/collect/special_polls.py"] },
         { id: "SP-5", title: "Recent specials as a signal for off-year governors", kind: "story", phase: "any",
           why: "The recent-specials term helped House specials. It has not been tested on governor races.",
           details: [

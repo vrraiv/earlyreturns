@@ -1,6 +1,6 @@
 # Special elections: design note
 
-The note for the specials track (work plan cards SP-1 to SP-8 in `planning/plan.js`). Started 2026-11-25 with SP-3.
+The note for the specials track (work plan cards SP-1 to SP-8 in `planning/plan.js`). Started 2026-11-25 with SP-3; section 2 is SP-4.
 SP-1 and SP-2 (House specials and the single-race path, November 2026) are written up in `PLAN.md`, section 5.
 Rules are written here before anything they govern is run, agreed with the project owner, and every run is reported.
 
@@ -352,3 +352,205 @@ GA 2022's midterm lean is from district margins at equal weight (no 2022 vote co
   the repo: the command refuses rather than use the 2024 House vote in the environment, and asks for `--lean` when
   the lean's election is missing. `src/collect/senate_specials.py`'s lean lookup now runs to the date's year (it
   stopped at 2024); rerun, the race table is unchanged.
+
+## 2. Polls of past specials (SP-4)
+
+The single-race path takes polls for a House special (`house_forecast`: a two-party average with SD
+sqrt(8.06^2 + max(spread, 4)^2 / n), weighted by precision against the prior), but the backtest has never seen one:
+no polls of past specials were collected, so its 68 races were scored on the prior alone. The Senate branch takes no
+polls. This card collects them and tests the weighting.
+
+### What is in the repo (counted 2026-11-26, no poll compared with a result)
+
+- FiveThirtyEight's pollster-ratings file (`data/raw/538_github/2026-11-01/raw_polls.csv`, cycles 1998-2023) carries
+  polls of 33 House specials, 31 of them inside the backtest (2008 on), and of all 6 Senate specials from 2010 on (MA
+  2010, MA 2013, NJ 2013, AL 2017, MS 2018, GA 2021) and the 6 runoffs from 2002 on. Polls end up to about 60 days
+  before the election; many are sponsored by a party or campaign. The file carries each race's result beside each poll;
+  collection drops those columns.
+- Nothing covers the 16 House specials from 2023 to 2026: the file stops at 2023 and VoteHub holds only 2026's regular
+  seats.
+
+### Rules (written and agreed 2026-11-26, before any poll was compared with a result)
+
+Decisions the owner made on 2026-11-26: FiveThirtyEight's file plus each 2023-2026 special's Wikipedia page; the Senate
+reported, with a poll option added to its branch; an adoption rule for the House; partisan polls compared as
+candidates.
+
+**The polls**
+
+1. **Sources.** FiveThirtyEight's file for specials through 2022, matched on date, state and district
+   (`location`, e.g. `NY-20`; at-large seats are `-1`) and, for the Senate, `race_id` (GA 2021 has two races on one
+   date). For 2023-2026, the polling table on each special's Wikipedia page (or the special's section of the year's
+   House page), cached in `data/raw/wikipedia_hist/` with the revision id. Each poll keeps its source.
+2. **Which polls.** Field end date before election day, in the deciding round, with the deciding round's Democrat and
+   Republican both named (`dem_cand` and `rep_cand` in the race table; a poll of another pairing is dropped and
+   counted). Window: polls ending in the 21 days before the date; if a race has none, those ending 22 to 60 days
+   before (the governor rule adopted at GV-3). One question per poll: likely voters over registered voters over adults,
+   then the full-field question over a head-to-head.
+3. **Partisan.** A poll is partisan if FiveThirtyEight's `partisan` column names a party, or, on Wikipedia, its
+   footnote names a party, a party committee, a candidate's campaign or a group backing one side. Wikipedia tags are
+   written down before any result is read and reported in a table.
+4. **Margin.** Two-party, 100 x (D - R) / (D + R), as `poll_average` does now. A race's poll average is the plain mean
+   with n = number of polls.
+
+**The House test** (the backtest's 68 specials, `single_race.py backtest`: same prior, same SD, same date order)
+
+5. **Candidates**, each scored on every polled special (a special with no usable poll under a candidate keeps the
+   prior alone):
+   - **P0**: the prior alone, as the backtest stands.
+   - **P1**: the formula in the code, run as written: all polls, SD sqrt(8.06^2 + max(spread, 4)^2 / n), precision
+     weight against the backtest's prior SD. 8.06 is the district-poll error fitted on general elections 2006-2024
+     (`data/final/house_structure.json`), so it uses later years for every race; declared.
+   - **P2**: P1 on nonpartisan polls only.
+   - **P3**: P1 with every partisan poll moved 6.4 points against its sponsor's party. Added by me beside the owner's
+     two options and kept by the owner on 2026-11-26, with the shift re-estimated without specials:
+     - The frozen forecast's House sponsor shift (6.3, `poll_settings.json`, `partisan_shift_house`) was estimated on
+       FiveThirtyEight's file, 1998-2022, which includes special elections: about 36 of its 671 sponsored-poll rows
+       came from 15 specials, compared there with their results.
+     - `python src/model/special_polls.py shift` reruns the frozen estimator (`poll_settings.sponsor_shift`) with
+       every House and Senate race off the even-year general-election day removed (202 rows, 35 races; governors
+       kept). It reproduces the frozen 6.27 and 4.32 on the full set and gives **6.44 +/- 0.34 for House districts**
+       (640 polls, 342 races) and **4.37 +/- 0.32 statewide** (799 polls, 273 races) without specials
+       (`data/processed/special_polls_shift.json`). Rounded: 6.4 and 4.4. No special-election poll was compared with
+       a result.
+   - **P4**: P1 with 8.06 replaced by a specials-specific poll error, estimated in date order from earlier polled
+     specials only: a = sqrt(max(mean((poll average - result)^2) - mean(max(spread, 4)^2 / n), 0)) over them. 8.06 until
+     10 earlier specials have polls. All polls, as P1.
+6. **Adoption rule.** A candidate beats its baseline if, on the polled specials:
+   - margin RMSE falls by at least 0.3 points (SP-3's rule 6a threshold);
+   - the mean log score of the margin (the backtest's normal error shape, density at the result) rises;
+   - RMSE falls in both 2008-2016 and 2017-2026, so one period cannot carry it;
+   - the share of results inside the 80% range stays within 70-90% or moves toward 80%.
+   The baselines:
+   - P1 against P0 decides whether the House path's poll weighting stands. If P1 fails, the poll option stays in the
+     code but is flagged on the card for the owner; P4 is still run.
+   - P2, P3 and P4 each against P1. P2 and P3 change the same thing: if both pass, the one with the lower RMSE.
+   - If P4 and one of P2 or P3 both pass, the pair together is run once more as a candidate suggested by these results,
+     and must beat the better single one under the same rule.
+7. **Reported, deciding nothing.** Polls alone (the poll average as the forecast), the mean poll error (positive =
+   Democrats beat their polls), a = P4's final estimate against 8.06, the weight on polls race by race, the race table,
+   all candidates on the specials from Wikipedia alone, and the P1 run with the window fixed at 60 days.
+
+**Senate** (report only)
+
+8. On the 6 Senate specials with polls, through SP-3's branch (L1, F1, t(3.9), SD 18): the prior alone against the
+   prior plus polls, all polls and nonpartisan only, and partisan polls moved 4.4 (the statewide shift without specials, rule 5). The
+   poll-average SD is the frozen forecast's statewide one, sqrt(4.24^2 + 11.81^2 / n) (`data/final/calibration.json`,
+   `pollavg_sd_by_n`), weighted by precision against 18. MAE, RMSE, mean error, winners, coverage, race by race. The
+   6 runoffs are a diagnostic table, as at SP-3. Nothing is fitted or chosen on these races.
+9. **The poll option** (checklist for the Senate branch): `single_race.py senate --poll D,R ...` with that SD and the
+   poll set the House test settles on (rule 6), with the statewide shift if P3 is adopted. Not changed by rule 8's
+   results.
+
+**Run once.** Collection first, with a coverage table (polls per special, partisan share, window used) reported before
+any score is computed. Then one scoring run; every result is reported here, and the owner decides what the live path
+uses.
+
+### Collection report (2026-11-26, no poll compared with a result)
+
+`python src/collect/special_polls.py fetch` cached the 16 Wikipedia pages (`data/raw/wikipedia_hist/2026-11-26/`,
+`sp4_<race>.json` with revision ids); `collect` -> `data/interim/special_polls.csv` (every poll found, with its window
+and whether it is in it).
+
+| Polls in window | Races | Polls | Partisan |
+|---|---|---|---|
+| House specials from 2008 (31 of the backtest's 68 after the amendment below) | 37 | 87 | 22 |
+| Senate specials | 6 | 71 | 12 |
+| Senate runoffs (diagnostic) | 6 | 48 | 9 |
+
+- **Wikipedia** adds 6 House specials: FL-6 2025, NJ-11 2026, NY-3 2024, RI-1 2023, TN-7 2025, UT-2 2023. The other ten
+  pages hold only primary polls or none. The 13 Wikipedia polls are entered by hand in the collector (`WIKI`), each
+  with its footnote; partisan tags were read from the footnote linked to each row. Where a page gives a second version
+  of a question with leaners pushed (NY-3 and TN-7 Emerson, TN-7 Workbench), the first is kept.
+- **The 22-60 day window** is used for 7 House races (IN-7 2008, MS-1 2008, KS-4 2017, UT-3 2017, AK-0 2022, UT-2
+  2023, NJ-11 2026).
+- **Only partisan polls**, so P2 leaves them on the prior: CA-25 2020, CA-36 2011, KS-4 2017, MS-1 2008, NJ-11 2026.
+- One poll is dropped for another pairing (a Warnock-Loeffler question filed under the GA 2021 runoff). One poll's
+  `partisan` names a minor party: partisan under rule 3, so left out of P2, and not shifted in P3 (no side to shift
+  against).
+- FiveThirtyEight's file gives one date per poll (`polldate`), not a field end date; the window uses it.
+- In FiveThirtyEight's file a poll can carry several questions of the same pairing; the lowest `question_id` is kept.
+  The file gives no population, so rule 2's order by population applies to Wikipedia polls only.
+
+**Amendment to rule 2 (agreed 2026-11-26, after collection and before any score).** The result is all Democrats
+against all Republicans; FiveThirtyEight's file records two candidates per poll. In two polled races they measure
+different things, and full-field margins cannot be rebuilt from the file:
+- **HI-1 2010**: two Democrats (Hanabusa, Case) against one Republican (Djou); the polls give Hanabusa against Djou.
+- **AK-0 2022**: ranked-choice, two Republicans (Palin, Begich); a two-candidate poll and the deciding round can be
+  different rounds.
+Both keep the prior alone in every candidate and are listed in the report.
+
+**Correction to the counts (found by the plumbing check, before the run).** The 37 House races above are those from
+2008, not those in the backtest. The backtest (`special_model.load()`) leaves out multi-candidate races, NY-23 2009
+among them, and starts scoring only once 8 earlier specials exist, so IL-14, IN-7 and LA-6 (early 2008) are not
+scored. **31 polled House specials are scored** (33 before the amendment). P4 learns its poll error from earlier
+polled specials in the backtest's own universe: the scored ones before the date plus MA-5 and OH-5 2007 and IL-14,
+IN-7 and LA-6 2008; never NY-23 2009 or the two amended races. NY-23 is therefore not in the test at all.
+
+**Two clarifications (agreed 2026-11-26, with the correction above, before the run).**
+- Rule 6 is this card's own adoption rule. `BACKTEST.md`'s rule is built on whole cycles and log loss and does not
+  apply to single specials; it was named when the pass mark was chosen, but rule 6 as written is what decides.
+- In the Senate report (rule 8), n in the poll-average SD is the plain number of polls. The frozen forecast counts
+  older polls at half weight; the report does not. Nothing is chosen from the report.
+
+### Step report: the scoring run (2026-11-26, run once)
+
+`python src/model/special_polls.py score` -> `data/processed/special_polls_scores.json`, `special_polls_house.csv`,
+`special_polls_senate.csv`. The script refuses to run again once the scores file exists.
+
+**House, the 31 polled specials** (margin in points, Democrat minus Republican; error = result minus forecast, positive = Democrats beat the
+forecast)
+
+| | RMSE | MAE | Mean error | Log score | 50% | 80% | 95% | Winners |
+|---|---|---|---|---|---|---|---|---|
+| P0 prior alone | 10.77 | 8.55 | +1.68 | -3.798 | 52% | 90% | 100% | 25 |
+| **P1 all polls (code)** | **7.66** | **6.01** | +0.34 | **-3.451** | 55% | 71% | 97% | 26 |
+| P2 nonpartisan only | 9.05 | 6.84 | +0.28 | -3.439 | 55% | 74% | 100% | 26 |
+| P3 partisan shifted 6.4 | 8.38 | 6.53 | +1.24 | -3.554 | 52% | 71% | 94% | 26 |
+| P4 specials poll error | 7.78 | 6.08 | +0.24 | -3.648 | 48% | 65% | 81% | 27 |
+| P1w60 (diagnostic) | 8.09 | 6.56 | +1.05 | -3.509 | 48% | 71% | 97% | 24 |
+| Polls alone (diagnostic) | 8.18 | 6.45 | | | | | | 25 |
+
+**The adoption rule (rule 6)**
+
+| | RMSE change | Log score change | RMSE change 2008-16 / 2017-26 | 80% coverage | Result |
+|---|---|---|---|---|---|
+| P1 against P0 | -3.11 | +0.347 | -7.86 / -0.60 | 90% -> 71% | **passes** |
+| P2 against P1 | +1.39 | +0.012 | +4.35 / +0.03 | 71% -> 74% | fails (RMSE, periods) |
+| P3 against P1 | +0.73 | -0.103 | +1.13 / +0.59 | 71% -> 71% | fails (RMSE, log, periods) |
+| P4 against P1 | +0.12 | -0.197 | +0.07 / +0.14 | 71% -> 65% | fails (all four) |
+
+P5 was not run (P4 failed). So the House path's poll weighting stands as it is in the code: all polls, partisan ones
+unshifted, the district poll SD 8.06.
+
+**Reported, deciding nothing (rule 7)**
+- **Most of P1's gain comes from 2008-2016.** RMSE falls 7.9 points there and 0.6 in 2017-2026. P1's 80% coverage
+  (71%) is just inside the 70-90% band.
+- **Mean poll error**: results were 0.2 points more Republican than the poll average (n = 31). This is no sign of
+  a lean in either direction.
+- **P4's own poll error** ended at 7.05 (36 earlier polled specials), against 8.06. Early on it was much lower (2.5 to
+  4.2 in 2011-2017), which made P4's ranges too narrow (81% at 95%).
+- **Weight on polls**: P1 0.62 to 0.77; P4 0.66 to 0.94.
+- **The six Wikipedia races (2023-2026)**: the prior alone did best, RMSE 5.89 against P1's 8.71 (P2 8.42, P3 9.11,
+  P4 9.15). All four candidates picked every winner. Six races cannot decide anything. Three single polls or pairs
+  missed by 14 to 16 points: RI-1 (polls too Republican), UT-2 and FL-6 (polls too Democratic).
+- **All 68 specials** (unpolled races keep the prior): RMSE P0 11.51, P1 10.31, P2 10.81, P3 10.57, P4 10.35.
+- **Excluded by the amendment**: HI-1 2010 and AK-0 2022 keep the prior in every candidate.
+- Race by race: `data/processed/special_polls_house.csv`.
+
+**Senate (rule 8, report only)**, SP-3's branch with SD 18 against the prior plus polls (statewide poll SD, plain n)
+
+| | Specials with polls (6): RMSE | MAE | Mean error | Winners | In 80% | Runoffs with polls (6): RMSE | MAE | Mean error | Winners |
+|---|---|---|---|---|---|---|---|---|---|
+| S0 prior alone | 14.67 | 10.50 | -1.19 | 4 | 4 | 21.71 | 18.27 | +10.54 | 3 |
+| S1 all polls | 3.48 | 2.62 | -0.29 | 4 | 5 | 6.19 | 4.35 | +0.45 | 6 |
+| S2 nonpartisan only | 3.27 | 2.56 | -0.55 | 5 | 5 | 6.06 | 4.28 | +0.46 | 6 |
+| S3 partisan shifted 4.4 | 3.29 | 2.50 | -0.66 | 5 | 5 | 5.91 | 3.99 | +0.07 | 6 |
+
+The polls carry 0.79 to 0.93 of the weight. MA 2010 (prior D+21, result R+5) and AL 2017 (prior R+22, result D+2)
+are where the prior alone fails. The three poll versions differ in calls only on MA 2010 (S1 has Brown losing narrowly)
+and otherwise by fractions of a point. Race by race: `data/processed/special_polls_senate.csv`.
+
+**Rule 9, done**: `single_race.py senate --poll D,R ...` uses the House result's poll set (all polls, unshifted) and
+the frozen statewide SD, weighted against 18. Checked on MA 2010 with its 13 polls: D+0.3, SD 5.1, weight 0.92, the
+same as S1 in the run.
