@@ -111,3 +111,31 @@ or midterm, with the midterm measured by the statewide House vote.
 
 **Live case.** The list carries a Minnesota special scheduled for November 2, 2027 (Amy Klobuchar's seat). That is
 on an odd-year November date, so it is in scope for the path this card builds.
+
+### Step 1 report: the race table (2026-11-25)
+
+`src/collect/senate_specials.py` -> `data/interim/senate_specials.csv`. The rule keeps exactly the 13 expected
+specials. NC 1986 drops (decided on the 1986 general-election day); Hawaii 1990's infobox date is a typo for the 1990
+general-election day; NH 1975's infobox shows the 1974 date, so it was checked by hand. The runoff set is 7, not the 6
+expected: Louisiana 2016 (December 10) was missing from the list written from memory, and turned up in the scan of
+every Georgia and Louisiana Senate page. Midterm leans that rest on few seats or on percentages: VT 1972 (one seat,
+Stafford's own race, R+49), NH 1975 (two seats, equal weight), GA 2022 (runoff set; equal weight, no 2022 vote
+counts); Pennsylvania's 1990 House vote has 6 of 23 seats uncontested. The owner checked the table before step 2.
+
+### Step 2 report: the index term against the House term (2026-11-26, no Senate result used)
+
+`python src/model/senate_specials.py index` -> `data/processed/senate_specials_index_term.csv` (term by month, the
+only derived table) and `senate_specials_index_check.json`.
+
+- 666 index specials with an earlier regular result, 1989-2022, of which 79 U.S. House. m by half of the term on all
+  77 House specials: 1.28 (years 1-2), -0.19 (years 3-4). Residuals: mean -1.8, SD 22.4.
+- **2008-2022, 173 months with both terms: correlation 0.20.** Means +0.2 (index) and -1.5 (House); SDs 5.9 and 5.4.
+  By year they part most in 2009 (index -5.9, House +3.8), 2012, 2015-16 and 2020-21 (2021: +11.6 against -0.6).
+- **Diagnostic, not pre-registered:** split by race type, the index's 79 U.S. House rows track the House term
+  (correlation 0.64 over 166 months), its legislative rows do not (0.06 over 173). So the index's measure (swing from
+  the district's last result) agrees with the House term on House races; what differs is legislative specials.
+- **On the four Senate dates it changes**: PA 1991 -1.8 (11 index specials in the prior 12 months), ND 1992 +3.1 (8),
+  TX 1993 -8.7 (6), OR 1996 +7.5 (15). Runoff set: GA 1992 +3.1 (8), LA 2002 -13.6 (22).
+- Under rule 7 the index term is used in step 3 as written (House and legislative rows).
+- Housekeeping: `special_model.term_year` now runs from 1969; the House backtest is unchanged (68 specials, RMSE
+  11.51, output identical); `check_frozen.py` passes.
