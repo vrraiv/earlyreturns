@@ -13,9 +13,13 @@ over polls, before over FiveThirtyEight's daily average); its half-life chosen o
 (G replacing the whole House environment), default the flat six-month mean unless a half-life beats it by 0.3 RMSE.
 Uses no Senate result.
 
-Run:  python src/model/senate_specials.py index | halflife
+Step 3 (rule 8, one run): every Senate special and runoff, 3 leans (L1, LP, LB) x 5 environments (N, F1, H, H+R, G)
+through margin = lean + environment + 2 x incumbency; SD 10.7, normal and t(3.9).
+
+Run:  python src/model/senate_specials.py index | halflife | score
 Writes data/processed/senate_specials_index_term.csv (term by month) and data/processed/senate_specials_index_check.json;
-halflife writes data/processed/senate_specials_halflife.json
+halflife writes data/processed/senate_specials_halflife.json; score writes data/processed/senate_specials_scores.json
+and data/processed/senate_specials_races.csv
 """
 import json
 import sys
@@ -208,9 +212,111 @@ def halflife_step():
     print("short windows:", out["specials_with_short_window"])
 
 
+# ---------------- step 3: the scoring run ----------------
+SD_SEN = float(np.hypot(9.67, 4.56))
+ENVS, LEANS = ["N", "F1", "H", "H+R", "G"], ["L1", "LP", "LB"]
+G_RACES = {"MA2010", "MA2013", "NJ2013", "AL2017", "MS2018", "GA2021S", "LA2002", "GA2008", "LA2014", "LA2016", "GA2021R", "GA2022"}
+
+
+def collect_module():
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("collect_senate_specials", HERE.parent / "collect" / "senate_specials.py")
+    mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    return mod
+
+
+def leans(C, st, date):
+    pres = pd.read_csv(ROOT / "data/interim/state_presidential_history.csv")
+    py = max(y for y in range(1968, 2025, 4) if pd.Timestamp(f"{y}-11-01") < date)
+    lp = float(pres[(pres.year == py) & (pres.state == st)].lean_2p.iloc[0])
+    my = max(y for y in range(1970, 2025, 4) if pd.Timestamp(f"{y}-11-01") < date)
+    m, seats, unc, _ = C.house_midterm_lean(my, st)
+    lm = m - float(NAT[my])
+    return {"LP": lp, "LP_year": py, "LM": lm, "LM_year": my, "LM_seats": seats, "LB": (lp + lm) / 2}
+
+
+def environments(date, m, idx):
+    date = pd.Timestamp(date)
+    ny = max(y for y in range(1968, 2025, 2) if pd.Timestamp(f"{y}-11-01") < date)
+    out = {"N": float(NAT[ny]), "F1": float(sum(env_parts(date)))}
+    if date >= pd.Timestamp("2008-01-01"):
+        import single_race as SR
+        e = SR.special_environment(date)
+        out.update({"H": e["env_estimate"], "H+R": e["env"], "R": e["recent_specials_shift"], "n_R": e["n_recent"], "m": e["m"]})
+    else:
+        h = h_estimate(date, m)
+        r, n = term_on(idx, date) if date >= pd.Timestamp("1989-01-01") else (0.0, 0)
+        out.update({"H": h, "H+R": h + r, "R": r, "n_R": n, "m": m[int(SM.term_year(date) >= 3)]})
+    out["G"] = g_on(date, None)[0]
+    return out
+
+
+def summary(d, err_col, mu_col):
+    e = d[err_col]
+    return {"n": int(len(d)), "mae": float(e.abs().mean()), "rmse": float(np.sqrt((e ** 2).mean())), "mean_err": float(e.mean()),
+            "winners": int(((d[mu_col] > 0) == (d.actual > 0)).sum())}
+
+
+def score_step():
+    import single_race as SR
+    C = collect_module()
+    sen = pd.read_csv(ROOT / "data/interim/senate_specials.csv", parse_dates=["date"])
+    idx, m = index_residuals()
+    rows = []
+    for _, r in sen.iterrows():
+        row = {"race": r.race, "set": r.set, "date": r.date, "actual": float(r.margin_2p), "inc": int(r.inc), "L1": float(r.lean),
+               "L1_kind": r.lean_kind}
+        row.update(leans(C, r.state, r.date))
+        env = environments(r.date, m, idx)
+        if r.race not in G_RACES:
+            env["G"] = np.nan
+        row.update({f"env_{k}": v for k, v in env.items()})
+        for L in LEANS:
+            row[f"implied_{L}"] = row["actual"] - row[L] - 2 * row["inc"]
+            for E_ in ENVS:
+                mu = row[L] + env[E_] + 2 * row["inc"]
+                row[f"mu_{L}_{E_}"], row[f"err_{L}_{E_}"] = mu, row["actual"] - mu
+        rows.append(row)
+    d = pd.DataFrame(rows)
+    sp, ro = d[d.set == "special"], d[d.set == "runoff"]
+    cuts = {"all": sp, "1989on": sp[sp.date >= "1989-01-01"], "2008on": sp[sp.date >= "2008-01-01"], "G6": sp[sp.race.isin(G_RACES)]}
+    summ, runoff = [], []
+    for L in LEANS:
+        for E_ in ENVS:
+            for cut, x in cuts.items():
+                x = x[x[f"mu_{L}_{E_}"].notna()]
+                if E_ == "G" and cut != "G6":
+                    continue
+                summ.append({"lean": L, "env": E_, "cut": cut, **summary(x, f"err_{L}_{E_}", f"mu_{L}_{E_}")})
+            x = ro[ro[f"mu_{L}_{E_}"].notna()]
+            runoff.append({"lean": L, "env": E_, **summary(x, f"err_{L}_{E_}", f"mu_{L}_{E_}")})
+    cover = []
+    for L, E_ in [("L1", e) for e in ENVS] + [(l, "H") for l in ("LP", "LB")]:
+        x = sp[sp[f"mu_{L}_{E_}"].notna()]
+        z = x[f"err_{L}_{E_}"] / SD_SEN
+        for shape, df in (("normal", None), ("t(3.9)", SR.DF_T)):
+            pit = SR.dist(df).cdf(z)
+            cover.append({"lean": L, "env": E_, "shape": shape, "n": int(len(x)),
+                          **{f"cover_{int(q * 100)}": int(((pit >= 0.5 - q / 2) & (pit <= 0.5 + q / 2)).sum()) for q in (0.5, 0.8, 0.95)}})
+    out = {"sd": SD_SEN, "df_t": SR.DF_T, "m_all": m, "summary": summ, "runoffs": runoff, "coverage": cover,
+           "note": "one run (SPECIALS.md rule 8 with 6a and 6b); positive error = Democrats beat the forecast"}
+    (OUT / "senate_specials_scores.json").write_text(json.dumps(out, indent=1, default=float))
+    d.assign(date=d.date.dt.date).round(2).to_csv(OUT / "senate_specials_races.csv", index=False)
+    pd.set_option("display.width", 250)
+    S = pd.DataFrame(summ)
+    for cut in cuts:
+        print(f"\n== specials, {cut} =="); print(S[S.cut == cut].drop(columns="cut").round(2).to_string(index=False))
+    print("\n== runoffs =="); print(pd.DataFrame(runoff).round(2).to_string(index=False))
+    print("\n== coverage (SD %.1f) ==" % SD_SEN); print(pd.DataFrame(cover).to_string(index=False))
+    cols = ["race", "date", "actual", "inc", "L1", "LP", "LB", "env_N", "env_F1", "env_H", "env_H+R", "env_G", "env_n_R", "implied_L1"]
+    print(d[cols].assign(date=d.date.dt.date).round(1).to_string(index=False))
+
+
 if __name__ == "__main__":
     what = sys.argv[1] if len(sys.argv) > 1 else "index"
     if what == "index":
         index_step()
     elif what == "halflife":
         halflife_step()
+    elif what == "score":
+        score_step()

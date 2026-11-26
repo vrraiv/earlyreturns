@@ -200,3 +200,74 @@ specials of `single_race.py backtest`, G replacing the whole House environment a
 - Five House specials had less than the full six months of polls behind them (the poll file starts in late 2016, and
   one 2021 date): KS-4, MT-AL, SC-5 and GA-6 in 2017 (121 to 158 days), NM-1 in 2021 (170). None of G's Senate races
   is affected.
+
+### Step 3 report: the scoring run (2026-11-26, run once)
+
+`python src/model/senate_specials.py score` -> `data/processed/senate_specials_scores.json` (summaries, runoffs,
+coverage) and `data/processed/senate_specials_races.csv` (every race, lean, environment, forecast and error). Margin =
+lean + environment + 2 x incumbency; positive error = Democrats beat the forecast. The first run's summaries were
+written before a print of the race table failed on a column name; that print was fixed and the table read from the
+saved file, with no rerun of the scoring.
+
+**Specials, margin RMSE (MAE in brackets; winners right of n)**
+
+| Lean | Env | All 13 | 1989 on (10) | 2008 on (6) | G's 6 |
+|---|---|---|---|---|---|
+| L1 | N | 22.5 (18.0; 7) | 23.9 (18.5; 6) | 20.5 (15.2; 3) | 20.5 |
+| L1 | F1 | **17.9** (14.0; 8) | 18.2 (13.7; 7) | 14.7 (10.5; 4) | 14.7 |
+| L1 | H | 20.7 (16.4; 7) | 20.7 (15.6; 5) | 14.3 (11.2; 2) | 14.3 |
+| L1 | H+R | 20.2 (16.4; 7) | 20.0 (15.6; 5) | 14.1 (11.7; 2) | 14.1 |
+| L1 | G | | | | 16.3 (12.9; 4) |
+| LP | N | 22.8 (17.4; 7) | 23.7 (17.9; 5) | 20.6 (15.8; 3) | 20.6 |
+| LP | F1 | 19.7 (15.1; 7) | 18.2 (13.5; 6) | 14.6 (10.0; 4) | 14.6 |
+| LP | H | 19.1 (14.0; 8) | 19.9 (13.9; 6) | 14.0 (10.6; 3) | 14.0 |
+| LP | H+R | 18.0 (14.0; 7) | 18.6 (14.0; 5) | **13.7** (11.1; 2) | 13.7 |
+| LP | G | | | | 16.4 (13.5; 4) |
+| LB | N | 24.1 (17.8; 7) | 26.5 (19.4; 6) | 29.3 (20.8; 3) | 29.3 |
+| LB | F1 | 20.0 (14.9; 9) | 21.1 (14.9; 7) | 23.7 (16.1; 3) | 23.7 |
+| LB | H | 20.2 (15.7; 9) | 21.9 (17.1; 7) | 23.6 (17.5; 3) | 23.6 |
+| LB | H+R | 19.6 (15.7; 8) | 21.3 (17.1; 6) | 23.7 (18.0; 2) | 23.7 |
+| LB | G | | | | 25.2 (18.4; 3) |
+
+Mean errors are within about 4 points of zero for L1 and LP in every cut; LB runs 2 to 6 points too Democratic, and G
+3 to 7 (as the generic ballot did in odd-year governor races).
+
+**What drives it**
+
+- **Single races dominate.** ND 1992 (Conrad, the state's sitting senator, lean R+23 from the 1992 presidential vote)
+  misses by 38 to 49 under every L1 and LP cell; alone it is 110 to 180 of the 320 to 430 of mean squared error
+  (L1 F1, L1 H, LP H). Others above 20 under most cells: AL 2017 (Moore), MA 2010 (Brown), TX 1993, NH 1975. These are candidate
+  effects no lean or environment here carries.
+- **The environments.** Under L1, F1 (midterm-like everywhere) has the lowest error on all 13 and the 1989-on cut; H
+  and H+R come out level with F1 from 2008 and behind it before (the pre-2008 m is fitted out of time order). N is the
+  worst environment in every lean and cut. The index term moves H+R by -1.8 to +7.5 on the four 1989-2007 races; it
+  helps TX 1993 (error -20 to -11) and hurts OR 1996 (-17 to -24).
+- **G** is behind F1, H and H+R on its 6 races under every lean (16.3 against 14.1 to 14.7 under L1), and too
+  Democratic on average.
+- **The leans.** L1 and LP differ on 6 specials. LP is closer on VT 1972, NH 1975 and OR 1996 under most
+  environments, farther on VT 1972 under H (Stafford's own race made L1's R+49 lean nearly right). LB is worst from
+  2008 because midterm House votes with uncontested seats give extreme leans: Massachusetts 2006 (10 seats) gives
+  D+70, so MA 2010 misses by 51 under LB and H.
+- With 13 races, and 6 from 2008, differences of a point or two between cells are well inside the noise.
+
+**Coverage** (SD 10.7; races inside the interval, of 13; normal / t(3.9))
+
+| Lean | Env | 50% | 80% | 95% |
+|---|---|---|---|---|
+| L1 | N | 4 / 3 | 7 / 7 | 8 / 8 |
+| L1 | F1 | 6 / 5 | 7 / 7 | 9 / 9 |
+| L1 | H | 4 / 4 | 6 / 6 | 10 / 10 |
+| L1 | H+R | 3 / 3 | 7 / 6 | 9 / 9 |
+| L1 | G (of 6) | 2 / 2 | 3 / 3 | 4 / 4 |
+| LP | H | 7 / 6 | 8 / 7 | 10 / 10 |
+| LB | H | 3 / 2 | 8 / 8 | 10 / 10 |
+
+The borrowed SD is too narrow for Senate specials: the 95% intervals hold 8 to 10 of 13, about what an SD near 18 to
+20 would give. Errors here are about twice the frozen Senate prior's in-cycle error.
+
+**Runoff set (diagnostic, 7 races; G on 6)**: RMSE from 7.0 (LP and G) and 9.4 (LP and N) to 22.5 (L1 and H+R).
+Every cell's mean error is positive (Democrats beat the forecast by 0.5 to 13.5); Louisiana's runoffs (2002, 2014)
+carry the largest misses under L1, whose midterm leans there come from House races with 6 or 7 seats. Not scored into
+anything.
+
+**No decision** (rule 9). What the Senate branch of the single-race path uses (checklist c) is the owner's call.
