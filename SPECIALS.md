@@ -445,3 +445,39 @@ candidates.
 **Run once.** Collection first, with a coverage table (polls per special, partisan share, window used) reported before
 any score is computed. Then one scoring run; every result is reported here, and the owner decides what the live path
 uses.
+
+### Collection report (2026-11-26, no poll compared with a result)
+
+`python src/collect/special_polls.py fetch` cached the 16 Wikipedia pages (`data/raw/wikipedia_hist/2026-11-26/`,
+`sp4_<race>.json` with revision ids); `collect` -> `data/interim/special_polls.csv` (every poll found, with its window
+and whether it is in it).
+
+| Polls in window | Races | Polls | Partisan |
+|---|---|---|---|
+| House specials in the backtest (2008-2026) | 37 of 68 | 87 | 22 |
+| Senate specials | 6 | 71 | 12 |
+| Senate runoffs (diagnostic) | 6 | 48 | 9 |
+
+- **Wikipedia** adds 6 House specials: FL-6 2025, NJ-11 2026, NY-3 2024, RI-1 2023, TN-7 2025, UT-2 2023. The other ten
+  pages hold only primary polls or none. The 13 Wikipedia polls are entered by hand in the collector (`WIKI`), each
+  with its footnote; partisan tags were read from the footnote linked to each row. Where a page gives a second version
+  of a question with leaners pushed (NY-3 and TN-7 Emerson, TN-7 Workbench), the first is kept.
+- **The 22-60 day window** is used for 7 House races (IN-7 2008, MS-1 2008, KS-4 2017, UT-3 2017, AK-0 2022, UT-2
+  2023, NJ-11 2026).
+- **Only partisan polls**, so P2 leaves them on the prior: CA-25 2020, CA-36 2011, KS-4 2017, MS-1 2008, NJ-11 2026.
+- One poll is dropped for another pairing (a Warnock-Loeffler question filed under the GA 2021 runoff). One poll's
+  `partisan` names a minor party: partisan under rule 3, so left out of P2, and not shifted in P3 (no side to shift
+  against).
+- FiveThirtyEight's file gives one date per poll (`polldate`), not a field end date; the window uses it.
+- In FiveThirtyEight's file a poll can carry several questions of the same pairing; the lowest `question_id` is kept.
+  The file gives no population, so rule 2's order by population applies to Wikipedia polls only.
+
+**Amendment to rule 2 (agreed 2026-11-26, after collection and before any score).** The result is all Democrats
+against all Republicans; FiveThirtyEight's file records two candidates per poll. In two polled races they measure
+different things, and full-field margins cannot be rebuilt from the file:
+- **HI-1 2010**: two Democrats (Hanabusa, Case) against one Republican (Djou); the polls give Hanabusa against Djou.
+- **AK-0 2022**: ranked-choice, two Republicans (Palin, Begich); a two-candidate poll and the deciding round can be
+  different rounds.
+Both keep the prior alone in every candidate and are listed in the report, leaving **35 polled House specials** in the
+backtest. NY-23 2009 stays as the rules have it (the Republican, Scozzafava, withdrew days before; polls and result
+both pair her with Owens) and is flagged in the report.
