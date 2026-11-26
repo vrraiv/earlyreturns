@@ -198,76 +198,142 @@ specials of `single_race.py backtest`, G replacing the whole House environment a
 - For reference on the same 68: the House path as built (H plus the recent-specials term, fitted in date order) RMSE
   11.51; the last House vote 13.75. G sits between them.
 - Five House specials had less than the full six months of polls behind them (the poll file starts in late 2016, and
-  one 2021 date): KS-4, MT-AL, SC-5 and GA-6 in 2017 (121 to 158 days), NM-1 in 2021 (170). None of G's Senate races
-  is affected.
+  one 2021 date): KS-4, MT-AL, SC-5 and GA-6 in 2017 (121 to 158 days), NM-1 in 2021 (170). Of G's Senate races, the
+  six specials have the full six months. Correction (added with step 3): in the runoff set, LA 2016 (December 10,
+  2016) falls before 2017 and so uses FiveThirtyEight's daily average, which ends on November 6, 2016: its last 34
+  days are missing. Kept as the rule computes it, not recomputed.
 
 ### Step 3 report: the scoring run (2026-11-26, run once)
 
 `python src/model/senate_specials.py score` -> `data/processed/senate_specials_scores.json` (summaries, runoffs,
 coverage) and `data/processed/senate_specials_races.csv` (every race, lean, environment, forecast and error). Margin =
-lean + environment + 2 x incumbency; positive error = Democrats beat the forecast. The first run's summaries were
-written before a print of the race table failed on a column name; that print was fixed and the table read from the
-saved file, with no rerun of the scoring.
+lean + environment + 2 x incumbency; positive error = Democrats beat the forecast. The run's outputs were written
+before a final print of the race table failed on a column name; the print was fixed and the tables below are read from
+the saved files. The scoring was not rerun.
 
-**Specials, margin RMSE (MAE in brackets; winners right of n)**
+**What it shows**
 
-| Lean | Env | All 13 | 1989 on (10) | 2008 on (6) | G's 6 |
-|---|---|---|---|---|---|
-| L1 | N | 22.5 (18.0; 7) | 23.9 (18.5; 6) | 20.5 (15.2; 3) | 20.5 |
-| L1 | F1 | **17.9** (14.0; 8) | 18.2 (13.7; 7) | 14.7 (10.5; 4) | 14.7 |
-| L1 | H | 20.7 (16.4; 7) | 20.7 (15.6; 5) | 14.3 (11.2; 2) | 14.3 |
-| L1 | H+R | 20.2 (16.4; 7) | 20.0 (15.6; 5) | 14.1 (11.7; 2) | 14.1 |
-| L1 | G | | | | 16.3 (12.9; 4) |
-| LP | N | 22.8 (17.4; 7) | 23.7 (17.9; 5) | 20.6 (15.8; 3) | 20.6 |
-| LP | F1 | 19.7 (15.1; 7) | 18.2 (13.5; 6) | 14.6 (10.0; 4) | 14.6 |
-| LP | H | 19.1 (14.0; 8) | 19.9 (13.9; 6) | 14.0 (10.6; 3) | 14.0 |
-| LP | H+R | 18.0 (14.0; 7) | 18.6 (14.0; 5) | **13.7** (11.1; 2) | 13.7 |
-| LP | G | | | | 16.4 (13.5; 4) |
-| LB | N | 24.1 (17.8; 7) | 26.5 (19.4; 6) | 29.3 (20.8; 3) | 29.3 |
-| LB | F1 | 20.0 (14.9; 9) | 21.1 (14.9; 7) | 23.7 (16.1; 3) | 23.7 |
-| LB | H | 20.2 (15.7; 9) | 21.9 (17.1; 7) | 23.6 (17.5; 3) | 23.6 |
-| LB | H+R | 19.6 (15.7; 8) | 21.3 (17.1; 6) | 23.7 (18.0; 2) | 23.7 |
-| LB | G | | | | 25.2 (18.4; 3) |
+- **Single races swamp the differences between cells.** ND 1992 (Kent Conrad, the state's sitting senator, against a
+  lean of R+23 from the 1992 presidential vote) misses by 38 to 49 under every L1 and LP cell; alone it is 110 to 180
+  of the 320 to 430 of mean squared error (L1 F1, L1 H, LP H). AL 2017 (Moore), MA 2010 (Brown), TX 1993 and NH 1975
+  miss by more than 20 under most cells. These are candidate effects no lean or environment here carries. With 13
+  races, 6 from 2008, a point or two between cells is noise.
+- **The borrowed SD is far too narrow.** Errors' RMSE is 18 to 24 on all 13 against the 10.7 assumed; 95% intervals
+  hold 8 to 10 of 13.
+- **Environments.** Under L1, F1 (midterm-like on every date) has the lowest RMSE on all 13 (17.9) and on 1989 on;
+  from 2008 F1, H and H+R are level (14.1 to 14.7). H and H+R trail F1 before 2008, where their m is fitted out of
+  time order. N is the worst environment under every lean and cut. The index term moves H+R by -8.7 to +7.5 on the
+  four 1989-2007 races: it helps TX 1993 (error -20.1 to -11.4) and hurts OR 1996 (-16.7 to -24.3).
+- **G** is behind F1, H and H+R on its 6 races under every lean (L1: 16.3 against 14.1 to 14.7), and too Democratic
+  on average (-3.1 to -7.3), as the generic ballot was in odd-year governor races.
+- **Leans.** L1 and LP differ on 6 specials. L1 is closer on VT 1972 (under every environment; the 1970 House race
+  was Stafford's own) and, narrowly, on WA 1983; LP is closer on NH 1975 (every environment), OR 1996 (all but F1)
+  and MS 2018 (all but N); PA 1991 is within a point either way. Overall LP is level with L1 or slightly ahead under
+  H and H+R, behind under F1. **LB is worst**, most of all from 2008 (23.6 to 29.3 against 13.7 to 20.6). Observed
+  after the run: the midterm House votes behind it include uncontested seats, and Massachusetts 2006 (7 of 10 seats
+  uncontested) gives a midterm lean of D+70, so MA 2010 misses by 51 under LB and H. A version using contested seats
+  only would be a candidate suggested by these results.
+- **Runoffs** (diagnostic): every cell's mean error is positive (Democrats beat the forecast by 0.5 to 13.5). LP with
+  G has the lowest RMSE (7.0, on 6; LA 2016's G is missing its last 34 days, see step 2b). Louisiana 2002 and 2014
+  carry the largest misses under L1, whose midterm leans there come from 7 and 6 House seats with 4 and 3 uncontested.
 
-Mean errors are within about 4 points of zero for L1 and LP in every cut; LB runs 2 to 6 points too Democratic, and G
-3 to 7 (as the generic ballot did in odd-year governor races).
+**Specials: margin RMSE / MAE / mean error / winners right**
 
-**What drives it**
-
-- **Single races dominate.** ND 1992 (Conrad, the state's sitting senator, lean R+23 from the 1992 presidential vote)
-  misses by 38 to 49 under every L1 and LP cell; alone it is 110 to 180 of the 320 to 430 of mean squared error
-  (L1 F1, L1 H, LP H). Others above 20 under most cells: AL 2017 (Moore), MA 2010 (Brown), TX 1993, NH 1975. These are candidate
-  effects no lean or environment here carries.
-- **The environments.** Under L1, F1 (midterm-like everywhere) has the lowest error on all 13 and the 1989-on cut; H
-  and H+R come out level with F1 from 2008 and behind it before (the pre-2008 m is fitted out of time order). N is the
-  worst environment in every lean and cut. The index term moves H+R by -1.8 to +7.5 on the four 1989-2007 races; it
-  helps TX 1993 (error -20 to -11) and hurts OR 1996 (-17 to -24).
-- **G** is behind F1, H and H+R on its 6 races under every lean (16.3 against 14.1 to 14.7 under L1), and too
-  Democratic on average.
-- **The leans.** L1 and LP differ on 6 specials. LP is closer on VT 1972, NH 1975 and OR 1996 under most
-  environments, farther on VT 1972 under H (Stafford's own race made L1's R+49 lean nearly right). LB is worst from
-  2008 because midterm House votes with uncontested seats give extreme leans: Massachusetts 2006 (10 seats) gives
-  D+70, so MA 2010 misses by 51 under LB and H.
-- With 13 races, and 6 from 2008, differences of a point or two between cells are well inside the noise.
-
-**Coverage** (SD 10.7; races inside the interval, of 13; normal / t(3.9))
-
-| Lean | Env | 50% | 80% | 95% |
+| Lean | Env | All 13 | 1989 on (10) | 2008 on (6) = G's 6 |
 |---|---|---|---|---|
-| L1 | N | 4 / 3 | 7 / 7 | 8 / 8 |
-| L1 | F1 | 6 / 5 | 7 / 7 | 9 / 9 |
-| L1 | H | 4 / 4 | 6 / 6 | 10 / 10 |
-| L1 | H+R | 3 / 3 | 7 / 6 | 9 / 9 |
-| L1 | G (of 6) | 2 / 2 | 3 / 3 | 4 / 4 |
-| LP | H | 7 / 6 | 8 / 7 | 10 / 10 |
-| LB | H | 3 / 2 | 8 / 8 | 10 / 10 |
+| L1 | N | 22.5 / 18.0 / +0.6 / 7 | 23.9 / 18.5 / -1.0 / 6 | 20.5 / 15.2 / -1.3 / 3 |
+| L1 | F1 | 17.9 / 14.0 / -0.1 / 8 | 18.2 / 13.7 / -0.6 / 7 | 14.7 / 10.5 / -1.2 / 4 |
+| L1 | H | 20.7 / 16.4 / +3.5 / 7 | 20.7 / 15.6 / +0.8 / 5 | 14.3 / 11.2 / -1.1 / 2 |
+| L1 | H+R | 20.2 / 16.4 / +2.8 / 7 | 20.0 / 15.6 / -0.1 / 5 | 14.1 / 11.7 / -2.6 / 2 |
+| L1 | G |  |  | 16.3 / 12.9 / -3.7 / 4 |
+| LP | N | 22.8 / 17.4 / -3.0 / 7 | 23.7 / 17.9 / +0.8 / 5 | 20.6 / 15.8 / -0.7 / 3 |
+| LP | F1 | 19.7 / 15.1 / -3.8 / 7 | 18.2 / 13.5 / +1.2 / 6 | 14.6 / 10.0 / -0.6 / 4 |
+| LP | H | 19.0 / 14.0 / -0.2 / 8 | 19.9 / 13.9 / +2.6 / 6 | 14.0 / 10.6 / -0.6 / 3 |
+| LP | H+R | 18.0 / 14.0 / -0.9 / 7 | 18.6 / 14.0 / +1.7 / 5 | 13.7 / 11.1 / -2.1 / 2 |
+| LP | G |  |  | 16.4 / 13.5 / -3.1 / 4 |
+| LB | N | 24.1 / 17.8 / -5.2 / 7 | 26.5 / 19.4 / -5.2 / 6 | 29.3 / 20.8 / -4.9 / 3 |
+| LB | F1 | 20.0 / 14.8 / -5.9 / 9 | 21.1 / 14.9 / -4.9 / 7 | 23.6 / 16.1 / -4.8 / 3 |
+| LB | H | 20.2 / 15.7 / -2.3 / 9 | 21.9 / 17.1 / -3.4 / 7 | 23.6 / 17.5 / -4.7 / 3 |
+| LB | H+R | 19.6 / 15.7 / -3.0 / 8 | 21.3 / 17.1 / -4.3 / 6 | 23.7 / 18.0 / -6.2 / 2 |
+| LB | G |  |  | 25.2 / 18.4 / -7.3 / 3 |
 
-The borrowed SD is too narrow for Senate specials: the 95% intervals hold 8 to 10 of 13, about what an SD near 18 to
-20 would give. Errors here are about twice the frozen Senate prior's in-cycle error.
+The 2008-on cut and G's 6 are the same six races (MA 2010, MA 2013, NJ 2013, AL 2017, MS 2018, GA 2021).
 
-**Runoff set (diagnostic, 7 races; G on 6)**: RMSE from 7.0 (LP and G) and 9.4 (LP and N) to 22.5 (L1 and H+R).
-Every cell's mean error is positive (Democrats beat the forecast by 0.5 to 13.5); Louisiana's runoffs (2002, 2014)
-carry the largest misses under L1, whose midterm leans there come from House races with 6 or 7 seats. Not scored into
-anything.
+**Race by race (specials): forecast, error in brackets; implied environment under L1 (actual - L1 - 2 x inc)**
+
+| Race | Actual | Inc | L1 N | L1 F1 | L1 H | L1 H+R | L1 G | LP H | LB H | Implied (L1) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| VT1972 | -31.6 | -1 | -42.1 (+10.5) | -37.1 (+5.5) | -48.2 (+16.6) | -48.2 (+16.6) |  | -8.0 (-23.6) | -28.1 (-3.5) | +19.3 |
+| NH1975 | +10.9 | +0 | -12.1 (+23.0) | -8.4 (+19.4) | -19.5 (+30.5) | -19.5 (+30.5) |  | +3.8 (+7.2) | -7.9 (+18.8) | +40.1 |
+| WA1983 | -10.8 | -1 | +4.6 (-15.5) | +10.1 (-20.9) | -1.1 (-9.8) | -1.1 (-9.8) |  | +0.7 (-11.5) | -0.2 (-10.6) | -3.5 |
+| PA1991 | +10.0 | +1 | +16.1 (-6.1) | +17.9 (-7.9) | +6.8 (+3.2) | +5.0 (+5.0) |  | +6.3 (+3.8) | +6.5 (+3.5) | +2.0 |
+| ND1992 | +30.3 | +1 | -15.4 (+45.7) | -7.2 (+37.6) | -18.4 (+48.7) | -15.2 (+45.6) |  | -18.4 (+48.7) | +4.1 (+26.2) | +51.0 |
+| TX1993 | -34.7 | +1 | -4.1 (-30.5) | -11.9 (-22.8) | -14.6 (-20.1) | -23.3 (-11.4) |  | -14.6 (-20.1) | -8.8 (-25.8) | -25.3 |
+| OR1996 | +1.6 | +0 | +12.9 (-11.3) | +7.2 (-5.6) | +18.4 (-16.7) | +25.9 (-24.3) |  | +4.7 (-3.1) | +11.5 (-9.9) | -18.4 |
+| MA2010 | -4.8 | +0 | +30.0 (-34.9) | +21.1 (-25.9) | +21.1 (-25.9) | +21.4 (-26.2) | +22.4 (-27.2) | +21.1 (-25.9) | +46.6 (-51.4) | -23.8 |
+| MA2013 | +10.3 | +0 | +20.8 (-10.5) | +13.4 (-3.1) | +13.1 (-2.9) | +15.3 (-5.0) | +25.1 (-14.8) | +13.1 (-2.9) | +19.1 (-8.9) | -9.4 |
+| NJ2013 | +11.0 | +0 | +15.2 (-4.2) | +7.1 (+3.9) | +6.9 (+4.1) | +9.1 (+2.0) | +18.8 (-7.8) | +6.9 (+4.1) | +2.6 (+8.4) | -3.0 |
+| AL2017 | +1.6 | +0 | -32.0 (+33.7) | -22.4 (+24.0) | -19.1 (+20.8) | -14.5 (+16.1) | -21.8 (+23.5) | -19.1 (+20.8) | -18.7 (+20.3) | +32.6 |
+| MS2018 | -7.3 | -1 | -10.3 (+3.0) | -3.5 (-3.8) | +0.9 (-8.1) | +4.3 (-11.6) | -10.7 (+3.4) | -2.5 (-4.8) | -0.8 (-6.5) | +11.8 |
+| GA2021S | +2.1 | -1 | -3.1 (+5.2) | +4.4 (-2.3) | -3.2 (+5.2) | -7.0 (+9.0) | +1.2 (+0.9) | -3.2 (+5.2) | -7.7 (+9.8) | +8.4 |
+
+**Leans and the inputs behind them** (midterm House vote: seats, of which uncontested)
+
+| Race | L1 | LP (year) | Midterm lean (year; seats, uncontested) | LB | N | F1 | H | H+R (R term, n) | G |
+|---|---|---|---|---|---|---|---|---|---|
+| VT1972 | -49.0 | -8.8 (1968) | -49.0 (1970; 1, 0) | -28.9 | +8.8 | +13.9 | +2.8 | +2.8 (+0.0, 0) |  |
+| NH1975 | -29.2 | -5.9 (1972) | -29.2 (1974; 2, 0) | -17.6 | +17.1 | +20.8 | +9.7 | +9.7 (+0.0, 0) |  |
+| WA1983 | -5.3 | -3.6 (1980) | -5.3 (1982; 8, 0) | -4.5 | +12.0 | +17.4 | +6.3 | +6.3 (+0.0, 0) |  |
+| PA1991 | +6.0 | +5.5 (1988) | +6.0 (1990; 23, 6) | +5.7 | +8.1 | +9.9 | -1.2 | -3.0 (-1.8, 11) |  |
+| ND1992 | -22.7 | -22.7 (1992) | +22.3 (1990; 1, 0) | -0.2 | +5.2 | +13.4 | +2.3 | +5.4 (+3.1, 8) |  |
+| TX1993 | -11.4 | -11.4 (1992) | +0.0 (1990; 27, 13) | -5.7 | +5.2 | -2.5 | -5.2 | -13.9 (-8.7, 6) |  |
+| OR1996 | +20.0 | +6.4 (1992) | +20.0 (1994; 5, 0) | +13.2 | -7.1 | -12.8 | -1.6 | +5.9 (+7.5, 15) |  |
+| MA2010 | +19.0 | +19.0 (2008) | +70.0 (2006; 10, 7) | +44.5 | +11.0 | +2.0 | +2.0 | +2.4 (+0.3, 4) | +3.4 |
+| MA2013 | +19.6 | +19.6 (2012) | +31.6 (2010; 10, 1) | +25.6 | +1.1 | -6.3 | -6.5 | -4.3 (+2.2, 3) | +5.4 |
+| NJ2013 | +14.0 | +14.0 (2012) | +5.6 (2010; 13, 0) | +9.8 | +1.1 | -6.9 | -7.2 | -5.0 (+2.2, 3) | +4.8 |
+| AL2017 | -31.0 | -31.0 (2016) | -30.1 (2014; 7, 3) | -30.5 | -1.1 | +8.6 | +11.9 | +16.5 (+4.7, 5) | +9.2 |
+| MS2018 | -17.1 | -20.4 (2016) | -17.1 (2018; 4, 1) | -18.7 | +8.8 | +15.6 | +19.9 | +23.4 (+3.5, 4) | +8.4 |
+| GA2021S | -4.3 | -4.3 (2020) | -13.3 (2018; 14, 2) | -8.8 | +3.2 | +10.7 | +3.1 | -0.7 (-3.8, 4) | +7.5 |
+| GA1992 | -6.2 | -6.2 (1992) | +14.6 (1990; 10, 0) | +4.2 | +5.2 | +13.7 | +2.5 | +5.6 (+3.1, 8) |  |
+| LA2002 | -27.4 | -8.4 (2000) | -27.4 (2002; 7, 4) | -17.9 | -5.0 | -0.1 | +2.5 | -11.1 (-13.6, 22) | +1.6 |
+| GA2008 | -12.6 | -12.6 (2008) | -18.2 (2006; 13, 1) | -15.4 | +11.0 | +19.8 | +7.9 | +10.6 (+2.6, 9) | +11.7 |
+| LA2014 | -37.6 | -21.4 (2012) | -37.6 (2014; 6, 3) | -29.5 | -5.9 | -13.2 | -14.1 | -15.3 (-1.2, 4) | +0.3 |
+| LA2016 | -22.6 | -22.6 (2016) | -37.6 (2014; 6, 3) | -30.1 | -1.1 | -7.1 | -1.8 | -12.7 (-10.9, 1) | +5.4 |
+| GA2021R | -4.3 | -4.3 (2020) | -13.3 (2018; 14, 2) | -8.8 | +3.2 | +10.7 | +3.1 | -0.7 (-3.8, 4) | +7.5 |
+| GA2022 | -0.8 | -4.3 (2020) | -0.8 (2022; 14, 0) | -2.5 | -2.8 | -10.8 | -11.9 | -5.6 (+6.4, 8) | +1.8 |
+
+GA 2022's midterm lean is from district margins at equal weight (no 2022 vote counts); 1970 and 1974 from district percentages.
+
+**Coverage** (specials inside the interval; SD 10.7; normal / t(3.9))
+
+| Lean | Env | n | 50% | 80% | 95% |
+|---|---|---|---|---|---|
+| L1 | N | 13 | 4 / 3 | 7 / 7 | 8 / 8 |
+| L1 | F1 | 13 | 6 / 5 | 7 / 7 | 9 / 9 |
+| L1 | H | 13 | 4 / 4 | 6 / 6 | 10 / 10 |
+| L1 | H+R | 13 | 3 / 3 | 7 / 6 | 9 / 9 |
+| L1 | G | 6 | 2 / 2 | 3 / 3 | 4 / 4 |
+| LP | H | 13 | 7 / 6 | 8 / 7 | 10 / 10 |
+| LB | H | 13 | 3 / 2 | 8 / 8 | 10 / 10 |
+
+**Runoff set (diagnostic, not scored into anything): RMSE / MAE / mean error / winners right**
+
+| Lean | N | F1 | H | H+R | G |
+|---|---|---|---|---|---|
+| L1 | 17.7 / 12.6 / +8.7 / 3 of 7 | 20.5 / 17.2 / +7.5 / 3 of 7 | 18.5 / 13.4 / +11.0 / 4 of 7 | 22.5 / 17.4 / +13.5 / 3 of 7 | 15.5 / 11.2 / +5.7 / 5 of 6 |
+| LP | 9.4 / 8.1 / +4.2 / 3 of 7 | 14.0 / 12.7 / +3.0 / 3 of 7 | 11.4 / 8.9 / +6.5 / 4 of 7 | 14.4 / 12.9 / +9.0 / 3 of 7 | 7.0 / 5.8 / +0.5 / 4 of 6 |
+| LB | 14.6 / 13.1 / +7.1 / 3 of 7 | 18.5 / 16.8 / +5.9 / 2 of 7 | 15.7 / 13.8 / +9.4 / 3 of 7 | 20.1 / 17.9 / +11.9 / 3 of 7 | 10.5 / 8.6 / +5.6 / 4 of 6 |
+
+| Runoff | Actual | Inc | L1 N | L1 F1 | L1 H | L1 H+R | L1 G | LP G |
+|---|---|---|---|---|---|---|---|---|
+| GA1992 | -1.3 | +1 | -2.3 | -10.7 | +0.4 | -2.7 |  |  |
+| LA2002 | +3.4 | +1 | +33.8 | +28.9 | +26.2 | +39.8 | +27.2 | +8.2 |
+| GA2008 | -14.9 | -1 | -11.3 | -20.0 | -8.2 | -10.8 | -11.9 | -11.9 |
+| LA2014 | -11.9 | +1 | +29.6 | +36.9 | +37.8 | +39.0 | +23.4 | +7.2 |
+| LA2016 | -21.3 | +0 | +2.3 | +8.4 | +3.1 | +13.9 | -4.1 | -4.1 |
+| GA2021R | +1.2 | -1 | +4.3 | -3.2 | +4.4 | +8.2 | +0.0 | +0.0 |
+| GA2022 | +2.8 | +1 | +4.3 | +12.3 | +13.5 | +7.1 | -0.3 | +3.3 |
+
+(Runoff table: errors.)
 
 **No decision** (rule 9). What the Senate branch of the single-race path uses (checklist c) is the owner's call.
