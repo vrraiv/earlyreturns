@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-26a",
+  version: "2026-11-26b",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -900,7 +900,7 @@ window.PLAN = {
           details: [
             "A history like the House one: results against state lean and the environment.",
             "Few races, so borrow the House pattern and test it.",
-            "Source: Wikipedia's list of Senate special elections and each race's page (1970 on). The Downballot's Special Elections Index (1989 to 2022, House and legislative specials, no Senate races; store-and-link, OP-8) gives a recent-specials term before 2008."
+            "Source: Wikipedia's list of Senate special elections and each race's page (1970 on). The Downballot's Special Elections Index (1989 to 2022, House and legislative specials, no Senate races; store-and-link, OP-8) was used for a recent-specials term before 2008, tested and not adopted."
           ],
           checklist: [
             { id: "a", text: "Senate specials history collected" },
