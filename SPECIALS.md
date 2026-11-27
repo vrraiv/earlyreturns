@@ -880,8 +880,8 @@ Rules as built, where the draft left room or the build departed from it:
   ended in the 21 days before election day, or, with none there, 22 to 60 days before. A poll more than 60 days out
   is listed on the page but enters no run, and once one poll lands in the last 21 days the older ones drop out. For
   Minnesota, that means polls from early and mid 2027 move nothing until September; a rerun on such a poll (rule 6)
-  repeats the prior. **For the owner:** keep the window as is, or widen it for a race months away (that would be a
-  new rule, untested on past specials).
+  repeats the prior. **Decided by the owner (2026-11-27, after the merge):** the window stays as is for now; the page
+  lists more polls than a run uses, and the note under the poll table says so.
 - **Fixed wording** (the branch descriptions, the state notes, the table headings) lives in `src/site/special.py`, not
   the record or `site.json` as rule 4 said; it is the same for every race.
 - **Polls** carry pollster, field end date, population, D, R, partisan tag, source and note; no sample size or start
