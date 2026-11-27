@@ -1,0 +1,61 @@
+# Weekly specials watch (SP-8; SPECIALS.md, section 4). Reads the House Clerk's vacancy list and Wikipedia's
+# "Changes in membership" tables, updates data/interim/specials_watch.csv, and opens a pull request only when the
+# watch file changed. A source that fails to load or parse fails the run (GitHub emails a failed scheduled run).
+# A live special named in the PR is ready for the SP-7 steps. Merge to keep the new list; close to discard.
+name: Specials watch
+
+on:
+  schedule:
+    - cron: "17 12 * * 1"   # Mondays, 7:17 am Toronto (EST); off the hour, when GitHub delays or drops scheduled runs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: specials-watch
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Install the locked environment
+        run: uv sync --locked --managed-python --python 3.14.3
+
+      - name: Check the sources
+        run: uv run python src/collect/specials_watch.py
+
+      - name: Open a pull request if the list changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cat ci_out/specials_watch.md >> "$GITHUB_STEP_SUMMARY"
+          if git diff --quiet -- data/interim/specials_watch.csv; then
+            echo "No change to the watch list; no PR." >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          day=$(TZ=America/Toronto date +%F)
+          branch="specials-watch/$day-run${{ github.run_number }}"
+          live=""
+          if grep -q "LIVE SPECIAL" ci_out/specials_watch.md; then live=" (live special)"; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add data/interim/specials_watch.csv data/raw/specials_watch
+          git commit -q -m "Specials watch $day$live (Actions run ${{ github.run_number }})"
+          git push -q origin "$branch"
+          {
+            echo "Automated specials watch (SP-8). Merge to keep the new list; close to discard."
+            echo
+            cat ci_out/specials_watch.md
+            echo
+            echo "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          } > ci_out/pr_body.md
+          gh pr create --base main --head "$branch" --title "Specials watch $day$live" --body-file ci_out/pr_body.md

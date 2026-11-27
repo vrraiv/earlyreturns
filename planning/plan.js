@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-27a",
+  version: "2026-11-27b",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -959,8 +959,16 @@ window.PLAN = {
           why: "Specials are called on short notice.",
           details: [
             "Vacancies and scheduled specials, checked monthly.",
-            "The Downballot keeps a special elections sheet for 2027 to 2028, with results as they come."
-          ] }
+            "The Downballot keeps a special elections sheet for 2027 to 2028, with results as they come.",
+            "Built 2026-11-27 (SPECIALS.md, section 4): a weekly check of the House Clerk's vacancy list and Wikipedia's Congress pages, House and Senate, run by GitHub Actions and ending in a pull request when the list changes. A live special it finds is handed to SP-7. The Downballot's 2027 to 2028 sheet holds results, not vacancies, so it is linked, not used. News APIs were checked and not used: NewsAPI's free plan is for development only, World News API's forbids storing derived data, and GDELT was on a reliability test. Moves to the cron Worker with the other jobs when OP-3 is built."
+          ],
+          checklist: [
+            { id: "a", text: "Sources and rules agreed" },
+            { id: "b", text: "Check and watch file built" },
+            { id: "c", text: "Weekly run in place" },
+            { id: "d", text: "First scheduled run reviewed" }
+          ],
+          refs: ["SPECIALS.md", "src/collect/specials_watch.py", ".github/workflows/specials-watch.yml", "data/interim/specials_watch.csv"] }
       ]
     },
 

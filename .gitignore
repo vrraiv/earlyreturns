@@ -17,3 +17,5 @@ data/linked/*/
 data/raw/jennings_wlezien/**/LONG_MI_NATURE_20180111.tab
 # Gary Jacobson's House elections file, sent by email with leave to use and cite, not to redistribute (DATA.md "Linked sources")
 data/raw/jacobson/
+# local and CI run output (scorecard, specials watch)
+ci_out/
