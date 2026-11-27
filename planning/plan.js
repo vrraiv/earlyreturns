@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-27e",
+  version: "2026-11-27f",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -545,14 +545,16 @@ window.PLAN = {
             "Decided 2026-11-27, the design: each model is drawn two ways. A flow chart: what goes in, what the model does, what comes out, with each input beside the step that reads it. A timeline: the model through a campaign, with what it sees and what it does at each stage, ending at the lock and the scoring. The timeline describes the model in any cycle, not one year's run. Under both: how it was tested and where it stands.",
             "The timeline's first stage differs by model: the electoral college starts when both nominees are presumptive (before that the page shows the board, EC-8), the primaries when candidates announce, a special election at the vacancy.",
             "Built 2026-11-27: six sections. Every word and number is in `src/site/model.json`, copied by hand from the notes, so a change to a model is made in its note first and then there. The page carries no build date and the daily scorecard job leaves it alone. No forecast numbers from an unfrozen model, nothing from 2024 for the electoral college, and no 2026 governor figures.",
-            "Left out for now (2026-11-27): the per-draw file for the electoral college, which `ELECTORAL_COLLEGE.md` section 15 points here. The design is not frozen and no chart on the page needs it yet."
+            "Left out for now (2026-11-27): the per-draw file for the electoral college, which `ELECTORAL_COLLEGE.md` section 15 points here. The design is not frozen and no chart on the page needs it yet.",
+            "Reversed the same day (2026-11-27): the per-draw file is written and the electoral college section gets a what-if explorer over it, like the 2026 forecast page's. It shows 2020 a week out, the latest election the model has already been scored on. 2024 was asked for first and set aside because it is held out until the design freeze; it replaces 2020 once EC-9 has recorded its score, and 2028 replaces it when there is a forecast (SI-7). The draws are a replay of the run EC-7 scored, checked equal to it before anything was written (`ELECTORAL_COLLEGE.md`, section 18)."
           ],
           checklist: [
             { id: "a", text: "Layout agreed" },
             { id: "b", text: "All six sections written" },
-            { id: "c", text: "Live, with Model in the top row" }
+            { id: "c", text: "Live, with Model in the top row" },
+            { id: "d", text: "What-if explorer on the electoral college section (2020, a week out)" }
           ],
-          refs: ["src/site/model.py", "src/site/model.json", "site/assets/site.css"] },
+          refs: ["src/site/model.py", "src/site/model.json", "src/site/model_explorer.js", "site/assets/site.css", "data/processed/pres_draws_2020_7.json"] },
         { id: "SI-2", title: "Archive the 2026 forecast", kind: "story", phase: "p2", needs: ["SC-1", "SI-6"],
           why: "The forecast is history now and should read as a record, not a live page.",
           details: [
@@ -618,6 +620,7 @@ window.PLAN = {
           details: [
             "President and the electoral college map, Senate, House and governors.",
             "The what-if explorer extended to the electoral college.",
+            "From SI-5 (2026-11-27): the per-draw file's format and writer exist (`pres_sim.py draws`; `ELECTORAL_COLLEGE.md`, section 18), and the model page already runs an explorer on a past election. The 2028 file is written here, in that format, once there is a forecast; the model page's explorer then moves to 2028 or links here.",
             "Under `/2028/` (SI-1).",
             "From EC-8 (2026-11-24): until both nominees are presumptive, `/2028/` shows the board before the nominees (section 17 of `ELECTORAL_COLLEGE.md`). The forecast replaces it then; the board's code is `board` and `board_data` in `src/site/landing.py`."
           ] }
@@ -758,7 +761,8 @@ window.PLAN = {
             "Each change is declared general or recent. A general change must not be worse on 2008 to 2020. A recent change names the election its effect began at and must not be worse on the elections from then up to 2020; earlier elections are reported and decide nothing. This lets a change capture new behaviour of voters, polls or candidates. A change that helps 2024 and is worse on the elections just before it is fitting 2024, under either label.",
             "From EC-7's results, each suggested by them and so declared with anything built on it: the forecast's centre is no closer a week out than 100 days out on 2012 to 2020; the ranges are too wide early, and most of the excess looks like the national part; a week out the states' part looks too narrow and the national part too wide, so correcting one alone could unbalance the other (decided 2026-11-24: this may be evaluated after the 2024 holdout is scored, not before); the gap between the tipping-point state and the popular vote is forecast too close to zero.",
             "From EC-7's diagnostic (2026-11-24): in the last weeks of 2020, one firm's repeated releases were the only recent polls in many thinly polled states, and both the recent-polls benchmark and the model got worse there. How the average treats one firm polling alone and often is a question for the freeze.",
-            "From EC-8 (2026-11-24): the 2028 page's board shows the five Maine and Nebraska districts' 2024 winners from a display-only table in `src/site/landing.py` (`DISTRICTS_2024`), because the collector never opens 2024. When this card collects the 2024 district results, the board's build stops on purpose; delete the table then."
+            "From EC-8 (2026-11-24): the 2028 page's board shows the five Maine and Nebraska districts' 2024 winners from a display-only table in `src/site/landing.py` (`DISTRICTS_2024`), because the collector never opens 2024. When this card collects the 2024 district results, the board's build stops on purpose; delete the table then.",
+            "From SI-5 (2026-11-27): the model page's what-if explorer shows 2020 a week out. Once 2024 has its recorded score here, and not before, write its draws (`pres_sim.py draws 2024 7`, which refuses 2024 until that refusal is lifted on purpose) and point the page at them (`explorer` in `src/site/model.json`)."
           ],
           checklist: [
             { id: "a", text: "Design checked against the lessons list" }

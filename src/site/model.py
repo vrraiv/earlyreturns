@@ -14,12 +14,18 @@ Each model in model.json has:
   timeline  the same model through a campaign: `stages` in date order (when, title, what the model `sees`, what it
             `does`). A stage may carry `mix`, the share of the forecast's weight on the polls (`polls`, or a span
             `polls` to `polls_hi`), drawn as a bar; `lock` marks the stages after the forecast is frozen.
+  explorer  optional (the electoral college): a what-if explorer over one saved run of the model for a past election
+            (ELECTORAL_COLLEGE.md, section 18). `draws` names the committed pair data/processed/<draws>.json and .bin,
+            written by `pres_sim.py draws`; this build copies the .bin to site/model/data/ byte for byte and never
+            makes draws. The script is src/site/model_explorer.js, inlined. Swapping the election means running that
+            command for the new one and changing `draws` and the words beside it.
   tested    how it was tested: a sentence, a few figures and their caveats.
   stands    where the model stands, and `links` (a `path` inside the site, relative to /model/, or a full `url`).
 
 The numbers in model.json are copied by hand from the notes (BACKTEST.md, ELECTORAL_COLLEGE.md, PRIMARIES.md,
 SPECIALS.md, FORECAST.md, the 2026 method tab and the cards' decisions in planning/plan.js); change them there first. The styles are in site/assets/site.css ("the model page").
 """
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -31,6 +37,9 @@ SITE = landing.SITE
 E = landing.E
 M = json.loads(Path(__file__).with_name("model.json").read_text(encoding="utf-8"))
 ARROW = '<span class="{}" aria-hidden="true"></span>'
+DRAWS = landing.ROOT / "data" / "processed"
+SHADES = (("d3", "95% or more"), ("d2", "75 to 95%"), ("d1", "60 to 75%"), ("toss", "40 to 60%"), ("r1", "25 to 40%"),
+          ("r2", "5 to 25%"), ("r3", "under 5%"))
 
 
 def flow(m):
@@ -79,6 +88,68 @@ def tested(m):
     return f'<p>{E(T["text"])}</p><div class="stats">{stats}</div>' + (f'<ul class="list small muted">{notes}</ul>' if notes else "")
 
 
+def draws_meta(m):
+    return json.loads((DRAWS / f'{m["explorer"]["draws"]}.json').read_text(encoding="utf-8"))
+
+
+def explorer(m):
+    """The what-if explorer's frame. Without scripts it shows the model's own figures for the run; the script
+    (model_explorer.js) then draws the map and counts over the saved simulations."""
+    X = m.get("explorer")
+    if not X:
+        return ""
+    D = draws_meta(m)
+    mm, n = D["model"], D["n"]
+    when = "A week" if D["days"] == 7 else f'{D["days"]} days'
+    static = (f'{when} before the {D["election"]} election the model put the chance of {X["dem"]} reaching 270 at '
+              f'{mm["p_dem_270_exact"]:.0%}, with a median of {mm["count_median_exact"]} electoral votes (80% range '
+              f'{mm["count_p10_exact"]} to {mm["count_p90_exact"]}). What happened: {X["dem"]} won {D["result"]["dem_count"]}.')
+    nums = (f'<div class="exnum"><div class="l">{E(X["dem"])} reaches 270</div><div class="v">{mm["p_dem_270_exact"]:.0%}</div><div class="d"></div></div>'
+            f'<div class="exnum"><div class="l">{E(X["rep"])} reaches 270</div><div class="v">{mm["p_rep_270_exact"]:.0%}</div><div class="d"></div></div>')
+    legend = "".join(f'<span><i class="{c}"></i>{E(t)}</span>' for c, t in SHADES)
+    note = (f'{X["note"]} The explorer counts over the {n:,} saved simulations, so with nothing set its figures differ a '
+            f'little from the exact count the model reports ({mm["p_dem_270_exact"]:.1%} for {X["dem"]}). A count of 269 is a tie '
+            f'and counts for neither side; its bar is drawn with the counts below 270.')
+    return f"""<h3>{E(X["head"])}</h3>
+<div class="card explorer ecx" id="ecx">
+<div class="exhead"><h4>{E(X["title"])}</h4><span class="tag">{E(X["kicker"])}</span></div>
+<p class="small muted">{E(X["text"])}</p>
+<div class="exgrid">
+<div>
+<div class="chart tilemap" id="ecxMap"></div>
+<div class="maplegend"><span class="how">Chance {E(X["dem"])} carries it:</span>{legend}</div>
+</div>
+<div>
+<div class="exnums" id="ecxNums">{nums}</div>
+<div class="exmatch" id="ecxMatch">The figures the model reported for this run</div>
+<div class="chips" id="ecxChips"></div>
+<div class="chart echist" id="ecxHist"></div>
+<p class="extext" id="ecxText">{E(static)}</p>
+</div>
+</div>
+<p class="exnote">{E(note)}</p>
+</div>
+"""
+
+
+def explorer_script():
+    """The explorer's settings and script, for the end of the page (one explorer, the first model that has one)."""
+    m = next((m for m in M["models"] if m.get("explorer")), None)
+    if not m:
+        return ""
+    D, X = draws_meta(m), m["explorer"]
+    # the address carries a hash of the file's bytes: the draws are rewritten under one name when the design changes,
+    # and the contest-to-bit map lives in this page, so a cached copy from an older build must not be read
+    version = hashlib.sha1((DRAWS / D["file"]).read_bytes()).hexdigest()[:10]
+    ex = {"meta": D, "file": f'data/{D["file"]}?v={version}', "dem": X["dem"], "rep": X["rep"],
+          "names": {c: landing.BOARD_NAMES[c] for c in D["contests"]},
+          "tiles": {c: list(landing.BOARD_TILES[c]) for c in D["contests"] if c in landing.BOARD_TILES},
+          "districts": list(landing.BOARD_DISTRICTS)}
+    js = Path(__file__).with_name("model_explorer.js").read_text(encoding="utf-8")
+    data = json.dumps(ex, separators=(",", ":")).replace("</", "<\\/")
+    return f"<script>window.EX={data};</script>\n<script>{js}</script>\n"
+
+
 def links(m):
     return " · ".join(f'<a href="{E(x.get("path") or x["url"])}">{E(x["text"])}</a>' for x in m.get("links", []))
 
@@ -92,7 +163,7 @@ def section(m):
 {flow(m)}
 <h3>{E(H["timeline"])}</h3>
 {timeline(m)}
-<h3>{E(H["tested"])}</h3>
+{explorer(m)}<h3>{E(H["tested"])}</h3>
 {tested(m)}
 <h3>{E(H["stands"])}</h3>
 <p>{E(m["stands"])}</p>
@@ -118,7 +189,7 @@ def page():
 <p class="note">{E(M["note"])}</p>
 {index()}
 {"".join(section(m) for m in M["models"])}</main>
-""" + landing.foot()
+""" + landing.foot(explorer_script())
 
 
 def main(argv=None):
@@ -127,6 +198,11 @@ def main(argv=None):
     out = root / "model" / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(page(), encoding="utf-8")
+    for m in M["models"]:                       # the saved draws, copied as committed (never made here)
+        if m.get("explorer"):
+            f = draws_meta(m)["file"]
+            (out.parent / "data").mkdir(exist_ok=True)
+            (out.parent / "data" / f).write_bytes((DRAWS / f).read_bytes())
     print("built", out)
     return out
 

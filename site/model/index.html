@@ -72,6 +72,25 @@
 <div class="flow"><div class="colhead">What goes in</div><div class="colhead">What the model does</div><div class="colhead">What comes out</div><ul class="ins" style="grid-row:2"><li>National polls of the two nominees</li></ul><div class="step" style="grid-row:2"><h4><span class="n">1</span>National forecast</h4><p>The margin between the two candidates in national polls, among all respondents, with recent polls counting more. Fundamentals were tested and are not used.</p><span class="arr-r" aria-hidden="true"></span><span class="arr-d" aria-hidden="true"></span></div><ul class="ins" style="grid-row:3"><li>The last election&#x27;s result in each state</li></ul><div class="step" style="grid-row:3"><h4><span class="n">2</span>A starting point for each state</h4><p>The national forecast plus the state&#x27;s lean at the last election.</p><span class="arr-r" aria-hidden="true"></span><span class="arr-d" aria-hidden="true"></span></div><ul class="ins" style="grid-row:4"><li>Polls of each state</li></ul><div class="step" style="grid-row:4"><h4><span class="n">3</span>State polls</h4><p>Each polled state&#x27;s average is pulled part of the way toward its starting point: 10% to 29% of the way in the final month, and more earlier.</p><p class="fit">The pull is fitted on elections from 2000 to 2020.</p><span class="arr-r" aria-hidden="true"></span><span class="arr-d" aria-hidden="true"></span></div><ul class="ins" style="grid-row:5"><li>Each state&#x27;s share of the national vote</li></ul><div class="step" style="grid-row:5"><h4><span class="n">4</span>The add-up</h4><p>Every state moves by the same amount, so that the states, weighted by turnout, add up to the national forecast.</p><span class="arr-r" aria-hidden="true"></span><span class="arr-d" aria-hidden="true"></span></div><ul class="ins" style="grid-row:6"><li>State demographics</li><li class=past>How far state and national polls missed in past elections</li></ul><div class="step" style="grid-row:6"><h4><span class="n">5</span>Errors that move together</h4><p>One national miss shared by every state. States that are alike in their demographics miss together, there is a tilt by state lean, and each state has its own error on top.</p><span class="arr-r" aria-hidden="true"></span><span class="arr-d" aria-hidden="true"></span></div><ul class="ins" style="grid-row:7"><li>Electoral votes for each contest</li></ul><div class="step" style="grid-row:7"><h4><span class="n">6</span>The count</h4><p>40,000 simulated elections over 56 contests: the states, the District of Columbia, and the districts of Maine and Nebraska. Each contest&#x27;s winner takes its electoral votes.</p><span class="arr-r" aria-hidden="true"></span><span class="arr-o" aria-hidden="true"></span></div><div class="outs" style="grid-row:2 / span 6"><div class="colhead sm">What comes out</div><ul><li>Each state: the margin, its range, and each side&#x27;s chance of winning</li><li>The electoral vote count and the chance of reaching 270</li><li>The popular vote, and the chance it splits from the count</li><li>The state most likely to decide the election</li></ul></div></div><p class="flowkey"><span><i></i>This election&#x27;s own data</span><span><i class="past"></i>Past elections, used to set the model&#x27;s numbers</span></p><p class="small muted">Several of these pieces are adopted provisionally. They stand or fall when the model is scored on 2024, once, at the design freeze.</p>
 <h3>Through the campaign</h3>
 <ol class="tl" style="--n:6"><li class="stage"><div class="when">Before the nominees</div><h4>No forecast</h4><p><b>Sees</b> Nothing is forecast from hypothetical matchups.</p><p><b>Does</b> The page shows the board instead: each state&#x27;s electoral votes and how it has voted since 2000.</p></li><li class="stage"><div class="when">Once both are presumptive</div><h4>Both nominees are known</h4><p><b>Sees</b> National polls of the two nominees, each state&#x27;s lean at the last election, and state polls where there are any.</p><p><b>Does</b> The forecast replaces the board. A thinly polled state sits close to its starting point, and the ranges are at their widest.</p></li><li class="stage"><div class="when">The months before</div><h4>Polls come in</h4><p><b>Sees</b> New national and state polls. The conventions get no special treatment: three ways of handling them were tested and none passed.</p><p><b>Does</b> National polls move every state together; a state&#x27;s own polls move it against the nation. The ranges narrow as the election nears.</p></li><li class="stage"><div class="when">The final month</div><h4>States lean on their own polls</h4><p><b>Sees</b> The late national and state polls.</p><p><b>Does</b> A polled state rests mostly on its own polls, with a small pull toward its starting point.</p><div class="mix" role="img" aria-label="A polled state: 71% to 90% on its polls"><i class="po" style="width:71%"></i><i class="pm" style="width:19%"></i></div><div class="mixlab"><span>Polls</span><span>Starting point</span></div><p class="mixnote">A polled state: 71% to 90% on its polls</p></li><li class="stage lock"><div class="when">Election day</div><h4>The forecast is locked</h4><p><b>Sees</b> Nothing after the lock.</p><p><b>Does</b> The last run is frozen. Nothing is changed after that.</p></li><li class="stage lock"><div class="when">Afterwards</div><h4>Scored against the results</h4><p><b>Sees</b> The count, as it finishes.</p><p><b>Does</b> The locked numbers are compared with the results. They are never revised.</p></li></ol><p class="note">In the backtest the forecast&#x27;s centre was no closer a week out than 100 days out, and the early ranges were too wide. Both are open questions for the design freeze.</p>
+<h3>A past election, as the model saw it</h3>
+<div class="card explorer ecx" id="ecx">
+<div class="exhead"><h4>2020, a week before the election</h4><span class="tag">A past election, not a forecast</span></div>
+<p class="small muted">These are the 40,000 simulated elections the model produces for 2020 from what was known a week before, with every number fitted on earlier elections only. Choose a state to give it to Biden, again for Trump, a third time to clear. Everything else is then counted over the simulations that agree.</p>
+<div class="exgrid">
+<div>
+<div class="chart tilemap" id="ecxMap"></div>
+<div class="maplegend"><span class="how">Chance Biden carries it:</span><span><i class="d3"></i>95% or more</span><span><i class="d2"></i>75 to 95%</span><span><i class="d1"></i>60 to 75%</span><span><i class="toss"></i>40 to 60%</span><span><i class="r1"></i>25 to 40%</span><span><i class="r2"></i>5 to 25%</span><span><i class="r3"></i>under 5%</span></div>
+</div>
+<div>
+<div class="exnums" id="ecxNums"><div class="exnum"><div class="l">Biden reaches 270</div><div class="v">86%</div><div class="d"></div></div><div class="exnum"><div class="l">Trump reaches 270</div><div class="v">13%</div><div class="d"></div></div></div>
+<div class="exmatch" id="ecxMatch">The figures the model reported for this run</div>
+<div class="chips" id="ecxChips"></div>
+<div class="chart echist" id="ecxHist"></div>
+<p class="extext" id="ecxText">A week before the 2020 election the model put the chance of Biden reaching 270 at 86%, with a median of 335 electoral votes (80% range 254 to 413). What happened: Biden won 306.</p>
+</div>
+</div>
+<p class="exnote">The design is not frozen, so these simulations will change with it. 2020 stands in for now: 2024 replaces it once it has been scored at the design freeze, and 2028 once there is a forecast. The explorer counts over the 40,000 saved simulations, so with nothing set its figures differ a little from the exact count the model reports (86.2% for Biden). A count of 269 is a tie and counts for neither side; its bar is drawn with the counts below 270.</p>
+</div>
 <h3>How it was tested</h3>
 <p>The elections of 2008 to 2020 were forecast again at 100, 60, 30 and 7 days out, with every number fitted on earlier elections only. The figures are a week out. The test checks for a plainly wrong model; it tested no change.</p><div class="stats"><div class="stat"><div class="v">5.6 pts</div><div class="l">Typical miss on a state&#x27;s margin (8.7 repeating the last election, 6.9 from recent polls alone)</div></div><div class="stat"><div class="v">83%</div><div class="l">Of results inside the forecast&#x27;s 80% range</div></div><div class="stat"><div class="v">4 of 4</div><div class="l">Elections with the electoral vote count inside its 80% range; 2016 by two votes</div></div><div class="stat"><div class="v">3 of 4</div><div class="l">Elections where the winner was the favourite; the 2016 winner was given 1 in 4</div></div></div><ul class="list small muted"><li>Four elections cannot show the model is right, only that it is not plainly wrong.</li><li>2024 is held out. It is scored once, at the design freeze, and that score is published as the only out-of-sample number.</li><li>The gap between the deciding state and the popular vote was forecast too close to zero: outside its 80% range in two elections of four.</li></ul>
 <h3>Where it stands</h3>
@@ -109,5 +128,130 @@
 <p class="sitefoot">This page is run by Vikram Rai as a hobby. Any views expressed on this page are his alone, as are any errors within. He is on <a href="https://github.com/vrraiv">GitHub</a>, <a href="https://x.com/raiv11">X</a>, and <a href="https://www.linkedin.com/in/vikram-rai-00132083">LinkedIn</a>.</p>
 </div></footer>
 <script>(function(){var r=document.documentElement,q=window.matchMedia&&matchMedia("(prefers-color-scheme: dark)");function set(t){r.setAttribute("data-theme",t);window.dispatchEvent(new Event("themechange"))}var b=document.getElementById("modeswitch");if(b)b.addEventListener("click",function(){var t=r.getAttribute("data-theme")==="dark"?"light":"dark";try{localStorage.setItem("theme",t)}catch(e){}set(t)});if(q&&q.addEventListener)q.addEventListener("change",function(e){var s;try{s=localStorage.getItem("theme")}catch(x){}if(s!=="light"&&s!=="dark")set(e.matches?"dark":"light")})})();</script><script>(function(){var r=document.documentElement;if(!r.hasAttribute("data-intro")||document.getElementById("term")||document.querySelector("meta[http-equiv=refresh]"))return;var n=document.querySelector(".sitename .nm");if(!n){r.removeAttribute("data-intro");return}try{sessionStorage.setItem("intro","1")}catch(e){}var s=n.textContent,i=0;n.innerHTML="<span class=typed></span><i class=cur></i><span class=ghost></span>";var t=n.firstChild,g=n.lastChild;g.textContent=s;r.setAttribute("data-typing","");r.removeAttribute("data-intro");function step(){i++;t.textContent=s.slice(0,i);g.textContent=s.slice(i);if(i<s.length)setTimeout(step,55+Math.random()*55);else setTimeout(function(){n.textContent=s;r.removeAttribute("data-typing");var k=n.parentNode.querySelector(".ret");if(k)k.classList.add("pop")},260)}setTimeout(step,450)})();</script>
+<script>window.EX={"meta":{"election":2020,"days":7,"n":40000,"seed":2028,"file":"pres_draws_2020_7.bin","layout":"u4 bits 0-31|u4 bits 32-55|i2 pv","pv_scale":0.1,"contests":["AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL","GA","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","RI","SC","SD","TN","TX","UT","VA","VT","WA","WI","WV","WY","ME-1","ME-2","NE-1","NE-2","NE-3"],"ev":[3,9,6,11,55,9,7,3,3,29,16,4,6,4,20,11,6,8,8,11,10,2,16,10,10,6,3,15,3,2,4,14,5,6,29,18,7,7,20,4,9,3,11,38,6,13,3,12,10,5,3,1,1,1,1,1],"replays":"pres_sim_asof.json 2020/7","turnout":{"weights":"T1","lambda":0.35},"model":{"p_dem_270_exact":0.8617530853486416,"p_rep_270_exact":0.13408227877307696,"p_tie_exact":0.0041646358782814405,"count_median_exact":335,"count_p10_exact":254,"count_p90_exact":413,"pv_median":7.870290852967459,"p_dem_270_sim":0.86305},"result":{"won":[false,false,false,true,true,true,true,true,true,false,true,true,false,false,true,false,false,false,false,true,true,true,true,true,false,false,false,false,false,false,true,true,true,true,true,false,false,true,true,true,false,false,false,false,false,true,true,true,true,false,false,true,false,false,true,false],"dem_count":306}},"file":"data/pres_draws_2020_7.bin?v=eeb0d2f032","dem":"Biden","rep":"Trump","names":{"AK":"Alaska","AL":"Alabama","AR":"Arkansas","AZ":"Arizona","CA":"California","CO":"Colorado","CT":"Connecticut","DC":"District of Columbia","DE":"Delaware","FL":"Florida","GA":"Georgia","HI":"Hawaii","IA":"Iowa","ID":"Idaho","IL":"Illinois","IN":"Indiana","KS":"Kansas","KY":"Kentucky","LA":"Louisiana","MA":"Massachusetts","MD":"Maryland","ME":"Maine","MI":"Michigan","MN":"Minnesota","MO":"Missouri","MS":"Mississippi","MT":"Montana","NC":"North Carolina","ND":"North Dakota","NE":"Nebraska","NH":"New Hampshire","NJ":"New Jersey","NM":"New Mexico","NV":"Nevada","NY":"New York","OH":"Ohio","OK":"Oklahoma","OR":"Oregon","PA":"Pennsylvania","RI":"Rhode Island","SC":"South Carolina","SD":"South Dakota","TN":"Tennessee","TX":"Texas","UT":"Utah","VA":"Virginia","VT":"Vermont","WA":"Washington","WI":"Wisconsin","WV":"West Virginia","WY":"Wyoming","ME-1":"Maine's 1st district","ME-2":"Maine's 2nd district","NE-1":"Nebraska's 1st district","NE-2":"Nebraska's 2nd district","NE-3":"Nebraska's 3rd district"},"tiles":{"AK":[0,0],"AL":[7,6],"AR":[5,5],"AZ":[2,5],"CA":[1,4],"CO":[3,4],"CT":[10,3],"DC":[9,5],"DE":[10,4],"FL":[9,7],"GA":[8,6],"HI":[0,7],"IA":[5,3],"ID":[2,2],"IL":[6,2],"IN":[6,3],"KS":[4,5],"KY":[6,4],"LA":[5,6],"MA":[10,2],"MD":[9,4],"ME":[11,0],"MI":[7,2],"MN":[5,2],"MO":[5,4],"MS":[6,6],"MT":[3,2],"NC":[7,5],"ND":[4,2],"NE":[4,4],"NH":[11,1],"NJ":[9,3],"NM":[3,5],"NV":[2,3],"NY":[9,2],"OH":[7,3],"OK":[4,6],"OR":[1,3],"PA":[8,3],"RI":[11,3],"SC":[8,5],"SD":[4,3],"TN":[6,5],"TX":[4,7],"UT":[2,4],"VA":[8,4],"VT":[10,1],"WA":[1,2],"WI":[6,1],"WV":[7,4],"WY":[3,3]},"districts":["ME-1","ME-2","NE-1","NE-2","NE-3"]};</script>
+<script>/* The what-if explorer on the model page (src/site/model.py inlines this file; ELECTORAL_COLLEGE.md, section 18).
+
+   It reads one saved run of the electoral college model, for a past election: one row per simulated election, in the
+   compact form the 2026 forecast's explorer reads (uint32 win bits for contests 0 to 31, uint32 for 32 to 55, int16
+   popular vote in tenths of a point; a set bit means the Democrat carries the contest). The reader sets contests for
+   either side; every figure is then counted over the simulations that agree. Nothing here is a model: it only counts.
+
+   EX (inlined by model.py) = { meta: the .json beside the draws, file: where the .bin is served, dem, rep: the two
+   candidates' names, names: contest -> full name, tiles: contest -> [column, row], districts: the strip's contests }. */
+(function () {
+  var box = document.getElementById("ecx");
+  if (!box || !window.EX) return;
+  var EX = window.EX, M = EX.meta, C = M.contests, EV = M.ev, N = M.n, K = C.length;
+  var $ = function (id) { return document.getElementById(id); };
+  var pct = function (p) { return p == null ? "–" : p > 0.995 && p < 1 ? ">99%" : p < 0.005 && p > 0 ? "<1%" : Math.round(p * 100) + "%"; };
+  var mar = function (x) { return Math.abs(x) < 0.05 ? "even" : (x > 0 ? "D+" : "R+") + Math.abs(x).toFixed(1); };
+  var num = function (x) { return x.toLocaleString("en-US"); };
+  var force = {};                       // contest index -> 1 (the Democrat carries it) or 0 (the Republican)
+  var split = false;                    // the preset: the popular-vote winner loses the count
+  var S = null;
+
+  function load() {
+    return fetch(EX.file).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.arrayBuffer(); }).then(function (buf) {
+      if (buf.byteLength < 10 * N) throw new Error("truncated file");
+      var s = { lo: new Uint32Array(buf, 0, N), hi: new Uint32Array(buf, 4 * N, N), pv: new Int16Array(buf, 8 * N, N), count: new Uint16Array(N) };
+      for (var i = 0; i < N; i++) {
+        var c = 0, a = s.lo[i], b = s.hi[i];
+        for (var k = 0; k < K; k++) if (k < 32 ? (a >>> k) & 1 : (b >>> (k - 32)) & 1) c += EV[k];
+        s.count[i] = c;
+      }
+      s.base = compute(s, {}, false);
+      return s;
+    });
+  }
+
+  function compute(s, f, sp) {
+    var mLo = 0, vLo = 0, mHi = 0, vHi = 0, k;
+    for (k in f) { k = +k; if (k < 32) { mLo |= 1 << k; if (f[k]) vLo |= 1 << k; } else { mHi |= 1 << (k - 32); if (f[k]) vHi |= 1 << (k - 32); } }
+    mLo >>>= 0; vLo >>>= 0; mHi >>>= 0; vHi >>>= 0;
+    var win = new Float64Array(K), hist = new Float64Array(54), m = 0, d = 0, r = 0, pvs = [], counts = [];
+    for (var i = 0; i < N; i++) {
+      var a = s.lo[i], b = s.hi[i];
+      if (((a & mLo) >>> 0) !== vLo || ((b & mHi) >>> 0) !== vHi) continue;
+      var c = s.count[i], pv = s.pv[i];
+      if (sp && !((pv > 0 && c <= 268) || (pv < 0 && c >= 270))) continue;
+      m++; if (c >= 270) d++; else if (c <= 268) r++;
+      hist[Math.min(53, Math.floor(c / 10))]++; pvs.push(pv); counts.push(c);
+      for (k = 0; k < K; k++) if (k < 32 ? (a >>> k) & 1 : (b >>> (k - 32)) & 1) win[k]++;
+    }
+    var med = function (x) { if (!x.length) return null; x.sort(function (p, q) { return p - q; }); return x[Math.floor(x.length / 2)]; };
+    var pm = med(pvs);
+    return { m: m, pD: m ? d / m : null, pR: m ? r / m : null, hist: hist, count: med(counts), pv: pm == null ? null : pm * M.pv_scale,
+             p: Array.prototype.map.call(win, function (w) { return m ? w / m : null; }) };
+  }
+
+  var cls = function (p) { return p == null ? "none" : p >= 0.95 ? "d3" : p >= 0.75 ? "d2" : p >= 0.6 ? "d1" : p > 0.4 ? "toss" : p > 0.25 ? "r1" : p > 0.05 ? "r2" : "r3"; };
+  var active = function () { return split || Object.keys(force).length > 0; };
+
+  function tile(k, x, y, p) {
+    var f = force[k], set = f != null, c = set ? (f ? "d3" : "r3") : cls(p);
+    var state = set ? "set for " + (f ? EX.dem : EX.rep) : EX.dem + " " + pct(p);
+    return '<g class="tile ' + c + (set ? " set" : "") + '" role="button" tabindex="0" data-k="' + k + '" aria-label="' + EX.names[C[k]] + ", " + EV[k] +
+      " electoral vote" + (EV[k] > 1 ? "s" : "") + ": " + state + '"><rect x="' + x + '" y="' + y + '" width="44" height="44" rx="4"></rect>' +
+      '<text class="st" x="' + (x + 22) + '" y="' + (y + 19) + '">' + C[k] + '</text><text class="sub" x="' + (x + 22) + '" y="' + (y + 35) + '">' +
+      (set ? (f ? "D" : "R") + " set" : pct(p)) + "</text></g>";
+  }
+
+  function draw() {
+    var R = compute(S, force, split), B = S.base, k, s = "";
+    for (k = 0; k < K; k++) { var t = EX.tiles[C[k]]; if (t) s += tile(k, t[0] * 48 + 2, t[1] * 48 + 2, R.p[k]); }
+    EX.districts.forEach(function (c, j) { s += tile(C.indexOf(c), j * 48 + 2 + 3.5 * 48, 8 * 48 + 22, R.p[C.indexOf(c)]); });
+    s += '<text class="cap" x="' + (3.5 * 48 + 2) + '" y="' + (8 * 48 + 14) + '">Maine\'s and Nebraska\'s districts, one vote each</text>';
+    $("ecxMap").innerHTML = '<svg viewBox="0 0 578 452" role="group" aria-label="The contests. Choose one to set its winner.">' + s + "</svg>";
+    // the figures
+    var delta = function (v, b) { if (v == null || !active()) return ""; var dd = Math.round(v * 100) - Math.round(b * 100); return dd === 0 ? "no change" : (dd > 0 ? "up " : "down ") + Math.abs(dd) + " pts from " + pct(b); };
+    $("ecxNums").innerHTML = '<div class="exnum"><div class="l">' + EX.dem + ' reaches 270</div><div class="v">' + pct(R.pD) + '</div><div class="d">' + delta(R.pD, B.pD) + "</div></div>" +
+      '<div class="exnum"><div class="l">' + EX.rep + ' reaches 270</div><div class="v">' + pct(R.pR) + '</div><div class="d">' + delta(R.pR, B.pR) + "</div></div>";
+    var mt = $("ecxMatch");
+    mt.className = "exmatch" + (R.m < 400 ? " warn" : "");
+    mt.textContent = !active() ? "All " + num(N) + " simulations" : R.m === 0 ? "No simulation matches. Clear something to widen it."
+      : num(R.m) + " of " + num(N) + " simulations match (" + pct(R.m / N) + ")" + (R.m < 400 ? ": few enough that these figures are rough" : "");
+    $("ecxChips").innerHTML = '<button type="button" class="chip" id="ecxSplit" aria-pressed="' + split + '">The popular-vote winner loses</button>' +
+      (active() ? '<button type="button" class="chip reset" id="ecxReset">Clear all</button>' : "");
+    $("ecxSplit").onclick = function () { split = !split; draw(); };
+    if ($("ecxReset")) $("ecxReset").onclick = function () { force = {}; split = false; draw(); };
+    // the count's histogram: ten votes to a bar, so 270 falls between two bars
+    var mx = 0, h = "", W = 540, H = 120, bw = W / 54;
+    for (k = 0; k < 54; k++) mx = Math.max(mx, R.hist[k]);
+    for (k = 0; k < 54; k++) if (R.hist[k]) { var bh = Math.max(1, R.hist[k] / mx * (H - 22)); h += '<rect class="' + (k >= 27 ? "d" : "r") + '" x="' + (k * bw + 0.5).toFixed(1) + '" y="' + (H - bh).toFixed(1) + '" width="' + (bw - 1).toFixed(1) + '" height="' + bh.toFixed(1) + '"></rect>'; }
+    // the two labels sit on opposite sides of their lines, away from each other, whichever side the result fell
+    var x270 = 27 * bw, xr = M.result.dem_count / 10 * bw, right = M.result.dem_count >= 270;
+    var lab = function (x, side, t) { return '<text class="lab" x="' + (x + (side ? 4 : -4)) + '" y="8"' + (side ? "" : ' text-anchor="end"') + ">" + t + "</text>"; };
+    h += '<line class="mid" x1="' + x270 + '" x2="' + x270 + '" y1="12" y2="' + H + '"></line>' + lab(x270, !right, "270") +
+      '<line class="res" x1="' + xr + '" x2="' + xr + '" y1="12" y2="' + H + '"></line>' + lab(xr, right, "Result: " + M.result.dem_count) +
+      '<line class="ax" x1="0" x2="' + W + '" y1="' + H + '" y2="' + H + '"></line><text class="lab" x="0" y="' + (H + 13) + '">0</text><text class="lab" x="' + W + '" y="' + (H + 13) + '" text-anchor="end">538</text>';
+    $("ecxHist").innerHTML = '<svg viewBox="0 0 ' + W + " " + (H + 16) + '" role="img" aria-label="' + EX.dem + "'s electoral votes in the matching simulations. Median " + (R.count == null ? "none" : R.count) + '.">' + h + "</svg>";
+    // the reading
+    var set = Object.keys(force).map(function (q) { return EX.names[C[+q]] + " goes to " + (force[q] ? EX.dem : EX.rep); });
+    var cond = set.length > 3 ? set.length + " contests go the way you set" : set.length > 1 ? set.slice(0, -1).join(", ") + " and " + set[set.length - 1] : set.join("");
+    if (split) cond += (cond ? ", and " : "") + "the popular-vote winner loses the count";
+    var txt;
+    if (!active()) {
+      txt = "With nothing set, these are the model's simulations for " + M.election + " as they stood: " + EX.dem + " reaches 270 in " + pct(B.pD) + " of them, with a median of " + B.count +
+        " electoral votes and a popular vote of " + mar(B.pv) + ". What happened: " + EX.dem + " won " + M.result.dem_count + ". Try giving a close state to the other side and watch the rest move.";
+    } else if (!R.m) {
+      txt = "No simulation has that combination.";
+    } else {
+      txt = "In the " + num(R.m) + " simulations where " + cond + ", " + EX.dem + " reaches 270 " + pct(R.pD) + " of the time (" + pct(B.pD) + " overall), with a median of " + R.count +
+        " electoral votes (" + B.count + ") and a popular vote of " + mar(R.pv) + " (" + mar(B.pv) + ").";
+      var mv = [];
+      for (k = 0; k < K; k++) if (force[k] == null && Math.abs(R.p[k] - B.p[k]) >= 0.04) mv.push(k);
+      mv.sort(function (p, q) { return Math.abs(R.p[q] - B.p[q]) - Math.abs(R.p[p] - B.p[p]); });
+      if (mv.length) txt += " The largest knock-on moves: " + mv.slice(0, 3).map(function (q) { return EX.names[C[q]] + " " + pct(B.p[q]) + " to " + pct(R.p[q]); }).join(", ") + ".";
+    }
+    $("ecxText").textContent = txt;
+  }
+
+  function toggle(k) { var f = force[k]; if (f == null) force[k] = 1; else if (f === 1) force[k] = 0; else delete force[k]; draw(); var g = box.querySelector('[data-k="' + k + '"]'); if (g) g.focus(); }
+  $("ecxMap").addEventListener("click", function (e) { var g = e.target.closest && e.target.closest("[data-k]"); if (g) toggle(+g.getAttribute("data-k")); });
+  $("ecxMap").addEventListener("keydown", function (e) { if (e.key !== "Enter" && e.key !== " ") return; var g = e.target.closest && e.target.closest("[data-k]"); if (g) { e.preventDefault(); toggle(+g.getAttribute("data-k")); } });
+  load().then(function (s) { S = s; box.classList.add("live"); draw(); })
+    .catch(function (e) { $("ecxMatch").textContent = "The simulations could not be loaded (" + e.message + "). The figures above are the model's own."; });
+})();
+</script>
 </body>
 </html>

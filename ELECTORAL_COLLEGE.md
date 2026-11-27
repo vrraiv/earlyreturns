@@ -3880,7 +3880,7 @@ with v the turnout shares (C below) and Σ_s v_s ε_s = 0 by construction.
   point's margin (the same ordering on the results) less the actual national margin;
 - implied error correlations for named pairs (as the Senate model reports), so the structure can be seen in the
   output;
-- a per-draw file for the site (the Senate model's compact format) is not written here; that is SI-5, the model page (corrected 2026-11-22: this read "SI-3 and SI-6", and SI-6 closed without it).
+- a per-draw file for the site (the Senate model's compact format) is not written here; that is SI-5, the model page (corrected 2026-11-22: this read "SI-3 and SI-6", and SI-6 closed without it). *Written 2026-11-27 for 2020 at 7 days: section 18.*
 
 ### A7. Districts: a demographic swing model (one candidate under section 8's rule; added at the user's request, 2026-11-22)
 
@@ -4337,7 +4337,7 @@ read. What was read:
 - **To the design freeze (EC-9), suggested by these results:** a days term in the range that may be negative (or a
   saturating count term), given 42% and 73% coverage at 7 days against 57% and 86% at 100; the national range fitted
   from 1980; and T1's one untouched test on 2024.
-- **To the site (SI-3, SI-7):** the outputs' shape in A6, and the per-draw file still to be written.
+- **To the site (SI-3, SI-7):** the outputs' shape in A6, and the per-draw file still to be written. *The file's format and its first use, on the model page, are section 18 (SI-5, 2026-11-27); the 2028 file is SI-7's.*
 
 ## 16. The backtest, 2008 to 2020: scoring plan (EC-7)
 
@@ -4714,3 +4714,50 @@ with a strip of results). A **decision**: nothing here is tested or fitted.
   is live (target May 2027), the board's section links to it.
 - Built in `src/site/landing.py` (`board`, `board_data`) from the words in `src/site/site.json`
   (`previews.2028.board`); the card is drawn by `src/site/og_image.py`.
+
+## 18. The per-draw file, and a past election on the model page (SI-5)
+
+**Decided 2026-11-27** by the user, and written here before anything was run. A **decision** and a **replay**:
+nothing is tested or fitted, no score is computed, and nothing in the model changes.
+
+- **What.** The model page's electoral college section (`/model/`, SI-5) gets a what-if explorer like the 2026
+  forecast's: set a state for either side and see what the simulations that agree say about the rest. It reads A6's
+  per-draw file, one row per simulated election.
+- **Which election: 2020, at 7 days.** It is the latest election the model has already been scored on (section 16),
+  so the page shows nothing that has not been read. The user first asked for 2024, the last election, and withdrew
+  that on being reminded of the holdout (section 7). The date was not chosen by the user; 7 days is section 16's
+  headline date and is used as the default.
+- **The order of replacement.** 2020 now; 2024 only once the design freeze (EC-9) has recorded its one score on it;
+  2028 when its forecast is live (SI-7). Each swap is a rerun of the command below for the new election.
+- **A replay, not a new run.** `python src/model/pres_sim.py draws 2020 7` rebuilds section 15's as-of assembly for
+  that election and date (the adopted turnout weights, the same seed) and saves the draws. Before it writes
+  anything it checks them against the saved entry `2020/7` of `pres_sim_asof.json`, the outputs EC-7 scored: every
+  contest's win probability, the simulated chance of 270, the simulated median count and the popular vote's median
+  must agree exactly. If any differs it stops and writes nothing. It refuses an election outside 2008 to 2020, and
+  it does not write `pres_sim.json` or `pres_sim_asof.json`.
+- **The file.** `data/processed/pres_draws_<election>_<days>.bin` with a `.json` beside it, in the Senate model's
+  compact form (`forecast.write_sims`): little-endian columns, n = draws. `uint32[n]` win bits for contests 0 to 31,
+  `uint32[n]` for contests 32 to 55 (a set bit: the Democrat carries the contest), `int16[n]` the popular vote
+  margin in tenths of a point. The `.json` lists the contests in bit order with their electoral votes, the model's
+  own figures for the same run (the exact count's chance of 270 and median, the popular vote's median), and the
+  seed. The Democratic count in a draw is the sum of the electoral votes of the set bits.
+- **On the page.** The explorer is labelled on the chart itself as a past election, a week out, from a design that
+  is not frozen, and not a forecast. Its figures come from plain simulation on the saved draws, so with nothing set
+  they differ a little from the exact count's (A5); the page shows both. The page build copies the committed file
+  and never makes draws.
+
+### The replay, run 2026-11-27
+
+`python src/model/pres_sim.py draws 2020 7`, about 17 seconds, after this section was written.
+
+- **The gate held.** All five comparisons with the saved `2020/7` entry of `pres_sim_asof.json` agree exactly: every
+  contest's win probability, the simulated chance of 270 (0.86305), the simulated median count (335), the popular
+  vote's median, and the exact chance of 270. The count rebuilt from the saved bits gives the same 0.86305.
+- **Written:** `data/processed/pres_draws_2020_7.bin` (400,000 bytes: 40,000 draws, 56 contests) and
+  `pres_draws_2020_7.json`. `pres_sim.json` and `pres_sim_asof.json` are unchanged.
+- **Refused:** `draws 2024 7` stops with a message and writes nothing. `pres_sim.py checks` still passes.
+- **On the page.** `src/site/model.py` copies the file to `site/model/data/` byte for byte; the explorer is
+  `src/site/model_explorer.js`. The winners shown as "what happened" come from `pres_backtest_contests.csv`, the
+  table section 16 scored.
+- **To EC-9:** once 2024 has its recorded score, run `draws 2024 7` (the refusal then has to be lifted there, on
+  purpose) and point the page at it. **To SI-7:** the 2028 file, in this format, when there is a forecast.

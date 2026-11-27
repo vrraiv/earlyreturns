@@ -452,6 +452,16 @@
         ],
         "note": "In the backtest the forecast's centre was no closer a week out than 100 days out, and the early ranges were too wide. Both are open questions for the design freeze."
       },
+      "explorer": {
+        "draws": "pres_draws_2020_7",
+        "head": "A past election, as the model saw it",
+        "title": "2020, a week before the election",
+        "kicker": "A past election, not a forecast",
+        "dem": "Biden",
+        "rep": "Trump",
+        "text": "These are the 40,000 simulated elections the model produces for 2020 from what was known a week before, with every number fitted on earlier elections only. Choose a state to give it to Biden, again for Trump, a third time to clear. Everything else is then counted over the simulations that agree.",
+        "note": "The design is not frozen, so these simulations will change with it. 2020 stands in for now: 2024 replaces it once it has been scored at the design freeze, and 2028 once there is a forecast."
+      },
       "tested": {
         "text": "The elections of 2008 to 2020 were forecast again at 100, 60, 30 and 7 days out, with every number fitted on earlier elections only. The figures are a week out. The test checks for a plainly wrong model; it tested no change.",
         "stats": [

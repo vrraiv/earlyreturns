@@ -439,3 +439,38 @@ ul.dates li.target .when { color: var(--accent); }
   .tl .stage::after { top: 4px; }
   .mix, .mixlab { max-width: 320px; }
 }
+
+/* the model page's what-if explorer over one saved run (src/site/model_explorer.js); the frame is the forecast page's .explorer */
+.ecx { margin: 10px 0 8px; }
+.ecx .exhead h4 { margin: 0; font-size: 1.05rem; color: var(--title); }
+.ecx .exgrid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 761px) { .ecx .exgrid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
+.ecx .exnums { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ecx .exnum .v { font-size: clamp(1.5rem, 6vw, 2rem); }
+.ecx #ecxMap svg { max-width: 578px; }
+.ecx .tile { cursor: pointer; outline: none; }
+.ecx .tile rect { fill: var(--off); }
+.ecx .tile.d3 rect { fill: var(--dem); } .ecx .tile.d2 rect { fill: var(--d-likely); } .ecx .tile.d1 rect { fill: var(--d-lean); }
+.ecx .tile.toss rect { fill: var(--toss); }
+.ecx .tile.r1 rect { fill: var(--r-lean); } .ecx .tile.r2 rect { fill: var(--r-likely); } .ecx .tile.r3 rect { fill: var(--rep); }
+.ecx .tile text { text-anchor: middle; fill: var(--on-fill-dark); pointer-events: none; }
+.ecx .tile.d3 text, .ecx .tile.r3 text { fill: #fff; }
+:root[data-theme="dark"] .ecx .tile text { fill: #F3F5F8; }
+:root[data-theme="dark"] .ecx .tile.d3 text, :root[data-theme="dark"] .ecx .tile.r3 text { fill: var(--on-fill-dark); }
+.ecx .tile .st { font-size: 13px; font-weight: 600; }
+.ecx .tile .sub { font-size: 10.5px; font-variant-numeric: tabular-nums; }
+.ecx .tile:hover rect, .ecx .tile:focus-visible rect { stroke: var(--text); stroke-width: 1.5; }
+.ecx .tile.set rect { stroke: var(--text); stroke-width: 2.5; }
+.ecx .tile.set .sub { font-weight: 600; }
+.ecx .tile.set:focus-visible rect { stroke-width: 4.5; }
+.ecx text.cap { font-size: 10px; fill: var(--text-3); }
+.ecx .maplegend i { border: 0; }
+.ecx .maplegend i.d3 { background: var(--dem); } .ecx .maplegend i.d2 { background: var(--d-likely); } .ecx .maplegend i.d1 { background: var(--d-lean); }
+.ecx .maplegend i.toss { background: var(--toss); }
+.ecx .maplegend i.r1 { background: var(--r-lean); } .ecx .maplegend i.r2 { background: var(--r-likely); } .ecx .maplegend i.r3 { background: var(--rep); }
+.echist { margin-top: 14px; }
+.echist rect.d { fill: var(--dem); } .echist rect.r { fill: var(--rep); }
+.echist line.mid { stroke: var(--text); stroke-width: 1.5; }
+.echist line.res { stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.echist line.ax { stroke: var(--border-strong); }
+.echist text.lab { font-size: 10px; fill: var(--text-2); }
