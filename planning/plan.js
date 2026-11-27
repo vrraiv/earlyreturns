@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-26d",
+  version: "2026-11-27a",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -934,9 +934,10 @@ window.PLAN = {
         { id: "SP-5", title: "Recent specials as a signal for off-year governors", kind: "story", phase: "any",
           why: "The recent-specials term helped House specials. It has not been tested on governor races.",
           details: [
-            "Test it on off-year governor races."
+            "Test it on off-year governor races.",
+            "Done 2026-11-27 (SPECIALS.md, section 3): rules agreed before any run, then one scoring run on the 26 off-year governor races 2007 to 2025, each forecast as of its year with polls, against the term-year estimator. Adding the House recent-specials shift to every race cut the margin error from 14.2 to 12.8, but the gain rests on Louisiana 2007 (no polls) and disappears with 2007 left out, so it fails. Adding it only in New Jersey and Virginia changes almost nothing, because the polls carry about 0.9 of the weight. On the prior alone both versions are worse. Nothing adopted: the 2027 path keeps the term-year estimator."
           ],
-          refs: ["src/model/environment.py"] },
+          refs: ["SPECIALS.md", "src/model/specials_governors.py", "src/model/environment.py"] },
         { id: "SP-6", title: "Swap in the reworked district model", kind: "story", phase: "p4", needs: ["CM-10"],
           why: "The specials prior is the frozen 2026 House district model.",
           details: [
