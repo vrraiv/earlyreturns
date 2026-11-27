@@ -1,6 +1,6 @@
 # Special elections: design note
 
-The note for the specials track (work plan cards SP-1 to SP-8 in `planning/plan.js`). Started 2026-11-25 with SP-3; section 2 is SP-4, section 3 SP-5.
+The note for the specials track (work plan cards SP-1 to SP-8 in `planning/plan.js`). Started 2026-11-25 with SP-3; section 2 is SP-4, section 3 SP-5, section 4 SP-8.
 SP-1 and SP-2 (House specials and the single-race path, November 2026) are written up in `PLAN.md`, section 5.
 Rules are written here before anything they govern is run, agreed with the project owner, and every run is reported.
 
@@ -680,3 +680,82 @@ race cut the margin RMSE from 14.24 to 12.82 and cleared the redrawn-years condi
 2007 left out: it comes from a single unpolled Louisiana race in a year when the shift rests on two specials. On the
 prior alone both versions are worse. `single_race.py governor` and the frozen governor
 design are unchanged (rule 8). The 2027 races (GV-6) use the term-year estimator as they stand.
+
+## 4. Watch list (SP-8)
+
+The card: vacancies and scheduled specials, checked regularly, so a special is caught when it is called rather than
+when someone notices. Decided by the owner on 2026-11-27: the House Clerk's vacancy list and Wikipedia as the sources,
+a weekly check, House and Senate seats, and a live special tripped by the check leads to a page for it. No news API:
+NewsAPI's free plan is for development only, World News API's free plan forbids storing anything derived from it, and
+GDELT is on a reliability test (one request every 10 minutes for six hours from 2026-11-27) and is out unless it
+proves reliable.
+
+### What the sources hold (checked 2026-11-27)
+
+- **House Clerk, "Vacancies of the 119th Congress"** (`clerk.house.gov/Members/ViewVacancies`): official, plain HTML,
+  one block per vacancy: district, how it fell vacant and when, the member, and either the successor with the oath
+  date or "Special Election Date TBD" with the state's election office. Only vacancies that have happened; nothing
+  for announced resignations, nothing for the Senate.
+- **Wikipedia, "<n>th United States Congress", section "Changes in membership"**: a Senate table and a House table
+  (state or district, vacated by, reason for change, successor, date seated). The reason column carries announced
+  resignations, appointments and special election dates in prose. The 120th Congress page already exists and lists
+  two Senate seats to be vacated in January 2027 (Minnesota, special in November 2027; Tennessee, special in November
+  2028).
+- **The Downballot's 2027-2028 special elections sheet**: results after the fact, for races with one Democrat and
+  one Republican, congressional and legislative. Not a vacancy list. Linked for results, not used by the check.
+
+Where the Clerk and Wikipedia disagree (on 2026-11-27 the Clerk shows "Special Election Date TBD" for TX-23 and FL-20,
+Wikipedia "Vacant until the next Congress"), the check reports both and decides nothing.
+
+### Rules (written and agreed 2026-11-27, before the check was built)
+
+1. **Universe.** Every U.S. House and Senate seat that is vacant, or that Wikipedia says will be vacated, in the
+   current Congress and the next one once its page exists.
+2. **The watch file.** `data/interim/specials_watch.csv`, one row per vacancy: chamber, state, district or class,
+   vacated by and party, reason (died, resigned, appointed elsewhere, other), vacancy date (actual or announced),
+   successor (appointed or elected) and date seated, special election dates found (primary, runoff, general),
+   status, and the source of each field. Committed; it holds public facts only.
+3. **Status**, one of: announced (resignation not yet in effect); vacant, no date; special scheduled; appointed
+   (Senate, special still to come); held (result not yet seated); filled; no special (seat left vacant to the end of
+   the Congress). A special held on a regular November general-election day is marked `general_day` and handled by
+   the regular forecast, not as a live special.
+4. **What trips.** Any new row, or any change of status or date on an existing one. A trip on a special that is
+   scheduled and not on a general-election day is a **live special**: the check names it in the pull request as
+   ready for the live-special steps (SP-7: race details, lean on the lines in force, polls, run, page at
+   `/specials/<race>/`). Building that page is SP-7's work; SP-8 detects and hands over (agreed 2026-11-27; SP-7 is the
+   next card, since one live special is already known).
+5. **Weekly run.** GitHub Actions (agreed 2026-11-27; Windows Task Scheduler on this machine is the fallback if a
+   source blocks GitHub's runners), Monday morning, ending in a pull request only when the watch file changes, with the changes listed
+   in the description. A source that fails to load or parse fails the run visibly instead of writing an empty list.
+6. **Dates in prose.** Special election dates are read from Wikipedia's reason column with a date pattern; a reason
+   that mentions a special election with no date it can read is listed in the pull request for a person to check.
+
+### Build report (2026-11-27)
+
+`src/collect/specials_watch.py` writes `data/interim/specials_watch.csv` and the change list `ci_out/specials_watch.md`;
+`.github/workflows/specials-watch.yml` runs it on Mondays at 7:17 am Toronto time (and by hand) and opens a pull
+request only when the watch file changed. Raw copies of each check go to `data/raw/specials_watch/<date>/` and are
+committed with a changed list.
+
+Rules as built, where the draft left room:
+
+- Clerk rows are matched to Wikipedia's House rows by seat and Congress; where Wikipedia has two rows for a seat, the
+  one with the nearest vacancy date. Once the Clerk lists a vacancy, its vacancy date is used.
+- Wikipedia's party-change rows are dropped (not vacancies).
+- Special election dates are read from sentences that mention a special election, a runoff, a special primary or a
+  successor "elected ... to finish the term"; a date after "ending", "through" or "until" is a term's end and skipped.
+  A bare month ("November 2027") is kept as a month. A month of November in an even year counts as a general-election day.
+- Rows of the watched Congresses that vanish from both sources stay in the file and are listed as gone.
+
+First run, 2026-11-27 (the seed for the weekly comparison): 24 rows, 15 House and 9 Senate, 22 for the 119th Congress
+and 2 for the 120th.
+
+- **Live special:** Minnesota Senate (class 1). Klobuchar resigns in January 2027 to become governor; an appointee
+  serves until a special in November 2027.
+- **Announced, not live:** Tennessee Senate (class 1), special in November 2028 (general-election day); OK-1 (Hern,
+  30 November 2026, no special: vacant until the next Congress); CA-34 (Gomez, 1 December 2026); Oklahoma Senate
+  (Armstrong replaced by Hern on 30 November 2026).
+- **For a person to check:** TX-23 and FL-20, where the Clerk says "Special Election Date TBD" and Wikipedia "Vacant
+  until the next Congress"; FL-1, where the Clerk dates the vacancy 3 January 2025 and Wikipedia Gaetz's resignation
+  13 November 2024. These notes stay until a source changes; only changes trip the check.
+
