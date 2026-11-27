@@ -1,6 +1,6 @@
 """Build the pages around the elections: the landing page, the coming cycles' pages (/2027/, /2028/), each past election's
 opening page, 404.html and _redirects, the link-preview cards (site/og-home.png, site/<year>/og.png), and each live
-special's page (special.py, /specials/<race>/).
+special's page (special.py, /specials/<race>/) and the model page (model.py, /model/).
 
     python src/site/landing.py        (src/site/build.py runs this too)
 
@@ -453,6 +453,8 @@ def main(scorecard=None, cards=True):
     import special                  # /specials/<race>/ for each live record (SP-7)
     for path in special.main([]):
         out[path] = None
+    import model                    # /model/ (SI-5), from src/site/model.json
+    out[model.main([])] = None
     try:
         if not cards:
             raise RuntimeError("left as committed (run landing.py or build.py --all to redraw)")

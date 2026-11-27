@@ -1,0 +1,704 @@
+{
+  "title": "The models",
+  "description": "How each forecast on Early Returns is made: what goes in, what the model does, what comes out, and how it was tested.",
+  "lede": "How each forecast on this site is made: what goes in, what the model does with it, what comes out, and how it was tested.",
+  "note": "Every model follows the same order of work: it is designed, tested on past elections, and then frozen. A forecast is locked before its election and scored against the results afterwards.",
+  "legend": {
+    "now": "This election's own data",
+    "past": "Past elections, used to set the model's numbers"
+  },
+  "heads": {
+    "in": "What goes in",
+    "does": "What the model does",
+    "out": "What comes out",
+    "flow": "From inputs to forecast",
+    "timeline": "Through the campaign",
+    "tested": "How it was tested",
+    "stands": "Where it stands"
+  },
+  "models": [
+    {
+      "key": "house",
+      "name": "House",
+      "status": {"kind": "locked", "label": "Used in 2026, locked"},
+      "summary": "A forecast for every House district and for control of the chamber. Most districts are never polled, so each one starts from its partisanship and the national mood, and moves only part of the way toward its own polls when it has any.",
+      "flow": {
+        "steps": [
+          {
+            "title": "National environment",
+            "text": "The mean of five generic-ballot averages, blended with an estimate from the fundamentals. In 2026 the polls got 56% of the weight.",
+            "fit": "Fundamentals estimated on elections from 1962 to 2022.",
+            "reads": [
+              {"t": "Generic-ballot averages"},
+              {"t": "Presidential approval, the last House result, gas prices"}
+            ]
+          },
+          {
+            "title": "A starting point for each district",
+            "text": "The district's lean on its current lines, the national environment (a district moves about 0.8 points for each national point), and about 4.5 points for an incumbent.",
+            "fit": "Estimated on 3,752 contested races, 2006 to 2024.",
+            "reads": [
+              {"t": "The district's lean (Cook PVI, on the lines in force)"},
+              {"t": "Whether the incumbent is running"}
+            ]
+          },
+          {
+            "title": "District polls",
+            "text": "District polls are few and often paid for by a party. A sponsored poll is shifted against its sponsor (by about 6 points in 2026) before the polls are averaged.",
+            "fit": "The shift is estimated from past sponsored polls.",
+            "reads": [
+              {"t": "Polls of the district"}
+            ]
+          },
+          {
+            "title": "Blend",
+            "text": "The poll average and the starting point are weighed by how reliable each is. A polled district moves roughly half way to its polls; a district with none rests on its starting point.",
+            "fit": "",
+            "reads": []
+          },
+          {
+            "title": "Simulation",
+            "text": "40,000 simulated elections, the same ones as the Senate: each draws one national polling miss for both chambers, then an error for each district. A seat with only one major party on the ballot is fixed.",
+            "fit": "",
+            "reads": [
+              {"t": "How far polls and district forecasts missed in past elections", "past": true}
+            ]
+          }
+        ],
+        "outputs": [
+          "Each district: the margin, its range, and each side's chance of winning",
+          "The chamber: the spread of seat counts and the chance of a majority"
+        ],
+        "after": ""
+      },
+      "timeline": {
+        "stages": [
+          {
+            "when": "Before any polls",
+            "title": "The lines and candidates are set",
+            "sees": "Each district's lean on the lines in force, the national environment, and whether the incumbent is running.",
+            "does": "Every district is forecast from its starting point alone.",
+            "mix": {"polls": 0, "label": "No district polls yet"}
+          },
+          {
+            "when": "During the campaign",
+            "title": "Polls come in",
+            "sees": "The national averages as they move, and the few polls of single districts.",
+            "does": "A change in the national environment moves every district at once. A district's own polls move that district only, and only part of the way.",
+            "mix": {"polls": 46, "polls_hi": 65, "label": "A polled district: roughly half on its polls"}
+          },
+          {
+            "when": "Election day",
+            "title": "The forecast is locked",
+            "sees": "Nothing after the lock.",
+            "does": "The last run is frozen with its time. Nothing is changed after that.",
+            "lock": true
+          },
+          {
+            "when": "Afterwards",
+            "title": "Scored against the results",
+            "sees": "The count, as it finishes.",
+            "does": "The locked numbers are compared with the results on a scorecard. They are never revised.",
+            "lock": true
+          }
+        ],
+        "note": "So far the model has been tested on polls from the final three weeks only. How it behaves months before an election has not been tested yet."
+      },
+      "tested": {
+        "text": "Each election from 2004 to 2024 was forecast again with every number fitted on earlier elections only, then scored against the result. The figures are for the polls and fundamentals version.",
+        "stats": [
+          {"v": "4,172", "l": "District races scored, over 11 elections"},
+          {"v": "9.3 pts", "l": "Typical miss on a district's margin"},
+          {"v": "80%", "l": "Of results inside the forecast's 80% range"},
+          {"v": "7 of 11", "l": "Elections with the seat count inside its 80% range"}
+        ],
+        "notes": [
+          "The seat count's range is too narrow: it held the result in 7 elections of 11, where 9 would be expected.",
+          "In recent elections the model has undercounted Democratic wins in contested seats by about 6.",
+          "The 2026 forecast is scored on the scorecard, which stays provisional until the count is final."
+        ]
+      },
+      "stands": "Locked for 2026 and kept as a record. For 2028 it is carried forward with the changes that pass this backtest.",
+      "links": [
+        {"text": "How the 2026 model works", "path": "../2026/forecast/#method"},
+        {"text": "The 2026 scorecard", "path": "../2026/forecast/#scorecard"},
+        {"text": "The backtest note", "url": "https://github.com/vrraiv/earlyreturns/blob/main/BACKTEST.md"}
+      ]
+    },
+    {
+      "key": "senate",
+      "name": "Senate",
+      "status": {"kind": "locked", "label": "Used in 2026, locked"},
+      "summary": "A forecast for every Senate race and for control of the chamber. Each race starts from the state's partisanship and the national mood, then moves toward its own polls as they arrive.",
+      "flow": {
+        "steps": [
+          {
+            "title": "National environment",
+            "text": "The mean of five generic-ballot averages, blended with an estimate from the fundamentals. In 2026 the polls got 56% of the weight.",
+            "fit": "Fundamentals estimated on elections from 1962 to 2022.",
+            "reads": [
+              {"t": "Generic-ballot averages"},
+              {"t": "Presidential approval, the last House result, gas prices"}
+            ]
+          },
+          {
+            "title": "A starting point for each race",
+            "text": "Twice the state's lean, plus the national environment, plus 2 points for a sitting senator.",
+            "fit": "The 2 points are assumed, not estimated.",
+            "reads": [
+              {"t": "The state's lean (Cook PVI)"},
+              {"t": "Whether a senator is running"}
+            ]
+          },
+          {
+            "title": "Poll average",
+            "text": "Recent polls count more (a half-life of 60 days), likely-voter polls count more than polls of registered voters or adults, and a party-sponsored poll is shifted against its sponsor.",
+            "fit": "Settings estimated from FiveThirtyEight's poll archive.",
+            "reads": [
+              {"t": "Polls of the race"}
+            ]
+          },
+          {
+            "title": "Blend",
+            "text": "The poll average and the starting point are weighed by how reliable each is. A polled race rests mostly on its polls; a race with none rests on its starting point.",
+            "fit": "Weight estimated on 328 Senate races, 1998 to 2022.",
+            "reads": []
+          },
+          {
+            "title": "Simulation",
+            "text": "40,000 simulated elections. Each draws a national polling miss shared by every race, a regional shock, a tilt by state lean and an error for each race, all with fat tails.",
+            "fit": "",
+            "reads": [
+              {"t": "How far polls missed, 1998 to 2022", "past": true}
+            ]
+          }
+        ],
+        "outputs": [
+          "Each race: the margin, its range, and each side's chance of winning",
+          "The chamber: the spread of seat counts and the chance of control"
+        ],
+        "after": "Three versions were published in 2026: polls only, polls and fundamentals, and a bias-adjusted version that applies the two corrections that passed a real-time test."
+      },
+      "timeline": {
+        "stages": [
+          {
+            "when": "Before any polls",
+            "title": "The candidates are known",
+            "sees": "The state's lean, the national environment, and whether a senator is running.",
+            "does": "The forecast is the starting point alone. Its typical miss is about 10 points.",
+            "mix": {"polls": 0, "label": "No polls yet"}
+          },
+          {
+            "when": "During the campaign",
+            "title": "Polls come in",
+            "sees": "Each new poll of the race, and the national averages as they move.",
+            "does": "The forecast moves toward the poll average and older polls fade. The average's own miss is about 10 points with one or two polls and about 5 with ten or more.",
+            "mix": {"polls": 85, "label": "A polled race: about 85% on its polls"}
+          },
+          {
+            "when": "Election day",
+            "title": "The forecast is locked",
+            "sees": "Nothing after the lock.",
+            "does": "The last run is frozen with its time. Nothing is changed after that.",
+            "lock": true
+          },
+          {
+            "when": "Afterwards",
+            "title": "Scored against the results",
+            "sees": "The count, as it finishes.",
+            "does": "The locked numbers are compared with the results on a scorecard. They are never revised.",
+            "lock": true
+          }
+        ],
+        "note": "So far the model has been tested on polls from the final three weeks only. How it behaves months before an election has not been tested yet."
+      },
+      "tested": {
+        "text": "Each election from 2004 to 2024 was forecast again with every number fitted on earlier elections only, then scored against the result. The figures are for the polls and fundamentals version.",
+        "stats": [
+          {"v": "352", "l": "Senate races scored, over 11 elections"},
+          {"v": "8.3 pts", "l": "Typical miss on a race's margin"},
+          {"v": "82%", "l": "Of results inside the forecast's 80% range"},
+          {"v": "10 of 11", "l": "Elections with the seat count inside its 80% range"}
+        ],
+        "notes": [
+          "The test uses polls from the final 21 days only, with equal weights.",
+          "The 2026 forecast is scored on the scorecard, which stays provisional until the count is final."
+        ]
+      },
+      "stands": "Locked for 2026 and kept as a record. For 2028 it is carried forward with the changes that pass this backtest.",
+      "links": [
+        {"text": "How the 2026 model works", "path": "../2026/forecast/#method"},
+        {"text": "The 2026 scorecard", "path": "../2026/forecast/#scorecard"},
+        {"text": "The backtest note", "url": "https://github.com/vrraiv/earlyreturns/blob/main/BACKTEST.md"}
+      ]
+    },
+    {
+      "key": "governors",
+      "name": "Governors",
+      "status": {"kind": "frozen", "label": "Design frozen"},
+      "summary": "A forecast for each governor race, and for how many each party wins. Governor races are polled less evenly than Senate races, so the model has an order of fallbacks: late polls, then earlier polls, then expert ratings.",
+      "flow": {
+        "steps": [
+          {
+            "title": "National environment",
+            "text": "In an even year, the same blend of generic-ballot averages and fundamentals as the House and Senate. In an odd year there is no House election to poll, so it is estimated from approval and the last House vote, by the year of the presidential term.",
+            "fit": "",
+            "reads": [
+              {"t": "Generic-ballot averages"},
+              {"t": "Presidential approval, the last House result"}
+            ]
+          },
+          {
+            "title": "A starting point for each race",
+            "text": "The state's presidential lean, averaged over two elections, plus the national environment, plus a term for an incumbent.",
+            "fit": "Fitted on even-year governor races, 1998 to 2024.",
+            "reads": [
+              {"t": "The state's presidential lean"},
+              {"t": "Whether the governor is running"}
+            ]
+          },
+          {
+            "title": "Polls, by one of three paths",
+            "text": "A race with polls in its final 21 days uses their plain average. A race with none uses its polls from 22 to 60 days out. A race with no poll in 60 days adds the expert ratings to its starting point.",
+            "fit": "Polls from 22 to 60 days out miss by about 37% more than late ones.",
+            "reads": [
+              {"t": "Polls of the race"},
+              {"t": "Expert ratings, for a race without polls"}
+            ]
+          },
+          {
+            "title": "Blend",
+            "text": "The poll average and the starting point are weighed by how reliable each is. A race with a strong third candidate gets a range one and a half times as wide.",
+            "fit": "",
+            "reads": []
+          },
+          {
+            "title": "Simulation",
+            "text": "20,000 simulated elections. A race shares the statewide polls' common miss in proportion to its weight on polls, and the national environment's error for the rest.",
+            "fit": "",
+            "reads": [
+              {"t": "How far polls missed in past governor races", "past": true}
+            ]
+          }
+        ],
+        "outputs": [
+          "Each race: the margin, its range, and each side's chance of winning",
+          "The count of races each party wins, with its range"
+        ],
+        "after": ""
+      },
+      "timeline": {
+        "stages": [
+          {
+            "when": "More than 60 days out",
+            "title": "The candidates are known",
+            "sees": "The state's lean, the national environment, whether the governor is running, and the expert ratings.",
+            "does": "No poll counts yet. The forecast rests on the starting point and the ratings."
+          },
+          {
+            "when": "22 to 60 days out",
+            "title": "Earlier polls count",
+            "sees": "Polls of the race that ended in this window.",
+            "does": "They are used only while the race has no later poll, and they are trusted less than late polls."
+          },
+          {
+            "when": "The final 21 days",
+            "title": "Late polls take over",
+            "sees": "Polls that ended in the final three weeks.",
+            "does": "Once a race has a late poll, its earlier polls drop out. The late polls are averaged with equal weights."
+          },
+          {
+            "when": "Election day",
+            "title": "The forecast is locked",
+            "sees": "Nothing after the lock.",
+            "does": "The last run is frozen. Nothing is changed after that.",
+            "lock": true
+          },
+          {
+            "when": "Afterwards",
+            "title": "Scored against the results",
+            "sees": "The certified results.",
+            "does": "The locked forecast is scored once, and nothing is retuned after the score is read.",
+            "lock": true
+          }
+        ],
+        "note": ""
+      },
+      "tested": {
+        "text": "Even-year governor races from 2004 to 2024 were forecast again with every number fitted on earlier elections only. Each proposed change was written down before it ran and had to beat the design before it.",
+        "stats": [
+          {"v": "239", "l": "Governor races scored, over 11 elections"},
+          {"v": "17", "l": "Changes tested"},
+          {"v": "3", "l": "Changes that passed, from two ideas: earlier polls, and ratings for races without polls"},
+          {"v": "8 of 11", "l": "Elections where the frozen design beat the first design"}
+        ],
+        "notes": [
+          "The ranges of races forecast from earlier polls or from ratings are known to be too narrow. Two fixes were tested and failed, so the ranges stand as they are.",
+          "The 2026 forecast was written at the freeze, before any 2026 governor result was collected. It is scored once, on certified results."
+        ]
+      },
+      "stands": "Frozen in November 2026. Its first live run is the 2027 races in Kentucky, Louisiana and Mississippi.",
+      "links": [
+        {"text": "The 2027 governor races", "path": "../2027/"},
+        {"text": "The backtest note", "url": "https://github.com/vrraiv/earlyreturns/blob/main/BACKTEST.md"}
+      ]
+    },
+    {
+      "key": "electoral-college",
+      "name": "Electoral college",
+      "status": {"kind": "design", "label": "In design"},
+      "summary": "A presidential forecast for each state, added up to electoral votes. National polls set the popular vote, each state is placed against the nation, and the simulation decides how often the states fall together.",
+      "flow": {
+        "steps": [
+          {
+            "title": "National forecast",
+            "text": "The margin between the two candidates in national polls, among all respondents, with recent polls counting more. Fundamentals were tested and are not used.",
+            "fit": "",
+            "reads": [
+              {"t": "National polls of the two nominees"}
+            ]
+          },
+          {
+            "title": "A starting point for each state",
+            "text": "The national forecast plus the state's lean at the last election.",
+            "fit": "",
+            "reads": [
+              {"t": "The last election's result in each state"}
+            ]
+          },
+          {
+            "title": "State polls",
+            "text": "Each polled state's average is pulled part of the way toward its starting point: 10% to 29% of the way in the final month, and more earlier.",
+            "fit": "The pull is fitted on elections from 2000 to 2020.",
+            "reads": [
+              {"t": "Polls of each state"}
+            ]
+          },
+          {
+            "title": "The add-up",
+            "text": "Every state moves by the same amount, so that the states, weighted by turnout, add up to the national forecast.",
+            "fit": "",
+            "reads": [
+              {"t": "Each state's share of the national vote"}
+            ]
+          },
+          {
+            "title": "Errors that move together",
+            "text": "One national miss shared by every state. States that are alike in their demographics miss together, there is a tilt by state lean, and each state has its own error on top.",
+            "fit": "",
+            "reads": [
+              {"t": "State demographics"},
+              {"t": "How far state and national polls missed in past elections", "past": true}
+            ]
+          },
+          {
+            "title": "The count",
+            "text": "40,000 simulated elections over 56 contests: the states, the District of Columbia, and the districts of Maine and Nebraska. Each contest's winner takes its electoral votes.",
+            "fit": "",
+            "reads": [
+              {"t": "Electoral votes for each contest"}
+            ]
+          }
+        ],
+        "outputs": [
+          "Each state: the margin, its range, and each side's chance of winning",
+          "The electoral vote count and the chance of reaching 270",
+          "The popular vote, and the chance it splits from the count",
+          "The state most likely to decide the election"
+        ],
+        "after": "Several of these pieces are adopted provisionally. They stand or fall when the model is scored on 2024, once, at the design freeze."
+      },
+      "timeline": {
+        "stages": [
+          {
+            "when": "Before the nominees",
+            "title": "No forecast",
+            "sees": "Nothing is forecast from hypothetical matchups.",
+            "does": "The page shows the board instead: each state's electoral votes and how it has voted since 2000."
+          },
+          {
+            "when": "Once both are presumptive",
+            "title": "Both nominees are known",
+            "sees": "National polls of the two nominees, each state's lean at the last election, and state polls where there are any.",
+            "does": "The forecast replaces the board. A thinly polled state sits close to its starting point, and the ranges are at their widest."
+          },
+          {
+            "when": "The months before",
+            "title": "Polls come in",
+            "sees": "New national and state polls. The conventions get no special treatment: three ways of handling them were tested and none passed.",
+            "does": "National polls move every state together; a state's own polls move it against the nation. The ranges narrow as the election nears."
+          },
+          {
+            "when": "The final month",
+            "title": "States lean on their own polls",
+            "sees": "The late national and state polls.",
+            "does": "A polled state rests mostly on its own polls, with a small pull toward its starting point.",
+            "mix": {"polls": 71, "polls_hi": 90, "label": "A polled state: 71% to 90% on its polls"}
+          },
+          {
+            "when": "Election day",
+            "title": "The forecast is locked",
+            "sees": "Nothing after the lock.",
+            "does": "The last run is frozen. Nothing is changed after that.",
+            "lock": true
+          },
+          {
+            "when": "Afterwards",
+            "title": "Scored against the results",
+            "sees": "The count, as it finishes.",
+            "does": "The locked numbers are compared with the results. They are never revised.",
+            "lock": true
+          }
+        ],
+        "note": "In the backtest the forecast's centre was no closer a week out than 100 days out, and the early ranges were too wide. Both are open questions for the design freeze."
+      },
+      "tested": {
+        "text": "The elections of 2008 to 2020 were forecast again at 100, 60, 30 and 7 days out, with every number fitted on earlier elections only. The figures are a week out. The test checks for a plainly wrong model; it tested no change.",
+        "stats": [
+          {"v": "5.6 pts", "l": "Typical miss on a state's margin (8.7 repeating the last election, 6.9 from recent polls alone)"},
+          {"v": "83%", "l": "Of results inside the forecast's 80% range"},
+          {"v": "4 of 4", "l": "Elections with the electoral vote count inside its 80% range"},
+          {"v": "3 of 4", "l": "Elections where the winner was the favourite; the 2016 winner was given 1 in 4"}
+        ],
+        "notes": [
+          "Four elections cannot show the model is right, only that it is not plainly wrong.",
+          "2024 is held out. It is scored once, at the design freeze, and that score is published as the only out-of-sample number.",
+          "The gap between the deciding state and the popular vote was forecast too close to zero: outside its 80% range in two elections of four."
+        ]
+      },
+      "stands": "In design, with the freeze due by May 2028. A second model of a different kind is to be built before then, and both meet 2024 at the same time. There is no 2028 forecast until both parties have a presumptive nominee.",
+      "links": [
+        {"text": "The 2028 board", "path": "../2028/"},
+        {"text": "The design note on the electoral college", "url": "https://github.com/vrraiv/earlyreturns/blob/main/ELECTORAL_COLLEGE.md"}
+      ]
+    },
+    {
+      "key": "primaries",
+      "name": "Primaries",
+      "status": {"kind": "design", "label": "In design"},
+      "summary": "Each candidate's chance of winning each state's primary or caucus, in both parties. Primaries are held in sequence, so the model follows the calendar: what a state's result says about the states that vote after it.",
+      "flow": {
+        "steps": [
+          {
+            "title": "National average",
+            "text": "Each candidate's share in national polls, with recent polls counting more: a half-life of 30 days before the first contest and 7 days once voting starts. A candidate's line ends when they withdraw.",
+            "fit": "The rules were fixed before any average was computed.",
+            "reads": [
+              {"t": "National primary polls"},
+              {"t": "Who has announced, and who has withdrawn"}
+            ]
+          },
+          {
+            "title": "A starting point for each state",
+            "text": "Each candidate's national share, with undecided voters shared out in proportion.",
+            "fit": "",
+            "reads": []
+          },
+          {
+            "title": "What earlier states say",
+            "text": "How a candidate runs against their national standing is borrowed from states that have voted or been polled: an overall level, discounted for momentum, and a pattern carried to states of similar demographics and region.",
+            "fit": "",
+            "reads": [
+              {"t": "The calendar: which states have voted, and which vote next"},
+              {"t": "Results of the states that have voted"},
+              {"t": "State demographics and region"}
+            ]
+          },
+          {
+            "title": "The state's own polls",
+            "text": "A state's own polls are blended in. The starting point counts for about half a poll, so a polled state follows its polls.",
+            "fit": "",
+            "reads": [
+              {"t": "Polls of the state"}
+            ]
+          },
+          {
+            "title": "Range",
+            "text": "An error for each candidate's share, drawn many times to give the chance each candidate finishes first.",
+            "fit": "Six values are fitted, each with the race being forecast left out.",
+            "reads": [
+              {"t": "The open nomination races of 2008 to 2024", "past": true}
+            ]
+          }
+        ],
+        "outputs": [
+          "Each state: every candidate's share and its range",
+          "Each candidate's chance of winning the state",
+          "Later: a delegate count and odds of the nomination"
+        ],
+        "after": "The calendar and each party's delegate rules are inputs, so the model can be rerun when a date or a rule changes."
+      },
+      "timeline": {
+        "stages": [
+          {
+            "when": "The year before",
+            "title": "Candidates announce",
+            "sees": "National and state polls of the declared candidates.",
+            "does": "Poll averages only. No chances are shown before the design is frozen."
+          },
+          {
+            "when": "Before the first contest",
+            "title": "The early states are polled",
+            "sees": "Each candidate's national standing, the polls of each state, and the calendar as it stands.",
+            "does": "Each state is forecast from national standing and its own polls. A month before a state votes, this does no better than a plain poll average."
+          },
+          {
+            "when": "Voting starts",
+            "title": "States vote in turn",
+            "sees": "Each result as it comes in, and the faster-moving national polls.",
+            "does": "A result shifts the forecast for later states, most of all for states like the ones that have voted. The gain over a plain poll average is in states without polls, once five or more states have voted."
+          },
+          {
+            "when": "Any time",
+            "title": "A candidate withdraws",
+            "sees": "Announced withdrawals only.",
+            "does": "The candidate's line ends. Withdrawals that have not happened yet are not simulated."
+          },
+          {
+            "when": "Each state's voting day",
+            "title": "Locked, then scored",
+            "sees": "Nothing after the lock.",
+            "does": "A state's last forecast before it votes is the one compared with its result.",
+            "lock": true
+          }
+        ],
+        "note": ""
+      },
+      "tested": {
+        "text": "The seven open nomination races from 2008 to 2024 were forecast state by state, 30 days and 7 days before each contest and on its day, each race on values fitted without it. The model was compared with a plain poll average.",
+        "stats": [
+          {"v": "7", "l": "Open nomination races, 2008 to 2024"},
+          {"v": "303", "l": "State contests scored"},
+          {"v": "5 of 7", "l": "Races where the model beat the plain poll average, the pass mark, met narrowly"},
+          {"v": "60%", "l": "Of results inside the forecast's 80% range"}
+        ],
+        "notes": [
+          "The ranges are too narrow, mostly because of candidates who left the race between the forecast and the vote. Simulating withdrawals is part of the delegate work still to come.",
+          "The model was worse than the plain poll average in the 2016 Republican race.",
+          "There is no holdout: there are too few open races to keep one back. Every run is reported."
+        ]
+      },
+      "stands": "In design. The first version, each candidate's chance in each state, is due by May 2027. A delegate count and odds of the nomination follow, published only once the field is down to three candidates.",
+      "links": [
+        {"text": "The 2028 elections", "path": "../2028/"},
+        {"text": "The design note on the primaries", "url": "https://github.com/vrraiv/earlyreturns/blob/main/PRIMARIES.md"}
+      ]
+    },
+    {
+      "key": "specials",
+      "name": "Special elections",
+      "status": {"kind": "ready", "label": "Design settled, waiting for its first race"},
+      "summary": "One House or Senate special election, forecast on its own date. There is no national seat count behind it: the model follows a single race from the vacancy to the result.",
+      "flow": {
+        "steps": [
+          {
+            "title": "The seat's lean",
+            "text": "How far the district or state sits from the country as a whole.",
+            "fit": "",
+            "reads": [
+              {"t": "House: the district's Cook PVI, on the lines in force"},
+              {"t": "Senate: the state's vote against the nation's in the last federal election"}
+            ]
+          },
+          {
+            "title": "National environment on the date",
+            "text": "There is no election-day generic ballot to lean on, so the environment is estimated from approval and the last House vote, by how much the date resembles a midterm. A House special adds the average swing in the specials of the past 12 months.",
+            "fit": "Estimated on elections from 1946 to 2022.",
+            "reads": [
+              {"t": "Presidential approval"},
+              {"t": "The last House vote"},
+              {"t": "Recent House specials (House races)"}
+            ]
+          },
+          {
+            "title": "A starting point for the race",
+            "text": "House: the House district model, for an open seat. Senate: lean plus environment, plus 2 points for a sitting senator who runs, an appointee included.",
+            "fit": "",
+            "reads": [
+              {"t": "Senate: whether a sitting senator runs"}
+            ]
+          },
+          {
+            "title": "Polls, if there are any",
+            "text": "A plain average of the polls that ended in the final 21 days or, with none there, 22 to 60 days out. It is weighed against the starting point by how reliable each is.",
+            "fit": "The poll rule passed its test on 31 polled House specials.",
+            "reads": [
+              {"t": "Polls of the race, entered by hand"}
+            ]
+          },
+          {
+            "title": "Range",
+            "text": "House: an error as wide as earlier specials' own forecast misses. Senate: a fat-tailed error with a standard deviation of 18 points.",
+            "fit": "",
+            "reads": [
+              {"t": "How far past specials missed", "past": true}
+            ]
+          }
+        ],
+        "outputs": [
+          "The margin",
+          "Its 50%, 80% and 95% ranges",
+          "Each side's chance of winning"
+        ],
+        "after": ""
+      },
+      "timeline": {
+        "stages": [
+          {
+            "when": "The vacancy",
+            "title": "A seat falls vacant",
+            "sees": "A weekly check of the lists of vacancies and special elections flags the race.",
+            "does": "The race gets a page with its dates and what the forecast is waiting for. No numbers yet."
+          },
+          {
+            "when": "Before any polls",
+            "title": "The race is set",
+            "sees": "The seat's lean, the national environment on that date, and whether a sitting member runs.",
+            "does": "The first run is the starting point alone. The range is wide, most of all for a Senate seat.",
+            "mix": {"polls": 0, "label": "No polls yet"}
+          },
+          {
+            "when": "The final 60 days",
+            "title": "Polls come in",
+            "sees": "Polls that ended in the final 21 days or, with none there, 22 to 60 days out. Earlier polls are listed on the race's page and move nothing.",
+            "does": "The forecast is rerun on each new poll, on the first of each month, and daily in the final week.",
+            "mix": {"polls": 62, "polls_hi": 93, "label": "Past specials with polls: 62% to 93% on the polls"}
+          },
+          {
+            "when": "The evening before",
+            "title": "The forecast is locked",
+            "sees": "Nothing after the lock.",
+            "does": "The last run is frozen. Nothing is changed after that.",
+            "lock": true
+          },
+          {
+            "when": "Afterwards",
+            "title": "Scored against the result",
+            "sees": "The certified result.",
+            "does": "The page shows the locked run beside the result: the miss in points, and which ranges held it.",
+            "lock": true
+          }
+        ],
+        "note": ""
+      },
+      "tested": {
+        "text": "House specials from 2008 to 2026 were forecast one at a time in date order, each from what was known before it. The Senate branch was checked on the 13 Senate specials held off the November calendar since 1970.",
+        "stats": [
+          {"v": "68", "l": "House specials forecast in date order"},
+          {"v": "11.5 pts", "l": "Typical miss on the margin without polls (13.8 carrying the last House vote forward)"},
+          {"v": "7.7 pts", "l": "Typical miss with polls, on the 31 polled races (10.8 without)"},
+          {"v": "17.9 pts", "l": "Typical miss on the 13 Senate specials, without polls"}
+        ],
+        "notes": [
+          "The Senate range (a standard deviation of 18 points) was chosen on the same 13 races it was checked on, so it has not been tested on new ones.",
+          "On the six Senate specials with polls, adding the polls cut the typical miss from 14.7 points to 3.5. That is reported, not a test."
+        ]
+      },
+      "stands": "Both branches are settled. The first live race is Minnesota's Senate special in November 2027; its forecast waits on the certified 2026 House vote.",
+      "links": [
+        {"text": "Minnesota's Senate special election", "path": "../specials/mn-senate-2027/"},
+        {"text": "The design note on special elections", "url": "https://github.com/vrraiv/earlyreturns/blob/main/SPECIALS.md"}
+      ]
+    }
+  ]
+}
