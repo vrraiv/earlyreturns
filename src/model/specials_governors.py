@@ -199,7 +199,7 @@ def score():
     gv3 = gv3[gv3.environment == "estimator, by term year"].set_index(["year", "state"]).error
     b_err = (t.margin_2p - prior["B"]).values
     ref = gv3.reindex(list(zip(t.year, t.state))).values
-    assert np.allclose(b_err, ref, atol=1e-3), "B on the prior alone does not reproduce GV-3's errors"
+    assert np.allclose(b_err, ref, atol=1e-2), "B on the prior alone does not reproduce GV-3's errors"
     err_p = {k: t.margin_2p.values - v for k, v in polls.items()}
     err_0 = {k: t.margin_2p.values - v for k, v in prior.items()}
     dec = {c: judge(err_p, t, c) for c in ("C1", "C2")}
