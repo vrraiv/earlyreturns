@@ -443,7 +443,10 @@ ul.dates li.target .when { color: var(--accent); }
 /* the model page's what-if explorer over one saved run (src/site/model_explorer.js); the frame is the forecast page's .explorer */
 .ecx { margin: 10px 0 8px; }
 .ecx .exhead h4 { margin: 0; font-size: 1.05rem; color: var(--title); }
-.ecx .exgrid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.ecx .exgrid { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 761px) { .ecx .exgrid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
+.ecx .exnums { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ecx .exnum .v { font-size: clamp(1.5rem, 6vw, 2rem); }
 .ecx #ecxMap svg { max-width: 578px; }
 .ecx .tile { cursor: pointer; outline: none; }
 .ecx .tile rect { fill: var(--off); }
