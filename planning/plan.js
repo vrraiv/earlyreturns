@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-27c",
+  version: "2026-11-27d",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -948,13 +948,19 @@ window.PLAN = {
           details: [
             "The steps from a special being called to a published page: race details, lean on the lines in force, polls, run, publish.",
             "Decide where a special lives on the site.",
-            "Decided at SI-1 (2026-11-20): `/specials/<race>/`, one page per race, with an optional callout on the landing page that carries an end date."
+            "Decided at SI-1 (2026-11-20): `/specials/<race>/`, one page per race, with an optional callout on the landing page that carries an end date.",
+            "Decided 2026-11-27, before the build: dry runs on one House and one Senate special, their pages on a local preview only and never published; Minnesota's page goes up in a coming state with the landing callout before it can be run; pages are rerun by hand following the runbook, not by a scheduled job.",
+            "Built 2026-11-27 (SPECIALS.md, section 5; PR 114): one record per race in `data/specials/`; `single_race.py --save` appends each run to it without changing the model (`check_frozen.py` passes); one page template with coming, forecast and result states; a callout with a link and an end date; an 11-step runbook from the SP-8 pull request to the result.",
+            "Dry runs on TN-7 (2025) and the Alabama Senate special (2017). Neither is a fresh test: Alabama was among the races the Senate error was set on, and TN-7 was scored in SP-4 with the same polls. The steps worked; findings are in the note.",
+            "Minnesota's Senate special (November 2027) is live in the coming state. It waits on DA-12 (the certified 2026 House vote), the appointee, the nominees and the exact date from the state.",
+            "Decided 2026-11-27, after the merge: the poll window stays as SP-4 set it for now. The page lists every poll entered, and a run averages only those in the window, so polls from months out show but move nothing."
           ],
           checklist: [
             { id: "a", text: "Runbook written" },
             { id: "b", text: "Page template built" },
             { id: "c", text: "Dry run on a past special" }
-          ] },
+          ],
+          refs: ["SPECIALS.md", "src/model/single_race.py", "src/site/special.py", "data/specials/mn-senate-2027.json"] },
         { id: "SP-8", title: "Watch list", kind: "story", phase: "any",
           why: "Specials are called on short notice.",
           details: [
