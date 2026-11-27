@@ -1,0 +1,511 @@
+{
+ "race": "al-senate-2017",
+ "dry_run": true,
+ "title": "Alabama Senate special election",
+ "chamber": "Senate",
+ "branch": "senate",
+ "state": "AL",
+ "state_name": "Alabama",
+ "seat": "class 2",
+ "district": null,
+ "inc": 0,
+ "vacancy": {
+  "vacated_by": "Jeff Sessions",
+  "party": "Republican",
+  "reason": "appointed elsewhere (Attorney General)",
+  "date": "2017-02-08",
+  "note": "Luther Strange was appointed to the seat and lost the Republican runoff."
+ },
+ "rounds": [
+  {
+   "round": "primaries",
+   "date": "2017-08-15"
+  },
+  {
+   "round": "primary runoffs",
+   "date": "2017-09-26"
+  },
+  {
+   "round": "general",
+   "date": "2017-12-12"
+  }
+ ],
+ "candidates": [
+  {
+   "name": "Doug Jones",
+   "party": "Democratic"
+  },
+  {
+   "name": "Roy Moore",
+   "party": "Republican"
+  }
+ ],
+ "lean": null,
+ "waits_on": [],
+ "polls": [
+  {
+   "pollster": "Beacon Research/Shaw & Co. Research",
+   "end": "2017-10-15",
+   "population": null,
+   "dem": 42.0,
+   "rep": 42.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 72896",
+   "note": "question 136772"
+  },
+  {
+   "pollster": "Strategy Research",
+   "end": "2017-10-16",
+   "population": null,
+   "dem": 40.0,
+   "rep": 51.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73365",
+   "note": "question 137524"
+  },
+  {
+   "pollster": "Strategy Research",
+   "end": "2017-10-19",
+   "population": null,
+   "dem": 41.0,
+   "rep": 52.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73366",
+   "note": "question 137525"
+  },
+  {
+   "pollster": "Axis Research",
+   "end": "2017-10-25",
+   "population": null,
+   "dem": 39.0,
+   "rep": 56.0,
+   "partisan": "REP",
+   "source": "FiveThirtyEight pollster-ratings file, 72890",
+   "note": "question 136766"
+  },
+  {
+   "pollster": "InsiderAdvantage",
+   "end": "2017-11-09",
+   "population": null,
+   "dem": 43.6,
+   "rep": 41.3,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73186",
+   "note": "question 137195"
+  },
+  {
+   "pollster": "WT&S Consulting",
+   "end": "2017-11-09",
+   "population": null,
+   "dem": 39.2,
+   "rep": 50.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73478",
+   "note": "question 137802"
+  },
+  {
+   "pollster": "Change Research",
+   "end": "2017-11-10",
+   "population": null,
+   "dem": 40.0,
+   "rep": 44.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 72918",
+   "note": "question 136797"
+  },
+  {
+   "pollster": "Emerson College",
+   "end": "2017-11-10",
+   "population": null,
+   "dem": 45.0,
+   "rep": 55.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 72946",
+   "note": "question 136848"
+  },
+  {
+   "pollster": "Gravis Marketing",
+   "end": "2017-11-10",
+   "population": null,
+   "dem": 46.0,
+   "rep": 48.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 72990",
+   "note": "question 136917"
+  },
+  {
+   "pollster": "JMC Analytics",
+   "end": "2017-11-10",
+   "population": null,
+   "dem": 48.0,
+   "rep": 44.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73051",
+   "note": "question 136991"
+  },
+  {
+   "pollster": "WT&S Consulting",
+   "end": "2017-11-11",
+   "population": null,
+   "dem": 39.6,
+   "rep": 49.8,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73479",
+   "note": "question 137803"
+  },
+  {
+   "pollster": "NRSC",
+   "end": "2017-11-12",
+   "population": null,
+   "dem": 51.0,
+   "rep": 39.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73168",
+   "note": "question 137169"
+  },
+  {
+   "pollster": "Strategy Research",
+   "end": "2017-11-13",
+   "population": null,
+   "dem": 43.0,
+   "rep": 49.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 66559",
+   "note": "question 124042"
+  },
+  {
+   "pollster": "Gravis Marketing",
+   "end": "2017-11-14",
+   "population": null,
+   "dem": 47.0,
+   "rep": 42.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 72989",
+   "note": "question 136916"
+  },
+  {
+   "pollster": "Change Research",
+   "end": "2017-11-15",
+   "population": null,
+   "dem": 46.0,
+   "rep": 43.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 72917",
+   "note": "question 136796"
+  },
+  {
+   "pollster": "The Polling Company Inc./National Research Inc.",
+   "end": "2017-11-15",
+   "population": null,
+   "dem": 49.0,
+   "rep": 41.0,
+   "partisan": "REP",
+   "source": "FiveThirtyEight pollster-ratings file, 73423",
+   "note": "question 137622"
+  },
+  {
+   "pollster": "WT&S Consulting",
+   "end": "2017-11-19",
+   "population": null,
+   "dem": 40.5,
+   "rep": 46.4,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73477",
+   "note": "question 137801"
+  },
+  {
+   "pollster": "Strategy Research",
+   "end": "2017-11-20",
+   "population": null,
+   "dem": 45.0,
+   "rep": 47.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73367",
+   "note": "question 137526"
+  },
+  {
+   "pollster": "Sky Research",
+   "end": "2017-11-21",
+   "population": null,
+   "dem": 39.6,
+   "rep": 46.7,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 73344",
+   "note": "question 137486"
+  },
+  {
+   "pollster": "Emerson College",
+   "end": "2017-11-26",
+   "population": null,
+   "dem": 47.0,
+   "rep": 53.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50670",
+   "note": "question 79984"
+  },
+  {
+   "pollster": "Change Research",
+   "end": "2017-11-26",
+   "population": null,
+   "dem": 44.0,
+   "rep": 49.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50676",
+   "note": "question 79990"
+  },
+  {
+   "pollster": "JMC Analytics",
+   "end": "2017-11-27",
+   "population": null,
+   "dem": 44.0,
+   "rep": 49.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50682",
+   "note": "question 79997"
+  },
+  {
+   "pollster": "The Polling Company Inc./National Research Inc.",
+   "end": "2017-11-27",
+   "population": null,
+   "dem": 45.0,
+   "rep": 46.0,
+   "partisan": "REP",
+   "source": "FiveThirtyEight pollster-ratings file, 73422",
+   "note": "question 137621"
+  },
+  {
+   "pollster": "The Washington Post/George Mason University Schar School of Policy and Government",
+   "end": "2017-11-29",
+   "population": null,
+   "dem": 50.0,
+   "rep": 47.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50681",
+   "note": "question 79996"
+  },
+  {
+   "pollster": "YouGov",
+   "end": "2017-11-30",
+   "population": null,
+   "dem": 43.0,
+   "rep": 49.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50680",
+   "note": "question 79994"
+  },
+  {
+   "pollster": "Emerson College",
+   "end": "2017-12-01",
+   "population": null,
+   "dem": 46.0,
+   "rep": 49.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50669",
+   "note": "question 79983"
+  },
+  {
+   "pollster": "Gravis Marketing",
+   "end": "2017-12-02",
+   "population": null,
+   "dem": 48.0,
+   "rep": 44.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50678",
+   "note": "question 79992"
+  },
+  {
+   "pollster": "Strategy Research",
+   "end": "2017-12-04",
+   "population": null,
+   "dem": 43.0,
+   "rep": 50.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50679",
+   "note": "question 79993"
+  },
+  {
+   "pollster": "Trafalgar Group",
+   "end": "2017-12-06",
+   "population": null,
+   "dem": 45.77,
+   "rep": 50.88,
+   "partisan": "REP",
+   "source": "FiveThirtyEight pollster-ratings file, 50673",
+   "note": "question 79987"
+  },
+  {
+   "pollster": "Change Research",
+   "end": "2017-12-06",
+   "population": null,
+   "dem": 44.0,
+   "rep": 51.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50675",
+   "note": "question 79989"
+  },
+  {
+   "pollster": "SurveyMonkey",
+   "end": "2017-12-06",
+   "population": null,
+   "dem": 51.0,
+   "rep": 46.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50684",
+   "note": "question 79999"
+  },
+  {
+   "pollster": "Gravis Marketing",
+   "end": "2017-12-07",
+   "population": null,
+   "dem": 45.0,
+   "rep": 49.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50677",
+   "note": "question 79991"
+  },
+  {
+   "pollster": "Emerson College",
+   "end": "2017-12-08",
+   "population": null,
+   "dem": 44.0,
+   "rep": 53.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50668",
+   "note": "question 79982"
+  },
+  {
+   "pollster": "Monmouth University Polling Institute",
+   "end": "2017-12-08",
+   "population": null,
+   "dem": 46.0,
+   "rep": 46.3,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50672",
+   "note": "question 79986"
+  },
+  {
+   "pollster": "Beacon Research/Shaw & Co. Research",
+   "end": "2017-12-09",
+   "population": null,
+   "dem": 50.0,
+   "rep": 40.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50659",
+   "note": "question 79956"
+  },
+  {
+   "pollster": "Change Research",
+   "end": "2017-12-10",
+   "population": null,
+   "dem": 45.0,
+   "rep": 51.0,
+   "partisan": null,
+   "source": "FiveThirtyEight pollster-ratings file, 50674",
+   "note": "question 79988"
+  }
+ ],
+ "runs": [
+  {
+   "run_date": "2017-11-01",
+   "election_date": "2017-12-12",
+   "branch": "senate",
+   "lean": -30.98,
+   "lean_source": "presidential, 2016",
+   "environment": 8.59,
+   "inc": 0,
+   "prior": -22.38,
+   "polls_used": [
+    "Beacon Research/Shaw & Co. Research, 2017-10-15",
+    "Strategy Research, 2017-10-16",
+    "Strategy Research, 2017-10-19",
+    "Axis Research, 2017-10-25"
+   ],
+   "poll_window": "22-60 days",
+   "poll_avg": -10.45,
+   "poll_weight": 0.86,
+   "margin": -12.13,
+   "sd": 6.74,
+   "error_shape": "t(3.9)",
+   "p_dem": 0.0315,
+   "intervals": {
+    "50": [
+     -15.62,
+     -8.63
+    ],
+    "80": [
+     -19.38,
+     -4.88
+    ],
+    "95": [
+     -25.32,
+     1.07
+    ]
+   },
+   "commit": "cdbaa89",
+   "locked": false
+  },
+  {
+   "run_date": "2017-12-11",
+   "election_date": "2017-12-12",
+   "branch": "senate",
+   "lean": -30.98,
+   "lean_source": "presidential, 2016",
+   "environment": 8.59,
+   "inc": 0,
+   "prior": -22.38,
+   "polls_used": [
+    "Sky Research, 2017-11-21",
+    "Emerson College, 2017-11-26",
+    "Change Research, 2017-11-26",
+    "JMC Analytics, 2017-11-27",
+    "The Polling Company Inc./National Research Inc., 2017-11-27",
+    "The Washington Post/George Mason University Schar School of Policy and Government, 2017-11-29",
+    "YouGov, 2017-11-30",
+    "Emerson College, 2017-12-01",
+    "Gravis Marketing, 2017-12-02",
+    "Strategy Research, 2017-12-04",
+    "Trafalgar Group, 2017-12-06",
+    "Change Research, 2017-12-06",
+    "SurveyMonkey, 2017-12-06",
+    "Gravis Marketing, 2017-12-07",
+    "Emerson College, 2017-12-08",
+    "Monmouth University Polling Institute, 2017-12-08",
+    "Beacon Research/Shaw & Co. Research, 2017-12-09",
+    "Change Research, 2017-12-10"
+   ],
+   "poll_window": "1-21 days",
+   "poll_avg": -2.91,
+   "poll_weight": 0.93,
+   "margin": -4.34,
+   "sd": 4.88,
+   "error_shape": "t(3.9)",
+   "p_dem": 0.1367,
+   "intervals": {
+    "50": [
+     -6.87,
+     -1.81
+    ],
+    "80": [
+     -9.59,
+     0.91
+    ],
+    "95": [
+     -13.9,
+     5.22
+    ]
+   },
+   "commit": "cdbaa89",
+   "locked": true
+  }
+ ],
+ "result": {
+  "margin": 1.65,
+  "dem_votes": 673896,
+  "rep_votes": 651972,
+  "source": "data/interim/senate_specials.csv (SP-3)"
+ },
+ "sources": [
+  "data/interim/senate_specials.csv",
+  "data/interim/special_polls.csv (SP-4)"
+ ]
+}

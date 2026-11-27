@@ -20,7 +20,7 @@
     "path": "2026/forecast/#scorecard",
     "scorecard": "polls_fundamentals"
   },
-  "callout": null,
+  "callout": {"text": "A special election for Minnesota's Senate seat is due in November 2027.", "link": "The race page", "path": "specials/mn-senate-2027/", "ends": "2027-11-30"},
   "sections": [
     {"label": "Coming", "title": "2028", "text": "The presidential election and the races beside it: what is being built, and the dates ahead.", "path": "2028/"},
     {"label": "Coming", "title": "2027", "text": "Governor races in Kentucky, Louisiana and Mississippi.", "path": "2027/"},

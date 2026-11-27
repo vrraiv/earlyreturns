@@ -29,9 +29,19 @@ Run:
   python src/model/single_race.py governor --state VA --date 2025-11-04 [--inc 0] [--poll 52,46 ...] [--votehub]
   python src/model/single_race.py backtest     every House special 2007-2026 in date order, strictly prospective
 Writes data/processed/single_race_backtest.json (backtest) and prints the forecast otherwise.
+
+A live special (SP-7, SPECIALS.md section 5): `--save <race>` reads the race's record, data/specials/<race>.json (or a
+path to one), takes the state, seat, election date and incumbency from it, and, unless --poll is given, the polls
+entered in it under SP-4's window (ending in the 21 days before election day, else 22 to 60 days before; only those
+ending on or before the run date). The run is appended to the record's "runs"; --asof sets the run date (default
+today), --lock marks the last run before election day. Nothing in the model changes.
+  python src/model/single_race.py senate --save mn-senate-2027
+  python src/model/single_race.py house --save data/specials/dry_runs/tn-07-2025.json --asof 2025-12-01 --lock
 """
 import argparse
+import datetime as dt
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -313,6 +323,52 @@ def show(f, actual=None):
           + (f"  | actual D{actual:+.1f}" if actual is not None else ""))
 
 
+# ---------------- a live special's record (SP-7) ----------------
+RECORDS = ROOT / "data" / "specials"
+WINDOW, FALLBACK = 21, 60        # SP-4 rule 2
+
+
+def record_path(race):
+    p = Path(race)
+    return p if p.suffix == ".json" else RECORDS / f"{race}.json"
+
+
+def window_polls(polls, election, asof):
+    """SP-4 rule 2 as of a run date: polls ending before election day and on or before the run date, in the 21 days
+    before election day, else 22 to 60 days before. Returns the polls used and the window."""
+    election, asof = pd.Timestamp(election), pd.Timestamp(asof)
+    seen = [p for p in polls if pd.Timestamp(p["end"]) < election and pd.Timestamp(p["end"]) <= asof]
+    days = lambda p: (election - pd.Timestamp(p["end"])).days
+    near = [p for p in seen if days(p) <= WINDOW]
+    if near:
+        return near, f"1-{WINDOW} days"
+    return [p for p in seen if WINDOW < days(p) <= FALLBACK], f"{WINDOW + 1}-{FALLBACK} days"
+
+
+def save_run(path, rec, kind, f, asof, used, window, lock):
+    df = SPECIAL_DF if kind == "house" else DF_T
+    mu, sd = f["mu"], f["sd"]
+    r2 = lambda x: None if x is None else round(float(x), 2)
+    try:
+        commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    except OSError:
+        commit = ""
+    e = f["environment"]
+    run = {"run_date": str(pd.Timestamp(asof).date()), "election_date": f["date"], "branch": kind,
+           "lean": r2(f["lean"] if kind == "senate" else f["lean2"]),
+           "lean_source": (f"{f['lean_kind']}, {f['lean_year']}" if kind == "senate" and f["lean_year"] else
+                           "given" if kind == "senate" else "2 x Cook PVI, lines in force"),
+           "environment": r2(e["env"]), "inc": rec.get("inc", 0), "prior": r2(f["prior"]),
+           "polls_used": [p["pollster"] + ", " + p["end"] for p in used], "poll_window": window if used else None,
+           "poll_avg": r2(f["poll_avg"]), "poll_weight": r2(f["poll_weight"]),
+           "margin": r2(mu), "sd": r2(sd), "error_shape": f["error_shape"], "p_dem": round(float(f["p_dem"]), 4),
+           "intervals": {str(int(q * 100)): [r2(x) for x in interval(mu, sd, q, df)] for q in (0.5, 0.8, 0.95)},
+           "commit": commit, "locked": bool(lock)}
+    rec.setdefault("runs", []).append(run)
+    path.write_text(json.dumps(rec, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"saved run {run['run_date']} to {path.relative_to(ROOT) if path.is_relative_to(ROOT) else path}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("kind", choices=["house", "senate", "governor", "backtest"])
@@ -322,10 +378,35 @@ def main():
     ap.add_argument("--lean", type=float, help="Senate: state lean as a D-R margin; default: the last federal election")
     ap.add_argument("--poll", action="append", default=[], help="'D,R' percentages; repeat for each poll")
     ap.add_argument("--dem"); ap.add_argument("--rep"); ap.add_argument("--votehub", action="store_true")
+    ap.add_argument("--save", help="a live special's record (SP-7): race name or path; the run is appended to it")
+    ap.add_argument("--asof", help="with --save: the run date (default today); polls ending after it are left out")
+    ap.add_argument("--lock", action="store_true", help="with --save: the last run before election day")
     a = ap.parse_args()
     polls = [tuple(float(x) for x in p.split(",")) for p in a.poll]
     if a.kind == "backtest":
         return backtest()
+    rec = used = window = None
+    if a.save:
+        if a.kind not in ("house", "senate"):
+            raise SystemExit("--save takes house or senate")
+        path = record_path(a.save)
+        rec = json.loads(path.read_text(encoding="utf-8"))
+        if rec["branch"] != a.kind:
+            raise SystemExit(f"{path.name} is a {rec['branch']} race")
+        a.state, a.date, a.inc = rec["state"], rec["rounds"][-1]["date"], rec.get("inc", 0)
+        a.district = rec.get("district") or 0
+        if a.lean is None and rec.get("lean") is not None:
+            a.lean = rec["lean"]
+        if len(str(a.date)) != 10:
+            raise SystemExit(f"{path.name}: election date {a.date} is not a full date; confirm it with the state first")
+        asof = a.asof or str(dt.date.today())
+        if pd.Timestamp(asof) >= pd.Timestamp(a.date):
+            raise SystemExit(f"run date {asof} is not before election day {a.date}")
+        if polls:
+            used, window = [{"pollster": "given", "end": asof, "dem": d, "rep": r} for d, r in polls], "given"
+        else:
+            used, window = window_polls(rec.get("polls", []), a.date, asof)
+            polls = [(p["dem"], p["rep"]) for p in used]
     if a.kind == "house":
         lean2 = 2 * a.pvi if a.pvi is not None else lookup_lean2(a.state, a.district, a.date)
         f = house_forecast(a.date, lean2, polls, a.inc)
@@ -333,6 +414,8 @@ def main():
         hit = sp[(sp.state == a.state) & (sp.district == a.district) & (sp.date == pd.Timestamp(a.date))]
         print(f"{a.state}-{a.district} special, {a.date}: lean {lean2:+.0f} (PVI {lean2 / 2:+.0f})")
         show(f, float(hit.margin_2p.iloc[0]) if len(hit) else None)
+        if rec is not None:
+            save_run(path, rec, "house", f, asof, used, window, a.lock)
     elif a.kind == "senate":
         f = senate_forecast(a.state, a.date, a.inc, a.lean, polls)
         sen = pd.read_csv(ROOT / "data/interim/senate_specials.csv", parse_dates=["date"])
@@ -340,6 +423,8 @@ def main():
         src = "given" if f["lean_year"] is None else f"{f['lean_kind']}, {f['lean_year']}"
         print(f"{a.state} Senate special, {a.date}: lean {f['lean']:+.1f} ({src}), incumbent {a.inc:+d}")
         show(f, float(hit.margin_2p.iloc[0]) if len(hit) else None)
+        if rec is not None:
+            save_run(path, rec, "senate", f, asof, used, window, a.lock)
     else:
         f = governor_forecast(a.state, a.date, a.inc, polls, a.dem, a.rep, a.votehub)
         h = pd.read_csv(ROOT / "data/interim/governor_history.csv")

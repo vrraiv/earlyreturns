@@ -1,0 +1,40 @@
+{
+ "race": "mn-senate-2027",
+ "title": "Minnesota Senate special election",
+ "chamber": "Senate",
+ "branch": "senate",
+ "state": "MN",
+ "state_name": "Minnesota",
+ "seat": "class 1",
+ "district": null,
+ "inc": 0,
+ "vacancy": {
+  "vacated_by": "Amy Klobuchar",
+  "party": "DFL",
+  "reason": "announced",
+  "date": "2027-01",
+  "note": "Klobuchar was elected governor of Minnesota in 2026. An appointee holds the seat until the special election."
+ },
+ "rounds": [
+  {
+   "round": "general",
+   "date": "2027-11",
+   "date_note": "Wikipedia, 120th Congress page (2026-11-27); the day to be checked against Minnesota's Secretary of State"
+  }
+ ],
+ "candidates": [],
+ "lean": null,
+ "waits_on": [
+  "The certified 2026 House vote, national and Minnesota's, for the state's lean and the national environment (usually certified in December).",
+  "The appointee, and whether they run (the incumbency term).",
+  "The nominees, after the primaries.",
+  "The exact election date, from Minnesota's Secretary of State."
+ ],
+ "polls": [],
+ "runs": [],
+ "result": null,
+ "sources": [
+  "data/interim/specials_watch.csv (SP-8)",
+  "data/raw/specials_watch/2026-11-27/wiki_120_senate.json"
+ ]
+}

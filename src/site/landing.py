@@ -1,11 +1,13 @@
 """Build the pages around the elections: the landing page, the coming cycles' pages (/2027/, /2028/), each past election's
-opening page, 404.html and _redirects, and the link-preview cards (site/og-home.png, site/<year>/og.png).
+opening page, 404.html and _redirects, the link-preview cards (site/og-home.png, site/<year>/og.png), and each live
+special's page (special.py, /specials/<race>/).
 
     python src/site/landing.py        (src/site/build.py runs this too)
 
 Everything here comes from src/site/site.json and, for the landing page's figures, data/scorecard/scorecard.json;
 the 2028 page's board (EC-8) also reads three files in data/interim (`board_data` below). No
-page carries a build date, so a rebuild with the same scorecard writes the same bytes; the daily scorecard job changes
+page carries a build date, so a rebuild with the same scorecard writes the same bytes (except on the day after a
+callout's end date, when the callout drops out); the daily scorecard job changes
 the landing page only when the seat counts change, and leaves the preview cards alone (only `landing.py` run by itself
 or `build.py --all` draws them, after a change to site.json). build.py passes the scorecard it read for the forecast page, so the
 two pages show the same numbers; run alone, this reads the same file.
@@ -19,6 +21,7 @@ Old links. Until SI-6 the forecast was the page at `/`, and its tabs were addres
 and so on. A server never sees what follows `#`, so the landing page forwards those itself (FORWARD below).
 `/data/*` moved to `/2026/data/*` and is redirected by `_redirects`, which Cloudflare reads from the assets folder.
 """
+import datetime as dt
 import html
 import json
 from pathlib import Path
@@ -353,11 +356,23 @@ def terminal(sc, version):
             PLAY.replace("__STEPS__", js(steps)).replace("__RET__", js(shell.RETURN)))
 
 
+def callout_html(c, today=None):
+    """The landing page's optional callout (SI-1; SP-7 rule 5): its text, a link to `path` when set, and nothing at all
+    after its `ends` date (YYYY-MM-DD), so a special's callout comes down the day after its last round."""
+    if not c:
+        return ""
+    today = today or dt.date.today()
+    if c.get("ends") and dt.date.fromisoformat(c["ends"]) < today:
+        return ""
+    link = f' <a href="{E(c["path"])}">{E(c.get("link", "More"))}</a>' if c.get("path") else ""
+    return f'<p class="note">{c["text"]}{link}</p>\n'
+
+
 def landing(sc):
     F = S["featured"]
     inner = seat_lines(sc, F["scorecard"]) if F.get("scorecard") else ""
     smap = senate_map(sc, F["scorecard"]) if inner else ""
-    callout = f'<p class="note">{S["callout"]["text"]}</p>\n' if S.get("callout") else ""
+    callout = callout_html(S.get("callout"))
     term, play = terminal(sc, F["scorecard"]) if smap else ("", "")
     top = f'<h1>{E(S["name"])}</h1>\n<p class="lede">{E(S["intro"])}</p>'
     if term:      # "front" tells the stylesheet this page's intro is the terminal, not the site name's typing
@@ -435,6 +450,9 @@ def main(scorecard=None, cards=True):
     for path, text in out.items():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8")
+    import special                  # /specials/<race>/ for each live record (SP-7)
+    for path in special.main([]):
+        out[path] = None
     try:
         if not cards:
             raise RuntimeError("left as committed (run landing.py or build.py --all to redraw)")
