@@ -477,6 +477,9 @@ generic ballot said D+2.9), and the prior's errors were 1.7 and 3.7 points. In t
 election no environment helps; those races turn on the candidates. Twelve races is a small sample, and before
 2016 the generic-ballot series is FiveThirtyEight's published historical average, not a rebuild from polls.
 
+Adding the House recent-specials term to this estimator was tested at SP-5 (2026-11-27, SPECIALS.md section 3) and
+not adopted.
+
 ### 2026 inputs (GV-3), 2026-11-20
 
 `python src/model/governor_inputs.py 2026` reads the final forecast's poll snapshot (Nov 3, before polls closed)

@@ -659,19 +659,24 @@ alone reproduces GV-3's errors race by race, which was set to 0.001 while GV-3's
 | C2 | 0.004 | 0.02 | -0.01 (2025 left out) | No |
 
 - **C1** clears the redrawn-years condition but fails the leave-one-year-out one. Its gain rests on 2007: Louisiana
-  2007 has no polls, and the 2007 shift (-13.3, toward Republicans, from the two specials of August to October 2007,
-  when no specials had yet fixed m) moves Jindal's forecast from D+6.7 to R+3.4, against a result of R+51. Without
+  2007 has no polls, and the 2007 shift (-13.3, toward Republicans, from the two specials of 2007 before the race, CA-37 on 21 August and MA-5
+  on 16 October, when no earlier specials had yet fixed m) moves Jindal's forecast from D+6.7 to R+3.4, against a result of R+51. Without
   2007 the gain is -0.07. Every other year left out keeps a gain of 1.4 to 2.0, but those all contain 2007.
 - **C2** changes almost nothing: in New Jersey and Virginia the polls carry 0.88 to 0.92 of the weight, so a shift of
   2 to 7 points moves a forecast by a few tenths.
-- Mean error is negative throughout (Republicans did better than forecast), mostly from the year before a
-  presidential election, where GV-3 found that no environment helps.
+- Mean error is negative throughout (Republicans did better than forecast). Under B the three Louisiana races with
+  no polls (2007, 2011, 2023) carry -108 of the -137 summed error; the year-after races average -0.3. Those three
+  races also dominate the year-before RMSE, and so the deciding statistic (figures from the saved race table).
 
 **Reported, deciding nothing: the prior alone (GV-3's footing).** Both candidates are worse than B: RMSE 18.72 for B,
-18.91 for C1 (worse in both halves of the term) and 18.84 for C2 (worse in the year after a presidential election, the same in the year before). C1 removes the mean error (-1.22 to -0.09)
-but adds spread. Race by race: the `race_table` in `data/processed/specials_governors.json`.
+18.91 for C1 (worse in both halves of the term) and 18.84 for C2 (worse in the year after a presidential election,
+the same in the year before). Under rule 6 on this footing: C1 gain -0.19, SD 0.68, smallest leave-out gain -0.77;
+C2 -0.12, 0.22, -0.23. C1 removes the mean error (-1.22 to -0.09) but adds spread. Winners called on the prior alone
+(derived from the saved table): B 19, C1 21, C2 19 of 26. Race by race: the `race_table` in
+`data/processed/specials_governors.json`.
 
-**What this means.** On the 26 off-year races since 2007, the House specials term does not help governor forecasts
-that have polls, and on the prior alone it makes them worse. The one gain comes from a single unpolled
-Louisiana race in a year when the shift rests on two specials. `single_race.py governor` and the frozen governor
+**What this means.** On the 26 off-year races since 2007, with polls in, adding the House specials term to every
+race cut the margin RMSE from 14.24 to 12.82 and cleared the redrawn-years condition, but the gain disappears with
+2007 left out: it comes from a single unpolled Louisiana race in a year when the shift rests on two specials. On the
+prior alone both versions are worse. `single_race.py governor` and the frozen governor
 design are unchanged (rule 8). The 2027 races (GV-6) use the term-year estimator as they stand.
