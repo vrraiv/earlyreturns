@@ -144,7 +144,7 @@ def build():
 
 # ---------------- scoring ----------------
 def forecasts(t):
-    env = {"B": t.env_B, "C1": t.env_B + t.shift, "C2": t.env_B + np.where(t.term_year == 1, t.shift, 0.0)}
+    env = {"B": t.env_B, "C1": t.env_B + t["shift"], "C2": t.env_B + np.where(t.term_year == 1, t["shift"], 0.0)}
     prior = {k: t.base0 + t.g_env * v for k, v in env.items()}
     with_polls = {k: np.where(t.w > 0, t.w * t.poll_avg.fillna(0) + (1 - t.w) * p, p) for k, p in prior.items()}
     return prior, with_polls
