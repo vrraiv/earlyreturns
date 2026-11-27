@@ -372,3 +372,70 @@ ul.dates li.target .when { color: var(--accent); }
   .show-sm { display: block; }
   .pval { width: 2.8em; }
 }
+
+/* ---------- the model page (src/site/model.py, SI-5): each model as a flow chart and as a timeline ---------- */
+.model main > .note { margin: 12px 0 18px; }
+.mindex .sec p { margin-top: 2px; }
+.mdl { margin-top: 44px; scroll-margin-top: 12px; }
+.mdl h2 .tag { margin-left: 8px; vertical-align: 3px; font-weight: 500; }
+.mdl h2 .tag.st-locked { border-color: var(--accent-line); color: var(--accent); }
+.mdl h3 { margin: 28px 0 8px; }
+.mdl h4 { margin: 0 0 4px; font-size: .95rem; font-weight: 600; color: var(--head); }
+/* the flow chart: three columns, one row per step. An input sits beside the step that reads it. */
+.flow { --gap: 40px; --line: var(--text-3); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr) minmax(0, .95fr); column-gap: var(--gap); row-gap: 24px; margin: 12px 0 8px; max-width: 1000px; }
+.flow .colhead { grid-row: 1; font-size: .78rem; font-weight: 600; color: var(--text-2); margin-bottom: -10px; }
+.flow .colhead.sm { display: none; }
+.flow ul { list-style: none; margin: 0; padding: 0; }
+.flow .ins { grid-column: 1; align-self: center; display: flex; flex-direction: column; gap: 6px; padding-right: 10px; border-right: 1.5px solid var(--line); }
+.flow .ins li, .flow .outs li { background: var(--surface); border: 1px solid var(--border-strong); border-radius: 6px; padding: 6px 10px; font-size: .84rem; line-height: 1.4; }
+.flow .ins li.past { border-style: dashed; background: transparent; color: var(--text-2); }
+.flow .step { grid-column: 2; position: relative; background: var(--surface); border: 1px solid var(--border-strong); border-left: 3px solid var(--head); border-radius: 6px; padding: 10px 14px; }
+.flow .step p { font-size: .86rem; margin: 0; max-width: none; }
+.flow .step .fit { font-size: .78rem; color: var(--text-3); margin-top: 5px; }
+.flow .step .n { display: inline-block; width: 1.5em; height: 1.5em; line-height: 1.5em; margin-right: 7px; border-radius: 50%; background: var(--pressed-bg); color: var(--pressed-text); text-align: center; font-size: .8rem; font-variant-numeric: tabular-nums; }
+.flow .outs { grid-column: 3; align-self: end; padding-left: 10px; border-left: 1.5px solid var(--line); }
+.flow .outs ul { display: flex; flex-direction: column; gap: 6px; }
+.flow .outs li { border-color: var(--head); font-weight: 500; }
+.arr-r, .arr-o, .arr-d { position: absolute; }
+.arr-r, .arr-o { top: 50%; width: var(--gap); border-top: 1.5px solid var(--line); }
+.arr-r { right: calc(100% + 2px); }
+.arr-o { left: 100%; }
+.arr-r::after, .arr-o::after { content: ""; position: absolute; right: -1px; top: -4.75px; border-left: 7px solid var(--line); border-top: 4px solid transparent; border-bottom: 4px solid transparent; }
+.arr-d { top: 100%; left: 24px; height: 24px; border-left: 1.5px solid var(--line); }
+.arr-d::after { content: ""; position: absolute; bottom: -1px; left: -4.75px; border-top: 7px solid var(--line); border-left: 4px solid transparent; border-right: 4px solid transparent; }
+.flowkey { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: .78rem; color: var(--text-2); margin: 10px 0 4px; max-width: none; }
+.flowkey span { display: inline-flex; align-items: center; gap: 6px; }
+.flowkey i { display: inline-block; width: 22px; height: 12px; border-radius: 3px; border: 1px solid var(--border-strong); background: var(--surface); }
+.flowkey i.past { border-style: dashed; background: transparent; }
+/* the timeline: the stages in date order along one line; filled dots are the stages after the lock */
+.tl { --line: var(--border-strong); list-style: none; margin: 14px 0 8px; padding: 0; display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); column-gap: 20px; }
+.tl .stage { position: relative; padding: 28px 0 0; }
+.tl .stage::before { content: ""; position: absolute; top: 8px; left: 0; right: -20px; border-top: 2px solid var(--line); }
+.tl .stage:last-child::before { right: 0; }
+.tl .stage::after { content: ""; position: absolute; top: 1px; left: 0; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--head); }
+.tl .stage.lock::after { background: var(--head); }
+.tl .when { font-size: .76rem; font-weight: 600; color: var(--accent); }
+.tl p { font-size: .86rem; margin: 5px 0; max-width: none; }
+.tl p b { display: block; font-size: .74rem; color: var(--text-3); }
+.mix { display: flex; height: 10px; border-radius: 3px; overflow: hidden; margin: 10px 0 2px; background: var(--neutral); }
+.mix i { display: block; height: 100%; }
+.mix .po { background: var(--teal); }
+.mix .pm { background: color-mix(in srgb, var(--teal) 45%, var(--neutral)); }
+.mixlab { display: flex; justify-content: space-between; font-size: .72rem; color: var(--text-3); }
+.tl .mixnote { font-size: .76rem; color: var(--text-2); margin: 0; }
+@media (max-width: 820px) {
+  .flow { display: block; }
+  .flow .colhead { display: none; }
+  .flow .colhead.sm { display: block; margin: 0 0 6px; }
+  .flow .ins { flex-direction: row; flex-wrap: wrap; border-right: 0; padding: 0; margin: 16px 0 6px; }
+  .flow .outs { border-left: 0; padding: 0; margin-top: 18px; }
+  .arr-r, .arr-o, .arr-d { display: none; }
+  .flow .step { margin-top: 16px; }
+  .flow .ins + .step { margin-top: 0; }
+  .tl { display: block; }
+  .tl .stage { padding: 0 0 18px 26px; }
+  .tl .stage::before { top: 6px; bottom: -6px; left: 6px; right: auto; border-top: 0; border-left: 2px solid var(--line); }
+  .tl .stage:last-child::before { display: none; }
+  .tl .stage::after { top: 4px; }
+  .mix, .mixlab { max-width: 320px; }
+}

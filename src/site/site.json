@@ -5,7 +5,7 @@
   "intro": "Election forecasts built from public polls and data. Each forecast is locked before the election and scored against the results afterwards.",
   "nav": [
     {"key": "home", "label": "Home", "path": ""},
-    {"key": "model", "label": "Model", "path": "model/", "live": false},
+    {"key": "model", "label": "Model", "path": "model/"},
     {"key": "history", "label": "Election data", "path": "history/"}
   ],
   "elections": [
@@ -25,6 +25,7 @@
     {"label": "Coming", "title": "2028", "text": "The presidential election and the races beside it: what is being built, and the dates ahead.", "path": "2028/"},
     {"label": "Coming", "title": "2027", "text": "Governor races in Kentucky, Louisiana and Mississippi.", "path": "2027/"},
     {"title": "2026 forecast", "text": "The final House and Senate forecast, as locked on Nov 3, 2026.", "path": "2026/forecast/"},
+    {"title": "The models", "text": "How each forecast is made and how it was tested.", "path": "model/"},
     {"title": "Election data", "text": "Historical election results and polling accuracy, with downloads.", "path": "history/"}
   ],
   "og_home_coming": "2027 governors, then 2028: the president and the races beside them",
