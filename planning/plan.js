@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-27d",
+  version: "2026-11-27e",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -541,8 +541,18 @@ window.PLAN = {
             "One page per model as its backtest lands: governors, special elections, electoral college, primaries.",
             "Each shows the backtest table, what was estimated, and how sensitive the result is.",
             "Decided at SI-1: one model page at `/model/` with a section per model, in place of separate pages: House, Senate, governors, electoral college, primaries and special elections. Each section says what goes in, what is estimated, how it was tested, and where it stands (used in 2026, being reworked, in design).",
-            "A first version comes with the new layout, from the 2026 method text and the backtests already run. No 2026 governor forecast appears before that design is frozen (GV-4), and the electoral college section is a placeholder until its design note (EC-1)."
-          ] },
+            "A first version comes with the new layout, from the 2026 method text and the backtests already run. No 2026 governor forecast appears before that design is frozen (GV-4), and the electoral college section is a placeholder until its design note (EC-1).",
+            "Decided 2026-11-27, the design: each model is drawn two ways. A flow chart: what goes in, what the model does, what comes out, with each input beside the step that reads it. A timeline: the model through a campaign, with what it sees and what it does at each stage, ending at the lock and the scoring. The timeline describes the model in any cycle, not one year's run. Under both: how it was tested and where it stands.",
+            "The timeline's first stage differs by model: the electoral college starts when both nominees are presumptive (before that the page shows the board, EC-8), the primaries when candidates announce, a special election at the vacancy.",
+            "Built 2026-11-27: six sections. Every word and number is in `src/site/model.json`, copied by hand from the notes, so a change to a model is made in its note first and then there. The page carries no build date and the daily scorecard job leaves it alone. No forecast numbers from an unfrozen model, nothing from 2024 for the electoral college, and no 2026 governor figures.",
+            "Left out for now (2026-11-27): the per-draw file for the electoral college, which `ELECTORAL_COLLEGE.md` section 15 points here. The design is not frozen and no chart on the page needs it yet."
+          ],
+          checklist: [
+            { id: "a", text: "Layout agreed" },
+            { id: "b", text: "All six sections written" },
+            { id: "c", text: "Live, with Model in the top row" }
+          ],
+          refs: ["src/site/model.py", "src/site/model.json", "site/assets/site.css"] },
         { id: "SI-2", title: "Archive the 2026 forecast", kind: "story", phase: "p2", needs: ["SC-1", "SI-6"],
           why: "The forecast is history now and should read as a record, not a live page.",
           details: [
