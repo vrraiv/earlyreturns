@@ -220,7 +220,7 @@
     for (k = 0; k < 54; k++) if (R.hist[k]) { var bh = Math.max(1, R.hist[k] / mx * (H - 22)); h += '<rect class="' + (k >= 27 ? "d" : "r") + '" x="' + (k * bw + 0.5).toFixed(1) + '" y="' + (H - bh).toFixed(1) + '" width="' + (bw - 1).toFixed(1) + '" height="' + bh.toFixed(1) + '"></rect>'; }
     var x270 = 27 * bw, xr = M.result.dem_count / 10 * bw;
     h += '<line class="mid" x1="' + x270 + '" x2="' + x270 + '" y1="8" y2="' + H + '"></line><text class="lab" x="' + (x270 - 4) + '" y="8" text-anchor="end">270</text>' +
-      '<line class="res" x1="' + xr + '" x2="' + xr + '" y1="20" y2="' + H + '"></line><text class="lab" x="' + (xr + 4) + '" y="28">Result: ' + M.result.dem_count + "</text>" +
+      '<line class="res" x1="' + xr + '" x2="' + xr + '" y1="12" y2="' + H + '"></line><text class="lab" x="' + (xr + 4) + '" y="8">Result: ' + M.result.dem_count + "</text>" +
       '<line class="ax" x1="0" x2="' + W + '" y1="' + H + '" y2="' + H + '"></line><text class="lab" x="0" y="' + (H + 13) + '">0</text><text class="lab" x="' + W + '" y="' + (H + 13) + '" text-anchor="end">538</text>';
     $("ecxHist").innerHTML = '<svg viewBox="0 0 ' + W + " " + (H + 16) + '" role="img" aria-label="' + EX.dem + "'s electoral votes in the matching simulations. Median " + (R.count == null ? "none" : R.count) + '.">' + h + "</svg>";
     // the reading
