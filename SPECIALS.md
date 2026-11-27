@@ -634,3 +634,44 @@ computed for a governor race, and none has been set beside a governor result.
 reproduce exactly. A `check` step then prints each race's date, shift and n, with no result in it. Then one scoring
 run (`python src/model/specials_governors.py score`), which refuses to run again once its output
 (`data/processed/specials_governors.json`) exists. Every result is reported here.
+
+### Step report: the scoring run (2026-11-27, run once)
+
+**Before the run.** `governor_inputs.py offyear` was rerun and rewrote GV-3's two files with no change (`git diff`
+empty). The `check` step printed each race's date, shift and n with no result in it: shifts run from -13.3 (2007,
+from 2 specials, with m still at its default of 1) to +8.9 (2023, from 1 special), and the baseline environments
+match GV-3's (2025: D+16.5). Two faults were fixed before any score came out, each in its own commit: a column name
+that clashed with a pandas method (the run crashed before computing anything), and the check that B on the prior
+alone reproduces GV-3's errors race by race, which was set to 0.001 while GV-3's files are rounded to 3 decimals
+(largest gap 0.001; now 0.01). Then one scoring run (`data/processed/specials_governors.json`).
+
+**Result: neither candidate passes; nothing is adopted.**
+
+| With polls (decides), 26 races | RMSE | MAE | Mean error | RMSE, year after a presidential election (10) | RMSE, year before one (16) | Winners |
+|---|---|---|---|---|---|---|
+| B, term-year estimator | 14.24 | 8.19 | -5.26 | 5.16 | 17.69 | 21 |
+| C1, plus the shift in every race | 12.82 | 7.96 | -4.39 | 5.13 | 15.84 | 22 |
+| C2, plus the shift in the year after only | 14.24 | 8.19 | -5.36 | 5.13 | 17.69 | 21 |
+
+| Rule 6 | Gain in RMSE | SD over redrawn years | Smallest gain with one year left out | Passes |
+|---|---|---|---|---|
+| C1 | 1.42 | 1.17 | -0.07 (2007 left out) | No |
+| C2 | 0.004 | 0.02 | -0.01 (2025 left out) | No |
+
+- **C1** clears the redrawn-years condition but fails the leave-one-year-out one. Its gain rests on 2007: Louisiana
+  2007 has no polls, and the 2007 shift (-13.3, toward Republicans, from the two specials of August to October 2007,
+  when no specials had yet fixed m) moves Jindal's forecast from D+6.7 to R+3.4, against a result of R+51. Without
+  2007 the gain is -0.07. Every other year left out keeps a gain of 1.4 to 2.0, but those all contain 2007.
+- **C2** changes almost nothing: in New Jersey and Virginia the polls carry 0.88 to 0.92 of the weight, so a shift of
+  2 to 7 points moves a forecast by a few tenths.
+- Mean error is negative throughout (Republicans did better than forecast), mostly from the year before a
+  presidential election, where GV-3 found that no environment helps.
+
+**Reported, deciding nothing: the prior alone (GV-3's footing).** Both candidates are worse than B: RMSE 18.72 for B,
+18.91 for C1 (worse in both halves of the term) and 18.84 for C2 (worse in the year after a presidential election, the same in the year before). C1 removes the mean error (-1.22 to -0.09)
+but adds spread. Race by race: the `race_table` in `data/processed/specials_governors.json`.
+
+**What this means.** On the 26 off-year races since 2007, the House specials term does not help governor forecasts
+that have polls, and on the prior alone it makes them worse. The one gain comes from a single unpolled
+Louisiana race in a year when the shift rests on two specials. `single_race.py governor` and the frozen governor
+design are unchanged (rule 8). The 2027 races (GV-6) use the term-year estimator as they stand.
