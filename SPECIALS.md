@@ -1,6 +1,6 @@
 # Special elections: design note
 
-The note for the specials track (work plan cards SP-1 to SP-8 in `planning/plan.js`). Started 2026-11-25 with SP-3; section 2 is SP-4.
+The note for the specials track (work plan cards SP-1 to SP-8 in `planning/plan.js`). Started 2026-11-25 with SP-3; section 2 is SP-4, section 3 SP-5.
 SP-1 and SP-2 (House specials and the single-race path, November 2026) are written up in `PLAN.md`, section 5.
 Rules are written here before anything they govern is run, agreed with the project owner, and every run is reported.
 
@@ -554,3 +554,83 @@ and otherwise by fractions of a point. Race by race: `data/processed/special_pol
 **Rule 9, done**: `single_race.py senate --poll D,R ...` uses the House result's poll set (all polls, unshifted) and
 the frozen statewide SD, weighted against 18. Checked on MA 2010 with its 13 polls: D+0.3, SD 5.1, weight 0.92, the
 same as S1 in the run.
+
+
+## 3. Recent specials as a signal for off-year governors (SP-5)
+
+A House special's environment adds a recent-specials term: the mean miss of House specials in the 365 days before
+it, shrunk by n / (n + 2) (`single_race.py special_environment`; SP-1). Off-year governor races (New Jersey and
+Virginia in the year after a presidential election, Kentucky, Louisiana and Mississippi in the year before one) use
+the off-cycle estimator scaled by term year (GV-3, BACKTEST.md "Odd-year environment as of each date"), with no such
+term. This card tests whether adding it helps them.
+
+### Rules (written and agreed 2026-11-27, before any recent-specials shift was compared with a governor result)
+
+Decisions the owner made on 2026-11-27: the pass rule in rule 6 (no fixed floor); a second candidate declared now (C2); judged with
+polls; adoption changes the 2027 path only.
+
+**What is already known, declared.** The baseline's errors by year on the prior alone are public in BACKTEST.md
+(for example, 1.7 and 3.7 points in New Jersey and Virginia in 2025). The direction House specials have leaned by era
+(Republican in 2009-10, Democratic since 2017) is in `special_model.py`'s docstring. No recent-specials shift has been
+computed for a governor race, and none has been set beside a governor result.
+
+**The test bed**
+
+1. **Races.** The odd-year governor races in `governor_inputs.py offyear` (contested, two-way, no recalls) from 2007
+   on, because the House specials table (`data/interim/house_specials.csv`) starts in August 2007: 26 races in 10
+   years (2007 to 2025; West Virginia's 2011 special included). The shift is one number per year, the same for
+   every race in it (apart from the race dates in rule 3), so this is about 10 observations, not 26. Expect a weak
+   test.
+2. **Forecast of a race, as of its year.** Fitted on even-year races before the year only, as GV-3's test:
+   - the prior, `GV.estimate` on those races with spec `lean_avg2` (margin ~ lean_avg2 + env + inc, env the
+     realized national House vote); the race's prior uses the environment under test;
+   - with polls (the owner's choice): the race's `poll_avg` (n = `n_polls`) weighted against the prior as
+     `single_race.py governor` does: w = s^2 / (s^2 + sd_poll(n)^2), s = the fit's `sd_prior_implied`,
+     sd_poll(n) = sqrt(4.24^2 + 11.81^2 / n). A race with no polls on file (Louisiana 2007, 2011, 2023; Mississippi
+     2007) keeps the prior alone. The 2025 races' polls are VoteHub's, the rest FiveThirtyEight's, as the table has them.
+   - The baseline environment is GV-3's `estimator, by term year` for the year (`governor_offyear_env.csv`: the
+     estimator fitted on elections before the year, its midterm term scaled by m fitted on earlier odd years of the
+     same term year), on election day of that year.
+3. **Race dates** for the specials window (the date of the round the table's margin comes from): Kentucky,
+   Mississippi, New Jersey and Virginia on the November election day; West Virginia 2011 on 4 Oct; Louisiana on its
+   deciding round: 20 Oct 2007, 22 Oct 2011, 21 Nov 2015 (runoff), 16 Nov 2019 (runoff), 14 Oct 2023.
+
+**The shift, as of the race**
+
+4. For a race on date D in year y:
+   - The environment model is `environment.py`'s, fitted on elections before y (as the baseline is). Each House
+     special's e0 and slope (its environment at m = 0, and the change per unit of m) are recomputed on its own date
+     with that fit. The `SM.load()` table uses the full-sample fit; the test does not.
+   - m for each half of the presidential term is fitted on House specials strictly before D (`SM.best_m`; 1.0 until a
+     half has 8 earlier specials), as `special_environment` does.
+   - shift = mean over House specials in [D - 365 days, D) of (implied environment - (e0 + slope x m for its half)),
+     times n / (n + 2). No specials in the window: shift 0.
+   - The implied environment inverts the frozen House district prior (`data/final/house_structure.json`), which was
+     fitted on general elections 2006-2024 and cannot be made as of the date. Declared, as at SP-1.
+   - k = 2 is kept as chosen on House specials and not retuned here.
+5. **Candidates**, each against the baseline B:
+   - **C1**: B plus the shift, in every race.
+   - **C2**: B plus the shift in the year after a presidential election only (New Jersey and Virginia, 10 races);
+     the year before one keeps B. Declared now at the owner's request; GV-3 found the environment helps only in the
+     year after a presidential election. If C2 alone is adopted, the 2027 races (term year 3) are unchanged.
+
+**The decision**
+
+6. **Pass rule.** A candidate passes against B if, on the 26 races with polls in (rule 2):
+   - margin RMSE falls by more than its standard deviation over the 10 years redrawn with replacement (10,000
+     draws, seed 20261127; a draw takes every race of each year it picks);
+   - and still falls with each of the 10 years left out in turn.
+   If both pass, the one with the lower RMSE. No fixed floor: a 0.5-point floor was drafted and dropped by the owner
+   before any run, because with polls in a race's margin moves by only (1 - w) times the prior's move, w near 0.8 in
+   most polled races, and the two conditions above guard against one lucky year.
+7. **Reported, deciding nothing.** The same table on the prior alone (GV-3's footing); the split by term year; the
+   shift, its n and the poll weight race by race; mean error; winners called.
+8. **If a candidate passes**, `single_race.py governor` (the 2027 path, GV-6) adds the shift in the races it
+   covers. The frozen governor design (tag `governor-design-2026`), `backtest_asof.py` and the 2026 forecast files
+   are not touched, and GV-5 scores what was frozen. If none passes, nothing changes and the result is recorded on
+   the card.
+
+**Run once.** First `python src/model/governor_inputs.py offyear` is rerun to confirm GV-3's table and files
+reproduce exactly. A `check` step then prints each race's date, shift and n, with no result in it. Then one scoring
+run (`python src/model/specials_governors.py score`), which refuses to run again once its output
+(`data/processed/specials_governors.json`) exists. Every result is reported here.
