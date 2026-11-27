@@ -687,8 +687,8 @@ The card: vacancies and scheduled specials, checked regularly, so a special is c
 when someone notices. Decided by the owner on 2026-11-27: the House Clerk's vacancy list and Wikipedia as the sources,
 a weekly check, House and Senate seats, and a live special tripped by the check leads to a page for it. No news API:
 NewsAPI's free plan is for development only, World News API's free plan forbids storing anything derived from it, and
-GDELT is on a reliability test (one request every 10 minutes for six hours from 2026-11-27) and is out unless it
-proves reliable.
+GDELT failed a reliability test and is out (the owner's rule: low reliability means out; result below, after the
+build report).
 
 ### What the sources hold (checked 2026-11-27)
 
@@ -775,6 +775,26 @@ winner not yet seated).
 - **For a person to check:** TX-23 and FL-20, where the Clerk says "Special Election Date TBD" and Wikipedia "Vacant
   until the next Congress"; FL-1, where the Clerk dates the vacancy 3 January 2025 and Wikipedia Gaetz's resignation
   13 November 2024. These notes stay until a source changes; only changes trip the check.
+
+**First run on GitHub Actions (2026-11-27, dispatched by the owner after the merge).** It found no changes from the
+seed, as expected: the House Clerk's page and Wikipedia both serve GitHub's runners, so the Task Scheduler fallback is
+not needed.
+
+### GDELT reliability test (2026-11-27, stopped early)
+
+GDELT's DOC 2.0 API was the one news source whose terms fit (free, no key, unrestricted use with a citation and a link,
+results may be stored). It was tested as a possible tripwire beside the check, from this machine, after a first burst
+of requests on 2026-11-27 was refused with HTTP 429 ("Please limit requests to one every 5 seconds").
+
+- **Design:** one request every 10 minutes, about 120 times slower than the stated limit, rotating three queries
+  (specials for Congress; members resigning or dying; governors setting a House special's date), each limited to US
+  sources in English over the past month. No retries inside a slot. Planned for six hours.
+- **Result:** 19 requests from 15:10 to 18:14 UTC; 5 accepted (26%), 14 refused with 429, in runs of up to seven in a
+  row, the last six all refused. Every accepted request returned an empty result (`{}`): most likely the queries were
+  too strict or in a form the API rejects without an error, but with most requests refused there was no room to try
+  other wordings.
+- **Decision (owner, 2026-11-27):** stopped after three hours; the refusal rate alone settles it. GDELT is out. The
+  check stays on the House Clerk and Wikipedia. Script and log were kept in the session's scratchpad, not the repo.
 
 
 ## 5. Runbook and page for a live special (SP-7)
