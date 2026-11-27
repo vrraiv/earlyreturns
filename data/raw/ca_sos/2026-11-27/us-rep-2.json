@@ -1,0 +1,21 @@
+{
+  "raceTitle": "U.S. House of Representatives District 2 - Districtwide Results",
+  "Reporting": "100% (595 of 595) precincts reporting",
+  "ReportingTime": "November 27, 2026, 11:31 a.m.",
+  "candidates": [
+    {
+      "Name": "Jared Huffman",
+      "Party": "Dem",
+      "Votes": "214,892",
+      "Percent": "66.8",
+      "incumbent": false
+    },
+    {
+      "Name": "Robin Littau",
+      "Party": "Rep",
+      "Votes": "106,990",
+      "Percent": "33.2",
+      "incumbent": false
+    }
+  ]
+}
