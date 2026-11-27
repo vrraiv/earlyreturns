@@ -462,6 +462,7 @@ ul.dates li.target .when { color: var(--accent); }
 .ecx .tile:hover rect, .ecx .tile:focus-visible rect { stroke: var(--text); stroke-width: 1.5; }
 .ecx .tile.set rect { stroke: var(--text); stroke-width: 2.5; }
 .ecx .tile.set .sub { font-weight: 600; }
+.ecx .tile.set:focus-visible rect { stroke-width: 4.5; }
 .ecx text.cap { font-size: 10px; fill: var(--text-3); }
 .ecx .maplegend i { border: 0; }
 .ecx .maplegend i.d3 { background: var(--dem); } .ecx .maplegend i.d2 { background: var(--d-likely); } .ecx .maplegend i.d1 { background: var(--d-lean); }

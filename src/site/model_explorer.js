@@ -87,9 +87,11 @@
     var mx = 0, h = "", W = 540, H = 120, bw = W / 54;
     for (k = 0; k < 54; k++) mx = Math.max(mx, R.hist[k]);
     for (k = 0; k < 54; k++) if (R.hist[k]) { var bh = Math.max(1, R.hist[k] / mx * (H - 22)); h += '<rect class="' + (k >= 27 ? "d" : "r") + '" x="' + (k * bw + 0.5).toFixed(1) + '" y="' + (H - bh).toFixed(1) + '" width="' + (bw - 1).toFixed(1) + '" height="' + bh.toFixed(1) + '"></rect>'; }
-    var x270 = 27 * bw, xr = M.result.dem_count / 10 * bw;
-    h += '<line class="mid" x1="' + x270 + '" x2="' + x270 + '" y1="8" y2="' + H + '"></line><text class="lab" x="' + (x270 - 4) + '" y="8" text-anchor="end">270</text>' +
-      '<line class="res" x1="' + xr + '" x2="' + xr + '" y1="12" y2="' + H + '"></line><text class="lab" x="' + (xr + 4) + '" y="8">Result: ' + M.result.dem_count + "</text>" +
+    // the two labels sit on opposite sides of their lines, away from each other, whichever side the result fell
+    var x270 = 27 * bw, xr = M.result.dem_count / 10 * bw, right = M.result.dem_count >= 270;
+    var lab = function (x, side, t) { return '<text class="lab" x="' + (x + (side ? 4 : -4)) + '" y="8"' + (side ? "" : ' text-anchor="end"') + ">" + t + "</text>"; };
+    h += '<line class="mid" x1="' + x270 + '" x2="' + x270 + '" y1="12" y2="' + H + '"></line>' + lab(x270, !right, "270") +
+      '<line class="res" x1="' + xr + '" x2="' + xr + '" y1="12" y2="' + H + '"></line>' + lab(xr, right, "Result: " + M.result.dem_count) +
       '<line class="ax" x1="0" x2="' + W + '" y1="' + H + '" y2="' + H + '"></line><text class="lab" x="0" y="' + (H + 13) + '">0</text><text class="lab" x="' + W + '" y="' + (H + 13) + '" text-anchor="end">538</text>';
     $("ecxHist").innerHTML = '<svg viewBox="0 0 ' + W + " " + (H + 16) + '" role="img" aria-label="' + EX.dem + "'s electoral votes in the matching simulations. Median " + (R.count == null ? "none" : R.count) + '.">' + h + "</svg>";
     // the reading

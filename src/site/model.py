@@ -25,6 +25,7 @@ Each model in model.json has:
 The numbers in model.json are copied by hand from the notes (BACKTEST.md, ELECTORAL_COLLEGE.md, PRIMARIES.md,
 SPECIALS.md, FORECAST.md, the 2026 method tab and the cards' decisions in planning/plan.js); change them there first. The styles are in site/assets/site.css ("the model page").
 """
+import hashlib
 import json
 import sys
 from pathlib import Path
@@ -99,9 +100,10 @@ def explorer(m):
         return ""
     D = draws_meta(m)
     mm, n = D["model"], D["n"]
-    static = (f'A week before the {D["election"]} election the model gave {X["dem"]} a {mm["p_dem_270_exact"]:.0%} chance of reaching '
-              f'270, with a median of {mm["count_median_exact"]} electoral votes (80% range {mm["count_p10_exact"]} to '
-              f'{mm["count_p90_exact"]}). What happened: {X["dem"]} won {D["result"]["dem_count"]}.')
+    when = "A week" if D["days"] == 7 else f'{D["days"]} days'
+    static = (f'{when} before the {D["election"]} election the model put the chance of {X["dem"]} reaching 270 at '
+              f'{mm["p_dem_270_exact"]:.0%}, with a median of {mm["count_median_exact"]} electoral votes (80% range '
+              f'{mm["count_p10_exact"]} to {mm["count_p90_exact"]}). What happened: {X["dem"]} won {D["result"]["dem_count"]}.')
     nums = (f'<div class="exnum"><div class="l">{E(X["dem"])} reaches 270</div><div class="v">{mm["p_dem_270_exact"]:.0%}</div><div class="d"></div></div>'
             f'<div class="exnum"><div class="l">{E(X["rep"])} reaches 270</div><div class="v">{mm["p_rep_270_exact"]:.0%}</div><div class="d"></div></div>')
     legend = "".join(f'<span><i class="{c}"></i>{E(t)}</span>' for c, t in SHADES)
@@ -136,7 +138,10 @@ def explorer_script():
     if not m:
         return ""
     D, X = draws_meta(m), m["explorer"]
-    ex = {"meta": D, "file": "data/" + D["file"], "dem": X["dem"], "rep": X["rep"],
+    # the address carries a hash of the file's bytes: the draws are rewritten under one name when the design changes,
+    # and the contest-to-bit map lives in this page, so a cached copy from an older build must not be read
+    version = hashlib.sha1((DRAWS / D["file"]).read_bytes()).hexdigest()[:10]
+    ex = {"meta": D, "file": f'data/{D["file"]}?v={version}', "dem": X["dem"], "rep": X["rep"],
           "names": {c: landing.BOARD_NAMES[c] for c in D["contests"]},
           "tiles": {c: list(landing.BOARD_TILES[c]) for c in D["contests"] if c in landing.BOARD_TILES},
           "districts": list(landing.BOARD_DISTRICTS)}
