@@ -85,7 +85,7 @@
             "title": "Polls come in",
             "sees": "The national averages as they move, and the few polls of single districts.",
             "does": "A change in the national environment moves every district at once. A district's own polls move that district only, and only part of the way.",
-            "mix": {"polls": 46, "polls_hi": 65, "label": "A polled district: roughly half on its polls"}
+            "mix": {"polls": 50, "label": "A polled district: roughly half on its polls"}
           },
           {
             "when": "Election day",
@@ -241,7 +241,7 @@
         "steps": [
           {
             "title": "National environment",
-            "text": "In an even year, the same blend of generic-ballot averages and fundamentals as the House and Senate. In an odd year there is no House election to poll, so it is estimated from approval and the last House vote, by the year of the presidential term.",
+            "text": "The same blend of generic-ballot averages and fundamentals as the House and Senate.",
             "fit": "",
             "reads": [
               {"t": "Generic-ballot averages"},
@@ -260,7 +260,7 @@
           {
             "title": "Polls, by one of three paths",
             "text": "A race with polls in its final 21 days uses their plain average. A race with none uses its polls from 22 to 60 days out. A race with no poll in 60 days adds the expert ratings to its starting point.",
-            "fit": "Polls from 22 to 60 days out miss by about 37% more than late ones.",
+            "fit": "",
             "reads": [
               {"t": "Polls of the race"},
               {"t": "Expert ratings, for a race without polls"}
@@ -299,7 +299,7 @@
             "when": "22 to 60 days out",
             "title": "Earlier polls count",
             "sees": "Polls of the race that ended in this window.",
-            "does": "They are used only while the race has no later poll, and they are trusted less than late polls."
+            "does": "They are used only while the race has no later poll, and they get the same range as late polls."
           },
           {
             "when": "The final 21 days",
@@ -322,7 +322,7 @@
             "lock": true
           }
         ],
-        "note": ""
+        "note": "The design was tested on even-year races, forecast at election time. The 2027 races fall in an odd year, with no House election to poll: they are to run one race at a time, with the national environment estimated from approval and the last House vote by the year of the presidential term. In the year before a presidential election, past governor races have turned on the candidates more than on any national environment."
       },
       "tested": {
         "text": "Even-year governor races from 2004 to 2024 were forecast again with every number fitted on earlier elections only. Each proposed change was written down before it ran and had to beat the design before it.",
@@ -333,7 +333,7 @@
           {"v": "8 of 11", "l": "Elections where the frozen design beat the first design"}
         ],
         "notes": [
-          "The ranges of races forecast from earlier polls or from ratings are known to be too narrow. Two fixes were tested and failed, so the ranges stand as they are.",
+          "The ranges of races forecast from earlier polls or from ratings are known to be too narrow: polls from 22 to 60 days out miss by about 37% more than late ones. Two fixes were tested and failed, so the ranges stand as they are.",
           "The 2026 forecast was written at the freeze, before any 2026 governor result was collected. It is scored once, on certified results."
         ]
       },
@@ -457,7 +457,7 @@
         "stats": [
           {"v": "5.6 pts", "l": "Typical miss on a state's margin (8.7 repeating the last election, 6.9 from recent polls alone)"},
           {"v": "83%", "l": "Of results inside the forecast's 80% range"},
-          {"v": "4 of 4", "l": "Elections with the electoral vote count inside its 80% range"},
+          {"v": "4 of 4", "l": "Elections with the electoral vote count inside its 80% range; 2016 by two votes"},
           {"v": "3 of 4", "l": "Elections where the winner was the favourite; the 2016 winner was given 1 in 4"}
         ],
         "notes": [

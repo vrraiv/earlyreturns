@@ -17,8 +17,8 @@ Each model in model.json has:
   tested    how it was tested: a sentence, a few figures and their caveats.
   stands    where the model stands, and `links` (a `path` inside the site, relative to /model/, or a full `url`).
 
-The numbers in model.json are copied by hand from the notes (BACKTEST.md, SPECIALS.md, FORECAST.md and the 2026 method
-tab); change them there first. The styles are in site/assets/site.css ("the model page").
+The numbers in model.json are copied by hand from the notes (BACKTEST.md, ELECTORAL_COLLEGE.md, PRIMARIES.md,
+SPECIALS.md, FORECAST.md, the 2026 method tab and the cards' decisions in planning/plan.js); change them there first. The styles are in site/assets/site.css ("the model page").
 """
 import json
 import sys
