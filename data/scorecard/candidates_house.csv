@@ -857,12 +857,12 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|PA|H|3,Independent,I,Dennis Mahoney,6.39,17628.0,17628.0
 2026|PA|H|4,Democratic,D,Madeleine Dean,67.26,234271.0,234271.0
 2026|PA|H|4,Republican,R,Aurora Stuski,32.74,114012.0,114012.0
-2026|PA|H|5,Democratic,D,Mary Gay Scanlon,,,
-2026|PA|H|5,Republican,R,Nicholas Manganaro,,,
-2026|PA|H|6,Democratic,D,Chrissy Houlahan,,,
-2026|PA|H|6,Republican,R,Marty Young,,,
-2026|PA|H|7,Republican,R,Ryan Mackenzie,,,
-2026|PA|H|7,Democratic,D,Bob Brooks,,,
+2026|PA|H|5,Democratic,D,Mary Gay Scanlon,72.22,215985.0,215985.0
+2026|PA|H|5,Republican,R,Nicholas Manganaro,27.78,83075.0,83075.0
+2026|PA|H|6,Democratic,D,Chrissy Houlahan,64.48,201244.0,201244.0
+2026|PA|H|6,Republican,R,Marty Young,35.52,110843.0,110843.0
+2026|PA|H|7,Republican,R,Ryan Mackenzie,,129765.0,129765.0
+2026|PA|H|7,Democratic,D,Bob Brooks,,167629.0,167629.0
 2026|PA|H|8,Republican,R,Rob Bresnahan,,,
 2026|PA|H|8,Democratic,D,Paige Cognetti,,,
 2026|PA|H|9,Republican,R,Dan Meuser,,,

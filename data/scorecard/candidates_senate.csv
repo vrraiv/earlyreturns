@@ -10,13 +10,12 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|AR|S|regular,Republican,R,Tom Cotton,54.21,481495.0,481495.0
 2026|AR|S|regular,Democratic,D,Hallie Shoffner,42.46,377108.0,377108.0
 2026|AR|S|regular,Libertarian,O,Jeff Wadlin,3.33,29539.0,29539.0
-2026|CO|S|regular,Democratic,D,John Hickenlooper,60.5,1629521.0,1629521.0
-2026|CO|S|regular,Republican,R,Mark Baisley,34.98,942095.0,942095.0
-2026|CO|S|regular,Forward,O,Bob Chew,2.63,70794.0,70794.0
-2026|CO|S|regular,Libertarian,O,Blake Huber,1.23,33136.0,33136.0
+2026|CO|S|regular,Democratic,D,John Hickenlooper,60.5,1629604.0,1629604.0
+2026|CO|S|regular,Republican,R,Mark Baisley,34.98,942159.0,942159.0
+2026|CO|S|regular,Forward,O,Bob Chew,2.63,70802.0,70802.0
+2026|CO|S|regular,Libertarian,O,Blake Huber,1.23,33143.0,33143.0
 2026|CO|S|regular,Unity,O,Adam Withrow,0.51,13717.0,13717.0
-2026|CO|S|regular,Approval Voting,O,Christopher Baum,0.16,4268.0,4268.0
-2026|CO|S|regular,Write-in,O,Write-in,,,
+2026|CO|S|regular,Approval Voting,O,Christopher Baum,0.16,4269.0,4269.0
 2026|DE|S|regular,Democratic,D,Chris Coons,63.35,240587.0,240587.0
 2026|DE|S|regular,Republican,R,Michael Katz,36.3,137837.0,137837.0
 2026|DE|S|regular,Write-in,O,Write-in,0.35,1330.0,1330.0
@@ -58,11 +57,11 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|MI|S|regular,Green,O,Douglas P. Marsh,0.26,12554.0,12554.0
 2026|MI|S|regular,Natural Law,O,Walter P. Kristy,0.15,7253.0,7253.0
 2026|MI|S|regular,Write-in,O,Write-in,0.0,10.0,10.0
-2026|MN|S|regular,Democratic (DFL),D,Peggy Flanagan,53.7,1520871.0,1520871.0
-2026|MN|S|regular,Republican,R,Michele Tafoya,43.56,1233476.0,1233476.0
-2026|MN|S|regular,Independent,I,Marisa Simonetti,1.47,41574.0,41574.0
-2026|MN|S|regular,Libertarian,O,Rebecca Whiting,1.15,32493.0,32493.0
-2026|MN|S|regular,Write-in,O,Write-in,0.12,3381.0,3381.0
+2026|MN|S|regular,Democratic (DFL),D,Peggy Flanagan,53.72,1521835.0,1521835.0
+2026|MN|S|regular,Republican,R,Michele Tafoya,43.55,1233592.0,1233592.0
+2026|MN|S|regular,Independent,I,Marisa Simonetti,1.47,41589.0,41589.0
+2026|MN|S|regular,Libertarian,O,Rebecca Whiting,1.15,32500.0,32500.0
+2026|MN|S|regular,Write-in,O,Write-in,0.12,3352.0,3352.0
 2026|MS|S|regular,Democratic,D,Scott Colom,49.36,480153.0,480153.0
 2026|MS|S|regular,Republican,R,Cindy Hyde-Smith,48.54,472122.0,472122.0
 2026|MS|S|regular,Independent,I,Ty Pinkins,2.1,20469.0,20469.0
@@ -70,23 +69,23 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|MT|S|regular,Independent,I,Seth Bodnar,37.72,184574.0,184574.0
 2026|MT|S|regular,Democratic,D,Alani Bankhead,12.26,59984.0,59984.0
 2026|MT|S|regular,Libertarian,O,Kyle Austin,1.84,9018.0,9018.0
-2026|NE|S|regular,Republican,R,Pete Ricketts,49.85,382171.0,382171.0
-2026|NE|S|regular,Independent,I,Dan Osborn,44.15,338509.0,338509.0
-2026|NE|S|regular,Working People,O,Robin Richards,2.61,20027.0,20027.0
-2026|NE|S|regular,Legal Marijuana NOW,O,Mike Marvin (withdrawn),2.18,16727.0,16727.0
-2026|NE|S|regular,America First,O,Chuck Conboy,1.21,9267.0,9267.0
-2026|NH|S|regular,Democratic,D,Chris Pappas,55.91,356425.0,356425.0
-2026|NH|S|regular,Republican,R,John E. Sununu,42.19,268712.0,268712.0
-2026|NH|S|regular,Constitution,O,Edmond J. LaPlante Jr.,1.9,12081.0,12081.0
-2026|NH|S|regular,Write-in,O,Write-in,,,
+2026|NE|S|regular,Republican,R,Pete Ricketts,49.84,382401.0,382401.0
+2026|NE|S|regular,Independent,I,Dan Osborn,44.15,338741.0,338741.0
+2026|NE|S|regular,Working People,O,Robin Richards,2.61,20045.0,20045.0
+2026|NE|S|regular,Legal Marijuana NOW,O,Mike Marvin (withdrawn),2.18,16737.0,16737.0
+2026|NE|S|regular,America First,O,Chuck Conboy,1.21,9278.0,9278.0
+2026|NH|S|regular,Democratic,D,Chris Pappas,55.87,356425.0,356425.0
+2026|NH|S|regular,Republican,R,John E. Sununu,42.11,268682.0,268682.0
+2026|NH|S|regular,Constitution,O,Edmond J. LaPlante Jr.,1.89,12081.0,12081.0
+2026|NH|S|regular,Write-in,O,Write-in,0.12,792.0,792.0
 2026|NJ|S|regular,Democratic,D,Cory Booker,62.64,1873468.0,1873468.0
 2026|NJ|S|regular,Republican,R,Justin Murphy,34.73,1038585.0,1038585.0
 2026|NJ|S|regular,End the Corruption!,O,Veronica Fernandez,1.68,50185.0,50185.0
 2026|NJ|S|regular,Socialist Workers,O,Joanne Kuniansky,0.95,28484.0,28484.0
 2026|NM|S|regular,Democratic,D,Ben Ray Luján,63.27,459052.0,459052.0
 2026|NM|S|regular,Republican,R,Larry Marker,36.73,266524.0,266524.0
-2026|NC|S|regular,Democratic,D,Roy Cooper,58.75,2480645.0,2480645.0
-2026|NC|S|regular,Republican,R,Michael Whatley,39.05,1648860.0,1648860.0
+2026|NC|S|regular,Democratic,D,Roy Cooper,58.75,2480649.0,2480649.0
+2026|NC|S|regular,Republican,R,Michael Whatley,39.05,1648867.0,1648867.0
 2026|NC|S|regular,Libertarian,O,Shannon W. Bray,1.33,56085.0,56085.0
 2026|NC|S|regular,Green,O,Michael Dublin,0.87,36713.0,36713.0
 2026|OK|S|regular,Republican,R,Kevin Hern,57.2,639860.0,639860.0
@@ -94,11 +93,11 @@ race_key,party,party_code,candidate,pct_first,votes_first,votes_final
 2026|OK|S|regular,Independent,I,Curtis Stinnett,1.31,14635.0,14635.0
 2026|OK|S|regular,Independent,I,Ron Meinhardt,1.3,14504.0,14504.0
 2026|OK|S|regular,Libertarian,O,Sevier White,0.91,10209.0,10209.0
-2026|OR|S|regular,Democratic,D,Jeff Merkley,,,
-2026|OR|S|regular,Republican,R,David Brock Smith,,,
-2026|OR|S|regular,Libertarian,O,Gary Dye,,,
-2026|OR|S|regular,Progressive,O,Chris Henry,,,
-2026|OR|S|regular,Write-in,O,Write-in,,,
+2026|OR|S|regular,Democratic,D,Jeff Merkley,58.15,1150323.0,1150323.0
+2026|OR|S|regular,Republican,R,David Brock Smith,38.49,761536.0,761536.0
+2026|OR|S|regular,Progressive,O,Chris Henry,2.26,44788.0,44788.0
+2026|OR|S|regular,Libertarian,O,Gary Dye,1.03,20292.0,20292.0
+2026|OR|S|regular,Write-in,O,Write-in,0.07,1365.0,1365.0
 2026|RI|S|regular,Democratic,D,Jack Reed,66.78,240707.0,240707.0
 2026|RI|S|regular,Republican,R,Raymond McKay,29.26,105459.0,105459.0
 2026|RI|S|regular,Independent,I,Michael Bahry,3.76,13563.0,13563.0
