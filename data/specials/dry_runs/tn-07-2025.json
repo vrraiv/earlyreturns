@@ -1,0 +1,157 @@
+{
+ "race": "tn-07-2025",
+ "dry_run": true,
+ "title": "Tennessee's 7th district special election",
+ "chamber": "House",
+ "branch": "house",
+ "state": "TN",
+ "state_name": "Tennessee",
+ "seat": "7th district",
+ "district": 7,
+ "inc": 0,
+ "vacancy": {
+  "vacated_by": "Mark Green",
+  "party": "Republican",
+  "reason": "resigned",
+  "date": "2025-07-20"
+ },
+ "rounds": [
+  {
+   "round": "primaries",
+   "date": "2025-10-07"
+  },
+  {
+   "round": "general",
+   "date": "2025-12-02"
+  }
+ ],
+ "candidates": [
+  {
+   "name": "Aftyn Behn",
+   "party": "Democratic"
+  },
+  {
+   "name": "Matt Van Epps",
+   "party": "Republican"
+  }
+ ],
+ "lean": null,
+ "waits_on": [],
+ "polls": [
+  {
+   "pollster": "Impact Research",
+   "end": "2025-10-19",
+   "population": "lv",
+   "dem": 44.0,
+   "rep": 52.0,
+   "partisan": "DEM",
+   "source": "Wikipedia, wiki-10",
+   "note": "sponsored by Your Community PAC"
+  },
+  {
+   "pollster": "Workbench Strategy",
+   "end": "2025-10-19",
+   "population": "lv",
+   "dem": 41.0,
+   "rep": 51.0,
+   "partisan": "DEM",
+   "source": "Wikipedia, wiki-11",
+   "note": "sponsored by Behn's campaign"
+  },
+  {
+   "pollster": "Emerson College",
+   "end": "2025-11-24",
+   "population": "lv",
+   "dem": 46.0,
+   "rep": 48.0,
+   "partisan": null,
+   "source": "Wikipedia, wiki-9",
+   "note": "sponsored by Nexstar Media Group"
+  }
+ ],
+ "runs": [
+  {
+   "run_date": "2025-10-21",
+   "election_date": "2025-12-02",
+   "branch": "house",
+   "lean": -20.0,
+   "lean_source": "2 x Cook PVI, lines in force",
+   "environment": 15.4,
+   "inc": 0,
+   "prior": -5.34,
+   "polls_used": [
+    "Impact Research, 2025-10-19",
+    "Workbench Strategy, 2025-10-19"
+   ],
+   "poll_window": "22-60 days",
+   "poll_avg": -9.6,
+   "poll_weight": 0.64,
+   "margin": -8.07,
+   "sd": 6.84,
+   "error_shape": "normal",
+   "p_dem": 0.1189,
+   "intervals": {
+    "50": [
+     -12.68,
+     -3.46
+    ],
+    "80": [
+     -16.84,
+     0.69
+    ],
+    "95": [
+     -21.47,
+     5.33
+    ]
+   },
+   "commit": "cdbaa89",
+   "locked": false
+  },
+  {
+   "run_date": "2025-12-01",
+   "election_date": "2025-12-02",
+   "branch": "house",
+   "lean": -20.0,
+   "lean_source": "2 x Cook PVI, lines in force",
+   "environment": 15.4,
+   "inc": 0,
+   "prior": -5.34,
+   "polls_used": [
+    "Emerson College, 2025-11-24"
+   ],
+   "poll_window": "1-21 days",
+   "poll_avg": -2.13,
+   "poll_weight": 0.62,
+   "margin": -3.36,
+   "sd": 7.07,
+   "error_shape": "normal",
+   "p_dem": 0.3172,
+   "intervals": {
+    "50": [
+     -8.12,
+     1.41
+    ],
+    "80": [
+     -12.41,
+     5.7
+    ],
+    "95": [
+     -17.21,
+     10.49
+    ]
+   },
+   "commit": "cdbaa89",
+   "locked": true
+  }
+ ],
+ "result": {
+  "margin": -8.89,
+  "dem_pct": 45.1,
+  "rep_pct": 53.9,
+  "source": "data/interim/house_specials.csv (Wikipedia, 2025 House elections page)"
+ },
+ "sources": [
+  "data/interim/house_specials.csv",
+  "data/interim/special_polls.csv (SP-4)"
+ ]
+}

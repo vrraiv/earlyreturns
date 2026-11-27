@@ -1,6 +1,6 @@
 # Special elections: design note
 
-The note for the specials track (work plan cards SP-1 to SP-8 in `planning/plan.js`). Started 2026-11-25 with SP-3; section 2 is SP-4, section 3 SP-5, section 4 SP-8.
+The note for the specials track (work plan cards SP-1 to SP-8 in `planning/plan.js`). Started 2026-11-25 with SP-3; section 2 is SP-4, section 3 SP-5, section 4 SP-8, section 5 SP-7.
 SP-1 and SP-2 (House specials and the single-race path, November 2026) are written up in `PLAN.md`, section 5.
 Rules are written here before anything they govern is run, agreed with the project owner, and every run is reported.
 
@@ -776,3 +776,158 @@ winner not yet seated).
   until the next Congress"; FL-1, where the Clerk dates the vacancy 3 January 2025 and Wikipedia Gaetz's resignation
   13 November 2024. These notes stay until a source changes; only changes trip the check.
 
+
+## 5. Runbook and page for a live special (SP-7)
+
+The card: the steps from a special being called to a published page (race details, lean on the lines in force, polls,
+run, publish), a page template at `/specials/<race>/` (SI-1, 2026-11-20), and a dry run on a past special. SP-8 hands
+over each live special it finds; the first is Minnesota's Senate seat (class 1), special on November 2, 2027.
+
+### What is in the repo (checked 2026-11-27)
+
+- **The run.** `src/model/single_race.py house | senate` forecasts one special on any date, with polls passed by hand
+  (`--poll D,R`). It prints the forecast and saves nothing; only `backtest` writes a file. The Senate branch refuses
+  a date after November 3, 2026 until the certified 2026 House vote is in (DA-12), so Minnesota cannot be run yet.
+- **Polls.** `src/collect/special_polls.py` collects polls of past specials only (SP-4). There is no collector for a
+  race still ahead.
+- **The site.** `src/site/landing.py` builds the landing page and the coming pages from `src/site/site.json`; the
+  landing page prints `callout.text` when the callout is set (it is `null`) and has no end date. There is no
+  `/specials/` page or template. The scorecard job rebuilds and commits `site/`, so anything under `site/specials/`
+  ships on the next merge.
+
+### Decided by the owner (2026-11-27, before the rules below were drafted)
+
+- **Dry run:** one of each, a 2025-26 House special with polls and one past Senate special. The House run is
+  prospective; the Senate run is a walk-through, not a test, because its SD of 18 was chosen on the same 13 races.
+  (Found at the dry run: the House race, TN-7, was in SP-4's scoring run, so it is a walk-through as well.)
+- **Dry-run pages** are built locally and on a Cloudflare preview only, never committed under `site/`.
+- **Minnesota before DA-12:** its page goes up in the coming state, with the landing callout and an end date.
+- **Refresh by hand,** following the runbook, not by a scheduled job.
+
+### Rules (written and agreed 2026-11-27, before anything was built)
+
+1. **One record per race.** `data/specials/<race>.json`, with `<race>` as `<state>-<seat>-<year>` (`mn-senate-2027`,
+   `tn-07-2025`): chamber, state, seat, vacancy (from the watch file row), election dates (each round), candidates and
+   parties as filed, the lean used and its source, polls entered (pollster, dates, sample, D, R, source link), and
+   a list of runs. Committed; public facts and the repo's own outputs only.
+2. **A run is saved, not printed.** `single_race.py` gains a `--save <race>` option that appends the run to the
+   record: run date, inputs (lean, environment, incumbency, polls used), margin, interval (50/80/95%), win
+   probability, and the git commit. No change to the model or its settings; `check_frozen.py` must still pass.
+3. **Page states** (SI-1's states for one race): **coming** (the race, the dates, what the forecast waits on, no
+   numbers); **forecast** (latest run: margin, interval, win probability, and every earlier run as a line); **result**
+   (the locked last run beside the certified result, the miss in points, and whether the result fell inside each
+   interval). A page moves to forecast only once the branch it uses is decided in this note (House: PLAN.md item 5
+   and SP-4; Senate: section 1's decision). A poll-only state is not used: the single-race path always has a prior.
+4. **Page template.** One template, `src/site/special.py`, built from the same entry point as the landing page, with
+   the shared header, footer and stylesheet; every word that is not a number comes from the record or `site.json`.
+   The page says which branch ran, that the Senate SD was chosen on the races it was checked on, and links to this
+   note.
+5. **Callout.** `site.json` `callout` gains `path` and `ends` (a date); the build drops a callout past its end date.
+   For a live special it ends the day after the last round.
+6. **When to rerun** (the runbook): on the day the page goes to forecast; on each new poll entered; on the first of
+   each month; daily in the final 7 days; and a last run the evening before election day, which is locked. Each
+   rerun is a pull request with the record and the rebuilt page.
+7. **Polls by hand.** Polls are entered into the record from Wikipedia's page for the race (revision id kept) or the
+   pollster's release, under SP-4's rules (two-party share; leaners pushed where given; one question per poll, the
+   first if several). No poll is dropped for its result.
+8. **Dry runs.** Each runs strictly as of a date before the race (the House one at the last-run point, the evening
+   before), using only polls released by then, and is reported here with its miss. Proposed: TN-7 (December 2, 2025;
+   polls from SP-4) for the House, and Alabama 2017 (December 12, 2017) for the Senate. The dry runs change nothing in
+   the model whatever their result.
+9. **The runbook** is section 5's last part, written as numbered steps a person can follow from the SP-8 pull request
+   to a published page and, after the race, to the result state.
+
+### Build report (2026-11-27)
+
+- **Records.** `data/specials/<race>.json` for live races; dry runs in `data/specials/dry_runs/`, which the site build
+  never reads (it refuses a record marked `dry_run` at the top level). Minnesota's record, `mn-senate-2027`, is in the
+  coming state: the vacancy, a month for the election (Wikipedia gives November 2027; the day waits on Minnesota's
+  Secretary of State), and four things the forecast waits on.
+- **The run.** `single_race.py house | senate --save <race>` (rule 2) takes the state, seat, date and incumbency from
+  the record, and the record's polls under SP-4's window as of the run date (`--asof`, default today); `--lock` marks
+  the last run. It refuses a run on or after election day, and a record whose election date is not a full date. The
+  model and its settings are unchanged; the forecast functions are called as before.
+- **The page.** `src/site/special.py`, called by `landing.py` (and so by `build.py` and the daily scorecard job),
+  writes `site/specials/<race>/` for every live record; `--preview OUT <records>` writes dry runs elsewhere. The
+  latest run is shown as figures and one strip (forecast margin, 80% and 95% intervals, the result once in), then
+  every run, the polls, the key dates, the candidates, and the branch's method in words, with the Senate SD's caveat.
+- **Callout.** `site.json` `callout` takes `link`, `path` and `ends`; `landing.py` drops it after `ends`. Minnesota's
+  is up, ending 2027-11-30 until the day is confirmed (rule 5 then moves it to the day after the election).
+
+Rules as built, where the draft left room or the build departed from it:
+
+- **The poll window.** Rule 7's "under SP-4's rules" includes SP-4 rule 2's window, so a run averages only polls that
+  ended in the 21 days before election day, or, with none there, 22 to 60 days before. A poll more than 60 days out
+  is listed on the page but enters no run, and once one poll lands in the last 21 days the older ones drop out. For
+  Minnesota, that means polls from early and mid 2027 move nothing until September; a rerun on such a poll (rule 6)
+  repeats the prior. **For the owner:** keep the window as is, or widen it for a race months away (that would be a
+  new rule, untested on past specials).
+- **Fixed wording** (the branch descriptions, the state notes, the table headings) lives in `src/site/special.py`, not
+  the record or `site.json` as rule 4 said; it is the same for every race.
+- **Polls** carry pollster, field end date, population, D, R, partisan tag, source and note; no sample size or start
+  date, which rule 1 listed (the SP-4 tables the dry runs drew on have neither, and no run uses them).
+- **Dry-run records** are committed in `data/specials/dry_runs/` so the runs can be repeated; their pages are not.
+- **Link preview:** each special's page uses the landing page's card (`og-home.png`); `site/og.png` is the 2026
+  forecast's.
+
+### Dry runs (2026-11-27, pages on a local preview only)
+
+Each run as of a date before the race, with the polls whose field ended by then; the last is locked. Records:
+`data/specials/dry_runs/tn-07-2025.json`, `al-senate-2017.json`.
+
+| Race | Run | Polls (window) | Prior | Poll avg (weight) | Forecast | 80% interval | P(D) | Result | Miss |
+|---|---|---|---|---|---|---|---|---|---|
+| TN-7, Dec 2, 2025 (House) | Oct 21 | 2 (22-60 days) | R+5.3 | R+9.6 (0.64) | R+8.1 | R+16.8 to D+0.7 | 12% | | |
+| | Dec 1, locked | 1 (1-21 days) | R+5.3 | R+2.1 (0.62) | R+3.4 | R+12.4 to D+5.7 | 32% | R+8.9 | 5.5 toward R |
+| Alabama Senate, Dec 12, 2017 | Nov 1 | 4 (22-60 days) | R+22.4 | R+10.5 (0.86) | R+12.1 | R+19.4 to R+4.9 | 3% | | |
+| | Dec 11, locked | 18 (1-21 days) | R+22.4 | R+2.9 (0.93) | R+4.3 | R+9.6 to D+0.9 | 14% | D+1.6 | 6.0 toward D |
+
+- **TN-7** had the winner; the result fell inside the 80% and 95% intervals, outside the 50%. The one poll in the
+  final window (Emerson, R+2.1) was further from the result than the prior's R+5.3 and pulled the forecast toward the
+  Democrat. TN-7 is a walk-through too, not a test: it was one of the six Wikipedia races in SP-4's scoring run, with
+  these polls, and the poll rule (P1) was settled on that run.
+- **Alabama 2017** missed the winner (Jones at 14%); the result fell inside the 95% interval only. As agreed, this is
+  a walk-through, not a test: the SD of 18 was chosen on these races, and Alabama is one of them.
+- **What the dry runs found about the steps**, none of it a change to the model:
+  - The environment is taken on election day, as the backtest does, not on the run date; an early dry run therefore
+    sees approval up to election day. A live run sees only what exists on its date, so this matters only for dry runs.
+  - "Polls released by then" is read as field ended by then; the collected tables carry no release date.
+  - FiveThirtyEight's file does not tag the NRSC's Alabama poll as partisan; SP-4 rule 3 takes the file's tag, so the
+    page shows it untagged. A live race's polls are tagged by hand (runbook step 6).
+  - The runs saved the base commit (`cdbaa89`) because `--save` itself was not yet committed.
+- Dry-run pages were checked in a browser in light and dark mode in all three states (coming: Minnesota; forecast:
+  TN-7 with its result removed; result: both dry runs).
+
+### Runbook: from a live special to a published page
+
+1. **The trip.** The weekly SP-8 pull request names a live special. Merge it, then read the race's row in
+   `data/interim/specials_watch.csv`.
+2. **The record.** Copy `data/specials/mn-senate-2027.json` to `data/specials/<race>.json` (`<state>-<seat>-<year>`,
+   e.g. `oh-03-2027`, `mn-senate-2027`). Fill in: title, chamber, `branch` (`house` or `senate`), state, state name,
+   seat, `district` (House), the vacancy, each round's date, and `waits_on`. Enter a round's date as a full
+   `YYYY-MM-DD` only once it is checked against the state's election office; until then the month alone.
+3. **The inputs the branch needs.** House: the district's PVI on the lines in force (`lookup_lean2`; after the 2026
+   general, `data/interim/house_2026_races.csv`). Senate: the lean's election and the last House vote (DA-12 for any
+   date after November 3, 2026). If one is missing, say so in `waits_on`; the run refuses rather than guess.
+4. **Coming page and callout.** `python src/site/landing.py` writes `site/specials/<race>/`. In `src/site/site.json`
+   set `callout` to `{"text": ..., "link": "The race page", "path": "specials/<race>/", "ends": <the day after the
+   last round, or the month's last day while only the month is known>}`. Open a pull request; check the page on its
+   Cloudflare preview; merge.
+5. **Candidates.** After the nominations, add `candidates` (name, party) and `inc`: +1 if a sitting member from the
+   seat (an appointee included) runs as a Democrat, -1 as a Republican, 0 for an open seat.
+6. **Polls.** Enter every poll of the deciding round's Democrat against its Republican, from the race's Wikipedia
+   page (note the revision id in `source`) or the pollster's release: pollster, field end date, population, D, R,
+   `partisan` (the party, if a party, a party committee, a campaign or a group backing one side paid for it), source.
+   One question per poll: likely voters over registered voters over adults, then the full field over a head-to-head.
+   No poll is dropped for its numbers.
+7. **First run.** `python src/model/single_race.py <branch> --save <race>`, once step 3's inputs and the candidates
+   are in. Rebuild (`python src/site/landing.py`), open a pull request with the record and the page, merge.
+8. **Reruns** (rule 6), each the same command and a pull request: on each new poll entered; on the first of each
+   month; daily in the final 7 days.
+9. **Last run,** the evening before election day: add `--lock`.
+10. **Result.** Once the state certifies, add `"result": {"margin": <two-party D-R>, "dem_votes": ..., "rep_votes":
+    ..., "source": ...}`, rebuild (the page moves to the result state), and report the race here: the locked run,
+    the result, the miss, the intervals that held it. Set `callout` back to `null`. (The callout drops at the first
+    build after `ends`; the daily scorecard job rebuilds only while it runs, so check the landing page then.)
+11. **A dry run or a check** of any record: `python src/site/special.py --preview ci_out/preview <record.json>` and
+    serve `ci_out/preview` (with a copy of `site/assets`) locally; nothing under `site/` changes.
