@@ -21,6 +21,8 @@ trend, T2 population growth) and a demographic swing model for Maine's and Nebra
 Run:  python src/model/pres_sim.py checks     (planted inputs and identities; prints pass or fail only)
       python src/model/pres_sim.py run        (the one round: the tests, the reports; the as-of outputs are written, not printed)
       python src/model/pres_sim.py asof       (part D alone, with the adopted turnout weights read from pres_sim.json)
+      python src/model/pres_sim.py draws 2020 7   (section 18: one scored election's draws, replayed and saved for the
+                                                   model page; checked against pres_sim_asof.json, which it never writes)
 """
 import json
 import sys
@@ -1229,5 +1231,76 @@ def run():
     print("written: pres_sim.json, pres_sim_asof.json")
 
 
+def draws_file():
+    """Section 18: the per-draw file for the site, for one election and date that EC-7 has already scored.
+
+    A replay, not a run: the same assembly and seed as `asof`, checked against the saved entry of pres_sim_asof.json
+    before anything is written, and stopped if they differ. Nothing is fitted beyond what the assembly refits as of the
+    election, nothing is scored, and pres_sim.json and pres_sim_asof.json are read, never written.
+
+    Layout (little-endian columns, n = draws; the Senate model's compact form, forecast.write_sims):
+      uint32[n] win bits of contests 0 to 31 | uint32[n] of contests 32 to 55 | int16[n] popular vote in 0.1 points.
+    A set bit: the Democrat carries the contest. The .json beside it lists the contests in bit order."""
+    if len(sys.argv) != 4:
+        raise SystemExit("usage: pres_sim.py draws <election> <days>")
+    y, d = int(sys.argv[2]), int(sys.argv[3])
+    if y not in SCORED or d not in SIM_DAYS:
+        raise SystemExit(f"draws are written only for an election EC-7 has scored {SCORED} at {SIM_DAYS} days; "
+                         f"{y} at {d} is refused (2024 is held out until the design freeze)")
+    saved = json.loads((OUT / "pres_sim_asof.json").read_text())[f"{y}/{d}"]
+    tt = json.loads((OUT / "pres_sim.json").read_text())["turnout"]
+    adopted = tt.get("adopted")
+    assert (adopted or "T0") == saved["turnout"]["weights"], "the turnout weights differ from the saved run's"
+    cells, E, q = load()
+    ecells, Q, states = structure_cells(cells, PE.Demo())
+    D = district_table()
+    nat_err = national_errors(E)
+    sh, _, _ = shares(); pop, vint = populations()
+    v_over, lam = asof_weights(adopted, y, sh, pop, vint) if adopted else (None, None)
+    m, _ = assemble(cells, q, D, ecells, Q, states, nat_err, y, d, "R0", v_override=v_over)
+    o, allm, pv = m.outputs(draws(len(states), m.L.shape[1], NSIM, SEED))
+    contests = list(states) + list(m.districts)
+    # the gate: these draws are the ones EC-7 scored, or nothing is written
+    diffs = [c for c in contests if o["contests"][c]["p_dem"] != saved["contests"][c]["p_dem"]]
+    same = {"every contest's win probability": not diffs and list(saved["contests"]) == contests,
+            "the simulated chance of 270": o["p_dem_270_sim"] == saved["p_dem_270_sim"],
+            "the simulated median count": o["count_median_sim"] == saved["count_median_sim"],
+            "the popular vote's median": o["popular_vote"]["median"] == saved["popular_vote"]["median"],
+            "the exact chance of 270": o["p_dem_270_exact"] == saved["p_dem_270_exact"]}
+    for k, ok in same.items():
+        print(f"  {'same' if ok else 'DIFFERS'}: {k}")
+    if not all(same.values()):
+        raise SystemExit(f"the replay does not reproduce pres_sim_asof.json {y}/{d} ({len(diffs)} contests differ); nothing written")
+    n = len(pv)
+    win = allm > 0
+    assert len(contests) == 56 and win.shape == (n, 56)
+    lo, hi = np.zeros(n, dtype="<u4"), np.zeros(n, dtype="<u4")
+    for i in range(56):
+        if i < 32:
+            lo |= win[:, i].astype("<u4") << np.uint32(i)
+        else:
+            hi |= win[:, i].astype("<u4") << np.uint32(i - 32)
+    pv10 = np.clip(np.round(pv * 10), -32000, 32000).astype("<i2")
+    ev = [int(m.ev[c]) for c in contests]
+    count = (win * np.array(ev)[None, :]).sum(1)
+    assert float((count >= 270).mean()) == saved["p_dem_270_sim"]          # the page's own count, from the bits
+    # what happened, from the table EC-7 scored (already read there)
+    B = pd.read_csv(OUT / "pres_backtest_contests.csv")
+    B = B[(B.year == y) & (B.d == d)].set_index("contest")
+    won = [bool(B.loc[c, "won"]) for c in contests]
+    name = f"pres_draws_{y}_{d}"
+    (OUT / f"{name}.bin").write_bytes(lo.tobytes() + hi.tobytes() + pv10.tobytes())
+    meta = {"election": y, "days": d, "n": n, "seed": SEED, "file": f"{name}.bin",
+            "layout": "u4 bits 0-31|u4 bits 32-55|i2 pv", "pv_scale": 0.1, "contests": contests, "ev": ev,
+            "replays": f"pres_sim_asof.json {y}/{d}", "turnout": saved["turnout"],
+            "model": {"p_dem_270_exact": saved["p_dem_270_exact"], "p_rep_270_exact": saved["p_rep_270_exact"],
+                      "p_tie_exact": saved["p_tie_exact"], "count_median_exact": saved["count_median_exact"],
+                      "count_p10_exact": saved["count_p10_exact"], "count_p90_exact": saved["count_p90_exact"],
+                      "pv_median": saved["popular_vote"]["median"], "p_dem_270_sim": saved["p_dem_270_sim"]},
+            "result": {"won": won, "dem_count": int(sum(e for e, w in zip(ev, won) if w))}}
+    (OUT / f"{name}.json").write_text(json.dumps(meta, indent=1))
+    print(f"written: {name}.bin ({(OUT / (name + '.bin')).stat().st_size:,} bytes), {name}.json; {n:,} draws, 56 contests")
+
+
 if __name__ == "__main__":
-    {"checks": checks, "run": run, "asof": asof}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()
+    {"checks": checks, "run": run, "asof": asof, "draws": draws_file}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()
