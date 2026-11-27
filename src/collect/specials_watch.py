@@ -8,7 +8,8 @@ Two sources, checked weekly:
 Rows are kept for the current Congress and the next once its page exists; rows of earlier Congresses already in the
 file are kept as they are. Where the Clerk and Wikipedia disagree, both are reported in `note` and nothing is decided.
 
-Statuses (rule 3): announced, vacant_no_date, special_scheduled, appointed, held, filled, no_special.
+Statuses (rule 3): announced, vacant_no_date, special_scheduled, appointed, held, filled, no_special; and gone, for a
+row of a watched Congress that is no longer in either source (kept, so the change trips the check once).
 A live special (rule 4): a special election with a date found, not yet held, not on a regular general-election day,
 seat not filled. A trip is any new row or any change to a row (rule 5); the changes go to ci_out/specials_watch.md.
 A source that fails to load or parse raises, so the run fails instead of writing an empty list.
@@ -39,6 +40,7 @@ KEY = ["congress", "chamber", "state", "seat", "vacated_by"]
 MONTHS = "January|February|March|April|May|June|July|August|September|October|November|December"
 FULL_DATE = rf"(?:{MONTHS})\s+\d{{1,2}},\s+\d{{4}}"
 MONTH_YEAR = rf"(?:{MONTHS})\s+\d{{4}}"
+MONTH_DAY = rf"(?:{MONTHS})\s+\d{{1,2}}(?!\d)(?!,?\s*\d{{4}})"   # "August 18", year left out after an earlier date
 STATES = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida",
           "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine",
           "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
@@ -134,8 +136,7 @@ def clerk_rows():
                      "seated_date": iso(succ.group(3)) if succ else "",
                      "special_clerk": iso(tbd.group(1)) if tbd and tbd.group(1) != "TBD" else "",
                      "clerk": clerk})
-    if not rows:
-        raise RuntimeError("Clerk page: no vacancy blocks parsed")
+    # an empty list is legitimate (a new Congress opens with none); a missing heading is not, and raised above
     return congress, rows
 
 
@@ -202,8 +203,15 @@ def special_dates(text):
     for sent in re.split(r"(?<=\.)\s+", text):
         if not re.search(r"special election|runoff|special primary|elected .*to finish the term", sent, re.I):
             continue
-        for m in re.finditer(rf"({FULL_DATE}|{MONTH_YEAR})", sent):
+        last = None
+        for m in re.finditer(rf"({FULL_DATE}|{MONTH_YEAR}|{MONTH_DAY})", sent):
             d = iso(m.group(1))
+            if not d and last:                      # no year: the year of the sentence's previous date, or the next
+                d = iso(f"{m.group(1)}, {last[:4]}")
+                if d and d < last:
+                    d = iso(f"{m.group(1)}, {int(last[:4]) + 1}")
+            if d:
+                last = d
             before = sent[:m.start()].lower()
             if not d or re.search(r"(ending|ends|expir\w*|through|until)\s*$", before):   # a term's end, not an election
                 continue
@@ -246,7 +254,8 @@ def wiki_rows(congress, today):
             dates = re.findall(FULL_DATE, why)
             vac_m = re.search(rf"(?:died|resigned|resigning(?: on)?|resign(?:s|ing)? effective|expelled)\s+(?:on\s+)?({FULL_DATE}|{MONTH_YEAR})",
                               why, re.I)
-            vacancy_date = iso(vac_m.group(1)) if vac_m else (iso(dates[0]) if dates else "")
+            eff = re.search(rf"effective\s+(?:on\s+)?({FULL_DATE})", why, re.I)   # an announced resignation's date
+            vacancy_date = iso(eff.group(1)) if eff else iso(vac_m.group(1)) if vac_m else (iso(dates[0]) if dates else "")
             vacant_later = "vacant until the next congress" in succ_name.lower() or "vacant until" in seated_txt.lower()
             seated = iso(seated_txt)
             successor = "" if vacant_later or succ_name.upper() in ("TBD", "") or succ_name.lower().startswith("vacant") else succ_name
@@ -285,11 +294,10 @@ def status_of(r, today):
 def live(r, today):
     if r["status"] not in ("special_scheduled", "appointed", "announced"):
         return False
-    sp = [s for s in r["special_dates"].split("; ") if s and not s.startswith("runoff")]
-    if not sp:
-        return False
-    nxt = min(sp)
-    return nxt >= today.isoformat()[:len(nxt)] and not is_general_day(nxt)
+    # the next round still to come, first round or runoff; live unless it falls on a general-election day
+    ahead = [s.replace("runoff ", "") for s in r["special_dates"].split("; ") if s]
+    ahead = [d for d in ahead if d >= today.isoformat()[:len(d)]]
+    return bool(ahead) and not is_general_day(min(ahead))
 
 
 # ---------- build ----------
@@ -352,7 +360,7 @@ def build(today):
         r["note"] = "on the Clerk's list, not in Wikipedia's table"
         out.append(r)
     df = pd.DataFrame(out)[COLS].astype(str)
-    return df, clerk_cong, revs
+    return df, clerk_cong, revs, len(clerk)
 
 
 def changes(old, new):
@@ -367,20 +375,20 @@ def changes(old, new):
             lines.append(f"- **New:** {label(r)}: {r['reason']}, {r['status']}"
                          + (f", special {r['special_dates']}" if r["special_dates"] else "")
                          + (" — **LIVE SPECIAL**" if r["live_special"] == "yes" else ""))
+        elif r["status"] == "gone" and o[k]["status"] != "gone":
+            lines.append(f"- **Gone from the sources:** {label(r)} (was {o[k]['status']}; kept in the file as gone; "
+                         "a renamed row in Wikipedia shows up as new beside it)")
         else:
             diff = [f"{c} `{o[k][c] or '-'}` → `{r[c] or '-'}`" for c in COLS if c not in KEY and o[k][c] != r[c]]
             if diff:
                 lines.append(f"- **Changed:** {label(r)}: " + "; ".join(diff)
                              + (" — **LIVE SPECIAL**" if r["live_special"] == "yes" and o[k]["live_special"] != "yes" else ""))
-    for k, r in o.items():
-        if k not in n:
-            lines.append(f"- **Gone from the sources:** {label(r)} (kept in the file)")
     return lines
 
 
 def main(dry=False):
     today = dt.date.today()
-    new, clerk_cong, revs = build(today)
+    new, clerk_cong, revs, n_clerk = build(today)
     old = pd.read_csv(OUT, dtype=str, keep_default_na=False) if OUT.exists() else pd.DataFrame(columns=COLS)
     cur = congress_for(today)
     keep_old = old[~old["congress"].astype(int).isin([cur, cur + 1])] if len(old) else old
@@ -388,13 +396,16 @@ def main(dry=False):
     gone = old[old["congress"].astype(int).isin([cur, cur + 1])] if len(old) else old
     if len(gone):
         newkeys = set(map(tuple, new[KEY].values))
-        gone = gone[[tuple(x) not in newkeys for x in gone[KEY].values]]
+        gone = gone[[tuple(x) not in newkeys for x in gone[KEY].values]].copy()
+        fresh = gone["status"] != "gone"
+        gone.loc[fresh, "note"] = gone.loc[fresh, "note"].where(gone.loc[fresh, "note"] == "", gone.loc[fresh, "note"] + "; ")             + f"gone from the sources {today}"
+        gone["status"], gone["live_special"] = "gone", ""
     merged = pd.concat([keep_old, new, gone], ignore_index=True)[COLS]
     merged = merged.sort_values(["congress", "chamber", "vacancy_date", "state", "seat"], ignore_index=True)
     lines = changes(old, merged)
     lives = merged[merged["live_special"] == "yes"]
-    summary = [f"Specials watch, {today}: Clerk list for the {ordinal(clerk_cong)} Congress; Wikipedia revisions "
-               + ", ".join(f"{ordinal(c)} Congress {r}" for c, r in revs.items()) + ".", ""]
+    summary = [f"Specials watch, {today}: Clerk list for the {ordinal(clerk_cong)} Congress ({n_clerk} vacancies listed); "
+               "Wikipedia revisions " + ", ".join(f"{ordinal(c)} Congress {r}" for c, r in revs.items()) + ".", ""]
     summary += (["**Changes since the last check**", ""] + lines) if lines else ["No changes since the last check."]
     if len(lives):
         summary += ["", "**Live specials** (ready for the SP-7 steps: race details, lean on the lines in force, polls, run, page):", ""]

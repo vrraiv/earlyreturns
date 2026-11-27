@@ -6,12 +6,12 @@ congress,chamber,state,seat,vacated_by,party,reason,vacancy_date,successor,seate
 119,House,Virginia,11,Gerry Connolly,D,died,2025-05-21,James Walkinshaw,2025-09-10,2025-09-09,filled,,"filled: elected 2025-09-09, sworn 2025-09-10",
 119,House,Tennessee,7,Mark Green,R,resigned,2025-07-20,Matt Van Epps,2025-12-04,2025-12-02,filled,,"filled: elected 2025-12-02, sworn 2025-12-04",
 119,House,New Jersey,11,Mikie Sherrill,D,resigned,2025-11-20,Analilia Mejia,2026-04-20,2026-04-16,filled,,"filled: elected 2026-04-16, sworn 2026-04-20",
-119,House,Georgia,14,Marjorie Taylor Greene,R,resigned,2026-01-05,Clay Fuller,2026-04-14,2026-03-10,filled,,"filled: elected 2026-04-07, sworn 2026-04-14",
+119,House,Georgia,14,Marjorie Taylor Greene,R,resigned,2026-01-05,Clay Fuller,2026-04-14,2026-03-10; runoff 2026-04-07,filled,,"filled: elected 2026-04-07, sworn 2026-04-14",
 119,House,California,1,Doug LaMalfa,R,died,2026-01-06,James Gallagher,2026-06-10,2026-06-02,filled,,"filled: elected 2026-06-02, sworn 2026-06-10",
-119,House,California,14,Eric Swalwell,D,resigned,2026-04-14,Aisha Wahab,2026-09-02,2026-06-16,filled,,"filled: elected 2026-08-18, sworn 2026-09-02",
+119,House,California,14,Eric Swalwell,D,resigned,2026-04-14,Aisha Wahab,2026-09-02,2026-06-16; runoff 2026-08-18,filled,,"filled: elected 2026-08-18, sworn 2026-09-02",
 119,House,Texas,23,Tony Gonzales,R,resigned,2026-04-14,,,,no_special,,special date TBD,Clerk: special date TBD; Wikipedia: vacant until the next Congress
 119,House,Florida,20,Sheila Cherfilus-McCormick,D,resigned,2026-04-21,,,,no_special,,special date TBD,Clerk: special date TBD; Wikipedia: vacant until the next Congress
-119,House,Georgia,13,David Scott,D,died,2026-04-22,Everton Blair,2026-09-01,2026-07-28,filled,,"filled: elected 2026-08-25, sworn 2026-09-01",
+119,House,Georgia,13,David Scott,D,died,2026-04-22,Everton Blair,2026-09-01,2026-07-28; runoff 2026-08-25,filled,,"filled: elected 2026-08-25, sworn 2026-09-01",
 119,House,Oklahoma,1,Kevin Hern,R,resigned,2026-11-30,,,,announced,,,
 119,House,California,34,Jimmy Gomez,D,resigned,2026-12-01,,,,announced,,,
 119,Senate,West Virginia,class 1,Vacant,,seat not taken up,,Jim Justice,2025-01-14,,filled,,,

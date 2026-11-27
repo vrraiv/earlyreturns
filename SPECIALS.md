@@ -745,10 +745,27 @@ Rules as built, where the draft left room:
 - Special election dates are read from sentences that mention a special election, a runoff, a special primary or a
   successor "elected ... to finish the term"; a date after "ending", "through" or "until" is a term's end and skipped.
   A bare month ("November 2027") is kept as a month. A month of November in an even year counts as a general-election day.
-- Rows of the watched Congresses that vanish from both sources stay in the file and are listed as gone.
+  A date written without a year ("a runoff will be held on August 18") takes the year of the sentence's previous date
+  (the next year if that would put it earlier).
+- An announced resignation's vacancy date is the "effective" date where the prose gives one.
+- A special is live while any round, first or runoff, is still to come, unless that next round falls on a
+  general-election day.
+- Rows of the watched Congresses that vanish from both sources stay in the file with status `gone` and the live flag
+  cleared, so the change trips the check once. A row Wikipedia renames shows up as gone beside a new one.
+- An empty Clerk list is valid (a new Congress opens with none); a page without the "Vacancies of the <n>th Congress"
+  heading fails the run.
 
-First run, 2026-11-27 (the seed for the weekly comparison): 24 rows, 15 House and 9 Senate, 22 for the 119th Congress
-and 2 for the 120th.
+**Check on past revisions (2026-11-27, scratchpad only).** The Wikipedia parser was run on the 119th Congress page as
+it stood on eight dates from February 2025 to August 2026, with "today" set to each date. Every House special of the
+period came out scheduled and live while it was ahead (FL-1, FL-6, AZ-7, VA-11, TX-18, TN-7, NJ-11, CA-1, CA-14,
+GA-13) and held once past. Three faults were found and fixed (the rules just above): TX-18's pending runoff was not
+live, CA-14's and GA-13's runoffs were missed (dates without a year), and GA-14's announced resignation took the
+announcement date instead of the effective date. "A special election will be held on a date TBD" and "... will be
+called within 30 days" correctly give no date.
+
+First run, 2026-11-27 (the seed for the weekly comparison, rebuilt after the fixes above): 24 rows, 15 House and
+9 Senate, 22 for the 119th Congress and 2 for the 120th; 16 filled, 5 announced, 2 with no special, 1 held (Ohio Senate,
+winner not yet seated).
 
 - **Live special:** Minnesota Senate (class 1). Klobuchar resigns in January 2027 to become governor; an appointee
   serves until a special in November 2027.
