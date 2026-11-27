@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-27b",
+  version: "2026-11-27c",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -960,7 +960,7 @@ window.PLAN = {
           details: [
             "Vacancies and scheduled specials, checked monthly.",
             "The Downballot keeps a special elections sheet for 2027 to 2028, with results as they come.",
-            "Built 2026-11-27 (SPECIALS.md, section 4): a weekly check of the House Clerk's vacancy list and Wikipedia's Congress pages, House and Senate, run by GitHub Actions and ending in a pull request when the list changes. A live special it finds is handed to SP-7. The Downballot's 2027 to 2028 sheet holds results, not vacancies, so it is linked, not used. News APIs were checked and not used: NewsAPI's free plan is for development only, World News API's forbids storing derived data, and GDELT was on a reliability test. Moves to the cron Worker with the other jobs when OP-3 is built."
+            "Built 2026-11-27 (SPECIALS.md, section 4): a weekly check of the House Clerk's vacancy list and Wikipedia's Congress pages, House and Senate, run by GitHub Actions and ending in a pull request when the list changes. A live special it finds is handed to SP-7. The Downballot's 2027 to 2028 sheet holds results, not vacancies, so it is linked, not used. News APIs were checked and not used: NewsAPI's free plan is for development only, World News API's forbids storing derived data, and GDELT failed a reliability test (5 of 19 requests accepted at one every 10 minutes). The first run on Actions was clean, so GitHub's runners can reach both sources. Moves to the cron Worker with the other jobs when OP-3 is built."
           ],
           checklist: [
             { id: "a", text: "Sources and rules agreed" },
