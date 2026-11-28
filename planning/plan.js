@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-27f",
+  version: "2026-11-27g",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -471,6 +471,20 @@ window.PLAN = {
             { id: "b", text: "2026 district results added, with uncontested seats marked" },
             { id: "c", text: "2026 kept out of the estimator's training; every reader of the file checked" },
             { id: "d", text: "Single-race paths run on a date after November 2026; DATA.md updated" }
+          ] },
+        { id: "DA-13", title: "State presidential polls before 2004: what exists", kind: "story", phase: "p4",
+          why: "The assembled electoral college model is scored on four elections because whole-campaign state polls start in 2004. Earlier elections would be out of sample for a design built on 2004 to 2020, and would not touch the 2024 holdout.",
+          details: [
+            "Added 2026-11-27. An availability check first: sources, coverage and terms only. No poll file is fetched and no result is read, as in PP-2's check.",
+            "In the repo now: whole campaigns from 2004; for 2000 only the final 60 days (538's late-polls file, which starts in 1998); nothing earlier. State results go back to 1828 and national polls to 1952.",
+            "Leads to check, none verified: academic collections of state polls (DeSart and Holbrook's September polls from 1992 on; Cohen's for 1996), which would mean asking the authors; the Roper Center's archive, which needs a subscription; archived poll-listing sites for 1996 and 2000. The whole 2000 campaign counts as much as the earlier years. A first search on 2026-11-27 found no public file of state polls for 1972 to 1996.",
+            "Also to list: what else the older years lack. The state demographics start in 2000 and Maine's and Nebraska's district results in 1996, so older elections could test single features (the pull toward a state's prior, the even shift to the national figure, memory in heavily polled states, a plain poll average as a benchmark), not the assembled model.",
+            "If enough exists: a collection card, and a backtest written into `ELECTORAL_COLLEGE.md` before any older poll is loaded: the features, the years, the score, and whether a result may change the design before the freeze (EC-9) or is only reported there. A feature that claims to be recent is not fairly tested on older elections.",
+            "Each source goes through DA-8 before its data is committed. A file sent by an author stays out of the repo and is cited by name."
+          ],
+          checklist: [
+            { id: "a", text: "Sources, coverage and terms listed" },
+            { id: "b", text: "Decided: collect, ask the authors, or stop" }
           ] }
       ]
     },
@@ -775,7 +789,22 @@ window.PLAN = {
             "Then the meta-posterior as the live season's scenario tool: polling-bias what-ifs, inserted polls, sensitivity to the priors.",
             "Needs a probabilistic-programming toolchain that the machine does not have (none of Stan, PyMC or JAX, and no C++ compiler, as of 2026-11-22): the install is a go-ahead item.",
             "Decided at EC-6 (2026-11-22): whether the site shows two different models or variants of one is settled here, on how the rival does; part of this work feeds the site cards (SI-5, SI-7)."
-          ] }
+          ] },
+        { id: "EC-11", title: "Memory in the national poll average, against results", kind: "story", phase: "p4", optional: true, needs: ["DA-13"],
+          why: "The 60-day memory was borrowed from the Senate average. Against results it has been checked only by two diagnostics on the national series, at two other half-lives and under no rule.",
+          details: [
+            "Added 2026-11-27, on the project owner's word. It reopens a question stage 1 closed (its third round was the last, whatever it showed), under a different score: results, not the next poll.",
+            "Decided 2026-11-27: optional. It is done only if DA-13 turns up a lot more data; on the national series alone it would turn two diagnostics into a registered test and is unlikely to overturn them.",
+            "What exists already (`ELECTORAL_COLLEGE.md`, section 11). Stage 1 scored memory against the next poll by another firm: no memory candidate passed, and a diagnostic found short memory best only for the nation and for heavily polled states. Against results, on the national series for 1980 to 2020, stage 2's diagnostic found a 7-day half-life worse than 60 days, most clearly at 30 and 7 days out, and stage 3 reported a 14-day half-life scoring better than 60 over 150, 100 and 60 days out. Both decided nothing.",
+            "The test: a grid of half-lives on the same series (`president_national_poll_days.csv`, 1952 to 2020), each scored election fitted only on those before it, scored against the result at the model's dates, on the adopted centre (the raw margin). One candidate may let the half-life depend on the days left: the two diagnostics suggest it, and it is declared as suggested by results.",
+            "Limits. The series is one reading a day, thin before 1980, with no firms, so firm rules cannot be tested on it. It is national only: a result here says nothing about memory in heavily polled states, which needs state polls (DA-13).",
+            "Written into the note and agreed before it runs: the grid, the score, the rule, and what a pass may change before the design freeze (EC-9). 2024 is not in the file."
+          ],
+          checklist: [
+            { id: "a", text: "Grid, score and rule written into the note and agreed" },
+            { id: "b", text: "Run once and reported" }
+          ],
+          refs: ["ELECTORAL_COLLEGE.md", "src/model/pres_conventions.py", "src/model/pres_reversion.py"] }
       ]
     },
 
