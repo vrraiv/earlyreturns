@@ -6,6 +6,7 @@ No candidates and no fits: the scoring was written down before any output was re
     python src/model/pres_backtest.py checks            planted inputs and identities; prints pass or fail only
     python src/model/pres_backtest.py run [outputs.json] the one scoring run; writes data/processed/pres_backtest.json
     python src/model/pres_backtest.py rungs             a declared diagnostic: errors by B2's rung (decides nothing)
+    python src/model/pres_backtest.py plain7            a diagnostic: a plain 7-day poll average (decides nothing)
 """
 import hashlib
 import json
@@ -482,5 +483,134 @@ def rungs():
     print("written: pres_backtest_rungs.json")
 
 
+# ------------------------------------------------------------------------------------------------ a plain 7-day average (diagnostic)
+PLAIN_DAYS = 7
+PLAIN_WINDOWS = (("A", "the 7 days before the forecast date", LEAD), ("B", "the final 7 days before the election", 0))
+PLAIN_COLS = ("plain", "model", "B2", "B1", "poll_avg", "after_pull")
+
+
+def _plain_frame(q, T, states, outputs):
+    """One row per contest with a poll in the window, at the 7-day forecast, and the top line for each election.
+
+    plain: the plain mean of the raw two-party margin of every poll of the contest (the loader's polls, one row a
+    poll) that ended in the 7 days before the window's reference date. No firm rule, no weights, no corrections.
+    model, B1, B2: EC-7's. poll_avg and after_pull (the 51 states): the model's own poll average before any prior
+    (stage 1's nowcast, `p` in pres_prior_frame.csv) and after EC-4's fixed pull toward the prior (`F`), before the
+    even shift. filled (all 56): a contest with no poll in the window takes the window's plain national average
+    plus its lean four years earlier, B2's last rung."""
+    pf = pd.read_csv(OUT / "pres_prior_frame.csv")
+    pf = pf[(pf.d == LEAD) & pf.cycle.isin(SCORED)].set_index(["cycle", "state"])
+    au = pd.read_csv(OUT / "pres_addup_rerun_frame.csv")
+    au = au[(au.d == LEAD) & au.cycle.isin(SCORED)].set_index(["cycle", "state"])
+    cs = states + DISTRICTS
+    rows, tops, chk = [], {}, {"point_vs_C": 0.0, "addup_input_vs_F": 0.0, "calls_differ": 0}
+    for y in SCORED:
+        cell = outputs[f"{y}/{LEAD}"]
+        model = {r["contest"]: r for r in contest_rows(cell, T[y], states, y, LEAD)}
+        bm, _ = benchmarks(q, T, states, y, LEAD)
+        qy = q[q.cycle == y]
+        elec = qy.election.iloc[0]
+        for c in states:                                          # the model's point against the stored centre; EC-4's F
+            chk["point_vs_C"] = max(chk["point_vs_C"], abs(model[c]["point"] - float(au.loc[(y, c), "C"])))
+            if bool(pf.loc[(y, c), "has"]):
+                chk["addup_input_vs_F"] = max(chk["addup_input_vs_F"],
+                                              abs(float(au.loc[(y, c), "baseline"]) - float(pf.loc[(y, c), "F"])))
+        chk["calls_differ"] += sum((model[c]["point"] > 0) != (model[c]["p"] >= 0.5) for c in cs)
+        for wname, _, back in PLAIN_WINDOWS:
+            ref = elec - pd.Timedelta(days=back)
+            w = qy[(qy.end < ref) & ((ref - qy.end).dt.days <= PLAIN_DAYS)]
+            avg, npoll, nfirm = w.groupby("geo").m.mean(), w.groupby("geo").size(), w.groupby("geo").pkey.nunique()
+            for c in cs:
+                has = c in avg.index
+                st = c in states and bool(pf.loc[(y, c), "has"])
+                rows.append({"year": y, "window": wname, "contest": c, "state": c in states, "result": T[y]["margin"][c],
+                             "covered": has, "plain": float(avg[c]) if has else np.nan,
+                             "npolls": int(npoll[c]) if has else 0, "nfirms": int(nfirm[c]) if has else 0,
+                             "model": model[c]["point"], "p_dem": model[c]["p"], "competitive": model[c]["competitive"],
+                             "B2": bm["B2"][c], "B1": bm["B1"][c],
+                             "poll_avg": float(pf.loc[(y, c), "p"]) if st else np.nan,
+                             "after_pull": float(pf.loc[(y, c), "F"]) if st else np.nan})
+            nat = float(avg["US"]) if "US" in avg.index else float("nan")
+            filled = {c: (float(avg[c]) if c in avg.index else nat + T[y - 4]["lean"][c]) for c in cs}
+            ps = point_scores(filled, T[y], states, T[y - 4]["votes"])
+            s = json.loads((OUT / "pres_backtest.json").read_text())["cells"][f"{y}/{LEAD}"]
+            tops[f"{y}/{wname}"] = {
+                "national_polls": int(npoll.get("US", 0)), "national_plain": nat, "national_result": T[y]["national"],
+                "national_plain_error": T[y]["national"] - nat, "model_popular_vote_error": s["popular_vote"]["error"],
+                "filled": {"rmse": ps["all56"]["rmse"], "signed": ps["all56"]["signed"], "wrong": ps["wrong"],
+                           "count": ps["count"], "count_error": ps["count_error"]},
+                "model_all56": {"rmse": s["states"]["all56"]["rmse"], "wrong": s["states"]["all56"]["wrong"],
+                                "count_error": s["count"]["error"]},
+                "B2_all56_rmse": s["benchmarks"]["B2"]["all56"]["rmse"]}
+    return pd.DataFrame(rows), tops, chk
+
+
+def _plain_scores(g):
+    """n, and for each column the root mean square error, the mean signed miss and the winners called wrong (by the
+    sign of the point margin). The model's own poll average and the pull exist for the 51 states only."""
+    out = {"n": int(len(g)), "n_states": int(g.state.sum()), "polls": int(g.npolls.sum()),
+           "one_poll": int((g.npolls == 1).sum()), "one_firm": int((g.nfirms == 1).sum())}
+    for col in PLAIN_COLS:
+        for name, h in (("", g), ("_states", g[g.state])):
+            h = h.dropna(subset=[col])
+            if not len(h):
+                out[col + name] = None
+                continue
+            e = h.result - h[col]
+            out[col + name] = {"n": int(len(h)), "rmse": float(np.sqrt((e ** 2).mean())), "signed": float(e.mean()),
+                               "wrong": int(((h[col] > 0) != (h.result > 0)).sum())}
+    return out
+
+
+def plain7():
+    """Section 16's diagnostic, run on 2026-11-27 before it was written down: a plain average of the last 7 days'
+    polls against the model at 7 days. Decides nothing; no score, benchmark or flag of EC-7 changes."""
+    before = {f: hashlib.sha256((OUT / f).read_bytes()).hexdigest() for f in ("pres_sim_asof.json", "pres_backtest.json")}
+    outputs = json.loads(DEFAULT.read_text())
+    assert not any(k.startswith("2024") for k in outputs), "2024 is held out"
+    T, states = load_truth()
+    q = P.load(cycles=SCORED)
+    assert q.poll_id.is_unique and 2024 not in set(q.cycle)
+    df, tops, chk = _plain_frame(q, T, states, outputs)
+    assert chk["point_vs_C"] <= MID_TOL and chk["addup_input_vs_F"] < 1e-6, chk
+    cov = df[df.covered].copy()
+    cov["bin"] = np.where(cov.npolls == 1, "1", np.where(cov.npolls <= 3, "2-3", "4+"))
+    res = {"checks": chk, "windows": {}}
+    for wname, label, _ in PLAIN_WINDOWS:
+        g = cov[cov.window == wname]
+        by = lambda keys: {"/".join(str(k) for k in (key if isinstance(key, tuple) else (key,))): _plain_scores(h)  # noqa: E731
+                           for key, h in g.groupby(keys)}
+        res["windows"][wname] = {
+            "label": label, "pooled": _plain_scores(g), "by_election": by(["year"]),
+            "competitive": by(["competitive"]), "competitive_by_election": by(["competitive", "year"]),
+            "by_polls": by(["bin"]), "by_polls_by_election": by(["bin", "year"]), "competitive_by_polls": by(["competitive", "bin"]),
+            "top": {str(y): tops[f"{y}/{wname}"] for y in SCORED}}
+    a = df[df.window == "A"]
+    plain_wrong = a.covered & ((a.plain > 0) != (a.result > 0))
+    model_wrong = (a.p_dem >= 0.5) != (a.result > 0)
+    res["calls_A"] = [{"year": int(r.year), "contest": r.contest, "result": float(r.result), "model": float(r.model),
+                       "p_dem": float(r.p_dem), "model_wrong": bool(mw), "plain": None if not r.covered else float(r.plain),
+                       "npolls": int(r.npolls), "plain_wrong": None if not r.covered else bool(pw)}
+                      for (_, r), mw, pw in zip(a.iterrows(), model_wrong, plain_wrong) if mw or pw]
+    assert all(hashlib.sha256((OUT / f).read_bytes()).hexdigest() == h for f, h in before.items())
+    (OUT / "pres_backtest_plain7.json").write_text(json.dumps(res, indent=1, default=float))
+    cov.drop(columns=["covered"]).to_csv(OUT / "pres_backtest_plain7_contests.csv", index=False)
+    f2 = lambda s: "-" if s is None else f"{s['rmse']:.2f} ({s['signed']:+.2f}, {s['wrong']}w)"  # noqa: E731
+    for wname, label, _ in PLAIN_WINDOWS:
+        W = res["windows"][wname]
+        print(f"\nwindow {wname}: {label}   [rmse (signed, called wrong)]")
+        for title, key in (("by election", "by_election"), ("competitive", "competitive"), ("polls in the window", "by_polls")):
+            for k, s in W[key].items():
+                print(f"  {title:20s} {k:6s} n {s['n']:3d}  plain {f2(s['plain'])}  model {f2(s['model'])}  | states: "
+                      f"plain {f2(s['plain_states'])}  poll average {f2(s['poll_avg_states'])}  after pull {f2(s['after_pull_states'])}"
+                      f"  model {f2(s['model_states'])}")
+        for y, t in W["top"].items():
+            print(f"  {y}: national plain {t['national_plain']:+.2f} (result {t['national_result']:+.2f}); filled 56: "
+                  f"{t['filled']['rmse']:.2f}, {t['filled']['wrong']}w, count error {t['filled']['count_error']:+d}; "
+                  f"model {t['model_all56']['rmse']:.2f}, {t['model_all56']['wrong']}w, {t['model_all56']['count_error']:+d}")
+    print("\ncalls that differ or are wrong (window A):", len(res["calls_A"]), "| checks:", chk)
+    print("written: pres_backtest_plain7.json pres_backtest_plain7_contests.csv")
+
+
 if __name__ == "__main__":
-    {"checks": checks, "run": run, "rungs": rungs}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()
+    {"checks": checks, "run": run, "rungs": rungs, "plain7": plain7}[sys.argv[1] if len(sys.argv) > 1 else "checks"]()
