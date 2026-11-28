@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-27g",
+  version: "2026-11-27h",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -790,18 +790,19 @@ window.PLAN = {
             "Needs a probabilistic-programming toolchain that the machine does not have (none of Stan, PyMC or JAX, and no C++ compiler, as of 2026-11-22): the install is a go-ahead item.",
             "Decided at EC-6 (2026-11-22): whether the site shows two different models or variants of one is settled here, on how the rival does; part of this work feeds the site cards (SI-5, SI-7)."
           ] },
-        { id: "EC-11", title: "Memory in the national poll average, against results", kind: "story", phase: "p4", optional: true, needs: ["DA-13"],
-          why: "The 60-day memory was borrowed from the Senate average. Against results it has been checked only by two diagnostics on the national series, at two other half-lives and under no rule.",
+        { id: "EC-11", title: "Memory in the poll averages, against results", kind: "story", phase: "p4", optional: true, needs: ["DA-13"],
+          why: "The 60-day memory was borrowed from the Senate average. Against results it has been checked only by two diagnostics on the national series, and not at all in the states, where heavy polling makes a shorter memory most plausible.",
           details: [
             "Added 2026-11-27, on the project owner's word. It reopens a question stage 1 closed (its third round was the last, whatever it showed), under a different score: results, not the next poll.",
-            "Decided 2026-11-27: optional. It is done only if DA-13 turns up a lot more data; on the national series alone it would turn two diagnostics into a registered test and is unlikely to overturn them.",
+            "Decided 2026-11-27: optional. It is done only if DA-13 turns up a lot more data; on the national series alone it would turn two diagnostics into a registered test and is unlikely to overturn them. Widened the same day, at the project owner's prompting, from the national average alone to the states' average too.",
             "What exists already (`ELECTORAL_COLLEGE.md`, section 11). Stage 1 scored memory against the next poll by another firm: no memory candidate passed, and a diagnostic found short memory best only for the nation and for heavily polled states. Against results, on the national series for 1980 to 2020, stage 2's diagnostic found a 7-day half-life worse than 60 days, most clearly at 30 and 7 days out, and stage 3 reported a 14-day half-life scoring better than 60 over 150, 100 and 60 days out. Both decided nothing.",
-            "The test: a grid of half-lives on the same series (`president_national_poll_days.csv`, 1952 to 2020), each scored election fitted only on those before it, scored against the result at the model's dates, on the adopted centre (the raw margin). One candidate may let the half-life depend on the days left: the two diagnostics suggest it, and it is declared as suggested by results.",
-            "Limits. The series is one reading a day, thin before 1980, with no firms, so firm rules cannot be tested on it. It is national only: a result here says nothing about memory in heavily polled states, which needs state polls (DA-13).",
-            "Written into the note and agreed before it runs: the grid, the score, the rule, and what a pass may change before the design freeze (EC-9). 2024 is not in the file."
+            "The national test: a grid of half-lives on the same series (`president_national_poll_days.csv`, 1952 to 2020), each scored election fitted only on those before it, scored against the result at the model's dates, on the adopted centre (the raw margin). One candidate may let the half-life depend on the days left: the two diagnostics suggest it, and it is declared as suggested by results.",
+            "The state test, if DA-13 finds the polls: memory in a state's own average, against that state's result, with the half-life allowed to depend on how heavily the state is polled. Stage 1 found short memory best in heavily polled states only against the next poll, and its held-out version failed. Elections before 2004 are out of sample for that finding.",
+            "Limits. The national series is one reading a day, thin before 1980, with no firms, so firm rules cannot be tested on it, and it says nothing about states. Older state polls will be fewer and mostly late in the campaign.",
+            "Written into the note and agreed before it runs: the candidates, the score, the rule, and what a pass may change before the design freeze (EC-9). 2024 is in neither test.",
           ],
           checklist: [
-            { id: "a", text: "Grid, score and rule written into the note and agreed" },
+            { id: "a", text: "Candidates, score and rule written into the note and agreed" },
             { id: "b", text: "Run once and reported" }
           ],
           refs: ["ELECTORAL_COLLEGE.md", "src/model/pres_conventions.py", "src/model/pres_reversion.py"] }
