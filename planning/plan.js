@@ -4,7 +4,7 @@
    Public file: findings quoted here come from PLAN.md, src/postmortem/README.md and the public scorecard page.
    No provisional numbers and nothing private; those belong in notes on the hosted page. */
 window.PLAN = {
-  version: "2026-11-27h",
+  version: "2026-11-27i",
 
   deadlines: [
     { id: "primaries", label: "Primaries model, first version", date: "2027-05-31", display: "May 2027", note: "Decided 2026-11-20 (PP-1): the track goes ahead, both parties." },
@@ -761,7 +761,7 @@ window.PLAN = {
             "The five districts' 2024 winners are a display-only table in the site code, sourced from NBC News's results pages (National Election Pool data). The model never reads it, and the 2024 holdout stands. The board links to the primaries forecast once that is live."
           ],
           refs: ["ELECTORAL_COLLEGE.md", "src/site/landing.py"] },
-        { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8", "EC-10", "SC-4"],
+        { id: "EC-9", title: "Design freeze", kind: "milestone", phase: "p4", due: "May 2028", needs: ["EC-7", "EC-8", "EC-10", "EC-12", "SC-4"],
           why: "After this the model only takes in new polls.",
           details: [
             "Backtest published on the site.",
@@ -776,7 +776,8 @@ window.PLAN = {
             "From EC-7's results, each suggested by them and so declared with anything built on it: the forecast's centre is no closer a week out than 100 days out on 2012 to 2020; the ranges are too wide early, and most of the excess looks like the national part; a week out the states' part looks too narrow and the national part too wide, so correcting one alone could unbalance the other (decided 2026-11-24: this may be evaluated after the 2024 holdout is scored, not before); the gap between the tipping-point state and the popular vote is forecast too close to zero.",
             "From EC-7's diagnostic (2026-11-24): in the last weeks of 2020, one firm's repeated releases were the only recent polls in many thinly polled states, and both the recent-polls benchmark and the model got worse there. How the average treats one firm polling alone and often is a question for the freeze.",
             "From EC-8 (2026-11-24): the 2028 page's board shows the five Maine and Nebraska districts' 2024 winners from a display-only table in `src/site/landing.py` (`DISTRICTS_2024`), because the collector never opens 2024. When this card collects the 2024 district results, the board's build stops on purpose; delete the table then.",
-            "From SI-5 (2026-11-27): the model page's what-if explorer shows 2020 a week out. Once 2024 has its recorded score here, and not before, write its draws (`pres_sim.py draws 2024 7`, which refuses 2024 until that refusal is lifted on purpose) and point the page at them (`explorer` in `src/site/model.json`)."
+            "From SI-5 (2026-11-27): the model page's what-if explorer shows 2020 a week out. Once 2024 has its recorded score here, and not before, write its draws (`pres_sim.py draws 2024 7`, which refuses 2024 until that refusal is lifted on purpose) and point the page at them (`explorer` in `src/site/model.json`).",
+            "Decided 2026-11-27 (section 16 of the note), amending the line above that fixes two benchmarks: 2024 is also scored against a third, a plain average of every poll that ended in the final 7 days before the election, over all 56 contests, set against the model's forecast on election day (EC-12). The model beats it only if it wins on both state error and the electoral count; a tie counts for the model. A loss opens a round of changes, as a fired sign does, within the same budget. The reason: on election day, when interest in the forecast is greatest, it should tell you more than the polls alone, and if it does not, that is said plainly. The benchmark was chosen after seeing 2008 to 2020 under it, so it is blind on 2024 only."
           ],
           checklist: [
             { id: "a", text: "Design checked against the lessons list" }
@@ -805,7 +806,22 @@ window.PLAN = {
             { id: "a", text: "Candidates, score and rule written into the note and agreed" },
             { id: "b", text: "Run once and reported" }
           ],
-          refs: ["ELECTORAL_COLLEGE.md", "src/model/pres_conventions.py", "src/model/pres_reversion.py"] }
+          refs: ["ELECTORAL_COLLEGE.md", "src/model/pres_conventions.py", "src/model/pres_reversion.py"] },
+        { id: "EC-12", title: "A forecast on election day", kind: "story", phase: "p4", needs: ["EC-6"],
+          why: "Interest in the forecast is greatest on election day, and the model's last date is a week before it. The third benchmark, the last week's polls plainly averaged, is set against an election-day forecast, so that forecast has to exist.",
+          details: [
+            "Added 2026-11-27 from the project owner's decision on the third benchmark (`ELECTORAL_COLLEGE.md`, section 16).",
+            "The model forecasts at 100, 60, 30 and 7 days, and each stage is fitted at those dates: the weight on a state's polls, the add-up to the national figure, the range. This card runs every stage at day 0 as well, for 2008 to 2020, each election with only what was known then.",
+            "Written into the note and agreed before it runs: what day 0 means for each stage (which polls count, the national series' three-day lag, the range at zero days) and the checks. No candidate is tested and nothing in the model changes: it is the assembled design at one more date. The effort is not yet scoped.",
+            "Then scored by EC-7's recipe at day 0, beside the third benchmark: the model wins only on both state error and the electoral count, a tie counting for the model. The result is reported whichever way it goes. 2024 is not run here: it is run once at the design freeze (EC-9).",
+            "The 2028 season needs the same thing, a final forecast on election day."
+          ],
+          checklist: [
+            { id: "a", text: "What day 0 means for each stage written into the note and agreed" },
+            { id: "b", text: "Every stage run at day 0 for 2008 to 2020; checks pass" },
+            { id: "c", text: "Scored beside the third benchmark and reported" }
+          ],
+          refs: ["src/model/pres_sim.py", "src/model/pres_prior.py", "src/model/pres_addup.py", "src/model/pres_backtest.py"] }
       ]
     },
 
