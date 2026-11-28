@@ -4682,6 +4682,166 @@ firm fill it, as the cost written beside that choice said. B2 stands as register
 **To the design freeze (EC-9), suggested by this diagnostic:** how the model's average treats one firm releasing
 repeatedly in states nobody else polls, late in the campaign, with 2020 as the case that suggested it.
 
+### EC-7: a plain 7-day poll average, a diagnostic (run 2026-11-27 before it was written down; asked for by the user)
+
+**The order of events.** Unlike the diagnostic above, this one was run before it was written here. On 2026-11-27 the
+user asked how the model did against a simple average of the last 7 days' polls, with no weights; it was computed in
+scratch scripts that day, each with its definitions fixed in the script before any number was printed, and then two
+cuts of it were run. All of it came after EC-7's results were read. It decides nothing: no score, benchmark or flag
+of EC-7 changes. It is recorded here, at the user's request, before the average is used as a benchmark anywhere.
+`python src/model/pres_backtest.py plain7` reproduces every figure (checked contest by contest against the scratch
+run) and writes `pres_backtest_plain7.json` and `pres_backtest_plain7_contests.csv`.
+
+**Definitions.**
+
+- **The plain average.** Every poll of the contest that ended in a 7-day window, as the loader gives them (one row a
+  poll, the question the model reads). The plain mean of the raw two-party margin: no weights, no firm rule (a
+  tracker counts every release), no corrections. It is not B2, which uses 30 days and one reading a firm.
+- **Two windows,** because "the last 7 days" has two readings. **A:** the 7 days before the 7-day forecast date, the
+  polls the model also had. **B:** the final 7 days before the election, which the model at 7 days never saw. A leads.
+- **Scored on the contests with a poll in the window,** and the model, B1 and B2 are rescored on the same contests.
+  The average does not exist elsewhere.
+- **Filled, for calls and the count over all 56:** a contest with no poll in the window takes the window's plain
+  national average plus its lean four years earlier (B2's last rung). This is no longer a plain average.
+- **Called wrong** is by the sign of the point margin. For the model that agrees with EC-7's rule (the win
+  probability) in every contest at 7 days.
+- **Split 1:** EC-7's competitive contests (the model's own 7-day probability between 5% and 95%). **Split 2:** polls
+  of the contest in the window: 1, 2 to 3, 4 or more.
+- **Two more columns, for the 51 states:** the model's own poll average before any prior (stage 1's nowcast, `p` in
+  `pres_prior_frame.csv`), and that average after EC-4's fixed pull toward the prior (`F`, before the even shift).
+  This is a new cut of EC-4's frame, made after its results and on a different score. It reopens nothing in EC-4.
+  Check: the frame's `F` is the add-up rerun's input exactly, and the model's point is within 0.22 of its centre.
+
+**State error on the contests with a poll** (root mean square, points; winners called wrong in brackets).
+
+| | 2008 | 2012 | 2016 | 2020 |
+|---|---|---|---|---|
+| **Window A:** contests with a poll (polls; on one poll) | 36 (133; 13) | 28 (103; 11) | 32 (135; 12) | 53 (450; 2) |
+| Plain average | 4.11 (1) | 4.73 (1) | 7.92 (8) | 7.85 (3) |
+| Model, same contests | 4.44 (2) | 4.09 (2) | 6.23 (4) | 5.10 (4) |
+| B2, same contests | 4.07 | 4.26 | 8.04 | 7.85 |
+| B1, same contests | 11.23 | 5.49 | 8.99 | 4.55 |
+| Mean signed miss: plain, model | −2.4, +1.8 | +2.0, +2.4 | −4.9, −3.9 | −5.7, −3.9 |
+| **Window B:** contests with a poll (on one poll) | 51 (14) | 33 (8) | 51 (24) | 54 (0) |
+| Plain average | 5.63 (1) | 4.18 (1) | 7.20 (5) | 6.22 (3) |
+| Model, same contests | 5.30 (2) | 3.53 (2) | 6.82 (4) | 5.05 (4) |
+
+**The top line** (errors are the result less the forecast).
+
+| | 2008 | 2012 | 2016 | 2020 |
+|---|---|---|---|---|
+| Popular vote error: plain national average (A), model | −0.4, +2.7 | +2.2, +2.0 | −0.5, −1.8 | −3.5, −3.3 |
+| All 56, filled (A): state error, model's | 6.15, 5.22 | 5.01, 4.69 | 7.72, 6.78 | 7.65, 5.33 |
+| All 56, filled (A): called wrong, model's | 2, 3 | 1, 3 | 8, 4 | 3, 4 |
+| Count error, filled (A), model's median | −10, +25 | +29, +37 | −112, −80 | −22, −29 |
+| Count error, filled (B) | +12 | +29 | −91 | −45 |
+
+**By split, window A, pooled over the four elections.**
+
+| | Contests | Plain average | Model |
+|---|---|---|---|
+| Competitive | 54 | 5.80 (12) | 4.74 (11) |
+| Not competitive | 95 | 7.02 (1) | 5.22 (1) |
+| One poll in the window | 38 | 7.40 | 5.89 |
+| 2 to 3 polls | 26 | 5.59 | 4.67 |
+| 4 or more polls | 85 | 6.52 | 4.74 |
+
+- Competitive contests by election, plain against model: 2008 (12 contests) 3.21 against 4.98; 2012 (14) 3.44
+  against 3.41; 2016 (16) 8.10 against 5.63; 2020 (12) 6.33 against 4.52. In window B, pooled (59): 4.48 against 4.55.
+- With 4 or more polls, by election: 2008 (14) 2.69 against 3.99; 2012 (9) 2.73 against 3.13; 2016 (11) 5.49
+  against 5.17; 2020 (51) 7.81 against 5.06. Split by polls and election, the plain average is ahead in window A
+  only with 4 or more polls in 2008 and 2012.
+
+**Step by step, states with a poll in window A.**
+
+| | States | Plain average | Model's own poll average | After the pull to the prior | Final model |
+|---|---|---|---|---|---|
+| 2008 | 36 | 4.11 | 4.40 | 4.51 | 4.44 |
+| 2012 | 28 | 4.73 | 3.84 | 3.58 | 4.09 |
+| 2016 | 30 | 7.90 | 7.68 | 7.20 | 6.19 |
+| 2020 | 51 | 7.81 | 7.23 | 5.80 | 5.06 |
+| Competitive states, pooled | 52 | 5.44 | 5.03 | 4.98 | 4.49 |
+| One poll in the window, pooled | 36 | 7.32 | 6.64 | 6.32 | 5.89 |
+
+**The calls that differ, window A** (margins in points; the model's win probability for the Democrat in brackets).
+Every other miss is shared, or is Nebraska's second district in 2008 and 2012, which had no poll in the window.
+
+| | Contest | Result | Model | Plain average | Right |
+|---|---|---|---|---|---|
+| 2008 | Indiana | +1.0 | −3.9 (0.22) | +1.4 | plain |
+| 2008 | North Carolina | +0.3 | −0.6 (0.45) | +1.6 | plain |
+| 2008 | Missouri | −0.1 | −0.3 (0.48) | +0.7 | model |
+| 2012 | Virginia | +3.9 | −0.3 (0.47) | +0.5 | plain |
+| 2016 | North Carolina | −3.8 | −0.5 (0.46) | +1.4 | model |
+| 2016 | Ohio | −8.5 | −0.2 (0.48) | +0.2 | model |
+| 2016 | Maine's second district | −11.2 | −1.5 (0.40) | +0.3 | model |
+| 2016 | Alaska | −16.8 | −8.1 (0.08) | +4.4, one poll | model |
+| 2020 | Florida | −3.4 | +1.9 (0.65) | −0.05 | plain |
+| 2020 | Georgia | +0.2 | −0.3 (0.47) | +1.0 | plain |
+| 2020 | Iowa | −8.4 | −2.1 (0.33) | +0.5 | model |
+
+**What it shows.**
+
+- **On state error the model is ahead of the plain average in 2012, 2016 and 2020 and behind it in 2008,** on the
+  same contests and the same polls. With a week more of polls (window B) the plain average is still behind in all
+  four. The margin is small in 2008 and 2012 and large in 2016 and 2020.
+- **On calls, the count and the popular vote it is not clearly ahead.** Of the eleven calls that differ, six go to
+  the model and five to the plain average, and in six of the eleven the model's own margin was within a point of
+  zero. The filled count is closer than the model's median in 2008, 2012 and 2020 in window A, and in 2008 and 2012
+  in window B. With three or four misses an election, calls turn on one or two near-tied states.
+- **The plain average does worst where it rests on one poll** (7.40), and the model leads by 1.5 points there: by
+  1.2 and 2.5 in 2012 and 2016, its widest lead by poll count in those years, and level in 2008. Pooled, the lead
+  with 4 or more polls is larger (1.8), and all of that is 2020. A lone poll shows no sign of deserving more weight.
+- **The pull toward the prior does little in competitive states** (5.03 to 4.98), which agrees with EC-4's flag 2.
+  Most of its gain here is 2020 (7.23 to 5.80).
+- **Where the model loses ground, the steps differ by election.** In 2008 its own poll average is already behind
+  the plain one before any prior (4.40 against 4.11). In 2012 it stays ahead throughout, but the even shift costs
+  half a point (3.58 to 4.09), and with 4 or more polls that puts it behind the plain average (3.13 against 2.73,
+  from 2.23 before the shift). Both are consistent with earlier findings (stage 1: 2008 wants a shorter memory than the other cycles; EC-7: the popular vote forecast in
+  2012 was 2 points too Republican). The cause is not established: the model's average differs from the plain one
+  in its weights and corrections as well as its memory, and no part was varied alone.
+- **This does not say a short memory is better.** Against results on the national series, stage 2's diagnostic
+  found a 7-day half-life worse than 60 days at 30 and 7 days out (section 11).
+- **Coverage is thin outside 2020:** 11 to 13 of the contests in window A rest on one poll in 2008 to 2016.
+
+**The user's decisions (2026-11-27).**
+
+- A plain poll average is a benchmark the model should beat; if it does not, the model adds little. States called
+  wrong weigh more with the user than margin error.
+- **A weight on a state's polls that rises with their number is closed again.** The user proposed it afresh (one poll
+  weighted more than now, on a curve that rises fast and levels off). EC-4's V was that form and failed, and these
+  cuts point the other way. The user: convincingly out, not to be revisited.
+- Two cards were opened (plan 2026-11-27h): DA-13, what state polls exist before 2004, and EC-11, memory in the
+  poll averages against results, optional and waiting on DA-13.
+
+**Proposed for 2024 at the design freeze, not registered.** Section 16's recipe scores 2024 with the same two
+benchmarks, unchanged. Adding the plain average as a third is an amendment that needs the user's word on each of
+these, written here before 2024 is opened:
+
+1. **The window.** A (the polls the model had) or B.
+2. **What it is scored on.** The contests with a poll, with the model rescored on the same ones; and whether the
+   filled variant stands for calls and the count over all 56.
+3. **What beating it means:** state error, calls, the count, or more than one; and whether it joins flag 6 or is
+   only reported.
+
+Whatever is chosen was chosen after seeing 2008 to 2020 under it, so it would be blind on 2024 only.
+
+### EC-7: memory in the national average against results, a diagnostic (declared 2026-11-27, before its run; not yet run)
+
+Asked about by the user on 2026-11-27. Stage 2's diagnostic scored one other half-life (7 days) on the national
+series and stage 3 reported one more (14 days). This fills in the grid on stage 2's test bed, unchanged
+(`pres_conventions.py`: daily national readings 1952 to 2020, readings dated at least 3 days before the date, the
+two-party nowcast, 1980 to 2020 scored).
+
+- **Half-lives:** 7, 14, 30, 45, 60, 90 and 120 days. Nothing is picked: every half-life is reported.
+- **Reported:** the squared error against the result at 150, 100, 60, 30 and 7 days, the mean over the 11 elections,
+  1980 to 1988 apart from 1992 on, and by election at 30 and 7 days.
+- **Check first:** the 60-day and 7-day rows reproduce stage 2's figures (64.68 and 66.13 over 150, 100 and 60 days;
+  17.03 and 22.20 at 7 days).
+- **Limits.** The nowcast here is the two-party margin, not the adopted raw margin. One reading a day, with no
+  firms. National only: it says nothing about memory in heavily polled states.
+- **It decides nothing.** If EC-11 is ever run on this series, its candidates are declared as suggested by this.
+
 ## 17. What the page shows before the nominees (EC-8)
 
 **Decided 2026-11-24** by the user, from mocks of two designs (a map shaded by each state's record, and grey tiles
