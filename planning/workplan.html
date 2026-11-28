@@ -51,6 +51,10 @@ header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; b
 .topbar { display: flex; align-items: baseline; justify-content: space-between; gap: 6px 16px; flex-wrap: wrap; padding-block: 11px; }
 .brand { font-size: 1.05rem; font-weight: 650; letter-spacing: -0.01em; text-decoration: none; color: var(--text); }
 .brand span { color: var(--text-3); font-weight: 400; margin-left: 10px; font-size: .82rem; letter-spacing: 0; }
+.top-right { display: inline-flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.top-tools { display: inline-flex; align-items: baseline; gap: 8px; }
+.top-tools button.link { font-size: .78rem; padding: 2px 1px; color: var(--text-3); }
+.top-tools button.link:hover { color: var(--tint); }
 .sync { font-size: .8rem; color: var(--text-3); display: inline-flex; align-items: center; gap: 6px; }
 .sync::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--todo); }
 .sync[data-s="ok"]::before { background: var(--done); }
@@ -199,7 +203,15 @@ ul.rules { padding-left: 18px; display: flex; flex-direction: column; gap: 9px; 
 <header class="top">
   <div class="wrap topbar">
     <a class="brand" href="#overview">2028 Work Plan<span>from the 2026 forecast to the next cycle</span></a>
-    <span class="sync" id="sync" role="status" data-s="busy">Connecting</span>
+    <div class="top-right">
+      <span class="top-tools" aria-label="Snapshot">
+        <button type="button" class="link" data-act="exportjson" title="Download saved statuses, ticks, notes and ideas as state.local.json">Export</button>
+        <button type="button" class="link" data-act="copyjson" title="Copy saved statuses, ticks, notes and ideas as JSON">Copy</button>
+        <button type="button" class="link" data-act="importjson" title="Import statuses, ticks, notes and ideas from a JSON snapshot">Import</button>
+        <input type="file" id="import-file" accept=".json,application/json" hidden>
+      </span>
+      <span class="sync" id="sync" role="status" data-s="busy">Connecting</span>
+    </div>
   </div>
 </header>
 <div class="wrap shell">
@@ -229,7 +241,76 @@ P.phases.forEach(function (p, i) { phases[p.id] = p; p.n = i; });
 var S = { cards: {}, tracks: {}, ideas: {} };
 var store = { mode: "loading", db: null, first: {}, loaded: {}, slow: false, error: null };
 var pending = {};
-var view = "overview", filter = "all";
+var view = "overview", filter = "all", noteTimer = null;
+
+function flashSync(kind, text) {
+  clearTimeout(noteTimer);
+  syncEl.setAttribute("data-s", kind); syncEl.textContent = text;
+  noteTimer = setTimeout(function () { noteTimer = null; setSync(); }, 2600);
+}
+function snapshotJSON() {
+  var out = { planVersion: P.version, exportedAt: new Date().toISOString() };
+  COLLS.forEach(function (c) {
+    var map = {};
+    Object.keys(S[c] || {}).sort().forEach(function (k) { map[k] = clone(S[c][k]); });
+    out[c] = map;
+  });
+  return JSON.stringify(out, null, 2) + "\n";
+}
+function exportJSON() {
+  flushAll();
+  var json = snapshotJSON(), blob = new Blob([json], { type: "application/json" }), url = URL.createObjectURL(blob);
+  var a = document.createElement("a");
+  a.href = url; a.download = "state.local.json"; document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+  flashSync("ok", "Exported state.local.json");
+}
+function showCopyFallback(json) {
+  var old = document.getElementById("json-dump"); if (old) old.parentNode.removeChild(old);
+  var box = document.createElement("div");
+  box.id = "json-dump"; box.className = "banner";
+  box.innerHTML = '<div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px"><span>Clipboard is blocked in this frame. Copy the JSON below and save it to <code>planning/state.local.json</code>:</span><button type="button" class="ghost" data-act="closedump">Close</button></div><textarea rows="6" readonly></textarea>';
+  var ta = box.querySelector("textarea"); ta.value = json;
+  main.insertBefore(box, main.firstChild); ta.focus(); ta.select();
+}
+function copyJSON() {
+  flushAll();
+  var json = snapshotJSON();
+  function legacyCopy() {
+    try {
+      var ta = document.createElement("textarea");
+      ta.value = json; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.focus(); ta.select();
+      var ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      if (ok) flashSync("ok", "Copied JSON to clipboard"); else showCopyFallback(json);
+    } catch (e) { showCopyFallback(json); }
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(json).then(function () { flashSync("ok", "Copied JSON to clipboard"); }, legacyCopy);
+  } else legacyCopy();
+}
+function importSnapshotObj(raw) {
+  var data;
+  try { data = JSON.parse(raw); } catch (e) { flashSync("warn", "Invalid JSON file"); return; }
+  if (!data || typeof data !== "object" || Array.isArray(data) || !COLLS.some(function (c) { return data[c] && typeof data[c] === "object" && !Array.isArray(data[c]); })) {
+    flashSync("warn", "Not a workplan snapshot"); return;
+  }
+  var count = 0;
+  COLLS.forEach(function (coll) {
+    var src = data[coll];
+    if (!src || typeof src !== "object" || Array.isArray(src)) return;
+    Object.keys(src).forEach(function (id) {
+      var entry = src[id];
+      if (!entry || typeof entry !== "object" || Array.isArray(entry)) return;
+      S[coll][id] = mergeDoc(S[coll][id], clone(entry));
+      saveDoc(coll, id, 0);
+      count++;
+    });
+  });
+  render();
+  flashSync("ok", "Imported " + count + (count === 1 ? " entry" : " entries"));
+}
 
 function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]; }); }
 function md(s) { return esc(s).replace(/`([^`]+)`/g, "<code>$1</code>"); }
@@ -261,7 +342,8 @@ function setSync() {
   else if (store.slow) { s = "warn"; t = "Can't reach saved notes yet"; }
   else if (busy) { s = "busy"; t = "Saving"; }
   else { s = "ok"; t = "All changes saved"; }
-  syncEl.setAttribute("data-s", s); syncEl.textContent = t;
+  if (store.error && noteTimer) { clearTimeout(noteTimer); noteTimer = null; }
+  if (!noteTimer) { syncEl.setAttribute("data-s", s); syncEl.textContent = t; }
 }
 function saveDoc(coll, id, delay) {
   var k = coll + "/" + id, p = pending[k] || (pending[k] = {});
@@ -493,6 +575,7 @@ function rulesView() {
     "<li>The cards themselves live in <code>planning/plan.js</code> in the repo. To add, split or reword cards, ask Claude or edit that file through a pull request.</li>" +
     "<li>Card IDs never change, so saved notes stay attached when the plan is edited.</li>" +
     "<li>Claude can read your notes and update statuses when you ask in a session.</li>" +
+    "<li><strong>Export</strong> downloads your saved state as <code>state.local.json</code> (and <strong>Copy</strong> copies the JSON) so local agents or an offline copy (<strong>Import</strong>) can read it. Keep snapshots gitignored.</li>" +
     "<li>Opened as a file from the repo, the page still works, but changes stay in that browser.</li></ul>" +
     '<p class="tiny">Plan content version ' + esc(P.version) + ".</p>";
 }
@@ -579,6 +662,10 @@ document.addEventListener("click", function (e) {
   else if (act === "del") { var slot = b.parentNode; slot.innerHTML = '<span class="tiny">Delete this idea?</span> <button type="button" class="ghost danger" data-act="delyes">Delete</button> <button type="button" class="ghost" data-act="delno">Keep</button>'; slot.querySelector('[data-act="delno"]').focus(); }
   else if (act === "delno") { b.parentNode.innerHTML = '<button type="button" class="ghost" data-act="del">Delete</button>'; }
   else if (act === "delyes") { var iid = b.closest("[data-idea]").getAttribute("data-idea"); delete S.ideas[iid]; saveDoc("ideas", iid, 0); forceLive("ideas"); rail.innerHTML = railHTML(); }
+  else if (act === "exportjson") { exportJSON(); }
+  else if (act === "copyjson") { copyJSON(); }
+  else if (act === "importjson") { var inp = document.getElementById("import-file"); if (inp) { inp.value = ""; inp.click(); } }
+  else if (act === "closedump") { var dump = document.getElementById("json-dump"); if (dump) dump.parentNode.removeChild(dump); }
 });
 document.addEventListener("change", function (e) {
   var el = e.target, act = el.getAttribute && el.getAttribute("data-act"); if (!act) return;
@@ -590,6 +677,14 @@ document.addEventListener("change", function (e) {
     mut("ideas", iid, function (d) { if (act === "ideastate") d.state = val; else d.track = val; });
     if (act === "ideastate") forceLive("ideas");
   }
+});
+var impEl = document.getElementById("import-file");
+if (impEl) impEl.addEventListener("change", function () {
+  var f = impEl.files && impEl.files[0]; if (!f) return;
+  var r = new FileReader();
+  r.onload = function () { importSnapshotObj(String(r.result || "")); };
+  r.onerror = function () { flashSync("warn", "Couldn't read file"); };
+  r.readAsText(f);
 });
 document.addEventListener("input", function (e) {
   var el = e.target, act = el.getAttribute && el.getAttribute("data-act"); if (!act || el.tagName !== "TEXTAREA") return;
