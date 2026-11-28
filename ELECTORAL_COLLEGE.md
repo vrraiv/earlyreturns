@@ -4814,19 +4814,31 @@ Every other miss is shared, or is Nebraska's second district in 2008 and 2012, w
 - Two cards were opened (plan 2026-11-27h): DA-13, what state polls exist before 2004, and EC-11, memory in the
   poll averages against results, optional and waiting on DA-13.
 
-**Proposed for 2024 at the design freeze, not registered.** Section 16's recipe scores 2024 with the same two
-benchmarks, unchanged. Adding the plain average as a third is an amendment that needs the user's word on each of
-these, written here before 2024 is opened:
+**The plain average as a third benchmark on 2024: the user's decision (2026-11-27).** Section 16's recipe scores
+2024 with the same two benchmarks, unchanged. This amends it, at the user's word, before 2024 is opened.
 
-1. **The window.** A (the polls the model had) or B.
-2. **What it is scored on.** The contests with a poll, with the model rescored on the same ones; and whether the
-   filled variant stands for calls and the count over all 56.
-3. **What beating it means:** state error, calls, the count, or more than one; and whether it joins flag 6 or is
-   only reported.
+- **B3, the plain average of the last week.** Every poll of the contest that ended in the final 7 days before the
+  election (window B above), plain mean of the raw two-party margin. All 56 contests are scored: a contest with no
+  poll in the window takes the window's plain national average plus its lean four years earlier.
+- **Against the model's forecast on election day,** not its 7-day forecast, so both sides have every poll.
+- **The model beats B3 only if it wins on both:** a smaller state error (root mean square over the 56) and a smaller
+  error in the electoral count.
+- B3 was chosen after seeing 2008 to 2020 under it, so it is blind on 2024 only.
 
-Whatever is chosen was chosen after seeing 2008 to 2020 under it, so it would be blind on 2024 only.
+**What this needs, and what is still open.**
 
-### EC-7: memory in the national average against results, a diagnostic (declared 2026-11-27, before its run; not yet run)
+- **The model has no election-day forecast.** Its dates are 100, 60, 30 and 7 days, and each stage's fits are made
+  at those dates (the weight on a state's polls, the add-up, the range). An election-day forecast means running
+  every stage at day 0 as well, declared before it runs, for 2008 to 2020 and then for 2024 at the freeze. It is
+  not built.
+- **The nearest comparison that exists** is window B against the 7-day forecast, in the tables above. It gives B3 a
+  week of polls the model did not have, so it is not the registered comparison. On it the model wins on both in
+  2016 and 2020; in 2008 it wins on state error (5.22 against 5.79) and loses on the count (off by 25 against 12);
+  in 2012 it loses on both (4.69 against 4.57; 37 against 29).
+- **Open, for the user:** what a loss to B3 on 2024 sets off under section 7 (a round of changes, as a fired flag
+  does, or a reported result only). EC-9's card takes its line once that is settled.
+
+### EC-7: memory in the national average against results, a diagnostic (declared 2026-11-27, before its run)
 
 Asked about by the user on 2026-11-27. Stage 2's diagnostic scored one other half-life (7 days) on the national
 series and stage 3 reported one more (14 days). This fills in the grid on stage 2's test bed, unchanged
@@ -4841,6 +4853,40 @@ two-party nowcast, 1980 to 2020 scored).
 - **Limits.** The nowcast here is the two-party margin, not the adopted raw margin. One reading a day, with no
   firms. National only: it says nothing about memory in heavily polled states.
 - **It decides nothing.** If EC-11 is ever run on this series, its candidates are declared as suggested by this.
+
+### EC-7: memory in the national average, results (run 2026-11-27, once). A week out the 60-day memory holds; earlier, a shorter one scores better.
+
+`python src/model/pres_conventions.py memory`, written to `pres_conventions_memory.json`. The check passed: the
+60-day and 7-day rows reproduce stage 2's figures, and the 14-day row stage 3's (60.50). Mean squared error against
+the result over the 11 elections, in points squared:
+
+| Half-life (days) | 150, 100 and 60 days | 150 days | 100 days | 60 days | 30 days | 7 days |
+|---|---|---|---|---|---|---|
+| 7 | 66.13 | 100.14 | 78.56 | 19.69 | 24.41 | 22.20 |
+| 14 | 60.50 | 99.90 | 58.19 | 23.41 | 21.51 | 20.88 |
+| 30 | 61.35 | 102.96 | 52.57 | 28.52 | 18.41 | 18.39 |
+| 45 | 63.13 | 105.27 | 54.74 | 29.37 | 18.38 | 17.30 |
+| 60 | 64.68 | 106.46 | 57.32 | 30.26 | 19.18 | 17.03 |
+| 90 | 66.77 | 106.92 | 61.06 | 32.32 | 21.26 | 17.55 |
+| 120 | 67.98 | 106.52 | 63.28 | 34.13 | 23.13 | 18.44 |
+
+- **At 7 days, 60 days is the lowest row,** and 45 to 90 are within about half a point of it. Short memories are worse: 22.20
+  at 7 days and 20.88 at 14.
+- **At 30 days, 30 to 45 days is lowest** (18.4 against 19.18 at 60).
+- **Earlier, shorter is better.** At 60 days out the 7-day half-life is lowest (19.69 against 30.26 at 60); at 100
+  days out, 30 days (52.57 against 57.32). At 150 days nothing separates them.
+- **The elections disagree at 7 days.** The lowest error is at 120 days in 1992, 2012 and 2020; at 7 or 14 days in
+  1988, 2004, 2008 and 2016; at 30 to 60 in 1980, 1984 and 2000; 1996 is the same at every half-life (73 to 76).
+  2008 again wants a short memory (0.10 at 14 days against 4.79 at 60).
+- **By period at 7 days:** on 1980 to 1988 the lowest is 30 days (12.42 against 16.47 at 60). From 1992 on, the
+  longer the better (24.34 at 7 days, 17.23 at 60, 14.88 at 120), most of it 1992 alone (68.28 against 3.43).
+
+**What it says.** Nothing here supports a shorter national memory in the last week: the 60-day row is at the
+bottom of a flat stretch, on a mean that a few elections carry. Earlier in the campaign a half-life of 14 to 45
+days scores better than 60, which would mean a memory that lengthens as the election nears. That is read off a
+grid on the elections it would be tested on, with every row reported and nothing picked. It decides nothing, and
+goes to EC-11 as suggested by results. The limits declared above stand: the two-party nowcast, one reading a day,
+the nation only.
 
 ## 17. What the page shows before the nominees (EC-8)
 

@@ -344,5 +344,39 @@ def run():
               "| 7-day hl", round(short[y]["baseline"]["sq"], 2))
 
 
+# ------------------------------------------------------------------------------------------------ memory (diagnostic)
+MEMORY_HL = (7, 14, 30, 45, 60, 90, 120)
+
+
+def memory():
+    """Section 16's declared diagnostic (2026-11-27): the baseline nowcast at each half-life of a fixed grid, scored
+    against the result at 150, 100, 60, 30 and 7 days on 1980 to 2020. Nothing is fitted or picked; it decides nothing."""
+    E = load()
+    assert max(E) <= 2020, "2024 is held out"
+    conv = {y: E[y]["conv"] for y in CYCLES}
+    days = SCORE_DAYS + REPORT_DAYS
+    res = {}
+    for h in MEMORY_HL:
+        sq = {y: {d: (forecast(E[y], d, {"half_life": float(h)}, conv[y]) - E[y]["result"]) ** 2 for d in days} for y in SCORED}
+        mean = lambda ys, ds: float(np.mean([np.mean([sq[y][d] for d in ds]) for y in ys]))  # noqa: E731
+        early, late = [y for y in SCORED if y <= 1988], [y for y in SCORED if y >= 1992]
+        res[str(h)] = {"score_150_100_60": mean(SCORED, SCORE_DAYS), "by_day": {str(d): mean(SCORED, (d,)) for d in days},
+                       "score_1980_1988": mean(early, SCORE_DAYS), "score_1992_on": mean(late, SCORE_DAYS),
+                       "by_day_1980_1988": {str(d): mean(early, (d,)) for d in days},
+                       "by_day_1992_on": {str(d): mean(late, (d,)) for d in days},
+                       "by_election": {str(y): {str(d): sq[y][d] for d in days} for y in SCORED}}
+    (OUT / "pres_conventions_memory.json").write_text(json.dumps({"half_lives": list(MEMORY_HL), "results": res}, indent=1, default=float))
+    print("half-life | 150/100/60 | " + " | ".join(f"{d:>5d}d" for d in days) + " | 1980-88 | 1992 on | 7d: 1980-88, 1992 on")
+    for h in MEMORY_HL:
+        r = res[str(h)]
+        print(f"{h:9d} | {r['score_150_100_60']:10.2f} | " + " | ".join(f"{r['by_day'][str(d)]:6.2f}" for d in days)
+              + f" | {r['score_1980_1988']:7.2f} | {r['score_1992_on']:7.2f} | {r['by_day_1980_1988']['7']:.2f}, {r['by_day_1992_on']['7']:.2f}")
+    for d in REPORT_DAYS:
+        print(f"by election at {d} days (squared error), half-lives {MEMORY_HL}:")
+        for y in SCORED:
+            print(f"  {y}: " + "  ".join(f"{res[str(h)]['by_election'][str(y)][str(d)]:7.2f}" for h in MEMORY_HL))
+    print("written: pres_conventions_memory.json")
+
+
 if __name__ == "__main__":
-    {"checks": checks, "run": run}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
+    {"checks": checks, "run": run, "memory": memory}[sys.argv[1] if len(sys.argv) > 1 else "run"]()
