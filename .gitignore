@@ -19,3 +19,5 @@ data/raw/jennings_wlezien/**/LONG_MI_NATURE_20180111.tab
 data/raw/jacobson/
 # local and CI run output (scorecard, specials watch)
 ci_out/
+# exported tracker state (statuses, private notes, provisional numbers) from the hosted workplan page
+planning/*.local.json

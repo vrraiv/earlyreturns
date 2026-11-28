@@ -18,6 +18,10 @@ follow you across devices. Those are not stored in this repo.
 `workplan.html` also opens straight from disk. It is a page fragment (no doctype), so open it in a browser from this
 folder with `plan.js` beside it. In that mode changes are kept in that browser only.
 
+Use **Export** or **Copy** in the header to save a snapshot of statuses, ticked steps, notes and ideas to
+`planning/state.local.json` (gitignored), so local agents or an offline browser copy (**Import**) can read them without
+putting private notes in git.
+
 ## Editing the plan
 
 - Edit `plan.js` and open a pull request. Plan changes never share a commit with forecast changes.
