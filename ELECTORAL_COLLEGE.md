@@ -146,6 +146,8 @@ fixed before 2024 is opened, for the assembled model and for the rival (EC-10) a
    they are not rounds.
 3. **A round is triggered, not granted.** A round of changes opens only if one of section 16's flags fires on 2024
    or a provisional adoption fails its test. If neither happens, the design is frozen as it stands.
+   - Amended 2026-11-27, at the user's word and before 2024 is opened: a loss to the third benchmark (B3, section
+     16) also opens a round. The budget below is unchanged.
 4. **The budget:** at most two rounds and at most three changes in all. Each round's changes are written down before
    the round is run.
 5. **Each change is declared general or recent** (revised at the user's objection, 2026-11-24: a first version
@@ -4835,9 +4837,16 @@ Every other miss is shared, or is Nebraska's second district in 2008 and 2012, w
   week of polls the model did not have, so it is not the registered comparison. On it the model wins on both in
   2016 and 2020; in 2008 it wins on state error (5.22 against 5.79) and loses on the count (off by 25 against 12);
   in 2012 it loses on both (4.69 against 4.57; 37 against 29).
-- **Open, for the user:** what a loss to B3 on 2024 sets off under section 7 (a round of changes, as a fired flag
-  does, or a reported result only); and a tie on the count, which as written is not a win for the model. EC-9's
-  card takes its line once these are settled.
+- **The election-day forecast is its own card,** EC-12 (plan 2026-11-27i).
+
+**The user's answers on what a loss means (2026-11-27).**
+
+- **A loss to B3 on 2024 opens a round of changes** under section 7, as a fired flag does. Section 7's third rule
+  is amended to say so; its budget of rounds and changes is unchanged.
+- **A tie counts for the model,** on the count or on state error.
+- **Why.** The user wants evidence that on election day, when interest in the forecast is greatest, the model
+  gives a better idea of the outcome than the polls alone, and wants to know plainly if it does not. So the result
+  against B3 is reported and published whichever way it goes, on 2008 to 2020 (EC-12) and on 2024 (EC-9).
 
 ### EC-7: memory in the national average against results, a diagnostic (declared 2026-11-27, before its run)
 
