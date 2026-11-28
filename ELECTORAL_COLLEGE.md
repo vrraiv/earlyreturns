@@ -4836,7 +4836,8 @@ Every other miss is shared, or is Nebraska's second district in 2008 and 2012, w
   2016 and 2020; in 2008 it wins on state error (5.22 against 5.79) and loses on the count (off by 25 against 12);
   in 2012 it loses on both (4.69 against 4.57; 37 against 29).
 - **Open, for the user:** what a loss to B3 on 2024 sets off under section 7 (a round of changes, as a fired flag
-  does, or a reported result only). EC-9's card takes its line once that is settled.
+  does, or a reported result only); and a tie on the count, which as written is not a win for the model. EC-9's
+  card takes its line once these are settled.
 
 ### EC-7: memory in the national average against results, a diagnostic (declared 2026-11-27, before its run)
 
@@ -4874,12 +4875,13 @@ the result over the 11 elections, in points squared:
   at 7 days and 20.88 at 14.
 - **At 30 days, 30 to 45 days is lowest** (18.4 against 19.18 at 60).
 - **Earlier, shorter is better.** At 60 days out the 7-day half-life is lowest (19.69 against 30.26 at 60); at 100
-  days out, 30 days (52.57 against 57.32). At 150 days nothing separates them.
+  days out, 30 days (52.57 against 57.32). At 150 days little separates them (99.9 to 106.9).
 - **The elections disagree at 7 days.** The lowest error is at 120 days in 1992, 2012 and 2020; at 7 or 14 days in
-  1988, 2004, 2008 and 2016; at 30 to 60 in 1980, 1984 and 2000; 1996 is the same at every half-life (73 to 76).
+  1988, 2004, 2008 and 2016; at 30 to 60 in 1980, 1984 and 2000; 1996 is the same at every half-life (72 to 76).
   2008 again wants a short memory (0.10 at 14 days against 4.79 at 60).
 - **By period at 7 days:** on 1980 to 1988 the lowest is 30 days (12.42 against 16.47 at 60). From 1992 on, the
   longer the better (24.34 at 7 days, 17.23 at 60, 14.88 at 120), most of it 1992 alone (68.28 against 3.43).
+- The other declared reports (each election at 30 days, and the two periods at every date) are in the output file.
 
 **What it says.** Nothing here supports a shorter national memory in the last week: the 60-day row is at the
 bottom of a flat stretch, on a mean that a few elections carry. Earlier in the campaign a half-life of 14 to 45
